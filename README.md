@@ -1,0 +1,1 @@
+lay-out of a cone in mm: 1 margin - 2 hole (other cone) - 1 margin - 2 hole - 1 margin - 2 hole - 1 margin
