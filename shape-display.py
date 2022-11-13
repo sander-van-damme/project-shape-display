@@ -5,17 +5,17 @@ import numpy
 # shape display
 width = 80
 height = 80
-x_resolution = 8  # must be even
-y_resolution = 8  # must be even
+x_resolution = 16  # must be even
+y_resolution = x_resolution  # must be even
 
 # multiplexer
 multiplexer_cell_width = width / x_resolution
-multiplexer_layer_width = width - multiplexer_cell_width
+multiplexer_layer_width = width
 multiplexer_layer_height = height
 multiplexer_layer_depth = 1
 multiplexer_inverted_layers_vectors = {'row': [4, 2, 1], 'column': [4, 2, 1]}
 multiplexer_hole_radius = multiplexer_cell_width / 5
-multiplexer_secondary_hole_offset = 2 * multiplexer_hole_radius + multiplexer_cell_width
+multiplexer_secondary_hole_offset = 2 * multiplexer_hole_radius
 
 
 class ShapeDisplay:
@@ -67,7 +67,7 @@ class MultiplexerLayer:
         return self._name
 
     def to_scad(self) -> OpenSCADObject:
-        solid_layer = square(multiplexer_layer_width, center=True)
+        solid_layer = square((multiplexer_layer_width, multiplexer_layer_height), center=True)
         holes = EmptyOpenSCADObject()
         for (row_nr, row) in enumerate(self._state_matrix):
             for (column_nr, is_always_open) in enumerate(row):
@@ -80,7 +80,8 @@ class MultiplexerLayer:
         holes = holes \
             .left((x_resolution - 1) * multiplexer_cell_width / 2) \
             .forward((x_resolution - 1) * multiplexer_cell_width / 2 + multiplexer_secondary_hole_offset / 2)
-        return solid_layer - holes
+        return solid_layer.linear_extrude(multiplexer_layer_depth, center=True) - holes.linear_extrude(
+            multiplexer_layer_depth + 0.002, center=True)
 
 
 class Enclosure:
@@ -102,3 +103,19 @@ def range_by_division(start, end, denominator):
 
 # Run.
 ShapeDisplay().export()
+
+with open('configuration.md', 'w') as file:
+    config = f'''# shape-display configuration
+- width: {width}
+- height: {height}
+- x_resolution: {x_resolution}
+- y_resolution: {y_resolution}
+- multiplexer_cell_width: {multiplexer_cell_width}
+- multiplexer_layer_width: {multiplexer_layer_width}
+- multiplexer_layer_height: {multiplexer_layer_height}
+- multiplexer_layer_depth: {multiplexer_layer_depth}
+- multiplexer_inverted_layers_vectors: {multiplexer_inverted_layers_vectors}
+- multiplexer_hole_radius: {multiplexer_hole_radius}
+- multiplexer_secondary_hole_offset: {multiplexer_secondary_hole_offset}
+    '''
+    file.write(config)
