@@ -1,5 +1,9 @@
 # Shape display
 
+# Resolution
+
+must be even number x even number
+
 ## Grid
 --------------------→ x-axis
 | (0,0) (1,0) (2,0)
