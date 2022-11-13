@@ -2,6 +2,7 @@
 import itertools
 import numpy
 from solid2 import OpenSCADObject, circle, square
+from copy import deepcopy
 
 
 class EmptyOpenSCADObject(circle):
@@ -23,13 +24,13 @@ class ShapeDisplay:
         grid = EmptyOpenSCADObject()
         for (row_number, row) in enumerate(cell_filter_states):
             for (column_number, cell_is_always_open) in enumerate(row):
-                cell = circle(hole_radius) # primary hole
-                if cell_is_always_open: # secondary hole
+                cell = circle(hole_radius)  # primary hole
+                if cell_is_always_open:  # secondary hole
                     cell += circle(hole_radius).back(secondary_hole_offset)
                 grid += cell \
                     .back(row_number * self.row_width) \
                     .right(column_number * self.row_width)
-                    
+
         # Center the grid.
         grid = grid \
             .left((self.row_count - 1) * self.row_width / 2) \
@@ -80,9 +81,9 @@ class ShapeDisplay:
 
         # Translate the increments to filter configurations.
         filter_configs = [
-            
+
             list(itertools.chain.from_iterable(
-            numpy.arange(self.row_count)[start:start+range] for start in numpy.arange(self.row_count)[::range*2])) for range in increments]
+                numpy.arange(self.row_count)[start:start+range] for start in numpy.arange(self.row_count)[::range*2])) for range in increments]
 
         # Store the filter layers.
         for filter_config in filter_configs:
@@ -90,3 +91,76 @@ class ShapeDisplay:
                 f'filter-layer-rows_{"-".join(str(num) for num in filter_config)}.scad')
             self.filter_layer(open_columns=filter_config).save_as_scad(
                 f'filter-layer-columns_{"-".join(str(num) for num in filter_config)}.scad')
+
+
+class ShapeDisplay():
+    def __init__(self, width, height, depth, resolution=(8, 8), hole_radius=None) -> None:
+        self._resolution = resolution
+        self._hole_radius = hole_radius if hole_radius else 12345
+
+    @property
+    def resolution(self) -> tuple(int):
+        return self._resolution
+
+    @property
+    def hole_radius(self):
+        return self._hole_radius
+
+    def export(self):
+        pass
+
+
+class Multiplexer:
+    def __init__(self) -> None:
+        layer_heigth = 1
+        pass
+
+
+class MultiplexerLayer:
+    def __init__(self, open_rows, open_columns, length, row_count cells) -> None:
+        self.cells = cells
+        self.length = length
+        self.row_count
+
+    def _set_cells(self):
+        cell_states = numpy.zeros(
+            (row_count, row_count), dtype=bool)
+        cell_states[open_rows, :] = True
+        cell_states[:, open_columns] = True
+        self.cells.set_cell_states(cell_states)
+
+    def invert(self):
+        self.cells.invert()
+        return self
+
+    def toScad(self):
+        return square(self.length, center=True) - self.cells.toScad()
+
+
+class MultiplexerLayerCells:
+    def __init__(self, length, row_count, hole_radius, secondary_hole_offset) -> None:
+        self.state = numpy.array([])
+        self.length = length
+        self.hole_radius = hole_radius
+        self.secondary_hole_offset = secondary_hole_offset
+
+    def set_cell_states(self, cell_states):
+        self.state = cell_states
+
+    def invert(self):
+        self.state = self.state.T
+        return self
+
+    def toScad(self) -> OpenSCADObject:
+        output = EmptyOpenSCADObject
+        for (row_nr, row) in enumerate(self.state):
+            for (column_nr, is_always_open) in enumerate(row):
+                primary_hole = circle(self.hole_radius)
+                secondary_hole = circle(self.hole_radius) \
+                    .back(self.secondary_hole_offset) if is_always_open else EmptyOpenSCADObject
+                output += (primary_hole + secondary_hole) \
+                    .back(row_nr * self.row_width) \
+                    .right(column_nr * self.row_width)
+        return output \
+            .left((self.row_count - 1) * self.row_width / 2) \
+            .forward((self.row_count - 1) * self.row_width / 2 + self.secondary_hole_offset / 2)
