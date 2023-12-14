@@ -1,6 +1,17 @@
 # shape display
+A shape display designed for viewing table-top battle maps.
 
+## design
+The shape display consists of threaded rods with cubes in a 60 by 60 grid.
+These are actuated from underneath, by an array of 60 stepper motors that set the height of every cube row by row.
 
+## planning
+1. design the threaded rods and cubes
+2. design the actuation layer
+3. design the case and cooling
+4. design the MVP controller
+5. design the web controller
+6. design the 2D to 3D converter
 
 ## components
 ### stepper motor

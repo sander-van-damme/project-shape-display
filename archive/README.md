@@ -1,7 +1,6 @@
 # Shape display
 
 # Resolution
-
 must be even number x even number
 
 ## Grid
@@ -12,7 +11,6 @@ must be even number x even number
 |
 ↓
 y-axis
-
 
 ## Primary and secondary holes.
 Every cell in the grid contains a primary hole and optionally a secondary hole.
