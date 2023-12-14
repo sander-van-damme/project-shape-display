@@ -61,28 +61,15 @@ zdistribute(
     );
     
     // Draw top bracket.
-    zcyl(
-        l=top_bracket_length, 
-        r=top_bracket_diameter/2
-    );
+    zcyl(l=top_bracket_length, r=top_bracket_diameter/2);
     
     // Draw traverse.
-    zcyl(
-        l=bracket_traverse_length, 
-        r=bracket_traverse_diameter/2
-    );
+    zcyl(l=bracket_traverse_length, r=bracket_traverse_diameter/2);
     
     // Draw bottom bracket.
-    zcyl(
-        l=bottom_bracket_length, 
-        r=bottom_bracket_diameter/2
-    );
+    zcyl(l=bottom_bracket_length, r=bottom_bracket_diameter/2);
     
     // Draw gear.
-    spur_gear(
-        thickness=gear_length,
-        teeth=gear_teeth_count, 
-        mod=gear_module
-    );
+    spur_gear(thickness=gear_length, teeth=gear_teeth_count, mod=gear_module);
 }
 
