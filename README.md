@@ -4,7 +4,7 @@
 
 ## components
 ### stepper motors
-A generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html), or [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ).
+Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html) (see listing on [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ).
 
 
 | electrical specifications | |
@@ -14,8 +14,8 @@ A generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4
 | recommended voltage | 5-6V |
 | driving current | 0.12A |
 | short-circuit current | 0.14A |
-| long-axis  connection lines | blue: A +, black: A-, red: B +, white: B- |
-| short-axis connection lines | purple: A +, yellow: B-, orange: B +, green: B- |
+| connection lines 1 | blue: A +, black: A-, red: B+, white: B- |
+| connection lines 2 | purple: A +, yellow: B-, orange: B+, green: B- |
 
 ![](./images/stepper-motor-dimensions.jpg)
 (output shaft diameter: 1.5mm)
