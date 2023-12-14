@@ -33,7 +33,9 @@ bottom_bracket_length = top_bracket_length;
 bottom_bracket_diameter = top_bracket_diameter;
 
 gear_length = 3;
-gear_module = 2.2 / 9;
+gear_width = 2.2;
+gear_teeth_count = 9;
+gear_module = gear_width / gear_teeth_count;
 
 
 /*
@@ -79,7 +81,7 @@ zdistribute(
     // Draw gear.
     spur_gear(
         thickness=gear_length,
-        teeth=9, 
+        teeth=gear_teeth_count, 
         mod=gear_module
     );
 }

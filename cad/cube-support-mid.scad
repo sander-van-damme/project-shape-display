@@ -40,16 +40,18 @@ xdistribute(
         
     // Draw upper support edge.
     cube(
-        [support_edge_length,support_width,support_edge_depth],
+        [support_edge_length, support_width, support_edge_depth],
         anchor=BOTTOM
     );
     
-    // Draw support.
+    // Draw support with holes.
     difference() {
+        // Draw support.
         cube(
             [support_length,support_width,support_depth],
             anchor=BOTTOM
         );
+        // Draw holes.
         xcopies(hole_spacing, n=hole_count) {
             fwd(support_width/2) down(0.001)
                 cylinder(d=hole_diameter, h=support_width+0.002, $fn=20, anchor=BOTTOM);
@@ -60,7 +62,7 @@ xdistribute(
   
     // Draw lower support edge.
     cube(
-        [support_edge_length,support_width,support_edge_depth],
+        [support_edge_length, support_width, support_edge_depth],
         anchor=BOTTOM
     );
 }
