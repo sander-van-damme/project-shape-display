@@ -4,7 +4,7 @@
 
 ## components
 ### stepper motor
-Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html) at €0.52 per pair (see also listing on [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ).
+Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html) at €0.52 per pair (see also listing on [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ)).
 
 
 | specifications | |
@@ -21,7 +21,7 @@ Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/400
 (output shaft diameter: 1.5mm)
 
 ### stepper motor driver
-TMC2208 from [Aliexpress](https://nl.aliexpress.com/item/1005004014058136.html) at €2.04 per piece
+TMC2208 from [Aliexpress](https://nl.aliexpress.com/item/1005004014058136.html) at €2.04 per piece.
 
 | specifications | |
 |-----|------|
