@@ -13,7 +13,7 @@ include <BOSL2/gears.scad>
 /*
 * Rendering parameters
 */
-$fn=1000;
+$fn=100;
 
 
 /*

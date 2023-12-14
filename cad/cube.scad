@@ -3,7 +3,6 @@
 * documentation:
 * - https://github.com/BelfrySCAD/BOSL2/wiki/
 * - https://github.com/BelfrySCAD/BOSL2/wiki/threading.scad
-* - https://github.com/BelfrySCAD/BOSL2/wiki/gears.scad
 */
 include <BOSL2/std.scad>
 include <BOSL2/threading.scad>
@@ -12,7 +11,7 @@ include <BOSL2/threading.scad>
 /*
 * Rendering parameters
 */
-$fn=1000;
+$fn=100;
 
 
 /*
