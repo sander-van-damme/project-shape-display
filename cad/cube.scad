@@ -17,10 +17,11 @@ $fn=100;
 /*
 * Drawing parameters
 */
-cube_hat_length = 1;
-cube_hat_width = 4.9;
+cube_width = 4.9;
+cube_wall_thickness = 1;
 
-cube_width = cube_hat_width;
+cube_hat_length = 1;
+cube_hat_width = cube_width;
 
 nut_length = 4;
 nut_outer_diameter = cube_width;
@@ -29,7 +30,6 @@ nut_pitch = 1;
 nut_slop = 0.1;
 
 cube_length = 70 + 1 - cube_hat_length - nut_length;
-cube_wall_thickness = 1;
 
 
 /*
