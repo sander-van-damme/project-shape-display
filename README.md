@@ -4,10 +4,10 @@
 
 ## components
 ### stepper motor
-Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html) at €0.52 per set of two (see also listing on [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ).
+Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4000806393169.html) at €0.52 per pair (see also listing on [Amazon](https://www.amazon.com/Abovehill-Stepper-2-Phase-4-Wire-Connection/dp/B08346RFVZ).
 
 
-| electrical specifications | |
+| specifications | |
 |-----|------|
 | wiring | two phases, four wires|
 | resistance | 40 Ω |
@@ -21,12 +21,13 @@ Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/400
 (output shaft diameter: 1.5mm)
 
 ### stepper motor driver
-TMC2208 from [Aliexpress](https://nl.aliexpress.com/item/1005004014058136.html)
+TMC2208 from [Aliexpress](https://nl.aliexpress.com/item/1005004014058136.html) at €2.04 per piece
 
-## dimensions
-- 30 cm x ? cm
-- pixel: 5 mm x 5 mm
-
-## components
-- servo motors (x60 or x120 for double torque): 
-- drivers: [TMC2208](https://nl.aliexpress.com/item/1005004014058136.html?spm=a2g0o.order_list.order_list_main.5.ee6a79d2HzHXDv&gatewayAdapt=glo2nld)
+| specifications | |
+|-----|------|
+| model | MC2208 V1.2 |
+| motor voltage range (VM) | 4.75V-36V |
+| motor continuous current | 1.4A |
+| motor peak current | 2A |
+| logic voltage range (VIO) | 3-5V |
+| microsteps | 256 |
