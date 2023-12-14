@@ -14,7 +14,8 @@ A generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/4
 | recommended voltage | 5-6V |
 | driving current | 0.12A |
 | short-circuit current | 0.14A |
-Distribution of long-axis motor connection lines: (blue: A +, black: A-. Red: B +, white: B-) Short-axis motor connection line distribution: (purple: A +, yellow: B-. Orange: B +, green: B-) 
+| Distribution of long-axis motor connection lines | blue: A +, black: A-, red: B +, white: B- |
+| Short-axis motor connection line distribution | purple: A +, yellow: B-, orange: B +, green: B- |
 
 ![](./images/stepper-motor-dimensions.jpg)
 (output shaft diameter: 1.5mm)
