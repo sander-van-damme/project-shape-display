@@ -1,6 +1,6 @@
 <!-- © 2024 Sander Van Damme - All Rights Reserved. -->
 
-# RPG Shape Display
+# 3D grid map
 
 This file describes how to build a shape display for use in RPG games such as Dungeons and Dragons.
 

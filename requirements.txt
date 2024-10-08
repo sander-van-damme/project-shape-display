@@ -4,3 +4,5 @@ environs
 # SCAD
 solidpython2
 
+# math
+numpy
