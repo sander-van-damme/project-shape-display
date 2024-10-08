@@ -30,38 +30,29 @@ def render_pixel_sliders():
         pixel_slider_width = (
             PIXEL_WIDTH - PIXEL_HOLDER_WALL_THICKNESS * 2 + pixel_slider_width_offset
         )
-        name = f"pixel_slider_width_{pixel_slider_width:.1f}_mm"
-        render_to_all_formats(
-            model=create_pixel_slider(width=pixel_slider_width, height=PIXEL_HEIGHT),
-            dir=RENDER_OUTPUT_DIRECTORY / "pixel_sliders",
-            name=name,
-        )
-        render_to_all_formats(
-            model=create_pixel_slider_with_label(
-                width=pixel_slider_width, height=PIXEL_HEIGHT
-            ),
-            dir=RENDER_OUTPUT_DIRECTORY / "pixel_sliders_with_label",
-            name=f"{name}_with_label",
-        )
-
-
-def render_pixel_holder():
-    render_to_all_formats(
-        model=create_pixel_holder(
-            width=PIXEL_WIDTH,
-            height=PIXEL_HEIGHT,
-            wall_thickness=PIXEL_HOLDER_WALL_THICKNESS,
-        ),
-        dir=RENDER_OUTPUT_DIRECTORY,
-        name="pixel_holder",
-    )
+        if pixel_slider_width > 0:
+            name = f"pixel_slider_width_{pixel_slider_width:.1f}_mm"
+            render_to_all_formats(
+                model=create_pixel_slider(
+                    width=pixel_slider_width, height=PIXEL_HEIGHT
+                ),
+                dir=RENDER_OUTPUT_DIRECTORY / "pixel_sliders",
+                name=name,
+            )
+            render_to_all_formats(
+                model=create_pixel_slider_with_label(
+                    width=pixel_slider_width, height=PIXEL_HEIGHT
+                ),
+                dir=RENDER_OUTPUT_DIRECTORY / "pixel_sliders_with_label",
+                name=f"{name}_with_label",
+            )
 
 
 def render_pixel_holder_grid():
     render_to_all_formats(
         model=create_pixel_holder_grid(
-            pixel_width=PIXEL_WIDTH * PIXELS_PER_ROW,
-            pixel_height=PIXEL_HEIGHT * PIXELS_PER_COLUMN,
+            pixel_width=PIXEL_WIDTH,
+            pixel_height=PIXEL_HEIGHT,
             pixel_wall_thickness=PIXEL_HOLDER_WALL_THICKNESS,
             pixels_per_row=PIXELS_PER_ROW,
             pixels_per_column=PIXELS_PER_COLUMN,
@@ -73,7 +64,6 @@ def render_pixel_holder_grid():
 
 def main():
     render_pixel_sliders()
-    render_pixel_holder()
     render_pixel_holder_grid()
 
 
