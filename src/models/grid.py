@@ -2,7 +2,7 @@ from solid2 import union, OpenSCADObjectPlus
 from models.pixel import create_pixel_holder
 
 
-def pixel_holder_frame(
+def create_pixel_holder_grid(
     *,
     pixel_width: float,
     pixel_height: float,
