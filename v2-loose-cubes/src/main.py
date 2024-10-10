@@ -1,27 +1,28 @@
-from environs import Env
 from pathlib import Path
 import numpy as np
-from models.pixel import (
-    create_pixel_slider,
-    create_pixel_slider_with_label,
-    create_pixel_holder,
-)
+from models.pixel import create_pixel_slider, create_pixel_slider_with_label
 from models.grid import create_pixel_holder_grid
 from helpers.render import render_to_all_formats
 
 
-# Import the environment variables
-env = Env()
-env.read_env(path="./dimensions.env")
+########################################################################################
+# Shape display dimensions.
+# Use this file to configure the dimensions of the shape display.
+# All dimensions are in millimeters (mm).
+########################################################################################
 
+# the width of a pixel, including both the pixel slider and the pixel holder.
+PIXEL_WIDTH = 5
+# the height of a pixel; TODO: related to range of motion of the pixel slider
+PIXEL_HEIGHT = 50
+# the number of pixels in a row
+PIXELS_PER_ROW = 4
+# the number of pixels in a column
+PIXELS_PER_COLUMN = 4
+# ncrease if the shape display is too weak; decrease this if you want to reduce the gaps between the pixels.
+PIXEL_HOLDER_WALL_THICKNESS = 0.5
 
-# Define the shape display dimensions
-PIXEL_WIDTH = env.float("PIXEL_WIDTH")
-PIXEL_SLIDER_WIDTH_OFFSETS = np.arange(-3, 3.1, 0.1).tolist()
-PIXEL_HEIGHT = env.float("PIXEL_HEIGHT")
-PIXELS_PER_ROW = env.int("PIXELS_PER_ROW")
-PIXELS_PER_COLUMN = env.int("PIXELS_PER_COLUMN")
-PIXEL_HOLDER_WALL_THICKNESS = env.float("PIXEL_HOLDER_WALL_THICKNESS")
+PIXEL_SLIDER_WIDTH_OFFSETS = [num / 10 for num in range(-30, 31, 1)]
 RENDER_OUTPUT_DIRECTORY = Path("../output")
 
 
