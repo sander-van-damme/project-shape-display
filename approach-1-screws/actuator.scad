@@ -21,6 +21,10 @@ $slop = 0.65;
 * Set drawing parameters
 */
 
+thread_outer_diameter = 4;
+thread_inner_diameter = 3.4;
+thread_pitch = 2;
+
 cube_width = 6;
 cube_wall_thickness = 0.9;
 cube_length = 50;
@@ -30,13 +34,10 @@ bolt_thread_length = 50;
 bolt_topfoot_length = 1;
 bolt_topfoot_diameter = 4.5;
 bolt_midfoot_length = 2;
-bolt_midfoot_diameter = 3;
+bolt_midfoot_diameter = 2.5;
 bolt_lowfoot_length = 2;
 bolt_lowfoot_diameter = 4.5;
 
-thread_outer_diameter = 4;
-thread_inner_diameter = 3.2;
-thread_pitch = 2;
 
 /*
 * Draw cube
