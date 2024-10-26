@@ -1,6 +1,6 @@
 // Parameters
-frame_width = 25.4 + 5;      // Total width of the frame
-frame_height = 30;     // Height of the frame
+frame_width = 25.4 + 10;      // Total width of the frame
+frame_height = 60;     // Height of the frame
 frame_depth = 5;       // Depth (thickness) of the frame
 beam_thickness = 5;    // Thickness of the frame beams
 slit_depth = 1.5;         // Depth of the slit into the beams

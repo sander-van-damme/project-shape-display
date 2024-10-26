@@ -7,7 +7,7 @@
 
 include <BOSL2/std.scad>
 include <BOSL2/threading.scad>
-
+include <BOSL2/screws.scad>
 
 /*
 * Set rendering parameters
@@ -82,7 +82,8 @@ zdistribute(
         bolt_thread_length, 
         bolt_topfoot_length,
         bolt_midfoot_length,
-        bolt_lowfoot_length
+        bolt_lowfoot_length,
+        -2
     ],
     spacing=-0.001) {
     
@@ -101,4 +102,15 @@ zdistribute(
     
     // Draw bottom bracket.
     zcyl(l=bolt_lowfoot_length, r=bolt_lowfoot_diameter/2);
+        
+    // Draw screw head under the bolt_lowfoot.
+
+    screw(
+        spec="M2.5",
+        head="flat",
+        drive="slot",
+        length=3,
+        details=true
+    );
+
 }
