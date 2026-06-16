@@ -1,4 +1,5 @@
-// Cut-open assembly for inspecting the detent + cap. Renders one row.
+// Cut-open display row for inspecting the detent + cap. Renders one row.
+LIBRARY_MODE = true;   // pull grid.scad in as a library (skip its own render)
 include <grid.scad>
 intersection() {
     assembly();

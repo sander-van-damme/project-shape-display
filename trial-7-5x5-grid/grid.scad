@@ -22,7 +22,7 @@
  * Vanilla OpenSCAD, no libraries required.
  */
 
-part = "assembly"; // [assembly, assembly_released, pin, pins_print, grid_bottom, release_strip, release_strips, grid_top, floor_plate, push_rod]
+part = "assembly"; // [assembly, assembly_released, pin, pins_print, grid_bottom, release_strip, release_strips, grid_top, floor_plate, push_rod, release_dowel]
 
 /* =====================  parameters (mm)  ===================== */
 
@@ -76,6 +76,14 @@ rod_hole_d    = 3.8;   // rod hole in the floor plate
 dimple_d      = 3.6;   // self-centering cone in the pin bottom
 dimple_depth  = 2.0;
 
+// caddy release interface: a dowel hangs from each row comb down to the
+// caddy plane, so a finger on the caddy can trip the spring lock from below.
+caddy_release = true;  // add the from-below release dowels + their slots
+dowel_d       = 2.2;   // release dowel diameter (or use 2 mm rod / filament)
+dowel_drop    = 3;     // dowel protrudes this far below the floor underside
+dowel_clr     = 0.3;   // dowel-to-slot clearance per side
+dowel_seat    = 2.4;   // dowel press-fit depth into the comb crossbar
+
 $fn = $preview ? 32 : 64;
 eps = 0.01;
 
@@ -111,6 +119,10 @@ fx0 = cx0 - frame_w;  fx1 = cx1 + frame_w;
 fy0 = cy0 - frame_w;  fy1 = cy1 + frame_w;
 
 stem_len  = fx1 - sx1 + 9;              // stem reaches past the east wall
+
+// release dowel: hangs from the west crossbar down past the floor
+dowel_x   = sx0 + bridge_t/2;                       // centre of the west crossbar
+dowel_len = (z_guide_top + dowel_seat) + dowel_drop;  // comb seat -> below floor
 
 bolt_xy = [[fx0 + 3, fy0 + 3], [fx0 + 3, fy1 - 3],
            [fx1 - 3, fy0 + 3], [fx1 - 3, fy1 - 3]];
@@ -186,6 +198,13 @@ module grid_bottom() {
             translate([sx1 + release_travel - 0.5, j*pitch - 2 - strip_clear - 0.3, guide_h])
                 cube([fx1 - (sx1 + release_travel) + 2,
                       2*(2 + strip_clear + 0.3), pocket_d + eps]);
+        // release-dowel slots through the guide (allow the 1 mm release slide)
+        if (caddy_release)
+            for (j = [0 : n_rows - 1])
+                translate([dowel_x - dowel_d/2 - dowel_clr,
+                           j*pitch - dowel_d/2 - dowel_clr, -eps])
+                    cube([dowel_d + release_travel + 2*dowel_clr,
+                          dowel_d + 2*dowel_clr, guide_h + 2*eps]);
         // stack bolt holes
         for (p = bolt_xy)
             translate([p[0], p[1], -eps]) cylinder(d = bolt_d, h = h + 2*eps);
@@ -227,7 +246,18 @@ module release_strip() {
         // rubber-band hole in the paddle
         translate([sx1 - 1 + stem_len + 3.5, 0, -eps])
             cylinder(d = stem_hole_d, h = strip_h + 2*eps);
+        // socket for the release dowel in the west crossbar (press fit)
+        if (caddy_release)
+            translate([dowel_x, 0, strip_h - dowel_seat])
+                cylinder(d = dowel_d, h = dowel_seat + eps);
     }
+}
+
+// ---- release dowel: separate rod, hangs from a comb to the caddy plane ----
+module release_dowel() {
+    cylinder(d = dowel_d, h = dowel_len);
+    // small collar marks the rest depth at the floor underside
+    translate([0, 0, dowel_drop]) cylinder(d = dowel_d + 1.2, h = 0.8);
 }
 
 // all row combs in place (engaged), for a print plate / inspection
@@ -260,6 +290,13 @@ module floor_plate() {
         for (j = [0 : n_rows - 1], i = [0 : n_cols - 1])
             translate([i*pitch, j*pitch, -eps])
                 cylinder(d = rod_hole_d, h = floor_t + 2*eps);
+        // release-dowel slots through the floor (allow the 1 mm release slide)
+        if (caddy_release)
+            for (j = [0 : n_rows - 1])
+                translate([dowel_x - dowel_d/2 - dowel_clr,
+                           j*pitch - dowel_d/2 - dowel_clr, -eps])
+                    cube([dowel_d + release_travel + 2*dowel_clr,
+                          dowel_d + 2*dowel_clr, floor_t + 2*eps]);
         for (p = bolt_xy)
             translate([p[0], p[1], -eps]) cylinder(d = bolt_d, h = floor_t + 2*eps);
     }
@@ -294,6 +331,12 @@ module assembly(released = false) {
     color("#c8c4b8") translate([0, 0, floor_t]) grid_bottom();
     color("#ef9f27")
         translate([0, 0, z_guide_top]) release_strips(released = released);
+    // release dowels hanging from each comb down to the caddy plane
+    if (caddy_release)
+        for (j = [0 : n_rows - 1])
+            color("#b5651d")
+                translate([dowel_x + (released ? release_travel : 0),
+                           j*pitch, -dowel_drop]) release_dowel();
     color("#7a9bb5", 0.30) translate([0, 0, z_pocket_top]) grid_top();
     for (j = [0 : n_rows - 1], i = [0 : n_cols - 1])
         color("#1d9e75")
@@ -303,7 +346,8 @@ module assembly(released = false) {
 }
 
 /* =====================  render  ===================== */
-
+// Skipped when this file is included as a library (LIBRARY_MODE = true).
+if (is_undef(LIBRARY_MODE) || !LIBRARY_MODE) {
 if      (part == "pin")               pin();
 else if (part == "pins_print")        pins_print();
 else if (part == "grid_bottom")       grid_bottom();
@@ -312,5 +356,7 @@ else if (part == "release_strips")    release_strips();
 else if (part == "grid_top")          grid_top();
 else if (part == "floor_plate")       floor_plate();
 else if (part == "push_rod")          push_rod();
+else if (part == "release_dowel")     release_dowel();
 else if (part == "assembly_released") assembly(released = true);
 else if (part == "assembly")          assembly();
+}
