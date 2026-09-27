@@ -230,15 +230,25 @@ topology cannot plausibly meet the target.
 The next new architecture test should be named by **domain + mechanism + question**,
 for example:
 
-`test10_planar_memory_punched_height_plates`
+`test10_planar_memory_selective_tile_lift`
 
-Its first coupon should be a true-pitch 5×5 stack with four selector planes and a
-bottom stop, not a full display. Test all five heights, adjacent height extremes,
-checkerboards, repeated insertion, follower-edge catching, plate deflection and
-load.
+Its first coupon should use **two adjacent true-pitch tiles**, initially 5×5 cells
+each, with four selector planes and a bottom stop per tile. One tile remains in a
+non-flat loaded state while the neighboring tile is independently lifted,
+reprogrammed/swapped and lowered.
 
-If that works, the next stage should test a removable 10×10 cartridge and measure
-actual insertion/swap/reset time.
+Test all five heights, adjacent height extremes, checkerboards, repeated
+insertion, follower-edge catching, plate deflection and load, but also measure
+motion/vibration transferred into the untouched tile.
+
+The preferred actuation experiment is a **shared vertical power source with
+selective tile coupling**, not one dedicated motor per tile. Include a simple
+'all tiles' coupling mode in the analytical model so the same architecture can
+support a fast full-map reset as well as local reveals.
+
+If the two-tile coupon works, sweep 8×8, 10×10, 16×16 and 20×20 module sizes and
+then build a removable 10×10 cartridge to measure actual local insertion,
+selection, lift and settle time.
 
 ## Decision criterion
 
