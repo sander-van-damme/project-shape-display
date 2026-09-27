@@ -73,6 +73,12 @@ expectations that apply regardless of implementation.
 
 ## Suggested reference workflow
 
+The latest full-scale investigation is
+[`test08_architecture_search`](tests/test08_architecture_search/README.md).
+Its [engineering report](docs/architecture-investigation-2026-09.md) compares
+architecture families, models complete 80×80 map updates and records why the
+strongest remaining candidate is still conditional rather than product-qualified.
+
 For experiments where the existing stack is useful, the repository includes a
 Python 3.11 + PyYAML + CadQuery reference template with a deterministic simulator
 and optional MuJoCo/PyBullet backends:

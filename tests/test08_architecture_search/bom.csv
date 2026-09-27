@@ -1,0 +1,19 @@
+item,quantity,unit_low_usd,unit_working_usd,unit_high_usd,basis
+8 mm PM motor,80,0.75,1.25,3.00,Unquoted bulk target; archived motor is NOT a current quote
+Dual H bridge channel,80,0.35,0.60,1.00,Component allowance; must support two phases at 3.3 V
+Controller,1,8,10,18,Engineering allowance
+8 bit shift registers,40,0.20,0.35,0.70,320 independent bridge control bits; eight controls per two motors
+Custom driver PCBs and passives,1,15,25,45,Ten eight-channel boards; assembly labor excluded
+Scanner motor,1,10,12,18,Engineering allowance
+Lift motor,1,14,18,25,Requires measured torque margin
+Coupling lift motor,1,6,8,12,Shared spring-compliant engagement beam
+Axis drivers,3,2,3,5,Engineering allowance
+Guide rods or rails and bearings,1,25,40,65,Scanner and four platen guides
+Four lift screws and nuts,1,12,20,32,8 mm lead assumption; synchronized by belt
+Belts pulleys idlers,1,12,20,32,Lift synchronization and scanner
+Power supplies and protection,1,25,35,50,3.3 V motor rail plus axis rail
+Axis reference sensors,4,0.50,1.00,2.00,No individual cell feedback
+Wire connectors flexible loom,1,15,22,35,320 short motor conductors plus power and serial bus
+Head shafts and friction-pad material,1,12,20,35,80 compliant shafts; coupon testing required
+Fasteners,1,8,12,20,Printed cell bearings; no 6400 purchased bearings
+Spares and miscellaneous,1,10,15,25,No per-cell magnets or springs purchased

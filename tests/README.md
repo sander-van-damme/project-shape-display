@@ -106,6 +106,11 @@ Use the parts that make sense for the experiment:
 
 ## Legacy tests
 
+The [test08 architecture search](test08_architecture_search/README.md) is a
+full-scale analytical/CAD investigation with its own reproduction commands,
+cost model and physical-test gates. It intentionally does not use the template's
+ideal kinematic lock assumptions.
+
 `test00_...` through `test07_...` are preserved legacy experiments. They do
 **not** need to be migrated to the suggested reference framework. Each legacy
 directory contains its own README notice so this status is visible where the

@@ -72,6 +72,14 @@ meet this requirement should identify a representative miniature and record its
 measured height. The target should then be at least that much usable column
 travel, not merely total part length.
 
+## Complete-map reconfiguration
+
+A complete new map must become mechanically stable and ready for play in
+**strictly less than 30 seconds at the full approximately 80×80 scale**.
+Count reset, actuator and carriage movement, selection, raising/lowering,
+locking, settling, and any map-specific homing or indexing. Fast partial updates
+are an additional metric and do not replace the complete-map requirement.
+
 ## Component-cost envelope
 
 The cost constraint applies to **purchased/non-3D-printed components**. Examples
