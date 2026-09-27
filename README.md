@@ -55,6 +55,8 @@ Shared project context:
 - [D&D miniature dimensions and travel basis](docs/miniature-dimensions.md)
 - [Bambu Lab X1 Carbon fabrication context](docs/fabrication-context.md)
 - [Research backlog / ideas awaiting tests](docs/research-backlog.md)
+- [Cross-disciplinary mechanical multiplexing research](docs/mechanical-multiplexing-research-2026-09.md)
+- [Next research direction: externalized mechanical memory](docs/research-direction-2026-09.md)
 
 ## Testing philosophy
 
