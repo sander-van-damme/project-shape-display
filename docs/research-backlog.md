@@ -74,8 +74,8 @@ If the analytical sweep produces a credible region, build only the smallest
 full-pitch coupon/head that tests the bottleneck. Measure loaded actuation time
 and repeatability instead of extrapolating from no-load motor speed.
 
-Keep this branch alive unless quantitative timing, packaging, cost or reliability
-bounds rule it out.
+Keep this research direction open unless quantitative timing, packaging, cost or
+reliability bounds rule it out.
 
 ## Adding future ideas
 
