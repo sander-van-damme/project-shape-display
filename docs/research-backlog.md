@@ -1,5 +1,10 @@
 # Research backlog
 
+Underlying mechanism and discipline knowledge is normalized in the
+[mechanical knowledge base](knowledge/README.md). Backlog entries are project
+hypotheses; tests provide evidence; durable mechanism knowledge should be fed
+back into the knowledge base.
+
 This file records engineering ideas that are worth testing but are **not yet
 validated project architectures**. An idea belongs here when it is plausible
 enough to deserve a quantitative or physical test, even if a related earlier

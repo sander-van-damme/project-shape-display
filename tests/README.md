@@ -4,6 +4,9 @@
 
 A test is an engineering experiment that helps decide how to build the D&D
 battle-map shape display described in [`../docs/design-target.md`](../docs/design-target.md).
+Tests are the **evidence layer** for the [mechanical knowledge base](../docs/knowledge/README.md);
+a completed experiment should feed durable conclusions back into the relevant
+mechanism, principle or architecture card.
 
 The repository currently contains a Python/CadQuery/simulation framework, but
 **that framework is a suggestion, not a contract**. Future tests are explicitly
