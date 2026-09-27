@@ -110,14 +110,6 @@ not a required project dependency.
 Generated outputs such as simulation metrics, screenshots, and CAD exports can
 live in `results/` and remain unversioned when they are reproducible.
 
-## Historical tests
-
-`tests/test00_...` through `tests/test07_...` are legacy experiments. Each
-legacy directory now identifies itself locally in its README; there is no
-separate migration inventory. They are historical design evidence and do not
-need to be converted to the suggested reference framework.
-
 ## Copyright
 
-© 2024 Sander Van Damme - All Rights Reserved. See the repository history for
-the original notice.
+© 2024-2026 Sander Van Damme - All Rights Reserved.
