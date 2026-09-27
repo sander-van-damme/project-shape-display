@@ -35,6 +35,11 @@ are:
   typical D&D miniature so meaningful terrain and elevation differences can be
   represented. Tests that validate this should state the reference miniature
   and measured height they use.
+- **Map reconfiguration time:** switching from one battle-map state to another
+  should take **less than 30 seconds** at full target scale, measured from the
+  start of the map change until all required columns are settled/locked and the
+  surface is ready for play. Reset, positioning, actuation, and settling that
+  happen for each map change count toward this budget.
 - **Cost:** 3D-printed parts are not subject to a design cost ceiling. The cost
   limits below apply to purchased/non-3D-printed components such as electronics,
   motors, bearings, rods, sensors, PCBs, power supplies, and similar hardware:
