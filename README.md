@@ -89,6 +89,12 @@ Its [engineering report](docs/architecture-investigation-2026-09.md) compares
 architecture families, models complete 80×80 map updates and records why the
 strongest remaining candidate is still conditional rather than product-qualified.
 
+The next experiment, [Test09 validation](tests/test09_test08_validation/README.md),
+audits that candidate with an uncertainty register, independent timing and
+reliability checks, current sourcing, printable coupons and staged physical
+gates. Start with its X1C/PLA clearance coupons; no physical qualification or
+full-scale build is claimed.
+
 For experiments where the existing stack is useful, the repository includes a
 Python 3.11 + PyYAML + CadQuery reference template with a deterministic simulator
 and optional MuJoCo/PyBullet backends:
