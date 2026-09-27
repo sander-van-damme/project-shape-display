@@ -64,13 +64,23 @@ design.
 ## Vertical travel
 
 The required usable height range should be **at least the full height of a
-typical D&D miniature**. This gives the display enough relief to create elevation
-changes that are visually and mechanically meaningful during play.
+typical D&D miniature**. Current market references put normal human-sized
+tabletop figures roughly in the 28–35 mm range depending on 28/32 mm scale,
+measurement convention and sculpt.
 
-Because miniature height varies by model and scale, experiments that claim to
-meet this requirement should identify a representative miniature and record its
-measured height. The target should then be at least that much usable column
-travel, not merely total part length.
+Use **40 mm as the provisional minimum usable vertical travel** for architecture
+work. It provides margin above that normal humanoid range without trying to size
+the terrain stroke around unusually tall monsters, wings or raised weapons.
+
+A design does not become qualified solely because its CAD contains 40 mm of
+nominal travel. Experiments that claim compliance should identify a
+representative physical D&D miniature, measure it from the bottom of the base to
+its highest normal body/head feature, and verify that usable travel exceeds that
+measurement. If the representative miniature is taller than 40 mm, update the
+requirement and rerun affected timing, load and packaging calculations.
+
+See [miniature-dimensions.md](miniature-dimensions.md) for the research basis and
+measurement convention.
 
 ## Complete-map reconfiguration
 
@@ -97,6 +107,24 @@ not a requirement to use any particular actuation architecture.
 Small prototypes should report measured or simulated reconfiguration time and,
 when relevant, a clearly stated extrapolation toward the full 400 mm × 400 mm
 target.
+
+## Fabrication baseline
+
+Prototype and small-batch fabrication is expected to use a **Bambu Lab X1
+Carbon**, normally with **PLA**. The printer supports 0.4 mm and optional 0.2 mm
+nozzles, but published printer specifications do not provide a universal
+finished-part dimensional tolerance.
+
+Mechanisms at the 5.08 mm pitch must therefore validate critical clearances with
+physical calibration coupons on the actual printer/material process. Do not
+treat fine motion or lidar sensor resolution as equivalent to printed-part
+accuracy.
+
+The ~400 mm map is larger than the X1C build volume and should be designed as
+modular printable cartridges/tiles rather than a single monolithic print.
+
+See [fabrication-context.md](fabrication-context.md) for printer, nozzle,
+material and qualification guidance.
 
 ## Component-cost envelope
 
