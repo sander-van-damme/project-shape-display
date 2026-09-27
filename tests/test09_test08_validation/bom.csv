@@ -1,0 +1,23 @@
+item,quantity,optimistic_unit_usd,realistic_unit_usd,conservative_unit_usd,basis,source_id
+PM motor,80,0.75,3,40,speculative bulk / unquoted allowance / sourced MOONS list price,M1
+Dual H bridge IC,80,0.35,1.8005,2.3734,speculative / sourced 30+ tier applicable to 80 / sourced single tier,D1
+Controller,1,8,12,20,engineering allowance,A
+Shift registers,40,0.2,0.35,0.7,engineering allowance 320 control bits,A
+Driver PCBs and passives,1,15,30,50,engineering allowance assembly labor excluded,A
+Scanner motor,1,10,15,25,engineering allowance loaded selection pending,A
+Lift motor and transmission,1,20,40,70,engineering allowance torque speed unqualified,A
+Engagement motor,1,6,10,20,engineering allowance,A
+Axis drivers,3,2,4,8,engineering allowance,A
+Rails and bearings,1,25,45,75,engineering allowance scanner and platen,A
+Four lift screws nuts thrust bearings,1,18,32,50,engineering allowance 9 or 16 screws requires requote,A
+Belts pulleys idlers,1,12,25,40,engineering allowance synchronization,A
+Power supplies fuses protection,1,25,40,65,engineering allowance ~150W pending measured load,A
+Axis switches,4,0.5,1,2,engineering allowance no cell feedback,A
+Wire connectors flexible loom,1,15,25,40,engineering allowance 320 motor conductors,A
+Compliant shafts friction pads,1,12,25,45,engineering allowance,A
+Fasteners and structural joints,1,8,20,35,engineering allowance printed main structure,A
+Normally engaged lift brake or safety catch,1,10,25,50,engineering allowance no qualified part,A
+Inspection camera lighting fiducials,1,10,30,60,engineering allowance coverage and 1s budget unverified,A
+Spares,1,10,20,40,engineering allowance includes motor rejects,A
+Freight,1,15,30,60,engineering allowance consolidated purchases not delivered quote,A
+Tax import and currency exposure reserve,1,20,70,800,engineering allowance not tax advice or checkout amount,A

@@ -1,0 +1,1 @@
+sample_id,batch_id,bed_xy_mm,material_lot,nozzle_mm,layer_mm,orientation,wall_count,infill_pct,flow_ratio,xy_comp_mm,hole_comp_mm,cleanup,nominal_width_mm,measured_width_min_mm,measured_width_max_mm,bore_min_mm,web_min_mm,straightness_mm,instrument_id,uncertainty_mm,hands_on_min,scrap_reason

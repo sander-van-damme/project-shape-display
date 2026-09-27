@@ -108,6 +108,11 @@ Use the parts that make sense for the experiment:
 
 ## Legacy tests
 
+The [Test09 validation workflow](test09_test08_validation/README.md) follows
+Test08 without altering its evidence. Run `python tests/test09_test08_validation/run.py`
+for deterministic analytical checks, or add `--render` for OpenSCAD coupon
+exports and scoped CAD checks. Physical records remain blank until measured.
+
 The [test08 architecture search](test08_architecture_search/README.md) is a
 full-scale analytical/CAD investigation with its own reproduction commands,
 cost model and physical-test gates. It intentionally does not use the template's
