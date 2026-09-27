@@ -35,9 +35,9 @@ jobs:
       matrix:
         include:
           - engine: mujoco
-            package: mujoco
+            packages: mujoco
           - engine: pybullet
-            package: pybullet
+            packages: "numpy pybullet"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,7 +48,7 @@ jobs:
       - name: Install test and backend dependencies
         run: >-
           python -m pip install --disable-pip-version-check
-          -r requirements-dev.txt "${{ matrix.package }}"
+          -r requirements-dev.txt ${{ matrix.packages }}
       - name: Smoke-test ${{ matrix.engine }} import
         run: python tests/template/simulation.py --engine "${{ matrix.engine }}"
       - uses: actions/upload-artifact@v4
