@@ -1,54 +1,112 @@
 # Test authoring guide
 
-## Contract
+## What a test is for
 
-Each new test is a self-contained, deterministic experiment named
-`testNN_short_description`. It owns these four files:
+A test is an engineering experiment that helps decide how to build the D&D
+battle-map shape display described in [`../docs/design-target.md`](../docs/design-target.md).
 
-| File | Responsibility |
+The repository currently contains a Python/CadQuery/simulation framework, but
+**that framework is a suggestion, not a contract**. Future tests are explicitly
+allowed to break its APIs, replace it, or ignore it when another approach gives
+better evidence.
+
+A useful test should make the following clear regardless of implementation:
+
+- the engineering question or hypothesis;
+- the mechanism or idea being evaluated;
+- relevant dimensions, assumptions, and constraints;
+- how to run, build, measure, or inspect it;
+- the evidence/output it produces;
+- the conclusion or pass/fail criteria, when appropriate;
+- how the result relates to the full D&D battle-map target.
+
+Use the sortable `testNN_short_description` directory naming convention when
+practical because it keeps experiment history easy to browse, but do not force a
+better experiment into the current software API just to preserve compatibility.
+
+## Suggested reference framework
+
+For many software-driven experiments, the existing template is a convenient
+starting point:
+
+| Suggested file | Purpose |
 | --- | --- |
-| `params.yaml` | Human- and machine-readable inputs and acceptance limits |
+| `params.yaml` | Human- and machine-readable dimensions, inputs, and limits |
 | `model.py` | Parametric CadQuery geometry and CAD exports |
-| `simulation.py` | Motion plan, backend selection, metrics and validation |
-| `README.md` | Goal, procedure, assumptions and expected results |
+| `simulation.py` | Motion plan, backend selection, metrics, and validation |
+| `README.md` | Goal, procedure, assumptions, evidence, and expected results |
 
-Do not silently encode dimensions in Python. Add a named YAML field, state its
-unit, validate it, and consume the same value from CAD and simulation. Generated
-files go in `results/` and are ignored by Git.
+Create a copy with:
 
-## Procedure for people and agents
+```bash
+python scripts/new_test.py test08_my_experiment
+```
 
-1. Find the next unused number in `docs/trial-inventory.md`.
-2. Run `python scripts/new_test.py testNN_short_description`.
-3. Update the copied README first: hypothesis, mechanism and pass criteria.
-4. Edit `params.yaml`; keep all lengths in millimetres and times in seconds.
-5. Run `model.py`, then `simulation.py --engine kinematic`.
-6. If physics matters, repeat with `--engine mujoco` and/or `--engine pybullet`.
-7. Inspect `results/final_state.svg` and `results/metrics.json`, then run pytest.
+The helper script and four-file layout are conveniences. They are not mandatory.
+A new experiment may instead use OpenSCAD, another CAD tool, another language, a
+different simulator, physical test data, or a completely different directory
+structure.
 
-The `target_heights_mm` matrix is row-major and must exactly match the declared
-grid. Every value must occur in `pin.height_steps_mm`. The baseline planner
-resets all rows, then visits pins row-by-row with one plunger. Tests pass when
-the final maximum height error is at most `validation.height_tolerance_mm` and
-the predicted reconfiguration time does not exceed the configured limit.
+### Current reference engines
 
-## Engine choice
+- **Kinematic:** dependency-light deterministic planning oracle used by CI.
+- **MuJoCo:** optional rigid-body/contact backend.
+- **PyBullet:** optional lightweight rigid-body alternative.
+- **PyChrono:** optional candidate for flexible components, cables, buckling, or
+  multi-physics studies.
 
-- **Kinematic:** dependency-light, deterministic planning oracle used by CI.
-- **MuJoCo:** preferred contact/dynamics engine and straightforward pip install.
-- **PyBullet:** lightweight alternative with useful interactive visualization.
-- **PyChrono:** opt-in for flexible components and advanced multi-physics.
+These are proposed tools, not the approved list of tools. If another engine or
+method answers the engineering question more credibly, use it and document why.
 
-Backend adapters currently share the deterministic actuator trajectory so their
-results are directly comparable. A test that relies on contact must extend its
-adapter and document solver settings in its README.
+## API compatibility is not a goal
 
-## Reproducibility checklist
+There is no promise of a stable test API.
 
-- Pin package versions in a dedicated requirements file when adding dependencies.
-- Fix random seeds and record the seed in YAML.
-- Never use wall-clock duration as the simulated motion time.
-- Record units in key names and emitted metrics.
-- Validate dimensions, collisions/clearance assumptions, locking state and final
-  height error.
-- Keep screenshots, video, CAD and metrics as CI artifacts rather than sources.
+A future test may rename fields, replace YAML, change units with clear
+documentation, restructure outputs, use another language, or introduce a new
+simulation/control architecture. Breaking changes are acceptable when they make
+the experiment clearer, more accurate, easier to reproduce, or more useful.
+
+Do not keep a poor abstraction because an older template expects it.
+
+The current CI only verifies the maintained reference framework. An alternative
+test does not automatically need to plug into that CI; add appropriate checks
+when they provide value.
+
+## Project-level constraints to carry into tests
+
+When relevant, evaluate against the full product target:
+
+- approximately **400 mm × 400 mm** active tabletop area;
+- about **5.08 mm or finer pitch** to resolve a ~1/5-square wall on a 1-inch
+  D&D grid;
+- square/rectangular moving columns rather than circular pins;
+- usable vertical travel of at least one representative D&D miniature height;
+- purchased component cost ideally **< $200**, acceptable at **$200–$400**,
+  last-resort at **$400–$500**, and unacceptable **> $500**;
+- no design cost ceiling for 3D-printed parts.
+
+Small experiments do not have to meet these values directly, but should explain
+how their mechanism is expected to scale toward them when scale is relevant.
+
+## Reproducibility guidance
+
+Use the parts that make sense for the experiment:
+
+- keep important dimensions and assumptions explicit rather than hidden in code;
+- record units;
+- fix random seeds for stochastic simulations;
+- pin dependency versions when dependency drift would affect results;
+- distinguish simulated time from wall-clock runtime;
+- save machine-readable metrics when useful;
+- keep generated screenshots, videos, CAD, and metrics as reproducible artifacts
+  rather than source files where practical;
+- document physical measurements and test setup when the experiment is hardware
+  based.
+
+## Legacy tests
+
+`test00_...` through `test07_...` are preserved legacy experiments. They do
+**not** need to be migrated to the suggested reference framework. Each legacy
+directory contains its own README notice so this status is visible where the
+historical files are being inspected.

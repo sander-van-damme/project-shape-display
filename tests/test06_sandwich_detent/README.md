@@ -1,3 +1,5 @@
+> **Legacy test.** This directory is a preserved historical experiment. It does not need to conform to the current suggested testing framework, file layout, API, programming language, or simulation stack. Keep its original approach intact unless the experiment is intentionally being revisited.
+
 # Trial 6 — sliding release grid (1×5 test strip)
 
 Implements the three-layer sandwich: a guide grid for the pins, a sliding
