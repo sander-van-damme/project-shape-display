@@ -34,6 +34,9 @@ are:
 - **Vertical travel:** use **40 mm as the provisional minimum usable travel**,
   based on normal human-sized tabletop miniature scale. Tests that claim
   compliance should still measure and name a representative physical miniature.
+- **Regional updates:** unexplored rooms or other local regions should be
+  revealable on demand without requiring a full-board reset or materially
+  disturbing already visible terrain.
 - **Map reconfiguration time:** switching from one battle-map state to another
   should take **less than 30 seconds** at full target scale, measured from the
   start of the map change until all required columns are settled/locked and the
