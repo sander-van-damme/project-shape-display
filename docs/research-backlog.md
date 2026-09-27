@@ -766,6 +766,59 @@ bottleneck rather than proposing another cell actuator.
 See [the September 2026 research direction](research-direction-2026-09.md) for
 the proposed architecture and information-throughput framing.
 
+## R17 — independently updateable mechanical map tiles
+
+### Hypothesis
+
+Partition the full display into **mechanically independent local modules** whose
+height memory can be changed without resetting the rest of the board.
+
+A module could contain 5×5, 8×8, 10×10, 16×16 or another number of display cells
+and use R14/R15 planar memory internally. Only the selected module is cleared,
+reprogrammed/swapped and lowered.
+
+The module itself does not need a dedicated motor. A travelling docking head,
+shared lift with selective clutch, or row/column module selector may service many
+modules.
+
+### Why it may matter
+
+This directly addresses exploration and fog of war. A hidden room can appear
+while already revealed terrain and miniatures elsewhere remain supported.
+
+It also improves fault isolation and makes the plastic memory medium smaller,
+stiffer and easier to register than a 400×400 mm full-board sheet.
+
+The trade-off is module frames, surface seams and a new module-selection layer.
+Very small modules may recreate the original high-channel-count problem at the
+module level.
+
+### Cheapest discriminating test
+
+Build two adjacent true-pitch modules, initially 5×5 or 10×10 each.
+
+Hold one module in a non-flat terrain state with representative miniature load.
+Then repeatedly clear, change and settle only the neighboring module.
+
+Measure:
+
+- unintended displacement of the untouched module;
+- vibration and cross-talk;
+- update time;
+- cartridge insertion/registration repeatability;
+- seam behavior at maximum adjacent height differences;
+- force required to select and lift one module;
+- whether a miniature outside the target module can remain in place.
+
+Then analytically sweep module sizes from 5×5 through 20×20 and include module
+count, selector count, seams, update granularity, actuator cost and timing.
+
+### Research priority
+
+**Very high.** Regional updates are now a product requirement, and modular
+mechanical memory is the most direct way to preserve R14/R16 advantages without
+forcing full-board resets.
+
 ## Research sources to revisit
 
 These backlog entries are hypotheses, not validations. Useful starting sources
@@ -783,7 +836,7 @@ from the research pass include:
 
 ## Adding future ideas
 
-Add each new idea as R17, R18, ... with:
+Add each new idea as R18, R19, ... with:
 
 1. the hypothesis;
 2. why existing tests do or do not already address it;
