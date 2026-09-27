@@ -8,8 +8,9 @@ grid:
   rows: 3
   pitch_mm: 8.5
 
-pin:
-  diameter_mm: 5.0
+column:
+  width_mm: 5.0
+  depth_mm: 5.0
   body_height_mm: 35.0
   height_steps_mm: [0.0, 5.0, 10.0, 15.0, 20.0]
   clearance_mm: 0.2
