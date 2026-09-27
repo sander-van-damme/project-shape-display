@@ -2,3 +2,6 @@
 __pycache__
 *.pyc
 *.pyo
+
+# Generated test artifacts
+tests/**/results/
