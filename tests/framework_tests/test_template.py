@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 import pytest
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -40,3 +41,17 @@ def test_invalid_target_dimensions_are_rejected() -> None:
     params["simulation"]["target_heights_mm"] = [[0.0]]
     with pytest.raises(ValueError, match="dimensions"):
         simulation.validate_params(params)
+
+
+def test_ci_workflow_uses_the_root_dependency_file_for_its_cache() -> None:
+    """Prevent setup-python from selecting a legacy trial requirements file."""
+    workflow = yaml.safe_load((ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8"))
+    jobs = workflow["jobs"]
+    setup_steps = [
+        step
+        for job in jobs.values()
+        for step in job["steps"]
+        if step.get("uses", "").startswith("actions/setup-python@")
+    ]
+    assert setup_steps
+    assert all(step["with"]["cache-dependency-path"] == "requirements-dev.txt" for step in setup_steps)

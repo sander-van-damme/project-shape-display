@@ -1,6 +1,6 @@
 name: test-platform
 
-on:
+"on":
   push:
   pull_request:
 
@@ -16,7 +16,11 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: python -m pip install -r requirements-dev.txt
+          # setup-python otherwise finds the unrelated requirements file in the
+          # migrated trial and keys the cache with the wrong dependencies.
+          cache-dependency-path: requirements-dev.txt
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
       - run: python -m pytest
       - run: python tests/template/simulation.py --engine kinematic
       - uses: actions/upload-artifact@v4
@@ -29,15 +33,24 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        engine: [mujoco, pybullet]
+        include:
+          - engine: mujoco
+            package: mujoco
+          - engine: pybullet
+            package: pybullet
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-      - run: python -m pip install -r requirements-dev.txt ${{ matrix.engine }}
-      - run: python tests/template/simulation.py --engine ${{ matrix.engine }}
+          cache-dependency-path: requirements-dev.txt
+      - name: Install test and backend dependencies
+        run: >-
+          python -m pip install --disable-pip-version-check
+          -r requirements-dev.txt "${{ matrix.package }}"
+      - name: Smoke-test ${{ matrix.engine }} import
+        run: python tests/template/simulation.py --engine "${{ matrix.engine }}"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.engine }}-results
