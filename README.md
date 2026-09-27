@@ -31,10 +31,9 @@ are:
   elements** at full target resolution.
 - **Element shape:** the target display elements are **square/rectangular
   columns**, not round pins. Legacy files may still use the word `pin`.
-- **Vertical travel:** the display should cover at least the full height of a
-  typical D&D miniature so meaningful terrain and elevation differences can be
-  represented. Tests that validate this should state the reference miniature
-  and measured height they use.
+- **Vertical travel:** use **40 mm as the provisional minimum usable travel**,
+  based on normal human-sized tabletop miniature scale. Tests that claim
+  compliance should still measure and name a representative physical miniature.
 - **Map reconfiguration time:** switching from one battle-map state to another
   should take **less than 30 seconds** at full target scale, measured from the
   start of the map change until all required columns are settled/locked and the
@@ -50,6 +49,12 @@ are:
 
 Smaller prototypes are useful, but they should be evaluated by whether their
 mechanism can plausibly scale toward these battle-map requirements.
+
+Shared project context:
+
+- [D&D miniature dimensions and travel basis](docs/miniature-dimensions.md)
+- [Bambu Lab X1 Carbon fabrication context](docs/fabrication-context.md)
+- [Research backlog / ideas awaiting tests](docs/research-backlog.md)
 
 ## Testing philosophy
 
