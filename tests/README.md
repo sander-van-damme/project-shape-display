@@ -20,9 +20,18 @@ A useful test should make the following clear regardless of implementation:
 - the conclusion or pass/fail criteria, when appropriate;
 - how the result relates to the full D&D battle-map target.
 
-Use the sortable `testNN_short_description` directory naming convention when
-practical because it keeps experiment history easy to browse, but do not force a
-better experiment into the current software API just to preserve compatibility.
+Use the sortable `testNN_<domain>_<mechanism-or-question>` directory naming
+convention for new experiments. The number preserves chronology; the remaining
+name should explain what engineering family is being tested.
+
+Examples:
+- `test10_planar_memory_punched_height_plates`
+- `test11_planar_memory_reprogrammable_apertures`
+- `test12_shared_power_clutch_bus`
+
+Avoid names such as `testNN_validation` or `testNN_testXX_validation` when a
+mechanism/domain name can say what the experiment actually contains. Historical
+directory paths stay unchanged so old evidence and links remain reproducible.
 
 ## Suggested reference framework
 
@@ -105,6 +114,24 @@ Use the parts that make sense for the experiment:
   rather than source files where practical;
 - document physical measurements and test setup when the experiment is hardware
   based.
+
+## Test catalog and human-readable names
+
+| Test | Domain / working name | Main question |
+|---|---|---|
+| `test00_pneumatic_multiplexer` | Pneumatics — matrix multiplexer | Can shared air routing replace per-cell actuation? |
+| `test01_threaded_rods` | Screw memory — threaded rods | Can passive screw position store height? |
+| `test02_python_cubes` | Geometry — cube clearance | What basic spacing/tiling geometry is viable? |
+| `test03_threaded_rod_actuator` | Screw drive — compact actuator | Can the threaded actuator fit the pitch? |
+| `test04_plain_cubes` | Sliding columns — plain guide grid | Can square columns tile and slide cleanly? |
+| `test05_grid_cubes_rod` | Screw/grid — guided rod variant | Can the screw concept approach target density? |
+| `test06_sandwich_detent` | Passive memory — sandwich detent | Can discrete detents hold useful heights? |
+| `test07_5x5_grid` | Shared actuation — 5×5 row-comb grid | Does the shared row concept scale beyond one cell? |
+| `test08_architecture_search` | Architecture search — rotary stepped stop | Which architecture survives full-scale timing/cost screening? |
+| `test09_test08_validation` | Rotary-stop validation — X1C/coupling/structure | Which Test08 assumptions survive falsifiable checks? |
+
+Future tests should keep this same pattern: **domain first, specific mechanism or
+question second**.
 
 ## Legacy tests
 
