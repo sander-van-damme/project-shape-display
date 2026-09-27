@@ -653,6 +653,119 @@ Future numbered tests should therefore be allowed to combine backlog items. For
 example, R12 matrix selection could be tested with R03 latches, while R09 shared
 power could drive a module whose final state is held by R04 or R05.
 
+## R14 — stacked perforated height plates
+
+### Hypothesis
+
+Use several thin, aligned **planar selector plates** as passive height memory.
+Each plate corresponds to one discrete stop height. A narrow follower beneath
+each display column either passes through a programmed hole or stops on solid
+material.
+
+For five terrain levels (0/10/20/30/40 mm), four selector plates plus a bottom
+floor are sufficient: the desired height is the first plate that does not contain
+a hole at that XY position.
+
+This is a concrete, manufacturable specialization of R02 rather than a generic
+Jacquard analogy.
+
+### Why it may matter
+
+The display can read the whole map mechanically with one global lift/release.
+The expensive functions become plate alignment and pattern writing rather than
+6400 powered height actuators. The plates can be supported by a dense printed
+grid so their unsupported span is local, not 400 mm.
+
+The main weakness is that a punched plate is cheap to read but may be slow or
+consumable to write.
+
+### Cheapest discriminating test
+
+Build a true-pitch 5×5 stack with four height plates and a bottom stop. Test all
+five heights, checkerboards and maximum adjacent height differences. Measure
+hole-edge catching, registration tolerance, plate deflection, follower friction,
+repeat insertion and supported load.
+
+### Research priority
+
+**High.** Very low purchased-part count and unusually simple passive readout.
+The programming medium is the central unknown.
+
+## R15 — reprogrammable planar aperture memory
+
+### Hypothesis
+
+Replace destructive punched holes in R14 with reusable **shutters, tabs, sliding
+strips, rotating apertures or interleaved slats** that create open/closed states
+in a thin planar layer.
+
+A separate writer programs the planar medium; the display only reads it.
+
+### Why it may matter
+
+This preserves the strongest property of stacked selector plates — passive,
+parallel mechanical readout — while avoiding one-use punched media.
+
+The risk is that making every aperture reprogrammable simply recreates 6400
+miniature actuators or latches in another form. A useful design must share
+selection/programming hardware across many aperture states.
+
+### Cheapest discriminating test
+
+Build one 5×5 reusable aperture plane and program several adversarial patterns.
+Measure write time, force, state retention, false openings, reset behavior and
+cycle wear. Reject variants whose purchased selector count grows approximately
+one-for-one with cells.
+
+### Research priority
+
+**High but conditional.** Worth pursuing only if the planar state can be written
+with strongly shared hardware.
+
+## R16 — double-buffered mechanical map cartridge
+
+### Hypothesis
+
+Decouple **visible map-change time** from **map-programming time**.
+
+Use two removable mechanical memory cartridges or pattern stacks:
+
+1. cartridge A controls the current terrain;
+2. cartridge B is programmed separately;
+3. globally lift/clear the columns;
+4. swap cartridges;
+5. globally lower/settle the columns;
+6. program the now-idle cartridge for the following map.
+
+This can be combined with R14, R15 or another passive memory medium.
+
+### Why it may matter
+
+Most candidate architectures struggle because all 6400 states must be written
+inside the same 30-second user-visible transition. Double buffering changes the
+system topology: the transition can be dominated by lift, swap, registration and
+settling, while the next map is written during gameplay.
+
+This is only valid when the next map is known early enough. A genuinely
+unannounced arbitrary map still depends on writer throughput.
+
+### Cheapest discriminating test
+
+Model the timing boundary first, then build two small cartridges. Measure
+lift-clear, eject, insert, registration, lower and settle time independently from
+programming time.
+
+Also quantify how long an external writer may take if typical maps are known
+5, 10, 20 or 30 minutes before the swap.
+
+### Research priority
+
+**Very high as a system strategy.** It attacks the repeated system-level timing
+bottleneck rather than proposing another cell actuator.
+
+See [the September 2026 research direction](research-direction-2026-09.md) for
+the proposed architecture and information-throughput framing.
+
 ## Research sources to revisit
 
 These backlog entries are hypotheses, not validations. Useful starting sources
@@ -670,7 +783,7 @@ from the research pass include:
 
 ## Adding future ideas
 
-Add each new idea as R14, R15, ... with:
+Add each new idea as R17, R18, ... with:
 
 1. the hypothesis;
 2. why existing tests do or do not already address it;
