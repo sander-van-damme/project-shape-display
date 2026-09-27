@@ -82,6 +82,8 @@ When relevant, evaluate against the full product target:
   D&D grid;
 - square/rectangular moving columns rather than circular pins;
 - usable vertical travel of at least one representative D&D miniature height;
+- a complete full-scale map change that becomes playable in **less than 30
+  seconds**, including per-map reset, positioning, actuation, and settling;
 - purchased component cost ideally **< $200**, acceptable at **$200–$400**,
   last-resort at **$400–$500**, and unacceptable **> $500**;
 - no design cost ceiling for 3D-printed parts.
