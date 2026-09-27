@@ -106,7 +106,99 @@ The next deep research/test should quantify:
 - whether reusable shutters can be written row-parallel;
 - fastest plausible low-cost mechanical writer;
 - lifecycle and cost per map for consumable media;
-- end-to-end timing for pre-known maps and genuinely new maps.
+- end-to-end timing for pre-known maps and genuinely new maps;
+- local reveal timing for one and several modules;
+- displacement/vibration induced in unchanged neighboring modules;
+- module size versus seam count, selector count, cost and update granularity.
+
+## New requirement: local reveals without disturbing the board
+
+The double-buffered full-cartridge concept is not sufficient by itself.
+
+During play, the system must be able to reveal or change **only part of the
+map** while already visible terrain remains in place. This changes the preferred
+topology from one monolithic mechanical memory stack toward **spatially
+partitioned memory and actuation**.
+
+### Preferred system topology: independently readable map tiles
+
+Partition the 80×80 display into mechanical modules, for example 8×8 or 10×10
+cells per tile. A 10×10-cell tile is about 50.8×50.8 mm, giving 8×8 = 64 modules
+for an 80×80 display.
+
+Each module should have:
+
+- its own passive planar height-memory cartridge or local aperture stack;
+- mechanically independent load support from neighboring modules;
+- a way to clear/lift only that module's columns;
+- registration features that allow its memory medium to be replaced or
+  rewritten without moving adjacent modules;
+- surface geometry that keeps seams small enough for normal miniature use.
+
+The expensive actuator does **not** need to be duplicated 64 times. Candidate
+ways to service modules include:
+
+1. a travelling lift/programming head that docks under one selected module;
+2. one shared lift drive with module-selective clutches/latches;
+3. row/column coincidence selection that couples the shared lift to only the
+   requested module;
+4. a small bank of parallel module actuators if the purchased-cost model allows
+   it.
+
+This hybrid is materially different from a full-board travelling writer. The
+travelling or multiplexed hardware only needs to perform **module-level clearing
+and cartridge handling**; the planar memory still determines the hundreds of
+individual cell heights in parallel.
+
+### Why modular memory is currently more attractive than a full cartridge
+
+A monolithic punched stack is excellent at parallel readout but poor at local
+change: replacing it can require clearing the whole board.
+
+A tiled memory system preserves most of that readout simplicity while allowing:
+
+- one unexplored room to be revealed on demand;
+- several modules to update while all others remain locked;
+- pre-programmed replacement tiles for likely next areas;
+- background preparation/double buffering at tile level;
+- fault isolation and easier replacement of damaged parts;
+- smaller, stiffer plastic sheets with easier registration.
+
+The trade-off is additional seams, module frames and module-selection hardware.
+
+### Fog-of-war operating sequence
+
+A representative reveal sequence should be:
+
+1. existing non-target modules remain locked and load-bearing;
+2. select one or more hidden target modules;
+3. locally clear/lift only those columns;
+4. change or rewrite the target module's mechanical memory;
+5. lower/settle only the selected columns;
+6. release the module-selection mechanism;
+7. verify that surrounding terrain has not moved.
+
+This sequence should not require removing miniatures from unaffected modules.
+
+### Recommended module-size sweep
+
+Do not assume 10×10 is optimal. A future test should compare at least:
+
+| Module cells | Approx. width at 5.08 mm | Module count for 80×80 |
+|---:|---:|---:|
+| 5×5 | 25.4 mm | 256 |
+| 8×8 | 40.64 mm | 100 |
+| 10×10 | 50.8 mm | 64 |
+| 16×16 | 81.28 mm | 25 |
+| 20×20 | 101.6 mm | 16 |
+
+Small modules improve reveal granularity but increase frames, seams, selectors
+and cartridge count. Large modules simplify hardware but disturb more already
+visible terrain for each local update.
+
+The research question is therefore not merely "can a module update locally?"
+but **which module granularity minimizes total cost and disturbance while
+retaining fast update speed?**
 
 ## Mechanism-independent lower-bound study
 
@@ -157,4 +249,6 @@ This direction is worth continuing only if it demonstrates a credible path to:
 - low-cost planar media;
 - a cartridge exchange comfortably inside the 30 s map-change budget;
 - and a plausible method to write/rewrite pattern media without recreating the
-  original 6400-actuator cost problem.
+  original 6400-actuator cost problem;
+- local updates that do not require clearing the complete board or disturbing
+  unrelated terrain.
