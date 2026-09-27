@@ -108,6 +108,36 @@ Small prototypes should report measured or simulated reconfiguration time and,
 when relevant, a clearly stated extrapolation toward the full 400 mm × 400 mm
 target.
 
+## Regional / on-demand updates
+
+The battle map must support **partial, local terrain updates during play**.
+
+A common D&D case is exploration or fog of war: part of the map is not yet
+revealed, and when the party reaches that area the system should be able to
+materialize only that region without unnecessarily resetting or disturbing
+terrain that is already visible.
+
+A viable architecture should therefore support updates to an arbitrary subset or
+contiguous region of cells with these properties:
+
+- unchanged cells should remain mechanically supported and should not require a
+  deliberate reset, homing cycle or full-map lift;
+- the update mechanism should minimize visible motion, vibration and accidental
+  displacement outside the target region;
+- miniatures and terrain already placed outside the target region should not need
+  to be removed for a normal local reveal;
+- partial-update time must remain below the full-map **30 s** cap and should
+  ideally scale with the size of the affected region rather than with all 6400
+  cells;
+- experiments must explicitly report the disturbance induced in neighboring and
+  non-target cells;
+- any architecture that requires a full-board reset for every small reveal must
+  identify that as a product-level weakness.
+
+No stricter numeric local-update time is fixed yet. Future tests should measure
+representative reveal workloads (for example one room, corridor, 10×10-cell
+module and several separated regions) before a lower target is set.
+
 ## Fabrication baseline
 
 Prototype and small-batch fabrication is expected to use a **Bambu Lab X1
@@ -170,7 +200,9 @@ When evaluating a mechanism, explicitly discuss how it affects:
 8. **Reconfiguration time:** can a complete new battle map become playable in
    **less than 30 seconds** at full target scale, including required reset,
    positioning, actuation, and settling?
-9. **Buildability and reliability:** can it actually be fabricated, assembled,
+9. **Regional updates:** can part of the map be revealed or changed without a
+   full-board reset or disturbing unrelated terrain?
+10. **Buildability and reliability:** can it actually be fabricated, assembled,
    calibrated, maintained, and used repeatedly?
 
 A prototype does not need to satisfy every full-scale target immediately. Its
