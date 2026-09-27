@@ -47,5 +47,11 @@ The command exits non-zero when height or time limits fail. The template should
 report nine locked columns, no collisions, exact discrete heights, and a
 reconfiguration time below eight seconds.
 
+The eight-second limit is specific to this tiny 3×3 reference scenario; it is
+not the product-level timing target. Experiments that evaluate an actuation or
+map-update architecture should separately measure or estimate full-scale
+end-to-end map reconfiguration against the project target of **less than 30
+seconds** documented in `docs/design-target.md`.
+
 When copying this template, replace this goal and record the hypothesis,
 physical assumptions, engine-specific behavior and expected numeric bounds.
