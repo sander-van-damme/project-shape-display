@@ -1,3 +1,5 @@
+> **Legacy test.** This directory is a preserved historical experiment. It does not need to conform to the current suggested testing framework, file layout, API, programming language, or simulation stack. Keep its original approach intact unless the experiment is intentionally being revisited.
+
 # Trial 7 — sliding-release grid (5×5), capped pins
 
 Carries over trial 6's three-layer "sandwich" detent — it works well, so most

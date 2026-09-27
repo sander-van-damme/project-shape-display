@@ -1,18 +1,81 @@
 <!-- © 2024 Sander Van Damme - All Rights Reserved. -->
 
-# Shape-display test platform
+# D&D battle-map shape display
 
-This repository is a repeatable research platform for a pin-based shape display.
-Every experiment lives below `tests/`, with its design sources, settings and
-instructions kept together. The original prototypes were retained and renamed
-systematically; see [`docs/trial-inventory.md`](docs/trial-inventory.md) for the
-migration map and known gaps in older experiments.
+This repository explores a tabletop shape display whose primary goal is to become
+a physical **Dungeons & Dragons battle map**. The intended surface is a dense grid
+of independently height-adjustable **square or rectangular columns** that can
+turn terrain, walls, platforms, stairs, pits, and other map features into physical
+relief while leaving a usable surface for miniatures.
 
-## Start a new test
+The repository is deliberately experimental. Historical trials are preserved
+below `tests/`, and future experiments are free to use different mechanisms,
+languages, CAD systems, simulators, APIs, or folder layouts when that produces a
+better engineering result.
 
-Requirements are Python 3.11+, PyYAML, and (depending on the task) CadQuery and
-a simulation engine. Create tests from the maintained template rather than from
-an older prototype:
+## Product target
+
+The engineering target is defined in more detail in
+[`docs/design-target.md`](docs/design-target.md). The most important constraints
+are:
+
+- **Use case:** a real tabletop D&D battle map, not a generic demo display.
+- **Active footprint:** approximately **400 mm × 400 mm**, so it fits naturally
+  on a table while still providing a useful encounter area.
+- **Map-scale resolution:** use the common **1-inch (25.4 mm) battle-map square**
+  as the reference grid. A feature such as a wall should be representable at
+  roughly **one-fifth of a square**, so the full-scale target pitch is about
+  **5.08 mm or finer**.
+- **Scale implication:** a 400 mm side at about 5.08 mm pitch implies roughly
+  **79–80 columns per axis**, or about **6,200–6,400 independently height-adjustable
+  elements** at full target resolution.
+- **Element shape:** the target display elements are **square/rectangular
+  columns**, not round pins. Legacy files may still use the word `pin`.
+- **Vertical travel:** the display should cover at least the full height of a
+  typical D&D miniature so meaningful terrain and elevation differences can be
+  represented. Tests that validate this should state the reference miniature
+  and measured height they use.
+- **Cost:** 3D-printed parts are not subject to a design cost ceiling. The cost
+  limits below apply to purchased/non-3D-printed components such as electronics,
+  motors, bearings, rods, sensors, PCBs, power supplies, and similar hardware:
+  - **under $200:** ideal;
+  - **$200–$400:** acceptable;
+  - **$400–$500:** last-resort / absolute-limit territory;
+  - **over $500:** unacceptable.
+
+Smaller prototypes are useful, but they should be evaluated by whether their
+mechanism can plausibly scale toward these battle-map requirements.
+
+## Testing philosophy
+
+The current Python/CadQuery/simulation setup is a **recommended reference
+workflow, not a project constraint**. It exists because it is useful for quick,
+repeatable experiments and CI, not because future work must preserve it.
+
+A future test may:
+
+- break the current Python API;
+- use a completely different programming language;
+- use OpenSCAD, FreeCAD, custom scripts, spreadsheets, physical measurements, or
+  another CAD/simulation approach;
+- replace the current simulation stack;
+- use a different file layout;
+- add its own CI or no CI when that is not useful.
+
+What matters is that the experiment clearly states the question it is answering,
+documents important assumptions and dimensions, produces inspectable evidence,
+and records enough information for someone else to understand or reproduce the
+result. Do not keep a weaker approach merely to stay compatible with the current
+framework.
+
+See [`tests/README.md`](tests/README.md) for the suggested workflow and the
+expectations that apply regardless of implementation.
+
+## Suggested reference workflow
+
+For experiments where the existing stack is useful, the repository includes a
+Python 3.11 + PyYAML + CadQuery reference template with a deterministic simulator
+and optional MuJoCo/PyBullet backends:
 
 ```bash
 python scripts/new_test.py test08_my_experiment
@@ -22,18 +85,13 @@ python tests/test08_my_experiment/model.py
 python tests/test08_my_experiment/simulation.py
 ```
 
-Names must match `testNN_short_description`; never reuse a number. Commit source
-and parameters, but not generated `results/` files. A test directory should
-contain `params.yaml`, `model.py`, `simulation.py`, and a `README.md`. Legacy
-tests are documented exceptions until they are converted as they are revisited.
-
-## Commands
+Useful commands for the reference template:
 
 ```bash
-# Fast deterministic checks (also run in CI)
+# Fast deterministic checks used by the current CI
 python -m pytest
 
-# Baseline simulation without a native physics package
+# Dependency-light baseline simulation
 python tests/template/simulation.py --engine kinematic
 
 # Optional rigid-body backends
@@ -41,40 +99,23 @@ python -m pip install mujoco pybullet
 python tests/template/simulation.py --engine mujoco
 python tests/template/simulation.py --engine pybullet
 
-# Export the parametric CAD assembly (STEP and STL)
+# Optional parametric CAD export
 python -m pip install cadquery
 python tests/template/model.py
 ```
 
-MuJoCo and PyBullet are the supported rigid-body candidates. Use PyChrono only
-for tests needing flexible bodies, cables, buckling, or FEA; its recommended
-installation is `conda install -c conda-forge pychrono`. Backend selection is
-explicit in `params.yaml`, so the input remains reproducible.
+PyChrono can still be useful for flexible bodies, cables, buckling, or FEA. It is
+not a required project dependency.
 
-## Outputs and CI
+Generated outputs such as simulation metrics, screenshots, and CAD exports can
+live in `results/` and remain unversioned when they are reproducible.
 
-The simulation validates its height map and writes `results/metrics.json` plus
-an SVG final-state preview. Metrics include elapsed motion time, travel, energy
-estimate, error and pass/fail status. `.github/workflows/ci.yml` checks the
-template, runs unit tests, and uploads results as a pull-request artifact.
-Native MuJoCo and PyBullet smoke jobs exercise the optional adapters.
+## Historical tests
 
-Generated artifacts are intentionally not versioned. A future Pages deployment
-can publish the uploaded `results/` directory without mixing generated files
-with test definitions.
-
-## Test patterns
-
-Useful deterministic scenarios include:
-
-1. **Flat:** every target is zero; validates reset and release behavior.
-2. **Staircase:** columns use successive discrete levels; validates travel and
-   timing (the template demonstrates this case).
-3. **Structured relief:** a checked or concentric map with an explicit seed if
-   any generator is used; validates frequent neighboring height changes.
-
-See [`tests/README.md`](tests/README.md) for the schema, workflow, expected
-files, acceptance rules, and guidance for agents.
+`tests/test00_...` through `tests/test07_...` are legacy experiments. Each
+legacy directory now identifies itself locally in its README; there is no
+separate migration inventory. They are historical design evidence and do not
+need to be converted to the suggested reference framework.
 
 ## Copyright
 
