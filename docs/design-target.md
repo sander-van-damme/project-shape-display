@@ -72,6 +72,31 @@ meet this requirement should identify a representative miniature and record its
 measured height. The target should then be at least that much usable column
 travel, not merely total part length.
 
+## Map reconfiguration time
+
+During play, changing terrain should not create a long pause at the table. The
+full-scale system therefore has a **hard target of less than 30.0 seconds** to
+change from one battle-map state to another.
+
+Measure this end to end: start when the controller begins applying the new map
+and stop only when all columns required by that map are in their commanded
+positions, mechanically settled or locked as required, and the surface is ready
+for normal play. Any reset, per-map homing or positioning, actuation, and
+settling steps belong inside the 30-second budget. One-time power-on setup does
+not need to count unless the mechanism requires it for every map change.
+
+Experiments should state the workload used for timing. A partial update can be
+reported as an additional useful metric, but it should not be presented as proof
+of the full-map target without a justified full-scale estimate. With roughly
+6,400 columns, a purely serial architecture that must independently service
+every column would need to average more than about **213 column updates per
+second before overhead** to meet 30 seconds. This is a scalability sanity check,
+not a requirement to use any particular actuation architecture.
+
+Small prototypes should report measured or simulated reconfiguration time and,
+when relevant, a clearly stated extrapolation toward the full 400 mm × 400 mm
+target.
+
 ## Component-cost envelope
 
 The cost constraint applies to **purchased/non-3D-printed components**. Examples
@@ -112,9 +137,11 @@ When evaluating a mechanism, explicitly discuss how it affects:
 6. **Purchased-component cost:** where does the full design land in the cost
    bands above?
 7. **Scalability:** what happens around ~6,400 elements, especially for
-   actuation, locking, wiring, power, control complexity, and reconfiguration
-   time?
-8. **Buildability and reliability:** can it actually be fabricated, assembled,
+   actuation, locking, wiring, power, and control complexity?
+8. **Reconfiguration time:** can a complete new battle map become playable in
+   **less than 30 seconds** at full target scale, including required reset,
+   positioning, actuation, and settling?
+9. **Buildability and reliability:** can it actually be fabricated, assembled,
    calibrated, maintained, and used repeatedly?
 
 A prototype does not need to satisfy every full-scale target immediately. Its
