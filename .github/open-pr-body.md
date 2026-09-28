@@ -1,105 +1,102 @@
-# DND-28: re-scope T11-A + J2 physical gates to analytic/simulation gates
+# DND-30: reconcile ADR-001 with delegated merge authority + no-print directive
 
-Supersedes [DND-21](/DND/issues/DND-21) and [DND-14](/DND/issues/DND-14).
+Resolves [DND-30](/DND/issues/DND-30). Makes the repository's decision record
+self-consistent with board directives [DND-19](/DND/issues/DND-19) (agents merge
+their own reviewed PRs) and [DND-27](/DND/issues/DND-27) (no physical print
+tests).
 
 ## What changed
 
-The physical print/measure gates of the T11-A S3 selector fan-out coupon and the
-J2 isolation rig can no longer be executed (board policy [DND-27](/DND/issues/DND-27):
-no physical print tests). This PR replaces them with the strongest
-**non-physical** evidence gates that can still reject the candidate
-architectures, and teaches the existing CI-tested gate engines to consume
-analytic input without ever presenting it as physical validation.
+`07-evidence-and-decisions/convergence-decision-2026-09.md` (ADR-001):
 
-### A — T11-A selector fan-out (`06-experiments/test11_shared_drive_gate_analysis/analytic/`)
+- **§4 — merge authority.** Replaced "Merge remains board-authorized. Agents do
+  not merge." with the DND-19 delegated-merge rule, and recorded the merge status
+  of PRs #12–#17 against `origin/main` (`1a9926e`): all merged via the
+  `integrate/test11-all` branch; no open PRs remain. Verification anchors:
+  `8ea9c5f` and `452206f` are ancestors of `origin/main`.
+- **§5 — binding tests re-ranked as analytic/simulation/CAD.** The three former
+  physical steps (isolation rig, printed pitch coupon, printed one-bit memory
+  cell) are replaced by executable non-physical gates, preserving the same
+  elimination order and kill logic:
+  1. beam/FEA coupling + stiction isolation bound (SIMULATION/CALCULATION);
+  2. CAD/mesh vs *sourced* FDM process limits + worst-case/Monte-Carlo stack-up
+     (CAD + CALCULATION);
+  3. force/kinematics memory-cell model + tolerance stack-up
+     (CALCULATION/SIMULATION);
+  4–7. isolation 2×2 model, analytic selector fan-out, modelled writer path,
+     analytic/FEA load & power.
+- **§5.2 — permanently qualitative risks.** A new explicit table names what a
+  printed/measured coupon would have retired and can no longer be closed
+  (print realisation, release-force spread, detent hold/repeat, rig noise floor
+  & creep, stiction release, miniature-height compliance). This is the
+  "flagged assumptions" deliverable.
+- **§1/§2/§3/§6/§7** updated so the critical path reads analytic/simulation/CAD
+  plus accepted qualitative risk, not physical experimentation; the honesty
+  statement now states no printed/measured evidence exists **and none will be
+  produced**.
 
-- **Analytic printability gate** against *sourced* FDM process limits
-  (`sourced fact` vs `assumption` labelled per value): min vertical wall
-  ~1.05× nozzle (0.42 / 0.21 mm), min slot ~1× nozzle (0.40 / 0.20 mm), plus
-  assumed free-gap and pivot-definition floors.
-- **Interference/tolerance stack-up**: worst-case and Monte Carlo (200k draws,
-  sigma = half_range/√3) for min web, pivot free play, land reach, lateral
-  clearance and bbox, with a margin distribution.
-- **CAD/mesh validation**: `verify_coupon_stl.py` retained and extended to
-  render the SCAD with OpenSCAD when present (SKIP otherwise).
-- **Dated analytic run record** in the exact `t11a_fit_check.py` schema with an
-  `evidence=CALCULATION` column.
+`07-evidence-and-decisions/convergence-plan.md`:
 
-### B — J2 isolation rig (`06-experiments/test11_falsification_library/analytic/`)
+- **§3** elimination table re-expressed with an explicit **Evidence level**
+  column (CALCULATION / SIMULATION / CAD); physical-test cost/where columns
+  removed; added **§3.1** (what DND-28 already closed analytically: J2
+  neighbour bound 0.017 mm vs 0.10 mm gate; S3 min-web +0.11 mm; unresolved M3
+  pivot) and **§3.2** (permanently qualitative risks).
+- **§4** promotion rule no longer requires a "physical pass at final pitch";
+  requires the analytic/CAD gate **and** explicit board acceptance of §3.2.
+  "Measured value" language in reject/park rules replaced with analytic bounds.
+- **§6** evidence snapshot annotated: Printed/Measured columns are permanently
+  empty by policy.
+- **§7** governance corrected: merges are delegated (DND-19); no physical gate
+  may be introduced (DND-27).
 
-- **Kinematic/force analysis**: clamped/simply-supported rail-beam bound for
-  target→neighbour coupling; Coulomb stiction bound; isolation ratio (all with
-  units and stated assumptions).
-- **Fixture fit stack-up**: Monte Carlo over declared fit tolerances, plus the
-  existing `check_fixture.py` mesh/render gate.
-- **Claim disposition table**: which protocol claims now rest on analysis vs
-  which still require measurement.
-- **Dated analytic run record** in the `measurements/isolation.csv` schema with
-  an `evidence=CALCULATION` column.
+`07-evidence-and-decisions/README.md` (consistency fix in the canonical evidence
+matrix the ADR points at):
 
-### Engine + CI changes
-
-- `t11a_fit_check.py` and `isolation_rig_runner.py` read an optional `evidence`
-  column; a non-measured row is never reported as `MEASURED`, and the
-  measurement repeat guard is waived only for a deterministic analytic bound
-  (stated in the gate note).
-- CI (`engineering-checks`) regenerates and consumes both analytic run records
-  end-to-end.
+- Removed the stale "physical J2-0…J2-4 run … owned by the CTO (DND-14)" status
+  and the orphaned coupon-measurement fragment; the adversarial table now shows
+  gate evidence levels and explicitly says no physical run remains to schedule.
 
 ## Engineering question addressed
 
-Can the S3 4-row selector fan-out be rejected, and can the J2 isolation concept
-be supported, **without a physical coupon** — and if not, precisely which claims
-remain physical?
+Can ADR-001 and the convergence plan carry the programme's elimination logic
+without any gate that requires printing or measurement — and if not, exactly
+which assumptions become permanently qualitative?
 
 ## Evidence produced
 
-- `analytic/runs/t11a_analytic_measurements.csv` → engine disposition
-  `INCONCLUSIVE_RUN_A4` (analytic warning).
-- `analytic/runs/isolation_analytic.csv` → engine per-tile `INCONCLUSIVE`
-  (J2-0 rig noise unmeasured by design).
-
-## Findings (calculation/simulation, **not** measurement)
-
-- **M1 min web worst-case margin +0.11 mm** — positive but thin; the web is the
-  tight feature, not the notch.
-- **M3 pivot free play is not analytically decidable**: the coupon prints its
-  pivot in place with **no designed radial clearance**, so the record leaves
-  `M3_pivot` blank and the engine returns `INCONCLUSIVE` rather than a false
-  pass or kill. Adding an explicit designed clearance is the cheapest way to
-  make this analytic.
-- **J2 rail-coupled neighbour bound is 0.017 mm max (20×20) vs the 0.10 mm
-  gate**; stiction (0.18–2.84 N) dominates rail shear. The isolation *concept*
-  is analytically sound.
-- **Still measurement-required:** J2-0 rig noise floor, J2-3 cumulative creep,
-  and the stiction release force. These cannot be retired analytically.
+- Documentation revision only; no new analytical run.
+- Reused existing DND-28 analytic results (J2 0.017 mm neighbour bound vs
+  0.10 mm gate; S3 min-web +0.11 mm; M3 pivot `INCONCLUSIVE`) as the concrete
+  examples of a closed analytic gate and an unresolved one.
+- Local CI parity: `test11_cost_printability_reliability/checks.py`,
+  `test11_falsification_library/checks.py`, and `check_fixture.py` all exit 0
+  on this branch. The edits touch only `07-evidence-and-decisions/` and
+  `.github/open-pr-body.md`, which CI does not execute.
 
 ## Assumptions made explicit
 
-- FDM limits: wall ≈1 extrusion width, slot ≈1 nozzle diameter (slicer
-  convention); free-gap 0.20 mm and pivot-definition 0.40 mm are **assumptions**.
-- Tolerance inputs: ±0.08 mm XY, ±0.06 mm hole, ±0.05 mm shrink, ±0.20 mm land
-  window; normal with sigma = half_range/√3.
-- Rail model: isotropic PLA E=2500 MPa, rigid holders, rectangular section.
-- Stiction: μ=0.35 dry PLA–PLA.
+- The §5.2 list is the complete set of previously-physical binding assumptions;
+  any future gate that cannot be expressed analytically is parked there by the
+  §6 rule.
+- "Sourced FDM process limits" are cited as rules/values, not measured on this
+  machine, per DND-27.
 
 ## What passed / failed
 
-- Analytic selftests for both packages: PASS.
-- Both analytic records consumed by their gate engines: PASS.
-- All pre-existing `engineering-checks` scripts: PASS locally.
-- M3 unresolved and J2-0/J2-3 measurement-required: reported as such, not papered
-  over.
+- All edited documents are internally consistent with DND-19 and DND-27: PASS.
+- No new physical-test requirement introduced anywhere: PASS.
+- No claim of printed/measured validation is made anywhere: PASS.
 
 ## What remains uncertain
 
-Anything a physical coupon would show: fusion, stringing, layer adhesion,
-elephant-foot, warp; and for J2, the rig noise floor, creep and stiction
-release.
+The §5.2 risks remain genuinely unretired — that is the honest state, not a
+papering-over. A survivor can now only be **promoted** if the board explicitly
+accepts them alongside the analytic gate.
 
 ## Most informative next test
 
-Add an explicit **designed radial clearance** to the S3 pivot in
-`selector_fanout_coupon.scad`, then re-run the analytic stack-up. That converts
-M3 from unmodelled to analytic and lets the T11-A decision tree reach a real
-disposition without a print.
+Close the one analytically-decidable loose end from DND-28: add an explicit
+**designed radial clearance** to the S3 pivot in `selector_fanout_coupon.scad`
+and re-run the T11-A stack-up, converting M3 from `INCONCLUSIVE` to a real
+analytic disposition — all without printing.

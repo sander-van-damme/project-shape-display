@@ -40,8 +40,10 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
 
-input remains the printed **release-force spread across many identical pawls**,
-whose break-even is ≈ 9% sd; the coupon exists to measure it.
+The S1 release-force input remains the **release-force spread across many identical pawls**,
+whose break-even is ≈ 9% sd. Under [DND-27](/DND/issues/DND-27) there is no coupon to measure it;
+this is a permanently qualitative risk recorded in
+[ADR-001 §5.2](convergence-decision-2026-09.md).
 
 ### Convergence decision (CTO, 2026-09-28)
 
@@ -56,20 +58,21 @@ able to hold load without powered holding. The field is unsupported on regional 
 
 The matrix above records *what evidence exists*. It does not record *what would
 kill each candidate*. [Test11](../06-experiments/test11_falsification_library/)
-adds that layer. No survivor has any **printed or measured** evidence; every gate
-below is proposed, not passed.
+adds that layer. No survivor has any **printed or measured** evidence and, under
+[DND-27](/DND/issues/DND-27), none will be produced; every gate below is an
+**analytic/simulation/CAD** gate, proposed and not yet passed.
 
-| Survivor | Biggest unproven assumption | Cheapest rejection test | Physical status |
+| Survivor | Biggest unproven assumption | Cheapest rejection gate | Gate evidence level |
 |---|---|---|---|
-| S1 threshold/ratchet | four gates + ratchet + 40 mm travel fit at 5.08 mm | 2×5 strip, two masks, one shared stroke | NOT STARTED |
-| S2 planar tiles | four planar layers register for a 0.7 mm follower | 5×5 stack, five heights, checkerboards | NOT STARTED |
-| S3 multi-row DMA | 2×4 printed register completes a loaded dwell | 2×4 head section, one shared drive | NOT STARTED |
-| S4 shared-bus tiles | cheap clutch is independent under load; jams stay contained | two 2×4 tiles on one bus + forced jam | NOT STARTED |
-| S5 rotary stops | printed cam/detent/return work at pitch and load | Test09 Stage A→B then C | NOT STARTED (Test09 plan exists) |
+| S1 threshold/ratchet | four gates + ratchet + 40 mm travel fit at 5.08 mm | 2×5 analytic fit/stack-up, two masks, one shared stroke | CALCULATION |
+| S2 planar tiles | four planar layers register for a 0.7 mm follower | 5×5 kinematic stack-up, five heights, checkerboards | CALCULATION / SIMULATION |
+| S3 multi-row DMA | 2×4 printed register completes a loaded dwell | 2×4 analytic fan-out gate (`t11a_fit_check.py`) | CALCULATION / CAD |
+| S4 shared-bus tiles | cheap clutch is independent under load; jams stay contained | two 2×4 tile models + modelled jam | SIMULATION |
+| S5 rotary stops | printed cam/detent/return work at pitch and load | Test09 Stage A→B then C (analytic) | CALCULATION / SIMULATION |
 
 Reliability is a **cross-cutting gate**: at a 0.01% per-cell error rate a
-6400-cell map is correct only 52.7% of the time, and a six-cell coupon is
-99.94% perfect even at that failing rate. A clean small demo therefore cannot
+6400-cell map is correct only 52.7% of the time, and a six-cell coupon would be
+99.94% perfect even at that failing rate. No clean small demo can be built to
 promote any architecture. See
 [Test11 reliability.py](../06-experiments/test11_falsification_library/reliability.py).
 
@@ -77,20 +80,22 @@ Test11 now also ships the **runnable** pieces of that gate so a survivor's fate
 is mechanical, not a judgement call:
 
 - [`isolation_rig_runner.py`](../06-experiments/test11_falsification_library/isolation_rig_runner.py)
-  scores the J2 measurement table into GO / KILL / INCONCLUSIVE per survivor
-  (with repeat-count guards). Its `--selftest` exercises every gate on
-  SYNTHETIC rows and is CI-wired; it is not evidence for any survivor.
-- [`measurement_plan.md`](../06-experiments/test11_falsification_library/measurement_plan.md)
-  is the decision table (peak vertical/lateral motion, miniature move/tip, seam,
-  drift, regional time) plus the reliability bridge from a counted coupon run to
-  `P(perfect 6400-cell map)`.
+  scores the J2 analytic run record into GO / KILL / INCONCLUSIVE per survivor
+  (with repeat-count guards); a non-measured row is never reported as `MEASURED`.
+  Its `--selftest` exercises every gate on SYNTHETIC rows and is CI-wired; it is
+  not evidence for any survivor.
+- [`analytic/`](../06-experiments/test11_falsification_library/analytic/) holds
+  the DND-28 analytic proxies: rail-beam coupling + stiction bounds and the
+  fixture fit stack-up.
 - [`check_fixture.py`](../06-experiments/test11_falsification_library/check_fixture.py)
-  gates the print-ready fixture geometry (5.08 mm pitch, X1C bed fit, one-plate
-  layout). OpenSCAD is absent in the agent environment, so the SCAD parse step
-  is reported SKIPPED, never passed.
+  gates the fixture geometry (5.08 mm pitch, X1C bed fit, one-plate layout) as a
+  mesh/render check. OpenSCAD is absent in the agent environment, so the SCAD
+  parse step is reported SKIPPED, never passed.
 
-The physical J2-0…J2-4 run remains the top missing evidence and is owned by the
-CTO.
+There is **no remaining physical J2 run to schedule**: the former J2-0…J2-4
+protocol was re-scoped to its analytic proxy by [DND-28](/DND/issues/DND-28). The
+residual measurement-only claims are permanently qualitative
+([ADR-001 §5.2](convergence-decision-2026-09.md)).
 
 ### Test11 survivor-specific calculated results
 
@@ -106,9 +111,14 @@ CTO.
 
 ### Physical evidence status
 
-**Printed: none. Measured: none.** The J2 isolation rig is **PRINT-READY PENDING HARDWARE**
-(slice-calculation verdict, no slicer binary, no print). The physical J2-0…J2-4 run is the top
-missing evidence and is owned by the CTO ([DND-14](/DND/issues/DND-14)).
+**Printed: none. Measured: none — and none will be produced** under board directive
+[DND-27](/DND/issues/DND-27) (no physical print tests). The J2 isolation rig is now scored only
+through its analytic proxy
+([`analytic/`](../06-experiments/test11_falsification_library/analytic/)); the former physical
+J2-0…J2-4 run was re-scoped by [DND-28](/DND/issues/DND-28) and its source issue is
+`cancelled`. Physical measurement is not an available evidence class for this programme; the
+residual qualitative risks are listed in
+[ADR-001 §5.2](convergence-decision-2026-09.md).
 
 ## Mechanism coverage audit — September 2026
 
