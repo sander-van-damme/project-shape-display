@@ -24,9 +24,34 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | M-003 bistable latch family | ✓ | — | — | — | — | — | — |
 | M-005 compliant snap-through family | ✓ | — | — | — | — | — | — |
 | M-008 shared shaft/clutch family | ✓ | — | — | — | — | — | — |
+| Test10 mechanism-neutral scale bounds | — | ✓ | — | — | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
+
+## Broad-search calculated evidence — September 2026
+
+[Test10](../06-experiments/test10_broad_architecture_screen/) adds only arithmetic
+evidence; it does not validate a mechanism. At the common 80×80, five-state
+reference scale it calculates:
+
+- 6,400 cells across 406.4 mm at 5.08 mm pitch;
+- at least `6400 × log2(5) = 14,860` independent state bits, or 19,200 bits in a
+  fixed three-bit encoding;
+- more than 213.33 completed cell transactions/s for a purely serial writer to
+  finish within 30 s before overhead;
+- 64 tiles when the board is partitioned into 10×10-cell regions;
+- 25,600 passive binary decisions for four unary height thresholds per cell;
+- at an explicitly illustrative 0.40 s complete station dwell, 32.0 s for 80
+  one-row stations and 8.0 s for 20 four-row stations, both excluding reset;
+- 6,400 bought selectors cost $3,200 even at an assumed $0.50 each, while 64
+  module selectors at $2 each cost $128 before the rest of the machine.
+
+These bounds justify rejecting bought per-cell selection and ordinary serial
+visible writing as baselines. They do **not** establish that threshold gates,
+planar tiles, a multi-row head or module clutches work. The broad candidate
+record therefore retains four new survivor families alongside the rotary-stop
+reference and explicitly leaves `08-current-design/` unchanged.
 
 ## Architecture investigation — September 2026
 

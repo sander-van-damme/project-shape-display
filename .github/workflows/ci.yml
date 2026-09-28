@@ -19,3 +19,5 @@ jobs:
         run: python 06-experiments/test08_architecture_search/checks.py
       - name: Test09 validation workflow
         run: python 06-experiments/test09_test08_validation/run.py
+      - name: Test10 architecture scale bounds
+        run: python 06-experiments/test10_broad_architecture_screen/checks.py
