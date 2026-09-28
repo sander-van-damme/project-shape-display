@@ -131,3 +131,27 @@ per-line vendor and evidence labels. Result: every survivor is over $500 at the
 expected delivered scenario, and the cheapest sourced motor+driver pair for S5
 lands at $501.12 delivered — on the ceiling with no margin. Prices here are the
 2026-09-28 source; re-verify before any purchase.
+
+## 7. DND-37 re-check — the matched-motor question (2026-09-28)
+
+Re-run for the S5 winner ratification ([DND-37](/DND/issues/DND-37)). Conclusion
+unchanged and now better evidenced: **no distributor stocks a true 8 mm 18°
+bipolar PM stepper.**
+
+| Source | Finding | Evidence |
+|---|---|---|
+| Octopart (aggregates DigiKey, Mouser, Farnell, Newark, Arrow) | "8mm stepper motor" → only large NEMA/hybrid frames (QSH6018 €114+) and €268–503 integrated PANdrives. No small 8 mm PM bipolar stepper at any price. | SOURCED (live page 2026-09-28) |
+| MOONS online shop | `8PM020S1-02001`, 8 mm, 18°, bipolar, 0.4 mN·m holding / 0.15 mN·m detent → **$40.00 EA**. Only traceable matched part. | SOURCED (live product page) |
+| AliExpress "8mm stepper motor" | Genuine micro listings: "Micro Mini 8 mm 2-phase 4-wire" **€2.66 ea** (1k+ sold); "8/10 mm 2-phase 4-wire screw-slide micro stepper" **€3.59 ea**; "10 pcs 3–5 V 2-phase 4-wire dia 8 mm, 8×9.5 mm" **€7.89/10 → €0.79 ea** (143 sold). | SOURCED (live listing page) |
+
+**Residual risk:** the sub-$1.05 basis is an **unqualified marketplace multipack**
+(no datasheet-matched step angle, winding, shaft or lot). Only a purchased,
+sampled lot can retire it, and that is forbidden under
+[DND-27](/DND/issues/DND-27). Treat the S5 expected delivered cost as a **range
+$493.57–$646** (at a $2.66 marketplace motor) until a matched lot exists. The
+$40 MOONS part would put the machine at ~$4,156 delivered. Conservation note: the
+S5 reduced figure is **$493.57**, not the originally published $481.56 — the
+register consolidation was over-counted by $10.30 (line removed at its expected
+allowance against a sourced base). See
+[`../../07-evidence-and-decisions/dnd37-bom-ratification.md`](../../07-evidence-and-decisions/dnd37-bom-ratification.md).
+
