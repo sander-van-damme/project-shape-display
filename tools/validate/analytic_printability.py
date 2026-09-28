@@ -25,6 +25,16 @@ USAGE
     python tools/validate/analytic_printability.py --json out.json <coupon.scad>
 
 Called with no argument it defaults to the T11-A selector fan-out coupon.
+
+EXIT CODES
+----------
+    0   the checker ran and produced a verdict (PASS, RISK **or FAIL**).
+        A printability FAIL is a *design* finding, not a tool error, so it does
+        not fail the process by default. This matches the unified harness,
+        which reports a FAIL as a design finding and still exits 0.
+    1   the checker ran and the verdict is FAIL, **only** when
+        `--fail-on-design-fail` is passed (opt in to gate on the design risk).
+    2   the checker could not run (missing/invalid coupon source).
 """
 
 from __future__ import annotations
@@ -211,6 +221,10 @@ def main() -> int:
     ap.add_argument("coupon", nargs="?", default=str(DEFAULT_COUPON),
                     help="OpenSCAD coupon source to analyse")
     ap.add_argument("--json", metavar="PATH", help="write JSON record here")
+    ap.add_argument("--fail-on-design-fail", action="store_true",
+                    help="exit 1 when the verdict is FAIL (design gate); "
+                    "off by default because a FAIL is a design finding, not "
+                    "a tool error")
     args = ap.parse_args()
 
     path = Path(args.coupon)
@@ -223,7 +237,9 @@ def main() -> int:
     if args.json:
         Path(args.json).write_text(json.dumps(res, indent=2) + "\n")
         print(f"\nwrote {args.json}", file=sys.stderr)
-    return 1 if res["verdict"] == "FAIL" else 0
+    if args.fail_on_design_fail and res["verdict"] == "FAIL":
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

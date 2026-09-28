@@ -44,6 +44,11 @@ unreadable mesh). A printability `FAIL` is reported as a *design* finding and
 does not fail the harness — the harness's job is to produce the evidence, not to
 hide a design risk.
 
+The standalone `analytic_printability.py` follows the same rule: it exits `0`
+when it produced a verdict (`PASS`/`RISK`/`FAIL`), and `2` only if it could not
+run. Pass `--fail-on-design-fail` to opt into a non-zero exit on a design `FAIL`
+when a downstream stage needs to gate on it. Neither path ever claims a print.
+
 ## Evidence classes (read this before quoting any number)
 
 - **render** and **mesh validate** → **CAD** evidence: the geometry parses,
