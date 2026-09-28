@@ -10,6 +10,13 @@ The rotary-stop investigation reached a conditional analytical/CAD candidate, bu
 
 Until one architecture survives the required evidence gates, this folder remains a status page rather than pretending that a final design has been selected.
 
+Cost is currently a **hard blocker independent of mechanism choice**: Test11 shows
+no survivor (S1–S5) has a credible sub-$500 purchased path at working allowances,
+and the only traceable 8 mm PM stepper is $40/ea. Any bought part required on all
+6,400 cells adds at least $320–640 on its own. Selection/programming must be
+printed or heavily shared, and a traceable low-cost motor quote is required before
+any full-scale build.
+
 Authoritative supporting material:
 
 - [Architecture investigation](../07-evidence-and-decisions/)

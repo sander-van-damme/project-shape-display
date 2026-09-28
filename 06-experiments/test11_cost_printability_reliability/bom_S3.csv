@@ -1,0 +1,17 @@
+item,quantity,unit_optimistic_usd,unit_working_usd,unit_high_usd,category,basis
+Row head selector axis (per-row direct output),320,2.00,5.00,10.00,actuator,Optimistic is speculative (README warns no evidence for $2 full-stroke axis); realistic S3 must be passive/shared fan-out
+Selector driver channel,320,0.35,1.33,2.39,electronics,DRV8833PWPR sourced LCSC $1.3338@100 / DRV8833PWR $2.3873 single; $0.35 speculative
+Shared selector drive motor,4,10.00,20.00,35.00,actuator,Shared cam/shaft drives; allowance
+Shared selector drive driver,4,3.00,6.00,12.00,electronics,Allowance
+Head scan X axis (motor + rail + belt),1,35.00,65.00,110.00,actuator,Full-width carriage; sourced rail/belt allowance
+Head scan driver,1,6.00,10.00,18.00,electronics,Allowance
+Reset row axis,1,20.00,35.00,60.00,actuator,Row/tile segmented reset; allowance
+Board controller,1,5.00,18.00,30.00,electronics,Allowance
+Shift registers 74HC595,40,0.09,0.10,0.15,electronics,Sourced LCSC $0.0925@50; 320 control bits
+Driver PCBs and passives,1,20.00,45.00,90.00,electronics,Allowance assembly labor excluded
+Power supply and protection ~300W,1,30.00,55.00,95.00,power,320 simultaneously selectable channels; allowance
+Wiring and flexible loom,1,25.00,45.00,80.00,wiring,320+ conductors; allowance
+Sensors / encoder / height scan,1,10.00,30.00,60.00,sensor,Allowance
+Fasteners and structural bought items,1,10.00,22.00,45.00,fasteners,Allowance
+Spares and miscellaneous,1,12.00,25.00,50.00,spares,Includes selector rejects
+Freight and import reserve,1,15.00,35.00,80.00,logistics,Allowance

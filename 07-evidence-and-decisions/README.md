@@ -27,6 +27,9 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | M-016 mechanical-memory lattice | ✓ | — | — | — | — | — | — |
 | P-010 lock-after-reconfigure precedent | ✓ | — | — | — | — | — | — |
 | Test10 mechanism-neutral scale bounds | — | ✓ | — | — | — | — | — |
+| Test11 S1–S5 purchased-BOM cost model | ✓ | ✓ | — | — | — | — | — |
+| Test11 critical-part sourcing (motors, drivers, couplers) | ✓ | — | — | — | — | — | — |
+| Test11 5.08 mm printability & reliability screens | — | ✓ | — | — | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
@@ -87,6 +90,70 @@ visible writing as baselines. They do **not** establish that threshold gates,
 planar tiles, a multi-row head or module clutches work. The broad candidate
 record therefore retains four new survivor families alongside the rotary-stop
 reference and explicitly leaves `08-current-design/` unchanged.
+
+## Purchased-cost, sourcing, printability and reliability evidence — September 2026
+
+[Test11](../06-experiments/test11_cost_printability_reliability/) builds a
+per-survivor purchased-BOM model and dates the critical parts. It is **cost
+arithmetic plus sourced listing prices**, not a quotation or a measurement.
+
+### Purchased cost per survivor (working allowances; +20% contingency in parens)
+
+| Candidate | Optimistic | Working | High | Credible <$500? |
+|---|---:|---:|---:|---|
+| S1 threshold/ratchet | $132.19 | $518.00 ($621.60) | $1,122.00 | No at working |
+| S2 planar tiles | $192.19 | $536.00 ($643.20) | $1,206.00 | No at working |
+| S3 multi-row DMA | $995.60 | $2,518.60 ($3,022.32) | $4,876.80 | No, decisively |
+| S4 shared-bus tiles | $206.39 | $503.20 ($603.84) | $1,008.00 | No at working |
+| S5 rotary reference | $276.00 | $432.00 ($518.40) | $783.00 | No with contingency |
+
+S5 reproduces the Test08 BOM exactly, anchoring the model. **No survivor has a
+credible sub-$500 delivered path at working allowances.** S1/S2/S4 working totals
+are dominated by *fallback* bought allowances for parts they intend to print;
+their print-intent floors are $239 / $299 / $311 and are only reachable if the
+printed selector/media layer is dimensionally reliable across thousands of cells.
+
+### The critical sourcing result
+
+There is **no commodity bare 8 mm 18° bipolar PM stepper** in
+LCSC/DigiKey/Mouser/Adafruit/Pololu/DFRobot. The only traceable part (MOONS
+8PM020S1-02001) is **$40/ea**; marketplace multipacks are ~$0.70–1.05 (Amazon,
+untraced) or ~$2.66+ (AliExpress, unverified). Test08's **$1.25 motor has no
+matched quote**, and its **$0.60 driver is below the cheapest sourced matched
+bipolar IC** (TB6612FNG $0.80 @100, DRV8833PWPR $1.33 @100). Substituting sourced
+drivers alone moves S5 from $432 to ~$490 base ($588.84 with contingency).
+
+Any bought part required on all 6,400 cells kills the budget: **$0.10/cell adds
+$640**. This arithmetic is mechanism-independent and is the strongest single
+result: **selection/programming must be printed/passive or heavily shared**.
+
+Sourcing is now a **first-class blocker**. The next procurement action is the
+Test09 Stage C gate — one traceable 8 mm motor sample plus an 80+spares delivered
+quote with the same winding, shaft, step angle and lot — before any full-scale
+purchase. Date: 2026-09-28.
+
+### Printability at 5.08 mm pitch
+
+At final pitch the printed geometry is a **fine-nozzle/resin problem**:
+
+- a 4.68 mm body leaves a **200 µm web** — below a 0.4 mm line width;
+- the Test08 0.20 mm guide wall is below the fine-nozzle single-wall floor with
+  any XY compensation;
+- a 0.40 mm nominal top gap loses 150 µm to ±0.10 mm width, ±0.05 mm index and
+  ±0.10 mm deflection allowances;
+- 12,800–19,200 parts is 160–1,600 printer-hours on one X1C, before print yield.
+
+These are the numbers that decide whether 5.08 mm pitch is ordinary-FDM
+fabricable at all, and they point at the Stage A coupon matrix as the next
+physical action.
+
+### Reliability and assembly scaling
+
+`P(perfect map) = (1−q)^6400`: at 0.01% per-cell defects only **52.7%** of maps
+are perfect; a **99% goal needs q ≤ 1.57×10⁻⁶** and ~1.91 M zero-failure
+independent trials. Assembly of 4 parts/cell × 6,400 cells is **71–213 hands-on
+hours** at 10–30 s/part. Detection with bounded recovery must be priced and timed
+for any larger prototype; detachable 10×10 cartridges are mandatory.
 
 ## Architecture investigation — September 2026
 
@@ -363,6 +430,12 @@ doing. Conversely, sourced FS90 servos cost $632 for 80 alone, and current
 industrial micro-steppers are much more expensive. No purchases were made.
 Unresolved brake, better lift motor, failed prints, extra feedback or structural
 metal can invalidate the current allowance; they must be added when specified.
+
+[Test11](../06-experiments/test11_cost_printability_reliability/) now dates these
+critical parts (2026-09-28) and confirms the ceiling fails: the only traceable
+8 mm PM stepper is MOONS at $40/ea, the cheapest sourced matched bipolar driver
+is ~$0.80–1.33, and no survivor has a credible sub-$500 delivered path at working
+allowances. Sourcing is recorded there as a first-class blocker.
 
 ### Reliability, assembly and maintenance
 

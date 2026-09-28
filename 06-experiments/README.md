@@ -18,8 +18,12 @@ Every experiment should make clear:
 | [`test08_architecture_search/`](test08_architecture_search/) | Full-scale architecture screening, especially rotary stepped stops and shared programming | Analytical/CAD evidence; no product-qualified architecture |
 | [`test09_test08_validation/`](test09_test08_validation/) | Falsifiable validation of Test08 assumptions, sourcing, structure, coupling and physical gates | Active validation; physical gates remain unverified |
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
+| [`test11_cost_printability_reliability/`](test11_cost_printability_reliability/) | Purchased-BOM cost model for S1–S5, dated critical-part sourcing, 5.08 mm printability and reliability scaling | Cost/sourcing/print/reliability screens; no quotation or measurement |
 
-Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation.
+Test08 and Test09 contain the current quantitative engineering line. Test11 adds
+the cross-cutting purchased-cost, sourcing and reliability model. Their code,
+parameters, BOMs, CAD and measurement files remain separate because they are
+reproducible evidence rather than narrative documentation.
 
 ## Legacy experiments
 
@@ -44,6 +48,8 @@ From the repository root with Python 3.11+:
 python 06-experiments/test08_architecture_search/checks.py
 python 06-experiments/test09_test08_validation/run.py
 python 06-experiments/test10_broad_architecture_screen/checks.py
+python 06-experiments/test11_cost_printability_reliability/cost_model.py
+python 06-experiments/test11_cost_printability_reliability/print_reliability.py
 ```
 
 All three baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.

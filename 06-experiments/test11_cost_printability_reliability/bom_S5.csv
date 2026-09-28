@@ -1,0 +1,19 @@
+item,quantity,unit_optimistic_usd,unit_working_usd,unit_high_usd,category,basis
+PM motor,80,0.75,1.25,3.00,actuator,Test08 baseline allowance. Sourced: no commodity bare 8mm 18deg bipolar PM stepper in LCSC/DigiKey/Mouser/Adafruit/Pololu/DFRobot; Amazon/AliExpress multipacks ~$0.70-1.05 ea; branded MOONS 8PM020S1 $40 ea
+Dual H bridge channel,80,0.35,0.60,1.00,electronics,Test08 baseline allowance. Sourced DRV8833PWPR LCSC $1.3338@100, DRV8833PWR $2.3873 single / $1.5828@100
+Controller,1,8.00,10.00,18.00,electronics,Engineering allowance
+8 bit shift registers,40,0.20,0.35,0.70,electronics,Test08 baseline. Sourced LCSC 74HC595D $0.0925@50
+Custom driver PCBs and passives,1,15.00,25.00,45.00,electronics,Ten eight-channel boards; assembly labor excluded
+Scanner motor,1,10.00,12.00,18.00,actuator,Engineering allowance
+Lift motor,1,14.00,18.00,25.00,actuator,Requires measured torque margin
+Coupling lift motor,1,6.00,8.00,12.00,actuator,Shared spring-compliant engagement beam
+Axis drivers,3,2.00,3.00,5.00,electronics,Engineering allowance
+Guide rods or rails and bearings,1,25.00,40.00,65.00,transmission,Scanner and four platen guides
+Four lift screws and nuts,1,12.00,20.00,32.00,transmission,8 mm lead assumption; synchronized by belt
+Belts pulleys idlers,1,12.00,20.00,32.00,transmission,Lift synchronization and scanner
+Power supplies and protection,1,25.00,35.00,50.00,power,3.3 V motor rail plus axis rail
+Axis reference sensors,4,0.50,1.00,2.00,sensor,No individual cell feedback
+Wire connectors flexible loom,1,15.00,22.00,35.00,wiring,320 short motor conductors plus power and serial bus
+Head shafts and friction-pad material,1,12.00,20.00,35.00,transmission,80 compliant shafts; coupon testing required
+Fasteners,1,8.00,12.00,20.00,fasteners,Printed cell bearings; no 6400 purchased bearings
+Spares and miscellaneous,1,10.00,15.00,25.00,spares,No per-cell magnets or springs purchased
