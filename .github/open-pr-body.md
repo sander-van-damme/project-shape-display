@@ -1,38 +1,27 @@
-# DND-37b — port the three DND-37 regression gates from the stale PR #32 onto `main`
+# DND-41 — finish the S5 reconciliation: S1/S2/S4 cost caveat + K5 label
 
 ## What changed
+Completes the DND-41 reconciliation of the S5 winner with the DND-36 Falsifier review. The
+bulk (additive cost basis, K1/K4/K6 re-labels, K7–K12) already landed on `main`; this PR adds
+the two remaining acceptance items and aligns one label. **No CAD, BOM or winner change.**
 
-PR #32 (DND-37) was authored on a pre-PR-#28 base and was **not merged as-is** (it would
-have reverted the reviewed cost correction and deleted `ratify_bom.py` /
-`dnd37-bom-ratification.md`). Its one genuinely-new, base-independent asset was its three
-executable DND-37 gates. This PR ports exactly those onto `main` and drops the stale parts.
+- **S1/S2/S4 cost qualifier (item 6):** ADR-002 §2 now states that the parked S1/S2/S4 rows
+  carry **$192–$224 of fallback purchase** for parts their designs intend to print, so their
+  cost is **undetermined pending the Bet-A print gate** — stated for symmetry with S5. The
+  test12 README carries the same figures.
+- **K5 label:** `closed-analytically (range)` → **`conditional`**, matching the docs and the
+  Falsifier finding that the sourced pairing is **at/over the ceiling** and only the reduced
+  path clears it by a small margin.
 
 ## Engineering question
+Are all six DND-41 acceptance items now satisfied on the S5 winner deliverable?
 
-Can DND-37's §2 claims be pinned as executable regression gates rather than prose?
+## Evidence
+- `06-experiments/test12_winner_convergence/checks.py` — all tests pass; asserts K5 `conditional`
+  alongside K1 `open`, K4 `partially-closed`, K6 `conditional`, K7–K12 `open`.
+- `model.py` + `ratify_bom.py --selftest` reproduce the additive figures ($501.12 sourced /
+  $483.37 reduced) unchanged.
 
-## Evidence produced (CALCULATION over the sourced BOM; no purchase, no print, DND-27)
-
-Added to `06-experiments/test12_winner_convergence/checks.py` (10 → 13 tests):
-
-1. `test_dnd37_no_sourced_sub_400_path_exists` — solves for the motor+driver pair price
-   implied by the <$400 band and asserts it is **below the cheapest sourced pair** and
-   below one sourced motor alone. Encodes "no sourced <$400 path exists".
-2. `test_dnd37_driver_substitution_is_cheaper_than_csv_drv8833` — TB6612FNG $0.80 < the
-   CSV's DRV8833PWPR $1.58 expected, i.e. the substitution is a real sourced reduction,
-   not a discount assumption.
-3. `test_dnd37_matched_motor_fallback_is_a_dead_cost_path` — a $40 matched motor puts the
-   machine at >5× the ceiling; the program's #1 cost risk is asserted, not hidden.
-
-## Verification
-
-```
-python 06-experiments/test12_winner_convergence/checks.py   # 13/13 pass
-```
-
-## Disposition of PR #32
-
-Superseded. Its correct content is in `main` via the DND-41 reconciliation (PR #33) and
-this gate port; the rest of the branch regressed reviewed work. No API token exists to
-close the GitHub PR object (deploy key is git-only) — harmless fallout, noted on
-DND-35/DND-6.
+## Policy
+CALCULATION on repository inputs only. No print, no measurement ([DND-27](/DND/issues/DND-27)).
+No board contact ([DND-32](/DND/issues/DND-32)). Branch + PR, self-merge ([DND-19](/DND/issues/DND-19)).

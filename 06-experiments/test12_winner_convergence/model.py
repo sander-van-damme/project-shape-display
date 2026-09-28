@@ -187,10 +187,13 @@ KILLERS = [
     {
         "id": "K5",
         "risk": "purchased cost exceeds $500 delivered",
-        "status": "closed-analytically (range)",
+        # Falsifier Finding A / DND-41: on the additive basis the sourced pairing
+        # is at/over the ceiling; only the reduced path clears it, by a small
+        # margin. Labelled conditional (a range), not a clean close.
+        "status": "conditional",
         "result": f"sourced pair ${winner_delivered_usd():.2f} (over ceiling); reduced "
                   f"${winner_reduced_delivered_usd():.2f}; real but small margin",
-        "gate": f"< ${CEILING_USD:.0f} delivered",
+        "gate": f"< ${CEILING_USD:.0f} delivered on the reduced path",
     },
     {
         "id": "K6",

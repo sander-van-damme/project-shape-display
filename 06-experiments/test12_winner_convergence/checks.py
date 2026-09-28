@@ -141,6 +141,7 @@ class WinnerConvergenceChecks(unittest.TestCase):
         # DND-41 relabels and the six added killers.
         self.assertEqual(statuses["K1"], "open")
         self.assertEqual(statuses["K4"], "partially-closed")
+        self.assertEqual(statuses["K5"], "conditional")
         self.assertEqual(statuses["K6"], "conditional")
         for kid in ("K7", "K8", "K9", "K10", "K11", "K12"):
             self.assertEqual(statuses[kid], "open")

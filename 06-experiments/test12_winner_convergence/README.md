@@ -35,8 +35,11 @@ python 06-experiments/test12_winner_convergence/checks.py    # regression + hone
 Two bets, not one (Falsifier): S1–S4 are **Bet A** (written passive memory); S5 is **Bet B**
 (absolute geometric stops — a homed rotor + gravity-following toe, no written bit). A Bet-A
 failure does not imply a Bet-B failure. S1/S2/S4 cost is **conditional on the print gate**,
-not a kill. The readiness labels below were corrected by [DND-41](/DND/issues/DND-41) to match
-the Falsifier review.
+not a kill: their working BOMs carry **$192–$224 of fallback purchase** for parts the designs
+intend to print (S1: 64 tile couplers $192 + release combs $32; S4: 64 printed clutches $192),
+so their cost is **undetermined pending the Bet-A print gate** — stated for symmetry with S5's
+own cost range. The readiness labels below were corrected by [DND-41](/DND/issues/DND-41) to
+match the Falsifier review.
 
 ## 2. End-to-end stack-up (winner)
 

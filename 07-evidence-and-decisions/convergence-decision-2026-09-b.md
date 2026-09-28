@@ -46,6 +46,13 @@ win.
 | S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint; expected delivered $548.91 | `test11_shared_drive_gate_analysis/` |
 | S5 | programmed rotary stops + common lift | **WIN (direction)** | only CAD+simulation+sourced-BOM candidate; 26.251 s best-corner (**conditional**); sourced cost **$501.12** (at/over ceiling), reduced **$483.37**; K1 open, K4 partially-closed ([DND-41](/DND/issues/DND-41)) | this ADR, `test12_winner_convergence/` |
 
+**Cost qualifier (Falsifier Finding E, added under [DND-41](/DND/issues/DND-41)).** The S1/S2/S4
+rows above are **parked, not cost-killed**: their working BOMs carry **$192–$224 of fallback
+purchase** for parts their designs explicitly intend to print (S1: 64 tile couplers $192 + release
+combs $32; S4: 64 printed clutches $192). Their cost is therefore **undetermined pending the Bet-A
+print gate**, stated here for symmetry with S5's own cost range. Only S3's cost is a genuine,
+sourced kill.
+
 **Failed ideas are kept as assets**, not deleted: the rejection log in
 `test08/README.md:114-150` (unsupported follower, nine-level angular failure, 40-channel
 timing failure, thin-core cam buckling) and the S3/S4 selector-coupon findings
