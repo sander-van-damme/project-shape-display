@@ -27,6 +27,9 @@ python checks.py                      # asserts the rejection thresholds below
 python coupon_geometry.py             # calculated fit screen for the S3 coupon
 python make_coupon_stl.py             # stdlib STL generation (no OpenSCAD needed)
 python verify_coupon_stl.py           # mesh + X1C-envelope check on the STLs
+python t11a_fit_check.py --selftest   # synthetic exercise of the M1-M6 gate engine
+python t11a_fit_check.py --validate   # check the runs/ measurement schema
+python t11a_fit_check.py --predict    # CALCULATED expected coupon dimensions
 # optional, if OpenSCAD 2021.01 is on PATH:
 openscad -o selector_fanout_coupon.stl selector_fanout_coupon.scad
 ```
@@ -41,6 +44,15 @@ measure steps and pass/kill thresholds are in
 [`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md). The notched finger is emitted
 as a mesh with a notch cue rather than a volumetric boolean subtraction, so the
 notch opening must be confirmed in the slicer and on the print, not from the STL.
+
+**T11-A runnable scoring.** [`t11a_fit_check.py`](t11a_fit_check.py) is the
+executable half of the protocol: it reads the human-entered table in
+[`runs/t11a_measurements.csv`](runs/t11a_measurements.csv), applies the M1–M6
+pass/kill gates, and resolves the protocol decision tree across the 0.4 mm
+baseline and the 0.2 mm fallback (`--selftest` exercises every branch
+synthetically; `--predict` prints the calculated coupon dimensions). **No row is
+filled: nothing has been printed.** The package is ready to score a physical run,
+not a substitute for one.
 
 ---
 

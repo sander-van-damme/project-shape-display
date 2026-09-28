@@ -18,7 +18,7 @@ Every experiment should make clear:
 | [`test08_architecture_search/`](test08_architecture_search/) | Full-scale architecture screening, especially rotary stepped stops and shared programming | Analytical/CAD evidence; no product-qualified architecture |
 | [`test09_test08_validation/`](test09_test08_validation/) | Falsifiable validation of Test08 assumptions, sourcing, structure, coupling and physical gates | Active validation; physical gates remain unverified |
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
-| [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status | Calculated system models + unrendered CAD coupon; no printing or measurement |
+| [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status, T11-A fit-coupon gate engine | Calculated system models + print-ready coupon + runnable M1-M6 gate engine; **no printing or measurement** (no fabrication hardware) |
 
 Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation. Test11 adds the shared-drive family (S3/S4) and the S5 gate list as calculated evidence.
 
@@ -47,6 +47,7 @@ python 06-experiments/test09_test08_validation/run.py
 python 06-experiments/test10_broad_architecture_screen/checks.py
 python 06-experiments/test11_shared_drive_gate_analysis/checks.py
 python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
+python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --selftest
 ```
 
 All four baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.

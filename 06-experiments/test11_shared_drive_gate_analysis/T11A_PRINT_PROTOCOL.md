@@ -7,6 +7,14 @@ one 5.08 mm cell band and print cleanly on the Bambu Lab X1C?
 **This has not been printed.** Everything below is a protocol. Fill the record
 with measured numbers or leave it blank; do not infer a pass from CAD.
 
+> **Status (DND-21).** The print/measure half of this protocol cannot be executed
+> by any agent in this company: there is no 3D printer, slicer host, or
+> fabrication bridge reachable from the agent runtime. What ships here is the
+> complete, runnable **fabrication + scoring package** (STLs, run-record schema,
+> gate engine). A physical A1–A4 print and caliper/microscope pass M1–M6 is still
+> required to move S3 off `INCONCLUSIVE`; the gate engine will score it the moment
+> the rows are entered.
+
 ## Files
 
 | File | What it is |
@@ -25,6 +33,22 @@ Regenerate:
 python make_coupon_stl.py --part assembled
 python verify_coupon_stl.py
 ```
+
+**Run record and scoring.** Fill the dated table in
+[`runs/t11a_measurements.csv`](runs/t11a_measurements.csv) (one row per print run)
+and score it with the fit-check engine, which applies M1–M6 and the decision tree
+below mechanically:
+
+```bash
+python t11a_fit_check.py --validate
+python t11a_fit_check.py --input runs/t11a_measurements.csv
+python t11a_fit_check.py --predict    # CALCULATED expected M1/M2/M5, not measured
+python t11a_fit_check.py --selftest    # SYNTHETIC: exercises every gate branch
+```
+
+`runs/` holds human-entered measurements only; it is separate from any generated
+`results/`. The engine emits one of `S3_DENSITY_PRINTABLE`,
+`S3_REQUIRES_FINE_NOZZLE`, `REJECT_S3_4ROW_DROP_TO_2_3`, `INCONCLUSIVE_RUN_A4`.
 
 ## Print matrix
 
