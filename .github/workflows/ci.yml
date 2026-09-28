@@ -36,7 +36,7 @@ jobs:
           python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --selftest
           python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --validate
           python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --predict
-      - name: T11-A analytic gate (DND-28 re-scope: printability + tolerance/MC)
+      - name: "T11-A analytic gate (DND-28 re-scope: printability + tolerance/MC)"
         run: |
           python 06-experiments/test11_shared_drive_gate_analysis/analytic/t11a_analytic_gate.py --selftest
           python 06-experiments/test11_shared_drive_gate_analysis/analytic/t11a_analytic_gate.py --emit-record
@@ -54,7 +54,7 @@ jobs:
         run: |
           python 06-experiments/test11_falsification_library/isolation_rig_runner.py --validate
           python 06-experiments/test11_falsification_library/isolation_rig_runner.py --selftest
-      - name: J2 analytic isolation gate (DND-28 re-scope: rail bound + stiction + fit)
+      - name: "J2 analytic isolation gate (DND-28 re-scope: rail bound + stiction + fit)"
         run: |
           python 06-experiments/test11_falsification_library/analytic/j2_analytic_gate.py --selftest
           python 06-experiments/test11_falsification_library/analytic/j2_analytic_gate.py --emit-record
