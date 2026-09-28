@@ -20,6 +20,7 @@ otherwise that step is reported as SKIPPED, never as passed.
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -27,6 +28,19 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 SCAD = HERE / "j2_isolation_rig.scad"
+
+
+def _openscad_env() -> dict[str, str]:
+    """Env for headless OpenSCAD renders on CI and local boxes alike.
+
+    The Ubuntu/Debian OpenSCAD package is a Qt build; without a display it must
+    be told to use the offscreen platform plugin or the CLI aborts. Forcing it
+    here keeps the render deterministic and non-interactive.
+    """
+    env = dict(os.environ)
+    env.setdefault("QT_QPA_PLATFORM", "offscreen")
+    return env
+
 
 BED_MM = 256.0            # Bambu X1C build plate
 PITCH_MM = 5.08           # full-scale cell pitch -- must not be scaled
@@ -121,7 +135,7 @@ def main() -> int:
             out = "/tmp/j2_%s.stl" % name
             proc = subprocess.run(
                 [osc, "-o", out, *args, str(SCAD)],
-                capture_output=True, text=True, timeout=300)
+                capture_output=True, text=True, timeout=300, env=_openscad_env())
             check(proc.returncode == 0,
                   "%s renders to STL" % name,
                   "%s failed to render: %s" % (name, proc.stderr.strip()[:200]))
@@ -191,7 +205,8 @@ def probe_socket_is_open(osc: str) -> bool:
     if out.exists():
         out.unlink()
     subprocess.run([osc, "-o", str(out), str(probe_scad)],
-                   capture_output=True, text=True, timeout=300)
+                   capture_output=True, text=True, timeout=300,
+                   env=_openscad_env())
     probe_scad.unlink(missing_ok=True)
     is_void = not out.exists()
     if is_void:

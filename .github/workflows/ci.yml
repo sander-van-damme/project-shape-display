@@ -29,3 +29,25 @@ jobs:
           python 06-experiments/test11_falsification_library/isolation_rig_runner.py --selftest
       - name: Test11 fixture geometry gate
         run: python 06-experiments/test11_falsification_library/check_fixture.py
+
+  j2-cad-render:
+    # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
+    # holder's interchangeable-fixture socket for exposure. Separate job so the
+    # stdlib-only engineering-checks job stays fast; OpenSCAD is a heavy apt
+    # dependency. A missing OpenSCAD here is a hard failure, not a SKIP: this is
+    # the job whose whole purpose is the render, so a silent skip would defeat it.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Render every J2 part + probe the fixture socket
+        run: |
+          which openscad
+          python 06-experiments/test11_falsification_library/check_fixture.py
