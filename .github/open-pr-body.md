@@ -1,82 +1,69 @@
+# DND-46 — Falsifier adversarial audit of the DND-44 S5 readiness closure
+
 ## What changed
 
-Closes the two conditional/open geometry killers on the S5 winner ([DND-44](/DND/issues/DND-44)) raised for [DND-45](/DND/issues/DND-45):
+Adds the independent adversarial audit of the DND-44 closure work
+([DND-44](/DND/issues/DND-44)) requested by [DND-46](/DND/issues/DND-46), before the
+CTO writes a final readiness verdict:
 
-**K2 — detent repeatability at sourced friction.** Extended `detent_contact.py` with a
-scallop-depth sweep (0.20 → 0.40 mm) inside the cam envelope (radius 1.5, core 1.0, max
-step 0.50 mm), plus a finite-tip term. Named a geometry that passes at the sourced PLA–PLA
-friction midpoint with a ≥ 1.25 margin.
+- `06-experiments/test12_winner_convergence/falsifier_checks.py` — 19 CI-runnable
+  regression gates that encode the **attacks**, not the closures. If a closure is
+  later "fixed" by quietly re-tightening an assumption, one of these fails.
+- `06-experiments/test12_winner_convergence/FALSIFIER_AUDIT.md` — per-closure
+  verdict, strongest counter-argument, and the minimal residual to keep.
+- `.github/workflows/ci.yml` — runs `falsifier_checks.py` alongside the closure checks.
 
-**K9 — angular margin vs print tolerance.** New `k9_angular_margin.py` Monte-Carlo that
-propagates the sourced ±0.05 mm FDM positional/dimensional tolerance through the
-`toe_angle = atan2(toe_width/2, toe_x − center_x)` geometry and the level-count sweep.
-
-Also: updated `DETENT_CONTACT.md`, added `K9_ANGULAR_MARGIN.md`, updated the K2/K9 rows in
-`test12_winner_convergence/README.md`, `08-current-design/README.md`, `model.py`, and wired
-both new gates into CI.
+Base: the `dnd44-readiness-closure` tip, so the audit is against the exact reviewed state.
+This PR is audit-only; it does not modify the closure modules or `08-current-design`.
 
 ## Engineering question
 
-1. Is there a scallop depth inside the cam envelope that makes the printed detent correct
-   an 18° slipped step with a 25% margin at the sourced PLA–PLA friction midpoint μ = 0.35?
-2. Does the ±0.05 mm FDM print tolerance eat the 5-level angular margin, and at how many
-   levels does the margin actually go negative?
+Can the DND-44 closures (K1/K5/K6/K8/K10/K11) withstand an adversarial attack, or is
+the claimed closure false?
 
-## Evidence produced (CALCULATION / MONTE-CARLO / CAD — no print, no measurement, [DND-27](/DND/issues/DND-27))
+## Evidence produced (CALCULATION only, no print/measure — DND-27)
 
-**K2.** Flank-tilt (wedge) decomposition reduces exactly to the existing flat baseline
-`T_r/T_f = A·k/(μ·r)`; the finite-tip term is `sinc(k·β)`.
+| Killer | DND-44 claim | Falsifier verdict | Strongest counter-argument |
+|---|---|---|---|
+| K6 timing | not a rate problem; ~268 pps meets 30 s | CONFIRMED-WITH-CAVEAT | Floor arithmetic is a real re-derivation, but 268 pps is ~804 rpm (design 400 pps = 1200 rpm) and the 26.25 s pass assumes `inspection_s=0`. With the sweep's own 3 s inspection the 27 s target is missed. |
+| K1 buckling | ≤0.39 N/column, 12.7× margin | **BROKEN** | A rigid base on a height-varying field is a three-point contact: 1 kg → **3.27 N/column**, a 1.5× margin, not 12.7×. `ceil(d/pitch)²` also overcounts the cells under a round base. |
+| K5 cost | $424.95 delivered, $75 margin | **BROKEN AS STATED** | $75 needs four simultaneous best cases. Restore spares (E5) + bundled `unit_expected` (E6) → **$482.95 / $17.05 margin**; at the *sourced* DRV8833PWPR → $474.91; with an expected motor → **$501.51 (over)**. E6 is best-case repricing of four bundled lines, not sourcing. |
+| K8 lateral | 1 N → 0.01 mm; limit ~9.4 N | **BROKEN** | The 12 mm free length is hard-coded in `__main__`; the repo's own `unrelieved_upper_body_length_mm = 40 mm`. At 40 mm a 1 N lateral load deflects **0.356 mm**, 3.5× the 0.10 mm gate. |
+| K10 regional | bounded | CONFIRMED | Complete, monotonic bound. Caveat: fixed platen stroke sets the floor, not region size. |
+| K11 cycle life | ~1e8 cycles | PSEUDO-QUANTITATIVE | The 9.98e7 point estimate rests on ε_endurance=0.3 % and m=8; a conservative FDM endurance drops it 25×. |
 
-| Scallop depth | μ=0.20 | μ=0.35 | μ=0.50 | in envelope |
-|---:|---:|---:|---:|:---:|
-| 0.20 (nominal) | 1.613 | 0.922 ✗ | 0.645 ✗ | yes |
-| 0.28 | 2.258 | 1.290 ✓ | 0.903 ✗ | yes |
-| **0.40 (chosen)** | 3.226 | **1.843 ✓** | **1.290 ✓** | yes |
-
-- Exact minimum depth for a 1.25 margin at μ = 0.35: **0.2712 mm**; at μ = 0.50: **0.3875 mm**.
-- Chosen **0.40 mm** fits the 0.50 mm envelope (leaves 0.10 mm core wall). 0.55 mm is
-  rejected as out-of-envelope.
-- Conservative 8° blunt tip: exact minimum 0.2946 mm, still under 0.40 mm — not knife-edge.
-- Chosen depth written to `test08 params.json` (`cam.detent_scallop_depth_mm`) → generated
-  `results/parameters.scad`.
-
-**K9** (200,000 draws, seed 20260928; bounded-uniform primary + Gaussian σ=0.05 conservative):
-
-| Levels | nominal | bounded mean | bounded min | bounded P(<0) | Gaussian P(<0) |
-|---:|---:|---:|---:|---:|---:|
-| 4 | 21.50° | 14.53° | 10.76° | **0.00%** | **0.00%** |
-| 5 | 12.50° | 5.52° | 1.72° | **0.00%** | **1.31%** |
-| 6 | 6.50° | −0.47° | −4.28° | **65.6%** | **69.1%** |
-
-- 5 levels keeps margin positive under the bounded tolerance reading but only ~1.7°
-  worst-case; under a Gaussian tail it has a 1.3% failure probability.
-- **6 levels fails outright; 4 levels is robust.**
+Attacks that **failed** (recorded): the K6 closed-form arithmetic (reproduces
+`test09/analyze.schedule()` to 1e-15 s; the floor is a true bound), K10 completeness,
+and the E1 driver *topology* (dual H-bridge for dual H-bridge — the attack is on its
+price basis, not its kind).
 
 ## Assumptions
 
-- ±0.05 mm is a sourced FDM positional/dimensional capability claim, not a measured
-  distribution on these specific parts; both a bounded and a Gaussian interpretation are
-  reported.
-- The wedge model assumes the leaf force is radial; the finite-tip efficiency η = sinc(kβ)
-  is a stated term, not measured.
-- Existing model anchors (Test08/Test09) unchanged.
+- All counter-numbers are arithmetic over the repo's own `params.json`, BOM CSV and
+  closure-module inputs. No new sources were introduced.
+- The three-point-contact model is a **worst-case bounding model**, not a claim that
+  every base tripods; it shows the 0.39 N figure is a best case, not a bound.
+- The K5 variants treat "keep spares" and "bundled lines at `unit_expected`" as the
+  defensible planning basis; the closure's own BOM CSV supplies both numbers.
 
 ## What passed / failed
 
-- **Passed:** K2 has a named geometry (0.40 mm) that clears 1.25 at μ = 0.35 (1.84) and
-  μ = 0.50 (1.29) inside the envelope. K9 is bounded; 5 levels is conditionally safe,
-  4 robust, 6 fails.
-- **Failed / remains:** the as-printed μ, creep, tip sharpness, and the real tolerance
-  distribution cannot be measured under DND-27, so K2's residual risk is print
-  realisation; K9's residual is the real as-printed tolerance distribution.
+- **Passed:** K6 floor arithmetic; K10 regional bound; E1 driver topology.
+- **Failed:** K1 service bound, K5 stated margin, K8 lateral free-length, K11 point
+  estimate.
 
-## Checks run
+## What remains uncertain
 
-- `detent_checks.py` (15 tests, +6 new), `k9_checks.py` (10 tests), `checks.py` (13 tests,
-  killer labels updated), `model.py`, `ratify_bom.py --selftest`, `test08/checks.py`,
-  `test09/run.py` — all green locally. CI adds both new gates.
+- Whether a real miniature base conforms (sharing load) or tripods (K1).
+- The realised loaded dwell and the loaded torque-speed point (K6).
+- The free length at extension (K8) and printed guide-wall shear.
+- A sourcing quote for the four bundled lines and a spares policy (K5/K7).
 
 ## Next test
 
-- Source or measure the as-printed scallop depth and tip geometry on a real part (gated by
-  print authority); until then K2/K9 stay closed analytically only.
+One printed coupon set would retire most residuals: a free-length/guide-capture
+coupon (K8/K9), a base-contact load coupon (K1), a loaded row-cycle timing coupon
+(K6/K10), and a detent creep coupon (K11) — gated under [DND-27](/DND/issues/DND-27),
+so they stay named residuals for the final readiness register.
+
+Run: `python 06-experiments/test12_winner_convergence/falsifier_checks.py`
