@@ -18,6 +18,7 @@ Every experiment should make clear:
 | [`test08_architecture_search/`](test08_architecture_search/) | Full-scale architecture screening, especially rotary stepped stops and shared programming | Analytical/CAD evidence; no product-qualified architecture |
 | [`test09_test08_validation/`](test09_test08_validation/) | Falsifiable validation of Test08 assumptions, sourcing, structure, coupling and physical gates | Active validation; physical gates remain unverified |
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
+| [`test11_threshold_ratchet_s1/`](test11_threshold_ratchet_s1/) | Hostile rejection arithmetic for S1 broadcast-ratchet and S2 planar-tile families (density, force, mask writing, print variation, isolation), plus a printable 5.08 mm-pitch coupon (STL/SCAD) | Reproducible calculation + printable CAD solids; no physical validation |
 
 Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation.
 
@@ -44,6 +45,9 @@ From the repository root with Python 3.11+:
 python 06-experiments/test08_architecture_search/checks.py
 python 06-experiments/test09_test08_validation/run.py
 python 06-experiments/test10_broad_architecture_screen/checks.py
+python 06-experiments/test11_threshold_ratchet_s1/checks.py
+python 06-experiments/test11_threshold_ratchet_s1/build_coupon.py    # emits STL + SCAD
+python 06-experiments/test11_threshold_ratchet_s1/coupon_checks.py
 ```
 
 All three baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.

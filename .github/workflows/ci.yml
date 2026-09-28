@@ -21,3 +21,10 @@ jobs:
         run: python 06-experiments/test09_test08_validation/run.py
       - name: Test10 architecture scale bounds
         run: python 06-experiments/test10_broad_architecture_screen/checks.py
+      - name: Test11 S1/S2 rejection screen
+        run: python 06-experiments/test11_threshold_ratchet_s1/checks.py
+      - name: Test11 printable coupon generation and structural checks
+        run: |
+          cd 06-experiments/test11_threshold_ratchet_s1
+          python build_coupon.py
+          python coupon_checks.py

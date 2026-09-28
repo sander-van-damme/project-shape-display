@@ -36,10 +36,10 @@ has been disproved.
 | 7 | One 80-column travelling row head | Eighty cells per dwell gives only 0.375 s/row including all reset/travel; Test10's illustrative 0.40 s dwell is already 32 s. **Drop as baseline, retain only with overlapping work**. |
 | 8 | Full-width 4–5-row travelling programmer | 320–400 simultaneous channels and 16–20 stations; 0.40 s/station is 6.4–8 s before reset. **Survivor S3**, if channels are passive/shared rather than bought actuators. |
 | 9 | Global lift plus per-cell bistable latch | Long stroke is shared and loads are passive; selection/reset of 6,400 latches is the real architecture. **Retain only when coupled to broadcast pattern media (S1)**. |
-| 10 | Global incremental strokes plus cell ratchets | Four 10 mm broadcast strokes can create five levels; each stroke needs an arbitrary 6,400-bit threshold mask and selective release. **Survivor S1**. |
+| 10 | Global incremental strokes plus cell ratchets | Four 10 mm broadcast strokes can create five levels; each stroke needs an arbitrary 6,400-bit threshold mask and selective release. **Survivor S1**; [Test11](../06-experiments/test11_threshold_ratchet_s1/) shows density passes but a single all-armed stroke needs ~2.4 kN, and mask writing needs ≥500 channels or an off-line writer. |
 | 11 | Row/column coincidence clutch matrix | ~160 edge controls look cheap, but one row/column pair selects one intersection; arbitrary masks can require thousands of coincidences unless intersections store a broadcast mask. **Drop as sole programmer; retain inside tiles**. |
 | 12 | Jacquard/punched threshold cards plus common strokes | Passive bitmap selection gives massive read parallelism; four binary threshold layers imply 25,600 decisions. Rewriting and alignment, not actuation, dominate. **S1/S2 ingredient**. |
-| 13 | Stacked perforated first-stop plates | Height is external planar geometry; one lift reads all cells and the stop carries load. Four planes plus bottom encode five levels. **Survivor S2**, tiled for local change. |
+| 13 | Stacked perforated first-stop plates | Height is external planar geometry; one lift reads all cells and the stop carries load. Four planes plus bottom encode five levels. **Survivor S2**, tiled for local change; [Test11](../06-experiments/test11_threshold_ratchet_s1/) leaves S2 valid only with off-line writing and double buffering. |
 | 14 | Reprogrammable shutter/aperture planes | Avoids consumable cards, but 25,600 shutters cannot each have a bought actuator. **S2 variant** only with a shared off-line writer. |
 | 15 | Double-buffered full-board map cartridge | Slow writing can be hidden and swap can be fast; unexpected local reveal and 400 mm registration are poor. **Drop monolithic form; retain tile cartridges in S2**. |
 | 16 | Shared rotating shaft with per-cell clutches | Motors are shared but 6,400 dense, non-slipping clutches remain. Module-level coupling is plausible; **move clutch from cell to tile in S4**. |
@@ -89,6 +89,16 @@ has been disproved.
 - **Cheapest rejection:** a 2×5 full-pitch strip with two independently patterned
   thresholds, shared stroke and adjacent loaded cells; measure missed/double
   steps, release force and disturbance.
+
+#### S1-B — banked broadcast ratchet (Test11 variant)
+
+[Test11](../06-experiments/test11_threshold_ratchet_s1/) shows the un-banked S1
+force gate fails only for a worst-case all-armed stroke. Splitting the board into
+**8 banks of 10 rows (800 cells)** bounds one stroke's release force to ~296 N at
+0.37 N/pawl and gives ~17.6 s for four strokes across all banks — still inside
+30 s. It does **not** fix the mask-write problem: 12,800 unary decisions still
+need ≥500 parallel channels or an off-line double-buffered medium. S1-B is
+therefore a *force-feasibility* variant, not an independence fix.
 
 ### S2 — Independently swappable planar-memory tiles
 
@@ -194,3 +204,24 @@ Do not spend on a larger build until its existing Test09 coupon gates pass.
 The search does **not** justify promotion into `08-current-design/`. S1–S4 are
 architecture hypotheses whose fastest falsification tests should precede detailed
 CAD or BOM optimization.
+
+## Test11 refinement — September 2026
+
+[Test11](../06-experiments/test11_threshold_ratchet_s1/) is the first hostile
+arithmetic pass against S1/S2. It does not change the survivor list but sharpens
+each verdict:
+
+- **Density is not the killer.** A pawl + gate fits in 2.28 mm beside a 2.0 mm
+  mechanism shaft; a 1.2 mm rack pocket leaves a 1.76 mm rail. The original
+  "gate cannot fit at 5.08 mm" fear is unsupported at the arithmetic level.
+- **Force is the S1 killer.** An all-high map arms all 6,400 pawls in one stroke
+  (~2.4 kN at 0.37 N/pawl; break-even 0.234 N/cell). Fix by banking → **S1-B**.
+- **Mask writing is the shared S1/S2 killer.** 12,800 unary decisions need
+  ≥500 parallel writer channels (~9 s) or an off-line writer (~56 s) hidden by
+  double buffering. Nothing cheap writes 6,400-bit masks serially in 30 s.
+- **Print variation needs margin, not sorting.** Across 6,400 printed pawls the
+  safe release window survives only to ~9% force sd; per-cell calibration is not
+  affordable.
+- **S2 survives as a system, not a mechanism.** Reading is ~2 s; the entire hard
+  problem moves to the off-line writer and tile exchange. Surprise maps and
+  exchange disturbance remain named product risks.

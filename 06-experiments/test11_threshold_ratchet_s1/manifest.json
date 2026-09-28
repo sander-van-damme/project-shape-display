@@ -1,0 +1,43 @@
+{
+  "params": {
+    "pitch_mm": 5.08,
+    "nx": 5,
+    "ny": 3,
+    "levels": 5,
+    "travel_mm": 40.0,
+    "column_cap_mm": 4.72,
+    "column_body_mm": 3.6,
+    "column_height_mm": 44.0,
+    "cap_overhang_mm": 0.5599999999999998,
+    "rack_pitch_mm": 10.0,
+    "rack_pockets": 5,
+    "pocket_depth_mm": 1.2,
+    "pocket_width_mm": 2.4,
+    "pawl_thickness_mm": 0.8,
+    "gate_bar_thickness_mm": 0.8,
+    "gate_travel_mm": 1.4,
+    "plate_thickness_mm": 1.2,
+    "min_fdm_wall_mm": 0.4,
+    "base_thickness_mm": 3.0,
+    "clearance_mm": 0.2,
+    "provenance": "S1 hypothesis; printable CAD solids; not measured"
+  },
+  "checks": {
+    "lane_beside_body_mm": 1.48,
+    "pawl_lane_need_mm": 1.0,
+    "pawl_fits_lane": true,
+    "rack_side_rails_mm": 0.6,
+    "rack_rails_printable": true,
+    "web_behind_pocket_mm": 2.4,
+    "web_printable": true,
+    "gate_fits_lane": true,
+    "gate_travel_clears_pocket": true,
+    "column_height_covers_travel": true,
+    "all_printable": true
+  },
+  "pitch_partition_mm": {
+    "body": 3.6,
+    "lane": 1.48,
+    "sum": 5.08
+  }
+}

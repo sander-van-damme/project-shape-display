@@ -1327,3 +1327,69 @@ This direction is worth continuing only if it demonstrates a credible path to:
   original 6400-actuator cost problem;
 - local updates that do not require clearing the complete board or disturbing
   unrelated terrain.
+
+## Q1 / Q2 / Q5 / Q7 / Q8 — first answers from Test11 (arithmetic only)
+
+[Test11](../06-experiments/test11_threshold_ratchet_s1/) attacks the S1/S2
+discriminators before CAD. It is **calculated geometry and force/timing
+arithmetic**, not simulation or measurement. Its verdicts:
+
+### Q1 — Can passive threshold selection fit beside a load-bearing cell?
+
+**Yes on density, no on force as a single broadcast stroke.** At 5.08 mm pitch a
+2.0 mm mechanism shaft leaves **2.28 mm** for a pawl and gate, and a 1.2 mm rack
+pocket leaves a 1.76 mm side rail — the "gate cannot fit at 5.08 mm" worry is
+**not** the killer. The killer is worst-case release force: an all-high map arms
+all 6,400 pawls in stroke 1, needing ~2.4 kN at 0.37 N/pawl (break-even 0.234
+N/cell). The cheapest fix is a **banked broadcast** (8 banks of 10 rows): worst
+case ~296 N per bank and ~17.6 s total, still inside 30 s. Add this variant
+**S1-B, banked broadcast ratchet** to the candidate set; it still inherits the
+mask-writing problem below.
+
+### Q2 — What is the fastest complete write-to-read path for planar media?
+
+**Reading is fast; writing dominates.** Four unary 6,400-bit planes are 12,800
+hole/set operations. Serial punching is 2,560 s; an 80-channel writer is 56 s —
+outside the visible 30 s. A ~500-channel writer reaches ~9 s but moves cost into
+a bought multi-channel actuator bank. The only arithmetic-safe answer is
+**double buffering**: write off-line in ~56 s while the current map is visible,
+then swap/read in ~2 s. This makes the **off-line writer**, not the display, the
+S1/S2 critical path and converts "is the mechanism fast?" into "is the next map
+known ~1 minute ahead?"
+
+### Q5 — How much isolation is enough for a regional reveal?
+
+Arithmetic can pass a **0.2 mm** neighbor-disturbance allowance at an assumed
+100 N/mm frame stiffness, but that stiffness is an **unmeasured input**; the
+verdict is UNVERIFIED. The rig is unchanged from the recommendation above: one
+loaded untouched tile, sweep 5×5/10×10/20×20 boundaries, measure peak vertical
+and lateral motion, residual height error and miniature tipping. This single
+protocol discriminates S1, S2 and S4 and must precede any 10×10 build.
+
+### Q7 — Can a multistable printed layer serve as dense reusable memory?
+
+Not resolved by Test11; it does not need to. Test11 shows the **gate + pawl**
+(each cell a one-way mechanical bit) is a *sufficient* passive decoder at final
+pitch. The open question is the **write** side: whether reusable shutters or a
+lattice can be written with shared hardware at ~500+ parallel decision channels.
+Test11 sets the numeric target for that writer: **≥ 500 simultaneous channels**
+or an off-line double-buffered pipeline.
+
+### Q8 — Can programming force be decoupled from service-load support?
+
+**Yes, structurally.** The rack/pawl and the first-stop plate both hold load
+passively after the writer/platen is removed. S1's pawl and S2's stop plane
+require **zero holding power**, satisfying the P-010 split. The force that must
+be decoupled is the *programming* force, and Test11 quantifies it: ≤ 0.234 N/cell
+for a single broadcast stroke, or banked. The lock/unlock *disturbance* remains
+the Q5 measurement, not an arithmetic result.
+
+### What Test11 changes
+
+- Add candidate **S1-B (banked broadcast ratchet)**; keep S1 as its un-banked
+  parent.
+- Reaffirm S2 **only** as pre-planned/double-buffered, with surprise maps named
+  as a product limitation.
+- Set the writer specification: **≥ 500 parallel channels, or off-line write in
+  ≤ ~1 min**.
+- The highest-value next physical object is still the **Q5 loaded-neighbor rig**.
