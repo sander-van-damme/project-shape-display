@@ -23,6 +23,8 @@ Every experiment should make clear:
 | [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status, T11-A fit-coupon gate engine | Calculated system models + print-ready coupon + runnable M1-M6 gate engine; **no printing or measurement** (no fabrication hardware) |
 | [`test11_threshold_ratchet_s1/`](test11_threshold_ratchet_s1/) | Hostile rejection arithmetic for S1 broadcast-ratchet and S2 planar-tile families (density, force, mask writing, print variation, isolation), plus a printable 5.08 mm-pitch coupon (STL/SCAD) | Reproducible calculation + printable CAD solids; no physical validation |
 | [`test11_falsification_library/`](test11_falsification_library/) | Adversarial cheapest-rejection tests per survivor, per-cell reliability math and the shared Q5 isolation-rig protocol | Analytical + CAD + protocol; no printed/measured evidence |
+| [`test12_winner_convergence/`](test12_winner_convergence/) | S5 winner convergence stack-up (time, cost, reliability, isolation, K2 detent contact sweep) | Calculated/simulated + CAD; no printed/measured evidence |
+| [`test13_step6_load_structure_power/`](test13_step6_load_structure_power/) | Convergence Step 6: spliced full-span beam + platen at modelled column mass, lift torque-speed margin, flatness, power-cut behaviour | Calculated/simulated; no printed/measured evidence |
 
 Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation. Test11 adds the cross-cutting purchased-cost/sourcing/reliability model and the shared-drive family (S3/S4) with the S5 gate list as calculated evidence.
 
@@ -58,6 +60,7 @@ python 06-experiments/test11_threshold_ratchet_s1/checks.py
 python 06-experiments/test11_threshold_ratchet_s1/build_coupon.py    # emits STL + SCAD
 python 06-experiments/test11_threshold_ratchet_s1/coupon_checks.py
 python 06-experiments/test11_falsification_library/checks.py
+python 06-experiments/test13_step6_load_structure_power/checks.py
 ```
 
 All four baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.

@@ -71,6 +71,11 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python detent_contact.py > /dev/null
           python detent_checks.py
+      - name: Test13 Step-6 load/structure/power (DND-43)
+        run: |
+          cd 06-experiments/test13_step6_load_structure_power
+          python checks.py
+          python model.py > /dev/null
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the

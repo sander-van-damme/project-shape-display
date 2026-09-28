@@ -37,6 +37,17 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 S1/S2 rejection screen | — | ✓ | — | ✓ | — | — | — |
 | Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
 | Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
+| Test13 Step-6 load/structure/power, spliced beam (DND-43) | — | ✓ | ✓ | — | — | — | — |
+
+**Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
+bolted-splice term to the platen/frame beam model changes the winner's structure and drive
+spec: at the soft printed modulus the 203.2 mm support spacing assumed in
+[`08-current-design`](../08-current-design/README.md) fails the 0.25 mm flatness gate
+(**0.514 mm**), so the axis needs **≤ ~150 mm** support spacing (3 cartridges/axis) or a
+stiffer rail; and the Test09 **8 mm** lift lead fails the torque-speed gate (**0.51×** margin
+against the sourced motor allowance), needing a **≤ 2 mm** lead or a larger motor. A power cut
+is **not** self-held at 8 mm lead (`tan λ = 0.318 > μ ≈ 0.15`), so a brake/detent is now a
+required item. Full record: [`06-experiments/test13_step6_load_structure_power/`](../06-experiments/test13_step6_load_structure_power/).
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
