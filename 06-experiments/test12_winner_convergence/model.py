@@ -124,9 +124,11 @@ KILLERS = [
     {
         "id": "K2",
         "risk": "printed rotary detent holds height and repeats after a slipped step",
-        "status": "qualitative",
-        "result": "no closed-form; depends on printed contact/creep",
-        "gate": "permanently qualitative under DND-27; keep on risk register",
+        "status": "conditional-analytically",
+        "result": "nominal leaf corrects an 18 deg slip only for mu <= 0.323; at the "
+                  "sourced PLA-PLA midpoint mu=0.35 torque/friction = 0.92 (fails); "
+                  "closing levers: mu <= 0.32 or scallop depth >= 0.31 mm",
+        "gate": "detent corrects one 18 deg step across the sourced friction range",
     },
     {
         "id": "K3",

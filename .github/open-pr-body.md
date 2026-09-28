@@ -1,102 +1,84 @@
-# DND-30: reconcile ADR-001 with delegated merge authority + no-print directive
+# DND-38: analytic detent contact sweep for S5 — bounds K2
 
-Resolves [DND-30](/DND/issues/DND-30). Makes the repository's decision record
-self-consistent with board directives [DND-19](/DND/issues/DND-19) (agents merge
-their own reviewed PRs) and [DND-27](/DND/issues/DND-27) (no physical print
-tests).
+Resolves [DND-38](/DND/issues/DND-38). Turns the S5 winner's one residual risk
+(**K2**, printed rotary detent hold/repeat after a slipped step) from
+"qualitative, no closed form" into a bounded, parameterised condition, and gives
+the concrete closing levers. Calculation only — no print, no measurement
+([DND-27](/DND/issues/DND-27)).
 
-## What changed
+> **Note on base.** This branch is based on `dnd-35-convergence-winner` (the
+> accepted ADR-002 convergence, `afa4ba8`), which is not yet on `main`. Opening
+> this PR against `main` therefore also integrates the DND-35 winner promotion.
 
-`07-evidence-and-decisions/convergence-decision-2026-09.md` (ADR-001):
+## Engineering question
 
-- **§4 — merge authority.** Replaced "Merge remains board-authorized. Agents do
-  not merge." with the DND-19 delegated-merge rule, and recorded the merge status
-  of PRs #12–#17 against `origin/main` (`1a9926e`): all merged via the
-  `integrate/test11-all` branch; no open PRs remain. Verification anchors:
-  `8ea9c5f` and `452206f` are ancestors of `origin/main`.
-- **§5 — binding tests re-ranked as analytic/simulation/CAD.** The three former
-  physical steps (isolation rig, printed pitch coupon, printed one-bit memory
-  cell) are replaced by executable non-physical gates, preserving the same
-  elimination order and kill logic:
-  1. beam/FEA coupling + stiction isolation bound (SIMULATION/CALCULATION);
-  2. CAD/mesh vs *sourced* FDM process limits + worst-case/Monte-Carlo stack-up
-     (CAD + CALCULATION);
-  3. force/kinematics memory-cell model + tolerance stack-up
-     (CALCULATION/SIMULATION);
-  4–7. isolation 2×2 model, analytic selector fan-out, modelled writer path,
-     analytic/FEA load & power.
-- **§5.2 — permanently qualitative risks.** A new explicit table names what a
-  printed/measured coupon would have retired and can no longer be closed
-  (print realisation, release-force spread, detent hold/repeat, rig noise floor
-  & creep, stiction release, miniature-height compliance). This is the
-  "flagged assumptions" deliverable.
-- **§1/§2/§3/§6/§7** updated so the critical path reads analytic/simulation/CAD
-  plus accepted qualitative risk, not physical experimentation; the honesty
-  statement now states no printed/measured evidence exists **and none will be
-  produced**.
-
-`07-evidence-and-decisions/convergence-plan.md`:
-
-- **§3** elimination table re-expressed with an explicit **Evidence level**
-  column (CALCULATION / SIMULATION / CAD); physical-test cost/where columns
-  removed; added **§3.1** (what DND-28 already closed analytically: J2
-  neighbour bound 0.017 mm vs 0.10 mm gate; S3 min-web +0.11 mm; unresolved M3
-  pivot) and **§3.2** (permanently qualitative risks).
-- **§4** promotion rule no longer requires a "physical pass at final pitch";
-  requires the analytic/CAD gate **and** explicit board acceptance of §3.2.
-  "Measured value" language in reject/park rules replaced with analytic bounds.
-- **§6** evidence snapshot annotated: Printed/Measured columns are permanently
-  empty by policy.
-- **§7** governance corrected: merges are delegated (DND-19); no physical gate
-  may be introduced (DND-27).
-
-`07-evidence-and-decisions/README.md` (consistency fix in the canonical evidence
-matrix the ADR points at):
-
-- Removed the stale "physical J2-0…J2-4 run … owned by the CTO (DND-14)" status
-  and the orphaned coupon-measurement fragment; the adversarial table now shows
-  gate evidence levels and explicitly says no physical run remains to schedule.
-
-## Engineering question addressed
-
-Can ADR-001 and the convergence plan carry the programme's elimination logic
-without any gate that requires printing or measurement — and if not, exactly
-which assumptions become permanently qualitative?
+Does the nominal printed detent (0.45 mm leaf, 10 mm long, 1 mm wide, 0.2 mm
+scallop; `test09/params.json`) correct a one-step (18°) rotor slip and hold
+height, across a **sourced** PLA–PLA static-friction range and a ±0.05 mm
+print-tolerance stack-up?
 
 ## Evidence produced
 
-- Documentation revision only; no new analytical run.
-- Reused existing DND-28 analytic results (J2 0.017 mm neighbour bound vs
-  0.10 mm gate; S3 min-web +0.11 mm; M3 pivot `INCONCLUSIVE`) as the concrete
-  examples of a closed analytic gate and an unresolved one.
-- Local CI parity: `test11_cost_printability_reliability/checks.py`,
-  `test11_falsification_library/checks.py`, and `check_fixture.py` all exit 0
-  on this branch. The edits touch only `07-evidence-and-decisions/` and
-  `.github/open-pr-body.md`, which CI does not execute.
+New, CI-gated analytic model `06-experiments/test12_winner_convergence/detent_contact.py`
++ honesty/regression gates `detent_checks.py` + write-up `DETENT_CONTACT.md`.
 
-## Assumptions made explicit
+- Reproduces **all three existing detent anchors**: peak restoring torque
+  **0.00298 mN·m** (Test09), peak leaf force **6.58 mN** and strain **0.13 %**
+  (Test08).
+- Governing law: **`T_r/T_f = A·k/(μ·r)`**, exactly independent of E and
+  preload (both torques carry the leaf force) — asserted in tests.
+- **Nominal leaf fails at the sourced friction midpoint μ = 0.35**: restoring
+  0.00256 mN·m vs friction 0.00278 mN·m → ratio **0.92 < 1**. A slipped rotor
+  stays one 10 mm level wrong.
+- **μ cliff = 0.323**. Closes only at the low end of the sourced PLA range
+  (μ ≤ 0.32) **or** by deepening the scallop from 0.20 mm to **≥ 0.31 mm**
+  (1.55×; recommended 0.34 mm with 10 % margin).
+- Independent finding: the seated-valley friction dead-band is **0.00093 mN·m**,
+  ~**25× below** the 0.02356 mN·m toe-flat plateau disturbance — the detent alone
+  cannot hold terrain load; the **hard stop** remains the retention element.
 
-- The §5.2 list is the complete set of previously-physical binding assumptions;
-  any future gate that cannot be expressed analytically is parked there by the
-  §6 rule.
-- "Sourced FDM process limits" are cited as rules/values, not measured on this
-  machine, per DND-27.
+**Verdict: `conditional`.** The leaf as dimensioned is not sufficient across the
+sourced friction range; a geometry/friction change is required. It **does not
+kill S5**.
 
-## What passed / failed
+## Assumptions / named un-modelled terms
 
-- All edited documents are internally consistent with DND-19 and DND-27: PASS.
-- No new physical-test requirement introduced anywhere: PASS.
-- No claim of printed/measured validation is made anywhere: PASS.
+- Leaf modelled as a linear cantilever, `K = E·b·t³/(4·L³)`; friction as a Coulomb
+  moment `μ·F·r` opposing the slide at the mid rim radius (1.55 mm).
+- Modulus envelope 700–2500 MPa and μ 0.2/0.35/0.5 are taken from Test09 params
+  and the J2 analytic gate's sourced PLA–PLA range.
+- **Un-modelled and un-measurable under DND-27:** the as-printed μ, creep, wear,
+  and the FDM-achieved scallop depth. K2 therefore stays on the risk register as
+  a **conditional** item with a quantitative pass rule.
 
-## What remains uncertain
+## What changed
 
-The §5.2 risks remain genuinely unretired — that is the honest state, not a
-papering-over. A survivor can now only be **promoted** if the board explicitly
-accepts them alongside the analytic gate.
+- `detent_contact.py`, `detent_checks.py`, `DETENT_CONTACT.md` — new model, gates
+  and write-up.
+- `test12_winner_convergence/checks.py` — K2 asserted as
+  `conditional-analytically` carrying the 0.323 rule.
+- `model.py`, `README.md` — K2 result updated; cheapest-falsification marked run.
+- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` and
+  `08-current-design/README.md` — K2 status and next action updated.
+- `.github/workflows/ci.yml` — runs the detent sweep + checks on every push/PR.
 
-## Most informative next test
+## Tests run
 
-Close the one analytically-decidable loose end from DND-28: add an explicit
-**designed radial clearance** to the S3 pivot in `selector_fanout_coupon.scad`
-and re-run the T11-A stack-up, converting M3 from `INCONCLUSIVE` to a real
-analytic disposition — all without printing.
+```text
+python 06-experiments/test12_winner_convergence/detent_contact.py   # JSON result
+python 06-experiments/test12_winner_convergence/detent_checks.py    # 9 checks, OK
+python 06-experiments/test12_winner_convergence/checks.py           # 9 checks, OK
+python 06-experiments/test12_winner_convergence/model.py            # stack-up
+```
+
+## Passed / failed
+
+- **Passed:** anchor reproduction; E-independence; K2 bounded and CI-gated.
+- **Failed (design finding, not tool error):** the nominal printed detent does not
+  correct a step at the sourced midpoint friction.
+
+## Remaining uncertainty / next test
+
+Only a printed μ + scallop-depth coupon can close K2 fully; DND-27 forbids it.
+Until then the design must either specify a controlled low-friction rim contact
+or adopt the ≥ 0.31 mm scallop.

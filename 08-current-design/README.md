@@ -34,7 +34,7 @@ draws no holding power per cell.
 | Purchased BOM sourced share | **82 %** | S4 37 %, S1 30 % |
 | Per-cell bought parts | **0** (passive printed rotors) | all survivors: 0 intended |
 | Expected-delivered cost | $503.71 sourced / **$481.56 reduced** | S4 $548.91 |
-| Decisive failure | none quantitative; K2 qualitative | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
+| Decisive failure | none quantitative; K2 now bounded analytically | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
 
 ADRs and evidence: [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md),
 [Test12 stack-up](../06-experiments/test12_winner_convergence/),
@@ -49,7 +49,7 @@ ADRs and evidence: [ADR-002](../07-evidence-and-decisions/convergence-decision-2
 | Selection | 80-channel rotary head, firmware bitmap | CAD + calculation |
 | Power delivery | shared platen + one head drive train | calculation |
 | Vertical positioning | common platen lift, 41 mm stroke | CAD + calculation |
-| State retention | passive stepped cam + hard stop + detent leaf | CAD + **qualitative (K2)** |
+| State retention | passive stepped cam + hard stop + detent leaf | CAD + analytic bound **K2 (DND-38)** |
 | Tabletop load support | hard stop / toe contact (3.11 MPa @ 1 N) | calculation |
 | Lowering / reset | platen lower, gravity return | calculation |
 | Regional isolation | per-column rotor memory (only the touched row's rotors move) | analytic bound |
@@ -151,7 +151,7 @@ is not proof they fit.
 | id | Risk | Class | Status |
 |---|---|---|---|
 | K1 | Cam buckling under handling load | calculation | **closed** — 4.96 N critical vs 1 N service (≈5×); 5 N is a handling screen, not a gate |
-| K2 | Printed detent holds/repeats after a slipped step | **qualitative** | open — analysis cannot retire under DND-27; cheapest falsification = analytic detent contact sweep |
+| K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35 (torque/friction 0.92). Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. `test12_winner_convergence/DETENT_CONTACT.md` |
 | K3 | Gravity return vs guide friction | calculation | **closed** — 4.06× weight/drag margin (solid column) |
 | K4 | Regional update disturbs neighbour | calculation | **closed** — 0.017 mm vs 0.10 mm gate |
 | K5 | Cost > $500 delivered | calculation | **closed** — $481.56 reduced |
@@ -163,7 +163,9 @@ is not proof they fit.
 
 ## 8. Next actions
 
-1. **Analytic detent contact sweep** (closes or names K2) — cheapest falsification.
+1. **Analytic detent contact sweep** — **done** ([DND-38](/DND/issues/DND-38),
+   `test12_winner_convergence/DETENT_CONTACT.md`): K2 bounded, conditional. Next physical
+   step is a printed μ + scallop coupon, which DND-27 forbids.
 2. **CostManufacturing** ratifies the BOM and printability.
 3. **Falsifier** adversarially reviews the killer list for a missed failure mode.
 4. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.

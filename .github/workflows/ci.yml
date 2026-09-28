@@ -66,6 +66,11 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python checks.py
           python model.py > /dev/null
+      - name: Test12 analytic detent contact sweep (DND-38, K2)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python detent_contact.py > /dev/null
+          python detent_checks.py
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the

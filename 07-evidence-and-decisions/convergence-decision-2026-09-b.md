@@ -82,7 +82,14 @@ Reaching the project's <$400 ideal band is **not** demonstrated. The winner land
 - `08-current-design/` now names one machine with a full buildable definition, sourced BOM,
   assembly route and print-ready CAD.
 - The source-of-truth programme risk register is now:
-  1. **K2** — printed rotary detent hold/repeat (qualitative; DND-27).
+  1. **K2** — printed rotary detent hold/repeat. **Bounded analytically** by
+     [DND-38](/DND/issues/DND-38) (`test12_winner_convergence/DETENT_CONTACT.md`): the
+     nominal leaf corrects a one-step 18° slip only for a contact friction μ ≤ 0.323, so at
+     the sourced PLA–PLA midpoint μ = 0.35 it does not (torque/friction 0.92). It closes
+     with a cleaner contact (μ ≤ 0.32) or a scallop deepened to ≥ 0.31 mm. The as-printed
+     μ, creep and scallop depth remain un-measurable under [DND-27](/DND/issues/DND-27), so
+     K2 stays on the register as a **conditional** item with a quantitative pass rule — it
+     does not kill S5.
   2. **Reliability** — q ≤ 1.57×10⁻⁶ needed for 99 % map correctness; no per-cell feedback
      (assumption).
   3. **40 mm travel** — provisional design envelope; no representative miniature measured.

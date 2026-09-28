@@ -85,17 +85,21 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 | id | Risk | Status | Result vs gate |
 |---|---|---|---|
 | K1 | cam buckling under handling/abuse load | **closed-analytically** | 4.96 N critical vs **1 N service** (≈5× margin). The 5 N figure is a *sacrificial handling screen*, explicitly "not a whole-hand safety certification" (`test08/README.md:263`), and is retained as a coupon handling test, not a design gate. |
-| K2 | printed rotary detent holds/repeats after a slipped step | **qualitative** | No closed form; printed contact/creep. Permanently qualitative under DND-27. |
+| K2 | printed rotary detent holds/repeats after a slipped step | **conditional** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38)): nominal leaf does not correct an 18° slip at the sourced PLA–PLA friction midpoint (torque/friction = 0.92); closes only for μ ≤ 0.323 or a deepened scallop (≥ 0.31 mm). Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
 | K4 | regional update disturbs a loaded neighbour | **closed-analytically** | 0.017 mm vs 0.10 mm gate. |
 | K5 | purchased cost > $500 delivered | **closed-analytically** | $503.71 sourced; **$481.56** reduced. |
 | K6 | full-map time > 30 s at realised step rate | **closed-analytically** | 26.25 s vs 30 s at 400 pps. |
 
-**Cheapest falsification for the one quantitative residual (K2):** an analytic
-contact/sensitivity sweep of the detent interface over a sourced PLA contact-friction
-range, reporting the toggle/release force window and its sensitivity to ±0.05 mm print
-tolerance. If the window closes, the winner needs a spring detent (costs, but does not
-kill the architecture). This can be done entirely in the existing harness.
+**Cheapest falsification for K2 (now run):** the analytic contact/sensitivity sweep of the
+detent interface over a sourced PLA contact-friction range is complete —
+[DETENT_CONTACT.md](DETENT_CONTACT.md), `detent_contact.py`, `detent_checks.py`, CI-gated.
+It reproduces the Test09 restoring-torque anchor (0.00298 mN·m) and shows the nominal leaf
+corrects a one-step slip only if the printed contact friction is **μ ≤ 0.323** (sourced
+range 0.2–0.5, midpoint 0.35 does not). Closing levers: a cleaner contact or a scallop
+deepened to **≥ 0.31 mm**. This does not kill the architecture; it bounds K2 with a
+quantitative rule and keeps it on the risk register, because the as-printed μ/creep cannot
+be measured under [DND-27](/DND/issues/DND-27).
 
 ## 4. What this does and does not claim
 

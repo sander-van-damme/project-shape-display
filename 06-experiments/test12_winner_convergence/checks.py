@@ -72,10 +72,14 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertTrue(s["time"]["pass"])
         self.assertTrue(s["cost"]["pass"])
         for k in s["killers"]:
-            self.assertIn(k["status"], {"closed-analytically", "qualitative"})
-        qual = [k for k in s["killers"] if k["status"] == "qualitative"]
-        # the residual qualitative risk must be named, not empty
-        self.assertTrue(qual)
+            self.assertIn(k["status"],
+                          {"closed-analytically", "conditional-analytically", "qualitative"})
+        # The one residual is K2, now bounded analytically (DND-38) but still not
+        # closed: it must carry the quantitative rule, not be empty.
+        k2 = [k for k in s["killers"] if k["id"] == "K2"]
+        self.assertEqual(len(k2), 1)
+        self.assertEqual(k2[0]["status"], "conditional-analytically")
+        self.assertIn("0.323", k2[0]["result"])
 
 
 if __name__ == "__main__":
