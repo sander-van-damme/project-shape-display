@@ -1,82 +1,89 @@
+# DND-47 — Independently ratify the DND-44 machine-preserving cost closure
+
 ## What changed
 
-Closes the two conditional/open geometry killers on the S5 winner ([DND-44](/DND/issues/DND-44)) raised for [DND-45](/DND/issues/DND-45):
-
-**K2 — detent repeatability at sourced friction.** Extended `detent_contact.py` with a
-scallop-depth sweep (0.20 → 0.40 mm) inside the cam envelope (radius 1.5, core 1.0, max
-step 0.50 mm), plus a finite-tip term. Named a geometry that passes at the sourced PLA–PLA
-friction midpoint with a ≥ 1.25 margin.
-
-**K9 — angular margin vs print tolerance.** New `k9_angular_margin.py` Monte-Carlo that
-propagates the sourced ±0.05 mm FDM positional/dimensional tolerance through the
-`toe_angle = atan2(toe_width/2, toe_x − center_x)` geometry and the level-count sweep.
-
-Also: updated `DETENT_CONTACT.md`, added `K9_ANGULAR_MARGIN.md`, updated the K2/K9 rows in
-`test12_winner_convergence/README.md`, `08-current-design/README.md`, `model.py`, and wired
-both new gates into CI.
+- **New** `06-experiments/test12_winner_convergence/cost_closure_ratify.py` — an
+  independent re-derivation of the DND-44 K5/K7 cost claim. It reads the committed
+  `bom_S5_delivered.csv` line-by-line and does **not** import `cost_closure.py` for
+  its own arithmetic, so a discrepancy between the claim and the data is visible
+  rather than inherited. `--selftest` pins every figure **and reconciles against the
+  now-committed DND-44 `cost_closure.py`** (merged as PR #42).
+- **New** `07-evidence-and-decisions/dnd47-cost-closure-ratification.md` — the
+  decision record.
+- **Updated** `sourcing_notes.md` §8 — DND-47 ratification addendum.
+- **Updated** `.github/workflows/ci.yml` — wire the ratifier into the Test12 CI gate,
+  **and fix a main-red regression**: the DND-44 merge (PR #42, `e10e57a`) added
+  `buckling_closure.py` (numpy via `cam_strength.py`) to the stdlib-only
+  `engineering-checks` job with no numpy install. `84e5385` was green; `e10e57a` and
+  every descendant are red. Reproduced in a clean venv (`FAILED (errors=4)`, all
+  `ModuleNotFoundError: numpy`). Fix: `pip install numpy>=1.26` in that job. This PR
+  also **un-reds `main`**.
 
 ## Engineering question
 
-1. Is there a scallop depth inside the cam envelope that makes the printed detent correct
-   an 18° slipped step with a 25% margin at the sourced PLA–PLA friction midpoint μ = 0.35?
-2. Does the ±0.05 mm FDM print tolerance eat the 5-level angular margin, and at how many
-   levels does the margin actually go negative?
+Does the DND-44 claim hold: honest expected baseline **$592.06**, a
+machine-preserving E1–E6 path at **$424.95 delivered / $75.05 margin**, clearing
+only for a motor **≤ $1.86**, with a **$574.36** downside at the sourced $2.66
+motor?
 
-## Evidence produced (CALCULATION / MONTE-CARLO / CAD — no print, no measurement, [DND-27](/DND/issues/DND-27))
+## Evidence produced
 
-**K2.** Flank-tilt (wedge) decomposition reduces exactly to the existing flat baseline
-`T_r/T_f = A·k/(μ·r)`; the finite-tip term is `sinc(k·β)`.
+All in **CALCULATION** class over sourced listings (`--selftest` asserts each):
 
-| Scallop depth | μ=0.20 | μ=0.35 | μ=0.50 | in envelope |
-|---:|---:|---:|---:|:---:|
-| 0.20 (nominal) | 1.613 | 0.922 ✗ | 0.645 ✗ | yes |
-| 0.28 | 2.258 | 1.290 ✓ | 0.903 ✗ | yes |
-| **0.40 (chosen)** | 3.226 | **1.843 ✓** | **1.290 ✓** | yes |
+| Figure | DND-44 claim | Independent re-derivation |
+|---|---:|---:|
+| Honest expected baseline (parts / delivered) | $510.40 / $592.06 | **$510.40 / $592.06** |
+| E1–E6 path (parts / delivered / margin) | $366.34 / $424.95 / $75.05 | **$366.34 / $424.95 / $75.05** |
+| Motor break-even | $1.86 | **$1.8587** |
+| Downside @ $2.66 motor | $574.36 | **$574.36** |
 
-- Exact minimum depth for a 1.25 margin at μ = 0.35: **0.2712 mm**; at μ = 0.50: **0.3875 mm**.
-- Chosen **0.40 mm** fits the 0.50 mm envelope (leaves 0.10 mm core wall). 0.55 mm is
-  rejected as out-of-envelope.
-- Conservative 8° blunt tip: exact minimum 0.2946 mm, still under 0.40 mm — not knife-edge.
-- Chosen depth written to `test08 params.json` (`cam.detent_scallop_depth_mm`) → generated
-  `results/parameters.scad`.
+**Verdict: RATIFIED WITH QUALIFICATION.**
 
-**K9** (200,000 draws, seed 20260928; bounded-uniform primary + Gaussian σ=0.05 conservative):
-
-| Levels | nominal | bounded mean | bounded min | bounded P(<0) | Gaussian P(<0) |
-|---:|---:|---:|---:|---:|---:|
-| 4 | 21.50° | 14.53° | 10.76° | **0.00%** | **0.00%** |
-| 5 | 12.50° | 5.52° | 1.72° | **0.00%** | **1.31%** |
-| 6 | 6.50° | −0.47° | −4.28° | **65.6%** | **69.1%** |
-
-- 5 levels keeps margin positive under the bounded tolerance reading but only ~1.7°
-  worst-case; under a Gaussian tail it has a 1.3% failure probability.
-- **6 levels fails outright; 4 levels is robust.**
+- **Qualification (scenario consistency):** $40.60 of the $75.05 margin is **E6**
+  repricing four fixed lines from `unit_expected` → `unit_best`; a further $16.00
+  is **E2** moving the motor from expected $1.25 → best-case $1.05. These mix
+  best-case prices into an "expected" total. The path still clears without E6
+  ($465.55 delivered, $34.45 margin), so the claim stands; the honest range is
+  **$424.95–$465.55**.
+- **E1 TB6612FNG is legitimate:** dual H-bridge, VM 2.5–13.5 V, 1.2 A/ch — well
+  inside the 5–6 V, ~0.25 A 8 mm 18° PM stepper. E3/E4 reproduce DND-41's
+  net-saving method. E5 (spares) is a purchasing choice, not the machine.
+- **Machine preserved:** no structural line removed; motor/driver counts, pitch
+  (5.08 mm), cells (6,400), travel (40 mm) and topology unchanged.
+- **Independent finding:** the `Dual H-bridge` line is priced per **dual** IC at
+  qty 80 (= motor count). 80 motors need **40 ICs** → **$36.91 delivered** of
+  conservatism *against* the design (adds margin; does not threaten the ceiling).
+- **K7 remains the binding residual:** no matched sub-$1.86 motor supply exists.
 
 ## Assumptions
 
-- ±0.05 mm is a sourced FDM positional/dimensional capability claim, not a measured
-  distribution on these specific parts; both a bounded and a Gaussian interpretation are
-  reported.
-- The wedge model assumes the leaf force is radial; the finite-tip efficiency η = sinc(kβ)
-  is a stated term, not measured.
-- Existing model anchors (Test08/Test09) unchanged.
+E6's `unit_best` values are that column's sourced/allowance prices, treated by
+DND-44 as expected; its own basis strings call them "bundled allowance". Uplift is
+the repo's additive ×1.16 (DND-41). No purchase, print or measurement.
+
+## Calculations / tests run
+
+`python cost_closure_ratify.py` and `--selftest`; the merged
+`cost_closure.py` / `cost_closure_checks.py`; existing `checks.py`,
+`ratify_bom.py --selftest`, `detent_checks.py`; plus the full `engineering-checks`
+job replicated locally in a clean venv. CI now runs the ratifier and installs numpy.
 
 ## What passed / failed
 
-- **Passed:** K2 has a named geometry (0.40 mm) that clears 1.25 at μ = 0.35 (1.84) and
-  μ = 0.50 (1.29) inside the envelope. K9 is bounded; 5 levels is conditionally safe,
-  4 robust, 6 fails.
-- **Failed / remains:** the as-printed μ, creep, tip sharpness, and the real tolerance
-  distribution cannot be measured under DND-27, so K2's residual risk is print
-  realisation; K9's residual is the real as-printed tolerance distribution.
+- **Passed:** all four headline figures reproduce exactly; structural-preservation
+  check; break-even in band; the merged DND-44 module and this independent
+  re-derivation agree on every headline; all CI checks green.
+- **Failed / qualified:** the single $424.95 headline omits that it is a
+  best-case-priced path; reported as a range. Separately, `main` was red from the
+  DND-44 merge until this PR (numpy missing in CI) — fixed here.
 
-## Checks run
+## Remaining uncertainty
 
-- `detent_checks.py` (15 tests, +6 new), `k9_checks.py` (10 tests), `checks.py` (13 tests,
-  killer labels updated), `model.py`, `ratify_bom.py --selftest`, `test08/checks.py`,
-  `test09/run.py` — all green locally. CI adds both new gates.
+K7 (unqualified motor supply) is unchanged and unclosable without buying a part
+([DND-27](/DND/issues/DND-27)). E6 fixed lines have no volume quote.
 
 ## Next test
 
-- Source or measure the as-printed scallop depth and tip geometry on a real part (gated by
-  print authority); until then K2/K9 stay closed analytically only.
+Single traceable motor sample + 80+spare delivered quote (same winding, step
+angle, shaft, lot) — the Test09 Stage C procurement gate. Until then, S5 purchased
+cost is **$424.95–$574.36 delivered**.
