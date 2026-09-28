@@ -1,78 +1,69 @@
-# DND-44 — S5 readiness closure: close cost/time/buckling killers analytically
+# DND-46 — Falsifier adversarial audit of the DND-44 S5 readiness closure
 
 ## What changed
 
-Advances the promoted S5 winner (`08-current-design/`) from an *honest analytic definition*
-to the **closest reachable print-ready state** under the no-physical-test policy
-([DND-27](/DND/issues/DND-27)). Six killers are closed or bounded analytically; the risk
-register is re-labelled and the residual is reduced to a short list of named physical
-quantities.
+Adds the independent adversarial audit of the DND-44 closure work
+([DND-44](/DND/issues/DND-44)) requested by [DND-46](/DND/issues/DND-46), before the
+CTO writes a final readiness verdict:
 
-New analytic modules in `06-experiments/test12_winner_convergence/` (CALCULATION only):
+- `06-experiments/test12_winner_convergence/falsifier_checks.py` — 19 CI-runnable
+  regression gates that encode the **attacks**, not the closures. If a closure is
+  later "fixed" by quietly re-tightening an assumption, one of these fails.
+- `06-experiments/test12_winner_convergence/FALSIFIER_AUDIT.md` — per-closure
+  verdict, strongest counter-argument, and the minimal residual to keep.
+- `.github/workflows/ci.yml` — runs `falsifier_checks.py` alongside the closure checks.
 
-- `timing_closure.py` (K6) — closed-form per-row budget; splits the rate-independent floor
-  from rate terms; cross-checks `test09/analyze.schedule()` to 3.6e-15 s.
-- `buckling_closure.py` (K1) — bounds the distributed tabletop load over a miniature's base;
-  reproduces the repo's own variable-section buckling model across core radii.
-- `cost_closure.py` (K5/K7) — rebuilds the sourced BOM with machine-preserving changes E1–E6;
-  audits every delta; finds the motor break-even price.
-- `cross_cutting_closure.py` (K8/K10/K11) — lateral load path, regional-update bound, detent
-  cycle-life bound.
-- `DND44_READINESS.md` — the consolidated closure record.
-- Six `*_checks.py` regression/honesty gates (46 tests), all wired into CI.
+Base: the `dnd44-readiness-closure` tip, so the audit is against the exact reviewed state.
+This PR is audit-only; it does not modify the closure modules or `08-current-design`.
 
-`08-current-design/README.md` now carries the **Final readiness verdict (§9)** and an updated
-risk register; `06-experiments/test12_winner_convergence/model.py` and `checks.py` are updated
-to match.
+## Engineering question
 
-## Engineering question addressed
+Can the DND-44 closures (K1/K5/K6/K8/K10/K11) withstand an adversarial attack, or is
+the claimed closure false?
 
-Which DND-41 killers can be closed or bounded analytically, and which single physical quantity
-does each residual need?
+## Evidence produced (CALCULATION only, no print/measure — DND-27)
 
-## Evidence produced (all CALCULATION — no print, no measurement)
+| Killer | DND-44 claim | Falsifier verdict | Strongest counter-argument |
+|---|---|---|---|
+| K6 timing | not a rate problem; ~268 pps meets 30 s | CONFIRMED-WITH-CAVEAT | Floor arithmetic is a real re-derivation, but 268 pps is ~804 rpm (design 400 pps = 1200 rpm) and the 26.25 s pass assumes `inspection_s=0`. With the sweep's own 3 s inspection the 27 s target is missed. |
+| K1 buckling | ≤0.39 N/column, 12.7× margin | **BROKEN** | A rigid base on a height-varying field is a three-point contact: 1 kg → **3.27 N/column**, a 1.5× margin, not 12.7×. `ceil(d/pitch)²` also overcounts the cells under a round base. |
+| K5 cost | $424.95 delivered, $75 margin | **BROKEN AS STATED** | $75 needs four simultaneous best cases. Restore spares (E5) + bundled `unit_expected` (E6) → **$482.95 / $17.05 margin**; at the *sourced* DRV8833PWPR → $474.91; with an expected motor → **$501.51 (over)**. E6 is best-case repricing of four bundled lines, not sourcing. |
+| K8 lateral | 1 N → 0.01 mm; limit ~9.4 N | **BROKEN** | The 12 mm free length is hard-coded in `__main__`; the repo's own `unrelieved_upper_body_length_mm = 40 mm`. At 40 mm a 1 N lateral load deflects **0.356 mm**, 3.5× the 0.10 mm gate. |
+| K10 regional | bounded | CONFIRMED | Complete, monotonic bound. Caveat: fixed platen stroke sets the floor, not region size. |
+| K11 cycle life | ~1e8 cycles | PSEUDO-QUANTITATIVE | The 9.98e7 point estimate rests on ε_endurance=0.3 % and m=8; a conservative FDM endurance drops it 25×. |
 
-- **K1** service load ≤ 0.39 N/column (even a 1 kg miniature on the smallest 25.4 mm base;
-  12.7× margin vs the 4.96 N core). The localized 5 N abuse screen is bounded: a 1.10 mm core
-  gives 5.60 N, at the cost of step height 0.5→0.4 mm.
-- **K5** honest expected delivered baseline **$592.06** (the earlier $501.12 used a $0.80
-  driver + best-case motor). Machine-preserving source path **$424.95 delivered, $75.05
-  margin**, clearing only for a motor ≤ $1.86.
-- **K6** the 45.07 s sweep worst corner is **not** a step-rate problem: the rate-independent
-  floor is 18.65 s and ~268 pps meets 30 s at the design point; verify the loaded dwell and
-  scan accel, not a "measured rate".
-- **K8** lateral load is carried by the guide/bending (1 N → 0.01 mm; limit ~9.4 N), not the
-  detent.
-- **K10** regional updates 3.9–6.3 s for 1–10 rows.
-- **K11** detent leaf ~10⁸ cycles (order-of-magnitude bound).
+Attacks that **failed** (recorded): the K6 closed-form arithmetic (reproduces
+`test09/analyze.schedule()` to 1e-15 s; the floor is a true bound), K10 completeness,
+and the E1 driver *topology* (dual H-bridge for dual H-bridge — the attack is on its
+price basis, not its kind).
 
 ## Assumptions
 
-All timing/engagement dwells are assumed inputs; the distributed-load argument assumes a
-miniature's base spreads over its footprint; cost uses the BOM's own `unit_best/expected`
-columns and the sourced LCSC/marketplace listings already in the repo. No new prices were
-invented.
+- All counter-numbers are arithmetic over the repo's own `params.json`, BOM CSV and
+  closure-module inputs. No new sources were introduced.
+- The three-point-contact model is a **worst-case bounding model**, not a claim that
+  every base tripods; it shows the 0.39 N figure is a best case, not a bound.
+- The K5 variants treat "keep spares" and "bundled lines at `unit_expected`" as the
+  defensible planning basis; the closure's own BOM CSV supplies both numbers.
 
 ## What passed / failed
 
-All 46 checks pass; the CI step for the new closure modules is added. `timing_closure.py` and
-`buckling_closure.py` call the repo's own models rather than re-implementing them, so they
-cannot drift.
+- **Passed:** K6 floor arithmetic; K10 regional bound; E1 driver topology.
+- **Failed:** K1 service bound, K5 stated margin, K8 lateral free-length, K11 point
+  estimate.
 
 ## What remains uncertain
 
-The residual is now exactly: **K7** (a matched 8 mm 18° bipolar PM stepper at ≤ $1.86) plus the
-print-realisation quantities (K2 μ/scallop, K9 rotor tolerance, K1-abuse core crush, K4
-stiction release/drift, K8 guide shear, K11 creep, R1 error rate, R2 miniature height). Each
-needs the named physical measurement, which DND-27 forbids.
+- Whether a real miniature base conforms (sharing load) or tripods (K1).
+- The realised loaded dwell and the loaded torque-speed point (K6).
+- The free length at extension (K8) and printed guide-wall shear.
+- A sourcing quote for the four bundled lines and a spares policy (K5/K7).
 
-## Most informative next test
+## Next test
 
-Purchase+sample one candidate motor lot and measure its step angle, winding resistance and
-running torque, which retires K7 and, with it, the only remaining cost residual.
+One printed coupon set would retire most residuals: a free-length/guide-capture
+coupon (K8/K9), a base-contact load coupon (K1), a loaded row-cycle timing coupon
+(K6/K10), and a detent creep coupon (K11) — gated under [DND-27](/DND/issues/DND-27),
+so they stay named residuals for the final readiness register.
 
-## Delegated verification
-
-- [DND-45](/DND/issues/DND-45) — K2 geometry choice at μ=0.35 and K9 Monte-Carlo angular tolerance.
-- [DND-46](/DND/issues/DND-46) — Falsifier adversarial audit of the four closure modules.
-- [DND-47](/DND/issues/DND-47) — CostManufacturing ratification of the $424.95 BOM path.
+Run: `python 06-experiments/test12_winner_convergence/falsifier_checks.py`
