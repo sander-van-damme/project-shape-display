@@ -25,7 +25,7 @@ Generic micro stepper motor from [Aliexpress](https://nl.aliexpress.com/item/400
 ![](docs/img/stepper-motor-dimensions.jpg)
 (output shaft diameter: 1.5mm)
 
-# stepper motor driver
+## stepper motor driver
 TMC2208 from [Aliexpress](https://nl.aliexpress.com/item/1005004014058136.html) at €2.04 per piece.
 
 | specifications | |
