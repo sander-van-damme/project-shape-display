@@ -12,15 +12,18 @@
 - **Issue:** [DND-47](/DND/issues/DND-47), for [DND-44](/DND/issues/DND-44).
 - **Inputs:** `06-experiments/test11_cost_printability_reliability/delivered_3scenario/bom_S5_delivered.csv`
   (committed on `main`); the DND-44 closure claim in the issue text; the CTO's
-  in-flight `test12_winner_convergence/cost_closure.py` (uncommitted on branch
-  `dnd44-readiness-closure`, read for cross-check, **not imported**).
+  `test12_winner_convergence/cost_closure.py` (merged to `main` as PR #42 — the
+  independent re-derivation does not import it for arithmetic, but `--selftest`
+  reconciles against it).
 - **Evidence class:** CALCULATION over sourced listings and stated assumptions.
   **No part was bought, printed or measured** ([DND-27](/DND/issues/DND-27)).
 
 The independent re-derivation lives in
 `06-experiments/test12_winner_convergence/cost_closure_ratify.py`. It reads the
-committed CSV line-by-line and does **not** import `cost_closure.py`, so a
-discrepancy between the DND-44 claim and the data is visible rather than inherited.
+committed CSV line-by-line and does **not** import `cost_closure.py` for its own
+arithmetic, so a discrepancy between the DND-44 claim and the data is visible
+rather than inherited. `--selftest` additionally **reconciles** against the now
+committed DND-44 module (merged as PR #42) and asserts every headline agrees.
 Run `python cost_closure_ratify.py` (report) or `--selftest` (asserts every figure
 below).
 

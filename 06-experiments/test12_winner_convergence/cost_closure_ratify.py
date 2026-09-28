@@ -243,6 +243,23 @@ def report() -> None:
         print(f"   {a['tag']:<52} {a['item'][:34]:<36} {a['delta']:>+8.2f}")
 
 
+def reconcile_with_dnd44_module() -> dict:
+    """Cross-check this independent re-derivation against the committed DND-44
+    module `cost_closure.py`. Imported lazily so the independent re-derivation
+    path (run()/report()) does not depend on it. Returns the DND-44 headlines."""
+    import cost_closure as cc  # committed DND-44 artifact (PR #42)
+
+    c = cc.closure()
+    return dict(
+        baseline_parts=c["expected_baseline"]["parts"],
+        baseline_delivered=c["expected_baseline"]["delivered"],
+        path_parts=c["sourced_parts_usd"],
+        path_delivered=c["sourced_delivered_usd"],
+        margin=c["margin_usd"],
+        downside_2p66=c["downside_motor_2p66_delivered_usd"],
+    )
+
+
 def selftest() -> None:
     r = run()
     assert abs(r["baseline_parts"] - CLAIMED_BASELINE_PARTS) < 0.01, r["baseline_parts"]
@@ -258,9 +275,25 @@ def selftest() -> None:
     assert r["structural_missing"] == [], r["structural_missing"]
     # The dual-IC surplus is a real conservatism of shape ~$37 delivered.
     assert 35.0 < r["driver_surplus_delivered"] < 40.0, r["driver_surplus_delivered"]
+    # Reconcile with the committed DND-44 module: every headline must agree.
+    try:
+        d = reconcile_with_dnd44_module()
+    except ImportError:
+        print("DND-47 cost-closure ratify selftest OK (cost_closure.py not present; module cross-check skipped)")
+        return
+    for key, mine in (
+        ("baseline_parts", r["baseline_parts"]),
+        ("baseline_delivered", r["baseline_delivered"]),
+        ("path_parts", r["path_parts"]),
+        ("path_delivered", r["path_delivered"]),
+        ("margin", r["margin"]),
+        ("downside_2p66", r["downside_2p66"]),
+    ):
+        assert abs(d[key] - mine) < 0.01, f"DND-44 module disagrees on {key}: {d[key]} vs {mine}"
     print("DND-47 cost-closure ratify selftest OK")
     print(f"  baseline ${r['baseline_delivered']:.2f}  path ${r['path_delivered']:.2f}  "
           f"margin ${r['margin']:.2f}  break-even ${r['break_even']:.2f}")
+    print("  reconciled with committed cost_closure.py: all headlines agree")
 
 
 if __name__ == "__main__":
