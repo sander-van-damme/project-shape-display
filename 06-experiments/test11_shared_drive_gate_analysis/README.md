@@ -12,23 +12,35 @@ $1.25 motor allowance does not fit the $500 ceiling with contingency. No physica
 measurement exists in this folder.
 
 **Evidence level.** Everything here is **calculated** on **assumed** inputs, with
-sources cited where used, except `coupon_geometry.py`, which is a calculated fit
-screen, and `selector_fanout_coupon.scad`, which is **unrendered CAD**. There are
-no printed or measured results. This folder does not qualify any architecture.
+sources cited where used, except `coupon_geometry.py` (calculated fit screen),
+`selector_fanout_coupon.scad` (readable parametric CAD) and the **generated,
+mesh-verified STLs**. There are no printed or measured results: the STL files
+exist so T11-A is ready to fabricate, not because it has been fabricated. This
+folder does not qualify any architecture.
 
 ## Reproduce
 
 ```bash
 cd 06-experiments/test11_shared_drive_gate_analysis
-python model.py             # system arithmetic for S3/S4/S5
-python checks.py            # asserts the rejection thresholds below
-python coupon_geometry.py   # calculated fit screen for the S3 coupon
+python model.py                       # system arithmetic for S3/S4/S5
+python checks.py                      # asserts the rejection thresholds below
+python coupon_geometry.py             # calculated fit screen for the S3 coupon
+python make_coupon_stl.py             # stdlib STL generation (no OpenSCAD needed)
+python verify_coupon_stl.py           # mesh + X1C-envelope check on the STLs
 # optional, if OpenSCAD 2021.01 is on PATH:
 openscad -o selector_fanout_coupon.stl selector_fanout_coupon.scad
 ```
 
 All scripts are Python 3.11+ standard library only. `checks.py` exits non-zero if
 an assumption drifts into a regime the candidate cannot survive.
+
+**T11-A print package.** `make_coupon_stl.py` emits `coupon_assembled.stl`,
+`coupon_finger.stl`, `coupon_bank.stl` and `coupon_base.stl`; `verify_coupon_stl.py`
+confirms each is well-formed and fits the 256 mm X1C envelope. The fabricate-and-
+measure steps and pass/kill thresholds are in
+[`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md). The notched finger is emitted
+as a mesh with a notch cue rather than a volumetric boolean subtraction, so the
+notch opening must be confirmed in the slicer and on the print, not from the STL.
 
 ---
 
@@ -111,8 +123,9 @@ measured Stage-B numbers before a head is trusted.
 
 ### Cheapest rejection tests for S3
 
-- **T11-A (≈45 min, one print):** fan-out fit coupon. Prints in one X1C run.
-  Kills S3 density if fingers fuse.
+- **T11-A (≈45 min, one print):** fan-out fit coupon. **Print package is ready:**
+  generated STLs plus [`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md). Prints
+  in one X1C run. Kills S3 density if fingers fuse (web < 0.20 mm).
 - **T11-B (≈3 h):** 2×4 loaded engage/write/disengage dwell, all 256 binary
   masks, neighbour-release count.
 - **T11-C (≈1.5 h):** full 80-column single-row bank, engaged fraction sweep,
