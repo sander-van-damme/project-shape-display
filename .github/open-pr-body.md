@@ -1,84 +1,79 @@
-# DND-38: analytic detent contact sweep for S5 — bounds K2
-
-Resolves [DND-38](/DND/issues/DND-38). Turns the S5 winner's one residual risk
-(**K2**, printed rotary detent hold/repeat after a slipped step) from
-"qualitative, no closed form" into a bounded, parameterised condition, and gives
-the concrete closing levers. Calculation only — no print, no measurement
-([DND-27](/DND/issues/DND-27)).
-
-> **Note on base.** This branch is based on `dnd-35-convergence-winner` (the
-> accepted ADR-002 convergence, `afa4ba8`), which is not yet on `main`. Opening
-> this PR against `main` therefore also integrates the DND-35 winner promotion.
-
-## Engineering question
-
-Does the nominal printed detent (0.45 mm leaf, 10 mm long, 1 mm wide, 0.2 mm
-scallop; `test09/params.json`) correct a one-step (18°) rotor slip and hold
-height, across a **sourced** PLA–PLA static-friction range and a ±0.05 mm
-print-tolerance stack-up?
-
-## Evidence produced
-
-New, CI-gated analytic model `06-experiments/test12_winner_convergence/detent_contact.py`
-+ honesty/regression gates `detent_checks.py` + write-up `DETENT_CONTACT.md`.
-
-- Reproduces **all three existing detent anchors**: peak restoring torque
-  **0.00298 mN·m** (Test09), peak leaf force **6.58 mN** and strain **0.13 %**
-  (Test08).
-- Governing law: **`T_r/T_f = A·k/(μ·r)`**, exactly independent of E and
-  preload (both torques carry the leaf force) — asserted in tests.
-- **Nominal leaf fails at the sourced friction midpoint μ = 0.35**: restoring
-  0.00256 mN·m vs friction 0.00278 mN·m → ratio **0.92 < 1**. A slipped rotor
-  stays one 10 mm level wrong.
-- **μ cliff = 0.323**. Closes only at the low end of the sourced PLA range
-  (μ ≤ 0.32) **or** by deepening the scallop from 0.20 mm to **≥ 0.31 mm**
-  (1.55×; recommended 0.34 mm with 10 % margin).
-- Independent finding: the seated-valley friction dead-band is **0.00093 mN·m**,
-  ~**25× below** the 0.02356 mN·m toe-flat plateau disturbance — the detent alone
-  cannot hold terrain load; the **hard stop** remains the retention element.
-
-**Verdict: `conditional`.** The leaf as dimensioned is not sufficient across the
-sourced friction range; a geometry/friction change is required. It **does not
-kill S5**.
-
-## Assumptions / named un-modelled terms
-
-- Leaf modelled as a linear cantilever, `K = E·b·t³/(4·L³)`; friction as a Coulomb
-  moment `μ·F·r` opposing the slide at the mid rim radius (1.55 mm).
-- Modulus envelope 700–2500 MPa and μ 0.2/0.35/0.5 are taken from Test09 params
-  and the J2 analytic gate's sourced PLA–PLA range.
-- **Un-modelled and un-measurable under DND-27:** the as-printed μ, creep, wear,
-  and the FDM-achieved scallop depth. K2 therefore stays on the risk register as
-  a **conditional** item with a quantitative pass rule.
+# DND-4: designed pivot clearance closes the S3 selector fan-out gate analytically
 
 ## What changed
 
-- `detent_contact.py`, `detent_checks.py`, `DETENT_CONTACT.md` — new model, gates
-  and write-up.
-- `test12_winner_convergence/checks.py` — K2 asserted as
-  `conditional-analytically` carrying the 0.323 rule.
-- `model.py`, `README.md` — K2 result updated; cheapest-falsification marked run.
-- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` and
-  `08-current-design/README.md` — K2 status and next action updated.
-- `.github/workflows/ci.yml` — runs the detent sweep + checks on every push/PR.
+- `06-experiments/test11_shared_drive_gate_analysis/selector_fanout_coupon.scad`:
+  the finger pivot is redesigned from a printed-in-place boss to a **designed
+  journal fit**. Added `PIVOT_CLR = 0.20 mm/side`, `PIVOT_SOCKET_D = 1.20 mm`,
+  and cut base socket bores so each finger boss journals in a defined socket.
+- `.../make_coupon_stl.py`: parity update — emits the socket-post marker at the
+  design diameter (this stdlib generator has no boolean kernel).
+- `.../analytic/t11a_analytic_gate.py`: models the boss and socket as separate
+  tolerance contributors; **M3 (pivot free) is now a designed fit** and is
+  reported `yes`/`no` instead of left blank. Adds `ANALYTIC_PASS_DIMENSIONAL_M3_RESOLVED`
+  and `ANALYTIC_FAIL_PIVOT_INTERFERENCE` verdicts.
+- Regenerated: `analytic/runs/t11a_analytic_measurements.csv`, the coupon STLs.
+- Docs: `04-architecture-candidates/README.md`, the T11-A `README.md`,
+  `T11A_PRINT_PROTOCOL.md`, `analytic/README.md`, `rejection_tests.json`.
 
-## Tests run
+## Engineering question
 
-```text
-python 06-experiments/test12_winner_convergence/detent_contact.py   # JSON result
-python 06-experiments/test12_winner_convergence/detent_checks.py    # 9 checks, OK
-python 06-experiments/test12_winner_convergence/checks.py           # 9 checks, OK
-python 06-experiments/test12_winner_convergence/model.py            # stack-up
+Can the S3 selector fan-out gate (T11-A) reach a real disposition
+**analytically**, under board policy [DND-27] (no physical print test), instead
+of stalling on an unmodelled slicer unknown?
+
+Previously: M3 was unmodelled because the pivot printed in place with no designed
+clearance, so `t11a_fit_check.py` returned `INCONCLUSIVE_RUN_A4`.
+
+## Evidence produced (calculated / CAD — no physical measurement claimed)
+
+- The designed journal clearance gives a **0.40 mm diametral free play**.
+- Worst case (boss high, socket low, ±0.06 each) leaves **+0.08 mm** margin over
+  the 0.20 mm free-gap floor.
+- Monte Carlo (200k, sigma = half_range/√3): M3 pass fraction **0.99998** (the
+  tail is normal-distribution beyond the bounded ±0.06 tolerance, not a design
+  boundary).
+- Feeding the analytic record to the CI-tested engine now returns
+  **`S3_DENSITY_PRINTABLE`** on the `A1-ANALYTIC` 0.4 mm baseline row, with the
+  explicit `[ANALYTIC SCREEN, NOT A PRINT]` warning. M1/M2/M5/M6 analytic PASS.
+
+## Reproduce
+
+```bash
+cd 06-experiments/test11_shared_drive_gate_analysis
+python model.py && python checks.py && python coupon_geometry.py
+python make_coupon_stl.py && python verify_coupon_stl.py
+python t11a_fit_check.py --selftest && python t11a_fit_check.py --validate
+python analytic/t11a_analytic_gate.py --selftest
+python analytic/t11a_analytic_gate.py --emit-record
+python t11a_fit_check.py --input analytic/runs/t11a_analytic_measurements.csv
 ```
 
 ## Passed / failed
 
-- **Passed:** anchor reproduction; E-independence; K2 bounded and CI-gated.
-- **Failed (design finding, not tool error):** the nominal printed detent does not
-  correct a step at the sourced midpoint friction.
+- PASS (local): the whole CI-run script set for this folder, including the new
+  analytic gate selftest and the engine on the analytic record.
+- Remaining thin term: **M4 land reach** is −0.05 mm worst case (the ±0.20 mm
+  protocol window is itself the bound); MC pass fraction 0.9083. This is
+  unchanged by the pivot work and is the next analytic item.
 
-## Remaining uncertainty / next test
+## Assumptions
 
-Only a printed μ + scallop-depth coupon can close K2 fully; DND-27 forbids it.
-Until then the design must either specify a controlled low-friction rim contact
-or adopt the ≥ 0.31 mm scallop.
+- FDM tolerance for the boss and socket bores: ±0.06 mm half-range (FDM XY class).
+- Free-gap floor 0.20 mm at 0.4 mm nozzle, 0.15 mm at 0.2 mm (assumption).
+- `PIVOT_CLR` is a CAD-set dimension; 0.40 mm diametral also clears the 0.4 mm
+  slot rule.
+
+## What remains uncertain / next test
+
+- This is **not a print**. The model cannot see fusion, stringing, layer
+  adhesion, elephant-foot, warp, or how the printed boss/socket pair deviates
+  from the modelled tolerance class. That stays a **permanent qualitative risk**
+  per ADR-001 §5.2.
+- Next analytic step: close the M4 land-reach term, then T11-B loaded dwell.
+
+## Links
+
+- Source issue: DND-4 (S3/S4 family; Step-4 selector/register fan-out gate).
+- Policy: [DND-27] no physical print tests; analytic/simulation/CAD only.
+- Convergence: ADR-001 / convergence-plan §3 Step 4.
