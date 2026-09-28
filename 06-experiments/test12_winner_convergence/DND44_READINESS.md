@@ -16,7 +16,7 @@ quantity (unavailable under [DND-27](/DND/issues/DND-27)) each residual needs.
 | K8 lateral | open, no analytic pass | **guide carries lateral**, not the detent; 1 N → 0.01 mm (<0.10 mm gate); limit ~9.4 N |
 | K10 regional time | open, "perfect-scaling" | **bounded**: 1 row ~3.9 s, 10 rows ~6.3 s, 80 rows ~24.7 s |
 | K11 cycle life | open, single-cycle static | **bounded ~10⁸ cycles** (order-of-magnitude, stated as such) |
-| K7 motor supply | open | **open — the binding residual of the K5 path** (break-even $1.86/motor) |
+| K7 motor supply | open | **refuted at ≤$1.86 on sourced evidence ([DND-49](/DND/issues/DND-49))** — cheapest matched part $8.20–$11.20 → $1,088–$1,367 delivered; reduced-head lever fails the 30 s budget. `k7_motor_trace.py` |
 | K9 angular margin | open | open, **delegated** ([DND-45](/DND/issues/DND-45)) |
 | K12 usability | open (product) | open (product decision) |
 
@@ -65,7 +65,7 @@ Run: `python <module>.py` and `python <module>_checks.py` (also in CI).
 
 | id | Residual | Exact quantity the residual needs |
 |---|---|---|
-| K7 | matched 8 mm 18° bipolar PM stepper at ≤$1.86 delivered | purchase+sample one marketplace lot and verify step angle/winding/torque; forbidden under DND-27 |
+| K7 | matched 8 mm 18° bipolar PM stepper at ≤$1.86 delivered | **refuted on sourced evidence ([DND-49](/DND/issues/DND-49))**: no matched orderable part ≤$1.86; cheapest matched $8.20–$11.20 → $1,088–$1,367 delivered; reduced head fails 30 s. Unretired only by purchase+sample of the untraced multipack (forbidden under DND-27) or an actuator-class change |
 | K2 | detent corrects a slipped step at the sourced μ midpoint | printed PLA–PLA μ and as-printed scallop depth |
 | K9 | angular margin under ±0.05 mm print tolerance | as-printed rotor radius/core offset |
 | K1-abuse | localized 5 N point load on a 1.0 mm core | printed core crush/shear at the toe |

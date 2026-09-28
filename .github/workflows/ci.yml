@@ -19,7 +19,7 @@ jobs:
         # buckling_closure.py (Test12 DND-44 K1) imports numpy via test08's
         # cam_strength.py. The runner's system python may or may not ship numpy;
         # pinning it here makes the DND-44 closure step deterministic.
-        run: python -m pip install --quiet numpy
+        run: python -m pip install --quiet "numpy>=1.26"
       - name: Test08 deterministic engineering checks
         run: python 06-experiments/test08_architecture_search/checks.py
       - name: Test09 validation workflow
@@ -93,6 +93,11 @@ jobs:
           python cost_closure_checks.py
           python cross_cutting_closure.py > /dev/null
           python cross_cutting_closure_checks.py
+      - name: Test12 K7 matched-motor sourcing trace (DND-49)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python k7_motor_trace.py > /dev/null
+          python k7_motor_trace_checks.py
       - name: Test13 Step-6 load/structure/power (DND-43)
         run: |
           cd 06-experiments/test13_step6_load_structure_power
