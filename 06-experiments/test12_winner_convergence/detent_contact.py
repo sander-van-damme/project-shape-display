@@ -84,6 +84,43 @@ ANCHOR_LEAF_STRAIN = 0.00135            # 0.135 %
 
 TOL_MM = 0.05                     # +/- print tolerance on each printed dimension
 
+# Cam envelope (DND-45 / 08-current-design §4): the scallop is cut into a rotor
+# of outer radius RIM_CORE_RADIUS + available step. The radially usable step is
+# bounded by (outer radius - core radius); a scallop deeper than that cuts the
+# buckling-critical core. From 08-current-design: radius 1.5 mm, core 1.0 mm,
+# so the peak-to-valley step available is 0.50 mm. This is the hard envelope the
+# K2 depth sweep must respect.
+CAM_RADIUS_MM = 1.50              # rotor outer radius
+CAM_CORE_RADIUS_MM = 1.00         # buckling-critical core radius
+CAM_STEP_HEIGHT_MM = 0.50         # = CAM_RADIUS_MM - CAM_CORE_RADIUS_MM
+SCALLOP_DEPTH_ENVELOPE_MM = CAM_STEP_HEIGHT_MM
+K2_MARGIN_TARGET = 1.25           # required torque/friction margin at mu_mid
+
+# Contact-angle (flank wedge) model. The tip meets the scallop flank at a local
+# surface tilt alpha to the circumferential (sliding) direction:
+#     dr/dtheta = A*k*sin(k*theta), and sin(k*theta)=1 at the half-basin slip,
+#     so tan(alpha) = A*k/r.
+# The leaf presses radially with force F. Resolving onto the local flank frame:
+#     normal load into the flank   N = F*cos(alpha)
+#     along-flank drive component  U = F*sin(alpha)
+# Friction opposes the slide along the flank: f = mu*N = mu*F*cos(alpha).
+# Comparing the along-flank drive to the friction (the wedge self-lock test):
+#     U/f = tan(alpha)/mu = (A*k/r)/mu,
+# i.e. the EXACT same ratio as the flat-friction baseline T_r/T_f = A*k/(mu*r).
+# So the baseline is already the correct first-order wedge result: the flank tilt
+# raises the drive and lowers the friction by matched factors that cancel.
+#
+# The only physical correction the flat model omits is the finite tip contact:
+# a blunt printed tip carries load over a local flat of angular half-width beta,
+# averaging tan(alpha) over the contact and reducing the effective drive. The
+# correction factor is sinc-like: eta = sin(a*k*beta)/(a*k*beta) in the depth
+# amplitude, which lowers the peak amplitude A_eff = A*eta. beta is a print/measure
+# term (not available under DND-27), so the sweep reports beta=0 (ideal sharp tip,
+# baseline) and a conservative blunt-tip case. ETA is applied to the drive only.
+TIP_CONTACT_HALF_ANGLE_DEG = 0.0
+# A conservative blunt-tip bound used for the honest "does any depth pass" test.
+TIP_CONTACT_HALF_ANGLE_CONSERVATIVE_DEG = 8.0
+
 
 @dataclass(frozen=True)
 class Geometry:
@@ -282,6 +319,110 @@ def closure_levers(g: Geometry | None = None) -> dict:
     )
 
 
+def flank_tilt_rad(g: Geometry) -> float:
+    """Local flank tilt of the scallop to the leaf at the 18 deg slip.
+
+    tan(alpha) = dr/dtheta / r with dr/dtheta = A*k*sin(k*theta)=A*k at the slip.
+    """
+    a = g.depth_mm / 2.0
+    return math.atan2(a * g.levels, g.rim_radius_mm)
+
+
+def tip_efficiency(g: Geometry, half_angle_deg: float = TIP_CONTACT_HALF_ANGLE_DEG) -> float:
+    """Finite-tip contact efficiency eta in [0,1] on the scallop drive.
+
+    A blunt tip of angular half-width beta loads the average of cos(k*theta) over
+    the contact, so the peak drive amplitude is reduced by
+        eta = sin(k*beta)/(k*beta)   (beta in radians).
+    eta = 1 for an ideal sharp tip (beta = 0). This is the only physical term the
+    flat model omits; beta is a print/measure quantity (unavailable under DND-27).
+    """
+    kb = g.levels * math.radians(half_angle_deg)
+    return 1.0 if kb == 0.0 else math.sin(kb) / kb
+
+
+def ratio_at_mu(mu: float, g: Geometry,
+                half_angle_deg: float = TIP_CONTACT_HALF_ANGLE_DEG) -> float:
+    """T_r/T_f at the 18 deg slip, wedge ratio with the finite-tip efficiency.
+
+    Sharp tip: A*k/(mu*r), independent of E and preload. A blunt tip scales the
+    drive amplitude by eta: A*k*eta/(mu*r).
+    """
+    a = g.depth_mm / 2.0
+    return a * g.levels * tip_efficiency(g, half_angle_deg) / (mu * g.rim_radius_mm)
+
+
+def depth_for_ratio(mu: float, target_ratio: float, levels: int = LEVELS,
+                    rim_radius_mm: float = RIM_MID_RADIUS_MM,
+                    half_angle_deg: float = TIP_CONTACT_HALF_ANGLE_DEG) -> float:
+    """Minimum peak-to-valley depth to reach target_ratio at friction mu.
+
+    Solve A*k*eta(A)/(mu*r) = target_ratio for A (eta depends on A through beta,
+    but for the sharp tip eta=1 and the closed form is A = target_ratio*mu*r/k).
+    """
+    if half_angle_deg == 0.0:
+        return 2.0 * target_ratio * mu * rim_radius_mm / levels
+    a = target_ratio * mu * rim_radius_mm / levels
+    for _ in range(6):
+        g = Geometry(depth_mm=2.0 * a, rim_radius_mm=rim_radius_mm, levels=levels)
+        a = target_ratio * mu * rim_radius_mm / (levels * tip_efficiency(g, half_angle_deg))
+    return 2.0 * a
+
+
+def sweep_scallop_depth(depths: list[float] | None = None,
+                        mus: tuple[float, ...] | None = None,
+                        half_angle_deg: float = TIP_CONTACT_HALF_ANGLE_DEG) -> dict:
+    """K2 geometry sweep over scallop depth and friction, at fixed cam envelope.
+
+    For each (depth, mu) report the slip torque/friction ratio and whether it
+    clears the 1.25 margin. The envelope check flags any depth that would cut
+    into the 0.50 mm cam step (i.e. into the core).
+    """
+    depths = depths if depths is not None else [round(0.20 + 0.02 * i, 2) for i in range(11)]
+    mus = mus if mus is not None else MU
+    rows = []
+    for d in depths:
+        g = Geometry(depth_mm=d)
+        row = {"depth_mm": d, "within_envelope": d <= SCALLOP_DEPTH_ENVELOPE_MM + 1e-12, "by_mu": {}}
+        for mu in mus:
+            ratio = ratio_at_mu(mu, g, half_angle_deg)
+            row["by_mu"][round(mu, 4)] = {
+                "ratio": ratio,
+                "clears_1_0": ratio >= 1.0,
+                "clears_1_25": ratio >= K2_MARGIN_TARGET,
+            }
+        rows.append(row)
+    chosen = next((r for r in rows if r["by_mu"][MU_MID]["clears_1_25"]), None)
+    exact_depth = depth_for_ratio(MU_MID, K2_MARGIN_TARGET, half_angle_deg=half_angle_deg)
+    return {
+        "tip_half_angle_deg": half_angle_deg,
+        "flank_tilt_deg_for_nominal": math.degrees(flank_tilt_rad(Geometry())),
+        "envelope_depth_mm": SCALLOP_DEPTH_ENVELOPE_MM,
+        "target_ratio": K2_MARGIN_TARGET,
+        "mu_mid": MU_MID,
+        "rows": rows,
+        "first_swept_depth_clearing_mu_mid": chosen["depth_mm"] if chosen else None,
+        "exact_min_depth_mm_mu_mid": exact_depth,
+        "exact_min_depth_within_envelope": exact_depth <= SCALLOP_DEPTH_ENVELOPE_MM + 1e-12,
+    }
+
+
+def k2_pass_at_mu_mid(depth_mm: float,
+                      half_angle_deg: float = TIP_CONTACT_HALF_ANGLE_DEG) -> dict:
+    """Binary K2 gate at the sourced PLA-PLA midpoint with the 1.25 margin."""
+    g = Geometry(depth_mm=depth_mm)
+    ratio = ratio_at_mu(MU_MID, g, half_angle_deg)
+    basin = capture_basin(E_LOW_MPA, MU_MID, g)
+    return {
+        "depth_mm": depth_mm,
+        "tip_half_angle_deg": half_angle_deg,
+        "ratio": ratio,
+        "passes": ratio >= K2_MARGIN_TARGET,
+        "capture_recovers_one_step": basin["recovers_one_step"],
+        "within_envelope": depth_mm <= SCALLOP_DEPTH_ENVELOPE_MM + 1e-12,
+    }
+
+
 def classify() -> dict:
     """Decide K2: closed, needs-spring, or inconclusive with the named term."""
     base = Geometry()
@@ -340,6 +481,8 @@ def classify() -> dict:
         all_slips_recovered=all_recover,
         recovers_across_full_sourced_range=recovers_range,
         closure_levers=levers,
+        sweep=sweep_scallop_depth(),
+        sweep_blunt_tip=sweep_scallop_depth(half_angle_deg=TIP_CONTACT_HALF_ANGLE_CONSERVATIVE_DEG),
         verdict=verdict,
     )
 

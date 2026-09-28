@@ -72,6 +72,11 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python detent_contact.py > /dev/null
           python detent_checks.py
+      - name: Test12 K2 scallop sweep + K9 angular-margin MC (DND-45)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python k9_angular_margin.py > /dev/null
+          python k9_checks.py
       - name: Test12 DND-44 readiness closures (K1/K5/K6/K8/K10/K11)
         run: |
           cd 06-experiments/test12_winner_convergence

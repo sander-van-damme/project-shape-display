@@ -92,6 +92,70 @@ class DetentContactChecks(unittest.TestCase):
             and c.depth_mm == d.DETENT_DEPTH_MM - d.TOL_MM
             for c in corners))
 
+    # --- DND-45 K2: scallop-depth sweep to a 1.25 margin at mu=0.35 ----------
+    def test_wedge_ratio_reproduces_the_flat_baseline(self):
+        # The flank-tilt (wedge) decomposition reduces EXACTLY to the flat
+        # baseline A*k/(mu*r) for a sharp tip; the tilt raises the drive and
+        # lowers the friction by matched factors. This pins that identity.
+        for mu in d.MU:
+            ratio = d.ratio_at_mu(mu, d.Geometry())
+            expected = (d.DETENT_DEPTH_MM / 2.0) * d.LEVELS / (mu * d.RIM_MID_RADIUS_MM)
+            self.assertAlmostEqual(ratio, expected, places=9)
+
+    def test_scallop_sweep_finds_depth_clearing_1_25_at_mu_mid(self):
+        s = d.sweep_scallop_depth()
+        # Exact minimum depth for a 1.25 margin at mu=0.35 is 0.271 mm; the
+        # shallowest swept depth clearing it is 0.28 mm, inside the 0.50 mm
+        # cam envelope (radius 1.5 - core 1.0).
+        self.assertTrue(s["exact_min_depth_within_envelope"])
+        self.assertAlmostEqual(s["exact_min_depth_mm_mu_mid"], 0.27125, places=4)
+        self.assertIsNotNone(s["first_swept_depth_clearing_mu_mid"])
+        self.assertLessEqual(s["first_swept_depth_clearing_mu_mid"], 0.28)
+        # 0.40 mm clears 1.25 at mu_mid with margin and is the recommended depth.
+        passed = d.k2_pass_at_mu_mid(0.40)
+        self.assertTrue(passed["passes"])
+        self.assertTrue(passed["within_envelope"])
+        self.assertGreater(passed["ratio"], d.K2_MARGIN_TARGET)
+
+    def test_scallop_sweep_is_monotone_in_depth(self):
+        # Deeper scallops must not reduce the slip ratio (drive grows linearly,
+        # tip efficiency shrinks only mildly), so a deeper-than-needed depth
+        # never fails the gate.
+        s = d.sweep_scallop_depth()
+        ratios = [r["by_mu"][d.MU_MID]["ratio"] for r in s["rows"]]
+        for a, b in zip(ratios, ratios[1:]):
+            self.assertGreater(b, a)
+
+    def test_blunt_tip_is_more_conservative_than_sharp(self):
+        # A finite printed tip reduces the drive amplitude (eta < 1), so the
+        # blunt-tip sweep must need at least as much depth and give lower ratios.
+        sharp = d.sweep_scallop_depth()
+        blunt = d.sweep_scallop_depth(half_angle_deg=d.TIP_CONTACT_HALF_ANGLE_CONSERVATIVE_DEG)
+        self.assertLess(d.tip_efficiency(d.Geometry(),
+                                         d.TIP_CONTACT_HALF_ANGLE_CONSERVATIVE_DEG), 1.0)
+        self.assertGreaterEqual(blunt["exact_min_depth_mm_mu_mid"],
+                                sharp["exact_min_depth_mm_mu_mid"])
+        self.assertLess(blunt["rows"][-1]["by_mu"][d.MU_MID]["ratio"],
+                        sharp["rows"][-1]["by_mu"][d.MU_MID]["ratio"])
+        # Even the conservative blunt tip clears 1.25 at 0.40 mm.
+        self.assertLessEqual(blunt["exact_min_depth_mm_mu_mid"], 0.40)
+        self.assertTrue(blunt["exact_min_depth_within_envelope"])
+
+    def test_envelope_rejects_a_depth_that_cuts_the_core(self):
+        # The cam envelope is 0.50 mm (radius 1.5 - core 1.0). A deeper scallop
+        # must be flagged out-of-envelope, not silently allowed.
+        s = d.sweep_scallop_depth(depths=[0.45, 0.50, 0.55])
+        self.assertTrue(s["rows"][0]["within_envelope"])
+        self.assertTrue(s["rows"][1]["within_envelope"])
+        self.assertFalse(s["rows"][2]["within_envelope"])
+
+    def test_classify_reports_both_sweeps(self):
+        c = d.classify()
+        self.assertIn("sweep", c)
+        self.assertIn("sweep_blunt_tip", c)
+        self.assertEqual(c["sweep"]["target_ratio"], d.K2_MARGIN_TARGET)
+        self.assertEqual(c["sweep"]["mu_mid"], d.MU_MID)
+
 
 if __name__ == "__main__":
     unittest.main()
