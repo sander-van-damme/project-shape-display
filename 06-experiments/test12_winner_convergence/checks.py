@@ -116,6 +116,40 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertEqual(statuses["K2"], "conditional-analytically")
         self.assertIn("0.323", [k["result"] for k in s["killers"] if k["id"] == "K2"][0])
 
+    # --- DND-37 regression gates (ported from superseded PR #32) ---
+    # These three guards fence the *cost claims a future edit may make*. They are
+    # independent of the DND-41 basis correction above: (1) they stop a quiet
+    # sub-$400 claim, (2) they prove the model is a genuine function of the
+    # sourced prices rather than a hard-coded constant, and (3) they keep the
+    # matched-motor fallback recorded as dead.
+
+    def test_no_sourced_path_claims_the_400_ideal_band(self):
+        # The <$400 ideal band is NOT demonstrated at any sourced motor/driver
+        # price in the traceable range. Guard against an edit that quietly
+        # asserts a sub-$400 winner.
+        self.assertGreater(m.winner_delivered_usd(), m.PRINT_FLOOR_USD)
+        self.assertGreater(m.winner_reduced_delivered_usd(), m.PRINT_FLOOR_USD)
+
+    def test_cost_model_is_a_real_function_of_sourced_prices(self):
+        # Swapping in the traceable DRV8833 driver ($1.3338, LCSC C50506) must
+        # move the headline by exactly the sourced delta x the additive uplift;
+        # a hard-coded total would fail this. The matched motor may only push
+        # cost up, never down.
+        base = m.winner_delivered_usd()
+        drv = m.winner_delivered_usd(driver_usd=1.3338)
+        expected_delta = round(
+            m.DRIVER_CHANNELS * (1.3338 - m.SOURCED_DRIVER_USD) * m.DELIVERED_UPLIFT, 2
+        )
+        self.assertAlmostEqual(round(drv - base, 2), expected_delta, places=2)
+        self.assertGreater(m.winner_delivered_usd(motor_usd=5.00), base)
+
+    def test_matched_motor_fallback_is_dead(self):
+        # The only traceable matched part (MOONS 8PM020S1, ~$40/ea) puts the
+        # winner far over the ceiling: 80 x $40 = $3,200 alone. No sub-$1.05
+        # *matched* motor exists; the sourced unit is an untraced multipack (K7).
+        # Guard that no one re-brands the matched part as a winner path.
+        self.assertGreater(m.winner_delivered_usd(motor_usd=40.0), 2.0 * m.CEILING_USD)
+
 
 if __name__ == "__main__":
     unittest.main()
