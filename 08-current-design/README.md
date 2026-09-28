@@ -87,7 +87,7 @@ Fixed expected subtotal **$284.00**; motor + driver channel is the cost driver.
 | Coupling/lift engagement | 1 | spring-compliant beam | $8.00 | allowance |
 | Axis drivers | 3 | TB6612 boards | $3.00 | allowance |
 | Guide rods/rails/bearings | 1 | AliExpress | $40.00 | sourced |
-| Four lift screws + nuts (T8, 8 mm lead) | 1 | AliExpress | $20.00 | sourced |
+| Four lift screws + nuts (T8, 8 mm lead) | 1 | AliExpress | $20.00 | sourced — **lead to be re-sized ≤2 mm per Step 6 (DND-43); 8 mm fails the torque-speed gate at 0.51×** |
 | Belts/pulleys/idlers | 1 | AliExpress | $20.00 | allowance |
 | Power supply + protection (24 V) | 1 | AliExpress SMPS | $35.00 | sourced |
 | Axis reference sensors | 4 | AliExpress | $1.00 | allowance |
@@ -123,9 +123,13 @@ by the purchaser before a build. This is stated, not hidden (see §7).
 for the thin upper guides.
 
 **Modularity:** the 406.4 mm field is split into printable cartridges (e.g. 4 × 8 modules
-of 20×10 cells ≈ 101.6 × 50.8 mm) that bolt to a spliced frame; the frame needs support
-every ≤203 mm to hold the 0.25 mm flatness budget (0.0499 mm sag at 203.2 mm support vs
-0.799 mm at full 406.4 mm span).
+of 20×10 cells ≈ 101.6 × 50.8 mm) that bolt to a spliced frame. **Support spacing is set by
+Step 6 (DND-43), not by the earlier monolithic estimate:** with the bolted splice modelled
+at the soft printed modulus the frame needs support **every ≤ ~150 mm** to hold the 0.25 mm
+flatness budget (203.2 mm gives 0.514 mm and **fails**). Either split each axis into **3
+cartridges** (≈135 mm), or raise the as-printed rail modulus toward bulk PLA, for which
+203.2 mm passes at 0.144 mm. See
+[`test13_step6_load_structure_power/`](../06-experiments/test13_step6_load_structure_power/).
 
 **Print-ready geometry (CAD, not a print):**
 - `06-experiments/test08_architecture_search/coupon.scad` — rotor, follower, follower
@@ -170,6 +174,10 @@ is not proof they fit.
 | R2 | 40 mm travel vs real miniature | assumption | open — no miniature measured; requirement may change |
 | R3 | Realised step rate ≥ 400 pps loaded | assumption | open |
 | R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea |
+| R5 | Frame/platen splice stiffness ratio (k = 0.25 assumed) | assumption | open — sets the ≤150 mm support spacing; higher k relaxes to 203.2 mm. Step 6 (DND-43) |
+| R6 | As-printed rail modulus (700 vs 2500 MPa spans the flatness pass/fail line) | assumption | open — Step 6 (DND-43) |
+| R7 | Sourced lift-motor torque at speed (0.30 N·m assumed) | assumption | open — Step 6 drive sizing depends on it until sample-verified |
+| R8 | Lift lead must be ≤ 2 mm (8 mm fails 0.51×); power cut back-drives the screw (not self-locking) | calculation | open — **new required item**: a friction brake or platen detent, not yet in the BOM or the 26.25 s timing budget. Step 6 (DND-43) |
 
 **Readiness summary (DND-41):** the S5 direction survives, but the winner is **not** "closed"
 on cost, time or isolation as previously stated. It is **on/just over the $500 ceiling**;
@@ -182,6 +190,11 @@ claim.
 1. **Analytic detent contact sweep** — **done** ([DND-38](/DND/issues/DND-38),
    `test12_winner_convergence/DETENT_CONTACT.md`): K2 bounded, conditional. Next physical
    step is a printed μ + scallop coupon, which DND-27 forbids.
-2. **CostManufacturing** ratifies the BOM and printability.
-3. **Falsifier** adversarially reviews the killer list for a missed failure mode.
-4. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.
+2. **Step-6 load/structure/power** — **done** ([DND-43](/DND/issues/DND-43),
+   `test13_step6_load_structure_power/`): corrected support spacing (≤ ~150 mm or stiffer
+   rail), lift lead (≤ 2 mm or larger motor), and a now-required power-cut brake/detent.
+   **Open follow-up for CostMfg/Fabricator:** fold the brake/detent and the re-sized lead
+   into the BOM and the timing budget, and update the CAD support layout.
+3. **CostManufacturing** ratifies the BOM and printability.
+4. **Falsifier** adversarially reviews the killer list for a missed failure mode.
+5. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.

@@ -79,6 +79,7 @@ simulation, or CAD/mesh check — per [DND-27](/DND/issues/DND-27).
 | 5 | **Writer path** (Q2), modelled timing: complete receive→write→install→register→settle for one tile in a kinematic/timing model. | CALCULATION / SIMULATION | **S2** for surprise reveals; bounds S1's mask install. | Script | InventorAlpha |
 | 6 | **Load, structure and power:** spliced full-span beam model + dummy platen at modelled column mass; lift torque-speed margin, flatness, power-cut behaviour. | CALCULATION / SIMULATION | Any survivor whose lift/structure cannot maintain the unload gap or hold position on power loss. | Modelling | InventorBeta / CostMfg |
 
+
 ### 3.1 Closed analytically (was a physical coupon)
 
 The former physical steps are now sharpened such that each was taken as far as analysis allows in
@@ -144,6 +145,13 @@ The honest current standing, to be kept in step with
 | S3 multi-row DMA | partial | ✓ | partial | — | — | — |
 | S4 shared-bus tiles | partial | ✓ | — | — | — | — |
 | S5 rotary stops | ✓ | ✓ | ✓ | ✓ | — | — |
+
+**Step 6 (DND-43) closed the load/structure/power question analytically** for the shared-lift
+family (S3/S4/S5 all ride a common platen). It did **not** kill a survivor: it corrected two
+winner specs (support spacing ≤ ~150 mm or a stiffer rail; lift lead ≤ 2 mm or a larger motor)
+and surfaced a new required item (a power-cut brake/detent, since the 8 mm lead is not
+self-locking). Artefact:
+[`06-experiments/test13_step6_load_structure_power/`](../06-experiments/test13_step6_load_structure_power/).
 
 **Nothing in the surviving field has printed or measured evidence, and under
 [DND-27](/DND/issues/DND-27) none will be produced.** The *Printed* / *Measured* columns are
