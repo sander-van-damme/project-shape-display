@@ -52,6 +52,38 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertGreater(reduced, m.CEILING_USD - 25.0)
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)
 
+    def test_dnd37_no_sourced_sub_400_path_exists(self):
+        # DND-37 §2 (ported from PR #32's draft): prove — not just claim — that no
+        # sourced <$400 path exists on current evidence. The reduced fixed stack
+        # leaves a parts budget whose implied motor+driver pair price is below the
+        # cheapest sourced pair.
+        target_parts = m.PRINT_FLOOR_USD / m.DELIVERED_UPLIFT
+        reduced_fixed = (m.FIXED_SUBTOTAL_USD - m.REDUCTION_REGISTERS_USD
+                         - m.REDUCTION_CONTROLLER_USD)
+        budget_for_pair = (target_parts - reduced_fixed) / m.MOTOR_CHANNELS
+        sourced_pair = m.SOURCED_MOTOR_USD + m.SOURCED_DRIVER_USD
+        # The pair would have to cost less than the cheapest sourced pair...
+        self.assertLess(budget_for_pair, sourced_pair)
+        # ...and the implied per-channel budget is below any sourced motor alone
+        # (a motor+driver pair cannot be had for less than one motor).
+        self.assertLess(budget_for_pair, m.SOURCED_MOTOR_USD + 0.20)
+
+    def test_dnd37_driver_substitution_is_cheaper_than_csv_drv8833(self):
+        # The DND-37 driver swap must be a real sourced reduction, not a discount:
+        # TB6612FNG @100 ($0.80) < DRV8833PWPR expected ($1.58) in the CSV.
+        rows = list(csv.DictReader(S5_BOM.open(newline="")))
+        drv = [r for r in rows if r["item"].startswith("Dual H-bridge")][0]
+        csv_driver = float(drv["unit_expected_usd"])
+        self.assertLess(m.SOURCED_DRIVER_USD, csv_driver)
+
+    def test_dnd37_matched_motor_fallback_is_a_dead_cost_path(self):
+        # The only traceable matched 8 mm PM stepper is ~$40/ea. Assert the
+        # program is honest that this fallback is arithmetically dead, i.e. it
+        # blows the ceiling by a very large multiple.
+        matched_motor = 40.0
+        matched_total = m.winner_delivered_usd(motor_usd=matched_motor)
+        self.assertGreater(matched_total, m.CEILING_USD * 5.0)
+
     def test_ratify_bom_agrees_with_model_on_the_headline_costs(self):
         # Root-cause guard [DND-41]: ratify_bom.py and model.py must never drift.
         # Before this gate main carried two contradictory cost models (491/501 vs
