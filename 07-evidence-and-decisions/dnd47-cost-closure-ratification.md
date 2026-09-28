@@ -114,7 +114,27 @@ margin. Recorded so the number is not accidentally "fixed" in the wrong directio
 | Lift/scanner motors, coupling, axis drivers | ASSUMPTION | No matched quote; small relative cost (≤$46 total). |
 | Driver PCBs, wiring, power | partly sourced / allowance | Bundled; not individually quoted. |
 
-## 7. Verdict and next test
+## 7. CI finding — the DND-44 merge turned `main` red
+
+While validating this ratification the PR's `engineering-checks` CI job failed.
+Root cause, reproduced in a clean Python venv without numpy: the DND-44 merge
+(PR #42, commit `e10e57a`) added `buckling_closure.py` /
+`buckling_closure_checks.py` to the **stdlib-only** `engineering-checks` job, and
+both call `test08/cam_strength.py`, which does `import numpy as np`. No CI step in
+that job installs numpy. Result:
+
+- `84e5385` (DND-41, pre-DND-44): **engineering-checks success**
+- `e10e57a` (DND-44 merge, PR #42): **engineering-checks failure**
+- Every descendant, including this branch, inherits the red.
+
+Reproduction (venv without numpy): `buckling_closure_checks.py` →
+`Ran 6 tests … FAILED (errors=4)`, all four `ModuleNotFoundError: No module named
+'numpy'`. Fix applied on this branch: `python -m pip install --quiet "numpy>=1.26"`
+in the `engineering-checks` job before the DND-44 step. This is a **separate,
+pre-existing main-red regression** surfaced by this ratification, not a defect in
+the DND-44 cost closure itself.
+
+## 8. Verdict and next test
 
 **RATIFIED WITH QUALIFICATION.**
 
@@ -126,6 +146,8 @@ margin. Recorded so the number is not accidentally "fixed" in the wrong directio
 - **K7 is unchanged and binding:** the path is only as real as the motor price, and
   no matched sub-$1.86 motor supply exists. This is a purchasing/sample-verification
   risk that cannot be closed without buying a part ([DND-27](/DND/issues/DND-27)).
+- **CI regression fixed:** the numpy install restores `engineering-checks` on this
+  branch (and, once merged, on `main`).
 - **Next test:** a single traceable motor sample + 80+spare delivered quote with the
   same winding, step angle, shaft and lot (the Test09 Stage C procurement gate).
   Until then, treat the S5 purchased cost as **$424.95–$574.36 delivered** (best-case
