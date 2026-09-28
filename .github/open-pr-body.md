@@ -1,84 +1,52 @@
-# DND-38: analytic detent contact sweep for S5 — bounds K2
+# DND-37 — Ratify S5 winner purchased BOM + printability
 
-Resolves [DND-38](/DND/issues/DND-38). Turns the S5 winner's one residual risk
-(**K2**, printed rotary detent hold/repeat after a slipped step) from
-"qualitative, no closed form" into a bounded, parameterised condition, and gives
-the concrete closing levers. Calculation only — no print, no measurement
-([DND-27](/DND/issues/DND-27)).
-
-> **Note on base.** This branch is based on `dnd-35-convergence-winner` (the
-> accepted ADR-002 convergence, `afa4ba8`), which is not yet on `main`. Opening
-> this PR against `main` therefore also integrates the DND-35 winner promotion.
-
-## Engineering question
-
-Does the nominal printed detent (0.45 mm leaf, 10 mm long, 1 mm wide, 0.2 mm
-scallop; `test09/params.json`) correct a one-step (18°) rotor slip and hold
-height, across a **sourced** PLA–PLA static-friction range and a ±0.05 mm
-print-tolerance stack-up?
-
-## Evidence produced
-
-New, CI-gated analytic model `06-experiments/test12_winner_convergence/detent_contact.py`
-+ honesty/regression gates `detent_checks.py` + write-up `DETENT_CONTACT.md`.
-
-- Reproduces **all three existing detent anchors**: peak restoring torque
-  **0.00298 mN·m** (Test09), peak leaf force **6.58 mN** and strain **0.13 %**
-  (Test08).
-- Governing law: **`T_r/T_f = A·k/(μ·r)`**, exactly independent of E and
-  preload (both torques carry the leaf force) — asserted in tests.
-- **Nominal leaf fails at the sourced friction midpoint μ = 0.35**: restoring
-  0.00256 mN·m vs friction 0.00278 mN·m → ratio **0.92 < 1**. A slipped rotor
-  stays one 10 mm level wrong.
-- **μ cliff = 0.323**. Closes only at the low end of the sourced PLA range
-  (μ ≤ 0.32) **or** by deepening the scallop from 0.20 mm to **≥ 0.31 mm**
-  (1.55×; recommended 0.34 mm with 10 % margin).
-- Independent finding: the seated-valley friction dead-band is **0.00093 mN·m**,
-  ~**25× below** the 0.02356 mN·m toe-flat plateau disturbance — the detent alone
-  cannot hold terrain load; the **hard stop** remains the retention element.
-
-**Verdict: `conditional`.** The leaf as dimensioned is not sufficient across the
-sourced friction range; a geometry/friction change is required. It **does not
-kill S5**.
-
-## Assumptions / named un-modelled terms
-
-- Leaf modelled as a linear cantilever, `K = E·b·t³/(4·L³)`; friction as a Coulomb
-  moment `μ·F·r` opposing the slide at the mid rim radius (1.55 mm).
-- Modulus envelope 700–2500 MPa and μ 0.2/0.35/0.5 are taken from Test09 params
-  and the J2 analytic gate's sourced PLA–PLA range.
-- **Un-modelled and un-measurable under DND-27:** the as-printed μ, creep, wear,
-  and the FDM-achieved scallop depth. K2 therefore stays on the risk register as
-  a **conditional** item with a quantitative pass rule.
+Stacked on **`dnd-35-convergence-winner`** (DND-35, PR pending). Base: `dnd-35-convergence-winner`.
 
 ## What changed
+- **New** `06-experiments/test12_winner_convergence/ratify_bom.py` — independent
+  re-derivation of the S5 purchased BOM straight from `bom_S5_delivered.csv`, plus a
+  `--selftest` that pins the DND-37 findings in CI.
+- **New** `07-evidence-and-decisions/dnd37-bom-ratification.md` — the ratification note.
+- **Correction** across ADR-002, `test12/README.md`, `08-current-design/README.md`,
+  `sourcing_notes.md`: reduced delivered cost **$481.56 → $493.57**.
+- **CI**: `ratify_bom.py --selftest` added to the Test12 step.
 
-- `detent_contact.py`, `detent_checks.py`, `DETENT_CONTACT.md` — new model, gates
-  and write-up.
-- `test12_winner_convergence/checks.py` — K2 asserted as
-  `conditional-analytically` carrying the 0.323 rule.
-- `model.py`, `README.md` — K2 result updated; cheapest-falsification marked run.
-- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` and
-  `08-current-design/README.md` — K2 status and next action updated.
-- `.github/workflows/ci.yml` — runs the detent sweep + checks on every push/PR.
+## Engineering question
+Does the S5 winner's purchased BOM arithmetic hold, can any sourced reduction reach
+<$400, is there a sourced matched sub-$1 8 mm stepper, and is the X1C/PLA 0.4 mm
+printability route sound?
 
-## Tests run
+## Evidence produced (CALCULATION over sourced listings — no purchase, no print)
+- **BOM arithmetic:** fixed expected subtotal $284.00 reproduces the CSV; sourced-pair
+  delivered **$503.71** confirmed.
+- **Defect found:** the reduced path subtracts the shift-register line at its **$14
+  expected allowance** against a base re-priced to sourced prices; the sourced value is
+  only **$3.70** (40 × $0.094). Overstatement **$10.30** → honest reduced **$493.57**
+  (still under $500, but **$6.43** margin, not $18.44).
+- **Motor supply:** Octopart (DigiKey/Mouser/Farnell/Newark/Arrow) stocks **no** true
+  8 mm 18° bipolar PM stepper; only traceable matched part is MOONS 8PM020S1 **$40/ea**
+  (→ ~$4,156 delivered). Live AliExpress micro listings €0.79–3.59 ea are unqualified.
+  Expected cost is a **range $493.57–$646**.
+- **<$400 band:** **not reachable** on any sourced path.
+- **Printability:** X1C/PLA 0.4 mm ratified; all features ≥ the sourced 0.44 mm minimum
+  feature width. Thin contact features (detent 0.45, body wall 0.60, stem 0.70 mm) are
+  under the 0.88 mm robust wall → 0.2 mm nozzle recommended for the *contact* features,
+  not required by geometry; resin/SLA not required.
 
-```text
-python 06-experiments/test12_winner_convergence/detent_contact.py   # JSON result
-python 06-experiments/test12_winner_convergence/detent_checks.py    # 9 checks, OK
-python 06-experiments/test12_winner_convergence/checks.py           # 9 checks, OK
-python 06-experiments/test12_winner_convergence/model.py            # stack-up
-```
+## What passed / failed
+- Passed: `checks.py` (9/9), `model.py`, new `ratify_bom.py --selftest`, Test08/10/11
+  checks, delivered-BOM checks.
+- Failed (kept as findings): the $481.56 reduced figure; the "optional 0.2 mm upper
+  guides" characterisation; the <$400 claim.
 
-## Passed / failed
+## Assumptions / uncertainty
+Motor and driver unit prices remain **sourced listings, not quotations**; the sub-$1.05
+basis is an unqualified marketplace multipack that DND-27 forbids retiring by purchase.
+Print tolerance/strength of the thin contact features is a qualitative residual (K2 class).
 
-- **Passed:** anchor reproduction; E-independence; K2 bounded and CI-gated.
-- **Failed (design finding, not tool error):** the nominal printed detent does not
-  correct a step at the sourced midpoint friction.
+## Next test
+Sample a matched 8 mm motor lot (step angle, running torque ≥0.15 mN·m @400 pps, winding,
+shaft) — blocked by DND-27; otherwise carry the range and proceed to the analytic detent
+contact sweep.
 
-## Remaining uncertainty / next test
-
-Only a printed μ + scallop-depth coupon can close K2 fully; DND-27 forbids it.
-Until then the design must either specify a controlled low-friction rim contact
-or adopt the ≥ 0.31 mm scallop.
+Co-Authored-By: Paperclip <noreply@paperclip.ing>
