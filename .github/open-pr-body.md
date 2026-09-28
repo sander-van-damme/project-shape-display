@@ -1,59 +1,84 @@
-# DND-36: Falsifier adversarial review of the S5 winner promotion (DND-35)
+# DND-38: analytic detent contact sweep for S5 — bounds K2
 
-Resolves [DND-36](/DND/issues/DND-36). Independent adversarial review of the CTO's
-[DND-35](/DND/issues/DND-35) convergence: ADR-002 promotes **S5 — programmed stepped
-rotary stops + common lift** to the single buildable winner. This PR tries to kill that
-promotion on evidence, not to ratify it.
+Resolves [DND-38](/DND/issues/DND-38). Turns the S5 winner's one residual risk
+(**K2**, printed rotary detent hold/repeat after a slipped step) from
+"qualitative, no closed form" into a bounded, parameterised condition, and gives
+the concrete closing levers. Calculation only — no print, no measurement
+([DND-27](/DND/issues/DND-27)).
+
+> **Note on base.** This branch is based on `dnd-35-convergence-winner` (the
+> accepted ADR-002 convergence, `afa4ba8`), which is not yet on `main`. Opening
+> this PR against `main` therefore also integrates the DND-35 winner promotion.
 
 ## Engineering question
 
-Is the S5 promotion — its killer list and its end-to-end time/cost/isolation stack-up —
-supported as stated, or does it present contestable / measurement-only / arithmetic-broken
-claims as closed?
-
-## Verdict
-
-**The direction survives; the promotion fails as stated.**
-
-- S5 is genuinely the best-evidenced candidate (real CAD + a reproduced timing model + an
-  82 %-sourced BOM). Promoting it over S1–S4 is defensible.
-- But **three of six `closed-analytically` killers are not closed as written**, and the
-  **cost margin is an arithmetic artifact**.
-
-| Killer | ADR-002 says | This review finds |
-|---|---|---|
-| K1 cam buckling | closed, 4.96 N vs 1 N | **contested** — `test08/README.md:263` says the 5 N screen is *not* met and "expect a redesign"; the 1 N service load is unsourced (`miniature_measured:false`) |
-| K4 regional isolation | closed, 0.017 vs 0.10 mm | **not closed** — the cited J2 gate returns `INCONCLUSIVE`; stiction release + wear drift are measurement-only |
-| K6 time < 30 s | closed, 26.251 s | **conditional** — 26.251 s is one corner of the repo's own 540-case sweep; at 400 pps **17/108 pass**, worst **45.07 s** |
-| K5 cost < $500 | closed, $503.71→$481.56 | **fails on the repo's own basis** — sourced-pair delivered = **$501.12** (over ceiling); $503.71 needs an inconsistent multiplicative uplift (`1.10*1.06`) plus a $2.20 subtotal error; the reduction is partly double-counted |
+Does the nominal printed detent (0.45 mm leaf, 10 mm long, 1 mm wide, 0.2 mm
+scallop; `test09/params.json`) correct a one-step (18°) rotor slip and hold
+height, across a **sourced** PLA–PLA static-friction range and a ±0.05 mm
+print-tolerance stack-up?
 
 ## Evidence produced
 
-- New note `07-evidence-and-decisions/falsifier-s5-promotion-review-2026-09.md` — full
-  adversarial review with per-finding cheapest falsification and a ranked, **print-free**
-  experiment list.
-- New executable `07-evidence-and-decisions/falsifier_s5_review_checks.py` — reproduces all
-  four findings from repository inputs (`bom_S5_delivered.csv`, `timing_sweep.csv`, the J2
-  analytic README) and asserts them, so the review can be verified rather than trusted.
-- `07-evidence-and-decisions/README.md` — index points to the review.
-- Plus six **unstated killers** the winner's list omitted (purchased-actuator cost cliff at
-  $40/ea MOONS; no lateral-holding killer; print-tolerance erosion of the 6.5° angular
-  margin; regional-update time; detent cycle life).
+New, CI-gated analytic model `06-experiments/test12_winner_convergence/detent_contact.py`
++ honesty/regression gates `detent_checks.py` + write-up `DETENT_CONTACT.md`.
 
-## Evidence class / limits
+- Reproduces **all three existing detent anchors**: peak restoring torque
+  **0.00298 mN·m** (Test09), peak leaf force **6.58 mN** and strain **0.13 %**
+  (Test08).
+- Governing law: **`T_r/T_f = A·k/(μ·r)`**, exactly independent of E and
+  preload (both torques carry the leaf force) — asserted in tests.
+- **Nominal leaf fails at the sourced friction midpoint μ = 0.35**: restoring
+  0.00256 mN·m vs friction 0.00278 mN·m → ratio **0.92 < 1**. A slipped rotor
+  stays one 10 mm level wrong.
+- **μ cliff = 0.323**. Closes only at the low end of the sourced PLA range
+  (μ ≤ 0.32) **or** by deepening the scallop from 0.20 mm to **≥ 0.31 mm**
+  (1.55×; recommended 0.34 mm with 10 % margin).
+- Independent finding: the seated-valley friction dead-band is **0.00093 mN·m**,
+  ~**25× below** the 0.02356 mN·m toe-flat plateau disturbance — the detent alone
+  cannot hold terrain load; the **hard stop** remains the retention element.
 
-All claims are **CALCULATION** on repository inputs or **sourced-fact** readings of the
-repository's own documents. **Nothing is printed or measured** ([DND-27](/DND/issues/DND-27)).
-No board contact ([DND-32](/DND/issues/DND-32)).
+**Verdict: `conditional`.** The leaf as dimensioned is not sufficient across the
+sourced friction range; a geometry/friction change is required. It **does not
+kill S5**.
 
-## What remains uncertain / next test
+## Assumptions / named un-modelled terms
 
-Each finding names its cheapest print-free falsification. Priority order: (1) source the max
-tabletop vertical + lateral load → closes K1/K8; (2) adopt the additive uplift and net the
-register saving → K5; (3) count `under_30` at 400 pps → K6; (4) run the J2 runner → K4. This
-PR changes no CAD, no BOM, and no winner selection.
+- Leaf modelled as a linear cantilever, `K = E·b·t³/(4·L³)`; friction as a Coulomb
+  moment `μ·F·r` opposing the slide at the mid rim radius (1.55 mm).
+- Modulus envelope 700–2500 MPa and μ 0.2/0.35/0.5 are taken from Test09 params
+  and the J2 analytic gate's sourced PLA–PLA range.
+- **Un-modelled and un-measurable under DND-27:** the as-printed μ, creep, wear,
+  and the FDM-achieved scallop depth. K2 therefore stays on the risk register as
+  a **conditional** item with a quantitative pass rule.
 
-## Recommendation
+## What changed
 
-Keep S5 as the single winner, but **re-label K1/K4/K6 and re-state cost as a corrected
-range** before `08-current-design` is called print-ready. Recorded for the CTO on DND-36.
+- `detent_contact.py`, `detent_checks.py`, `DETENT_CONTACT.md` — new model, gates
+  and write-up.
+- `test12_winner_convergence/checks.py` — K2 asserted as
+  `conditional-analytically` carrying the 0.323 rule.
+- `model.py`, `README.md` — K2 result updated; cheapest-falsification marked run.
+- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` and
+  `08-current-design/README.md` — K2 status and next action updated.
+- `.github/workflows/ci.yml` — runs the detent sweep + checks on every push/PR.
+
+## Tests run
+
+```text
+python 06-experiments/test12_winner_convergence/detent_contact.py   # JSON result
+python 06-experiments/test12_winner_convergence/detent_checks.py    # 9 checks, OK
+python 06-experiments/test12_winner_convergence/checks.py           # 9 checks, OK
+python 06-experiments/test12_winner_convergence/model.py            # stack-up
+```
+
+## Passed / failed
+
+- **Passed:** anchor reproduction; E-independence; K2 bounded and CI-gated.
+- **Failed (design finding, not tool error):** the nominal printed detent does not
+  correct a step at the sourced midpoint friction.
+
+## Remaining uncertainty / next test
+
+Only a printed μ + scallop-depth coupon can close K2 fully; DND-27 forbids it.
+Until then the design must either specify a controlled low-friction rim contact
+or adopt the ≥ 0.31 mm scallop.
