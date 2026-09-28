@@ -181,11 +181,14 @@ KILLERS = [
     {
         "id": "K2",
         "risk": "printed rotary detent holds height and repeats after a slipped step",
-        "status": "conditional-analytically",
-        "result": "nominal leaf corrects an 18 deg slip only for mu <= 0.323; at the "
-                  "sourced PLA-PLA midpoint mu=0.35 torque/friction = 0.92 (fails); "
-                  "closing levers: mu <= 0.32 or scallop depth >= 0.31 mm",
-        "gate": "detent corrects one 18 deg step across the sourced friction range",
+        "status": "closed-analytically (named geometry); conditional on print realisation",
+        # DND-45: sweep scallop depth inside the cam envelope. Exact min depth for
+        # a 1.25 margin at mu=0.35 is 0.271 mm; the chosen 0.40 mm scallop gives
+        # ratio 1.84 at mu=0.35 and 1.29 at mu=0.50, inside the 0.50 mm envelope.
+        "result": "nominal 0.20 mm scallop fails at sourced midpoint mu=0.35 (0.92); "
+                  "named 0.40 mm scallop gives 1.84 at mu=0.35 and 1.29 at mu=0.50, within the "
+                  "0.50 mm envelope; as-printed mu/creep/tip-sharpness remain measurement-only",
+        "gate": "detent corrects one 18 deg step at mu=0.35 with >=1.25 margin at a named geometry",
     },
     {
         "id": "K3",
@@ -266,10 +269,14 @@ KILLERS = [
     {
         "id": "K9",
         "risk": "angular margin vs print tolerance (mis-seated toe)",
-        "status": "open (delegated)",
-        "result": "5 levels have 12.50 deg nominal margin, 6.50 deg after a 6 deg seating error; toe envelope 23.50 deg; "
-                  "a +/-0.05 mm print tolerance on the 1.5 mm-radius rotor is several degrees and is not propagated",
-        "gate": "Monte-Carlo angular error from +/-0.05 mm print tolerance keeps margin positive (interacts with K1)",
+        "status": "closed-analytically (level count bounded)",
+        # DND-45: propagate the sourced +/-0.05 mm FDM positional tolerance through
+        # the toe/sector geometry. Bounded-tolerance worst-case seat: 5 levels keep
+        # margin positive (0% fail, worst draw 1.72 deg); Gaussian tail gives 5
+        # levels 1.31% fail; 6 levels fail 65.6%. 4 levels is unconditionally safe.
+        "result": "MC (200k draws, +/-0.05 mm uniform): 5 levels 0% fail, worst 1.72 deg, mean 5.52 deg; "
+                  "gaussian sigma=0.05 -> 5 levels 1.31% fail; 6 levels 65.6% fail; 4 levels 0% fail everywhere",
+        "gate": "margin stays positive under +/-0.05 mm print tolerance: 5 levels safe (bounded), 4 levels robust, 6 fails",
     },
     {
         "id": "K10",

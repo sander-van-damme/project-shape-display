@@ -149,13 +149,19 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertIn("closed-analytically", statuses["K8"])
         self.assertIn("closed-analytically", statuses["K10"])
         self.assertTrue(statuses["K11"].startswith("bounded"))
-        # K7 remains the open binding residual; K9/K12 stay open/delegated.
+        # K7 remains the open binding residual; K12 stays open/delegated.
         self.assertTrue(statuses["K7"].startswith("open"))
-        self.assertIn("open", statuses["K9"])
         self.assertEqual(statuses["K12"], "open")
-        # K2 remains bounded-but-not-closed by DND-38.
-        self.assertTrue(statuses["K2"].startswith("conditional"))
-        self.assertIn("0.323", [k["result"] for k in s["killers"] if k["id"] == "K2"][0])
+        # DND-45: K2 gets a named geometry inside the envelope; still conditional
+        # on print realisation (mu/creep/tip sharpness are measurement-only).
+        self.assertIn("closed-analytically", statuses["K2"])
+        self.assertIn("conditional on print realisation", statuses["K2"])
+        k2 = [k for k in s["killers"] if k["id"] == "K2"][0]
+        self.assertIn("0.40 mm", k2["result"])
+        # DND-45: K9 is closed analytically - the level count is bounded.
+        self.assertIn("closed-analytically", statuses["K9"])
+        k9 = [k for k in s["killers"] if k["id"] == "K9"][0]
+        self.assertIn("6 levels", k9["result"])
 
     def test_dnd44_cost_closure_anchors(self):
         # The honest expected baseline is over the ceiling; the machine-preserving

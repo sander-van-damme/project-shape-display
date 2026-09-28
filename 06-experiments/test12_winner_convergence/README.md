@@ -22,6 +22,14 @@ python 06-experiments/test12_winner_convergence/model.py     # prints the full s
 python 06-experiments/test12_winner_convergence/checks.py    # regression + honesty gates
 ```
 
+DND-45 analytic addenda (K2 named geometry, K9 tolerance stack-up):
+
+```text
+cd 06-experiments/test12_winner_convergence
+python detent_contact.py && python detent_checks.py   # K2 scallop sweep
+python k9_angular_margin.py && python k9_checks.py    # K9 Monte-Carlo
+```
+
 ## 1. The decision
 
 | # | Candidate | Disposition | Binding evidence |
@@ -97,14 +105,14 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 | id | Risk | Status | Result vs gate |
 |---|---|---|---|
 | K1 | cam buckling under handling load | **open** | 4.96 N critical **< 5 N** Test08 measurement-protocol screen; the 1 N service load is **unsourced**. Close with a sourced ≤ 4.5 N tabletop-load bound, else re-size the core. ([DND-41](/DND/issues/DND-41)) |
-| K2 | printed rotary detent holds/repeats after a slipped step | **conditional** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38)): nominal leaf does not correct an 18° slip at the sourced PLA–PLA friction midpoint (torque/friction = 0.92); closes only for μ ≤ 0.323 or a deepened scallop (≥ 0.31 mm). Does not kill S5. |
+| K2 | printed rotary detent holds/repeats after a slipped step | **closed-analytically (named geometry)** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38), [DND-45](/DND/issues/DND-45)): the nominal 0.20 mm scallop fails at the sourced PLA–PLA midpoint (0.92). A **0.40 mm scallop** gives torque/friction **1.84 at μ = 0.35** and **1.29 at μ = 0.50**, inside the **0.50 mm** cam envelope; exact min depth for a 1.25 margin at μ = 0.35 is 0.271 mm. As-printed μ/creep/tip sharpness remain measurement-only. Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
 | K4 | regional update disturbs a loaded neighbour | **partially-closed** | 0.017 mm is a rail-bending *structural* sub-bound vs a 0.10 mm gate; the J2 engine returns **INCONCLUSIVE** — release/drift are measurement-only. |
 | K5 | purchased cost > $500 delivered | **conditional (range)** | $501.12 sourced (over ceiling); **$483.37** reduced; real but small margin. |
 | K6 | full-map time > 30 s at realised step rate | **conditional** | 26.25 s best corner; only **17/108** sweep cases pass at 400 pps, worst **45.07 s**; needs a measured ≥400 pps loaded rate. |
 | K7 | purchased-actuator cost cliff (80 motors + 80 drivers) | **open** | only traceable matched 8 mm PM stepper is **$40/ea** (→ $3,200); sub-$1.05 part untraced. |
 | K8 | lateral holding (knocked miniature) | **open** | hard stop resists downward load only; detent restoring torque ≈ **0.00139 mN·m**; no analytic pass. |
-| K9 | angular margin vs print tolerance | **open** | 5 levels: 12.50° nominal → **6.50°** after a 6° seating error; ±0.05 mm print tolerance not propagated. |
+| K9 | angular margin vs print tolerance | **closed-analytically** | Monte-Carlo propagation of the sourced ±0.05 mm FDM positional tolerance through the toe/sector geometry ([K9_ANGULAR_MARGIN.md](K9_ANGULAR_MARGIN.md), [DND-45](/DND/issues/DND-45)): 5 levels keep margin positive (0% fail, worst draw **1.72°**, mean 5.52°) under the bounded tolerance reading, but a Gaussian tail gives 1.31% fail; **6 levels fail 65.6%**; **4 levels is robust (0% everywhere)**. The K12 level-count tradeoff now carries a hard margin bound. |
 | K10 | regional-update time untested end to end | **open** | homing + full 41 mm platen stroke not bounded. |
 | K11 | cycle life of printed detent/ratchet | **open** | single-cycle static model; creep/fatigue unmodelled. |
 | K12 | coarse-slope / multi-level usability | **open** | 10 mm steps may be too coarse; product decision. |
@@ -114,10 +122,11 @@ detent interface over a sourced PLA contact-friction range is complete —
 [DETENT_CONTACT.md](DETENT_CONTACT.md), `detent_contact.py`, `detent_checks.py`, CI-gated.
 It reproduces the Test09 restoring-torque anchor (0.00298 mN·m) and shows the nominal leaf
 corrects a one-step slip only if the printed contact friction is **μ ≤ 0.323** (sourced
-range 0.2–0.5, midpoint 0.35 does not). Closing levers: a cleaner contact or a scallop
-deepened to **≥ 0.31 mm**. This does not kill the architecture; it bounds K2 with a
-quantitative rule and keeps it on the risk register, because the as-printed μ/creep cannot
-be measured under [DND-27](/DND/issues/DND-27).
+range 0.2–0.5, midpoint 0.35 does not). **[DND-45](/DND/issues/DND-45)** extends the sweep
+over scallop depth: the exact minimum depth for a 1.25 margin at μ = 0.35 is **0.271 mm**,
+and the **chosen 0.40 mm scallop** (inside the 0.50 mm cam envelope) gives **1.84 at
+μ = 0.35** and **1.29 at μ = 0.50** — so K2 is closed by a named geometry at the sourced
+friction, with the as-printed μ/creep/tip sharpness the only unretired terms.
 
 ## 4. What this does and does not claim
 

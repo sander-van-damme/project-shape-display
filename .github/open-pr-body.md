@@ -1,78 +1,82 @@
-# DND-44 — S5 readiness closure: close cost/time/buckling killers analytically
-
 ## What changed
 
-Advances the promoted S5 winner (`08-current-design/`) from an *honest analytic definition*
-to the **closest reachable print-ready state** under the no-physical-test policy
-([DND-27](/DND/issues/DND-27)). Six killers are closed or bounded analytically; the risk
-register is re-labelled and the residual is reduced to a short list of named physical
-quantities.
+Closes the two conditional/open geometry killers on the S5 winner ([DND-44](/DND/issues/DND-44)) raised for [DND-45](/DND/issues/DND-45):
 
-New analytic modules in `06-experiments/test12_winner_convergence/` (CALCULATION only):
+**K2 — detent repeatability at sourced friction.** Extended `detent_contact.py` with a
+scallop-depth sweep (0.20 → 0.40 mm) inside the cam envelope (radius 1.5, core 1.0, max
+step 0.50 mm), plus a finite-tip term. Named a geometry that passes at the sourced PLA–PLA
+friction midpoint with a ≥ 1.25 margin.
 
-- `timing_closure.py` (K6) — closed-form per-row budget; splits the rate-independent floor
-  from rate terms; cross-checks `test09/analyze.schedule()` to 3.6e-15 s.
-- `buckling_closure.py` (K1) — bounds the distributed tabletop load over a miniature's base;
-  reproduces the repo's own variable-section buckling model across core radii.
-- `cost_closure.py` (K5/K7) — rebuilds the sourced BOM with machine-preserving changes E1–E6;
-  audits every delta; finds the motor break-even price.
-- `cross_cutting_closure.py` (K8/K10/K11) — lateral load path, regional-update bound, detent
-  cycle-life bound.
-- `DND44_READINESS.md` — the consolidated closure record.
-- Six `*_checks.py` regression/honesty gates (46 tests), all wired into CI.
+**K9 — angular margin vs print tolerance.** New `k9_angular_margin.py` Monte-Carlo that
+propagates the sourced ±0.05 mm FDM positional/dimensional tolerance through the
+`toe_angle = atan2(toe_width/2, toe_x − center_x)` geometry and the level-count sweep.
 
-`08-current-design/README.md` now carries the **Final readiness verdict (§9)** and an updated
-risk register; `06-experiments/test12_winner_convergence/model.py` and `checks.py` are updated
-to match.
+Also: updated `DETENT_CONTACT.md`, added `K9_ANGULAR_MARGIN.md`, updated the K2/K9 rows in
+`test12_winner_convergence/README.md`, `08-current-design/README.md`, `model.py`, and wired
+both new gates into CI.
 
-## Engineering question addressed
+## Engineering question
 
-Which DND-41 killers can be closed or bounded analytically, and which single physical quantity
-does each residual need?
+1. Is there a scallop depth inside the cam envelope that makes the printed detent correct
+   an 18° slipped step with a 25% margin at the sourced PLA–PLA friction midpoint μ = 0.35?
+2. Does the ±0.05 mm FDM print tolerance eat the 5-level angular margin, and at how many
+   levels does the margin actually go negative?
 
-## Evidence produced (all CALCULATION — no print, no measurement)
+## Evidence produced (CALCULATION / MONTE-CARLO / CAD — no print, no measurement, [DND-27](/DND/issues/DND-27))
 
-- **K1** service load ≤ 0.39 N/column (even a 1 kg miniature on the smallest 25.4 mm base;
-  12.7× margin vs the 4.96 N core). The localized 5 N abuse screen is bounded: a 1.10 mm core
-  gives 5.60 N, at the cost of step height 0.5→0.4 mm.
-- **K5** honest expected delivered baseline **$592.06** (the earlier $501.12 used a $0.80
-  driver + best-case motor). Machine-preserving source path **$424.95 delivered, $75.05
-  margin**, clearing only for a motor ≤ $1.86.
-- **K6** the 45.07 s sweep worst corner is **not** a step-rate problem: the rate-independent
-  floor is 18.65 s and ~268 pps meets 30 s at the design point; verify the loaded dwell and
-  scan accel, not a "measured rate".
-- **K8** lateral load is carried by the guide/bending (1 N → 0.01 mm; limit ~9.4 N), not the
-  detent.
-- **K10** regional updates 3.9–6.3 s for 1–10 rows.
-- **K11** detent leaf ~10⁸ cycles (order-of-magnitude bound).
+**K2.** Flank-tilt (wedge) decomposition reduces exactly to the existing flat baseline
+`T_r/T_f = A·k/(μ·r)`; the finite-tip term is `sinc(k·β)`.
+
+| Scallop depth | μ=0.20 | μ=0.35 | μ=0.50 | in envelope |
+|---:|---:|---:|---:|:---:|
+| 0.20 (nominal) | 1.613 | 0.922 ✗ | 0.645 ✗ | yes |
+| 0.28 | 2.258 | 1.290 ✓ | 0.903 ✗ | yes |
+| **0.40 (chosen)** | 3.226 | **1.843 ✓** | **1.290 ✓** | yes |
+
+- Exact minimum depth for a 1.25 margin at μ = 0.35: **0.2712 mm**; at μ = 0.50: **0.3875 mm**.
+- Chosen **0.40 mm** fits the 0.50 mm envelope (leaves 0.10 mm core wall). 0.55 mm is
+  rejected as out-of-envelope.
+- Conservative 8° blunt tip: exact minimum 0.2946 mm, still under 0.40 mm — not knife-edge.
+- Chosen depth written to `test08 params.json` (`cam.detent_scallop_depth_mm`) → generated
+  `results/parameters.scad`.
+
+**K9** (200,000 draws, seed 20260928; bounded-uniform primary + Gaussian σ=0.05 conservative):
+
+| Levels | nominal | bounded mean | bounded min | bounded P(<0) | Gaussian P(<0) |
+|---:|---:|---:|---:|---:|---:|
+| 4 | 21.50° | 14.53° | 10.76° | **0.00%** | **0.00%** |
+| 5 | 12.50° | 5.52° | 1.72° | **0.00%** | **1.31%** |
+| 6 | 6.50° | −0.47° | −4.28° | **65.6%** | **69.1%** |
+
+- 5 levels keeps margin positive under the bounded tolerance reading but only ~1.7°
+  worst-case; under a Gaussian tail it has a 1.3% failure probability.
+- **6 levels fails outright; 4 levels is robust.**
 
 ## Assumptions
 
-All timing/engagement dwells are assumed inputs; the distributed-load argument assumes a
-miniature's base spreads over its footprint; cost uses the BOM's own `unit_best/expected`
-columns and the sourced LCSC/marketplace listings already in the repo. No new prices were
-invented.
+- ±0.05 mm is a sourced FDM positional/dimensional capability claim, not a measured
+  distribution on these specific parts; both a bounded and a Gaussian interpretation are
+  reported.
+- The wedge model assumes the leaf force is radial; the finite-tip efficiency η = sinc(kβ)
+  is a stated term, not measured.
+- Existing model anchors (Test08/Test09) unchanged.
 
 ## What passed / failed
 
-All 46 checks pass; the CI step for the new closure modules is added. `timing_closure.py` and
-`buckling_closure.py` call the repo's own models rather than re-implementing them, so they
-cannot drift.
+- **Passed:** K2 has a named geometry (0.40 mm) that clears 1.25 at μ = 0.35 (1.84) and
+  μ = 0.50 (1.29) inside the envelope. K9 is bounded; 5 levels is conditionally safe,
+  4 robust, 6 fails.
+- **Failed / remains:** the as-printed μ, creep, tip sharpness, and the real tolerance
+  distribution cannot be measured under DND-27, so K2's residual risk is print
+  realisation; K9's residual is the real as-printed tolerance distribution.
 
-## What remains uncertain
+## Checks run
 
-The residual is now exactly: **K7** (a matched 8 mm 18° bipolar PM stepper at ≤ $1.86) plus the
-print-realisation quantities (K2 μ/scallop, K9 rotor tolerance, K1-abuse core crush, K4
-stiction release/drift, K8 guide shear, K11 creep, R1 error rate, R2 miniature height). Each
-needs the named physical measurement, which DND-27 forbids.
+- `detent_checks.py` (15 tests, +6 new), `k9_checks.py` (10 tests), `checks.py` (13 tests,
+  killer labels updated), `model.py`, `ratify_bom.py --selftest`, `test08/checks.py`,
+  `test09/run.py` — all green locally. CI adds both new gates.
 
-## Most informative next test
+## Next test
 
-Purchase+sample one candidate motor lot and measure its step angle, winding resistance and
-running torque, which retires K7 and, with it, the only remaining cost residual.
-
-## Delegated verification
-
-- [DND-45](/DND/issues/DND-45) — K2 geometry choice at μ=0.35 and K9 Monte-Carlo angular tolerance.
-- [DND-46](/DND/issues/DND-46) — Falsifier adversarial audit of the four closure modules.
-- [DND-47](/DND/issues/DND-47) — CostManufacturing ratification of the $424.95 BOM path.
+- Source or measure the as-printed scallop depth and tip geometry on a real part (gated by
+  print authority); until then K2/K9 stay closed analytically only.
