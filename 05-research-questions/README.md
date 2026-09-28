@@ -48,6 +48,35 @@ time, common-drive force, reset and failure recovery.
 engage/write/disengage within 0.40–0.60 s, or extrapolated selector hardware and
 drivers leave no credible <$500 BOM.
 
+**Partial result ([Test11](../06-experiments/test11_selector_coupon/README.md)).**
+A first final-pitch calculation and coupon now bound this question:
+
+- Test07's printable sliding-gate latch was re-derived at the final 5.08 mm pitch
+  (no longer 8.5 mm). The inter-cell band is only **0.20 mm** at Test09's
+  4.68 mm body / 0.10 mm-per-side clearance; a linear gate needs **1.60 mm**
+  (slot + two printable walls), so the linear blade is re-pitch-blocked.
+- A one-blade rotary gate advancing at radius 2.54 mm crosses **1.10 mm** into
+  the occupied neighbour channel, so any printed rotary gate must be
+  **axis-centred** (drum) or non-contacting.
+- A one-per-column electronic gate on a 2-wire bus needs **0.72 s** to address
+  80 columns at a 5 ms toggle and draws **7.2 A** if energised together: above
+  the 0.60 s dwell. Fan-out must therefore be a **loaded mechanical register**
+  (address energy amortised across a bank), not a gate per column powered during
+  the write.
+- The **shared stroke is only 25% of 40 mm** (one tooth pitch per level, four
+  strokes), independent of column count — the shared-stroke premise survives.
+- The passive latch tooth shear area is `0.50 × 1.20 = 0.60 mm²`, giving
+  **8.3 MPa** at the 5 N abuse gate (below ideal PLA shear yield, but edge
+  stress concentration and creep are unmodelled). Actual engaged overlap is
+  **0.80 mm, not the intended 0.90 mm**, because the 0.40 mm tip recess costs 11%.
+
+This is all **calculated/CAD**, not measured. It does not yet reject S3; it
+narrows the surviving topology to an axis-centred, bank-addressed printed gate
+and makes the command gate, not the latch body, the critical path. Next cheapest
+test: a 2×4 axis-centred drum-gate strip with a banked address register,
+measuring per-column toggle force, loaded dwell, inter-column leakage and bank
+address time.
+
 ### Q4 — Is a cheap tile clutch actually independent under load?
 
 S4 moves the bought selector boundary to about 64 tiles. Determine whether a

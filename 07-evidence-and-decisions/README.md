@@ -20,6 +20,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 |---|---:|---:|---:|---:|---:|---:|---:|
 | M-012 / A-001 rotary-stop architecture | ✓ | ✓ | ✓ | ✓ | — | — | — |
 | M-001 travelling multi-row screen | — | ✓ | ✓ | — | — | — | — |
+| Test11 final-pitch selector fan-out (S3/S4) | — | ✓ | — | ✓ | — | — | — |
 | M-013 perforated height plates | conceptual | partial | — | — | — | — | — |
 | M-003 bistable latch family | ✓ | — | — | — | — | — | — |
 | M-005 compliant snap-through family | ✓ | — | — | — | — | — | — |
