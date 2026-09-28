@@ -31,6 +31,56 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
 
+### Convergence decision (CTO, 2026-09-28)
+
+**No survivor is promoted to [`08-current-design/`](../08-current-design/README.md).**
+See [`convergence-decision-2026-09.md`](convergence-decision-2026-09.md) (ADR-001) and the ranked
+elimination order in [`convergence-plan.md`](convergence-plan.md). S1–S5 are one bet in five shapes:
+a passive, printable, final-pitch state/selection element written by a small shared programmer and
+able to hold load without powered holding. The field is unsupported on regional isolation
+(unmeasured), release-force variation (≈9% sd break-even), and matched delivered cost (<$500).
+
+### Adversarial status of the survivors (Test11)
+
+The matrix above records *what evidence exists*. It does not record *what would kill each
+candidate*. [Test11 falsification library](../06-experiments/test11_falsification_library/) adds that
+layer. No survivor has any **printed or measured** evidence; every gate below is proposed, not
+passed.
+
+> *Merge note:* the Test11 experiment folders referenced in this section (`test11_falsification_library`,
+> `test11_threshold_ratchet_s1`) land via their own PRs (#16, #17). Until those merge, the links
+> resolve only on those branches; this document records the synthesis, not the artifacts.
+
+| Survivor | Biggest unproven assumption | Cheapest rejection test | Physical status |
+|---|---|---|---|
+| S1 threshold/ratchet | four gates + ratchet + 40 mm travel fit at 5.08 mm | 2×5 strip, two masks, one shared stroke | NOT STARTED |
+| S2 planar tiles | four planar layers register for a 0.7 mm follower | 5×5 stack, five heights, checkerboards | NOT STARTED |
+| S3 multi-row DMA | 2×4 printed register completes a loaded dwell | 2×4 head section, one shared drive | NOT STARTED |
+| S4 shared-bus tiles | cheap clutch is independent under load; jams stay contained | two 2×4 tiles on one bus + forced jam | NOT STARTED |
+| S5 rotary stops | printed cam/detent/return work at pitch and load | Test09 Stage A→B then C | NOT STARTED (Test09 plan exists) |
+
+Reliability is a **cross-cutting gate**: at a 0.01% per-cell error rate a 6400-cell map is correct
+only 52.7% of the time, and a six-cell coupon is 99.94% perfect even at that failing rate. A clean
+small demo therefore cannot promote any architecture.
+
+### Test11 survivor-specific calculated results
+
+[Test11 threshold-ratchet screen](../06-experiments/test11_threshold_ratchet_s1/README.md)
+(InventorAlpha) adds, for S1/S2:
+
+- S1 gate/pawl **fit** at pitch (2.28 mm budget closes); density is *not* the killer.
+- S1 worst-case stroke force ≈2.37 kN if 6,400 pawls arm in one stroke → **fails** unless banked
+  (**S1-B**: ≈296 N/stroke, ≈17.6 s).
+- S1/S2 mask writing needs ≥500 channels or off-line pre-write; serial is 2,560 s.
+- S1 full map ≈5.3 s, S2 full ≈2.0 s → timing passes; force and media-writing discriminate.
+- S2 survives only double-buffered with an off-line writer.
+
+### Physical evidence status
+
+**Printed: none. Measured: none.** The J2 isolation rig is **PRINT-READY PENDING HARDWARE**
+(slice-calculation verdict, no slicer binary, no print). The physical J2-0…J2-4 run is the top
+missing evidence and is owned by the CTO ([DND-14](/DND/issues/DND-14)).
+
 ## Mechanism coverage audit — September 2026
 
 A function-driven Deep Research pass deliberately searched outside the vocabulary
