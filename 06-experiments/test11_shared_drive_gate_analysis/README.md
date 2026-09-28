@@ -150,8 +150,13 @@ measured Stage-B numbers before a head is trusted.
   **pivot was redesigned** from printed-in-place to a designed journal fit
   (`PIVOT_CLR = 0.20 mm/side`, socket bore 1.20 mm), so protocol gate M3 is now
   analytic. The engine returns **`S3_DENSITY_PRINTABLE`** on the 0.4 mm baseline
-  (analytic screen, not a print). The remaining thin term is M4 land reach
-  (−0.05 mm worst case).
+  (analytic screen, not a print). **M4 land reach is also closed now**: it is the
+  finger angular throw derived from the CAD land height (`LAND_H_NOMINAL =
+  0.90 mm` → 16.3°, WC margin **+0.35 mm**) rather than a window around a 0.50 mm
+  artefact. The unified validator (`tools/validate/analytic_printability.py`)
+  also stopped applying the inserted-pin rule to the printed boss and reports
+  the coupon as **RISK** (0.47 mm web is between one and two extrusion lines),
+  not the earlier spurious FAIL.
 - **T11-A, physical form (deferred, not permitted under DND-27):** the printed
   coupon package (STLs + [`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md)) is
   ready to fabricate if the policy changes. It would kill S3 density if the

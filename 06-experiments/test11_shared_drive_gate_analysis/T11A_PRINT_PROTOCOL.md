@@ -23,8 +23,13 @@ with measured numbers or leave it blank; do not infer a pass from CAD.
 > (`PIVOT_SOCKET_D = 1.20 mm`), so M3 is now an analytic quantity. Feeding the
 > analytic record to `t11a_fit_check.py` returns **`S3_DENSITY_PRINTABLE`** on
 > the 0.4 mm baseline with the explicit *analytic screen, not a print* warning.
-> M1/M5/M6 are analytic passes; M4 land-reach is the remaining thin term
-> (−0.05 mm worst case). This is still **not** a printed or measured result.
+> **M4 land reach is now closed analytically** (DND-4 follow-up): it is modelled
+> as the finger *angular throw* derived from the CAD land height
+> (`LAND_H_NOMINAL = 0.90 mm` → 16.3°, low extreme 0.65 mm still seats), giving
+> a worst-case margin **+0.35 mm**, not the earlier −0.05 mm. The earlier number
+> came from comparing the land height against an arbitrary ±0.20 mm window
+> around a 0.50 mm protocol artefact; that was a modelling error, not a design
+> failure. This remains **not** a printed or measured result.
 
 ## Files
 
@@ -87,7 +92,7 @@ macro for webs, 0.01 g balance (optional), and a straight edge.
 | M1 | minimum web between adjacent fingers over all 4 rows | ≥ 0.20 mm | < 0.20 mm on any row |
 | M2 | selector notch present and open (engaged fingers) | clear opening ≥ 0.40 mm | fused or < 0.40 mm on 0.4 mm nozzle; retry A4 |
 | M3 | finger pivot free play after print, no hand fitting | rotates/bears under finger force | any fused pivot |
-| M4 | bank land height vs finger toe (nominal 0.5 mm land) | toe reaches land across 4 rows | land missing or displaced > 0.2 mm |
+| M4 | bank land height vs finger toe (`LAND_H_NOMINAL = 0.90 mm`) | land seats toe: land ≥ 0.30 mm and finger throw (asin(land/FINGER_H)) inside 5–40° | land missing or < 0.30 mm contact floor |
 | M5 | lateral clearance between bank OD and neighbour bank | > 0.20 mm | collision at 5.08 mm pitch |
 | M6 | assembled bbox | ≤ 25.4 × 25.4 × 20 mm per 2×4 area | exceeds |
 

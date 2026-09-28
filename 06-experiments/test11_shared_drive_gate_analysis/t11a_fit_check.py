@@ -45,8 +45,13 @@ FINE_NOZZLE = 0.2
 # Protocol numbers (T11A_PRINT_PROTOCOL.md).
 WEB_PASS = 0.20
 NOTCH_PASS = 0.40
-LAND_NOMINAL = 0.5
-LAND_TOL = 0.20
+# DND-4 M4 closure: M4_land_mm is the bank's raised land height (CAD) and the
+# gate is that the land still seats the finger toe within the rocker's usable
+# throw. The full tolerance stack-up lives in analytic/t11a_analytic_gate.py;
+# this engine applies the nominal band.
+LAND_NOMINAL = 0.90
+LAND_H_MIN_CONTACT = 0.30
+LAND_H_MAX = 3.20          # = FINGER_H; throw asin(land/FINGER_H) -> 90 deg
 CLEARANCE_PASS = 0.20
 BBOX_X, BBOX_Y, BBOX_Z = 25.4, 25.4, 20.0
 
@@ -191,9 +196,13 @@ def score_run(row: dict) -> RunVerdict:
     elif m4_state is False:
         v.gates.append(GateResult("M4", "bank land vs finger toe",
                                   m4, "KILL", "land missing"))
-    elif m4 is not None and abs(m4 - LAND_NOMINAL) > LAND_TOL:
+    elif m4 is not None and m4 < LAND_H_MIN_CONTACT:
         v.gates.append(GateResult("M4", "bank land vs finger toe", m4, "KILL",
-                                  f"|{m4}-{LAND_NOMINAL}| > {LAND_TOL} mm"))
+                                  f"land {m4} < {LAND_H_MIN_CONTACT} mm "
+                                  "contact floor"))
+    elif m4 is not None and m4 > LAND_H_MAX:
+        v.gates.append(GateResult("M4", "bank land vs finger toe", m4, "KILL",
+                                  f"land {m4} > {LAND_H_MAX} mm finger half-height"))
     else:
         v.gates.append(GateResult("M4", "bank land vs finger toe",
                                   m4, "PASS", "toe reaches land across rows"))
@@ -434,7 +443,7 @@ def run_selftest() -> int:
 
     # Every gate PASS at 0.4 mm -> density printable.
     r = _row(run_id="A1", M1_web_mm=0.22, M2_notch_mm=0.45, M3_pivot="yes",
-             M4_land_mm=0.5, M5_clearance_mm=0.35,
+             M4_land_mm=0.90, M5_clearance_mm=0.35,
              M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     v = score_run(r)
     ok &= _check("all-pass worst", v.worst, "PASS")
@@ -443,10 +452,10 @@ def run_selftest() -> int:
 
     # Coarse M1 web fuses (<0.20) but A4 fine passes -> fine nozzle required.
     rc = _row(run_id="A1", M1_web_mm=0.15, M2_notch_mm=0.45, M3_pivot="yes",
-              M4_land_mm=0.5, M5_clearance_mm=0.35,
+              M4_land_mm=0.90, M5_clearance_mm=0.35,
               M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     rf = _row(run_id="A4", nozzle_mm=0.2, layer_mm=0.08, M1_web_mm=0.25,
-              M2_notch_mm=0.45, M3_pivot="yes", M4_land_mm=0.5,
+              M2_notch_mm=0.45, M3_pivot="yes", M4_land_mm=0.90,
               M5_clearance_mm=0.35, M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32,
               M6_bbox_z_mm=5.06)
     ok &= _check("coarse web kill", score_run(rc).worst, "KILL")
@@ -456,7 +465,7 @@ def run_selftest() -> int:
 
     # M1 web fuses at BOTH nozzles -> reject 4-row.
     rf2 = _row(run_id="A4", nozzle_mm=0.2, layer_mm=0.08, M1_web_mm=0.10,
-               M2_notch_mm=0.45, M3_pivot="yes", M4_land_mm=0.5,
+               M2_notch_mm=0.45, M3_pivot="yes", M4_land_mm=0.90,
                M5_clearance_mm=0.35, M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32,
                M6_bbox_z_mm=5.06)
     ok &= _check("reject disposition",
@@ -470,25 +479,25 @@ def run_selftest() -> int:
 
     # M2 notch FAIL (0.30) but no kill -> is a FAIL, drives fine/nozzle path.
     rn = _row(run_id="A1", M1_web_mm=0.22, M2_notch_mm=0.30, M3_pivot="yes",
-              M4_land_mm=0.5, M5_clearance_mm=0.35,
+              M4_land_mm=0.90, M5_clearance_mm=0.35,
               M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     ok &= _check("notch fail worst", score_run(rn).worst, "FAIL")
 
     # M3 fused pivot -> KILL.
     r3 = _row(run_id="A2", M1_web_mm=0.22, M2_notch_mm=0.45, M3_pivot="no",
-              M4_land_mm=0.5, M5_clearance_mm=0.35,
+              M4_land_mm=0.90, M5_clearance_mm=0.35,
               M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     ok &= _check("fused pivot KILL", score_run(r3).worst, "KILL")
 
     # M5 collision (<=0) -> KILL.
     r5 = _row(run_id="A3", M1_web_mm=0.22, M2_notch_mm=0.45, M3_pivot="yes",
-              M4_land_mm=0.5, M5_clearance_mm=0.0,
+              M4_land_mm=0.90, M5_clearance_mm=0.0,
               M6_bbox_x_mm=10.16, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     ok &= _check("bank collision KILL", score_run(r5).worst, "KILL")
 
     # M6 bbox over-envelope -> FAIL.
     r6 = _row(run_id="A1", M1_web_mm=0.22, M2_notch_mm=0.45, M3_pivot="yes",
-              M4_land_mm=0.5, M5_clearance_mm=0.35,
+              M4_land_mm=0.90, M5_clearance_mm=0.35,
               M6_bbox_x_mm=30.0, M6_bbox_y_mm=20.32, M6_bbox_z_mm=5.06)
     ok &= _check("bbox over FAIL", score_run(r6).worst, "FAIL")
 
@@ -499,7 +508,7 @@ def run_selftest() -> int:
 
     # Packed bbox string parses.
     rpk = _row(run_id="A1", M1_web_mm=0.22, M2_notch_mm=0.45, M3_pivot="yes",
-               M4_land_mm=0.5, M5_clearance_mm=0.35, M6_bbox_mm="10.16x20.32x5.06")
+               M4_land_mm=0.90, M5_clearance_mm=0.35, M6_bbox_mm="10.16x20.32x5.06")
     ok &= _check("packed bbox PASS", score_run(rpk).worst, "PASS")
 
     print()

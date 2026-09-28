@@ -1,52 +1,61 @@
-# DND-37 — Ratify S5 winner purchased BOM + printability
+# DND-4: close M4 land reach analytically + fix two printability-validator mis-scopes
 
-Stacked on **`dnd-35-convergence-winner`** (DND-35, PR pending). Base: `dnd-35-convergence-winner`.
-
-## What changed
-- **New** `06-experiments/test12_winner_convergence/ratify_bom.py` — independent
-  re-derivation of the S5 purchased BOM straight from `bom_S5_delivered.csv`, plus a
-  `--selftest` that pins the DND-37 findings in CI.
-- **New** `07-evidence-and-decisions/dnd37-bom-ratification.md` — the ratification note.
-- **Correction** across ADR-002, `test12/README.md`, `08-current-design/README.md`,
-  `sourcing_notes.md`: reduced delivered cost **$481.56 → $493.57**.
-- **CI**: `ratify_bom.py --selftest` added to the Test12 step.
+Resolves the follow-up on [DND-4](/DND/issues/DND-4) (S3/S4 shared-drive family).
+Bases on the merged pivot-clearance work (PR #30) and closes the last thin S3
+analytic gate term. **Calculation/CAD only — no print, no measurement**
+([DND-27](/DND/issues/DND-27)).
 
 ## Engineering question
-Does the S5 winner's purchased BOM arithmetic hold, can any sourced reduction reach
-<$400, is there a sourced matched sub-$1 8 mm stepper, and is the X1C/PLA 0.4 mm
-printability route sound?
 
-## Evidence produced (CALCULATION over sourced listings — no purchase, no print)
-- **BOM arithmetic:** fixed expected subtotal $284.00 reproduces the CSV; sourced-pair
-  delivered **$503.71** confirmed.
-- **Defect found:** the reduced path subtracts the shift-register line at its **$14
-  expected allowance** against a base re-priced to sourced prices; the sourced value is
-  only **$3.70** (40 × $0.094). Overstatement **$10.30** → honest reduced **$493.57**
-  (still under $500, but **$6.43** margin, not $18.44).
-- **Motor supply:** Octopart (DigiKey/Mouser/Farnell/Newark/Arrow) stocks **no** true
-  8 mm 18° bipolar PM stepper; only traceable matched part is MOONS 8PM020S1 **$40/ea**
-  (→ ~$4,156 delivered). Live AliExpress micro listings €0.79–3.59 ea are unqualified.
-  Expected cost is a **range $493.57–$646**.
-- **<$400 band:** **not reachable** on any sourced path.
-- **Printability:** X1C/PLA 0.4 mm ratified; all features ≥ the sourced 0.44 mm minimum
-  feature width. Thin contact features (detent 0.45, body wall 0.60, stem 0.70 mm) are
-  under the 0.88 mm robust wall → 0.2 mm nozzle recommended for the *contact* features,
-  not required by geometry; resin/SLA not required.
+1. Is the S3 fan-out **M4 "land reach"** gate a real design failure, or a
+   modelling artefact?
+2. Why did the unified printability validator report the S3 coupon as `FAIL`
+   while the experiment's own analytic gate reported it printable?
 
-## What passed / failed
-- Passed: `checks.py` (9/9), `model.py`, new `ratify_bom.py --selftest`, Test08/10/11
-  checks, delivered-BOM checks.
-- Failed (kept as findings): the $481.56 reduced figure; the "optional 0.2 mm upper
-  guides" characterisation; the <$400 claim.
+## What changed
 
-## Assumptions / uncertainty
-Motor and driver unit prices remain **sourced listings, not quotations**; the sub-$1.05
-basis is an unqualified marketplace multipack that DND-27 forbids retiring by purchase.
-Print tolerance/strength of the thin contact features is a qualitative residual (K2 class).
+- `06-experiments/test11_shared_drive_gate_analysis/analytic/t11a_analytic_gate.py`
+  — M4 is now the **finger angular throw** `asin(land/FINGER_H)` from the CAD
+  land height (`LAND_H_NOMINAL = 0.90 mm` → 16.3°) plus an explicit contact
+  floor, replacing `|land − 0.50| > 0.20`. Adds an `ANALYTIC_FAIL_LAND_REACH`
+  verdict path.
+- `.../t11a_fit_check.py` — gates `M4_land_mm` on the contact floor
+  (≥ 0.30 mm) and finger half-height band instead of the old ±0.20 window.
+- `tools/validate/analytic_printability.py` — stop applying the **inserted-pin**
+  rule (`min_pin_dia = 5.0 mm`) to a **printed-in-place** boss; classify it as a
+  printed feature and add the designed journal free-play check.
+- Regenerated analytic record; README / protocol / analytic README updated to the
+  corrected M4 definition.
 
-## Next test
-Sample a matched 8 mm motor lot (step angle, running torque ≥0.15 mN·m @400 pps, winding,
-shaft) — blocked by DND-27; otherwise carry the range and proceed to the analytic detent
-contact sweep.
+## Results
 
-Co-Authored-By: Paperclip <noreply@paperclip.ing>
+- M4 land reach: worst-case margin **+0.35 mm**, Monte Carlo pass **1.0000**
+  (was −0.05 mm / 0.9077). The old number compared the land against an arbitrary
+  window around a 0.50 mm protocol artefact, not a physical reach condition.
+- Fit engine on the analytic record: **`S3_DENSITY_PRINTABLE`** at the 0.4 mm
+  baseline (analytic screen, explicitly not a print).
+- Unified validator on the coupon: **RISK**, not FAIL. The 0.47 mm web is
+  between one and two extrusion lines — a genuine thin-feature finding, honestly
+  classified, not a kill.
+
+## Passed / failed
+
+- PASS: full `engineering-checks` command set locally (**18/18**), including
+  test08–test11, the fit engine self-test/validate/predict, the analytic gate
+  self-test/record/replay, and the sourced-limit printability table.
+- No design FAIL remains asserted-passing; the coupon's thin web stays a
+  reported RISK.
+
+## Assumptions / limits
+
+- Dimensional stack-up only. This is **not** a print: it cannot see fusion,
+  stringing, layer adhesion, elephant-foot or warp. The printed-in-practice
+  journal/land behaviour remains a permanent qualitative risk.
+- Land height tolerance ±0.20 mm and free-gap floors are stated assumptions.
+
+## Remaining uncertainty / next test
+
+- T11-B loaded engage/write/disengage dwell (analytic) and Step 6
+  load/structure/power. If S3 is to be un-killed, the CTO's flat cost rejection
+  should be re-read against the **0 bought per-channel selectors / ~$94 motor
+  allowance** spec rather than the fallback-inflated number.
