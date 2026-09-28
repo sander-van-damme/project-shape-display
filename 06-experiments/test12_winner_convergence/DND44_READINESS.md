@@ -1,5 +1,16 @@
 # DND-44 — S5 readiness closure (K1 / K5 / K6 / K8 / K10 / K11)
 
+> **⚠ Superseded in part by [DND-46](/DND/issues/DND-46) / [DND-48](/DND/issues/DND-48).**
+> The adversarial audit (`FALSIFIER_AUDIT.md`, `falsifier_checks.py`) broke three of the six
+> headlines below. **Use the robust register in
+> [`08-current-design/README.md` §7/§9](../../08-current-design/README.md), not the "After" column
+> here.** Summary of the corrections: **K1-service is 0.39–3.27 N/column** (not ≤0.39);
+> **K5 planning basis is $482.95** (not $424.95); **K8 is open** (at the repo's 40 mm free
+> length, 1 N → 0.356 mm, gate load 0.28 N — not 0.01 mm / ~9.4 N); **K6 is conditional on a
+> loaded dwell AND a ≥268 pps loaded rate with `inspection_s = 0`**; **K11 is ">=1e6, order
+> unknown"** (not ~10⁸). The §"Residuals that survive" table below is superseded by
+> `FALSIFIER_AUDIT.md` §8 and the §9 register.
+
 **Question.** [DND-41](/DND/issues/DND-41) left the promoted S5 winner as an honest
 *analytic definition*, not a print-ready claim: cost at/over $500, time only in the
 best sweep corner, K1 open, and K7–K12/R1–R4 open. [DND-44](/DND/issues/DND-44) asks

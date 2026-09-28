@@ -1,5 +1,13 @@
 # Test 12 — Winner convergence stack-up (DND-35)
 
+> **Readiness status (DND-46 / DND-48):** the DND-44 closure headlines for K1/K5/K8 were
+> **broken** by the adversarial audit (`FALSIFIER_AUDIT.md`) and the robust figures are folded
+> into [`08-current-design/README.md` §7/§9](../../08-current-design/README.md). Robust planning
+> numbers: **cost $482.95** (not $424.95), **service buckling 0.39–3.27 N/column**, **lateral
+> gate exceeded at the 40 mm extension** (0.356 mm at 1 N), **time conditional on a loaded dwell
+> AND a ≥268 pps loaded rate**, **cycle life ">=1e6, order unknown"**. Treat the DND-44/41
+> paragraphs below as history.
+
 **Question.** After five parallel hypotheses (S1–S5), converge on **one** buildable
 machine and produce its end-to-end stack-up: full-map time, purchased cost, per-cell
 reliability, regional-update isolation and travel — with the killing evidence for every

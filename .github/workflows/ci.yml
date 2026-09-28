@@ -103,6 +103,14 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python k7_motor_trace.py > /dev/null
           python k7_motor_trace_checks.py
+      - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python falsifier_checks.py
+      - name: Test12 DND-48 robust readiness register (robust figures in the docs)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python register_checks.py
       - name: Test13 Step-6 load/structure/power (DND-43)
         run: |
           cd 06-experiments/test13_step6_load_structure_power
