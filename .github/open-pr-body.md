@@ -1,94 +1,59 @@
-# DND-35: Falsifier adversarial audit of convergence logic + reliability-helper fix
+# DND-36: Falsifier adversarial review of the S5 winner promotion (DND-35)
 
-Adversarial review requested by [DND-35](/DND/issues/DND-35) ("ask Falsifier to
-adversarially review the winner's killer list"). No winner exists yet, so this
-audits the **selection logic and the survivors' kill list** instead — the layer
-that must be sound before a winner can be named. Independent reviewer: Falsifier.
+Resolves [DND-36](/DND/issues/DND-36). Independent adversarial review of the CTO's
+[DND-35](/DND/issues/DND-35) convergence: ADR-002 promotes **S5 — programmed stepped
+rotary stops + common lift** to the single buildable winner. This PR tries to kill that
+promotion on evidence, not to ratify it.
 
-## What changed
+## Engineering question
 
-New artifact `07-evidence-and-decisions/falsifier-adversarial-audit-2026-09.md`
-with three findings (all **calculation/sourced**, no physical evidence, per
-[DND-27](/DND/issues/DND-27)):
+Is the S5 promotion — its killer list and its end-to-end time/cost/isolation stack-up —
+supported as stated, or does it present contestable / measurement-only / arithmetic-broken
+claims as closed?
 
-1. **"One bet in five shapes" is false for S5.** S1–S4 are *written passive
-   memory* (Bet A: gate/pawl, planar shutter, printed register, tile clutch).
-   S5 is *absolute geometric stops* (Bet B: gravity follower on a home-homed cam
-   sector — no threshold, no set/clear state, no hold force). Their killers do
-   not overlap, so a Bet-A failure (≈9 % release-force spread, gate hold) does
-   **not** imply a Bet-B failure (cam buckling ~4.96 N vs 5 N, detent capture,
-   motor sourcing). The plan's single-fate rule should become two bets, and S5's
-   gates should run in parallel with the Bet-A gates.
-2. **The "$500 rejects every survivor" verdict is an artifact for S1/S2/S4.**
-   Their working BOMs charge $192–$224 for *fallback* parts the designs
-   explicitly intend to print (e.g. `bom_S1.csv`: "No bought part intended in S1
-   baseline; allowance only if tile isolation needs a coupler"). Cost for
-   S1/S2/S4 is therefore **undetermined pending the print gate**, not failed.
-   The two robust cost results stand: any bought part per cell ($0.10 → $640),
-   and the sourced $40 8 mm stepper that threatens S5's 80-motor head.
-3. **`reliability.zero_failure_trials()` was inverted.** It documented a
-   one-sided 95 % upper bound but computed `ln(conf)/ln(1−q)` (the probability of
-   *seeing zero failures*), returning **32,664** at q = 1.57×10⁻⁶ where the
-   project's own headline and `test11_cost_printability_reliability/checks.py`
-   say **1,907,667** — a **~58× overstatement of demonstrated reliability**. Made
-   convention-explicit, defaulted to the upper bound, and pinned the agreement
-   in `checks.py` so it cannot regress.
+## Verdict
 
-Also corrected `06-experiments/test11_falsification_library/measurement_plan.md`,
-which had rationalised the 3.27×10⁴ figure instead of flagging the inversion.
+**The direction survives; the promotion fails as stated.**
 
-## Engineering question addressed
+- S5 is genuinely the best-evidenced candidate (real CAD + a reproduced timing model + an
+  82 %-sourced BOM). Promoting it over S1–S4 is defensible.
+- But **three of six `closed-analytically` killers are not closed as written**, and the
+  **cost margin is an arithmetic artifact**.
 
-Does ADR-001's convergence logic correctly identify what can kill each survivor,
-and is the reliability arithmetic it rests on self-consistent?
-
-**Answer: not yet.** The Bet-A/Bet-B conflation can trigger an unnecessary
-product re-scope, the S1/S2/S4 cost verdict is conditional not final, and the
-reusable reliability helper disagreed with the project's own headline by 58×.
+| Killer | ADR-002 says | This review finds |
+|---|---|---|
+| K1 cam buckling | closed, 4.96 N vs 1 N | **contested** — `test08/README.md:263` says the 5 N screen is *not* met and "expect a redesign"; the 1 N service load is unsourced (`miniature_measured:false`) |
+| K4 regional isolation | closed, 0.017 vs 0.10 mm | **not closed** — the cited J2 gate returns `INCONCLUSIVE`; stiction release + wear drift are measurement-only |
+| K6 time < 30 s | closed, 26.251 s | **conditional** — 26.251 s is one corner of the repo's own 540-case sweep; at 400 pps **17/108 pass**, worst **45.07 s** |
+| K5 cost < $500 | closed, $503.71→$481.56 | **fails on the repo's own basis** — sourced-pair delivered = **$501.12** (over ceiling); $503.71 needs an inconsistent multiplicative uplift (`1.10*1.06`) plus a $2.20 subtotal error; the reduction is partly double-counted |
 
 ## Evidence produced
 
-- New adversarial review (calculation + sourced-fact document review).
-- `reliability.py`: convention-explicit `zero_failure_trials(..., convention=)`;
-  default `upper_bound` reproduces 1,907,667 at q = 1.57×10⁻⁶.
-- `checks.py`: replaced the legacy-pinned `n == 513` test with
-  `test_headline_1p91M_trials_are_the_upper_bound`, asserting the upper-bound
-  value equals the headline and the legacy formula is >50× smaller.
-- `07-evidence-and-decisions/README.md`: audit pointer added to the evidence
-  matrix section.
+- New note `07-evidence-and-decisions/falsifier-s5-promotion-review-2026-09.md` — full
+  adversarial review with per-finding cheapest falsification and a ranked, **print-free**
+  experiment list.
+- New executable `07-evidence-and-decisions/falsifier_s5_review_checks.py` — reproduces all
+  four findings from repository inputs (`bom_S5_delivered.csv`, `timing_sweep.csv`, the J2
+  analytic README) and asserts them, so the review can be verified rather than trusted.
+- `07-evidence-and-decisions/README.md` — index points to the review.
+- Plus six **unstated killers** the winner's list omitted (purchased-actuator cost cliff at
+  $40/ea MOONS; no lateral-holding killer; print-tolerance erosion of the 6.5° angular
+  margin; regional-update time; detent cycle life).
 
-## Assumptions made explicit
+## Evidence class / limits
 
-- The two-bet framing is a documented reading of the repository's own S5
-  mechanism description; rejecting it requires showing S5's write is
-  threshold-dependent (Finding 1's stated falsification test).
-- Cost for S1/S2/S4 is treated as conditional on the printed selector/media
-  layer, consistent with Test11's own print-intent floors.
+All claims are **CALCULATION** on repository inputs or **sourced-fact** readings of the
+repository's own documents. **Nothing is printed or measured** ([DND-27](/DND/issues/DND-27)).
+No board contact ([DND-32](/DND/issues/DND-32)).
 
-## What passed / failed
+## What remains uncertain / next test
 
-- `test11_falsification_library/checks.py`: **20 tests PASS**.
-- `test11_cost_printability_reliability/checks.py`: **PASS**.
-- `test09_test08_validation/checks.py`: **PASS**.
-- `isolation_rig_runner.py --selftest`: **PASS** (now reports the correct
-  upper-bound trial count).
-- `check_fixture.py`: **PASS** (OpenSCAD render SKIPPED in this environment,
-  correctly, not passed).
+Each finding names its cheapest print-free falsification. Priority order: (1) source the max
+tabletop vertical + lateral load → closes K1/K8; (2) adopt the additive uplift and net the
+register saving → K5; (3) count `under_30` at 400 pps → K6; (4) run the J2 runner → K4. This
+PR changes no CAD, no BOM, and no winner selection.
 
-## What remains uncertain
+## Recommendation
 
-- Whether S5's home-stop/detent write is deterministic — only a coupon could
-  prove it; qualitative under DND-27.
-- Whether the printed selector/media layer works at all — the pivot of
-  Finding 2; qualitative under DND-27.
-- Release-force spread, print realisation and creep — unchanged from ADR-001 §5.2.
-
-## Most informative next test
-
-Adopt the two-bet framing on [DND-35](/DND/issues/DND-35) and re-rank the gate
-list so S5's Step 2/Step 6 killers (cam strength, loaded motor torque-speed,
-detent capture) run in parallel with the Bet-A killers — because a Bet-A failure
-currently, and wrongly, ends the whole convergence search.
-
----
-Opened by the reusable credential-free `open-pr` workflow on the Falsifier branch.
+Keep S5 as the single winner, but **re-label K1/K4/K6 and re-state cost as a corrected
+range** before `08-current-design` is called print-ready. Recorded for the CTO on DND-36.

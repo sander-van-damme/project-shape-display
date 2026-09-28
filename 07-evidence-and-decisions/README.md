@@ -68,7 +68,26 @@ Three findings, all **calculation/sourced**, body review, no physical evidence:
    for S1/S2/S4 is therefore **undetermined pending the print gate**, not failed. (S3's rejection
    and the sourced $40 8 mm-motor finding stand.)
 3. **Reliability helper convention was inverted** (`zero_failure_trials` returned the ~58× weaker
-   legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
+    legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
+
+### Falsifier review of the S5 promotion (DND-36)
+
+The CTO's [DND-35](/DND/issues/DND-35) convergence (ADR-002, branch
+`dnd-35-convergence-winner`, **not yet on `main`**) promotes **S5 — programmed stepped rotary
+stops + common lift** to the single buildable winner. The Falsifier adversarial review is
+[`falsifier-s5-promotion-review-2026-09.md`](falsifier-s5-promotion-review-2026-09.md), with
+reproducible checks in [`falsifier_s5_review_checks.py`](falsifier_s5_review_checks.py).
+
+**Verdict: the direction survives; the promotion fails as stated.** S5 is the best-evidenced
+candidate, but three of six `closed-analytically` killers are not closed as written — **K1**
+(5 N handling screen; Test08 itself says the gate is not established), **K4** (the cited J2 gate
+returns `INCONCLUSIVE`; stiction/wear are measurement-only), **K6** (26.251 s is a best-corner of
+a 540-case sweep where 84 % of 400 pps cases fail) — and the **cost stack-up has arithmetic and
+double-counting defects** (sourced-pair delivered is **$501.12**, over the ceiling, on the repo's
+own additive basis; the model's $503.71 uses an inconsistent multiplicative uplift plus a $2.20
+subtotal error). The unsourced **$1.05 motor** is the largest existential cost risk (the only
+traceable matched part is $40/ea → $3,200 for 80). See the review for the ranked, print-free
+falsification experiments.
 
 ### Adversarial status of the survivors (Test11)
 
