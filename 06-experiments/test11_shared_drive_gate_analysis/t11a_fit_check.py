@@ -126,6 +126,20 @@ def _yn(raw):
     return None
 
 
+def _evidence(raw) -> str:
+    """Evidence class for one row.
+
+    The gate engine must never silently call an analytic row MEASURED. Rows may
+    carry an explicit `evidence` column (CALCULATION / SIMULATION / CAD /
+    MEASURED); a missing column defaults to MEASURED because the shipped
+    `runs/t11a_measurements.csv` is the human print/measure table.
+    """
+    t = str(raw or "").strip().upper()
+    if t in ("CALCULATION", "SIMULATION", "CAD", "MEASURED"):
+        return t
+    return "MEASURED"
+
+
 def score_run(row: dict) -> RunVerdict:
     run_id = (row.get("run_id") or "").strip() or "UNKNOWN"
     part = (row.get("part") or "").strip()
@@ -133,7 +147,8 @@ def score_run(row: dict) -> RunVerdict:
     layer = _pf(row.get("layer_mm"))
     v = RunVerdict(run_id=run_id, part=part,
                    nozzle_mm=(nozzle if nozzle is not None else float("nan")),
-                   layer_mm=(layer if layer is not None else float("nan")))
+                   layer_mm=(layer if layer is not None else float("nan")),
+                   evidence=_evidence(row.get("evidence")))
 
     m1 = _pf(row.get("M1_web_mm"))
     if m1 is None:
@@ -227,6 +242,24 @@ def read_rows(path: Path):
 
 
 def disposition_for(verdicts) -> dict:
+    """Architecture disposition + an explicit evidence-class summary.
+
+    Analytic/simulation records are allowed to exercise the decision tree, but
+    the returned `evidence` field and the `action` text must make clear that a
+    non-MEASURED result is a design-screen, not a print result.
+    """
+    disp = _disposition_core(verdicts)
+    classes = sorted({v.evidence for v in verdicts})
+    disp["evidence"] = classes
+    if classes and classes != ["MEASURED"]:
+        disp["evidence_warning"] = (
+            "disposition derived from " + "/".join(classes)
+            + " input, NOT a print/measurement; this is an analytic screen")
+        disp["action"] = ("[ANALYTIC SCREEN, NOT A PRINT] " + disp["action"])
+    return disp
+
+
+def _disposition_core(verdicts) -> dict:
     by_nozzle = {}
     for v in verdicts:
         by_nozzle.setdefault(round(v.nozzle_mm, 2), []).append(v)
@@ -315,16 +348,23 @@ def main() -> int:
         fields = GATE_ORDER_FIELDS
         here = Path(__file__).parent
         run_dir = here / "runs"
-        f = run_dir / "t11a_measurements.csv"
-        if not f.exists():
-            print(f"[SKIP] {f} not present")
-            return 0
-        rows = read_rows(f)
-        missing = [c for c in fields if rows and c not in rows[0]]
-        if missing:
-            print(f"[FAIL] missing columns: {missing}")
+        files = [run_dir / "t11a_measurements.csv",
+                 here / "analytic" / "runs" / "t11a_analytic_measurements.csv"]
+        checked = 0
+        for f in files:
+            if not f.exists():
+                print(f"[SKIP] {f} not present")
+                continue
+            rows = read_rows(f)
+            missing = [c for c in fields if rows and c not in rows[0]]
+            if missing:
+                print(f"[FAIL] {f.name}: missing columns: {missing}")
+                return 1
+            print(f"[PASS] {f.name}: schema ok ({len(rows)} rows)")
+            checked += 1
+        if checked == 0:
+            print("[FAIL] no run record found to validate")
             return 1
-        print(f"[PASS] schema ok ({len(rows)} rows)")
         return 0
 
     if not args.input:
@@ -339,7 +379,7 @@ def main() -> int:
     disp = disposition_for(verdicts) if verdicts else {
         "disposition": "NO_DATA",
         "reason": "no run rows with a run_id",
-        "action": "print A1-A4 and record M1-M6",
+        "action": "run the analytic gate and/or print A1-A4 and record M1-M6",
     }
 
     if args.json:
@@ -348,6 +388,7 @@ def main() -> int:
             out["runs"].append({
                 "run_id": v.run_id, "part": v.part,
                 "nozzle_mm": v.nozzle_mm, "worst": v.worst,
+                "evidence": v.evidence,
                 "gates": [{"key": g.key, "outcome": g.outcome,
                            "value": g.value, "note": g.note}
                           for g in v.gates],
@@ -355,13 +396,16 @@ def main() -> int:
         print(json.dumps(out, indent=2, default=str))
     else:
         for v in verdicts:
-            print(f"== {v.run_id} ({v.part}, {v.nozzle_mm:g} mm) -> {v.worst}")
+            print(f"== {v.run_id} ({v.part}, {v.nozzle_mm:g} mm, "
+                  f"{v.evidence}) -> {v.worst}")
             for g in v.gates:
                 print(f"   [{g.outcome:8}] {g.key}: {g.note}")
         print()
         print(f"DISPOSITION: {disp['disposition']}")
         print(f"  reason: {disp['reason']}")
         print(f"  action: {disp['action']}")
+        if disp.get("evidence_warning"):
+            print(f"  evidence: {disp['evidence_warning']}")
 
     if disp["disposition"] == "REJECT_S3_4ROW_DROP_TO_2_3":
         return 1

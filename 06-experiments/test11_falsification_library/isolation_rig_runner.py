@@ -134,7 +134,18 @@ class SurvivorVerdict:
             weak = ", ".join(g.gate.key for g in self.gates
                              if g.outcome in ("INCONCLUSIVE", "MISSING"))
             return "insufficient evidence for: " + weak
+        if self.evidence != "MEASURED":
+            return ("all gates pass on %s rows (analytic bound, NOT a "
+                    "measurement)" % self.evidence)
         return "all gates pass on measured rows"
+
+
+def _row_evidence(row: dict) -> str:
+    """Evidence class for a row; defaults to MEASURED for the blank table."""
+    t = str(row.get("evidence") or "").strip().upper()
+    if t in ("CALCULATION", "SIMULATION", "CAD", "MEASURED"):
+        return t
+    return "MEASURED"
 
 
 def _parse_float(raw):
@@ -179,6 +190,13 @@ def score_table(rows):
     for (survivor, fixture, tile), grows in sorted(groups.items()):
         v = SurvivorVerdict(survivor=survivor, fixture_id=fixture,
                             tile_size=tile, rows=len(grows))
+        # Evidence class for the group. An all-non-MEASURED group is a
+        # deterministic analytic bound: the "10 repeats" guard adds no
+        # information over a single bound, so it is waived (and stated).
+        classes = {_row_evidence(g) for g in grows}
+        v.evidence = classes.pop() if len(classes) == 1 else (
+            "MIXED" if classes else "MEASURED")
+        analytic = v.evidence != "MEASURED"
 
         noise_vals = [_parse_float(g.get("rig_noise_mm")) for g in grows]
         noise_vals = [n for n in noise_vals if n is not None]
@@ -208,8 +226,11 @@ def score_table(rows):
                     outcome = "INCONCLUSIVE"
                     note += "; needs >= %d cycles" % MIN_CYCLES_EXCHANGE
             if gate.phase == "J2-1" and len(vals) < MIN_CYCLES_CORE:
-                outcome = "INCONCLUSIVE"
-                note += "; needs >= %d repeats" % MIN_CYCLES_CORE
+                if analytic:
+                    note += "; analytic bound (deterministic; repeat guard waived)"
+                else:
+                    outcome = "INCONCLUSIVE"
+                    note += "; needs >= %d repeats" % MIN_CYCLES_CORE
             v.gates.append(GateResult(gate, round(worst, 4), outcome, note))
 
         tgate = TILE_TIME_GATES.get(tile)
@@ -312,17 +333,28 @@ def selftest() -> int:
 def validate() -> int:
     """Validate the shipped table schema against the gate definitions."""
     here = Path(__file__).resolve().parent
-    table = here / "measurements" / "isolation.csv"
-    with table.open(newline="") as f:
-        fields = set(next(csv.reader(f)))
+    tables = [here / "measurements" / "isolation.csv",
+              here / "analytic" / "runs" / "isolation_analytic.csv"]
     needed = {g.field_name for g in ALL_GATES} | {
         "survivor", "fixture_id", "tile_size", "cycles"}
-    missing = sorted(needed - fields)
-    print("gates: %d; table fields: %d" % (len(ALL_GATES), len(fields)))
-    if missing:
-        print("MISSING TABLE FIELDS: %s" % ", ".join(missing))
+    checked = 0
+    for table in tables:
+        if not table.exists():
+            print("SKIP %s (not present)" % table)
+            continue
+        with table.open(newline="") as f:
+            fields = set(next(csv.reader(f)))
+        missing = sorted(needed - fields)
+        if missing:
+            print("MISSING TABLE FIELDS in %s: %s"
+                  % (table.name, ", ".join(missing)))
+            return 1
+        print("VALIDATE: %s covers every gate field (%d fields)"
+              % (table.name, len(fields)))
+        checked += 1
+    if checked == 0:
+        print("no measurement table found")
         return 1
-    print("VALIDATE: table schema covers every gate field")
     return 0
 
 
@@ -350,11 +382,12 @@ def main(argv=None) -> int:
     if args.json:
         print(json.dumps({
             "input": str(args.input),
-            "evidence": "MEASURED (rows are operator-entered)",
+            "evidence": "per-row evidence column; non-MEASURED = analytic bound",
             "verdicts": [{
                 "survivor": v.survivor, "fixture_id": v.fixture_id,
                 "tile_size": v.tile_size, "rows": v.rows,
                 "outcome": v.outcome, "reason": v.reason,
+                "evidence": v.evidence,
                 "gates": [{"key": g.gate.key, "value": g.value,
                            "outcome": g.outcome, "note": g.note}
                           for g in v.gates],
@@ -364,9 +397,9 @@ def main(argv=None) -> int:
         if not verdicts:
             print("no scored rows (table is empty or header-only)")
         for v in verdicts:
-            print("%s [%s/%s] rows=%d -> %s (%s)"
+            print("%s [%s/%s] rows=%d evidence=%s -> %s (%s)"
                   % (v.survivor, v.fixture_id, v.tile_size, v.rows,
-                     v.outcome, v.reason))
+                     v.evidence, v.outcome, v.reason))
             for g in v.gates:
                 print("    %-22s %-13s %s" % (g.gate.key, g.outcome, g.note))
 
