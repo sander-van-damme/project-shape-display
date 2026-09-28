@@ -27,9 +27,35 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | M-016 mechanical-memory lattice | ✓ | — | — | — | — | — | — |
 | P-010 lock-after-reconfigure precedent | ✓ | — | — | — | — | — | — |
 | Test10 mechanism-neutral scale bounds | — | ✓ | — | — | — | — | — |
+| Test11 S3/S4 shared-drive machines and rejection gates (cad/coupon, unrendered/unprinted) | — | ✓ | — | ✓ | — | — | — |
+| Test11 S5 five-gate status + $1.058 motor ceiling | — | ✓ | — | — | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
+
+## Shared-drive family calculated evidence — September 2026
+
+[Test11](../06-experiments/test11_shared_drive_gate_analysis/) adds **calculated**
+system models and one unrendered CAD coupon for the shared-drive family. It does
+not validate a mechanism. It establishes:
+
+- a concrete S3 machine: 20 four-row stations, 41 head motors, **zero bought
+  per-channel selectors**, a lean ~$94 allowance, and a **25.20 s** calculated
+  schedule against the strict <30 s limit;
+- the S3 binding geometric gate: four rows share one 5.08 mm band = **1.27 mm per
+  row**, leaving a 0.47 mm web on a 0.4 mm nozzle — a single fit print (T11-A)
+  can reject the density;
+- the S4 arithmetic shock: 64 tiles × the $6 absolute per-channel ceiling is
+  **$384** in bought clutches before anything else, so the tile coupler must be
+  **printed**; the distinct S4 failure mode is **correlated bus backlash**;
+- an S5 gate list of five **open** items, each with one smallest qualification
+  coupon, and a reproduced cost boundary: $332 working non-motor leaves a
+  **$1.058/motor** ceiling against Test08's $1.25 allowance.
+
+All quantities above are arithmetic on **assumed** inputs. No coupon has been
+printed and no part measured. The evidence upgrades S3/S4 from analogy to
+specified-but-unqualified machines; it does not promote any architecture into
+[`08-current-design/`](../08-current-design/).
 
 ## Mechanism coverage audit — September 2026
 

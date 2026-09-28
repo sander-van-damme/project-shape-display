@@ -104,6 +104,41 @@ and repeated lock/unlock consistency.
 hold the required load, or unlocking a target region materially moves surrounding
 terrain.
 
+## Test11 partial answers to Q3, Q4, Q5, Q6, Q8 — September 2026
+
+[Test11](../06-experiments/test11_shared_drive_gate_analysis/) works the
+shared-drive family (S3/S4/S5). Its results are **calculated on assumed inputs**,
+with an unrendered CAD coupon; none of these answers is a measurement, and each
+names the physical test that would confirm or reject it.
+
+- **Q3 (hundreds of choices without hundreds of actuators).** A concrete answer
+  exists: a **bit-plane cam register**. Four hinged printed fingers per column,
+  one per height increment, ride a four-plane cam bank. One bank sweep writes all
+  80 columns of a row in parallel; four sweeps per station cover all increments.
+  Bought per-channel count is **zero**; a lean allowance is ~$94. This is
+  *plausible*, not qualified: the binding gate is that four rows share one
+  5.08 mm band (**1.27 mm/row**), leaving a 0.47 mm web on a 0.4 mm nozzle.
+  T11-A (one fit print) rejects the density before any drive is bought.
+- **Q4 (is a cheap tile clutch independent under load?).** A bought clutch is
+  already unaffordable: 64 tiles × the $6 absolute ceiling is **$384 before the
+  rest of the machine**. S4 therefore lives or dies on a **printed** dog/index
+  clutch that slips before the bus stalls and **fails open**. T11-D exercises
+  selective and simultaneous coupling on a two-tile bus with a forced jam.
+- **Q5 (how much isolation is enough).** Test11 proposes the missing numeric
+  protocol: a loaded untouched tile and a representative miniature, with a
+  **0.10 mm** peak neighbour-motion limit and "miniature does not tip" as the
+  reject line; sweep 5×5/10×10/20×20 boundaries. T11-J is the shared rig that
+  would give S1/S2/S4 one number to beat. It is a proposal, not a sourced limit.
+- **Q6 (cheap verification).** Not resolved here. Both S3 and S4 produce
+  **silent** one-level errors (a skipped ratchet tooth, a misphased tile), so a
+  post-write height scan is architecturally required, not optional. Its timing is
+  included as a separate budget term (4 s verify in S3) rather than hidden.
+- **Q8 (decouple programming force from service load).** S3 and S4 both use this
+  split by construction: the head/bus programs unloaded columns, and a printed
+  pawl then carries the miniature load with no powered hold. The remaining risk
+  is not the split but the **joint**: the same ratchet that holds load must also
+  be reliably indexed by a sub-2 N bank force. T11-B measures both in one dwell.
+
 ## Next experiment sequence
 
 Run small experiments in rejection-value order rather than refining one design:
