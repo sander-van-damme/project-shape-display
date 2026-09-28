@@ -15,6 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install test dependencies
+        # buckling_closure.py (Test12 DND-44 K1) imports numpy via test08's
+        # cam_strength.py. The runner's system python may or may not ship numpy;
+        # pinning it here makes the DND-44 closure step deterministic.
+        run: python -m pip install --quiet numpy
       - name: Test08 deterministic engineering checks
         run: python 06-experiments/test08_architecture_search/checks.py
       - name: Test09 validation workflow
