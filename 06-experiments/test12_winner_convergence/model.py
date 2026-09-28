@@ -131,6 +131,12 @@ BOM_EXPECTED_DELIVERED_USD = round(BOM_EXPECTED_PARTS_USD * DELIVERED_UPLIFT, 2)
 # allowance removal, sourced fixed-line repricing). Reproduced by checks.py.
 SOURCED_PATH_PARTS_USD = 366.34
 SOURCED_PATH_DELIVERED_USD = round(SOURCED_PATH_PARTS_USD * DELIVERED_UPLIFT, 2)
+# --- DND-48 robust cost anchor ---------------------------------------------------
+# DND-46 BROKE the $424.95 headline: it needed four simultaneous best-case choices.
+# The defensible planning basis restores the spares allowance ($15, E5) and the four
+# bundled structural lines to their expected prices ($35, E6): $416.34 x 1.16.
+ROBUST_PLANNING_PARTS_USD = SOURCED_PATH_PARTS_USD + 15.0 + 35.0
+ROBUST_PLANNING_DELIVERED_USD = round(ROBUST_PLANNING_PARTS_USD * DELIVERED_UPLIFT, 2)
 
 
 def expected_baseline_delivered() -> float:
@@ -139,6 +145,10 @@ def expected_baseline_delivered() -> float:
 
 def sourced_path_delivered() -> float:
     return SOURCED_PATH_DELIVERED_USD
+
+
+def robust_planning_delivered() -> float:
+    return ROBUST_PLANNING_DELIVERED_USD
 
 
 # ---------------------------------------------------------------------------
@@ -166,17 +176,19 @@ KILLERS = [
     {
         "id": "K1",
         "risk": "cam buckling under handling load; service load not sourced",
-        # DND-44 closure (buckling_closure.py): the SERVICE (distributed miniature)
-        # load is now bounded, not assumed. A miniature's base spreads its weight
-        # over N columns at 5.08 mm pitch; even a 1 kg miniature on the smallest
-        # 25.4 mm base gives only 0.39 N/column (7.9% of the 4.96 N core, 12.7x
-        # margin). The 1 N working assumption was conservative. The 4.96 N core
-        # still does not meet the LOCALIZED 5 N abuse screen; a core re-size to
-        # 1.10 mm gives 5.60 N and clears it, at the cost of step height 0.5->0.4 mm.
-        "status": "closed-analytically (service) / bounded (localized abuse)",
-        "result": f"service load <= 0.39 N/column ({CAM_CRITICAL_BUCKLING_N:.2f} N core, "
-                  "12.7x margin); localized 5 N abuse screen needs a 1.10 mm core (5.60 N)",
-        "gate": "distributed tabletop load < core OR core re-sized for the abuse screen",
+        # DND-46 broke the DND-44 service closure: the base-distribution argument
+        # assumes the base conforms to EVERY column top beneath it, but a shape
+        # display's defining property is that the tops are at different heights.
+        # A rigid base is a THREE-POINT contact: 1 kg -> ~3.27 N/column, not
+        # 0.39 N (only ~1.5x margin vs the 4.96 N core). Service load is therefore
+        # 0.39-3.27 N/column depending on base contact; size the core for ~3.3 N.
+        # The localized 5 N abuse screen needs a 1.10 mm core (5.60 N), at the
+        # cost of step height 0.5->0.4 mm.
+        "status": "open (service 0.39-3.27 N/column; NOT closed at <=0.39 N)",
+        "result": "service load 0.39-3.27 N/column depending on base contact; the rigid tripod case "
+                  "(~3.27 N) is bounding and leaves only ~1.5x margin vs the 4.96 N core; size the core "
+                  "for ~3.3 N; localized 5 N abuse screen needs a 1.10 mm core (5.60 N)",
+        "gate": "base contact model (conforming vs tripod) or a core sized for ~3.3 N",
     },
     {
         "id": "K2",
@@ -212,33 +224,34 @@ KILLERS = [
     {
         "id": "K5",
         "risk": "purchased cost exceeds $500 delivered",
-        # DND-44 closure (cost_closure.py): the honest EXPECTED delivered baseline
-        # is $592.06 ($510.40 x1.16), materially worse than the earlier $501.12
-        # (which used a $0.80 TB6612 and a best-case motor). A machine-preserving
-        # reduction path (sourced TB6612FNG $0.7955 driver, sourced multipack
-        # motor $1.05, register/controller consolidation, spares allowance
-        # removal, sourced fixed-line repricing) lands at $424.95 delivered,
-        # $75.05 below the ceiling. The path clears only for a motor <= $1.86.
-        "status": "closed-analytically on the sourced path (K7 is the residual)",
-        "result": f"expected baseline ${expected_baseline_delivered():.2f} (over); machine-preserving "
-                  f"source path ${sourced_path_delivered():.2f} (${CEILING_USD - sourced_path_delivered():.2f} margin); "
-                  "breaks even at a $1.86 motor",
-        "gate": f"< ${CEILING_USD:.0f} delivered on a sourced path, machine unchanged",
+        # DND-44 (cost_closure.py): the honest EXPECTED delivered baseline is
+        # $592.06 ($510.40 x1.16). DND-46 BROKE the $424.95 headline: it needed
+        # four simultaneous best-case choices (E5 spares deleted + E6 bundled
+        # lines repriced to their unit_best + TB6612 @100 + the unqualified
+        # $1.05 motor). Restoring spares and the four bundled expected prices
+        # gives the defensible planning number $482.95 ($17.05 margin). At the
+        # sourced DRV8833PWPR driver it is $474.91; with an expected $1.25 motor
+        # it is $501.51 (over). Conditional on a motor <= $1.86.
+        "status": "open (DND-46: not $424.95; robust basis $482.95, K7 the residual)",
+        "result": f"expected baseline ${expected_baseline_delivered():.2f} (over); robust planning basis "
+                  f"${robust_planning_delivered():.2f} (E5+E6 restored, ${CEILING_USD - robust_planning_delivered():.2f} margin); "
+                  "sourced-DRV8833 variant $474.91; expected-motor case $501.51 (over); breaks even at a $1.86 motor",
+        "gate": f"< ${CEILING_USD:.0f} delivered on a defensible (not four-best-case) basis",
     },
     {
         "id": "K6",
         "risk": "full-map time exceeds 30 s at the realised step rate",
-        # DND-44 closure (timing_closure.py): the 45.07 s sweep worst corner is NOT
-        # a step-rate problem. The per-row rate-independent floor (engage/settle
-        # dwells + scan acceleration) is what binds; it is 18.65 s at the design
-        # point and 34.47 s at the worst corner, above the 30 s cap for ANY rate.
-        # The design point needs only ~268 pps for 30 s (400 pps is used). The
-        # single quantity to verify is the loaded engagement/settle dwell and the
-        # scanner's 4000 mm/s^2, not a "measured >=400 pps rate".
-        "status": "conditional (bound to assumption dwells, not to a measured rate)",
+        # DND-44 (timing_closure.py): the rate-independent floor is 18.65 s at the
+        # design point (34.47 s at the worst corner). DND-46: the closure is a
+        # FRAMING change, not a closure - the pass is conditional on BOTH a loaded
+        # engage/settle dwell AND a loaded >=268 pps (~804 rpm) rate, and the
+        # design-point pass assumes inspection_s = 0 (at 3 s inspection it is
+        # 29.25 s, meeting the hard cap but missing the 27 s target).
+        "status": "conditional (loaded dwell AND a >=268 pps loaded rate; inspection_s=0 assumed)",
         "result": f"{FULL_MAP_TIME_S:.2f} s design point vs {DEADLINE_S:.0f} s; rate-independent floor "
-                  f"{'18.65'} s; ~268 pps required for 30 s; worst corner 45.07 s is not rate-recoverable",
-        "gate": f"< {DEADLINE_S:.0f} s holds at the design dwells (>=268 pps); verify loaded dwell + scan accel",
+                  f"18.65 s; >=268 pps (~804 rpm) loaded rate required; pass assumes inspection_s=0 "
+                  "(29.25 s at 3 s inspection); worst corner 45.07 s is not rate-recoverable",
+        "gate": f"< {DEADLINE_S:.0f} s holds at the loaded dwell AND a >=268 pps loaded rate",
     },
     # --- DND-41: six previously unstated killers (Falsifier review §6) ---
     {
@@ -255,16 +268,16 @@ KILLERS = [
     {
         "id": "K8",
         "risk": "lateral holding: a knocked miniature applies lateral load",
-        # DND-44 closure (cross_cutting_closure.py): the lateral load path is the
-        # column body against its GUIDE and its free-length bending, not the
-        # detent. A 1 N lateral load deflects ~0.01 mm (< the 0.10 mm gate); the
-        # governing limit is ~9.4 N guide shear. The detent never held lateral
-        # load and never had to. The printed guide-wall shear strength is the one
-        # unmeasured term (DND-27).
-        "status": "closed-analytically (guide carries lateral; detent never did)",
-        "result": "1 N lateral -> 0.01 mm tip (< 0.10 mm gate); governing limit ~9.4 N; detent holds only "
-                  "~0.002 N and is not the lateral constraint; printed guide-wall shear is the residual",
-        "gate": "lateral load carried by guide/bending, not detent; guide-wall shear verified analytically",
+        # DND-46 BROKE the DND-44 closure: it hard-coded a 12 mm free length with
+        # no geometry basis. The repo's own unrelieved upper body is 40 mm
+        # (80.2 - 40.2), where L^3 scaling gives 0.356 mm at 1 N (3.5x the
+        # 0.10 mm gate) and a 0.10 mm-gate load of only 0.28 N. The governing
+        # limit is set by the chosen free length and an unsourced guide-shear
+        # constant, not the mechanism. Open: the free length / guide-capture.
+        "status": "open (at the 40 mm extension the gate is exceeded; NOT 0.01 mm at 1 N)",
+        "result": "at the repo's own 40 mm free length, 1 N lateral -> 0.356 mm (3.5x the 0.10 mm gate); "
+                  "0.10 mm-gate load 0.28 N; the 12 mm free length was hard-coded with no geometry basis",
+        "gate": "free-length / guide-capture geometry at extension plus printed guide-wall shear",
     },
     {
         "id": "K9",
@@ -291,14 +304,15 @@ KILLERS = [
     {
         "id": "K11",
         "risk": "cycle life of the printed detent/ratchet",
-        # DND-44 (cross_cutting_closure.py): detent surface strain 0.169% vs an
-        # assumed 0.3% endurance strain; Basquin m=8 gives ~1e8 cycles. An
-        # order-of-magnitude bound, NOT a qualification (creep/layer adhesion
-        # unmeasured).
-        "status": "bounded (order-of-magnitude, not qualified)",
-        "result": "detent surface strain 0.169% vs assumed 0.3% endurance; ~1e8 cycles by Basquin m=8; "
-                  "creep/layer adhesion unmeasured",
-        "gate": "cycle-life bound for the printed leaf under repeated writes (or a spring detent)",
+        # DND-46: the DND-44 point estimate (9.98e7) is PSEUDO-QUANTITATIVE - it
+        # rests on two asserted, unsourced FDM constants (eps_endurance=0.3%,
+        # Basquin m=8). A conservative FDM endurance (0.2%) drops it 25x; the
+        # defensible span is 4e5-1e9. Report as ">=1e6, order unknown".
+        "status": "open (>=1e6, order unknown; pseudo-quantitative point estimate withdrawn)",
+        "result": "detent surface strain 0.169% vs an ASSERTED 0.3% endurance and m=8 (unsourced); "
+                  "defensible FDM constants span 4e5-1e9; report '>=1e6, order unknown'; creep/layer "
+                  "adhesion unmeasured",
+        "gate": "printed-leaf creep/fatigue coupon (span 4e5-1e9)",
     },
     {
         "id": "K12",
@@ -328,23 +342,26 @@ def stackup() -> dict:
             "sweep_cases_per_rate": TIMING_CASES_PER_RATE,
             "sweep_worst_400_s": TIMING_WORST_400_S,
             "margin_s": round(DEADLINE_S - FULL_MAP_TIME_S, 3),
-            "note": "DND-44: rate-independent floor 18.65 s binds; ~268 pps meets 30 s; the "
+            "note": "DND-48: rate-independent floor 18.65 s binds; conditional on a loaded dwell "
+                    "AND a >=268 pps (~804 rpm) loaded rate; pass assumes inspection_s=0; the "
                     "45.07 s corner is not rate-recoverable",
         },
         "cost": {
             "parts_subtotal_usd": winner_parts_subtotal_usd(),
             "sourced_pair_usd": winner_delivered_usd(),
             "reduced_usd": winner_reduced_delivered_usd(),
-            # DND-44 anchors: the honest EXPECTED baseline and the machine-
-            # preserving source path (cost_closure.py), on the additive x1.16 basis.
+            # DND-48 anchors: the honest EXPECTED baseline and the robust planning
+            # basis (cost_closure.py spine + E5/E6 restored), on the additive x1.16 basis.
             "expected_baseline_delivered_usd": expected_baseline_delivered(),
             "sourced_path_delivered_usd": sourced_path_delivered(),
+            "robust_planning_delivered_usd": robust_planning_delivered(),
             "ceiling_usd": CEILING_USD,
+            "robust_planning_pass": robust_planning_delivered() < CEILING_USD,
             "sourced_path_pass": sourced_path_delivered() < CEILING_USD,
             "pass": winner_reduced_delivered_usd() < CEILING_USD,
-            "range_usd": [round(expected_baseline_delivered(), 2), round(sourced_path_delivered(), 2)],
-            "note": "honest expected baseline is over the ceiling; the machine-preserving source "
-                    "path clears it, conditional on a <=$1.86 motor (K7)",
+            "range_usd": [round(expected_baseline_delivered(), 2), round(robust_planning_delivered(), 2)],
+            "note": "honest expected baseline is over the ceiling; the robust planning basis "
+                    "($482.95, E5/E6 restored) clears it, conditional on a <=$1.86 motor (K7)",
         },
         "reliability": {
             "q": PER_CELL_ERROR,

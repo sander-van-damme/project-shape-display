@@ -128,28 +128,30 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertGreaterEqual(s["travel"]["increment_mm"], 9.9)
 
     def test_K1_abuse_screen_is_an_open_blocker(self):
-        # DND-44 closed K1 for the distributed SERVICE load (buckling_closure.py)
-        # and bounded the localized abuse case. The core-1.0 still does not meet
-        # the 5 N abuse screen; the 1 N service load was shown conservative.
+        # DND-46 BROKE the DND-44 K1 service closure: the distributed base
+        # premise is invalid on a height-varying field (rigid base = three-point
+        # contact). Service load is 0.39-3.27 N/column; K1 is open again.
         b = m.stackup()
         k1 = [k for k in b["killers"] if k["id"] == "K1"]
         self.assertEqual(len(k1), 1)
-        self.assertIn("closed-analytically", k1[0]["status"])
-        # The localized 5 N screen is still named as the residual.
+        self.assertTrue(k1[0]["status"].startswith("open"))
+        # The tripod bound and the localized 5 N screen are both named.
+        self.assertIn("3.27", k1[0]["result"])
         self.assertIn("abuse", k1[0]["result"])
 
     def test_killer_list_is_honestly_labelled(self):
         s = m.stackup()
         statuses = {k["id"]: k["status"] for k in s["killers"]}
-        # DND-41 relabelled; DND-44 closed K1(service)/K5/K6/K8/K10 and bounded K11.
-        self.assertIn("closed-analytically", statuses["K1"])
+        # DND-46/DND-48 robust labels: K1/K5/K8 are OPEN (not closed), K6 is
+        # conditional on dwell AND rate, K10 is a clean bound, K11 is open.
+        self.assertTrue(statuses["K1"].startswith("open"))
         self.assertEqual(statuses["K4"], "partially-closed")
         self.assertTrue(statuses["K6"].startswith("conditional"))
-        self.assertIn("closed-analytically", statuses["K5"])
-        self.assertIn("closed-analytically", statuses["K8"])
+        self.assertTrue(statuses["K5"].startswith("open"))
+        self.assertTrue(statuses["K8"].startswith("open"))
         self.assertIn("closed-analytically", statuses["K10"])
-        self.assertTrue(statuses["K11"].startswith("bounded"))
-        # K7 remains the open binding residual; K12 stays open/delegated.
+        self.assertTrue(statuses["K11"].startswith("open"))
+        # K7 remains the open binding residual; K9/K12 stay open/delegated.
         self.assertTrue(statuses["K7"].startswith("open"))
         self.assertEqual(statuses["K12"], "open")
         # DND-45: K2 gets a named geometry inside the envelope; still conditional
@@ -163,14 +165,25 @@ class WinnerConvergenceChecks(unittest.TestCase):
         k9 = [k for k in s["killers"] if k["id"] == "K9"][0]
         self.assertIn("6 levels", k9["result"])
 
-    def test_dnd44_cost_closure_anchors(self):
-        # The honest expected baseline is over the ceiling; the machine-preserving
-        # source path clears it. Both must be present so neither can be hidden.
+    def test_dnd48_robust_cost_basis(self):
+        # The honest expected baseline is over the ceiling; the ROBUST planning
+        # basis (E5 spares + E6 bundled lines restored) is the number that
+        # clears, not the four-best-case $424.95 headline.
         s = m.stackup()["cost"]
         self.assertGreater(s["expected_baseline_delivered_usd"], m.CEILING_USD)
-        self.assertLess(s["sourced_path_delivered_usd"], m.CEILING_USD)
-        self.assertGreater(m.CEILING_USD - s["sourced_path_delivered_usd"], 25.0)
-        self.assertTrue(s["sourced_path_pass"])
+        self.assertAlmostEqual(s["robust_planning_delivered_usd"], 482.95, places=2)
+        self.assertLess(s["robust_planning_delivered_usd"], m.CEILING_USD)
+        self.assertTrue(s["robust_planning_pass"])
+        # The four-best-case figure is strictly better than the robust basis and
+        # must not be the headline.
+        self.assertLess(s["sourced_path_delivered_usd"], s["robust_planning_delivered_usd"])
+
+    def test_dnd48_lateral_gate_is_open_at_40mm(self):
+        # K8: at the repo's own 40 mm free length the 0.10 mm gate is exceeded.
+        b = m.stackup()
+        k8 = [k for k in b["killers"] if k["id"] == "K8"][0]
+        self.assertIn("0.356", k8["result"])
+        self.assertIn("0.28", k8["result"])
 
 
 if __name__ == "__main__":
