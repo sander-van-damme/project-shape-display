@@ -22,12 +22,15 @@ REPO = HERE.parent.parent
 # ---------------------------------------------------------------------------
 WINNER = "S5"
 # disposition: kill | park | win, with the binding evidence string.
+# Two-bet framing (Falsifier DND-36): S1-S4 are Bet A (written passive memory);
+# S5 is Bet B (absolute geometric stops). A Bet-A failure does not imply Bet-B
+# failure. S1/S2/S4 cost is CONDITIONAL on the print gate, not a kill.
 DISPOSITIONS = {
-    "S1": ("kill", "worst-case all-armed stroke 2368 N > 1500 N cap; mask write needs >=500 channels"),
-    "S2": ("park", "survives only double-buffered with an off-line writer; no surprise-map path"),
-    "S3": ("kill", "analytic printability FAIL (pivot 0.80<5.0, min web 0.24<0.88); delivered $2880.98"),
-    "S4": ("park", "printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3 deg/joint"),
-    "S5": ("win", "only CAD+simulation+sourced-BOM candidate; 26.25 s; sourced cost path $500.70"),
+    "S1": ("kill", "Bet A: worst-case all-armed stroke 2368 N > 1500 N cap; mask write needs >=500 channels"),
+    "S2": ("park", "Bet A: survives only double-buffered with an off-line writer; no surprise-map path"),
+    "S3": ("kill", "Bet A: analytic printability FAIL (pivot 0.80<5.0, min web 0.24<0.88); delivered $2880.98 (sourced selectors)"),
+    "S4": ("park", "Bet A: printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3 deg/joint"),
+    "S5": ("win", "Bet B: absolute stops; only CAD+simulation+sourced-BOM candidate; 26.25 s; sourced cost path $503.71"),
 }
 
 # ---------------------------------------------------------------------------

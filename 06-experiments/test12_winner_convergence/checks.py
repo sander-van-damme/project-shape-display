@@ -30,6 +30,15 @@ class WinnerConvergenceChecks(unittest.TestCase):
             self.assertIn(disp, {"kill", "park", "win"})
             self.assertTrue(why and len(why) > 20, f"{cand} lacks evidence")
 
+    def test_two_bet_framing_and_no_fallback_cost_kill(self):
+        # Falsifier DND-36: S1-S4 are Bet A; S5 is Bet B. Cost must not be cited
+        # as the binding evidence for S1/S2/S4 (their BOMs are fallback-inflated).
+        for cand in ("S1", "S2", "S4"):
+            self.assertEqual(m.DISPOSITIONS[cand][0], "kill" if cand == "S1" else "park")
+            self.assertIn("Bet A", m.DISPOSITIONS[cand][1])
+        self.assertIn("Bet B", m.DISPOSITIONS["S5"][1])
+        self.assertIn("sourced selectors", m.DISPOSITIONS["S3"][1])
+
     def test_full_map_time_under_deadline(self):
         self.assertLess(m.FULL_MAP_TIME_S, m.DEADLINE_S)
         # and the margin must be a real, positive number of seconds

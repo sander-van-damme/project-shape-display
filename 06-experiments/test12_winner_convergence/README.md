@@ -24,13 +24,22 @@ python 06-experiments/test12_winner_convergence/checks.py    # regression + hone
 
 ## 1. The decision
 
+Two bets, not one (adopting the Falsifier audit, [DND-36](/DND/issues/DND-36)): **Bet A** is a
+*written* passive memory set by a shared writer (S1–S4); **Bet B** is S5's *absolute geometric
+stops* (a homed rotor + gravity-following toe, no written bit). A Bet-A failure does not imply a
+Bet-B failure, so S5 is chosen on its own evidence.
+
 | # | Candidate | Disposition | Binding evidence |
 |---|---|---|---|
-| S1 | threshold ratchet + broadcast lift | **kill** | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
-| S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; no surprise-map path |
-| S3 | multi-row mechanical DMA | **kill** | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (5.8× ceiling); CI-visible |
-| S4 | shared-bus tiles | **park** | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint |
-| **S5** | **programmed rotary stops + common lift** | **WIN** | only CAD + simulation + sourced-BOM candidate; 26.251 s; sourced cost path **$503.71**, reduced **$481.56** |
+| S1 | threshold ratchet + broadcast lift | **kill** (Bet A) | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
+| S2 | planar-memory tiles | **park** (Bet A) | survives only double-buffered with an off-line writer; no surprise-map path. Cost **conditional on the print gate** |
+| S3 | multi-row mechanical DMA | **kill** (Bet A) | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (sourced selectors); CI-visible |
+| S4 | shared-bus tiles | **park** (Bet A) | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint. Cost **conditional on the print gate** |
+| **S5** | **programmed rotary stops + common lift** | **WIN** (Bet B) | only CAD + simulation + sourced-BOM candidate; 26.251 s; sourced cost path **$503.71**, reduced **$481.56** |
+
+S1/S2/S4 cost is **not** cited as killing evidence: their BOMs are inflated by fallback lines
+for parts their designs intend to print (Falsifier Finding 2). S3's cost is driven by *sourced*
+selectors and remains a genuine kill.
 
 ## 2. End-to-end stack-up (winner)
 

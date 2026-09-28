@@ -35,6 +35,27 @@ working BOMs, but those BOMs are dominated by unquoted coupling/selection allowa
 therefore less trustworthy than S5's; a nominal cost win on a 30 %-sourced BOM is not a real
 win.
 
+### 1.1 Two bets, not one (adopting the Falsifier audit, [DND-36](/DND/issues/DND-36))
+
+The Falsifier adversarial audit (`falsifier-adversarial-audit-2026-09.md`, merged) establishes
+that the earlier "one bet in five shapes" framing in
+[ADR-001](convergence-decision-2026-09.md) is **false for S5**:
+
+- **Bet A — written passive memory** (S1, S2, S3, S4): a threshold/selection element is
+  *set* by a shared writer and must *memorise* a written bit. Killers: print/force spread,
+  gate hold, register fan-out, tile-clutch independence.
+- **Bet B — absolute geometric stops** (S5): the rotor is rotated **against a home stop** to
+  one of five absolute positions; a gravity-following toe reads the resulting height offset.
+  There is no threshold, no written bit, no hold force that can "decay". Killers: cam/toe
+  structural strength, loaded motor torque-speed, detent capture of a lost step, motor
+  sourcing cost.
+
+**Consequence for this ADR:** the Bet-A killers (release-force spread, gate hold, ratchet
+repeat) do **not** transfer to S5, and a Bet-A failure would **not** by itself invalidate
+Bet B. The winner is therefore selected on S5's own evidence, and the dropping of Bet-A
+candidates is recorded separately (§2). This ADR is not evidence that Bet A is viable; it
+records that Bet A is unqualified and that Bet B is the best-evidenced surviving family.
+
 ## 2. Killing evidence for the dropped candidates
 
 | # | Candidate | Disposition | Binding evidence | Source |
@@ -42,14 +63,22 @@ win.
 | S1 | threshold ratchet + broadcast incremental lift | **kill** | worst-case all-armed stroke **2,368 N vs 1,500 N** cap; mask write requires ≥500 parallel channels; no CAD | `test11_threshold_ratchet_s1/rejection.py` |
 | S1-B | banked broadcast ratchet | **park** | force fixed by banking (≈296 N/stroke, 17.6 s), but mask writing still needs pre-written media — collapses into S2 | `convergence-decision-2026-09.md` §3 |
 | S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; cannot serve surprise maps; no CAD | `test11_threshold_ratchet_s1/` |
-| S3 | multi-row mechanical DMA head | **kill** | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** (5.8× ceiling); **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
-| S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint; expected delivered $548.91 | `test11_shared_drive_gate_analysis/` |
+| S3 | multi-row mechanical DMA head | **kill** | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** (5.8× ceiling) driven by **sourced** selectors, not fallback lines; **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
+| S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint. Cost is **conditional on the print gate**, not a kill | `test11_shared_drive_gate_analysis/` |
 | S5 | programmed rotary stops + common lift | **WIN** | only CAD+simulation+sourced-BOM candidate; 26.251 s; sourced cost $503.71, reduced $481.56 | this ADR, `test12_winner_convergence/` |
 
 **Failed ideas are kept as assets**, not deleted: the rejection log in
 `test08/README.md:114-150` (unsupported follower, nine-level angular failure, 40-channel
 timing failure, thin-core cam buckling) and the S3/S4 selector-coupon findings
 (`test11_selector_coupon/`) remain in the search record.
+
+**Cost-disposition correction (Falsifier Finding 2).** S1, S2 and S4 are **not** cost-killed
+here. Their working BOMs are inflated by *fallback* lines for parts their designs intend to
+print (S1: 64 tile couplers $192 + release combs $32; S4: 64 printed clutches $192), so their
+true cost is **undetermined pending the Bet-A print gate**, not failed. This ADR cites no
+fallback-inflated BOM as killing evidence. The two robust, mechanism-neutral cost results are
+kept: (1) any bought part per cell kills the budget ($0.10/cell = $640); (2) a traceable
+matched 8 mm 18° PM stepper is $40/ea, which threatens S5's motor line (§3.2).
 
 ## 3. Why the winner's two headline blockers do not block
 

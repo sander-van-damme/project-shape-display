@@ -36,6 +36,12 @@ draws no holding power per cell.
 | Expected-delivered cost | $503.71 sourced / **$481.56 reduced** | S4 $548.91 |
 | Decisive failure | none quantitative; K2 qualitative | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
 
+**Two bets, not one** (Falsifier audit, [DND-36](/DND/issues/DND-36)): S1–S4 are *Bet A*
+(written passive memory); S5 is *Bet B* (absolute geometric stops — a homed rotor + gravity-
+following toe, no written bit). A Bet-A failure does not imply a Bet-B failure, so S5 stands on
+its own evidence. S1/S2/S4 cost is **conditional on the print gate**, not a kill (their BOMs are
+fallback-inflated).
+
 ADRs and evidence: [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md),
 [Test12 stack-up](../06-experiments/test12_winner_convergence/),
 [Test08 CAD + machine](../06-experiments/test08_architecture_search/),
