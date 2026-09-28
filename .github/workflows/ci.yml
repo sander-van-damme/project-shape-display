@@ -92,6 +92,10 @@ jobs:
         run: |
           cd 06-experiments/test12_winner_convergence
           python falsifier_checks.py
+      - name: Test12 DND-48 robust readiness register (robust figures in the docs)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python register_checks.py
       - name: Test13 Step-6 load/structure/power (DND-43)
         run: |
           cd 06-experiments/test13_step6_load_structure_power

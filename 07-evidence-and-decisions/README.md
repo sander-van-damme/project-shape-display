@@ -105,6 +105,20 @@ subtotal error). The unsourced **$1.05 motor** is the largest existential cost r
 traceable matched part is $40/ea → $3,200 for 80). See the review for the ranked, print-free
 falsification experiments.
 
+### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
+
+The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
+were adversarially audited by the Falsifier ([DND-46](/DND/issues/DND-46),
+[`FALSIFIER_AUDIT.md`](../06-experiments/test12_winner_convergence/FALSIFIER_AUDIT.md), 19 CI
+checks). **Three of the six closures do not survive as published** — K1-service, K5 and K8 — and
+K6/K11 are reframed. [DND-48](/DND/issues/DND-48) folds the robust figures into the register
+([`08-current-design/README.md` §7/§9](../08-current-design/README.md)) and the company `plan`:
+**cost $482.95** (not $424.95), **service buckling 0.39–3.27 N/column**, **lateral gate exceeded
+at the 40 mm extension** (0.356 mm at 1 N), **time conditional on a loaded dwell AND a ≥268 pps
+loaded rate**, **cycle life ">=1e6, order unknown"**. Only **K10** remains a clean analytic
+bound. Residuals that survive attack are listed in `FALSIFIER_AUDIT.md` §8. Regression gates:
+`06-experiments/test12_winner_convergence/register_checks.py`.
+
 ### Adversarial status of the survivors (Test11)
 
 The matrix above records *what evidence exists*. It does not record *what would
