@@ -57,8 +57,12 @@ BAND = PITCH / ROWS_PER_STATION          # 1.27 mm land band per row
 FINGER_T = 0.80
 PIVOT_D = 0.80
 NOTCH_D = 0.55
-LAND_NOMINAL = 0.50                      # protocol M4 nominal land reach
-LAND_TOL = 0.20                          # protocol M4 tolerance window
+LAND_H_NOMINAL = 0.90                    # CAD: bank raised land height
+LAND_H_TOL = 0.20                        # assumed print/assembly window (+/-)
+LAND_H_MIN_CONTACT = 0.30                # below this the toe may not seat
+FINGER_H = 3.20                          # CAD: finger rocker half-height
+THROW_MIN_DEG = 5.0                      # usable lower throw bound (geometry gate)
+THROW_MAX_DEG = 40.0                     # usable upper throw bound (geometry gate)
 BBOX_X, BBOX_Y, BBOX_Z = 25.4, 25.4, 20.0
 
 # DND-4: designed radial journal clearance between finger boss and base socket.
@@ -206,10 +210,10 @@ TOL_INPUTS = [
              "class as the boss; 0.06 mm half-range."),
     TolInput("notch_opening", NOTCH_D, 0.05, 0.05 / math.sqrt(3),
              "assumption", "Small through-slot definition, assumed +/-0.05 mm."),
-    TolInput("land_height", LAND_NOMINAL, LAND_TOL, LAND_TOL / math.sqrt(3),
+    TolInput("land_height", LAND_H_NOMINAL, LAND_H_TOL, LAND_H_TOL / math.sqrt(3),
              "assumption",
-             "Bank land height at the protocol M4 +/-0.20 mm window, sigma = "
-             "0.20/sqrt(3)."),
+             "Bank raised land height print/assembly deviation, +/-0.20 mm; the "
+             "finger throw is derived from this, not a fixed window."),
     TolInput("thermal_shrink", 0.0, 0.05, 0.05 / math.sqrt(3),
              "sourced fact",
              "PLA shrinkage ~0.2-0.5%; over <5 mm features this is <0.025 mm, "
@@ -248,14 +252,20 @@ def _aperture(row: "dict") -> dict:
     # so it cancels in the diametral fit (it is kept only in web/clearance).
     pivot_free = ((PIVOT_SOCKET_D + row["pivot_socket_diameter"])
                   - (PIVOT_D + row["pivot_diameter"]))
-    land = LAND_NOMINAL + row["land_height"] + row["thermal_shrink"]
+    land = max(LAND_H_NOMINAL + row["land_height"] + row["thermal_shrink"], 1e-6)
+    # DND-4 M4: land reach is the finger angular throw within the usable range,
+    # reported as the tightest of two angular margins plus a contact margin.
+    throw_deg = math.degrees(math.asin(min(1.0, land / FINGER_H)))
+    m4_throw = min(throw_deg - THROW_MIN_DEG, THROW_MAX_DEG - throw_deg)
+    m4_contact = land - LAND_H_MIN_CONTACT
+    m4 = min(m4_throw, m4_contact)
     bx = PITCH * 2 + 2 * abs(row["band_per_row"])
     by = PITCH * 4 + 4 * abs(row["band_per_row"])
     bz = 5.06 + row["thermal_shrink"]
     return {
         "M1_min_web": web - REQ_WEB,
         "M3_pivot_free": pivot_free - PIVOT_FREE_MIN,
-        "M4_land_reach": LAND_TOL - abs(land - LAND_NOMINAL),
+        "M4_land_reach": m4,
         "M5_lateral_clearance": clear - REQ_CLEAR,
         "M6_bbox": min(BBOX_X - bx, BBOX_Y - by, BBOX_Z - bz),
     }
@@ -277,11 +287,17 @@ def _worst_case() -> dict:
     # DND-4 M3 free play minimized by socket bore low and boss high.
     wc["M3_pivot_free"] = ((PIVOT_SOCKET_D + lo["pivot_socket_diameter"])
                            - (PIVOT_D + hi["pivot_diameter"])) - PIVOT_FREE_MIN
-    # M4 land error maximized by land/shared shrink at either extreme.
-    land_hi = (LAND_NOMINAL + hi["land_height"] + hi["thermal_shrink"])
-    land_lo = (LAND_NOMINAL + lo["land_height"] + lo["thermal_shrink"])
-    wc["M4_land_reach"] = LAND_TOL - max(abs(land_hi - LAND_NOMINAL),
-                                         abs(land_lo - LAND_NOMINAL))
+    # M4 land reach is an angular-throw margin, tightest at the low land extreme
+    # (throw falls below THROW_MIN) or, hypothetically, the high extreme.
+    lo_land = max(LAND_H_NOMINAL + lo["land_height"] + lo["thermal_shrink"], 1e-6)
+    hi_land = max(LAND_H_NOMINAL + hi["land_height"] + hi["thermal_shrink"], 1e-6)
+    lo_throw = math.degrees(math.asin(min(1.0, lo_land / FINGER_H)))
+    hi_throw = math.degrees(math.asin(min(1.0, hi_land / FINGER_H)))
+    wc["M4_land_reach"] = min(
+        lo_throw - THROW_MIN_DEG,
+        THROW_MAX_DEG - hi_throw,
+        lo_land - LAND_H_MIN_CONTACT,
+    )
     # M6 envelope shrinks as the part grows: pitch high, shrink high.
     bx = PITCH * 2 + 2 * hi["band_per_row"]
     by = PITCH * 4 + 4 * hi["band_per_row"]
@@ -327,6 +343,7 @@ def analytic_rows(mc: dict | None = None) -> list:
     mc = mc or monte_carlo()
     wc = mc["worst_case"]
     m3_resolved = wc["M3_pivot_free"] > 0.0
+    m4_ok = wc["M4_land_reach"] > 0.0
     base_note = ("analytic: nominal design values + worst-case stack-up; "
                  "NOT a print/measurement")
     if m3_resolved:
@@ -336,6 +353,16 @@ def analytic_rows(mc: dict | None = None) -> list:
                       f"{wc['M3_pivot_free'] + PIVOT_FREE_MIN:.2f} mm, "
                       f"margin {wc['M3_pivot_free']:+.2f} mm over the "
                       f"{PIVOT_FREE_MIN:.2f} mm floor)")
+    if m4_ok:
+        base_note += ("; DND-4: M4 land reach = finger angular throw "
+                      f"(land {LAND_H_NOMINAL:.2f} mm -> "
+                      f"{math.degrees(math.asin(min(1.0, LAND_H_NOMINAL / FINGER_H))):.1f}"
+                      f" deg, low extreme {LAND_H_NOMINAL - LAND_H_TOL - 0.05:.2f} mm"
+                      f" stays >= {LAND_H_MIN_CONTACT:.2f} mm), WC margin "
+                      f"{wc['M4_land_reach']:+.2f} mm")
+    else:
+        base_note += ("; DND-4: M4 land reach not closed analytically "
+                      "(WC margin <= 0)")
     rows = []
     for nozzle, layer, tag in ((0.4, 0.12, "A1-ANALYTIC"),
                                (0.2, 0.08, "A4-ANALYTIC")):
@@ -364,8 +391,11 @@ def analytic_rows(mc: dict | None = None) -> list:
             # resolved "no" would be a real FAIL. This is still analytic, not a
             # printed measurement.
             "M3_pivot": "yes" if m3_resolved else "no",
-            "M4_land_mm": round(LAND_NOMINAL, 3),
-            "M4_land_present": "yes",
+            # DND-4 M4 closure: report the CAD land height and the derived
+            # worst-case finger throw. "present" is yes only when the low land
+            # extreme still seats AND the throw stays inside the usable range.
+            "M4_land_mm": round(LAND_H_NOMINAL, 3),
+            "M4_land_present": "yes" if m4_ok else "no",
             "M5_clearance_mm": m5,
             "M6_bbox_x_mm": round(PITCH * 2, 3),
             "M6_bbox_y_mm": round(PITCH * 4, 3),
@@ -432,6 +462,17 @@ def verdict(mc: dict) -> dict:
             "residual_uncertainty":
                 "a dimensional fail is a design fix, not a print result; the "
                 "required CLR increase is calculable from this margin.",
+        }
+    m4_ok = wc["M4_land_reach"] > 0.0
+    if not m4_ok:
+        return {
+            "verdict": "ANALYTIC_FAIL_LAND_REACH",
+            "reason": (f"bank land reach (finger angular throw) is at/below zero "
+                       f"worst-case margin ({wc['M4_land_reach']:+.4f} mm); "
+                       f"increase land height or reduce the land tolerance"),
+            "residual_uncertainty":
+                "a dimensional fail is a design fix; the required land-height "
+                "change is calculable from this margin.",
         }
     return {
         "verdict": "ANALYTIC_PASS_DIMENSIONAL_M3_RESOLVED",

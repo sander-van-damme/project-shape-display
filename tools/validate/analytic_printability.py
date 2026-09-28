@@ -151,14 +151,33 @@ def check_coupon(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
         "auto", "min_feature",
         "an internal slot narrower than one line closes up")
 
-    # 4. printed pivot boss diameter (functional pin/axle)
-    add("pivot boss (PIVOT_D)", c["PIVOT_D"], rl["min_pin_dia"].limit,
-        "auto", "min_pin_dia", "below 5.0 mm the guide recommends an inserted pin")
+    # 4. printed pivot boss diameter (a printed-in-place journal, NOT an
+    #    inserted pin). The `min_pin_dia` rule is for a bought inserted pin and
+    #    does not apply: a printed boss is bounded by the minimum printable
+    #    circular feature, with a robustness target at the page's min_wall. The
+    #    functional fit (boss vs socket free play) is a tolerance stack-up owned
+    #    by the analytic gate, not this screen.
+    add_wall("pivot boss diameter (PIVOT_D, printed-in-place journal)",
+             c["PIVOT_D"], "printed boss, not an inserted pin; needs a free socket bore")
 
-    # 5. declared minimum web target (MIN_WEB if present)
-    if "MIN_WEB" in c:
-        add_wall("declared min web (MIN_WEB)", c["MIN_WEB"],
-                 "design intent for the smallest printed web")
+    # 5. designed journal clearance (PIVOT_SOCKET_D - PIVOT_D) if declared, as a
+    #    worst-case lateral running clearance; this decides whether the printed
+    #    pivot can actually rotate.
+    if "PIVOT_CLR" in c:
+        free = 2.0 * c["PIVOT_CLR"]
+        v = lateral_clearance(free, required_mm=0.20, spec=spec)
+        checks.append(Check(
+            feature="designed journal free play (2 x PIVOT_CLR)",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note="printed boss-in-socket must stay free, not fused"))
+    elif "MIN_WEB" in c:
+        # Legacy declared min-web constant: reported for traceability only, and
+        # never overrides the computed web at check #2.
+        add_wall("declared min web (MIN_WEB, traceability only)",
+                 c["MIN_WEB"], "legacy design-intent constant")
 
     # 6. lateral pivot-to-neighbour clearance (worst case)
     if {"PITCH", "FINGER_T", "PIVOT_D"} <= c.keys():

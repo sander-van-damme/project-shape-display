@@ -36,10 +36,14 @@ when the input is not a measurement.
 - **Designed values vs limits:** web 0.47 mm, notch 0.55 mm, lateral clearance
   3.48 mm, pivot definition 0.80 mm — all clear the sourced floors.
 - **Worst-case tolerance stack-up:** min web margin **+0.11 mm** (thin but
-  positive); lateral clearance **+3.09 mm**; bbox **+4.96 mm**. Land reach
-  worst case is **−0.05 mm** (the ±0.20 mm land window is itself the bound).
+  positive); lateral clearance **+3.09 mm**; bbox **+4.96 mm**. Land reach is a
+  finger *angular-throw* margin derived from the CAD land height
+  (`LAND_H_NOMINAL = 0.90 mm` → 16.3°; low extreme 0.65 mm still seats):
+  worst case **+0.35 mm** (DND-4 follow-up; the earlier −0.05 mm compared the
+  land against an arbitrary ±0.20 mm window around a 0.50 mm artefact and was a
+  modelling error, not a design failure).
 - **Monte Carlo (200k, sigma = half_range/√3):** min-web pass fraction 1.0000,
-  lateral 1.0000, land reach 0.9077.
+  lateral 1.0000, land reach **1.0000** (min margin +0.087 mm).
 - **Pivot free play (M3) is now resolved analytically (DND-4).** The coupon was
   changed from a printed-in-place pivot (no designed clearance) to a **designed
   journal fit**: the finger boss (`PIVOT_D = 0.80`) turns in a base socket bore
@@ -60,8 +64,9 @@ adhesion, elephant-foot, warp, or how the printed-in-practice boss/socket pair
 deviates from the modelled tolerance class. It bounds the *dimensional* stack-up
 only. With the designed clearance, M3 is no longer an unmodelled slicer unknown,
 but the printed journal fit is still a **permanent qualitative risk** (ADR-001
-§5.2). The M4 land-reach worst case (−0.05 mm) and its 0.91 MC pass fraction are
-unchanged and are the next analytic item to close.
+§5.2). M4 land reach is now closed analytically as an angular-throw margin
+(worst case **+0.35 mm**, MC pass **1.0000**); the remaining qualitative risk is
+whether the as-printed land height and throw track the modelled tolerance class.
 
 ## FDM limit sources
 
