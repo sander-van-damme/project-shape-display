@@ -20,7 +20,7 @@ Every experiment should make clear:
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
 | [`test11_cost_printability_reliability/`](test11_cost_printability_reliability/) | Purchased-BOM cost model for S1–S5, dated critical-part sourcing, 5.08 mm printability and reliability scaling | Cost/sourcing/print/reliability screens; no quotation or measurement |
 | [`test11.../delivered_3scenario/`](test11_cost_printability_reliability/delivered_3scenario/README.md) | DND-11: three-scenario **delivered** purchased BOM (best/expected/worst) with per-line vendor and evidence labels | Cost arithmetic over sourced listings + allowances; every survivor over $500 at expected |
-| [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status | Calculated system models + unrendered CAD coupon; no printing or measurement |
+| [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status, T11-A fit-coupon gate engine | Calculated system models + print-ready coupon + runnable M1-M6 gate engine; **no printing or measurement** (no fabrication hardware) |
 | [`test11_threshold_ratchet_s1/`](test11_threshold_ratchet_s1/) | Hostile rejection arithmetic for S1 broadcast-ratchet and S2 planar-tile families (density, force, mask writing, print variation, isolation), plus a printable 5.08 mm-pitch coupon (STL/SCAD) | Reproducible calculation + printable CAD solids; no physical validation |
 | [`test11_falsification_library/`](test11_falsification_library/) | Adversarial cheapest-rejection tests per survivor, per-cell reliability math and the shared Q5 isolation-rig protocol | Analytical + CAD + protocol; no printed/measured evidence |
 
@@ -53,6 +53,7 @@ python 06-experiments/test11_cost_printability_reliability/cost_model.py
 python 06-experiments/test11_cost_printability_reliability/print_reliability.py
 python 06-experiments/test11_shared_drive_gate_analysis/checks.py
 python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
+python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --selftest
 python 06-experiments/test11_threshold_ratchet_s1/checks.py
 python 06-experiments/test11_threshold_ratchet_s1/build_coupon.py    # emits STL + SCAD
 python 06-experiments/test11_threshold_ratchet_s1/coupon_checks.py

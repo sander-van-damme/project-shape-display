@@ -31,6 +31,11 @@ jobs:
           python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
           python 06-experiments/test11_shared_drive_gate_analysis/make_coupon_stl.py
           python 06-experiments/test11_shared_drive_gate_analysis/verify_coupon_stl.py
+      - name: T11-A fit-coupon gate engine (synthetic self-test + schema + prediction)
+        run: |
+          python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --selftest
+          python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --validate
+          python 06-experiments/test11_shared_drive_gate_analysis/t11a_fit_check.py --predict
       - name: Test11 S1/S2 rejection screen
         run: python 06-experiments/test11_threshold_ratchet_s1/checks.py
       - name: Test11 printable coupon generation and structural checks
@@ -68,3 +73,4 @@ jobs:
         run: |
           which openscad
           python 06-experiments/test11_falsification_library/check_fixture.py
+
