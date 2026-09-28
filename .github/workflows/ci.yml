@@ -21,3 +21,9 @@ jobs:
         run: python 06-experiments/test09_test08_validation/run.py
       - name: Test10 architecture scale bounds
         run: python 06-experiments/test10_broad_architecture_screen/checks.py
+      - name: Test11 shared-drive rejection gates
+        run: |
+          python 06-experiments/test11_shared_drive_gate_analysis/checks.py
+          python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
+          python 06-experiments/test11_shared_drive_gate_analysis/make_coupon_stl.py
+          python 06-experiments/test11_shared_drive_gate_analysis/verify_coupon_stl.py
