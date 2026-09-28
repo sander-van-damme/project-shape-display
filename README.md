@@ -21,7 +21,6 @@ The numbered root directories are intentionally ordered. Read them as the projec
 7. [`07-evidence-and-decisions/`](07-evidence-and-decisions/) — consolidated evidence, architecture investigations and durable decisions.
 8. [`08-current-design/`](08-current-design/) — the current integrated design state, including an explicit statement when no architecture is yet qualified.
 
-[`90-tools/`](90-tools/) contains the small amount of executable repository tooling that is still useful. It supports the flow but is not a design stage. `.github/`, `.gitignore` and `requirements-dev.txt` remain conventional repository infrastructure.
 
 ## Core target
 
@@ -43,7 +42,7 @@ project description
   -> new questions / updated knowledge
 ```
 
-Experiments are evidence, not the primary place to store durable engineering knowledge. Conclusions that survive testing should be fed back into the relevant mechanism, principle or architecture card.
+Experiments are evidence, not the primary place to store durable engineering knowledge. Conclusions that survive testing should be fed back into the relevant mechanism, principle or architecture section.
 
 ## Useful entry points
 

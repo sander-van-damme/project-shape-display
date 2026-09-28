@@ -1,7 +1,7 @@
 # Python
-__pycache__
+__pycache__/
 *.pyc
 *.pyo
 
-# Generated test artifacts
-tests/**/results/
+# Generated experiment artifacts
+06-experiments/**/results/

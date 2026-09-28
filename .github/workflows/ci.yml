@@ -1,4 +1,4 @@
-name: test-platform
+name: engineering-checks
 
 "on":
   push:
@@ -8,48 +8,14 @@ permissions:
   contents: read
 
 jobs:
-  deterministic-tests:
+  engineering-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
-          cache-dependency-path: requirements-dev.txt
-      - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
-      - run: python -m pytest
-      - run: python 06-experiments/template/simulation.py --engine kinematic
-      - uses: actions/upload-artifact@v4
-        with:
-          name: template-simulation-results
-          path: 06-experiments/template/results/
-
-  physics-smoke:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - engine: mujoco
-            packages: mujoco
-          - engine: pybullet
-            packages: "numpy pybullet"
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-          cache-dependency-path: requirements-dev.txt
-      - name: Install test and backend dependencies
-        run: >-
-          python -m pip install --disable-pip-version-check
-          -r requirements-dev.txt ${{ matrix.packages }}
-      - name: Smoke-test ${{ matrix.engine }} import
-        run: python 06-experiments/template/simulation.py --engine "${{ matrix.engine }}"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.engine }}-results
-          path: 06-experiments/template/results/
+      - name: Test08 deterministic engineering checks
+        run: python 06-experiments/test08_architecture_search/checks.py
+      - name: Test09 validation workflow
+        run: python 06-experiments/test09_test08_validation/run.py

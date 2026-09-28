@@ -70,7 +70,7 @@ All generated files stay in ignored `results/` and are reproducible:
 
 The independent unit checks validate acceleration formulas, all-cell coverage,
 adversarial maps, partial-width head groups, invalid height encoding and known
-mechanical/cost failures. Historical files and the template are unchanged.
+mechanical/cost failures. Historical experiment evidence is preserved under `../legacy/`; the obsolete generic experiment template has been removed.
 
 ## Important interpretation
 
@@ -202,7 +202,7 @@ purchased-hardware total; purchased stock, electronics and fasteners are include
 
 | Source | Fact used | Limits |
 |---|---|---|
-| [Archived PM08-2 datasheet](../test00_pneumatic_multiplexer/docs/micro-stepper-datasheet.pdf) | 18° step, 3.3 V, 40 Ω, 8 mm body, 5 gf·cm = 0.490 mN·m pull-in torque; >800 pps no-load response | No loaded torque/speed curve; surplus identification and price unresolved; not a verified production supply |
+| [Archived PM08-2 datasheet](../legacy/test00_pneumatic_multiplexer/docs/micro-stepper-datasheet.pdf) | 18° step, 3.3 V, 40 Ω, 8 mm body, 5 gf·cm = 0.490 mN·m pull-in torque; >800 pps no-load response | No loaded torque/speed curve; surplus identification and price unresolved; not a verified production supply |
 | [FEETECH FS90 manufacturer datasheet hosted by Pololu](https://www.pololu.com/file/0J1435/FS90-specs.pdf) | 0.12 s/60° at 4.8 V, 0.10 at 6 V, 120° commanded range, 120 mA no-load and 800 mA stall at 6 V | No-load timing, not loaded positioning time; analog deadband and coupling error matter |
 | [Pololu FS90 listing](https://www.pololu.com/product/2818) | $8.40 single / $7.90 at five | 80 × $7.90 = $632 before other hardware; no inferred cheaper 80-piece tier |
 | [Tower Pro SG90](https://towerpro.com.tw/product/sg90-7/) | 23 × 12.2 × 29 mm, 0.1 s/60° at 4.8 V | Speed/dimensions reference, not a quote for unbranded clone performance |
