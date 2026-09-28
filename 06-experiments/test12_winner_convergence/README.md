@@ -62,6 +62,14 @@ Fixed subtotal **$284.00** is reproduced directly from
 the sourced BOM. Reaching the <$400 ideal band is **not** demonstrated; the winner lands
 in the project's "acceptable" band with margin.
 
+**Cost ratification (DND-37):** see [RATIFICATION.md](RATIFICATION.md). It independently
+re-derives the arithmetic, proves *no sourced <$400 path exists* on current evidence (the
+fixed stack would need a ≤$0.98 motor+driver pair; the cheapest sourced pair is $1.85),
+confirms the TB6612 driver swap is a real sourced reduction, and states the residual motor
+risk precisely: no matched quote exists near $1.00, and the only matched 8 mm PM stepper is
+MOONS 8PM020S1 at **$40/ea (~$4,000 for 80)**. Verdict: **BOM + printability route
+RATIFIED, conditional on motor qualification.**
+
 ### Reliability — OPEN (assumption, not measurement)
 
 - At q = 1×10⁻⁴ per cell, **P(all 6,400 correct) = 52.7 %**.
