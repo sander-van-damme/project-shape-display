@@ -147,6 +147,17 @@ has been disproved.
 - **Cheapest rejection:** a 2×4 head section at final pitch with adversarial
   checkerboard selection, one shared drive and loaded passive latches. Measure a
   complete engage/write/disengage dwell, not unloaded motor speed.
+- **First cheap result ([Test11](../06-experiments/test11_selector_coupon/README.md),
+  calculated/CAD only):** the printable sliding-gate latch inherited from legacy
+  Test07 survives as a body but not as a linear gate at 5.08 mm pitch — the
+  0.20 mm inter-cell band cannot host the 1.60 mm slot+walls, and a 1.2 mm
+  one-blade rotary gate crosses 1.10 mm into the occupied neighbour channel. A
+  one-per-column electronic gate on a 2-wire bus takes 0.72 s and 7.2 A to
+  address 80 columns, above the 0.60 s dwell. The surviving S3 topology is
+  therefore an **axis-centred drum gate addressed as a banked loaded register**,
+  not a gate per column powered during the write. The shared stroke is only
+  25% of 40 mm (4 strokes), independent of column count. Nothing here changes
+  S3's "drop until quantified" disposition; it redirects the next coupon.
 
 ### S4 — Distributed passive tiles on a shared power bus
 

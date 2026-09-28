@@ -1,0 +1,1 @@
+run_id,sample_id,condition,part_id,printer,nozzle_mm,layer_mm,material,batch,orientation,gate_slot_mm,inter_cell_wall_mm,tooth_pitch_mm,tooth_land_mm,engaged_overlap_mm,force_to_slip_mn,force_to_break_mn,permanent_set_mm,adjacent_leakage_mm,cycles,failure,recovery_s,trace_path

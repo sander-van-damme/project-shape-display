@@ -1,0 +1,1 @@
+run_id,configuration_hash,stage,variant,columns_per_drive,gate_toggle_s,address_pulses,measured_address_s,measured_dwell_s,strokes_per_level,shared_stroke_mm,columns_programmed,success_fraction,condition,failure,recovery_s,trace_path
