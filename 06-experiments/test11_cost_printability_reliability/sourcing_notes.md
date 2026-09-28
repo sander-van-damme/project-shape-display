@@ -156,7 +156,36 @@ figures used a multiplicative ×1.166 uplift and an over-counted register saving
 See
 [`../../07-evidence-and-decisions/dnd37-bom-ratification.md`](../../07-evidence-and-decisions/dnd37-bom-ratification.md).
 
-## 8. DND-49 K7 closure — trace the matched motor to ≤ $1.86 delivered (2026-09-28)
+## 8. DND-47 ratification of the DND-44 cost closure (2026-09-28)
+
+Independent re-derivation (`test12_winner_convergence/cost_closure_ratify.py`, no
+import of the DND-44 module) confirms the DND-44 numbers exactly:
+
+| Figure | DND-44 claim | Independent re-derivation |
+|---|---:|---:|
+| Honest expected baseline delivered | $592.06 | **$592.06** (parts $510.40) |
+| E1–E6 machine-preserving path | $424.95 | **$424.95** (parts $366.34) |
+| Margin below $500 | $75.05 | **$75.05** |
+| Motor break-even | $1.86 | **$1.8587** |
+| Downside at $2.66 AliExpress motor | $574.36 | **$574.36** |
+
+**Qualification.** $40.60 of the $75.05 margin is E6 repricing four fixed lines
+(rods/bearings, belts/idlers, head shafts, fasteners) from the BOM's
+`unit_expected` to its `unit_best` column, and $16.00 is E2 moving the motor from
+expected $1.25 to the best-case $1.05 listing. These are best-case prices mixed
+into an "expected" total. The path still clears without E6 ($465.55 delivered,
+$34.45 margin), so the claim **stands**, but the honest headline is a **range
+$424.95–$465.55**, not a single number.
+
+**Independent finding — dual-H-bridge over-count.** The driver line carries qty 80
+(= motor count) priced per **dual** H-bridge IC (DRV8833/TB6612). 80 motors need
+**40 ICs**; the surplus 40 ICs = **$36.91 delivered** of conservatism *against* the
+design. Correcting it adds margin; it does not threaten the ceiling.
+
+**Unchanged residual (K7).** The sub-$1.86 motor basis remains an unqualified
+marketplace multipack; the only matched part (MOONS 8PM020S1) is $40/ea. Full
+verdict: [`../../07-evidence-and-decisions/dnd47-cost-closure-ratification.md`](../../07-evidence-and-decisions/dnd47-cost-closure-ratification.md).
+## 9. DND-49 K7 closure — trace the matched motor to ≤ $1.86 delivered (2026-09-28)
 
 Executable trace: [`../test12_winner_convergence/k7_motor_trace.py`](../test12_winner_convergence/k7_motor_trace.py)
 (checks: `k7_motor_trace_checks.py`). The K7 requirement is a **matched** 8 mm
@@ -228,5 +257,3 @@ therefore not fewer motors: it is (a) qualify the marketplace multipack (buy a
 sample lot — forbidden by [DND-27](/DND/issues/DND-27)), or (b) accept a
 different actuator class / drive topology for the head. K7 stays **refuted on
 sourced evidence** and remains the binding cost residual of S5.
-
-

@@ -72,6 +72,11 @@ jobs:
           python checks.py
           python model.py > /dev/null
           python ratify_bom.py --selftest
+      - name: Test12 DND-47 independent cost-closure ratification
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python cost_closure_ratify.py
+          python cost_closure_ratify.py --selftest
       - name: Test12 analytic detent contact sweep (DND-38, K2)
         run: |
           cd 06-experiments/test12_winner_convergence
