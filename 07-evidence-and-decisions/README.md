@@ -40,64 +40,48 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
 
-## Shared-drive family calculated evidence — September 2026
-
-[Test11](../06-experiments/test11_shared_drive_gate_analysis/) adds **calculated**
-system models and one unrendered CAD coupon for the shared-drive family. It does
-not validate a mechanism. It establishes:
-
-- a concrete S3 machine: 20 four-row stations, 41 head motors, **zero bought
-  per-channel selectors**, a lean ~$94 allowance, and a **25.20 s** calculated
-  schedule against the strict <30 s limit;
-- the S3 binding geometric gate: four rows share one 5.08 mm band = **1.27 mm per
-  row**, leaving a 0.47 mm web on a 0.4 mm nozzle — a single fit print (T11-A)
-  can reject the density;
-- the S4 arithmetic shock: 64 tiles × the $6 absolute per-channel ceiling is
-  **$384** in bought clutches before anything else, so the tile coupler must be
-  **printed**; the distinct S4 failure mode is **correlated bus backlash**;
-- an S5 gate list of five **open** items, each with one smallest qualification
-  coupon, and a reproduced cost boundary: $332 working non-motor leaves a
-  **$1.058/motor** ceiling against Test08's $1.25 allowance.
-
-All quantities above are arithmetic on **assumed** inputs. No coupon has been
-printed and no part measured. The evidence upgrades S3/S4 from analogy to
-specified-but-unqualified machines; it does not promote any architecture into
-[`08-current-design/`](../08-current-design/).
-
-## Test11 S1/S2 rejection screen — September 2026
-
-[Test11](../06-experiments/test11_threshold_ratchet_s1/) adds **calculated
-geometry and force/timing arithmetic** for the planar / external-memory family.
-It changes no `08-current-design/` entry, but it narrows the S1/S2 claims:
-
-- Passive gate + pawl **density** at 5.08 mm passes arithmetic (2.28 mm available
-  vs 1.10 mm needed beside a 2.0 mm shaft). The "cannot fit" objection is
-  unsupported.
-- A single broadcast stroke is **force-limited**: an all-high map arms all 6,400
-  pawls, needing ~2.4 kN at 0.37 N/pawl; break-even is 0.234 N/cell. Banked
-  broadcast (**S1-B**, 8 banks × 10 rows) bounds a stroke to ~296 N and ~17.6 s.
-- **Mask writing dominates**: 12,800 unary hole/set operations need ≥500 parallel
-  channels (~9 s) or an off-line writer (~56 s) hidden by double buffering.
-- S2's read path is fast (~2 s full, ~1.8 s/tile), so S2 survives as a *system*
-  with an off-line writer; surprise maps and tile-exchange disturbance are named
-  product risks, not arithmetic results.
-- Across 6,400 printed pawls, only ~9% force sd keeps P(all cells correct) above
-  0.5; per-cell sorting is not affordable.
-
-These are calculated bounds under stated assumptions, **not** measured mechanism
-performance.
-
-**Printable coupon (CAD-checked, not printed).** The same test now emits a
-dimensionally exact, self-supporting coupon at true 5.08 mm pitch
-(`coupon_*.stl`, `coupon.scad`, `build_coupon.py`). Building it exposed a
-concrete geometric failure the first CAD draft hid: the pawl and gate bar cannot
-share one X-lane at 5.08 mm (3.60 + 0.80 + 0.20 + 0.80 + 0.20 = 5.60 mm). The
-fix is to stack the gate above the pawl in Z, which closes the budget
-(3.60 body + 1.48 lane = 5.08) with 0.60 mm rails and a 2.40 mm web, all
-printable. This is **CAD/geometry evidence only** — it does not establish print
-quality, friction, wear, or measured release force. The single biggest unproven
 input remains the printed **release-force spread across many identical pawls**,
 whose break-even is ≈ 9% sd; the coupon exists to measure it.
+
+### Adversarial status of the survivors (Test11)
+
+The matrix above records *what evidence exists*. It does not record *what would
+kill each candidate*. [Test11](../06-experiments/test11_falsification_library/)
+adds that layer. No survivor has any **printed or measured** evidence; every gate
+below is proposed, not passed.
+
+| Survivor | Biggest unproven assumption | Cheapest rejection test | Physical status |
+|---|---|---|---|
+| S1 threshold/ratchet | four gates + ratchet + 40 mm travel fit at 5.08 mm | 2×5 strip, two masks, one shared stroke | NOT STARTED |
+| S2 planar tiles | four planar layers register for a 0.7 mm follower | 5×5 stack, five heights, checkerboards | NOT STARTED |
+| S3 multi-row DMA | 2×4 printed register completes a loaded dwell | 2×4 head section, one shared drive | NOT STARTED |
+| S4 shared-bus tiles | cheap clutch is independent under load; jams stay contained | two 2×4 tiles on one bus + forced jam | NOT STARTED |
+| S5 rotary stops | printed cam/detent/return work at pitch and load | Test09 Stage A→B then C | NOT STARTED (Test09 plan exists) |
+
+Reliability is a **cross-cutting gate**: at a 0.01% per-cell error rate a
+6400-cell map is correct only 52.7% of the time, and a six-cell coupon is
+99.94% perfect even at that failing rate. A clean small demo therefore cannot
+promote any architecture. See
+[Test11 reliability.py](../06-experiments/test11_falsification_library/reliability.py).
+
+Test11 now also ships the **runnable** pieces of that gate so a survivor's fate
+is mechanical, not a judgement call:
+
+- [`isolation_rig_runner.py`](../06-experiments/test11_falsification_library/isolation_rig_runner.py)
+  scores the J2 measurement table into GO / KILL / INCONCLUSIVE per survivor
+  (with repeat-count guards). Its `--selftest` exercises every gate on
+  SYNTHETIC rows and is CI-wired; it is not evidence for any survivor.
+- [`measurement_plan.md`](../06-experiments/test11_falsification_library/measurement_plan.md)
+  is the decision table (peak vertical/lateral motion, miniature move/tip, seam,
+  drift, regional time) plus the reliability bridge from a counted coupon run to
+  `P(perfect 6400-cell map)`.
+- [`check_fixture.py`](../06-experiments/test11_falsification_library/check_fixture.py)
+  gates the print-ready fixture geometry (5.08 mm pitch, X1C bed fit, one-plate
+  layout). OpenSCAD is absent in the agent environment, so the SCAD parse step
+  is reported SKIPPED, never passed.
+
+The physical J2-0…J2-4 run remains the top missing evidence and is owned by the
+CTO.
 
 ## Mechanism coverage audit — September 2026
 

@@ -1,0 +1,1 @@
+run_id,date,fixture_id,survivor,tile_size,part_revision,slicer_project,nozzle_mm,layer_mm,pla_lot,operator,instrument_ids,neighbour_state,miniature_id,miniature_mass_g,rig_noise_mm,peak_vertical_mm,peak_lateral_mm,miniature_move_mm,miniature_tip_mm,seam_step_mm,seam_load_n,cumulative_drift_mm,cycles,regional_clear_settle_s,notes,trace_path
