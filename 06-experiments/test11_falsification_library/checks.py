@@ -31,14 +31,31 @@ class PerfectMapTest(unittest.TestCase):
         self.assertAlmostEqual(q, 1.570e-6, places=9)
 
     def test_zero_failure_trials_formula(self) -> None:
-        # Direct formula check: n >= ln(conf)/ln(1-q).
+        # Default convention is a one-sided 95% UPPER bound on q:
+        # n >= ln(1-conf)/ln(1-q). At q=1e-4 this is ln(0.05)/ln(0.9999).
         n = r.zero_failure_trials(1e-4, confidence=0.95)
-        self.assertEqual(n, 513)
-        # Test09's ~1.91 million figure corresponds to q ~= 2.69e-8, i.e. the
-        # per-cell-update rate needed for a 99% perfect map *before correlated
-        # faults*; it is NOT the same q as the 1.57e-6 budget above.
-        self.assertIn(r.zero_failure_trials(2.6887970294708907e-08, confidence=0.95),
-                      (1_907_667, 1_907_668))
+        self.assertEqual(n, 29956)
+        # The legacy convention (zero-failure probability) is ~58x smaller at
+        # the project's relevance rate and must not be used as a bound.
+        legacy = r.zero_failure_trials(
+            1e-4, confidence=0.95, convention="zero_failure_probability"
+        )
+        self.assertEqual(legacy, 513)
+        self.assertGreater(n, legacy)
+
+    def test_headline_1p91M_trials_are_the_upper_bound(self) -> None:
+        # The project's headline gate: q <= 1.570e-6 for a 99% perfect map, and
+        # ~1.91M zero-failure trials for a one-sided 95% bound. Both must come
+        # from the SAME convention, or the project is 58x optimistic.
+        q = r.cell_error_budget(0.99)
+        self.assertAlmostEqual(q, 1.570e-6, places=9)
+        n = r.zero_failure_trials(q, confidence=0.95)
+        self.assertIn(n, (1_907_667, 1_907_668))
+        # The legacy formula at the same q is ~58x smaller; guard the ratio.
+        legacy = r.zero_failure_trials(
+            q, confidence=0.95, convention="zero_failure_probability"
+        )
+        self.assertGreater(n / legacy, 50.0)
 
     def test_expected_failures(self) -> None:
         self.assertAlmostEqual(r.assumed_failures_per_map(1e-4), 0.64, places=6)

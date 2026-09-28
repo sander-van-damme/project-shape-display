@@ -54,6 +54,22 @@ a passive, printable, final-pitch state/selection element written by a small sha
 able to hold load without powered holding. The field is unsupported on regional isolation
 (unmeasured), release-force variation (≈9% sd break-even), and matched delivered cost (<$500).
 
+### Falsifier adversarial audit of the convergence logic (2026-09)
+
+[`falsifier-adversarial-audit-2026-09.md`](falsifier-adversarial-audit-2026-09.md) independently
+attacks ADR-001's selection logic and the survivors' killer list (per [DND-35](/DND/issues/DND-35)).
+Three findings, all **calculation/sourced**, body review, no physical evidence:
+
+1. **"One bet in five shapes" is false for S5.** S1–S4 are *written passive memory* (Bet A); S5 is
+   *absolute geometric stops* (Bet B). Their killers do not overlap, so a Bet-A failure does not
+   imply a Bet-B failure and should not alone trigger a product re-scope. Run S5's gates in parallel.
+2. **The "$500 rejects every survivor" verdict is an artifact for S1/S2/S4.** Their working BOMs
+   include $192–$224 of *fallback* purchase for parts the designs explicitly intend to print. Cost
+   for S1/S2/S4 is therefore **undetermined pending the print gate**, not failed. (S3's rejection
+   and the sourced $40 8 mm-motor finding stand.)
+3. **Reliability helper convention was inverted** (`zero_failure_trials` returned the ~58× weaker
+   legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
+
 ### Adversarial status of the survivors (Test11)
 
 The matrix above records *what evidence exists*. It does not record *what would

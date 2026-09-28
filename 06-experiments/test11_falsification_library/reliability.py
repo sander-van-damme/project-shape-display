@@ -47,16 +47,42 @@ def cell_error_budget(target: float, cells: int = CELLS_FULL) -> float:
     return 1.0 - target ** (1.0 / cells)
 
 
-def zero_failure_trials(q: float, confidence: float = 0.95) -> int:
-    """Zero-failure independent trials n for a one-sided upper bound q at confidence.
+def zero_failure_trials(
+    q: float,
+    confidence: float = 0.95,
+    *,
+    convention: str = "upper_bound",
+) -> int:
+    """Zero-failure independent trials n of a per-cell failure rate bound.
 
-    P(0 failures in n) = (1-q)^n >= confidence  ->  n >= ln(conf)/ln(1-q).
+    Two conventions exist and they differ by a large factor; the caller must
+    state which is intended. The default matches the project's headline gate
+    (a one-sided *upper* confidence bound):
+
+    - ``"upper_bound"`` (default): n such that observing **zero** failures lets
+      us exclude a rate at or above q with probability ``confidence``. Requires
+      ``P(0 failures) = (1-q)^n <= 1-confidence``
+      -> ``n >= ln(1-confidence)/ln(1-q)``. At q=1.570e-6, conf=0.95 this is the
+      project's 1,907,667-trials figure. This is the only convention valid for
+      a "demonstrated reliability" claim.
+    - ``"zero_failure_probability"``: the legacy formula ``ln(conf)/ln(1-q)``,
+      i.e. the n at which zero failures would still occur with probability
+      ``confidence`` at rate q. This is NOT a confidence bound and is ~58x
+      smaller than the upper bound at q=1.570e-6. It is kept only for backward
+      compatibility with the pre-2026-09 call sites; do not use it to bound q.
     """
     if not 0.0 < q < 1.0:
         raise ValueError("q must be in (0, 1)")
     if not 0.0 < confidence < 1.0:
         raise ValueError("confidence must be in (0, 1)")
-    return math.ceil(math.log(confidence) / math.log(1.0 - q))
+    if convention == "upper_bound":
+        # n >= ln(1-confidence) / ln(1-q); e.g. conf=0.95 -> ln(0.05)
+        return math.ceil(math.log(1.0 - confidence) / math.log(1.0 - q))
+    if convention == "zero_failure_probability":
+        return math.ceil(math.log(confidence) / math.log(1.0 - q))
+    raise ValueError(
+        "convention must be 'upper_bound' or 'zero_failure_probability'"
+    )
 
 
 def regional_fraction(tiles_per_side: int, touched_tiles: int) -> float:

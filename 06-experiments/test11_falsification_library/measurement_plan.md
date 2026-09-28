@@ -68,12 +68,17 @@ A coupon verdict is *not* a board verdict. `reliability.py` and the runner's
 - a **zero-failure** run reports the one-sided 95% upper bound
   `q ≤ 1 − 0.05^(1/n)`, which for n = 10 000 is ≈ 3.0×10⁻⁴;
 - `P(perfect 6400-cell map) = (1 − q)⁶⁴⁰⁰`;
-- the 99%-perfect-map budget is **q ≤ 1.57×10⁻⁶**, requiring ≈ **3.27×10⁴**
-  zero-failure independent trials for a 95% one-sided bound;
-- Test09's headline **≈ 1.91×10⁶** trials corresponds to the much tighter
-  per-update rate q ≈ 2.69×10⁻⁸ that also survives *correlated* faults before
-  the map is drawn — it is not the same q as the 1.57×10⁻⁶ budget above
-  (see `checks.py::test_zero_failure_trials_formula`).
+- the 99%-perfect-map budget is **q ≤ 1.57×10⁻⁶**, requiring **≈ 1.91×10⁶**
+  zero-failure independent trials for a 95% one-sided upper bound, i.e.
+  `n ≥ ln(1−conf)/ln(1−q) = ln(0.05)/ln(1−1.57×10⁻⁶)`;
+- earlier text in this file quoted ≈ 3.27×10⁴ for the same bound, which came from
+  an inverted helper call (`ln(conf)/ln(1−q)`, the probability of seeing *zero*
+  failures at rate q rather than an upper bound on q). The two differ by ~58×.
+  The helper is now convention-explicit and defaults to the upper bound; see
+  `checks.py::test_headline_1p91M_trials_are_the_upper_bound`. This correction
+  was made by the Falsifier adversarial audit
+  ([07/falsifier-adversarial-audit-2026-09.md](../../07-evidence-and-decisions/falsifier-adversarial-audit-2026-09.md),
+  Finding 3).
 
 Worked consequences (CALCULATED, from `reliability.py`):
 
