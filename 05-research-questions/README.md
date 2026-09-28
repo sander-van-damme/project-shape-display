@@ -76,6 +76,34 @@ miniatures, and whether verification can be limited to changed regions. This is
 not required if mechanics prove intrinsically reliable, but it may relax costly
 precision in S1–S4.
 
+### Q7 — Can a multistable printed layer serve as dense reusable memory?
+
+Do not require the metamaterial itself to make the 40 mm visible stroke. Test the
+more promising role: a thin reusable memory/selector layer whose bistable cells
+encode which terrain outputs should respond to a separate shared lift.
+
+Measure minimum practical pitch, independent write force, state retention,
+neighbor cross-talk, cycle life and print-to-print force variation. Compare one
+binary layer with four unary threshold layers for five height states.
+
+**Reject this role if:** independent states cannot be packed near final pitch, or
+the safe write-force window collapses under realistic print variation and
+neighbor coupling.
+
+### Q8 — Can programming force be decoupled from service-load support?
+
+Fixture mechanisms suggest a useful mode split: reconfigure while unlocked with
+low actuator force, then lock so the passive structure carries the miniature load
+with the writer removed or unpowered.
+
+Build a small module that explicitly separates these modes. Measure programming
+force, locked stiffness/load, unlock force, disturbance transferred to neighbors
+and repeated lock/unlock consistency.
+
+**Reject this family if:** the lock needs cell-scale purchased hardware, cannot
+hold the required load, or unlocking a target region materially moves surrounding
+terrain.
+
 ## Next experiment sequence
 
 Run small experiments in rejection-value order rather than refining one design:
@@ -92,6 +120,8 @@ Run small experiments in rejection-value order rather than refining one design:
    preloaded selector register and measure a complete loaded dwell.
 6. **Verification trial:** introduce known one-level errors into the preceding
    coupons and compare camera/scan detection and retry time.
+7. **Mechanical-memory lattice coupon:** test a small final-pitch bistable array as a reusable selector layer, including adversarial neighbor writes and cycling.
+8. **Reconfigure-then-lock coupon:** compare low-force programming with locked service load and measure disturbance during selective unlock.
 
 Do not build a complete 10×10 tile until at least two different survivor coupons
 have been tested with the same load and disturbance protocol. That comparison is

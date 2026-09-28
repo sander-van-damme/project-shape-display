@@ -24,10 +24,45 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | M-003 bistable latch family | ✓ | — | — | — | — | — | — |
 | M-005 compliant snap-through family | ✓ | — | — | — | — | — | — |
 | M-008 shared shaft/clutch family | ✓ | — | — | — | — | — | — |
+| M-016 mechanical-memory lattice | ✓ | — | — | — | — | — | — |
+| P-010 lock-after-reconfigure precedent | ✓ | — | — | — | — | — | — |
 | Test10 mechanism-neutral scale bounds | — | ✓ | — | — | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
+
+## Mechanism coverage audit — September 2026
+
+A function-driven Deep Research pass deliberately searched outside the vocabulary
+already used in the repository. Most candidate findings mapped back to known
+space and were **not** added again:
+
+- punched cards / patterned media → M-002, M-013 and M-014;
+- cable, chain and tendon distribution → M-009;
+- magnetic or spring latches → M-003 / P-002;
+- travelling writers → M-001;
+- pneumatic shared force → M-015 and legacy Test00;
+- generic scissor/pantograph mechanisms provide stroke transformation but do not
+  introduce a new addressing, memory or regional-update topology by themselves.
+
+Two findings survived the novelty gate:
+
+1. **Tileable reprogrammable mechanical-memory lattices (M-016).** Unit-cell
+   mechanical state can act as reusable structural memory with separate write and
+   read phases. A demonstrated precedent is Chen, Pauly & Reis,
+   [Nature 589, 386–390 (2021)](https://doi.org/10.1038/s41586-020-03123-5).
+   The project-relevant hypothesis is a dense **memory/selector layer**, not a
+   direct 40 mm metamaterial terrain actuator.
+2. **Reconfigure unlocked, carry load locked (P-010).** Reconfigurable fixture
+   research demonstrates the useful system split between low-load motion and
+   high-stiffness locked service; see Lyu et al.,
+   [Journal of Mechanical Design 138(8), 2016](https://doi.org/10.1115/1.4033037).
+   For Shape Display this suggests separating writer force from tabletop load
+   support.
+
+These are sourced precedents only. They do not validate 5.08 mm pitch, 6,400
+channels, <30 s updates, regional isolation or project cost. They therefore add
+Q7/Q8 to the research backlog without promoting a new current architecture.
 
 ## Broad-search calculated evidence — September 2026
 
