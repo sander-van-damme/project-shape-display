@@ -34,6 +34,8 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11.1 three-scenario delivered BOM (DND-11) | ✓ | ✓ | — | — | — | — | — |
 | Test11 S3/S4 shared-drive machines and rejection gates (cad/coupon, unrendered/unprinted) | — | ✓ | — | ✓ | — | — | — |
 | Test11 S5 five-gate status + $1.058 motor ceiling | — | ✓ | — | — | — | — | — |
+| Test11 S1/S2 rejection screen | — | ✓ | — | ✓ | — | — | — |
+| Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
@@ -61,6 +63,41 @@ All quantities above are arithmetic on **assumed** inputs. No coupon has been
 printed and no part measured. The evidence upgrades S3/S4 from analogy to
 specified-but-unqualified machines; it does not promote any architecture into
 [`08-current-design/`](../08-current-design/).
+
+## Test11 S1/S2 rejection screen — September 2026
+
+[Test11](../06-experiments/test11_threshold_ratchet_s1/) adds **calculated
+geometry and force/timing arithmetic** for the planar / external-memory family.
+It changes no `08-current-design/` entry, but it narrows the S1/S2 claims:
+
+- Passive gate + pawl **density** at 5.08 mm passes arithmetic (2.28 mm available
+  vs 1.10 mm needed beside a 2.0 mm shaft). The "cannot fit" objection is
+  unsupported.
+- A single broadcast stroke is **force-limited**: an all-high map arms all 6,400
+  pawls, needing ~2.4 kN at 0.37 N/pawl; break-even is 0.234 N/cell. Banked
+  broadcast (**S1-B**, 8 banks × 10 rows) bounds a stroke to ~296 N and ~17.6 s.
+- **Mask writing dominates**: 12,800 unary hole/set operations need ≥500 parallel
+  channels (~9 s) or an off-line writer (~56 s) hidden by double buffering.
+- S2's read path is fast (~2 s full, ~1.8 s/tile), so S2 survives as a *system*
+  with an off-line writer; surprise maps and tile-exchange disturbance are named
+  product risks, not arithmetic results.
+- Across 6,400 printed pawls, only ~9% force sd keeps P(all cells correct) above
+  0.5; per-cell sorting is not affordable.
+
+These are calculated bounds under stated assumptions, **not** measured mechanism
+performance.
+
+**Printable coupon (CAD-checked, not printed).** The same test now emits a
+dimensionally exact, self-supporting coupon at true 5.08 mm pitch
+(`coupon_*.stl`, `coupon.scad`, `build_coupon.py`). Building it exposed a
+concrete geometric failure the first CAD draft hid: the pawl and gate bar cannot
+share one X-lane at 5.08 mm (3.60 + 0.80 + 0.20 + 0.80 + 0.20 = 5.60 mm). The
+fix is to stack the gate above the pawl in Z, which closes the budget
+(3.60 body + 1.48 lane = 5.08) with 0.60 mm rails and a 2.40 mm web, all
+printable. This is **CAD/geometry evidence only** — it does not establish print
+quality, friction, wear, or measured release force. The single biggest unproven
+input remains the printed **release-force spread across many identical pawls**,
+whose break-even is ≈ 9% sd; the coupon exists to measure it.
 
 ## Mechanism coverage audit — September 2026
 

@@ -31,3 +31,10 @@ jobs:
           python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
           python 06-experiments/test11_shared_drive_gate_analysis/make_coupon_stl.py
           python 06-experiments/test11_shared_drive_gate_analysis/verify_coupon_stl.py
+      - name: Test11 S1/S2 rejection screen
+        run: python 06-experiments/test11_threshold_ratchet_s1/checks.py
+      - name: Test11 printable coupon generation and structural checks
+        run: |
+          cd 06-experiments/test11_threshold_ratchet_s1
+          python build_coupon.py
+          python coupon_checks.py
