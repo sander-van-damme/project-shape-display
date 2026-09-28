@@ -121,3 +121,13 @@ need JavaScript; AliExpress began returning empty responses after ~10 queries.
   traceable 8 mm motor sample and an 80+spares delivered quote with the same
   winding, shaft, step angle and lot — before any full-scale purchase. Sourcing is
   now a first-class blocker, not a footnote.
+
+## 6. Delivered addendum (DND-11)
+
+The three-scenario **delivered** BOM that consumes these prices is in
+[`delivered_3scenario/`](delivered_3scenario/README.md). It applies a scenario
+shipping/import uplift to the parts subtotal and reports best/expected/worst with
+per-line vendor and evidence labels. Result: every survivor is over $500 at the
+expected delivered scenario, and the cheapest sourced motor+driver pair for S5
+lands at $501.12 delivered — on the ceiling with no margin. Prices here are the
+2026-09-28 source; re-verify before any purchase.
