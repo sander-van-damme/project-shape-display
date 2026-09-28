@@ -14,6 +14,17 @@ with measured numbers or leave it blank; do not infer a pass from CAD.
 > gate engine). A physical A1–A4 print and caliper/microscope pass M1–M6 is still
 > required to move S3 off `INCONCLUSIVE`; the gate engine will score it the moment
 > the rows are entered.
+>
+> **Status update (DND-4, analytic).** Under board policy [DND-27](/DND/issues/DND-27)
+> the physical pass cannot be run, so the analytic gate in
+> [`analytic/`](analytic/README.md) is used instead. The pivot was changed from a
+> printed-in-place boss (**no** designed clearance — M3 unresolvable) to a
+> **designed journal fit** with `PIVOT_CLR = 0.20 mm` per side
+> (`PIVOT_SOCKET_D = 1.20 mm`), so M3 is now an analytic quantity. Feeding the
+> analytic record to `t11a_fit_check.py` returns **`S3_DENSITY_PRINTABLE`** on
+> the 0.4 mm baseline with the explicit *analytic screen, not a print* warning.
+> M1/M5/M6 are analytic passes; M4 land-reach is the remaining thin term
+> (−0.05 mm worst case). This is still **not** a printed or measured result.
 
 ## Files
 

@@ -24,6 +24,15 @@ FINGER_T = 0.80;       // finger thickness along the row axis (band is 1.27)
 FINGER_H = 3.20;       // finger height (rocker)
 FINGER_L = 4.40;       // finger length along travel
 PIVOT_D = 0.80;        // printed pivot boss diameter
+// DND-4: designed radial journal clearance between the finger boss and the base
+// socket. Without a designed clearance the pivot prints in place and its
+// freedom (protocol gate M3) is a slicer unknown -> the analytic gate returns
+// INCONCLUSIVE. A positive designed clearance converts M3 from unmodelled to
+// analytic. 0.20 mm is chosen so the diametral free play (0.40 mm) clears the
+// 0.20 mm free-gap floor even after worst-case boss/socket tolerance (+/-0.06
+// each), and 0.40 mm also clears the 0.4 mm slot rule. CAD-set dimension.
+PIVOT_CLR = 0.20;      // radial clearance, each side
+PIVOT_SOCKET_D = PIVOT_D + 2 * PIVOT_CLR;  // 1.20 mm socket bore
 NOTCH_D = 0.55;        // selector notch diameter (state write feature)
 MIN_WEB = 0.24;        // target minimum printed web at 0.4 mm nozzle
 
@@ -71,12 +80,27 @@ module cam_bank() {
 }
 
 module coupon_base() {
-    // 2 cells x 4 rows footprint, open frame so fingers can be inspected
+    // 2 cells x 4 rows footprint, open frame so fingers can be inspected.
+    // DND-4: a pivot post at each cell centre carries a socket bore sized
+    // PIVOT_SOCKET_D = PIVOT_D + 2*PIVOT_CLR, giving the finger boss a designed
+    // radial journal clearance. This is what makes protocol gate M3 analytic.
     difference() {
-        cube([PITCH * 2, PITCH * 4, 1.20], center = true);
+        union() {
+            cube([PITCH * 2, PITCH * 4, 1.20], center = true);
+            for (x = [0, 1], y = [0:3])
+                translate([(x - 0.5) * PITCH, (y - 1.5) * PITCH, 0])
+                    rotate([90, 0, 0])
+                        cylinder(d = PIVOT_D + 2 * 1.2, h = BAND + 0.6, center = true);
+        }
+        // finger clearance slot (per cell)
         for (x = [0, 1], y = [0:3])
             translate([(x - 0.5) * PITCH, (y - 1.5) * PITCH, 0.2])
                 cube([FINGER_L + 0.3, BAND + 0.15, 1.2], center = true);
+        // socket bores: designed radial clearance around each finger boss
+        for (x = [0, 1], y = [0:3])
+            translate([(x - 0.5) * PITCH, (y - 1.5) * PITCH, 0])
+                rotate([90, 0, 0])
+                    cylinder(d = PIVOT_SOCKET_D, h = BAND + 1.0, center = true);
     }
 }
 

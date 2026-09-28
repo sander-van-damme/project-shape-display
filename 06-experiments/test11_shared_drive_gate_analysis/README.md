@@ -6,10 +6,13 @@ reference S5, can complete machines be specified with real component counts, and
 what is the cheapest test that would reject each one?
 
 **Answer (one line).** A concrete S3 machine can be specified and survives its
-arithmetic; S4 is only viable with a *printed* tile clutch and its dominant risk
-is correlated multi-tile backlash; S5's five named gates remain **open** and the
-$1.25 motor allowance does not fit the $500 ceiling with contingency. No physical
-measurement exists in this folder.
+arithmetic; its selector fan-out gate is now an **analytic `S3_DENSITY_PRINTABLE`**
+after the pivot was redesigned with a designed journal clearance
+([DND-4](#s3--multi-row-mechanical-dma-head--local-passive-memory-invented-machine));
+S4 is only viable with a *printed* tile clutch and its dominant risk is correlated
+multi-tile backlash; S5's five named gates remain **open** and the $1.25 motor
+allowance does not fit the $500 ceiling with contingency. No physical measurement
+exists in this folder.
 
 **Evidence level.** Everything here is **calculated** on **assumed** inputs, with
 sources cited where used, except `coupon_geometry.py` (calculated fit screen),
@@ -30,6 +33,11 @@ python verify_coupon_stl.py           # mesh + X1C-envelope check on the STLs
 python t11a_fit_check.py --selftest   # synthetic exercise of the M1-M6 gate engine
 python t11a_fit_check.py --validate   # check the runs/ measurement schema
 python t11a_fit_check.py --predict    # CALCULATED expected coupon dimensions
+# DND-4 analytic selector fan-out gate (replaces the forbidden physical print):
+python analytic/t11a_analytic_gate.py --report      # printability + stack-up
+python analytic/t11a_analytic_gate.py --selftest    # asserts the analysis is sane
+python analytic/t11a_analytic_gate.py --emit-record # regenerate the analytic record
+python t11a_fit_check.py --input analytic/runs/t11a_analytic_measurements.csv
 # optional, if OpenSCAD 2021.01 is on PATH:
 openscad -o selector_fanout_coupon.stl selector_fanout_coupon.scad
 ```
@@ -135,9 +143,19 @@ measured Stage-B numbers before a head is trusted.
 
 ### Cheapest rejection tests for S3
 
-- **T11-A (≈45 min, one print):** fan-out fit coupon. **Print package is ready:**
-  generated STLs plus [`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md). Prints
-  in one X1C run. Kills S3 density if fingers fuse (web < 0.20 mm).
+- **T11-A, analytic form (DND-4):** fan-out fit coupon. Under board policy
+  [DND-27](/DND/issues/DND-27) the physical print is not run; the analytic gate
+  [`analytic/t11a_analytic_gate.py`](analytic/t11a_analytic_gate.py) evaluates the
+  as-designed geometry against sourced FDM limits plus a tolerance stack-up. The
+  **pivot was redesigned** from printed-in-place to a designed journal fit
+  (`PIVOT_CLR = 0.20 mm/side`, socket bore 1.20 mm), so protocol gate M3 is now
+  analytic. The engine returns **`S3_DENSITY_PRINTABLE`** on the 0.4 mm baseline
+  (analytic screen, not a print). The remaining thin term is M4 land reach
+  (−0.05 mm worst case).
+- **T11-A, physical form (deferred, not permitted under DND-27):** the printed
+  coupon package (STLs + [`T11A_PRINT_PROTOCOL.md`](T11A_PRINT_PROTOCOL.md)) is
+  ready to fabricate if the policy changes. It would kill S3 density if the
+  fingers fuse (web < 0.20 mm).
 - **T11-B (≈3 h):** 2×4 loaded engage/write/disengage dwell, all 256 binary
   masks, neighbour-release count.
 - **T11-C (≈1.5 h):** full 80-column single-row bank, engaged fraction sweep,

@@ -168,6 +168,15 @@ therefore a *force-feasibility* variant, not an independence fix.
   not a gate per column powered during the write. The shared stroke is only
   25% of 40 mm (4 strokes), independent of column count. Nothing here changes
   S3's "drop until quantified" disposition; it redirects the next coupon.
+- **DND-4 analytic result (calculated, not printed):** the S3 selector fan-out
+  gate is now closable analytically. The finger pivot was redesigned from
+  printed-in-place to a **designed journal fit** (`PIVOT_CLR = 0.20 mm/side`,
+  1.20 mm socket bore), so protocol gate M3 is no longer a slicer unknown. The
+  analytic gate returns `S3_DENSITY_PRINTABLE` at the 0.4 mm baseline with a
+  +0.08 mm worst-case pivot free-play margin; the remaining thin term is M4 land
+  reach (−0.05 mm). See
+  [`06-experiments/test11_shared_drive_gate_analysis/analytic/`](../06-experiments/test11_shared_drive_gate_analysis/analytic/README.md).
+  This is a **calculated** screen, not a physical pass.
 
 ### S4 — Distributed passive tiles on a shared power bus
 

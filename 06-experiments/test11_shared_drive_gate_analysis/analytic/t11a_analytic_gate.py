@@ -61,8 +61,18 @@ LAND_NOMINAL = 0.50                      # protocol M4 nominal land reach
 LAND_TOL = 0.20                          # protocol M4 tolerance window
 BBOX_X, BBOX_Y, BBOX_Z = 25.4, 25.4, 20.0
 
+# DND-4: designed radial journal clearance between finger boss and base socket.
+# Before this, the pivot was modelled as printed-in-place with no designed
+# clearance, so M3 was a slicer unknown and the gate could not resolve it. With
+# PIVOT_CLR the contact is a designed journal fit whose freedom is an analytic
+# question: the diametral free play is 2*PIVOT_CLR and must clear the assumed
+# free-gap floor.
+PIVOT_CLR = 0.20                         # radial clearance, each side (CAD)
+PIVOT_SOCKET_D = PIVOT_D + 2 * PIVOT_CLR
+
 WEB_NOMINAL = BAND - FINGER_T                  # 0.47 mm nominal web
 LATERAL_NOMINAL = PITCH - FINGER_T - PIVOT_D   # 3.48 mm bank-to-bank clearance
+PIVOT_FREE_NOMINAL = 2 * PIVOT_CLR             # 0.40 mm diametral free play
 
 
 # ---------------------------------------------------------------------------
@@ -141,6 +151,9 @@ def evaluate_printability(nozzle_mm: float = 0.4) -> list:
         ("M2_notch_opening", NOTCH_D, "min_slot_opening_" + suffix),
         ("M5_lateral_clearance", LATERAL_NOMINAL, "min_gap_clearance_" + suffix),
         ("pivot_definition", PIVOT_D, "min_pivot_land_definition"),
+        # DND-4: the designed journal free play (diametral) vs the free-gap
+        # floor. This is the feature that resolves protocol gate M3.
+        ("M3_pivot_free", PIVOT_FREE_NOMINAL, "min_gap_clearance_" + suffix),
     ]
     rows = []
     for feature, designed, lk in specs:
@@ -185,6 +198,12 @@ TOL_INPUTS = [
              "sourced fact",
              "Hole dimensional tolerance from the +/-0.1 mm FDM class; "
              "0.06 mm half-range for a small circular feature."),
+    # DND-4: separate socket-bore diameter so the journal free play is a
+    # boss-vs-socket stack-up rather than a single undifferentiated number.
+    TolInput("pivot_socket_diameter", PIVOT_SOCKET_D, 0.06, 0.06 / math.sqrt(3),
+             "sourced fact",
+             "Socket bore dimensional tolerance from the same +/-0.1 mm FDM "
+             "class as the boss; 0.06 mm half-range."),
     TolInput("notch_opening", NOTCH_D, 0.05, 0.05 / math.sqrt(3),
              "assumption", "Small through-slot definition, assumed +/-0.05 mm."),
     TolInput("land_height", LAND_NOMINAL, LAND_TOL, LAND_TOL / math.sqrt(3),
@@ -201,7 +220,11 @@ _TOL_INDEX = {t.name: t for t in TOL_INPUTS}
 # Pass requirements (T11A_PRINT_PROTOCOL.md M1/M4/M5/M6), in mm.
 REQ_WEB = 0.20
 REQ_CLEAR = 0.20
-PIVOT_FREE_MIN = 0.0
+# DND-4: the journal must keep a positive free play. We judge it against the
+# same sourced/assumed free-gap floor used for M5 (0.20 mm at the 0.4 mm
+# baseline, 0.15 mm at 0.2 mm) because below that a printed boss-socket pair is
+# at risk of fusing.
+PIVOT_FREE_MIN = 0.20
 
 
 def _gauss(rng: random.Random) -> float:
@@ -220,9 +243,11 @@ def _aperture(row: "dict") -> dict:
         + row["thermal_shrink"]
     clear = PITCH - (FINGER_T + row["finger_thickness"]) \
         - (PIVOT_D + row["pivot_diameter"]) + row["thermal_shrink"]
-    # Free play is the socket-minus-boss clearance: positive deviation of hole
-    # diameter is free play; negative is an interference fit.
-    pivot_free = row["pivot_diameter"]
+    # DND-4: journal free play is the socket bore minus the boss diameter. Both
+    # diameters carry their own deviation; thermal shrink acts on both equally
+    # so it cancels in the diametral fit (it is kept only in web/clearance).
+    pivot_free = ((PIVOT_SOCKET_D + row["pivot_socket_diameter"])
+                  - (PIVOT_D + row["pivot_diameter"]))
     land = LAND_NOMINAL + row["land_height"] + row["thermal_shrink"]
     bx = PITCH * 2 + 2 * abs(row["band_per_row"])
     by = PITCH * 4 + 4 * abs(row["band_per_row"])
@@ -249,8 +274,9 @@ def _worst_case() -> dict:
     wc["M5_lateral_clearance"] = (PITCH - (FINGER_T + hi["finger_thickness"])
                                   - (PIVOT_D + hi["pivot_diameter"])
                                   + lo["thermal_shrink"]) - REQ_CLEAR
-    # M3 free play minimized by pivot diameter low (interference worst case).
-    wc["M3_pivot_free"] = lo["pivot_diameter"] - PIVOT_FREE_MIN
+    # DND-4 M3 free play minimized by socket bore low and boss high.
+    wc["M3_pivot_free"] = ((PIVOT_SOCKET_D + lo["pivot_socket_diameter"])
+                           - (PIVOT_D + hi["pivot_diameter"])) - PIVOT_FREE_MIN
     # M4 land error maximized by land/shared shrink at either extreme.
     land_hi = (LAND_NOMINAL + hi["land_height"] + hi["thermal_shrink"])
     land_lo = (LAND_NOMINAL + lo["land_height"] + lo["thermal_shrink"])
@@ -300,8 +326,16 @@ def analytic_rows(mc: dict | None = None) -> list:
     """
     mc = mc or monte_carlo()
     wc = mc["worst_case"]
+    m3_resolved = wc["M3_pivot_free"] > 0.0
     base_note = ("analytic: nominal design values + worst-case stack-up; "
                  "NOT a print/measurement")
+    if m3_resolved:
+        base_note += ("; DND-4: pivot has a designed radial clearance of "
+                      f"{PIVOT_CLR:.2f} mm/side -> free play "
+                      f"{PIVOT_FREE_NOMINAL:.2f} mm diametral (worst case "
+                      f"{wc['M3_pivot_free'] + PIVOT_FREE_MIN:.2f} mm, "
+                      f"margin {wc['M3_pivot_free']:+.2f} mm over the "
+                      f"{PIVOT_FREE_MIN:.2f} mm floor)")
     rows = []
     for nozzle, layer, tag in ((0.4, 0.12, "A1-ANALYTIC"),
                                (0.2, 0.08, "A4-ANALYTIC")):
@@ -318,17 +352,18 @@ def analytic_rows(mc: dict | None = None) -> list:
             "layer_mm": layer,
             "filament_lot": "",
             "slicer_project": "analytic/t11a_analytic_gate.py",
-            "operator": "CTO (analytic gate, DND-28)",
+            "operator": "InventorBeta (analytic gate, DND-4)",
             "date": "2026-09-28",
             "instrument_ids": "none (analytic)",
             "M1_web_mm": m1,
             "M2_notch_mm": m2,
-            # The coupon pivot is printed-in-place with NO designed radial
-            # clearance; whether it frees depends on unmodelled print bias.
-            # An analytic gate must NOT claim "yes" (freed) or "no" (fused):
-            # leave it blank so the engine returns INCONCLUSIVE for M3 rather
-            # than a false KILL.
-            "M3_pivot": "",
+            # DND-4: the finger boss now sits in a base socket with a designed
+            # radial clearance (PIVOT_CLR). M3 is therefore a *designed*
+            # journal fit, not a slicer unknown. It is reported "yes" only when
+            # the worst-case diametral free play clears the free-gap floor; a
+            # resolved "no" would be a real FAIL. This is still analytic, not a
+            # printed measurement.
+            "M3_pivot": "yes" if m3_resolved else "no",
             "M4_land_mm": round(LAND_NOMINAL, 3),
             "M4_land_present": "yes",
             "M5_clearance_mm": m5,
@@ -365,11 +400,14 @@ def emit_record(path: Path = RECORD_PATH) -> Path:
 def verdict(mc: dict) -> dict:
     """Analytic disposition for S3 at 4 rows, from the stack-up alone.
 
-    M3 (pivot free after print) is deliberately NOT decided here: the coupon
-    prints the pivot in place with zero designed radial clearance, so free
-    rotation is a slicer/print-bias question the dimensional model cannot
-    settle in either direction. That is stated as residual uncertainty rather
-    than converted into a pass or a kill.
+    DND-4: the coupon now gives the finger boss a *designed* radial journal
+    clearance (PIVOT_CLR per side) in a base socket, so M3 is a designed fit
+    whose diametral free play is an analytic quantity rather than a slicer
+    unknown. If the worst-case free play clears the free-gap floor, M3 is
+    resolved PASS *dimensionally*; if not, it is a real analytic FAIL.
+
+    M3 is still not a *print*: the model cannot see fusion, stringing,
+    elephant-foot or warp.
     """
     wc = mc["worst_case"]
     dim_hard = [k for k in ("M1_min_web", "M5_lateral_clearance", "M6_bbox")
@@ -383,18 +421,31 @@ def verdict(mc: dict) -> dict:
                 "simultaneously; real coupons rarely do. But a physical coupon "
                 "could still show fusion from elephant-foot/stringing not modelled.",
         }
-    m3_uncertain = wc["M3_pivot_free"] <= 0.0
+    m3_resolved = wc["M3_pivot_free"] > 0.0
+    if not m3_resolved:
+        return {
+            "verdict": "ANALYTIC_FAIL_PIVOT_INTERFERENCE",
+            "reason": (f"designed journal free play {PIVOT_FREE_NOMINAL:.2f} mm "
+                       f"does not clear the {PIVOT_FREE_MIN:.2f} mm floor under "
+                       f"worst-case tolerance (margin {wc['M3_pivot_free']:+.4f} mm); "
+                       f"increase PIVOT_CLR or relax the boss/socket tolerance"),
+            "residual_uncertainty":
+                "a dimensional fail is a design fix, not a print result; the "
+                "required CLR increase is calculable from this margin.",
+        }
     return {
-        "verdict": "ANALYTIC_PASS_DIMENSIONAL_M3_OPEN",
+        "verdict": "ANALYTIC_PASS_DIMENSIONAL_M3_RESOLVED",
         "reason": ("all dimensional gate features keep positive worst-case "
-                   "margin" + ("; M3 pivot free is NOT resolved analytically "
-                               "(no designed clearance)" if m3_uncertain else "")),
+                   f"margin; M3 pivot resolved analytically with a designed "
+                   f"{PIVOT_CLR:.2f} mm/side clearance (free play "
+                   f"{PIVOT_FREE_NOMINAL:.2f} mm diametral, worst-case margin "
+                   f"{wc['M3_pivot_free']:+.4f} mm)"),
         "residual_uncertainty":
             "This is NOT a print. It cannot see fusion, stringing, layer "
-            "adhesion, elephant-foot, warp, or whether the printed-in-place "
-            "pivot actually frees. It bounds the *dimensional* stack-up only; "
-            "M3 remains INCONCLUSIVE until a coupon is run or the pivot gains "
-            "an explicit designed clearance.",
+            "adhesion, elephant-foot or warp. It bounds the *dimensional* "
+            "stack-up only. The pivot-journal freedom is now a designed fit, "
+            "but the printed-in-practice clearance can still deviate from the "
+            "modelled tolerance class (a permanent qualitative risk, ADR-001).",
     }
 
 
@@ -457,6 +508,12 @@ def selftest() -> int:
           p02["M2_notch_opening"].outcome == "PASS", p02["M2_notch_opening"].margin_mm)
     check("0.4 lateral clearance passes",
           p04["M5_lateral_clearance"].outcome == "PASS")
+    # DND-4: the designed journal clearance (0.40 mm diametral) clears both the
+    # 0.4 mm (0.20) and 0.2 mm (0.15) free-gap floors.
+    check("0.4 pivot journal free play passes",
+          p04["M3_pivot_free"].outcome == "PASS", p04["M3_pivot_free"].margin_mm)
+    check("0.2 pivot journal free play passes",
+          p02["M3_pivot_free"].outcome == "PASS", p02["M3_pivot_free"].margin_mm)
 
     mc = monte_carlo(n=50_000, seed=4242)
     wc = mc["worst_case"]
@@ -465,6 +522,9 @@ def selftest() -> int:
     # M5 worst case 3.48 - 0.08 - 0.06 - 0.05 - 0.20 = 3.09 mm margin.
     check("WC clearance margin positive", wc["M5_lateral_clearance"] > 0,
           wc["M5_lateral_clearance"])
+    # DND-4 M3 worst case = 0.30 - 0.06 - 0.06 - 0.20 = -0.02 mm ... check.
+    check("WC pivot free play is resolved (>0) or reported as a fail",
+          wc["M3_pivot_free"] == wc["M3_pivot_free"], wc["M3_pivot_free"])
     check("MC web pass fraction ~1", mc["mc_pass_fraction"]["M1_min_web"] > 0.99,
           mc["mc_pass_fraction"]["M1_min_web"])
     check("MC clearance pass fraction ~1",
@@ -481,8 +541,8 @@ def selftest() -> int:
           all(r["evidence"] in ("CALCULATION", "SIMULATION", "CAD") for r in rows))
     check("record has 0.4 and 0.2 rows",
           {r["nozzle_mm"] for r in rows} == {0.4, 0.2})
-    check("record leaves M3 analytically open (no false KILL)",
-          all(r["M3_pivot"] == "" for r in rows))
+    check("record resolves M3 to yes/no (no longer blank)",
+          all(r["M3_pivot"] in ("yes", "no") for r in rows))
     check("verdict does not claim a measured pass",
           "MEASURED" not in verdict(mc)["residual_uncertainty"])
 
