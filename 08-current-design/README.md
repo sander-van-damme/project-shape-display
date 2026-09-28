@@ -33,8 +33,14 @@ draws no holding power per cell.
 | Timing under 30 s | **26.251 s** (reproduced) | S3 25.20 s (budget only) |
 | Purchased BOM sourced share | **82 %** | S4 37 %, S1 30 % |
 | Per-cell bought parts | **0** (passive printed rotors) | all survivors: 0 intended |
-| Expected-delivered cost | $503.71 sourced / **$481.56 reduced** | S4 $548.91 |
+| Expected-delivered cost | $503.71 sourced / **$493.57** reduced (DND-37 corrected) | S4 $548.91 |
 | Decisive failure | none quantitative; K2 now bounded analytically | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
+
+**Two bets, not one** (Falsifier audit, [DND-36](/DND/issues/DND-36)): S1–S4 are *Bet A*
+(written passive memory); S5 is *Bet B* (absolute geometric stops — a homed rotor + gravity-
+following toe, no written bit). A Bet-A failure does not imply a Bet-B failure, so S5 stands on
+its own evidence. S1/S2/S4 cost is **conditional on the print gate**, not a kill (their BOMs are
+fallback-inflated).
 
 ADRs and evidence: [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md),
 [Test12 stack-up](../06-experiments/test12_winner_convergence/),
@@ -101,22 +107,38 @@ Fixed expected subtotal **$284.00**; motor + driver channel is the cost driver.
 | Scenario | Purchased parts | Delivered | Verdict |
 |---|---:|---:|---|
 | As-listed (sourced pair) | $434.20 | **$503.71** | on ceiling (+$3.71) |
-| − shift registers onto PCB | $420.20 | **$487.46** | clears |
-| − RP2040 controller | $415.20 | **$481.56** | clears with $18.44 margin |
+| − shift registers onto PCB | $420.20 | $487.46 *(overstates saving)* | see correction below |
+| − RP2040 controller | $415.20 | $481.56 *(overstates saving)* | **corrected to $493.57** |
+| **Corrected reduced path (DND-37)** | **$423.30** | **$493.57** | clears with **$6.43** margin |
 
-Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`. The
-**best-case** delivered was $389.55 (all-cheapest untraced prices) — that path is not used
-in this definition.
+**DND-37 arithmetic correction (ratified).** The reduced figures above subtract the
+shift-register line at its *expected allowance* ($14) from a base re-priced to *sourced*
+prices; the register's sourced value is only $3.70 (40 × $0.094) and that is all you stop
+buying. The controller consolidation ($10 → $5) is sound. The honest reduced delivered
+total is therefore **$493.57**, not $481.56 — a $10.30 conservatism defect that still
+leaves the design under ceiling but with **$6.43 margin, not $18.44**. Re-derive with
+`06-experiments/test12_winner_convergence/ratify_bom.py`. Reproduced and asserted by
+`checks.py`. The **best-case** delivered was $389.55 (all-cheapest untraced prices) — that
+path is not used in this definition.
 
 **The one cost risk:** the only *traceable matched* 8 mm 18° bipolar PM stepper found
-(MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$4,000. The
-sub-$1.05 price is an untraced marketplace multipack and must be sample-verified by the
-purchaser before a build. This is stated, not hidden (see §7).
+(MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$4,156
+delivered. No mainstream distributor (DigiKey/Mouser/Farnell/Newark/Arrow, via Octopart)
+stocks a true 8 mm PM bipolar stepper at any price. The sub-$1.05 price is an untraced
+marketplace multipack (live AliExpress micro listings €0.79–3.59 ea) and must be
+sample-verified by the purchaser before a build. Treat the expected delivered cost as a
+**range $493.57–$646** until a matched lot exists. This is stated, not hidden (see §7).
 
 ## 6. Fabrication, assembly and print readiness
 
-**Process baseline:** Bambu X1C, PLA, 0.4 mm nozzle, 0.20 mm layers; optional 0.2 mm nozzle
-for the thin upper guides.
+**Process baseline:** Bambu X1C, PLA, 0.4 mm nozzle, 0.20 mm layers. Ratified at 0.4 mm
+(DND-37): every printed feature is at or above the sourced 0.44 mm minimum standalone
+feature width. The thin *contact* features — detent 0.45 mm, body wall 0.60 mm, stem
+0.70 mm — sit at/below the 0.88 mm robust wall, so a **0.2 mm nozzle is recommended for
+the contact features** (not just "upper guides"); their realised strength/tolerance is a
+qualitative residual (K2 class). Resin/SLA is **not required by geometry** and would
+change the creep/fatigue properties the passive-memory bet rests on — escalate, do not
+adopt silently.
 
 **Modularity:** the 406.4 mm field is split into printable cartridges (e.g. 4 × 8 modules
 of 20×10 cells ≈ 101.6 × 50.8 mm) that bolt to a spliced frame; the frame needs support
@@ -154,18 +176,19 @@ is not proof they fit.
 | K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35 (torque/friction 0.92). Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. `test12_winner_convergence/DETENT_CONTACT.md` |
 | K3 | Gravity return vs guide friction | calculation | **closed** — 4.06× weight/drag margin (solid column) |
 | K4 | Regional update disturbs neighbour | calculation | **closed** — 0.017 mm vs 0.10 mm gate |
-| K5 | Cost > $500 delivered | calculation | **closed** — $481.56 reduced |
+| K5 | Cost > $500 delivered | calculation | **closed** — $493.57 corrected reduced (DND-37) |
 | K6 | Time > 30 s | calculation | **closed** — 26.251 s at 400 pps |
 | R1 | Whole-map reliability | assumption | open — q ≤ 1.57×10⁻⁶ needed for 99 %; no per-cell feedback |
 | R2 | 40 mm travel vs real miniature | assumption | open — no miniature measured; requirement may change |
 | R3 | Realised step rate ≥ 400 pps loaded | assumption | open |
-| R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea |
+| R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea; no distributor stock; expected cost is a range $493.57–$646 |
 
 ## 8. Next actions
 
 1. **Analytic detent contact sweep** — **done** ([DND-38](/DND/issues/DND-38),
    `test12_winner_convergence/DETENT_CONTACT.md`): K2 bounded, conditional. Next physical
    step is a printed μ + scallop coupon, which DND-27 forbids.
-2. **CostManufacturing** ratifies the BOM and printability.
+2. ~~**CostManufacturing** ratifies the BOM and printability.~~ **Done, DND-37: RATIFIED**
+   — see [ratification note](../07-evidence-and-decisions/dnd37-bom-ratification.md).
 3. **Falsifier** adversarially reviews the killer list for a missed failure mode.
 4. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.

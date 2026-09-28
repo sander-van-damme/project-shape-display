@@ -42,9 +42,9 @@ win.
 | S1 | threshold ratchet + broadcast incremental lift | **kill** | worst-case all-armed stroke **2,368 N vs 1,500 N** cap; mask write requires ≥500 parallel channels; no CAD | `test11_threshold_ratchet_s1/rejection.py` |
 | S1-B | banked broadcast ratchet | **park** | force fixed by banking (≈296 N/stroke, 17.6 s), but mask writing still needs pre-written media — collapses into S2 | `convergence-decision-2026-09.md` §3 |
 | S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; cannot serve surprise maps; no CAD | `test11_threshold_ratchet_s1/` |
-| S3 | multi-row mechanical DMA head | **kill** | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** (5.8× ceiling); **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
-| S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint; expected delivered $548.91 | `test11_shared_drive_gate_analysis/` |
-| S5 | programmed rotary stops + common lift | **WIN** | only CAD+simulation+sourced-BOM candidate; 26.251 s; sourced cost $503.71, reduced $481.56 | this ADR, `test12_winner_convergence/` |
+| S3 | multi-row mechanical DMA head | **kill** | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** (5.8× ceiling) driven by **sourced** selectors, not fallback lines; **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
+| S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint. Cost is **conditional on the print gate**, not a kill | `test11_shared_drive_gate_analysis/` |
+| S5 | programmed rotary stops + common lift | **WIN** | only CAD+simulation+sourced-BOM candidate; 26.251 s; sourced cost $503.71, reduced $493.57 (DND-37 corrected; was $481.56) | this ADR, `test12_winner_convergence/` |
 
 **Failed ideas are kept as assets**, not deleted: the rejection log in
 `test08/README.md:114-150` (unsupported follower, nine-level angular failure, 40-channel
@@ -68,10 +68,12 @@ evidence**, not a relaxation of a product requirement.
 The motor/driver channel is the only cliff. On the sourced pairing (Amazon multipack 8 mm
 PM motor $1.05 + TB6612FNG $0.80, expected delivered uplift ×1.16), the winner lands at
 **$503.71** — essentially on the ceiling. Two concrete BOM consolidations bring it to
-**$481.56**:
+**$493.57** (**corrected from $481.56 by [DND-37](/DND/issues/DND-37)** — the original
+subtracted the shift-register line at its $14 *expected allowance* against a *sourced*
+base; the true saving is $3.70, so the model overstated the reduction by $10.30):
 
-- fold the 40 discrete 74HC595 shift registers onto the custom driver PCB (−$14, a line
-  already present in the BOM as "custom driver PCBs and passives");
+- fold the 40 discrete 74HC595 shift registers onto the custom driver PCB (−$3.70 sourced
+  value; a line already present in the BOM as "custom driver PCBs and passives");
 - use the sourced RP2040 controller instead of the $10 allowance (−$5).
 
 Reaching the project's <$400 ideal band is **not** demonstrated. The winner lands in the
