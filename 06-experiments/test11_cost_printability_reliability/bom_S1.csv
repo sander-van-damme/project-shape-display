@@ -1,0 +1,17 @@
+item,quantity,unit_optimistic_usd,unit_working_usd,unit_high_usd,category,basis
+Global lift motor (geared NEMA17 planetary 5.18:1),1,24.19,40.00,70.00,actuator,Sourced AliExpress ~EUR24.19 / unquoted engineering allowance / high
+Global lift transmission (T8 lead screw + anti-backlash nut + coupling),1,6.00,16.00,30.00,transmission,Sourced AliExpress EUR2.89 screw + EUR2.47 nut + coupling; working/high allowance
+Lift axis driver (TB6600 or equivalent),1,6.00,10.00,18.00,electronics,Sourced AliExpress TB6600-class; allowance
+Tile coupler / clutch (64 tiles),64,0.00,3.00,6.00,module_coupler,No bought part intended in S1 baseline; allowance only if tile isolation needs a coupler
+Mask media substrate (punched film / shutter sheet),1,5.00,15.00,35.00,media,Printable media; purchased PET/Mylar sheet and alignment hardware only
+Mask writer (off-board punch/shutter),1,10.00,40.00,120.00,programmer,Shared off-board programmer; engineering allowance unverified
+Board controller (RP2040/ESP32),1,5.00,15.00,25.00,electronics,Sourced RP2040 $0.76/100 or Pico $5; module allowance
+Shared stroke drive motor (cam/bladder),1,10.00,20.00,40.00,actuator,Engineering allowance
+Stroke/bladder drive driver,1,3.00,6.00,12.00,electronics,Engineering allowance
+Power supply and protection ~150W,1,20.00,35.00,60.00,power,Engineering allowance
+Wiring and connectors,1,12.00,20.00,35.00,wiring,Allowance
+Release combs / latch actuators (tile segmented),64,0.00,0.50,2.00,module_coupler,No bought part intended; allowance for latch actuation if printable fails
+Sensors / datum check camera,1,8.00,25.00,50.00,sensor,Engineering allowance
+Fasteners and structural bought items,1,5.00,12.00,25.00,fasteners,Allowance printed structure
+Spares and miscellaneous,1,8.00,15.00,30.00,spares,Allowance
+Freight and import reserve,1,10.00,25.00,60.00,logistics,Allowance

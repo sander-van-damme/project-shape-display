@@ -1,0 +1,14 @@
+item,quantity,unit_optimistic_usd,unit_working_usd,unit_high_usd,category,basis
+Shared bus drive motor (geared),1,24.19,40.00,70.00,actuator,Sourced AliExpress planetary NEMA17; allowance
+Shared bus transmission,1,8.00,20.00,38.00,transmission,Sourced T8 screw/belt; allowance
+Bus drive driver,1,6.00,10.00,18.00,electronics,Allowance
+Tile clutch / coupler (64 tiles),64,1.00,3.00,6.00,module_coupler,README allowance ~$3 ideal / $6 absolute per channel; sourced couplers ~$2 but no 80qty quote
+Tile selection driver/relay,64,0.30,0.80,2.00,electronics,Electrical tile selection; allowance
+Tile local decoder (passive/printed),1,0.00,0.00,0.00,module_decoder,Intended printable; any bought logic adds per-tile cost
+Board controller,1,5.00,18.00,30.00,electronics,Allowance
+Power supply and protection ~200W,1,25.00,45.00,80.00,power,Allowance
+Wiring and connectors,1,15.00,28.00,50.00,wiring,Allowance
+Sensors / encoder / height scan,1,8.00,25.00,50.00,sensor,Allowance
+Fasteners and structural bought items,1,10.00,22.00,45.00,fasteners,Allowance
+Spares and miscellaneous,1,10.00,22.00,45.00,spares,Allowance
+Freight and import reserve,1,12.00,30.00,70.00,logistics,Allowance
