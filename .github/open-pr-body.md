@@ -1,82 +1,84 @@
+# DND-49: close K7 — trace a matched 8 mm 18° bipolar PM stepper to ≤ $1.86 delivered (or refute the cost path)
+
+Closes K7, the **last agent-reachable cost killer** and the binding residual of the S5
+cost path. Requested work: sourcing/analysis only — **no purchase, no print**
+([DND-27](/DND/issues/DND-27)).
+
 ## What changed
 
-Closes the two conditional/open geometry killers on the S5 winner ([DND-44](/DND/issues/DND-44)) raised for [DND-45](/DND/issues/DND-45):
+- **New** `06-experiments/test12_winner_convergence/k7_motor_trace.py` — the K7
+  sourcing trace: actuator envelope, sourced candidate table, break-even math, and
+  the reduced-head design-lever timing check.
+- **New** `06-experiments/test12_winner_convergence/k7_motor_trace_checks.py` —
+  9 CI-gated regression/honesty checks.
+- `06-experiments/test11_cost_printability_reliability/sourcing_notes.md` — **§8**
+  candidate table with URLs, qty-100 unit prices and datasheet specs.
+- `08-current-design/README.md` — §5 note, §7 K7 row, §9 verdict row updated.
+- `06-experiments/test12_winner_convergence/{README.md,DND44_READINESS.md}` — K7 rows.
+- `.github/workflows/ci.yml` — new "Test12 K7 matched-motor sourcing trace" step.
 
-**K2 — detent repeatability at sourced friction.** Extended `detent_contact.py` with a
-scallop-depth sweep (0.20 → 0.40 mm) inside the cam envelope (radius 1.5, core 1.0, max
-step 0.50 mm), plus a finite-tip term. Named a geometry that passes at the sourced PLA–PLA
-friction midpoint with a ≥ 1.25 margin.
+## The engineering question
 
-**K9 — angular margin vs print tolerance.** New `k9_angular_margin.py` Monte-Carlo that
-propagates the sourced ±0.05 mm FDM positional/dimensional tolerance through the
-`toe_angle = atan2(toe_width/2, toe_x − center_x)` geometry and the level-count sweep.
+Does a **matched, traced** 8 mm 18° 2-phase **bipolar** PM stepper exist at
+**≤ $1.86 delivered-inclusive**? If not, what is the cheapest matched price, the
+resulting delivered total, and the minimum-cost design lever to get back under $500?
 
-Also: updated `DETENT_CONTACT.md`, added `K9_ANGULAR_MARGIN.md`, updated the K2/K9 rows in
-`test12_winner_convergence/README.md`, `08-current-design/README.md`, `model.py`, and wired
-both new gates into CI.
+The $1.86 is the break-even of the [DND-44]/[DND-47] machine-preserving path: each
+$1.00 of motor price adds $92.80 delivered over 80 channels (`k7_motor_trace`:
+break-even = **$1.8587**).
 
-## Engineering question
+## Evidence produced (sourced listings, retrieved 2026-09-28)
 
-1. Is there a scallop depth inside the cam envelope that makes the printed detent correct
-   an 18° slipped step with a 25% margin at the sourced PLA–PLA friction midpoint μ = 0.35?
-2. Does the ±0.05 mm FDM print tolerance eat the 5-level angular margin, and at how many
-   levels does the margin actually go negative?
+| Vendor | Part | Unit | Qty basis | Matched? | Delivered (80) |
+|---|---|---:|---|---|---:|
+| CCHT (Made-in-China) | 8 mm 3.3 V, model 07-005-032 | **$8.20** | 3,001+ (**$11.20 @100**) | yes | **$1,088 / $1,367** |
+| CCHT | 8 mm 5 V, model 07-005-036 | $11.20 | 100–1,000 | yes (torque fails) | $1,367 |
+| MOONS | 8PM020S1-02001 | $40.00 | 1 (list) | yes | $4,040 |
+| DFRobot | FIT0708 | $11.90 | 10+ | no (10 mm) | $1,432 |
+| Amazon "Abovehill" | 10-pair 8 mm multipack | $1.05 | pack | **no (no step angle)** | $424.95 |
+| AliExpress | 10-pc 8×9.5 mm pack | $0.86 | pack | **no (no step angle)** | $407.32 |
+| AliExpress | Micro Mini 8 mm | $2.66 | 1 pc | no (no 18° spec) | $574.36 |
 
-## Evidence produced (CALCULATION / MONTE-CARLO / CAD — no print, no measurement, [DND-27](/DND/issues/DND-27))
+Not stocked as a bare 8 mm 18° bipolar PM stepper: LCSC, DigiKey (403), Mouser
+(denied), Octopart, Adafruit, Pololu, SparkFun; Alibaba/Made-in-China family bottoms
+at ~$8.20 at 3,000+ units.
 
-**K2.** Flank-tilt (wedge) decomposition reduces exactly to the existing flat baseline
-`T_r/T_f = A·k/(μ·r)`; the finite-tip term is `sinc(k·β)`.
+## Result — **K7 REFUTED on sourced evidence**
 
-| Scallop depth | μ=0.20 | μ=0.35 | μ=0.50 | in envelope |
-|---:|---:|---:|---:|:---:|
-| 0.20 (nominal) | 1.613 | 0.922 ✗ | 0.645 ✗ | yes |
-| 0.28 | 2.258 | 1.290 ✓ | 0.903 ✗ | yes |
-| **0.40 (chosen)** | 3.226 | **1.843 ✓** | **1.290 ✓** | yes |
+- **No matched, orderable 8 mm 18° bipolar PM stepper exists at ≤ $1.86 delivered.**
+  The cheapest matched part is **$8.20–$11.20** → **$1,088–$1,367 delivered**; the only
+  matched + fully-specified retail part (MOONS) is **$40** → **$4,040**.
+- The sub-$1.86 path exists **only** for an untraced marketplace multipack whose
+  **step angle is not published** and whose product pages are JS-only. That is the
+  residual K7 describes.
+- **Caution flag:** the MOONS matched part's *detent* torque (0.15 mN·m) **equals the
+  target running torque** — detent drag subtracts from running torque, so holding is
+  not a proxy.
+- **The reduced-head design lever is not viable.** Fewer motors would let a pricier
+  matched motor fit (20 @ $8.20 ≈ $536; 10 ≈ $432), but the head programs all 80
+  columns per row, so fewer channels means `80/N` re-index passes per row. Re-derived
+  on the Test12 timing model: **W=40 → ~104 s, W=20 → ~162 s, W=10 → ~229 s** — all
+  fail the 30 s budget. W=80 → 26.3 s passes.
 
-- Exact minimum depth for a 1.25 margin at μ = 0.35: **0.2712 mm**; at μ = 0.50: **0.3875 mm**.
-- Chosen **0.40 mm** fits the 0.50 mm envelope (leaves 0.10 mm core wall). 0.55 mm is
-  rejected as out-of-envelope.
-- Conservative 8° blunt tip: exact minimum 0.2946 mm, still under 0.40 mm — not knife-edge.
-- Chosen depth written to `test08 params.json` (`cam.detent_scallop_depth_mm`) → generated
-  `results/parameters.scad`.
-
-**K9** (200,000 draws, seed 20260928; bounded-uniform primary + Gaussian σ=0.05 conservative):
-
-| Levels | nominal | bounded mean | bounded min | bounded P(<0) | Gaussian P(<0) |
-|---:|---:|---:|---:|---:|---:|
-| 4 | 21.50° | 14.53° | 10.76° | **0.00%** | **0.00%** |
-| 5 | 12.50° | 5.52° | 1.72° | **0.00%** | **1.31%** |
-| 6 | 6.50° | −0.47° | −4.28° | **65.6%** | **69.1%** |
-
-- 5 levels keeps margin positive under the bounded tolerance reading but only ~1.7°
-  worst-case; under a Gaussian tail it has a 1.3% failure probability.
-- **6 levels fails outright; 4 levels is robust.**
-
-## Assumptions
-
-- ±0.05 mm is a sourced FDM positional/dimensional capability claim, not a measured
-  distribution on these specific parts; both a bounded and a Gaussian interpretation are
-  reported.
-- The wedge model assumes the leaf force is radial; the finite-tip efficiency η = sinc(kβ)
-  is a stated term, not measured.
-- Existing model anchors (Test08/Test09) unchanged.
+Honest design-level options, both outside agent reach: (a) qualify the marketplace
+multipack by buying/sampling a lot (forbidden under DND-27), or (b) change the head
+actuator class / drive topology.
 
 ## What passed / failed
 
-- **Passed:** K2 has a named geometry (0.40 mm) that clears 1.25 at μ = 0.35 (1.84) and
-  μ = 0.50 (1.29) inside the envelope. K9 is bounded; 5 levels is conditionally safe,
-  4 robust, 6 fails.
-- **Failed / remains:** the as-printed μ, creep, tip sharpness, and the real tolerance
-  distribution cannot be measured under DND-27, so K2's residual risk is print
-  realisation; K9's residual is the real as-printed tolerance distribution.
+- All Test12 checks pass, including the 9 new K7 checks (`python k7_motor_trace_checks.py`).
+- Full stdlib check suite (test08–test13, falsification, fixtures) re-run green locally.
 
-## Checks run
+## Assumptions & limits
 
-- `detent_checks.py` (15 tests, +6 new), `k9_checks.py` (10 tests), `checks.py` (13 tests,
-  killer labels updated), `model.py`, `ratify_bom.py --selftest`, `test08/checks.py`,
-  `test09/run.py` — all green locally. CI adds both new gates.
+- Prices are point-in-time listings (2026-09-28), not quotations. Delivered uplift is
+  the repo's additive ×1.16 ([DND-41](/DND/issues/DND-41)).
+- No running torque-vs-speed curve is published for any 8 mm-class PM stepper by any
+  accessible source; the envelope is stated from the winner definition (`params.json`).
+- No purchase, print or measurement — evidence class is SOURCED-LISTING / calculation.
 
-## Next test
+## Remains uncertain / next test
 
-- Source or measure the as-printed scallop depth and tip geometry on a real part (gated by
-  print authority); until then K2/K9 stay closed analytically only.
+K7 cannot be retired by agents under DND-27. The next decision is **product-level**:
+accept the untraced-multipack risk with a named purchaser qualification gate, or open a
+head-actuator-class change. Keep the issue's `06`/`07` records current if either is chosen.
