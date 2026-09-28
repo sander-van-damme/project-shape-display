@@ -51,6 +51,19 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertGreater(reduced, m.CEILING_USD - 25.0)
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)
 
+    def test_cost_basis_is_additive_and_register_saving_is_net(self):
+        # DND-41 cost-basis reconciliation: the delivered uplift must be the
+        # repo's additive x1.16 (NOT the multiplicative 1.10*1.06), and the
+        # register consolidation saving must be the NET $10.30 (remove the whole
+        # $14 allowance, add the sourced $3.70 chips) — not the $14 gross, and
+        # not the $3.70-only credit that earlier mis-stated the reduced total as
+        # $493.57. Guard so $493.57 cannot return.
+        self.assertAlmostEqual(m.DELIVERED_UPLIFT, 1.16, places=6)
+        self.assertNotAlmostEqual(m.DELIVERED_UPLIFT, 1.10 * 1.06, places=3)
+        self.assertAlmostEqual(m.REDUCTION_REGISTERS_USD, 10.30, places=2)
+        self.assertEqual(m.winner_delivered_usd(), 501.12)
+        self.assertEqual(m.winner_reduced_delivered_usd(), 483.37)
+
     def test_reliability_model_is_honest(self):
         q99 = m.required_q_for(0.99)
         # At the assumed q the whole-map probability must be reported as low,

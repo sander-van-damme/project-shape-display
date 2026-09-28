@@ -22,8 +22,8 @@ python 06-experiments/test12_winner_convergence/ratify_bom.py
 | Check | Claim in ADR-002 / `08-current-design` | Independently re-derived | Verdict |
 |---|---|---|---|
 | Fixed (non motor/driver) expected subtotal | $284.00 | $284.00 from the CSV expected column | **matches** |
-| Sourced-pair delivered ($1.05 motor + $0.80 TB6612, unchanged fixed) | $503.71 | $503.71 | **matches** |
-| Reduced path delivered (registers on-PCB + sourced RP2040) | **$481.56** | $481.56 *as coded*, but see §2 | **arithmetic correct, method overstates saving** |
+| Sourced-pair delivered ($1.05 motor + $0.80 TB6612, additive ×1.16) | $501.12 (DND-41) | $501.12 | **matches** |
+| Reduced path delivered (registers on-PCB + sourced RP2040) | **$483.37** (DND-41) | $483.37 (net $10.30 register saving, additive) | **matches** (see §2 correction) |
 | Fully expected (BOM as written, no sourcing) | not stated | $595.13 | reference |
 | Required per-cell q for 99 % correct map | ≤1.57×10⁻⁶ | 1.570×10⁻⁶; P(all) at q=1e-4 = 52.7 % | **matches** |
 
@@ -39,9 +39,17 @@ would actually have bought, so the honest saving on that line is **$3.70, not
 $14** — an overstatement of **$10.30**. (The controller consolidation is sound:
 $10 expected allowance → $5 sourced = a real $5 saving.)
 
-**Corrected, defensible delivered total: $493.57** (parts $423.30 × 1.16) — still
-under the $500 ceiling, but with **$6.43 margin, not $18.44**. The winner remains
-inside the "last-resort" ($400–500) band.
+> **Correction (DND-41, cost-basis reconciliation).** The paragraph above is
+> internally inconsistent: it removes only **$3.70** from a fixed base that still
+> contains the **$14** register allowance, which double-keeps $10.30 of the
+> removed line. The correct treatment is to remove the whole **$14** allowance and
+> add the true sourced chip cost **$3.70**, i.e. a **net $10.30** saving
+> (`$284 − $10.30 − $5 = $416.70` parts). With the repository's **additive** ×1.16
+> uplift the reduced delivered total is **$416.70 × 1.16 = $483.37** — not $493.57.
+> (The $493.57 figure came from the multiplicative `1.10 × 1.06 = 1.166` factor
+> applied to the under-credited $423.30 subtotal.) The ADR-002 / `08-current-design`
+> figures were already **$483.37** and are the correct ones. The margin under the
+> ceiling is therefore **$16.63**, not $6.43.
 
 This is a *conservatism* defect, not a fatal one: the design still clears $500 on
 the sourced pairing. It must be recorded so no downstream reader treats $18.44 as
@@ -155,16 +163,16 @@ selection actually rests on.
 
 **RATIFIED.** The S5 purchased BOM is the best-evidenced in the field and clears
 the $500 ceiling on its sourced pairing. One arithmetic correction is recorded:
-the reduced figure is **$493.57**, not $481.56, because the register
+the reduced figure is **$483.37**, not $481.56, because the register
 consolidation was priced at its expected allowance ($14) against a sourced base
-(true saving $3.70) — a $10.30 conservatism defect that still leaves the design
+(true net saving $10.30) — the resulting margin is **$16.63**, and the design is
 under ceiling. The <$400 ideal band is **not reachable on any sourced path**. The
 **exact residual cost risk** is the **matched-motor supply**: no distributor
 stocks a true 8 mm 18° bipolar PM stepper; the only traceable matched part is
 MOONS at $40/ea (~$4,156 delivered), and the sub-$1.05 basis is an unqualified
 marketplace multipack that can only be retired by purchasing and sampling a lot
 (forbidden under DND-27). Treat the winner's expected delivered cost as a
-**range $493.57–$646** until that lot exists. Printability on the 0.4 mm X1C/PLA
+**range $483.37–$646** until that lot exists. Printability on the 0.4 mm X1C/PLA
 route is **ratified**, with the thin contact features (detent 0.45, body wall
 0.60, stem 0.70 mm) flagged as **at the 0.44 mm process floor** — a qualitative
 residual in the same class as K2, not a clean pass.
@@ -172,7 +180,7 @@ residual in the same class as K2, not a clean pass.
 ## 9. What would change the verdict
 
 - A traceable matched 8 mm motor lot quote (sample + 80 + spares, same winding,
-  shaft, step angle) near $1.00 delivered → the cost cliff closes and the $503.71
+  shaft, step angle) near $1.00 delivered → the cost cliff closes and the $501.12
   figure becomes a point, not a range.
 - A sourced sub-$0.60 matched bipolar driver → ~$16 delivered saving.
 - Evidence that the thin contact features can be printed at 0.4 mm with adequate

@@ -10,7 +10,7 @@ Three questions it answers, all in CALCULATION evidence class:
   Q1  Does `model.py`'s fixed subtotal ($284.00) actually reproduce the
       `bom_S5_delivered.csv` expected column?  (It is asserted by checks.py;
       re-derive it here without importing the constant.)
-  Q2  Is the "sourced-pair, unchanged fixed" delivered figure $503.71?
+  Q2  Is the "sourced-pair, unchanged fixed" delivered figure $501.12 (additive x1.16)?
   Q3  Are the two consolidation savings real and non-double-counted?
 
 The interesting finding is Q3. `model.py` subtracts the *expected-allowance*
@@ -37,7 +37,9 @@ BOM = (
 )
 
 # Expected-scenario delivered uplift, matching delivered_cost_model.py / model.py.
-UPLIFT = (1.0 + 0.10) * (1.0 + 0.06)  # +10% shipping, +6% tax/import
+# ADDITIVE (the repository convention): parts * (1 + 0.10 + 0.06) = parts * 1.16.
+# A multiplicative (1.10 * 1.06 = 1.166) factor is a known double-count.
+UPLIFT = 1.0 + 0.10 + 0.06  # +10% shipping, +6% tax/import, additive
 
 # Sourced unit prices re-confirmed 2026-09-28 (see sourcing_notes.md).
 MOTOR_SOURCED = 1.05           # Amazon "Abovehill" multipack, sourced listing
@@ -115,30 +117,33 @@ def main() -> None:
     q2 = fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
     print(f"Q2  sourced-pair parts subtotal   : ${q2:.2f}")
     print(f"    sourced-pair delivered (x1.16): ${delivered(q2):.2f}   "
-          f"(ADR/README claim $503.71)")
+          f"(ADR/README additive-basis value $501.12)")
 
     # Q3 — consolidation savings, model vs honest.
     #
     # model.py's reduced path subtracts $14 (registers, expected allowance) and
     # $5 (controller expected $10 -> sourced $5) from the fixed base, then adds
     # the sourced motor/driver. That returns 284 - 14 - 5 + 84 + 64 = 413 parts
-    # -> $481.56 delivered.
+    # -> (superseded; see the honest path below).
     print()
     print("Q3  consolidation savings")
     model_parts = fixed - 14.0 - 5.0 + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
     print(f"    model.py path : parts ${model_parts:.2f}  delivered ${delivered(model_parts):.2f}   "
-          f"(README claim $481.56)")
+          f"(superseded pre-DND-41 claim)")
 
-    # Honest: the register line leaves the BOM entirely, so the saving is the
-    # *sourced* value you would actually have paid ($3.70), not the $14 expected
-    # allowance. The controller saving is the real delta $10 -> $5.
-    reg_sourced_value = 40 * REGISTER_SOURCED
+    # Honest: folding the registers onto the PCB removes the whole $14 expected
+    # allowance line, but the 40 chips are still bought at the sourced $3.70, so
+    # the NET register saving is $14 - $3.70 = $10.30. The controller saving is
+    # the real delta $10 allowance -> $5 sourced. (DND-41 cost-basis fix: an
+    # earlier draft removed only $3.70 from a base that still held the $14 line,
+    # double-keeping $10.30 and mis-reporting the reduced total.)
+    reg_net_saving = reg_expected - 40 * REGISTER_SOURCED   # $10.30
     honest_parts = (
-        fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED
+        fixed - reg_net_saving - ctrl_expected + CONTROLLER_SOURCED
         + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
     )
     print(f"    honest path   : parts ${honest_parts:.2f}  delivered ${delivered(honest_parts):.2f}")
-    print(f"    -> model overstates the register saving by ${reg_expected - reg_sourced_value:.2f}")
+    print(f"    -> register net saving (14 - 3.70) is ${reg_net_saving:.2f}")
     print(f"    -> model understates delivered total by "
           f"${delivered(honest_parts) - delivered(model_parts):.2f}")
 
@@ -149,7 +154,7 @@ def main() -> None:
         ("TB6612FNG @100 $0.80", DRIVER_TB6612_SOURCED),
         ("DRV8833PWPR @100 $1.33", DRIVER_DRV_SOURCED),
     ):
-        parts = fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED + 80 * MOTOR_SOURCED + 80 * dprice
+        parts = fixed - reg_net_saving - ctrl_expected + CONTROLLER_SOURCED + 80 * MOTOR_SOURCED + 80 * dprice
         print(f"  {label:<24} parts ${parts:7.2f}  delivered ${delivered(parts):7.2f}")
 
     # Fully expected (no sourcing at all), for the honest upper bound.
@@ -182,24 +187,23 @@ def selftest() -> None:
     ctrl_expected = sum(
         int(r["quantity"]) * float(r["unit_expected_usd"]) for r in rows if is_controller(r["item"])
     )
-    reg_sourced_value = 40 * REGISTER_SOURCED
-
     # Q1 - the fixed subtotal really is reproduced from the CSV.
     assert fixed == 284.00, f"fixed subtotal drifted: {fixed}"
 
-    # Q2 - the sourced-pair delivered figure is unchanged.
+    # Q2 - the sourced-pair delivered figure (additive x1.16).
     q2 = delivered(fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED)
-    assert q2 == 503.71, f"sourced-pair delivered drifted: {q2}"
+    assert q2 == 501.12, f"sourced-pair delivered drifted: {q2}"
 
-    # Q3 - the correction: model path overstates the register saving by $10.30.
+    # Q3 - the correction: the register NET saving is $10.30 (remove the $14
+    # allowance, add the sourced $3.70 chips). The controller saving is $5.
     model_parts = fixed - reg_expected - 5.0 + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
+    reg_net_saving = reg_expected - 40 * REGISTER_SOURCED
     honest_parts = (
-        fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED
+        fixed - reg_net_saving - ctrl_expected + CONTROLLER_SOURCED
         + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
     )
-    overstatement = reg_expected - reg_sourced_value
-    assert round(overstatement, 2) == 10.30, f"overstatement drifted: {overstatement}"
-    assert delivered(honest_parts) == 493.57, f"honest reduced drifted: {delivered(honest_parts)}"
+    assert round(reg_net_saving, 2) == 10.30, f"register net saving drifted: {reg_net_saving}"
+    assert delivered(honest_parts) == 483.37, f"honest reduced drifted: {delivered(honest_parts)}"
 
     # The corrected path still clears $500 - if this fails the winner is over.
     assert delivered(honest_parts) < 500.0, "corrected reduced path no longer clears $500"
@@ -212,7 +216,7 @@ def selftest() -> None:
     print(f"  sourced-pair delivered: ${q2:.2f}")
     print(f"  model reduced (claim) : ${delivered(model_parts):.2f}")
     print(f"  corrected reduced     : ${delivered(honest_parts):.2f}")
-    print(f"  register overstatement: ${overstatement:.2f}")
+    print(f"  register net saving   : ${reg_net_saving:.2f}")
 
 
 if __name__ == "__main__":
