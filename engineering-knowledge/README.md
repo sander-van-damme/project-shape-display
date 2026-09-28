@@ -1,6 +1,6 @@
 # Engineering knowledge base
 
-This directory is the project's **conceptual engineering memory**. Tests remain
+This directory is the project's **conceptual engineering memory**. Experiments remain
 important, but they are the evidence layer rather than the primary storage model.
 
 ```text
@@ -9,7 +9,7 @@ discipline
   -> transferable principle
   -> architecture hypothesis
   -> critical uncertainty
-  -> test / calculation / CAD / physical experiment
+  -> experiment / calculation / CAD / physical test
   -> evidence
   -> knowledge-base update
 ```
