@@ -29,6 +29,9 @@ discriminates them.
 | [`isolation_rig_runner.py`](isolation_rig_runner.py) | runnable test | gate engine over the J2 table; `--selftest` exercises every gate with no hardware, `--validate` checks the schema |
 | [`check_fixture.py`](check_fixture.py) | runnable test | fixture geometry gate: pitch, X1C bed fit, plate layout, protocol floors |
 | [`j2_isolation_rig.scad`](j2_isolation_rig.scad) | CAD | holder, shared base rail, indicator bracket, miniature tray, one-plate print layout |
+| [`printability_slice_check.py`](printability_slice_check.py) | slicer-level check | rasterised 0.20 mm slice simulation: per-layer wall thickness, overhangs, first-layer footprint, socket openness (needs numpy + scipy; not in stdlib-only CI) |
+| [`PRINTABILITY_REPORT.md`](PRINTABILITY_REPORT.md) | report | [DND-16] J2 printability de-risk: verdict PRINT-READY PENDING HARDWARE |
+| [`printability_slice_report.json`](printability_slice_report.json) | evidence | machine-readable output of the slice check over the DND-14 STL bundle |
 | [`measurements/isolation.csv`](measurements/isolation.csv) | blank record | the J2 measurement table; ships header-only |
 
 > **CAD render status (2026-09-28):** all six J2 parts were rendered to STL with
@@ -37,6 +40,16 @@ discriminates them.
 > inside the frame's solid floor and is now a real open pocket.
 > `check_fixture.py` now renders every part and probes the socket, so the bug
 > cannot return silently. This is **CAD, not a print**.
+>
+> **Printability status (2026-09-28, [DND-16]):** a rasterised 0.20 mm slice
+> simulation over the STL bundle finds no print-blocking feature: min real wall
+> 2.0 mm, no sub-1.2 mm features, plate gaps 6.0 mm, bed fit 131.6 × 128.2 mm,
+> socket open with a 2.0 mm floor and no internal bridge. Verdict
+> **PRINT-READY PENDING HARDWARE**. Two non-blocking corrections: `chamfer_mm`
+> is declared but unused, and the "no overhangs > 45°" claim does not hold for the
+> indicator bracket's horizontal stem hole (self-supporting at Ø8.2 mm). This is
+> a slice **calculation**, not a slicer binary and not a print. See
+> [`PRINTABILITY_REPORT.md`](PRINTABILITY_REPORT.md).
 
 ## Core adversarial findings (calculation, not measurement)
 
