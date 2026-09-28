@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install numpy (DND-44 buckling closure calls cam_strength.py)
+        run: python -m pip install --quiet "numpy>=1.26"
       - name: Test08 deterministic engineering checks
         run: python 06-experiments/test08_architecture_search/checks.py
       - name: Test09 validation workflow
