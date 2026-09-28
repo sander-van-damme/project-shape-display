@@ -1,0 +1,15 @@
+item,quantity,vendor,evidence,unit_best_usd,unit_expected_usd,unit_worst_usd,basis
+Tile media (64 planar memory cartridges),64,no bought part intended; fallback AliExpress sheet,ASSUMPTION,0.50,1.50,4.00,Printable layers; bought substrate/punching allowance per tile
+Tile lift motor (geared),1,AliExpress planetary NEMA17,SOURCED-listing,24.19,40.00,70.00,Sourced ~EUR24.19 live; expected/worst allowance
+Tile lift transmission (lead screw + nut + coupling),1,AliExpress T8,SOURCED-listing,6.00,16.00,30.00,Sourced T8; bundled
+Lift driver,1,LCSC/AliExpress,ASSUMPTION,6.00,10.00,18.00,Allowance
+X/Y tile service head axes (2 motors + drivers),2,AliExpress,ASSUMPTION,16.00,28.00,50.00,Two shared axes with drivers; allowance
+Service head drivers,3,LCSC/AliExpress,ASSUMPTION,3.00,6.00,12.00,Allowance
+Off-board media writer (punch/shutter),1,AliExpress,ASSUMPTION,12.00,45.00,130.00,Shared off-board writer; unverified
+Tile coupling / registration hardware,64,no bought part intended; fallback AliExpress,ASSUMPTION,0.00,1.50,4.00,Bought only if printable registration fails; no volume part found
+Board controller,1,LCSC C2040 / Adafruit Pico,SOURCED-live,5.00,15.00,25.00,Allowance anchored to sourced RP2040/Pico
+Power supply and protection ~150W,1,AliExpress 24V SMPS,SOURCED-listing,20.00,35.00,60.00,Sourced SMPS; bundled with protection
+Wiring and connectors,1,AliExpress JST/Dupont,SOURCED-listing,10.00,18.00,35.00,Sourced kits; bundled
+Sensors / fiducials / height scan,1,AliExpress,ASSUMPTION,8.00,25.00,50.00,Allowance
+Fasteners and structural bought items,1,AliExpress,SOURCED-listing,8.00,18.00,35.00,Sourced assortment
+Spares and miscellaneous,1,AliExpress,ASSUMPTION,8.00,18.00,35.00,Allowance

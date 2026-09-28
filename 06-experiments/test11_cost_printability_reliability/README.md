@@ -20,6 +20,14 @@ python 06-experiments/test11_cost_printability_reliability/print_reliability.py
 
 Standard library only. BOM inputs are the `bom_S1..S5.csv` files in this folder.
 
+> **DND-11 addendum — three-scenario DELIVERED BOM.** The scenario analysis the
+> board asked for (best / expected / worst, *delivered*, with vendor and evidence
+> labels per line) is in
+> [`delivered_3scenario/`](delivered_3scenario/README.md). Headline: every
+> survivor is **over $500 in the expected delivered scenario** (S1 $571.88,
+> S2 $586.96, S3 $2,880.98, S4 $548.91, S5 $592.06). § "Headline results" below
+> remains the optimistic/working/high source model.
+
 ## Headline results
 
 1. **No survivor has a credible sub-$500 delivered path at working allowances.**

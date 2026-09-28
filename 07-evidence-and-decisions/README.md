@@ -30,6 +30,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 S1–S5 purchased-BOM cost model | ✓ | ✓ | — | — | — | — | — |
 | Test11 critical-part sourcing (motors, drivers, couplers) | ✓ | — | — | — | — | — | — |
 | Test11 5.08 mm printability & reliability screens | — | ✓ | — | — | — | — | — |
+| Test11.1 three-scenario delivered BOM (DND-11) | ✓ | ✓ | — | — | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
@@ -131,6 +132,29 @@ Sourcing is now a **first-class blocker**. The next procurement action is the
 Test09 Stage C gate — one traceable 8 mm motor sample plus an 80+spares delivered
 quote with the same winding, shaft, step angle and lot — before any full-scale
 purchase. Date: 2026-09-28.
+
+### Three-scenario delivered BOM (DND-11)
+
+[Test11.1](../06-experiments/test11_cost_printability_reliability/delivered_3scenario/README.md)
+restates the model as the board asked: **best / expected / worst *delivered*
+purchased totals**, with vendor and evidence labels per line and a shipping /
+import uplift per scenario. Delivered (expected-case) totals and headroom:
+
+| Candidate | Best deliv. | Expected deliv. | Worst deliv. | Headroom (expected) |
+|---|---:|---:|---:|---:|
+| S1 | $128.30 | $571.88 | $1,369.98 | −$71.88 |
+| S2 | $189.20 | $586.96 | $1,465.44 | −$86.96 |
+| S3 | $1,029.63 | $2,880.98 | $6,187.87 | −$2,380.98 |
+| S4 | $204.11 | $548.91 | $1,210.02 | −$48.91 |
+| S5 | $389.55 | $592.06 | $1,153.52 | −$92.06 |
+
+**Every survivor exceeds the $500 ceiling in the expected delivered scenario.**
+The best-case column is under $500 for all five, but only by assuming the cheapest
+untraced marketplace prices plus a successful printed selector/latch layer — the
+unproven part. S4 is closest (−$48.91) and S5 next (−$92.06). S3 has no cost path
+at all. S5 is the best-evidenced BOM (82% of its expected total carries a live
+source/listing); S1–S4 are 63–73% unquoted allowance, so their numbers are less
+trustworthy. The decisive procurement action is unchanged.
 
 ### Printability at 5.08 mm pitch
 

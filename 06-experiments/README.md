@@ -19,6 +19,7 @@ Every experiment should make clear:
 | [`test09_test08_validation/`](test09_test08_validation/) | Falsifiable validation of Test08 assumptions, sourcing, structure, coupling and physical gates | Active validation; physical gates remain unverified |
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
 | [`test11_cost_printability_reliability/`](test11_cost_printability_reliability/) | Purchased-BOM cost model for S1–S5, dated critical-part sourcing, 5.08 mm printability and reliability scaling | Cost/sourcing/print/reliability screens; no quotation or measurement |
+| [`test11.../delivered_3scenario/`](test11_cost_printability_reliability/delivered_3scenario/README.md) | DND-11: three-scenario **delivered** purchased BOM (best/expected/worst) with per-line vendor and evidence labels | Cost arithmetic over sourced listings + allowances; every survivor over $500 at expected |
 
 Test08 and Test09 contain the current quantitative engineering line. Test11 adds
 the cross-cutting purchased-cost, sourcing and reliability model. Their code,
