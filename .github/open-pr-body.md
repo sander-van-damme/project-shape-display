@@ -89,3 +89,6 @@ Adopt the two-bet framing on [DND-35](/DND/issues/DND-35) and re-rank the gate
 list so S5's Step 2/Step 6 killers (cam strength, loaded motor torque-speed,
 detent capture) run in parallel with the Bet-A killers — because a Bet-A failure
 currently, and wrongly, ends the whole convergence search.
+
+---
+Opened by the reusable credential-free `open-pr` workflow on the Falsifier branch.
