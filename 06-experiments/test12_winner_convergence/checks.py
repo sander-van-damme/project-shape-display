@@ -43,8 +43,11 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertLess(pair, m.CEILING_USD + 10.0)
         reduced = m.winner_reduced_delivered_usd()
         self.assertLess(reduced, m.CEILING_USD)
-        # Must clear the ceiling by a real, non-trivial margin, not by cents.
-        self.assertLess(reduced, m.CEILING_USD - 10.0)
+        # The reduced path clears the ceiling, but only by a SMALL margin
+        # (~$9 on the additive basis). Assert it clears, and assert it does NOT
+        # clear by the old inflated $18.44 (Falsifier DND-36 / DND-37).
+        self.assertGreater(reduced, m.CEILING_USD - 15.0)
+        self.assertGreater(reduced, 490.0)
         # Reaching the <$400 ideal band is NOT yet demonstrated; assert only
         # that we do not falsely claim it.
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)

@@ -55,9 +55,10 @@ SURVIVES AS A DIRECTION but FAILS AS STATED."** Its arithmetic has been re-deriv
 confirmed here before being adopted:
 
 - **Cost (§3.2 corrects below):** the published $503.71 / $481.56 use a *multiplicative*
-  uplift (`1.10 × 1.06`) against a fixed subtotal taken from the *additive* model. On the
-  repository's own additive basis the sourced-pair delivered figure is **$501.12 — over the
-  $500 ceiling** — and the reduced path is **$483.37**.
+  uplift (`1.10 × 1.06`) against a fixed subtotal taken from the *additive* model, and
+  double-count the register consolidation. On the repository's own additive basis the
+  sourced-pair delivered figure is **$501.12 — over the $500 ceiling** — and the reduced path
+  is **$491.03** (vs CostManufacturing's multiplicative $493.57 in [DND-37](/DND/issues/DND-37)).
 - **K1/K4/K6 labels:** three of the six "closed-analytically" killers are contestable or
   measurement-only. Re-labelled below.
 - **Unstated killers:** five failure modes were absent from the killer list (motor-cost
@@ -77,7 +78,7 @@ requirement is relaxed ([DND-39](/DND/issues/DND-39)).
 | S2 | planar-memory tiles | **park** (Bet A) | survives only double-buffered with an off-line writer; cannot serve surprise maps; no CAD. Cost **conditional on the print gate** | `test11_threshold_ratchet_s1/` |
 | S3 | multi-row mechanical DMA head | **kill** (Bet A) | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** driven by **sourced selectors**; **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
 | S4 | distributed passive tiles on a shared bus | **park** (Bet A) | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint. Cost is **conditional on the print gate**, not a kill | `test11_shared_drive_gate_analysis/` |
-| S5 | programmed rotary stops + common lift | **WIN** (Bet B) | only CAD+simulation+sourced-BOM candidate; 26.251 s best corner (400 pps sweep passes 17/108); sourced pair $501.12, reduced $483.37 | this ADR, `test12_winner_convergence/` |
+| S5 | programmed rotary stops + common lift | **WIN** (Bet B) | only CAD+simulation+sourced-BOM candidate; 26.251 s best corner (400 pps sweep passes 17/108); sourced pair $501.12, reduced $491.03 | this ADR, `test12_winner_convergence/` |
 
 **Cost-disposition correction (Falsifier Finding 2).** S1, S2 and S4 are **not** cost-killed
 here. Their working BOMs are inflated by *fallback* lines for parts their designs intend to
@@ -117,15 +118,15 @@ The repository's own additive delivered model is
 |---|---:|---:|---|
 | Sourced BOM expected scenario (CSV) | $510.40 | **$592.06** | over |
 | Sourced pair (motor $1.05 best, driver $0.80) | $432.00 | **$501.12** | **over by $1.12** |
-| + real net register saving $10.30 + RP2040 $5 | $413.00 | **$483.37** | under |
+| + register line out (−$3.70) + controller $10→$5 | $423.30 | **$491.03** | under (~$8.97) |
 | *As first published (multiplicative ×1.166)* | *$432.00* | *$503.71* | *defect* |
 
 **Corrected statement:** on the cheapest sourced pairing the winner is **≈$501 (at/over the
-$500 ceiling)**; the reduction path lands **≈$483** — a real but *small* margin, **not** the
-advertised $18.44. Part of the advertised reduction is **double-counted**: folding 40 ×
-74HC595 onto the driver PCB removes a $0.35 expected *allowance* line ($14) but the chips are
-still purchased (sourced $0.0925 → $3.70), so the real net saving is **$10.30**. Reaching the
-< $400 ideal band is **not** demonstrated. **K5 = `conditional`**, not "closed".
+$500 ceiling)**; the reduction path lands **≈$491** — a real but *small* margin (~$9), **not**
+the advertised $18.44. The register saving was **double-counted**: folding 40 × 74HC595 onto
+the driver PCB removes the register line, saving its **sourced** value (40 × $0.0925 = $3.70),
+not the $14 expected allowance. Reaching the < $400 ideal band is **not** demonstrated.
+**K5 = `conditional`**, not "closed".
 
 ## 4. Consequences
 

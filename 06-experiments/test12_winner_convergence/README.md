@@ -35,7 +35,7 @@ Bet-B failure, so S5 is chosen on its own evidence.
 | S2 | planar-memory tiles | **park** (Bet A) | survives only double-buffered with an off-line writer; no surprise-map path. Cost **conditional on the print gate** |
 | S3 | multi-row mechanical DMA | **kill** (Bet A) | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (sourced selectors); CI-visible |
 | S4 | shared-bus tiles | **park** (Bet A) | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint. Cost **conditional on the print gate** |
-| **S5** | **programmed rotary stops + common lift** | **WIN** (Bet B) | only CAD + simulation + sourced-BOM candidate; 26.251 s best corner (400 pps sweep passes 17/108); sourced pair **$501.12** (at/over ceiling), reduced **$483.37** |
+| **S5** | **programmed rotary stops + common lift** | **WIN** (Bet B) | only CAD + simulation + sourced-BOM candidate; 26.251 s best corner (400 pps sweep passes 17/108); sourced pair **$501.12** (at/over ceiling), reduced **$491.03** |
 
 S1/S2/S4 cost is **not** cited as killing evidence: their BOMs are inflated by fallback lines
 for parts their designs intend to print (Falsifier Finding 2). S3's cost is driven by *sourced*
@@ -70,13 +70,16 @@ Corrected to the repository's own **additive** delivered model
 |---|---:|---:|---|
 | Sourced BOM expected scenario (CSV) | $510.40 | **$592.06** | over |
 | Sourced pair (motor $1.05 best, driver $0.80) | $432.00 | **$501.12** | **over by $1.12** |
-| + real net register saving $10.30 + RP2040 $5 | $413.00 | **$483.37** | under |
+| + register line out (−$3.70) + controller $10→$5 | $423.30 | **$491.03** | under (~$8.97) |
 | *As first published (multiplicative ×1.166)* | *$432.00* | *$503.71* | *defect* |
 
 The original `DELIVERED_UPLIFT = 1.10 × 1.06` was inconsistent with the repo's additive
-model, and the advertised −$14 register saving was **double-counted** (the 74HC595s are still
-purchased; sourced $0.0925 → $3.70 for 40, so the real net saving is **$10.30**). Fixed
-subtotal **$284.00** is still reproduced from `bom_S5_delivered.csv` by `checks.py`.
+model, and the advertised −$14 register saving was **double-counted**: folding the 40 ×
+74HC595 onto the driver PCB removes the register line, saving its **sourced** value
+(40 × $0.0925 = **$3.70**), not the $14 expected allowance. Fixed subtotal **$284.00** is
+still reproduced from `bom_S5_delivered.csv` by `checks.py`. On the repository's additive
+basis the reduced path is **$491.03** (CostManufacturing's [DND-37](/DND/issues/DND-37)
+reports $493.57 using the multiplicative 1.166 factor; $491.03 is the additive-basis figure).
 **K5 is conditional:** the cheapest sourced pair is **at/over $500**; only the reduced path
 clears, with a **small** real margin. Reaching the <$400 ideal band is **not** demonstrated.
 
@@ -107,7 +110,7 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 | K2 | printed rotary detent holds/repeats after a slipped step | **conditional** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38)): nominal leaf does not correct an 18° slip at the sourced PLA–PLA friction midpoint (torque/friction = 0.92); closes only for μ ≤ 0.323 or a deepened scallop (≥ 0.31 mm). Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
 | K4 | regional update disturbs a loaded neighbour | **partially-closed (structural only)** | 0.017 mm rail sub-bound vs 0.10 mm gate; cited rig returns `INCONCLUSIVE`; stiction release + drift are measurement-class. |
-| K5 | purchased cost > $500 delivered | **conditional** | Additive: sourced pair **$501.12** (at/over ceiling); reduced **$483.37**. |
+| K5 | purchased cost > $500 delivered | **conditional** | Additive: sourced pair **$501.12** (at/over ceiling); reduced **$491.03**. |
 | K6 | full-map time > 30 s at realised step rate | **conditional** | Best corner 26.25 s; at 400 pps only **17/108** sweep cases pass, worst 45.07 s. |
 | K7 | motor-cost cliff (80 motors + 80 drivers) | **open** | Only traceable matched 8 mm PM stepper is **$40/ea → $3,200** (8× ceiling); $1.05 is an untraced multipack. |
 | K8 | lateral holding of a knocked miniature | **open** | Hard stop resists downward load; lateral load resisted only by the detent (~0.0014 mN·m) + printed bushing. |

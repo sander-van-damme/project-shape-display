@@ -10,12 +10,12 @@ adopts its arithmetic and its corrected killer list into the winner definition.
   correction; §3.1 K1 re-labelled `open/contestable`; §3.2 cost re-derived on the additive
   basis; §4 register extended to K1–K11 + R1–R4.
 - **`08-current-design/README.md`**: status changed to **NOT print-ready as stated**;
-  corrected cost table ($501.12 sourced / $483.37 reduced); risk register K1–K11; a
+  corrected cost table ($501.12 sourced / $491.03 reduced on the additive basis); risk register K1–K11; a
   print-readiness gate naming K1/K5/K7.
 - **`06-experiments/test12_winner_convergence/`** (`model.py`, `checks.py`, `README.md`):
   - `DELIVERED_UPLIFT` corrected from the inconsistent `1.10 × 1.06 = 1.166` to the
     repository's additive `1 + 0.10 + 0.06 = 1.16`; register saving corrected from the
-    double-counted −$14 to the real net −$10.30.
+    double-counted −$14 register allowance to the true sourced line value −$3.70.
   - Killer list re-labelled (K1 `open/contestable`, K4 `partially-closed`, K5/K6
     `conditional`) and extended with **K7–K11** (motor-cost cliff, lateral holding,
     print-tolerance angular margin, regional-update time, detent cycle life).
@@ -32,8 +32,9 @@ must be corrected before it is treated as print-ready?
 ## Evidence produced
 - **Cost, corrected (calculation, project-consistent additive ×1.16):**
   sourced BOM expected scenario $592.06; sourced pair **$501.12 (at/over the $500 ceiling)**;
-  reduced **$483.37**. The previously published $503.71/$481.56 used a multiplicative uplift
-  and a double-counted −$14 register saving.
+  reduced **$491.03** (additive basis; CostManufacturing [DND-37] reports $493.57 on the
+  multiplicative factor). The previously published $503.71/$481.56 used a multiplicative
+  uplift and a double-counted register saving.
 - **K1 (calculation):** 4.96 N critical **< 5 N abuse screen (fails by 0.8 %)**; the 1 N
   service load is an unsourced assumption, so K1 is `open/contestable`, not closed.
 - **K4 (sourced read):** the cited isolation rig returns `INCONCLUSIVE`; only the 0.017 mm

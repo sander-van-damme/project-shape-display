@@ -30,7 +30,7 @@ DISPOSITIONS = {
     "S2": ("park", "Bet A: survives only double-buffered with an off-line writer; no surprise-map path"),
     "S3": ("kill", "Bet A: analytic printability FAIL (pivot 0.80<5.0, min web 0.24<0.88); delivered $2880.98 (sourced selectors)"),
     "S4": ("park", "Bet A: printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3 deg/joint"),
-    "S5": ("win", "Bet B: absolute stops; only CAD+simulation+sourced-BOM candidate; 26.25 s; sourced pair ~$501 at/near ceiling (corrected additive basis)"),
+    "S5": ("win", "Bet B: absolute stops; only CAD+simulation+sourced-BOM candidate; 26.25 s best corner; sourced pair $501.12 at/over ceiling, reduced $491.03 (additive basis)"),
 }
 
 # ---------------------------------------------------------------------------
@@ -65,20 +65,27 @@ PER_CELL_ERROR = 0.0001                # q = 1e-4 conservative for the stack-up
 FIXED_SUBTOTAL_USD = 284.0
 MOTOR_CHANNELS = COLS                  # 80, one per column of the head
 DRIVER_CHANNELS = COLS
-# Reduction path: fold the 40 discrete 74HC595 shift registers into the custom
-# driver PCB (a line already in the BOM) and use the sourced RP2040 controller.
-# Corrected (Falsifier promotion review, DND-36): the $14 register "saving" is a
-# double-count — the 74HC595s are still purchased (sourced $0.0925 -> $3.70 for
-# 40), so the real net saving is ~$10.30, not $14. The fixed $25 PCB allowance
-# does not grow for 40 on-board packages + area.
-REDUCTION_REGISTERS_USD = 10.30        # real net saving, not the $14 allowance line
-REDUCTION_CONTROLLER_USD = 5.0         # $10 expected -> RP2040 $5 sourced
+# Reduction path: fold the 40 discrete 74HC595 shift registers onto the custom
+# driver PCB and use the sourced RP2040 controller.
+#
+# Corrected twice, and reconciled with the DND-37 BOM ratification:
+#  - the register line LEAVES the BOM entirely, so the saving is the *sourced*
+#    value you would actually have paid (40 x $0.0925 = $3.70), not the $14
+#    expected allowance (Falsifier promotion review DND-36; CostManufacturing
+#    DND-37). Previously the model subtracted the full $14 allowance.
+#  - the controller line's saving is the real delta $10 expected -> $5 sourced.
+#  - the delivered uplift is ADDITIVE (the repository's own
+#    delivered_cost_model.py: parts * (1 + 0.10 + 0.06) = parts * 1.16), not the
+#    multiplicative 1.10 * 1.06 used by ratify_bom.py.
+REGISTER_SOURCED_LINE_USD = 40 * 0.0925   # = $3.70, value removed when on-PCB
+CONTROLLER_EXPECTED_USD = 10.0            # fixed-subtotal controller allowance
+CONTROLLER_SOURCED_USD = 5.0              # sourced RP2040
 
 # Sourced candidate prices (USD/ea). Corrected uplift: the repository's own cost
 # model (delivered_3scenario/delivered_cost_model.py) applies shipping+tax
 # ADDITIVELY to the parts subtotal: parts * (1 + 0.10 + 0.06) = parts * 1.16.
-# The earlier DELIVERED_UPLIFT = 1.10 * 1.06 = 1.166 was inconsistent with that
-# model and overstated the margin (Falsifier promotion review, DND-36).
+# DELIVERED_UPLIFT = 1.10 * 1.06 = 1.166 was inconsistent with that model and
+# overstated the margin (Falsifier promotion review, DND-36).
 SOURCED_MOTOR_USD = 1.05               # Amazon multipack listing, 2026-09-28
 SOURCED_DRIVER_USD = 0.80              # TB6612FNG @100 (dual H-bridge, one bipolar motor)
 SHIPPING_FRACTION = 0.10               # expected scenario
@@ -97,11 +104,18 @@ def winner_delivered_usd(motor_usd: float = SOURCED_MOTOR_USD,
 def winner_reduced_delivered_usd() -> float:
     """Winner with the two concrete BOM consolidations, delivered.
 
-    Moves the discrete shift registers onto the driver PCB and uses the sourced
-    RP2040 controller. This is the path to clear $500 with margin and reach the
-    project's 'acceptable' band (< $400 is not yet demonstrated).
+    The register line leaves the BOM (saving its sourced value $3.70), and the
+    controller allowance $10 is replaced by the sourced RP2040 $5. This is the
+    path to clear $500 with a small margin; the <$400 ideal band is not
+    demonstrated. Reconciled with DND-37 (CostManufacturing) on the additive
+    project basis: parts $423.30 -> $491.03 delivered.
     """
-    fixed = FIXED_SUBTOTAL_USD - REDUCTION_REGISTERS_USD - REDUCTION_CONTROLLER_USD
+    fixed = (
+        FIXED_SUBTOTAL_USD
+        - REGISTER_SOURCED_LINE_USD
+        - CONTROLLER_EXPECTED_USD
+        + CONTROLLER_SOURCED_USD
+    )
     return winner_delivered_usd(fixed_usd=fixed)
 
 

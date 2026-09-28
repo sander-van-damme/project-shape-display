@@ -36,7 +36,7 @@ draws no holding power per cell.
 | Timing under 30 s | **conditional** — best corner 26.251 s; 400 pps sweep passes 17/108 | S3 25.20 s (budget only) |
 | Purchased BOM sourced share | **82 %** | S4 37 %, S1 30 % |
 | Per-cell bought parts | **0** (passive printed rotors) | all survivors: 0 intended |
-| Expected-delivered cost | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $483.37 | S4 $548.91 |
+| Expected-delivered cost | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $491.03 | S4 $548.91 |
 | Decisive failure | none proven; but K1/K4/K5/K6 contestable and K7–K11 open | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
 
 **Two bets, not one** (Falsifier audit, [DND-36](/DND/issues/DND-36)): S1–S4 are *Bet A*
@@ -115,13 +115,15 @@ Fixed expected subtotal **$284.00**; motor + driver channel is the cost driver.
 |---|---:|---:|---|
 | Sourced BOM expected scenario (CSV) | $510.40 | **$592.06** | over |
 | As-listed sourced pair (motor $1.05, driver $0.80) | $432.00 | **$501.12** | **at/over ceiling (+$1.12)** |
-| − real net register saving $10.30 — RP2040 $5 | $413.00 | **$483.37** | clears (~$16.63) |
+| − register line out (−$3.70) + controller $10→$5 | $423.30 | **$491.03** | clears (~$8.97) |
 
 Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`. The earlier
 published figures ($503.71 / $481.56, "−$18.44 margin") used a **multiplicative** uplift
 (`1.10 × 1.06`) inconsistent with the repo's additive model and **double-counted** the register
-saving (the 74HC595s are still bought); both are withdrawn (Falsifier promotion review,
-[DND-36](/DND/issues/DND-36)). Reaching the <$400 ideal band is **not** demonstrated.
+saving (folding the 74HC595s onto the PCB removes the register line, saving its sourced value
+$3.70, not the $14 expected allowance); both are withdrawn (Falsifier promotion review
+[DND-36](/DND/issues/DND-36); CostManufacturing [DND-37](/DND/issues/DND-37) reports $493.57
+on the multiplicative factor). Reaching the <$400 ideal band is **not** demonstrated.
 
 **The one cost risk (K7):** the only *traceable matched* 8 mm 18° bipolar PM stepper found
 (MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$3,200. The
@@ -169,7 +171,7 @@ is not proof they fit.
 | K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35 (torque/friction 0.92). Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. `test12_winner_convergence/DETENT_CONTACT.md` |
 | K3 | Gravity return vs guide friction | calculation | **closed** — 4.06× weight/drag margin (solid column) |
 | K4 | Regional update disturbs neighbour | calculation | **partially-closed** — structural bound 0.017 mm vs 0.10 mm gate; stiction release + wear drift are measurement-class; cited rig returns `INCONCLUSIVE` |
-| K5 | Cost > $500 delivered | calculation | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $483.37 |
+| K5 | Cost > $500 delivered | calculation | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $491.03 |
 | K6 | Time > 30 s | calculation | **conditional** — best corner 26.251 s; at 400 pps 17/108 sweep cases pass, worst 45.07 s |
 | K7 | Motor-cost cliff (80 motors + 80 drivers) | sourced calculation | **open** — only traceable matched stepper is $40/ea → $3,200 (8× ceiling) |
 | K8 | Lateral holding of a knocked miniature | calculation | **open** — hard stop holds downward; lateral only via detent (~0.0014 mN·m) + bushing |
