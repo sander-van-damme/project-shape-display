@@ -10,16 +10,27 @@ Three questions it answers, all in CALCULATION evidence class:
   Q1  Does `model.py`'s fixed subtotal ($284.00) actually reproduce the
       `bom_S5_delivered.csv` expected column?  (It is asserted by checks.py;
       re-derive it here without importing the constant.)
-  Q2  Is the "sourced-pair, unchanged fixed" delivered figure $503.71?
+  Q2  Is the "sourced-pair, unchanged fixed" delivered figure $501.12?
   Q3  Are the two consolidation savings real and non-double-counted?
 
-The interesting finding is Q3. `model.py` subtracts the *expected-allowance*
-value of the shift-register line ($14) and the controller line ($5) from a base
-that then swaps the motor/driver to *sourced best* prices. The shift-register
-line's expected allowance is $0.35/ea but its **sourced** LCSC price is
-$0.0925/ea ($3.70 for 40). Removing the line can only remove the *sourced* value
-you would actually have spent, so the honest register saving is $3.70, not $14.
-The model therefore understates the delivered total by ~$10 on that line.
+Two corrections are pinned here so neither can silently regress:
+
+  1. Delivered uplift basis [DND-41 / Falsifier Finding A]. The repo's own
+     `delivered_3scenario/delivered_cost_model.py` applies the expected uplift
+     ADDITIVELY: sub + sub*0.10 (shipping) + sub*0.06 (tax) = sub*1.16. The
+     earlier multiplicative `(1.10)*(1.06)=1.166` double-counts by compounding
+     and inflated every headline by ~0.5%. The sourced-pair delivered figure on
+     the repo's own basis is therefore `$432.00 * 1.16 = $501.12`, NOT $503.71.
+
+  2. Register consolidation [DND-41 / Falsifier Finding A]. `model.py` subtracts
+     the *expected-allowance* value of the shift-register line ($14) from the
+     fixed base. But the discrete line leaves the BOM and the 40 chips are still
+     BOUGHT at their sourced LCSC price ($0.0925/ea = $3.70). The NET saving is
+     $14.00 - $3.70 = $10.30, not $14.00. Likewise the controller line: the $10
+     expected allowance leaves and a $5 sourced RP2040 enters -> net $5.00.
+     The honest reduced fixed subtotal is thus
+     `284.00 - 10.30 - 5.00 = $268.70`, parts `$416.70`, delivered
+     `$416.70 * 1.16 = $483.37`.
 """
 from __future__ import annotations
 
@@ -37,7 +48,9 @@ BOM = (
 )
 
 # Expected-scenario delivered uplift, matching delivered_cost_model.py / model.py.
-UPLIFT = (1.0 + 0.10) * (1.0 + 0.06)  # +10% shipping, +6% tax/import
+# [DND-41] ADDITIVE basis: +10% shipping, +6% tax/import on the parts subtotal.
+# The prior multiplicative (1.10)*(1.06)=1.166 double-counted by compounding.
+UPLIFT = 1.0 + 0.10 + 0.06  # = 1.16
 
 # Sourced unit prices re-confirmed 2026-09-28 (see sourcing_notes.md).
 MOTOR_SOURCED = 1.05           # Amazon "Abovehill" multipack, sourced listing
@@ -115,32 +128,23 @@ def main() -> None:
     q2 = fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
     print(f"Q2  sourced-pair parts subtotal   : ${q2:.2f}")
     print(f"    sourced-pair delivered (x1.16): ${delivered(q2):.2f}   "
-          f"(ADR/README claim $503.71)")
+          f"(DND-41 corrected; over the $500 ceiling)")
 
     # Q3 — consolidation savings, model vs honest.
     #
-    # model.py's reduced path subtracts $14 (registers, expected allowance) and
-    # $5 (controller expected $10 -> sourced $5) from the fixed base, then adds
-    # the sourced motor/driver. That returns 284 - 14 - 5 + 84 + 64 = 413 parts
-    # -> $481.56 delivered.
+    # [DND-41] The register line leaves the BOM and the 40 chips are still bought
+    # at their sourced price, so the NET register saving is the allowance minus
+    # the sourced chip cost: $14.00 - $3.70 = $10.30. The controller line swaps a
+    # $10 expected allowance for a $5 sourced RP2040 -> net $5.00.
     print()
-    print("Q3  consolidation savings")
-    model_parts = fixed - 14.0 - 5.0 + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
-    print(f"    model.py path : parts ${model_parts:.2f}  delivered ${delivered(model_parts):.2f}   "
-          f"(README claim $481.56)")
-
-    # Honest: the register line leaves the BOM entirely, so the saving is the
-    # *sourced* value you would actually have paid ($3.70), not the $14 expected
-    # allowance. The controller saving is the real delta $10 -> $5.
-    reg_sourced_value = 40 * REGISTER_SOURCED
-    honest_parts = (
-        fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED
-        + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
-    )
-    print(f"    honest path   : parts ${honest_parts:.2f}  delivered ${delivered(honest_parts):.2f}")
-    print(f"    -> model overstates the register saving by ${reg_expected - reg_sourced_value:.2f}")
-    print(f"    -> model understates delivered total by "
-          f"${delivered(honest_parts) - delivered(model_parts):.2f}")
+    print("Q3  consolidation savings (net of still-bought chips)")
+    reg_net = reg_expected - 40 * REGISTER_SOURCED           # 14.00 - 3.70 = 10.30
+    ctrl_net = ctrl_expected - CONTROLLER_SOURCED            # 10.00 - 5.00 = 5.00
+    honest_fixed = fixed - reg_net - ctrl_net
+    honest_parts = honest_fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
+    print(f"    net register saving : ${reg_net:.2f}   net controller saving: ${ctrl_net:.2f}")
+    print(f"    honest fixed        : ${honest_fixed:.2f}")
+    print(f"    honest path         : parts ${honest_parts:.2f}  delivered ${delivered(honest_parts):.2f}")
 
     # Sensitivity on the driver choice (the real cliff).
     print()
@@ -149,7 +153,7 @@ def main() -> None:
         ("TB6612FNG @100 $0.80", DRIVER_TB6612_SOURCED),
         ("DRV8833PWPR @100 $1.33", DRIVER_DRV_SOURCED),
     ):
-        parts = fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED + 80 * MOTOR_SOURCED + 80 * dprice
+        parts = honest_fixed + 80 * MOTOR_SOURCED + 80 * dprice
         print(f"  {label:<24} parts ${parts:7.2f}  delivered ${delivered(parts):7.2f}")
 
     # Fully expected (no sourcing at all), for the honest upper bound.
@@ -187,19 +191,18 @@ def selftest() -> None:
     # Q1 - the fixed subtotal really is reproduced from the CSV.
     assert fixed == 284.00, f"fixed subtotal drifted: {fixed}"
 
-    # Q2 - the sourced-pair delivered figure is unchanged.
+    # Q2 - the sourced-pair delivered figure on the ADDITIVE basis [DND-41].
     q2 = delivered(fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED)
-    assert q2 == 503.71, f"sourced-pair delivered drifted: {q2}"
+    assert q2 == 501.12, f"sourced-pair delivered drifted: {q2}"
 
-    # Q3 - the correction: model path overstates the register saving by $10.30.
-    model_parts = fixed - reg_expected - 5.0 + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
-    honest_parts = (
-        fixed - reg_sourced_value - ctrl_expected + CONTROLLER_SOURCED
-        + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
-    )
+    # Q3 - the correction: net register saving is $10.30, not the full $14.
+    reg_net = reg_expected - reg_sourced_value            # 14.00 - 3.70 = 10.30
+    ctrl_net = ctrl_expected - CONTROLLER_SOURCED         # 10.00 - 5.00 = 5.00
     overstatement = reg_expected - reg_sourced_value
     assert round(overstatement, 2) == 10.30, f"overstatement drifted: {overstatement}"
-    assert delivered(honest_parts) == 493.57, f"honest reduced drifted: {delivered(honest_parts)}"
+    honest_fixed = fixed - reg_net - ctrl_net
+    honest_parts = honest_fixed + 80 * MOTOR_SOURCED + 80 * DRIVER_TB6612_SOURCED
+    assert delivered(honest_parts) == 483.37, f"honest reduced drifted: {delivered(honest_parts)}"
 
     # The corrected path still clears $500 - if this fails the winner is over.
     assert delivered(honest_parts) < 500.0, "corrected reduced path no longer clears $500"
@@ -210,9 +213,9 @@ def selftest() -> None:
     print("DND-37 ratify_bom selftest OK")
     print(f"  fixed subtotal        : ${fixed:.2f}")
     print(f"  sourced-pair delivered: ${q2:.2f}")
-    print(f"  model reduced (claim) : ${delivered(model_parts):.2f}")
+    print(f"  net register saving   : ${reg_net:.2f}")
+    print(f"  net controller saving : ${ctrl_net:.2f}")
     print(f"  corrected reduced     : ${delivered(honest_parts):.2f}")
-    print(f"  register overstatement: ${overstatement:.2f}")
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 
 import model as m
+import ratify_bom as rb
 
 S5_BOM = (m.REPO / "06-experiments" / "test11_cost_printability_reliability"
           / "delivered_3scenario" / "bom_S5_delivered.csv")
@@ -50,6 +51,34 @@ class WinnerConvergenceChecks(unittest.TestCase):
         # small margin, and NOT yet in the <$400 ideal band
         self.assertGreater(reduced, m.CEILING_USD - 25.0)
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)
+
+    def test_ratify_bom_agrees_with_model_on_the_headline_costs(self):
+        # Root-cause guard [DND-41]: ratify_bom.py and model.py must never drift.
+        # Before this gate main carried two contradictory cost models (491/501 vs
+        # 493/503) on different uplift bases. Both must now use the additive
+        # x1.16 basis and the net-consolidation method.
+        self.assertAlmostEqual(rb.UPLIFT, m.DELIVERED_UPLIFT, places=6)
+        rows = rb.load_rows()
+        fixed = rb.fixed_expected(rows)
+        reg_expected = sum(
+            int(r["quantity"]) * float(r["unit_expected_usd"])
+            for r in rows if rb.is_register(r["item"])
+        )
+        ctrl_expected = sum(
+            int(r["quantity"]) * float(r["unit_expected_usd"])
+            for r in rows if rb.is_controller(r["item"])
+        )
+        sourced = rb.delivered(fixed + 80 * rb.MOTOR_SOURCED + 80 * rb.DRIVER_TB6612_SOURCED)
+        honest_fixed = (
+            fixed
+            - (reg_expected - 40 * rb.REGISTER_SOURCED)
+            - (ctrl_expected - rb.CONTROLLER_SOURCED)
+        )
+        reduced = rb.delivered(
+            honest_fixed + 80 * rb.MOTOR_SOURCED + 80 * rb.DRIVER_TB6612_SOURCED
+        )
+        self.assertAlmostEqual(sourced, m.winner_delivered_usd(), places=2)
+        self.assertAlmostEqual(reduced, m.winner_reduced_delivered_usd(), places=2)
 
     def test_reliability_model_is_honest(self):
         q99 = m.required_q_for(0.99)

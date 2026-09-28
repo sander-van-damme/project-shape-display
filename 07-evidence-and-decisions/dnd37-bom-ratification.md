@@ -1,5 +1,30 @@
 # DND-37 — S5 winner purchased BOM + printability ratification
 
+> ## ⚠ DND-41 correction (authoritative — supersedes §1–§2, §8–§9 figures below)
+>
+> A later reconciliation ([DND-41](/DND/issues/DND-41), merged to `main` as the
+> DND-41 branch) found **two** defects in the cost arithmetic, both now fixed in
+> `model.py` / `checks.py` / `ratify_bom.py`. Use these figures:
+>
+> | Figure | Corrected value (DND-41) | This doc's earlier value |
+> |---|---:|---:|
+> | Sourced-pair delivered | **$501.12** ($432.00 parts × **1.16**) | $503.71 (×1.166, double-counted) |
+> | Reduced path delivered | **$483.37** ($416.70 parts × 1.16) | $493.57 (wrong register method) |
+> | Net register saving | **$10.30** ($14.00 allowance − $3.70 chips still bought) | stated as $3.70 |
+>
+> 1. **Uplift basis.** The repo's own `delivered_3scenario/delivered_cost_model.py`
+>    applies the expected uplift **additively** (`sub + sub·0.10 + sub·0.06 = ×1.16`).
+>    The earlier `(1.10)(1.06)=1.166` compounded and inflated every headline.
+>    On the additive basis the sourced pair is **$501.12 — over the ceiling by $1.12**.
+> 2. **Register method.** The $14 expected allowance leaves the BOM but the 40 chips
+>    are still **bought** at $0.0925 → net saving **$10.30**, so honest reduced parts
+>    are $284.00 − $10.30 − $5.00 + $148.00 = **$416.70** → **$483.37** delivered,
+>    clearing the ceiling by **$16.63**, not $6.43.
+>
+> The residual risks below (matched-motor supply, thin contact features = K2 class)
+> are **unchanged and still open**. `checks.py::test_ratify_bom_agrees_with_model_on_the_headline_costs`
+> now pins `model.py` and `ratify_bom.py` together so they cannot diverge again.
+
 - **Verdict:** **RATIFIED with one arithmetic correction and one unretired cost risk.**
 - **Owner:** Cost, BOM & Manufacturing Engineer (CostManufacturing).
 - **Issue:** [DND-37](/DND/issues/DND-37), for [DND-35](/DND/issues/DND-35).

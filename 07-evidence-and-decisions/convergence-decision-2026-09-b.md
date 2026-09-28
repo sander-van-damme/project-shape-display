@@ -100,11 +100,12 @@ evidence**, not a relaxation of a product requirement.
 
 The motor/driver channel is the only cliff. On the sourced pairing (Amazon multipack 8 mm
 PM motor $1.05 + TB6612FNG $0.80, expected delivered uplift ×1.16), the winner lands at
-**$503.71** — essentially on the ceiling. Two concrete BOM consolidations bring it to
-**$481.56**:
+**$501.12** — essentially on the ceiling. Two concrete BOM consolidations bring it to
+**$483.37**:
 
-- fold the 40 discrete 74HC595 shift registers onto the custom driver PCB (−$14, a line
-  already present in the BOM as "custom driver PCBs and passives");
+- fold the 40 discrete 74HC595 shift registers onto the custom driver PCB (net −$10.30:
+  the $14.00 expected allowance leaves the BOM but the 40 chips are still bought at
+  $0.0925 → $3.70, a line already present in the BOM as "custom driver PCBs and passives");
 - use the sourced RP2040 controller instead of the $10 allowance (−$5).
 
 Reaching the project's <$400 ideal band is **not** demonstrated. The winner lands in the

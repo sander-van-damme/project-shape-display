@@ -1,61 +1,59 @@
-# DND-4: close M4 land reach analytically + fix two printability-validator mis-scopes
-
-Resolves the follow-up on [DND-4](/DND/issues/DND-4) (S3/S4 shared-drive family).
-Bases on the merged pivot-clearance work (PR #30) and closes the last thin S3
-analytic gate term. **Calculation/CAD only — no print, no measurement**
-([DND-27](/DND/issues/DND-27)).
-
-## Engineering question
-
-1. Is the S3 fan-out **M4 "land reach"** gate a real design failure, or a
-   modelling artefact?
-2. Why did the unified printability validator report the S3 coupon as `FAIL`
-   while the experiment's own analytic gate reported it printable?
+# DND-41b — reconcile the two cost models on `main` (ratify_bom.py vs model.py)
 
 ## What changed
 
-- `06-experiments/test11_shared_drive_gate_analysis/analytic/t11a_analytic_gate.py`
-  — M4 is now the **finger angular throw** `asin(land/FINGER_H)` from the CAD
-  land height (`LAND_H_NOMINAL = 0.90 mm` → 16.3°) plus an explicit contact
-  floor, replacing `|land − 0.50| > 0.20`. Adds an `ANALYTIC_FAIL_LAND_REACH`
-  verdict path.
-- `.../t11a_fit_check.py` — gates `M4_land_mm` on the contact floor
-  (≥ 0.30 mm) and finger half-height band instead of the old ±0.20 window.
-- `tools/validate/analytic_printability.py` — stop applying the **inserted-pin**
-  rule (`min_pin_dia = 5.0 mm`) to a **printed-in-place** boss; classify it as a
-  printed feature and add the designed journal free-play check.
-- Regenerated analytic record; README / protocol / analytic README updated to the
-  corrected M4 definition.
+After the DND-41 reconciliation (`model.py` → $501.12 / $483.37 on the additive
+×1.16 basis) landed, `main` was left carrying **two contradictory cost models**:
 
-## Results
+- `model.py` / `checks.py` — **$501.12 sourced / $483.37 reduced** (additive ×1.16).
+- `ratify_bom.py` — **$503.71 sourced / $493.57 reduced** (multiplicative ×1.166 +
+  a register method that kept the $14 allowance in the base).
 
-- M4 land reach: worst-case margin **+0.35 mm**, Monte Carlo pass **1.0000**
-  (was −0.05 mm / 0.9077). The old number compared the land against an arbitrary
-  window around a 0.50 mm protocol artefact, not a physical reach condition.
-- Fit engine on the analytic record: **`S3_DENSITY_PRINTABLE`** at the 0.4 mm
-  baseline (analytic screen, explicitly not a print).
-- Unified validator on the coupon: **RISK**, not FAIL. The 0.47 mm web is
-  between one and two extrusion lines — a genuine thin-feature finding, honestly
-  classified, not a kill.
+`ci.yml` runs `ratify_bom.py --selftest` as a gate, so the two could not be caught
+by the existing tests. This PR removes the contradiction at the source.
 
-## Passed / failed
+## Engineering question
 
-- PASS: full `engineering-checks` command set locally (**18/18**), including
-  test08–test11, the fit engine self-test/validate/predict, the analytic gate
-  self-test/record/replay, and the sourced-limit printability table.
-- No design FAIL remains asserted-passing; the coupon's thin web stays a
-  reported RISK.
+Which cost model is correct on the repo's own delivered basis, and can the two
+models be pinned together so they cannot diverge again?
 
-## Assumptions / limits
+## Evidence produced (CALCULATION over the sourced BOM — no purchase, no print, DND-27)
 
-- Dimensional stack-up only. This is **not** a print: it cannot see fusion,
-  stringing, layer adhesion, elephant-foot or warp. The printed-in-practice
-  journal/land behaviour remains a permanent qualitative risk.
-- Land height tolerance ±0.20 mm and free-gap floors are stated assumptions.
+1. **Uplift basis.** `06-experiments/test11_cost_printability_reliability/delivered_3scenario/delivered_cost_model.py`
+   applies the expected uplift **additively** (`sub + sub·0.10 + sub·0.06`). The
+   prior `(1.10)(1.06) = 1.166` **compounds** and inflates every headline by ~0.5%.
+   On the repo's basis the sourced pair is **$432.00 × 1.16 = $501.12 — over the
+   $500 ceiling by $1.12**.
+2. **Register consolidation method.** The $14.00 expected allowance leaves the BOM,
+   but the 40 chips are still **bought** at $0.0925 → $3.70. The net saving is
+   **$10.30**, not the full $14.00 (and not merely $3.70). Honest reduced fixed is
+   `$284.00 − $10.30 − $5.00 = $268.70`, parts `$416.70`, delivered
+   `$416.70 × 1.16 = $483.37` — clearing the ceiling by **$16.63**.
+3. **Root-cause guard added.** `checks.py::test_ratify_bom_agrees_with_model_on_the_headline_costs`
+   imports `ratify_bom` and asserts it agrees with `model.py` on both headline
+   costs and the uplift constant. The models can no longer silently drift.
 
-## Remaining uncertainty / next test
+## Files
 
-- T11-B loaded engage/write/disengage dwell (analytic) and Step 6
-  load/structure/power. If S3 is to be un-killed, the CTO's flat cost rejection
-  should be re-read against the **0 bought per-channel selectors / ~$94 motor
-  allowance** spec rather than the fallback-inflated number.
+- `06-experiments/test12_winner_convergence/ratify_bom.py` — additive uplift;
+  correct net-consolidation method; selftest now asserts $501.12 / $483.37.
+- `06-experiments/test12_winner_convergence/checks.py` — new cross-model gate (9 → 10 tests).
+- `07-evidence-and-decisions/dnd37-bom-ratification.md` — DND-41 correction banner
+  superseding the stale §1–§2 figures.
+- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` — §3.2 numbers corrected.
+
+## Verification
+
+```
+python 06-experiments/test12_winner_convergence/ratify_bom.py --selftest
+python 06-experiments/test12_winner_convergence/checks.py      # 10/10 pass
+python 06-experiments/test12_winner_convergence/model.py
+```
+
+## Assumptions / uncertainty
+
+- The uplift (10% ship + 6% tax) and the sourced motor price ($1.05, untraced
+  marketplace multipack) are unchanged assumptions, not quotes. The winner clears
+  the ceiling only on the reduced path and only if the $1.05 motor qualifies;
+  the matched alternative is ~$40/ea (~$4,000). **Unchanged, still the #1 risk.**
+- No physical test (DND-27). This is arithmetic reconciliation only.
