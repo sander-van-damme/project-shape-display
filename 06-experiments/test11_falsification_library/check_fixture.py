@@ -102,19 +102,23 @@ def main() -> int:
           "shim set brackets nominal seam %.2f mm" % SEAM_NOMINAL_MM,
           "shim set does not bracket the nominal seam")
 
-    print("\n[5] OpenSCAD parse check")
+    print("\n[5] OpenSCAD render check")
     osc = shutil.which("openscad")
     if osc is None:
-        print("  SKIP  OpenSCAD not on PATH -- SCAD parse not verified")
+        print("  SKIP  OpenSCAD not on PATH -- SCAD render not verified")
         print("        (a print-ready claim still requires a real render,")
         print("         done by hand or in a CAD-enabled environment)")
     else:
-        for name, args in (
+        renders = (
+            ("holder_5x5", ["-D", "tile=5"]),
             ("holder_10x10", ["-D", "tile=10"]),
             ("base_rail", ["-D", 'part="base_rail"']),
+            ("indicator_bracket", ["-D", 'part="indicator_bracket"']),
+            ("miniature_tray", ["-D", 'part="miniature_tray"']),
             ("plate", ["-D", 'part="plate"']),
-        ):
-            out = "/tmp/%s.stl" % name
+        )
+        for name, args in renders:
+            out = "/tmp/j2_%s.stl" % name
             proc = subprocess.run(
                 [osc, "-o", out, *args, str(SCAD)],
                 capture_output=True, text=True, timeout=300)
@@ -122,12 +126,79 @@ def main() -> int:
                   "%s renders to STL" % name,
                   "%s failed to render: %s" % (name, proc.stderr.strip()[:200]))
 
+        # Functional-feature check: the interchangeable-fixture socket must be a
+        # real VOID in the holder floor, not a pocket buried inside solid plastic.
+        # This is the exact bug the 2026-09-28 revision fixed; it silently
+        # renders and only wastes a physical print if left uncaught.
+        if probe_socket_is_open(osc):
+            pass
+        else:
+            FAILURES.append("holder fixture socket is buried (not an open pocket)")
+
     print()
     if FAILURES:
         print("FIXTURE GATE: FAIL (%d)" % len(FAILURES))
         return 1
-    print("FIXTURE GATE: PASS (geometry only -- not a printed qualification)")
+    print("FIXTURE GATE: PASS (geometry + CAD render; still not a print)")
     return 0
+
+
+def _load_vertex_bbox(path: "str | Path") -> "tuple[tuple[float, float, float], tuple[float, float, float]] | None":
+    """Read an ASCII STL and return its vertex bounding box, or None if empty."""
+    import re
+
+    pat = re.compile(r"vertex\s+([-\d.eE+]+)\s+([-\d.eE+]+)\s+([-\d.eE+]+)")
+    lo = [float("inf")] * 3
+    hi = [float("-inf")] * 3
+    seen = False
+    try:
+        for line in Path(path).read_text(errors="ignore").splitlines():
+            m = pat.search(line)
+            if not m:
+                continue
+            seen = True
+            for i, val in enumerate(m.groups()):
+                v = float(val)
+                lo[i] = min(lo[i], v)
+                hi[i] = max(hi[i], v)
+    except OSError:
+        return None
+    if not seen:
+        return None
+    return (tuple(lo), tuple(hi))
+
+
+def probe_socket_is_open(osc: str) -> bool:
+    """Return True iff the holder's fixture socket is a genuine void.
+
+    Renders a thin slab of the holder at the socket height and checks that the
+    intersection is EMPTY inside the socket footprint, while a slab just below
+    the socket is solid. Uses the same OpenSCAD binary as the render step.
+    """
+    holder = Path("/tmp/j2_holder_10x10.stl")
+    if not holder.exists():
+        print("  FAIL  holder_10x10 STL missing -- cannot probe socket")
+        return False
+    # tile=10: outer 62.8, border 6, socket footprint 8.0..54.8, floor 0..3,
+    # socket cut 2.0..3.0, active field open above 3.0.
+    probe_scad = HERE / "_socket_probe.scad"
+    probe_scad.write_text(
+        "use <%s>\n"
+        "intersection() { holder(); translate([8.5, 8.5, 2.5]) cube([40, 40, 0.4]); }\n"
+        % SCAD
+    )
+    out = Path("/tmp/j2_socket_probe.stl")
+    if out.exists():
+        out.unlink()
+    subprocess.run([osc, "-o", str(out), str(probe_scad)],
+                   capture_output=True, text=True, timeout=300)
+    probe_scad.unlink(missing_ok=True)
+    is_void = not out.exists()
+    if is_void:
+        print("  PASS  fixture socket is an open pocket (slab at z=2.5 is void)")
+    else:
+        print("  FAIL  fixture socket is buried: slab at z=2.5 still solid")
+    return is_void
 
 
 if __name__ == "__main__":

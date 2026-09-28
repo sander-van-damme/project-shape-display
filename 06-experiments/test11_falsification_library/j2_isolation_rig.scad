@@ -20,8 +20,8 @@
 //   openscad -o base_rail.stl     -D part=\"base_rail\" j2_isolation_rig.scad
 //   openscad -o plate.stl         -D part=\"plate\" j2_isolation_rig.scad
 //
-// See `print_plan.md` for the bite-by-bite build/measurement plan and
-// `isolation_rig_runner.py` for the pass/fail gate engine fed by the results.
+// See `isolation_rig_protocol.md` for the bite-by-bite build/measurement plan
+// and `isolation_rig_runner.py` for the pass/fail gate engine fed by results.
 
 // ------------------------- user parameters -----------------------------------
 // tile cells per side: 5, 10 or 20 (the three protocol sweep points)
@@ -43,6 +43,12 @@ bolt_inset_mm = 4.0;
 m3_pilot_mm = 2.7;
 // edge chamfer to fight first-layer elephant-foot (bowtie) at the seam face
 chamfer_mm = 0.6;
+// interchangeable-fixture socket cut into the holder floor (J2 protocol).
+// The socket is open from the underside so each survivor's drive fixture drops
+// in flush with the active field. socket_floor_mm of solid floor is left for
+// stiffness; must stay < base_thickness_mm so the pocket is actually open.
+socket_inset_mm = 2.0;    // socket side inset from the active field edge
+socket_depth_mm = 1.0;    // pocket depth up from the holder underside
 
 part = "holder";        // holder | base_rail | indicator_bracket | miniature_tray | plate
 $fn = 64;
@@ -58,20 +64,35 @@ module m3_holes() {
 }
 
 module holder() {
-    // Outer registration frame with a recessed active field and M3 bolt pattern.
+    // ONE manifold solid: a registration ring (open active field) fused to a thin
+    // floor that carries the interchangeable-fixture socket. The previous revision
+    // laid the floor *inside* the frame's solid bottom, so the socket pocket was
+    // buried in plastic and the export was two overlapping volumes (a slicer
+    // artifact). The floor now sits at the very bottom and the socket is a real,
+    // open pocket machined into its underside.
+    //
+    // z = 0                .. base_thickness_mm      : floor slab (whole footprint)
+    // z = base_thickness_mm.. wall_height_mm          : ring only (active field open)
+    // socket: rectangular pocket in the floor underside, socket_depth below the
+    //         floor top, so a drive fixture plate drops in flush with the field.
     difference() {
-        cube([outer_mm, outer_mm, wall_height_mm]);
-        // active field recess: square hole through, offset by border
+        union() {
+            cube([outer_mm, outer_mm, base_thickness_mm]);
+            translate([0, 0, base_thickness_mm])
+                cube([outer_mm, outer_mm, wall_height_mm - base_thickness_mm]);
+        }
+        // active field: open through the ring, down to the floor top
         translate([border_mm, border_mm, base_thickness_mm])
             cube([active_mm, active_mm, wall_height_mm]);
+        // interchangeable-fixture socket: shallow recess in the floor TOP, open
+        // upward, so the survivor's drive fixture drops in flush with the field.
+        // Cutting from the top (not the underside) avoids a wide internal bridge
+        // and keeps the part a clean single-sided print.
+        translate([border_mm + socket_inset_mm, border_mm + socket_inset_mm,
+                   base_thickness_mm - socket_depth_mm])
+            cube([active_mm - 2 * socket_inset_mm, active_mm - 2 * socket_inset_mm,
+                  socket_depth_mm + 1]);
         m3_holes();
-    }
-    // thin floor under the active field with the interchangeable-fixture socket
-    // (a rectangular pocket, so each survivor's drive fixture drops in flush)
-    difference() {
-        translate([border_mm, border_mm, 0]) cube([active_mm, active_mm, base_thickness_mm]);
-        translate([border_mm + 2, border_mm + 2, -1])
-            cube([active_mm - 4, active_mm - 4, base_thickness_mm + 2]);
     }
 }
 
