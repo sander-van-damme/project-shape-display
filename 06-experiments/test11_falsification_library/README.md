@@ -31,6 +31,13 @@ discriminates them.
 | [`j2_isolation_rig.scad`](j2_isolation_rig.scad) | CAD | holder, shared base rail, indicator bracket, miniature tray, one-plate print layout |
 | [`measurements/isolation.csv`](measurements/isolation.csv) | blank record | the J2 measurement table; ships header-only |
 
+> **CAD render status (2026-09-28):** all six J2 parts were rendered to STL with
+> OpenSCAD 2021.01; rendered bounding boxes match the declared geometry. A
+> functional bug was found and fixed: the holder's fixture socket had been buried
+> inside the frame's solid floor and is now a real open pocket.
+> `check_fixture.py` now renders every part and probes the socket, so the bug
+> cannot return silently. This is **CAD, not a print**.
+
 ## Core adversarial findings (calculation, not measurement)
 
 ### A 6-cell demo proves almost nothing
@@ -122,8 +129,9 @@ openscad -o /tmp/plate.stl    -D part=\"plate\" j2_isolation_rig.scad
   proves the gate engine is wired correctly. It is **not** a pass for any
   survivor.
 - `check_fixture.py` checks the fixture's declared geometry (5.08 mm pitch,
-  X1C bed fit, plate layout, protocol feature floors). It is a **calculation**,
-  not a print or a CAD render.
+  X1C bed fit, plate layout, protocol feature floors) and, when OpenSCAD is on
+  PATH, renders every part and probes the holder's fixture socket for exposure.
+  It is a **calculation + CAD render**, not a print.
 - `isolation_rig_runner.py --input <run>.csv` is the only mode that scores
   MEASURED rows; it prints GO / KILL / INCONCLUSIVE per survivor and exits
   non-zero if anything is KILLed.
