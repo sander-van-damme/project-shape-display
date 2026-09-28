@@ -246,6 +246,13 @@ CAD or BOM optimization. [Test11](../06-experiments/test11_shared_drive_gate_ana
 supplies the ordered rejection tests and 3D-printable coupon for S3/S4 plus the
 S5 gate list; it is calculated evidence and has not been printed or measured.
 
+> **Update ([DND-35](/DND/issues/DND-35), ADR-002):** the survivor field is now
+> converged. **S5 is promoted to [`08-current-design/`](../08-current-design/README.md)**
+> as the single buildable winner; S1/S2/S4 are parked and S3 is killed, each with recorded
+> evidence in
+> [`07-evidence-and-decisions/convergence-decision-2026-09-b.md`](../07-evidence-and-decisions/convergence-decision-2026-09-b.md).
+> This candidate table is preserved as the search record.
+
 ## Test11 refinement — September 2026
 
 [Test11](../06-experiments/test11_threshold_ratchet_s1/) is the first hostile

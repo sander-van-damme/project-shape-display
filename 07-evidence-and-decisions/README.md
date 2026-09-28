@@ -36,6 +36,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 S5 five-gate status + $1.058 motor ceiling | — | ✓ | — | — | — | — | — |
 | Test11 S1/S2 rejection screen | — | ✓ | — | ✓ | — | — | — |
 | Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
+| Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
 
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
@@ -47,8 +48,12 @@ this is a permanently qualitative risk recorded in
 
 ### Convergence decision (CTO, 2026-09-28)
 
-**No survivor is promoted to [`08-current-design/`](../08-current-design/README.md).**
-See [`convergence-decision-2026-09.md`](convergence-decision-2026-09.md) (ADR-001) and the ranked
+**Superseded by [ADR-002](convergence-decision-2026-09-b.md) ([DND-35](/DND/issues/DND-35)): S5 is
+promoted to [`08-current-design/`](../08-current-design/README.md) as the single buildable winner.**
+ADR-001 (below) recorded the earlier "no promotion" posture and is preserved as the search record.
+
+**No survivor was promoted under ADR-001.** See
+[`convergence-decision-2026-09.md`](convergence-decision-2026-09.md) (ADR-001) and the ranked
 elimination order in [`convergence-plan.md`](convergence-plan.md). S1–S5 are one bet in five shapes:
 a passive, printable, final-pitch state/selection element written by a small shared programmer and
 able to hold load without powered holding. The field is unsupported on regional isolation

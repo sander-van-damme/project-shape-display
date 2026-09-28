@@ -61,6 +61,11 @@ jobs:
           python 06-experiments/test11_falsification_library/isolation_rig_runner.py --input 06-experiments/test11_falsification_library/analytic/runs/isolation_analytic.csv
       - name: Test11 fixture geometry gate
         run: python 06-experiments/test11_falsification_library/check_fixture.py
+      - name: Test12 winner convergence stack-up (DND-35)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python checks.py
+          python model.py > /dev/null
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
@@ -83,6 +88,24 @@ jobs:
         run: |
           which openscad
           python 06-experiments/test11_falsification_library/check_fixture.py
+
+  winner-cad-render:
+    # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and
+    # mesh-validates them (DND-35). This is the winner's CAD evidence; a missing
+    # OpenSCAD is a hard failure here because the render is the point.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Render + mesh-validate the winner coupon parts
+        run: python 06-experiments/test12_winner_convergence/render_winner_cad.py
 
   geometry-validation-harness:
     # The software-only replacement for a print test (DND-29): real OpenSCAD
