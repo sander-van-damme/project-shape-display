@@ -7,23 +7,25 @@ purchase, no print** ([DND-27](/DND/issues/DND-27)).
 
 ## What changed
 
-- **CI fix (DND-49/DND-47).** `.github/workflows/ci.yml` now installs
-  `numpy>=1.26` in the `engineering-checks` job before the Test12 DND-44 closures
-  run. `main` was red from `e10e57a` onward because `buckling_closure.py` imports
-  `numpy` via `cam_strength.py` in a stdlib-only job. This **un-reds `main`**.
+- **CI.** `.github/workflows/ci.yml` installs `numpy>=1.26` in the
+  `engineering-checks` job (reconciled with the already-merged main fix `89e4cca`)
+  and wires the new DND-47 ratifier, DND-49 K7 trace, DND-46 falsifier audit and
+  DND-48 register gates into the Test12 block.
 - **DND-47 (cost ratification).** New
   `06-experiments/test12_winner_convergence/cost_closure_ratify.py` (independent
   re-derivation that reads `bom_S5_delivered.csv` line-by-line and does *not* import
   `cost_closure.py`), new `07-evidence-and-decisions/dnd47-cost-closure-ratification.md`,
-  and `sourcing_notes.md` §8.
+  `sourcing_notes.md` §8, and a new `07-evidence-and-decisions/README.md` register entry.
 - **DND-48 (robust register).** New `FALSIFIER_AUDIT.md`, `falsifier_checks.py`
   (19 checks) and `register_checks.py`, plus corrected figures in
-  `08-current-design/README.md`, `DND44_READINESS.md` and `07-evidence-and-decisions/`.
+  `08-current-design/README.md` §5/§7/§9, `DND44_READINESS.md`, `test12/README.md`
+  and `07-evidence-and-decisions/README.md`.
 - **DND-49 (K7 refutation).** New `k7_motor_trace.py` / `k7_motor_trace_checks.py`,
   `sourcing_notes.md` §9, and K7 rows across the register.
 - **DND-51 fold.** The DND-49 K7 refutation, written against the old DND-44 text, is
-  re-expressed inside the DND-48 robust register so §7/§9 and
-  `DND44_READINESS.md` agree with `register_checks.py`.
+  re-expressed inside the DND-48 robust register so §7/§9, `DND44_READINESS.md` and
+  `test12/README.md` agree with `register_checks.py`. Removed a stray byte-identical
+  root `coupon_assembled.stl` committed by DND-47.
 
 ## The engineering question
 
@@ -46,13 +48,12 @@ state it without overstating any killer?
 
 ## What passed / failed
 
-- All eight Test12 closure scripts pass locally once numpy is present
-  (`timing`/`buckling`/`cost`/`cross_cutting` `_closure_checks.py`), plus the new
-  `falsifier_checks.py`, `register_checks.py`, `cost_closure_ratify.py` and
-  `k7_motor_trace_checks.py`.
-- Full stdlib suite (test08–test13) re-run green locally.
-- Merge order keeps `main` green at each step: DND-49 (numpy pin) → DND-47 → DND-48
-  (last, so the corrected register is final).
+- All eight Test12 closure scripts pass locally once numpy is present, plus the new
+  `falsifier_checks.py` (19), `register_checks.py` (14), `cost_closure_ratify.py`
+  and `k7_motor_trace_checks.py` (9).
+- Full stdlib suite (test08–test13, falsification, fixtures) re-run green locally.
+- Merge order keeps `main` green at each step: DND-49 → DND-47 → DND-48 (last, so
+  the corrected register is final).
 
 ## Assumptions & limits
 

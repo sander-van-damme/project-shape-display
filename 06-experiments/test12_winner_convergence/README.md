@@ -16,8 +16,9 @@ dropped candidate.
 **Answer.** The winner is **S5 — programmed stepped rotary stops + common lift**. It is the
 only candidate that simultaneously has (a) real solid CAD of the mechanism, (b) an
 independently reproduced timing model under the 30 s cap, and (c) a purchased BOM that is
-82 % sourced. Its one true blocker, purchased cost, clears the **$500** ceiling with margin
-under the sourced-pair-plus-consolidation path below.
+82 % sourced. Its one true blocker, purchased cost, is **$482.95 on the defensible planning
+basis** (DND-48; **$17.05 under** the $500 ceiling, conditional on a motor ≤$1.86 — see the
+banner above), and the §7 register below is the authoritative status.
 
 **Evidence class.** CALCULATION / SIMULATION over sourced listings and stated
 assumptions. **Nothing here is a print and nothing here is a physical measurement**
@@ -122,14 +123,14 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 
 | id | Risk | Status | Result vs gate |
 |---|---|---|---|
-| K1 | cam buckling under handling load | **open** | 4.96 N critical **< 5 N** Test08 measurement-protocol screen; the 1 N service load is **unsourced**. Close with a sourced ≤ 4.5 N tabletop-load bound, else re-size the core. ([DND-41](/DND/issues/DND-41)) |
+| K1 | cam buckling under handling load | **open (service load, DND-46)** | 4.96 N core **< 5 N** abuse screen. Service load is **0.39–3.27 N/column** depending on base contact; the rigid tripod case (3.27 N) is bounding and leaves only **~1.5×** margin — size the core against **~3.3 N**. Localized 5 N abuse bounded only by a 1.10 mm core re-size. |
 | K2 | printed rotary detent holds/repeats after a slipped step | **closed-analytically (named geometry)** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38), [DND-45](/DND/issues/DND-45)): the nominal 0.20 mm scallop fails at the sourced PLA–PLA midpoint (0.92). A **0.40 mm scallop** gives torque/friction **1.84 at μ = 0.35** and **1.29 at μ = 0.50**, inside the **0.50 mm** cam envelope; exact min depth for a 1.25 margin at μ = 0.35 is 0.271 mm. As-printed μ/creep/tip sharpness remain measurement-only. Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
 | K4 | regional update disturbs a loaded neighbour | **partially-closed** | 0.017 mm is a rail-bending *structural* sub-bound vs a 0.10 mm gate; the J2 engine returns **INCONCLUSIVE** — release/drift are measurement-only. |
-| K5 | purchased cost > $500 delivered | **conditional (range)** | $501.12 sourced (over ceiling); **$483.37** reduced; real but small margin. |
-| K6 | full-map time > 30 s at realised step rate | **conditional** | 26.25 s best corner; only **17/108** sweep cases pass at 400 pps, worst **45.07 s**; needs a measured ≥400 pps loaded rate. |
+| K5 | purchased cost > $500 delivered | **conditional (robust $482.95)** | [DND-48](/DND/issues/DND-48): defensible planning basis **$482.95 delivered ($17.05 margin)** (spares + E6 restored); sourced-DRV8833 variant **$474.91**; expected-motor case **$501.51 (over)**. The old $424.95 needed four simultaneous best-case choices. Conditional on a motor ≤**$1.86** (see K7). |
+| K6 | full-map time > 30 s at realised step rate | **conditional (DND-46)** | 26.251 s at the design point; floor **18.65 s**; conditional on a loaded engage/settle **dwell** AND a **≥268 pps (~804 rpm)** loaded rate, with `inspection_s = 0` assumed. The 45.07 s corner is not rate-recoverable. |
 | K7 | purchased-actuator cost cliff (80 motors + 80 drivers) | **refuted at ≤$1.86 (sourced), residual (DND-49)** | [DND-49](/DND/issues/DND-49) `k7_motor_trace.py`: cheapest *matched, orderable* 8 mm 18° bipolar PM stepper is CCHT **$11.20 @100 / $8.20 @3,001+** → **$1,088–$1,367 delivered**; MOONS 8PM020S1 $40 → $4,040. The $1.05 multipack clears but has **no published step angle**. Reduced-head lever **fails the 30 s budget** (40 ch → ~104 s). |
-| K8 | lateral holding (knocked miniature) | **open** | hard stop resists downward load only; detent restoring torque ≈ **0.00139 mN·m**; no analytic pass. |
+| K8 | lateral holding (knocked miniature) | **open (DND-46)** | at the repo's own 40 mm free length, 1 N → **0.356 mm** (3.5× the 0.10 mm gate) and the 0.10 mm-gate load is **0.28 N**. Gate is a free-length/guide-capture question (12 vs 40 mm). |
 | K9 | angular margin vs print tolerance | **closed-analytically** | Monte-Carlo propagation of the sourced ±0.05 mm FDM positional tolerance through the toe/sector geometry ([K9_ANGULAR_MARGIN.md](K9_ANGULAR_MARGIN.md), [DND-45](/DND/issues/DND-45)): 5 levels keep margin positive (0% fail, worst draw **1.72°**, mean 5.52°) under the bounded tolerance reading, but a Gaussian tail gives 1.31% fail; **6 levels fail 65.6%**; **4 levels is robust (0% everywhere)**. The K12 level-count tradeoff now carries a hard margin bound. |
 | K10 | regional-update time untested end to end | **open** | homing + full 41 mm platen stroke not bounded. |
 | K11 | cycle life of printed detent/ratchet | **open** | single-cycle static model; creep/fatigue unmodelled. |
