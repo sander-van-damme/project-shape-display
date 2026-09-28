@@ -1,0 +1,123 @@
+{
+  "evidence_class": "CALCULATED (pre-flight estimate; NOT a slicer, NOT printed)",
+  "source_cad_branch": "feat/dnd21-t11a-fit-verdict",
+  "material": "PLA",
+  "color": "any opaque (natural/black preferred for caliper contrast)",
+  "bed": "Bambu Lab X1C (256x256x256) or vendor equivalent",
+  "process_baseline": {
+    "nozzle_mm": 0.4,
+    "layer_mm": 0.12
+  },
+  "process_fallback": {
+    "nozzle_mm": 0.2,
+    "layer_mm": 0.08
+  },
+  "parts": {
+    "coupon_assembled.stl": {
+      "file": "coupon_assembled.stl",
+      "triangles": 1884,
+      "bbox_mm": [
+        10.16,
+        20.32,
+        4.53
+      ],
+      "surface_area_mm2": 1041.02,
+      "bad_edges": 0,
+      "watertight": true,
+      "fits_x1c_256": true,
+      "in_plane_footprint_mm": [
+        10.16,
+        20.32
+      ]
+    },
+    "coupon_finger.stl": {
+      "file": "coupon_finger.stl",
+      "triangles": 216,
+      "bbox_mm": [
+        4.4,
+        3.2,
+        0.96
+      ],
+      "surface_area_mm2": 48.36,
+      "bad_edges": 0,
+      "watertight": true,
+      "fits_x1c_256": true,
+      "in_plane_footprint_mm": [
+        4.4,
+        3.2
+      ]
+    },
+    "coupon_bank.stl": {
+      "file": "coupon_bank.stl",
+      "triangles": 240,
+      "bbox_mm": [
+        4.4,
+        4.4,
+        2.7
+      ],
+      "surface_area_mm2": 78.04,
+      "bad_edges": 0,
+      "watertight": true,
+      "fits_x1c_256": true,
+      "in_plane_footprint_mm": [
+        4.4,
+        4.4
+      ]
+    }
+  },
+  "print_matrix": [
+    {
+      "run": "A1",
+      "part": "coupon_assembled.stl",
+      "qty": 1,
+      "process": "baseline",
+      "nozzle_mm": 0.4,
+      "layer_mm": 0.12,
+      "layers": 38,
+      "filament_m_g": 2.92,
+      "print_time_min_low": 5.9,
+      "print_time_min_high": 15.0
+    },
+    {
+      "run": "A2",
+      "part": "coupon_finger.stl",
+      "qty": 1,
+      "process": "baseline",
+      "nozzle_mm": 0.4,
+      "layer_mm": 0.12,
+      "layers": 9,
+      "filament_m_g": 0.03,
+      "print_time_min_low": 0.1,
+      "print_time_min_high": 0.2
+    },
+    {
+      "run": "A3",
+      "part": "coupon_bank.stl",
+      "qty": 1,
+      "process": "baseline",
+      "nozzle_mm": 0.4,
+      "layer_mm": 0.12,
+      "layers": 23,
+      "filament_m_g": 0.13,
+      "print_time_min_low": 0.4,
+      "print_time_min_high": 0.9
+    },
+    {
+      "run": "A4",
+      "part": "coupon_assembled.stl",
+      "qty": 1,
+      "process": "fallback",
+      "nozzle_mm": 0.2,
+      "layer_mm": 0.08,
+      "layers": 57,
+      "filament_m_g": 2.92,
+      "print_time_min_low": 8.8,
+      "print_time_min_high": 22.5
+    }
+  ],
+  "totals": {
+    "est_filament_g": 6.0,
+    "est_print_time_min_low": 15.2,
+    "est_print_time_min_high": 38.6
+  }
+}
