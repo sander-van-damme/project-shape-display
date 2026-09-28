@@ -16,17 +16,15 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-          # setup-python otherwise finds the unrelated requirements file in the
-          # migrated trial and keys the cache with the wrong dependencies.
           cache-dependency-path: requirements-dev.txt
       - name: Install test dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
       - run: python -m pytest
-      - run: python experiments/template/simulation.py --engine kinematic
+      - run: python 06-experiments/template/simulation.py --engine kinematic
       - uses: actions/upload-artifact@v4
         with:
           name: template-simulation-results
-          path: experiments/template/results/
+          path: 06-experiments/template/results/
 
   physics-smoke:
     runs-on: ubuntu-latest
@@ -50,8 +48,8 @@ jobs:
           python -m pip install --disable-pip-version-check
           -r requirements-dev.txt ${{ matrix.packages }}
       - name: Smoke-test ${{ matrix.engine }} import
-        run: python experiments/template/simulation.py --engine "${{ matrix.engine }}"
+        run: python 06-experiments/template/simulation.py --engine "${{ matrix.engine }}"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.engine }}-results
-          path: experiments/template/results/
+          path: 06-experiments/template/results/
