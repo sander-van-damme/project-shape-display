@@ -74,3 +74,34 @@ jobs:
           which openscad
           python 06-experiments/test11_falsification_library/check_fixture.py
 
+  geometry-validation-harness:
+    # The software-only replacement for a print test (DND-29): real OpenSCAD
+    # render -> mesh validation -> sourced analytic printability gate.
+    # A missing OpenSCAD here fails the job (--require-openscad) so the render
+    # step can never silently skip in the job whose purpose is the render.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Run the geometry validation harness
+        run: |
+          python tools/validate/validate_geometry.py \
+            --require-openscad --json harness-record.json
+      - name: Printability table (standalone, sourced limits)
+        run: |
+          python tools/validate/analytic_printability.py \
+            06-experiments/test11_shared_drive_gate_analysis/selector_fanout_coupon.scad
+      - name: Upload harness record
+        uses: actions/upload-artifact@v4
+        with:
+          name: geometry-validation-record
+          path: harness-record.json
+          if-no-files-found: warn
+
