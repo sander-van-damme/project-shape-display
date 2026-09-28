@@ -44,7 +44,7 @@ win.
 | S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; cannot serve surprise maps; no CAD | `test11_threshold_ratchet_s1/` |
 | S3 | multi-row mechanical DMA head | **kill** | sourced analytic printability **FAIL**: pivot 0.80 < 5.0, declared min web 0.24 < 0.88; expected delivered **$2,880.98** (5.8× ceiling); **CI-visible** | `tools/validate/analytic_printability.py` on `selector_fanout_coupon.scad` |
 | S4 | distributed passive tiles on a shared bus | **park** | printed dog clutch must transmit tile torque and fail open; correlated bus backlash exceeds 0.25 mm at 3°/joint; expected delivered $548.91 | `test11_shared_drive_gate_analysis/` |
-| S5 | programmed rotary stops + common lift | **WIN** | only CAD+simulation+sourced-BOM candidate; 26.251 s; sourced cost $503.71, reduced $481.56 | this ADR, `test12_winner_convergence/` |
+| S5 | programmed rotary stops + common lift | **WIN (direction)** | only CAD+simulation+sourced-BOM candidate; 26.251 s best-corner (**conditional**); sourced cost **$501.12** (at/over ceiling), reduced **$483.37**; K1 open, K4 partially-closed ([DND-41](/DND/issues/DND-41)) | this ADR, `test12_winner_convergence/` |
 
 **Failed ideas are kept as assets**, not deleted: the rejection log in
 `test08/README.md:114-150` (unsupported follower, nine-level angular failure, 40-channel
@@ -53,7 +53,38 @@ timing failure, thin-core cam buckling) and the S3/S4 selector-coupon findings
 
 ## 3. Why the winner's two headline blockers do not block
 
-### 3.1 The 5 N cam-buckling "gate" is mis-scoped
+> **Correction ([DND-41](/DND/issues/DND-41), Falsifier review).** The two "blockers resolved"
+> sections below overstated closure. The winner is a **direction**, not a print-ready machine:
+> K1 is **open**, K4 is **partially-closed**, K6 is **conditional**, and cost is a **range
+> at/just over the ceiling**. The corrected statements are given here; the original reasoning
+> is preserved below for the record.
+
+- **K1 (cam buckling) — open.** The 1.0 mm core gives **4.96 N** critical < the **5 N** Test08
+  measurement-protocol screen. `test08/README.md:263` says the screen is not met and to
+  "expect that a support or material redesign may be necessary". Reclassifying 5 N as a
+  handling screen is only valid if **1 N is a true tabletop bound** — and the repo has **not
+  sourced it** (no miniature measured; a hand / metal miniature / book is not 1 N). Close with
+  a sourced ≤ 4.5 N max tabletop-load bound, or re-size the core.
+- **K4 (isolation) — partially-closed.** The 0.017 mm is a rail-bending **structural**
+  sub-bound only. The cited J2 engine (`test11_falsification_library/analytic`) returns
+  **INCONCLUSIVE** for each tile because J2-0 rig qualification is missing by design; stiction
+  release force and cumulative wear drift are measurement-only and stay open.
+- **K5 (cost) — conditional range.** On the repo's **additive** delivered basis
+  (`×1.16`), the sourced pair is **$432.00 × 1.16 = $501.12 — over the ceiling by $1.12**. The
+  prior $503.71 came from a multiplicative `1.10 × 1.06` uplift and a $434.20 subtotal that does
+  not reproduce. The reduced path is **$416.70 × 1.16 = $483.37** — a real but small margin, not
+  the prior advertised $18.44. The register consolidation is a **net $10.30**, not $14 (the 40
+  chips are still bought at the sourced $0.0925).
+- **K6 (time) — conditional.** 26.251 s is the **best corner** of the repo's 540-case
+  `timing_sweep.csv` (`inspection_s=0`, 25 ms couple, 15 ms settle). At the design rate of
+  400 pps only **17/108** cases pass 30 s; worst case **45.07 s**. No measured ≥400 pps loaded
+  rate exists, so the **3.749 s margin is withdrawn**.
+- **K7–K12 (newly stated).** Purchased-actuator cost cliff (only traceable matched 8 mm stepper
+  is $40/ea → $3,200); lateral holding (knocked miniature); angular margin vs print tolerance;
+  regional-update time untested end to end; printed detent/ratchet cycle life; coarse-slope
+  usability. Added to the risk register.
+
+### 3.1 (original) The 5 N cam-buckling "gate" is reclassified
 
 The revised 1.0 mm cam core gives **4.96 N** ideal critical buckling load, below a
 self-imposed **5 N** screen. But the product requirement is a **1 N service load for 24 h**;
@@ -63,7 +94,9 @@ the 5 N is a *sacrificial handling screen*, explicitly described as
 handling test for the printed part, not as a design gate. This is a **reclassification on
 evidence**, not a relaxation of a product requirement.
 
-### 3.2 Cost clears $500 with margin on a matched sourced path
+### 3.2 (original, superseded) Cost clears $500 with margin
+
+> Superseded by the K5 correction above. Preserved for the record.
 
 The motor/driver channel is the only cliff. On the sourced pairing (Amazon multipack 8 mm
 PM motor $1.05 + TB6612FNG $0.80, expected delivered uplift ×1.16), the winner lands at

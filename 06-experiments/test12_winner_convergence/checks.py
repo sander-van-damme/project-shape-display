@@ -30,22 +30,25 @@ class WinnerConvergenceChecks(unittest.TestCase):
             self.assertIn(disp, {"kill", "park", "win"})
             self.assertTrue(why and len(why) > 20, f"{cand} lacks evidence")
 
-    def test_full_map_time_under_deadline(self):
+    def test_full_map_time_is_conditional_best_corner(self):
+        # 26.251 s is the best corner. The design is conditional on a measured
+        # >=400 pps loaded rate; the prior "3.749 s margin" is withdrawn (DND-41).
+        s = m.stackup()
         self.assertLess(m.FULL_MAP_TIME_S, m.DEADLINE_S)
-        # and the margin must be a real, positive number of seconds
-        self.assertGreater(m.DEADLINE_S - m.FULL_MAP_TIME_S, 3.0)
+        self.assertTrue(s["time"]["conditional"])
+        self.assertLess(m.TIMING_PASS_400, m.TIMING_CASES_PER_RATE / 4)
+        self.assertGreater(m.TIMING_WORST_400_S, m.DEADLINE_S)
 
-    def test_sourced_cost_hugs_ceiling_and_reduction_clears_it(self):
+    def test_sourced_cost_is_over_ceiling_and_reduction_barely_clears(self):
+        # DND-41: on the repo's additive basis (x1.16) the sourced pair is OVER
+        # the ceiling; only the reduced path clears it, by a small margin.
         pair = m.winner_delivered_usd()
-        # The sourced motor+driver pair lands essentially ON the ceiling (the
-        # repo's own DND-11 check asserts within $5). Assert that honestly.
-        self.assertLess(abs(pair - m.CEILING_USD), 5.0)
+        self.assertGreater(pair, m.CEILING_USD)          # over the ceiling
+        self.assertLess(pair, m.CEILING_USD + 5.0)       # but only just
         reduced = m.winner_reduced_delivered_usd()
         self.assertLess(reduced, m.CEILING_USD)
-        # Must clear the ceiling by a real, non-trivial margin, not by cents.
-        self.assertLess(reduced, m.CEILING_USD - 10.0)
-        # Reaching the <$400 ideal band is NOT yet demonstrated; assert only
-        # that we do not falsely claim it.
+        # small margin, and NOT yet in the <$400 ideal band
+        self.assertGreater(reduced, m.CEILING_USD - 25.0)
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)
 
     def test_reliability_model_is_honest(self):
@@ -57,29 +60,32 @@ class WinnerConvergenceChecks(unittest.TestCase):
 
     def test_isolation_and_travel_gates(self):
         s = m.stackup()
+        # Isolation is only a structural sub-bound; J2 engine returns INCONCLUSIVE.
         self.assertTrue(s["isolation"]["pass"])
+        self.assertTrue(s["isolation"]["conditional"])
         self.assertTrue(s["travel"]["pass"])
         self.assertGreaterEqual(s["travel"]["increment_mm"], 9.9)
 
-    def test_abuse_screen_is_not_a_design_gate(self):
-        # The 5 N is a handling screen; the 1 N service load must pass with margin.
-        self.assertGreater(m.CAM_CRITICAL_BUCKLING_N, m.SERVICE_LOAD_N * 4.0)
-        self.assertGreater(m.ABUSE_SCREEN_N, m.SERVICE_LOAD_N)
+    def test_K1_abuse_screen_is_an_open_blocker(self):
+        # DND-41: 4.96 N < 5 N Test08 measurement-protocol screen; the 1 N service
+        # load is unsourced, so K1 is OPEN, not closed.
         self.assertLess(m.CAM_CRITICAL_BUCKLING_N, m.ABUSE_SCREEN_N)
+        k1 = [k for k in m.stackup()["killers"] if k["id"] == "K1"]
+        self.assertEqual(len(k1), 1)
+        self.assertEqual(k1[0]["status"], "open")
 
-    def test_killer_list_closes_the_numeric_ones(self):
+    def test_killer_list_is_honestly_labelled(self):
         s = m.stackup()
-        self.assertTrue(s["time"]["pass"])
-        self.assertTrue(s["cost"]["pass"])
-        for k in s["killers"]:
-            self.assertIn(k["status"],
-                          {"closed-analytically", "conditional-analytically", "qualitative"})
-        # The one residual is K2, now bounded analytically (DND-38) but still not
-        # closed: it must carry the quantitative rule, not be empty.
-        k2 = [k for k in s["killers"] if k["id"] == "K2"]
-        self.assertEqual(len(k2), 1)
-        self.assertEqual(k2[0]["status"], "conditional-analytically")
-        self.assertIn("0.323", k2[0]["result"])
+        statuses = {k["id"]: k["status"] for k in s["killers"]}
+        # DND-41 relabels and the six added killers.
+        self.assertEqual(statuses["K1"], "open")
+        self.assertEqual(statuses["K4"], "partially-closed")
+        self.assertEqual(statuses["K6"], "conditional")
+        for kid in ("K7", "K8", "K9", "K10", "K11", "K12"):
+            self.assertEqual(statuses[kid], "open")
+        # K2 remains bounded-but-not-closed by DND-38.
+        self.assertEqual(statuses["K2"], "conditional-analytically")
+        self.assertIn("0.323", [k["result"] for k in s["killers"] if k["id"] == "K2"][0])
 
 
 if __name__ == "__main__":
