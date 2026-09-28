@@ -129,6 +129,10 @@ jobs:
 
           body = os.environ.get("BODY_INPUT") or ""
           body_file = (os.environ.get("BODY_FILE_INPUT") or "").strip()
+          if not body_file and not body and os.path.isfile(".github/open-pr-body.md"):
+              # Documented default: on an automatic push the PR body comes from
+              # .github/open-pr-body.md on the branch when present.
+              body_file = ".github/open-pr-body.md"
           if body_file and os.path.isfile(body_file):
               body = open(body_file, encoding="utf-8").read()
           elif not body:

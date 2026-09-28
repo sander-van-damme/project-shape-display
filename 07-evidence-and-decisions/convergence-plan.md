@@ -13,6 +13,13 @@ This document ranks the *quickest tests that can kill a survivor* and states whi
 test would kill. The goal is convergence on one or a small number of serious architectures; it is
 deliberately not another survey.
 
+> **Falsifier adversarial review (2026-09):** [`falsifier-adversarial-audit-2026-09.md`](falsifier-adversarial-audit-2026-09.md)
+> challenges three premises of this plan: (1) S5 is a *different* bet from S1–S4 ("one bet in five
+> shapes" is false for S5), so a Bet-A failure should not alone trigger a product re-scope;
+> (2) the S1/S2/S4 "$500" rejection rests on fallback BOM lines for parts the designs intend to
+> print, so their cost is *conditional*, not failed; (3) the reusable reliability helper was
+> convention-inverted by ~58×. The CTO owns whether to adopt the two-bet framing in §2/§4.
+
 ## 1. The binding programme constraint
 
 The product target is a strict conjunction: **80×80 cells, 5.08 mm pitch, ≥40 mm travel,
