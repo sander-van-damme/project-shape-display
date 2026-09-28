@@ -148,10 +148,11 @@ bipolar PM stepper.**
 (no datasheet-matched step angle, winding, shaft or lot). Only a purchased,
 sampled lot can retire it, and that is forbidden under
 [DND-27](/DND/issues/DND-27). Treat the S5 expected delivered cost as a **range
-$493.57–$646** (at a $2.66 marketplace motor) until a matched lot exists. The
-$40 MOONS part would put the machine at ~$4,156 delivered. Conservation note: the
-S5 reduced figure is **$493.57**, not the originally published $481.56 — the
-register consolidation was over-counted by $10.30 (line removed at its expected
-allowance against a sourced base). See
+$483.37–$646** (at a $2.66 marketplace motor) until a matched lot exists. The
+$40 MOONS part would put the machine at ~$4,156 delivered. Basis note ([DND-41](/DND/issues/DND-41)):
+on the repo's additive ×1.16 delivered basis the sourced pair is **$501.12** (over
+the ceiling) and the reduced path is **$483.37**; the earlier $503.71/$493.57
+figures used a multiplicative ×1.166 uplift and an over-counted register saving.
+See
 [`../../07-evidence-and-decisions/dnd37-bom-ratification.md`](../../07-evidence-and-decisions/dnd37-bom-ratification.md).
 

@@ -1,52 +1,59 @@
-# DND-37 — Ratify S5 winner purchased BOM + printability
-
-Stacked on **`dnd-35-convergence-winner`** (DND-35, PR pending). Base: `dnd-35-convergence-winner`.
+# DND-41b — reconcile the two cost models on `main` (ratify_bom.py vs model.py)
 
 ## What changed
-- **New** `06-experiments/test12_winner_convergence/ratify_bom.py` — independent
-  re-derivation of the S5 purchased BOM straight from `bom_S5_delivered.csv`, plus a
-  `--selftest` that pins the DND-37 findings in CI.
-- **New** `07-evidence-and-decisions/dnd37-bom-ratification.md` — the ratification note.
-- **Correction** across ADR-002, `test12/README.md`, `08-current-design/README.md`,
-  `sourcing_notes.md`: reduced delivered cost **$481.56 → $493.57**.
-- **CI**: `ratify_bom.py --selftest` added to the Test12 step.
+
+After the DND-41 reconciliation (`model.py` → $501.12 / $483.37 on the additive
+×1.16 basis) landed, `main` was left carrying **two contradictory cost models**:
+
+- `model.py` / `checks.py` — **$501.12 sourced / $483.37 reduced** (additive ×1.16).
+- `ratify_bom.py` — **$503.71 sourced / $493.57 reduced** (multiplicative ×1.166 +
+  a register method that kept the $14 allowance in the base).
+
+`ci.yml` runs `ratify_bom.py --selftest` as a gate, so the two could not be caught
+by the existing tests. This PR removes the contradiction at the source.
 
 ## Engineering question
-Does the S5 winner's purchased BOM arithmetic hold, can any sourced reduction reach
-<$400, is there a sourced matched sub-$1 8 mm stepper, and is the X1C/PLA 0.4 mm
-printability route sound?
 
-## Evidence produced (CALCULATION over sourced listings — no purchase, no print)
-- **BOM arithmetic:** fixed expected subtotal $284.00 reproduces the CSV; sourced-pair
-  delivered **$503.71** confirmed.
-- **Defect found:** the reduced path subtracts the shift-register line at its **$14
-  expected allowance** against a base re-priced to sourced prices; the sourced value is
-  only **$3.70** (40 × $0.094). Overstatement **$10.30** → honest reduced **$493.57**
-  (still under $500, but **$6.43** margin, not $18.44).
-- **Motor supply:** Octopart (DigiKey/Mouser/Farnell/Newark/Arrow) stocks **no** true
-  8 mm 18° bipolar PM stepper; only traceable matched part is MOONS 8PM020S1 **$40/ea**
-  (→ ~$4,156 delivered). Live AliExpress micro listings €0.79–3.59 ea are unqualified.
-  Expected cost is a **range $493.57–$646**.
-- **<$400 band:** **not reachable** on any sourced path.
-- **Printability:** X1C/PLA 0.4 mm ratified; all features ≥ the sourced 0.44 mm minimum
-  feature width. Thin contact features (detent 0.45, body wall 0.60, stem 0.70 mm) are
-  under the 0.88 mm robust wall → 0.2 mm nozzle recommended for the *contact* features,
-  not required by geometry; resin/SLA not required.
+Which cost model is correct on the repo's own delivered basis, and can the two
+models be pinned together so they cannot diverge again?
 
-## What passed / failed
-- Passed: `checks.py` (9/9), `model.py`, new `ratify_bom.py --selftest`, Test08/10/11
-  checks, delivered-BOM checks.
-- Failed (kept as findings): the $481.56 reduced figure; the "optional 0.2 mm upper
-  guides" characterisation; the <$400 claim.
+## Evidence produced (CALCULATION over the sourced BOM — no purchase, no print, DND-27)
+
+1. **Uplift basis.** `06-experiments/test11_cost_printability_reliability/delivered_3scenario/delivered_cost_model.py`
+   applies the expected uplift **additively** (`sub + sub·0.10 + sub·0.06`). The
+   prior `(1.10)(1.06) = 1.166` **compounds** and inflates every headline by ~0.5%.
+   On the repo's basis the sourced pair is **$432.00 × 1.16 = $501.12 — over the
+   $500 ceiling by $1.12**.
+2. **Register consolidation method.** The $14.00 expected allowance leaves the BOM,
+   but the 40 chips are still **bought** at $0.0925 → $3.70. The net saving is
+   **$10.30**, not the full $14.00 (and not merely $3.70). Honest reduced fixed is
+   `$284.00 − $10.30 − $5.00 = $268.70`, parts `$416.70`, delivered
+   `$416.70 × 1.16 = $483.37` — clearing the ceiling by **$16.63**.
+3. **Root-cause guard added.** `checks.py::test_ratify_bom_agrees_with_model_on_the_headline_costs`
+   imports `ratify_bom` and asserts it agrees with `model.py` on both headline
+   costs and the uplift constant. The models can no longer silently drift.
+
+## Files
+
+- `06-experiments/test12_winner_convergence/ratify_bom.py` — additive uplift;
+  correct net-consolidation method; selftest now asserts $501.12 / $483.37.
+- `06-experiments/test12_winner_convergence/checks.py` — new cross-model gate (9 → 10 tests).
+- `07-evidence-and-decisions/dnd37-bom-ratification.md` — DND-41 correction banner
+  superseding the stale §1–§2 figures.
+- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` — §3.2 numbers corrected.
+
+## Verification
+
+```
+python 06-experiments/test12_winner_convergence/ratify_bom.py --selftest
+python 06-experiments/test12_winner_convergence/checks.py      # 10/10 pass
+python 06-experiments/test12_winner_convergence/model.py
+```
 
 ## Assumptions / uncertainty
-Motor and driver unit prices remain **sourced listings, not quotations**; the sub-$1.05
-basis is an unqualified marketplace multipack that DND-27 forbids retiring by purchase.
-Print tolerance/strength of the thin contact features is a qualitative residual (K2 class).
 
-## Next test
-Sample a matched 8 mm motor lot (step angle, running torque ≥0.15 mN·m @400 pps, winding,
-shaft) — blocked by DND-27; otherwise carry the range and proceed to the analytic detent
-contact sweep.
-
-Co-Authored-By: Paperclip <noreply@paperclip.ing>
+- The uplift (10% ship + 6% tax) and the sourced motor price ($1.05, untraced
+  marketplace multipack) are unchanged assumptions, not quotes. The winner clears
+  the ceiling only on the reduced path and only if the $1.05 motor qualifies;
+  the matched alternative is ~$40/ea (~$4,000). **Unchanged, still the #1 risk.**
+- No physical test (DND-27). This is arithmetic reconciliation only.
