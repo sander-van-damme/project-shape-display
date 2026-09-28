@@ -12,9 +12,9 @@ Until one architecture survives the required evidence gates, this folder remains
 
 Authoritative supporting material:
 
-- [Architecture investigation](../07-evidence-and-decisions/architecture-investigation-2026-09.md)
-- [Evidence matrix](../07-evidence-and-decisions/evidence-matrix.md)
-- [Current research direction](../05-research-questions/investigations/research-direction-2026-09.md)
+- [Architecture investigation](../07-evidence-and-decisions/)
+- [Evidence matrix](../07-evidence-and-decisions/)
+- [Current research direction](../05-research-questions/)
 - [Test09 validation](../06-experiments/test09_test08_validation/README.md)
 
 When an architecture becomes sufficiently supported, its integrated system description, BOM, build plan and remaining risk register should live here.

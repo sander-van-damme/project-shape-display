@@ -6,7 +6,7 @@ An experiment is an engineering investigation that helps decide how to build the
 battle-map shape display described in [`../02-design-criteria/README.md`](../02-design-criteria/README.md).
 Experiments are the **evidence layer** for the [mechanical knowledge base](../03-engineering-knowledge/README.md);
 a completed experiment should feed durable conclusions back into the relevant
-mechanism, principle or architecture card.
+mechanism, principle or architecture section.
 
 The repository currently contains a Python/CadQuery/simulation framework, but
 **that framework is a suggestion, not a contract**. Future experiments are explicitly

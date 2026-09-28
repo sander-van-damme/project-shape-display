@@ -1,9 +1,7 @@
 # 90 — Repository tools
 
-Small utilities and authoring templates that support the engineering flow live here.
+Only executable helpers that materially reduce repetitive work belong here.
 
-- `new_experiment.py` — creates a numbered experiment from the maintained template in [`../06-experiments/`](../06-experiments/).
-- `knowledge_catalog.py` — scans the numbered engineering knowledge and architecture stages and produces a dynamic catalog.
-- `knowledge-templates/` — card templates for disciplines, mechanisms, principles and architectures.
+- `new_experiment.py` — copies the maintained experiment template into a new numbered directory under [`../06-experiments/`](../06-experiments/).
 
-These tools support the repository structure; they are not product architecture constraints.
+The earlier knowledge-card catalog and frontmatter templates were removed after the conceptual knowledge was consolidated into one README per engineering stage. AI agents and human readers can now inspect the stage README headings directly; maintaining a second machine-readable catalog would duplicate the repository structure rather than clarify it.
