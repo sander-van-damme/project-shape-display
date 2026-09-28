@@ -25,7 +25,7 @@ The numbered root directories are intentionally ordered. Read them as the projec
 
 ## Core target
 
-The detailed requirements live in [`02-design-criteria/design-target.md`](02-design-criteria/design-target.md). The current target includes approximately 400 × 400 mm active area, about 5.08 mm or finer pitch, roughly 6,200–6,400 cells at full scale, at least 40 mm provisional vertical travel, regional updates, a playable full-map change in under 30 seconds, and tight purchased-component cost limits.
+The detailed requirements live in [`02-design-criteria/README.md`](02-design-criteria/README.md). The current target includes approximately 400 × 400 mm active area, about 5.08 mm or finer pitch, roughly 6,200–6,400 cells at full scale, at least 40 mm provisional vertical travel, regional updates, a playable full-map change in under 30 seconds, and tight purchased-component cost limits.
 
 ## How knowledge should move
 
@@ -47,7 +47,7 @@ Experiments are evidence, not the primary place to store durable engineering kno
 
 ## Useful entry points
 
-- [Design target](02-design-criteria/design-target.md)
+- [Design criteria](02-design-criteria/README.md)
 - [Engineering knowledge model](03-engineering-knowledge/README.md)
 - [Architecture candidates](04-architecture-candidates/)
 - [Research backlog](05-research-questions/research-backlog.md)

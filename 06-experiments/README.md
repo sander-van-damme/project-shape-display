@@ -3,7 +3,7 @@
 ## What an experiment is for
 
 An experiment is an engineering investigation that helps decide how to build the D&D
-battle-map shape display described in [`../02-design-criteria/design-target.md`](../02-design-criteria/design-target.md).
+battle-map shape display described in [`../02-design-criteria/README.md`](../02-design-criteria/README.md).
 Experiments are the **evidence layer** for the [mechanical knowledge base](../03-engineering-knowledge/README.md);
 a completed experiment should feed durable conclusions back into the relevant
 mechanism, principle or architecture card.

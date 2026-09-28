@@ -6,8 +6,8 @@
 - [Test08 architecture comparison](../../06-experiments/test08_architecture_search/architectures.md)
 - [Cross-disciplinary mechanical research](../../05-research-questions/investigations/mechanical-multiplexing-research-2026-09.md)
 - [Externalized-memory research direction](../../05-research-questions/investigations/research-direction-2026-09.md)
-- [Fabrication context](../../02-design-criteria/fabrication-context.md)
-- [Miniature dimensions](../../02-design-criteria/miniature-dimensions.md)
+- [Fabrication context](../../02-design-criteria/README.md)
+- [Miniature dimensions](../../02-design-criteria/README.md)
 
 ## Named research leads already recorded
 

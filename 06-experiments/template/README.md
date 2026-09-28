@@ -51,7 +51,7 @@ The eight-second limit is specific to this tiny 3×3 reference scenario; it is
 not the product-level timing target. Experiments that evaluate an actuation or
 map-update architecture should separately measure or estimate full-scale
 end-to-end map reconfiguration against the project target of **less than 30
-seconds** documented in `02-design-criteria/design-target.md`.
+seconds** documented in `02-design-criteria/README.md`.
 
 When copying this template, replace this goal and record the hypothesis,
 physical assumptions, engine-specific behavior and expected numeric bounds.
