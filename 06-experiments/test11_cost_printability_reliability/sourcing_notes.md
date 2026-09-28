@@ -156,3 +156,77 @@ figures used a multiplicative ×1.166 uplift and an over-counted register saving
 See
 [`../../07-evidence-and-decisions/dnd37-bom-ratification.md`](../../07-evidence-and-decisions/dnd37-bom-ratification.md).
 
+## 8. DND-49 K7 closure — trace the matched motor to ≤ $1.86 delivered (2026-09-28)
+
+Executable trace: [`../test12_winner_convergence/k7_motor_trace.py`](../test12_winner_convergence/k7_motor_trace.py)
+(checks: `k7_motor_trace_checks.py`). The K7 requirement is a **matched** 8 mm
+18° 2-phase **bipolar** PM stepper at **≤ $1.86 delivered-inclusive** (the
+break-even for the DND-44 / DND-47 machine-preserving path; each $1.00 of motor
+price adds $92.80 delivered over 80 channels).
+
+### Candidate table (retrieved 2026-09-28; qty 80 + spares unless noted)
+
+| Vendor | Part | Unit | Qty basis | Matched? | Specs | Evidence |
+|---|---|---:|---|---|---|---|
+| MOONS' shop | 8PM020S1-02001 | $40.00 | 1 (list) | yes | 8 mm, 18°, bipolar, 20 Ω, 0.25 A, 0.4 mN·m **holding**, 0.15 mN·m **detent** | SOURCED-LIVE |
+| CCHT (Made-in-China) | Compact 8mm 3.3V, model 07-005-032 | **$8.20** | 3,001+ (**$11.20 @100**) | yes | 8 mm, 18°, 2-ph 4-wire **bipolar**, 3.3 V, 165 mA, 20 Ω, **1.50 gf·cm (0.147 mN·m)** | SOURCED-LIVE |
+| CCHT (Made-in-China) | Compact 8mm 5V, model 07-005-036 | $11.20 | 100–1,000 | yes | 8 mm, 18°, bipolar drive, 5 V, 50 Ω, **0.23 gf·cm (0.023 mN·m)** | SOURCED-LIVE |
+| DFRobot | FIT0708 | $11.90 | 10+ | **no (10 mm)** | 10 mm, 18°, bipolar drive, 20 Ω, 3.3–5 V, 1500 pps auto-start, no torque published | SOURCED-LIVE |
+| Amazon | Abovehill multipack, 10 pair | $1.05 | 10-pair pack | **no (no step angle)** | 8 mm, 2-ph 4-wire, 5–6 V; step angle & bipolar unconfirmed | UNVERIFIED |
+| AliExpress | 10-pc 8×9.5 mm pack | $0.86 | 10-pc pack | **no (no step angle)** | 8 mm, 2-ph 4-wire, 3–5 V | UNVERIFIED |
+| AliExpress | Micro Mini 8 mm + gear | $2.66 | 1 pc | no (no 18° spec) | 8 mm, 2-ph 4-wire | UNVERIFIED |
+| AliExpress | 8/10 mm screw-slide linear | $3.59 | 1 pc | no (linear, no 18°) | 8/10 mm, 2-ph 4-wire | UNVERIFIED |
+| repo archive | PM08-2 datasheet | (€0.52/pair historic) | — | historical | 8 mm, 18°, 3.3 V, 40 Ω, 0.490 mN·m **pull-in**, >800 pps no-load | SOURCED-ARCHIVE (non-actionable) |
+
+URLs: CCHT [07-005-032](https://cn-ccht.en.made-in-china.com/product/TOLAylwxCbYh/China-Compact-8mm-3-3V-DC-Micro-Stepper-Motor-for-Precision-Control.html) /
+[07-005-036](https://cn-ccht.en.made-in-china.com/product/GZITWbJrHeRj/China-Compact-8mm-5V-DC-Micro-Stepper-Motor-for-Precision-Control.html) ·
+[Moons 8PM020S1](https://www.moonsindustries.com/p/8mm-permanent-magnet-stepper-motors/8pm020s1-02001-000004611120002314) ·
+[DFRobot FIT0708](https://www.dfrobot.com/product-2199.html) ·
+[Amazon B08346RFVZ](https://www.amazon.com/dp/B08346RFVZ) ·
+[AliExpress 32908973633](https://nl.aliexpress.com/item/32908973633.html),
+[4000806393169](https://nl.aliexpress.com/item/4000806393169.html),
+[1005008916092796](https://nl.aliexpress.com/item/1005008916092796.html).
+
+**Still not stocked** as a bare 8 mm 18° bipolar PM stepper: LCSC (search +
+wwwapi endpoints), DigiKey (403), Mouser (denied), Octopart (large/NEMA only),
+Adafruit, Pololu, SparkFun, Alibaba/Made-in-China (family bottoms at ~$8.20).
+
+### Verdict — **K7 REFUTED** (no matched traced part ≤ $1.86 delivered)
+
+| Motor basis | Delivered (E1–E6) | vs $500 |
+|---|---:|---:|
+| Untraced Amazon multipack $1.05 | $424.95 | under by $75.05 (**the basis the whole path rests on**) |
+| Untraced AliExpress $0.86 | $407.32 | under by $92.68 |
+| AliExpress $2.66 (sourced downside) | $574.36 | over by $74.36 |
+| **CCHT matched $11.20 @100** | **$1,366.87** | over by $866.87 |
+| CCHT matched $8.20 @3,001+ | $1,088.47 | over by $588.47 |
+| MOONS matched $40 | $4,039.51 | over by $3,539.51 |
+
+The sub-$1.86 clearing path **requires an untraced marketplace multipack whose
+step angle is not published**; every matched, currently-orderable part is
+$8.20–$40, putting the machine **$588–$3,540 over** the ceiling. Note also that
+the MOONS matched part's **detent torque (0.15 mN·m) equals the target running
+torque** — a caution flag, not a margin, since detent drag subtracts from
+running torque.
+
+### Minimum-cost design lever — the reduced head FAILS the time budget
+
+Reducing the 80-channel programming head would let a pricier matched motor fit
+(20 motors @ $8.20 ≈ $536 delivered; 10 ≈ $432), but the head must program all
+80 columns per row, so fewer channels means `80/N` re-index passes per row.
+Re-derived on the Test12 timing model:
+
+| Head width | Full-map time | 30 s budget |
+|---:|---:|---|
+| 80 | 26.3 s | **PASS** |
+| 40 | 104.1 s | FAIL |
+| 20 | 162.1 s | FAIL |
+| 10 | 229.4 s | FAIL |
+
+**The reduced-head lever is not viable.** The honest design-level lever is
+therefore not fewer motors: it is (a) qualify the marketplace multipack (buy a
+sample lot — forbidden by [DND-27](/DND/issues/DND-27)), or (b) accept a
+different actuator class / drive topology for the head. K7 stays **refuted on
+sourced evidence** and remains the binding cost residual of S5.
+
+
