@@ -52,6 +52,25 @@ Reliability is a **cross-cutting gate**: at a 0.01% per-cell error rate a
 promote any architecture. See
 [Test11 reliability.py](../06-experiments/test11_falsification_library/reliability.py).
 
+Test11 now also ships the **runnable** pieces of that gate so a survivor's fate
+is mechanical, not a judgement call:
+
+- [`isolation_rig_runner.py`](../06-experiments/test11_falsification_library/isolation_rig_runner.py)
+  scores the J2 measurement table into GO / KILL / INCONCLUSIVE per survivor
+  (with repeat-count guards). Its `--selftest` exercises every gate on
+  SYNTHETIC rows and is CI-wired; it is not evidence for any survivor.
+- [`measurement_plan.md`](../06-experiments/test11_falsification_library/measurement_plan.md)
+  is the decision table (peak vertical/lateral motion, miniature move/tip, seam,
+  drift, regional time) plus the reliability bridge from a counted coupon run to
+  `P(perfect 6400-cell map)`.
+- [`check_fixture.py`](../06-experiments/test11_falsification_library/check_fixture.py)
+  gates the print-ready fixture geometry (5.08 mm pitch, X1C bed fit, one-plate
+  layout). OpenSCAD is absent in the agent environment, so the SCAD parse step
+  is reported SKIPPED, never passed.
+
+The physical J2-0…J2-4 run remains the top missing evidence and is owned by the
+CTO.
+
 ## Mechanism coverage audit — September 2026
 
 A function-driven Deep Research pass deliberately searched outside the vocabulary

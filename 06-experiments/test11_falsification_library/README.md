@@ -25,7 +25,10 @@ discriminates them.
 | [`falsification_register.csv`](falsification_register.csv) | register | one row per claim: cheapest rejection test, gates, cycles, consequences |
 | [`make_register.py`](make_register.py) | generator | keeps the register CSV valid and field-count checked |
 | [`isolation_rig_protocol.md`](isolation_rig_protocol.md) | protocol | the buildable Q5 rig: layout, parts, procedure, gates |
-| [`j2_isolation_rig.scad`](j2_isolation_rig.scad) | CAD | holder, shared base rail, indicator bracket, miniature tray |
+| [`measurement_plan.md`](measurement_plan.md) | decision rules | turns peak motion / force / time into a mechanical GO-KILL-INCONCLUSIVE per survivor |
+| [`isolation_rig_runner.py`](isolation_rig_runner.py) | runnable test | gate engine over the J2 table; `--selftest` exercises every gate with no hardware, `--validate` checks the schema |
+| [`check_fixture.py`](check_fixture.py) | runnable test | fixture geometry gate: pitch, X1C bed fit, plate layout, protocol floors |
+| [`j2_isolation_rig.scad`](j2_isolation_rig.scad) | CAD | holder, shared base rail, indicator bracket, miniature tray, one-plate print layout |
 | [`measurements/isolation.csv`](measurements/isolation.csv) | blank record | the J2 measurement table; ships header-only |
 
 ## Core adversarial findings (calculation, not measurement)
@@ -86,28 +89,59 @@ evidence.
 ```bash
 python 06-experiments/test11_falsification_library/checks.py
 python 06-experiments/test11_falsification_library/make_register.py
+# runnable protocol-and-fixture tests (no hardware required):
+python 06-experiments/test11_falsification_library/isolation_rig_runner.py --validate
+python 06-experiments/test11_falsification_library/isolation_rig_runner.py --selftest
+python 06-experiments/test11_falsification_library/check_fixture.py
+# score a real measurement table once a run exists:
+python 06-experiments/test11_falsification_library/isolation_rig_runner.py \
+    --input 06-experiments/test11_falsification_library/measurements/isolation.csv
 ```
 
-Both use the Python standard library only. `checks.py` is part of the CI
-`engineering-checks` workflow.
+All use the Python standard library only. `checks.py`, the runner's
+`--validate`/`--selftest` modes and `check_fixture.py` are part of the CI
+`engineering-checks` workflow. The runner's `--selftest` prints `SYNTHETIC`
+rows: it proves the gate engine works, not that any survivor passes.
 
-Optional CAD export needs OpenSCAD on PATH:
+Optional CAD export needs OpenSCAD on PATH (absent in this agent environment,
+so the fixture's parse/render step reports SKIPPED, never passed):
 
 ```bash
 openscad -o /tmp/holder5.stl  -D tile=5  j2_isolation_rig.scad
 openscad -o /tmp/holder10.stl -D tile=10 j2_isolation_rig.scad
 openscad -o /tmp/rail.stl     -D part=\"base_rail\" j2_isolation_rig.scad
+openscad -o /tmp/plate.stl    -D part=\"plate\" j2_isolation_rig.scad
 ```
+
+## What the runnable tests do and do not prove
+
+- `isolation_rig_runner.py --validate` checks the shipped measurement table has
+  every field the gates read.
+- `isolation_rig_runner.py --selftest` feeds **SYNTHETIC** rows through the
+  engine and asserts each gate fires PASS/FAIL/INCONCLUSIVE as designed. It
+  proves the gate engine is wired correctly. It is **not** a pass for any
+  survivor.
+- `check_fixture.py` checks the fixture's declared geometry (5.08 mm pitch,
+  X1C bed fit, plate layout, protocol feature floors). It is a **calculation**,
+  not a print or a CAD render.
+- `isolation_rig_runner.py --input <run>.csv` is the only mode that scores
+  MEASURED rows; it prints GO / KILL / INCONCLUSIVE per survivor and exits
+  non-zero if anything is KILLed.
 
 ## Honesty statement
 
 Every number in `reliability.py` is a **calculation from stated assumptions**.
-The register's gates are **proposed thresholds**, not results. The J2 protocol
-is **unbuilt**. A run of `checks.py` proves the arithmetic is self-consistent;
-it proves nothing about hardware. The physical run is owned by the CTO.
+The register's gates and the measurement plan's decision table are **proposed
+thresholds**, not results. The J2 protocol and fixture are **unbuilt**. The
+runner and fixture checks prove the *machinery* is self-consistent and that a
+protocol can be applied mechanically; they prove nothing about hardware. The
+physical run is owned by the CTO.
 
 ## Next action
 
-Hand the J2 rig print set and the S5/Test09 Stage A fixture to the CTO for
-fabrication on the X1C, and run J2-0 (rig qualification) before any survivor.
-See [`isolation_rig_protocol.md`](isolation_rig_protocol.md#what-to-hand-to-the-cto).
+Hand the J2 rig print set (`part = "plate"`) and the S5/Test09 Stage A fixture
+to the CTO for fabrication on the X1C, run J2-0 (rig qualification) before any
+survivor, then feed the dated run into
+[`isolation_rig_runner.py`](isolation_rig_runner.py) to get the go/kill calls.
+See [`isolation_rig_protocol.md`](isolation_rig_protocol.md#what-to-hand-to-the-cto)
+and [`measurement_plan.md`](measurement_plan.md).
