@@ -83,6 +83,10 @@ jobs:
           python cost_closure_checks.py
           python cross_cutting_closure.py > /dev/null
           python cross_cutting_closure_checks.py
+      - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python falsifier_checks.py
       - name: Test13 Step-6 load/structure/power (DND-43)
         run: |
           cd 06-experiments/test13_step6_load_structure_power
