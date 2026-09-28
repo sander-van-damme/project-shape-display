@@ -31,6 +31,27 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 External mechanism precedent is not evidence that the shape-display implementation
 works. Update this matrix when project evidence changes.
 
+### Adversarial status of the survivors (Test11)
+
+The matrix above records *what evidence exists*. It does not record *what would
+kill each candidate*. [Test11](../06-experiments/test11_falsification_library/)
+adds that layer. No survivor has any **printed or measured** evidence; every gate
+below is proposed, not passed.
+
+| Survivor | Biggest unproven assumption | Cheapest rejection test | Physical status |
+|---|---|---|---|
+| S1 threshold/ratchet | four gates + ratchet + 40 mm travel fit at 5.08 mm | 2×5 strip, two masks, one shared stroke | NOT STARTED |
+| S2 planar tiles | four planar layers register for a 0.7 mm follower | 5×5 stack, five heights, checkerboards | NOT STARTED |
+| S3 multi-row DMA | 2×4 printed register completes a loaded dwell | 2×4 head section, one shared drive | NOT STARTED |
+| S4 shared-bus tiles | cheap clutch is independent under load; jams stay contained | two 2×4 tiles on one bus + forced jam | NOT STARTED |
+| S5 rotary stops | printed cam/detent/return work at pitch and load | Test09 Stage A→B then C | NOT STARTED (Test09 plan exists) |
+
+Reliability is a **cross-cutting gate**: at a 0.01% per-cell error rate a
+6400-cell map is correct only 52.7% of the time, and a six-cell coupon is
+99.94% perfect even at that failing rate. A clean small demo therefore cannot
+promote any architecture. See
+[Test11 reliability.py](../06-experiments/test11_falsification_library/reliability.py).
+
 ## Mechanism coverage audit — September 2026
 
 A function-driven Deep Research pass deliberately searched outside the vocabulary
