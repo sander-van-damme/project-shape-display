@@ -20,11 +20,9 @@ Every experiment should make clear:
 | [`test10_broad_architecture_screen/`](test10_broad_architecture_screen/) | Mechanism-neutral full-scale count, information, timing and selector-cost bounds | Reproducible calculation; no physical validation |
 | [`test11_cost_printability_reliability/`](test11_cost_printability_reliability/) | Purchased-BOM cost model for S1–S5, dated critical-part sourcing, 5.08 mm printability and reliability scaling | Cost/sourcing/print/reliability screens; no quotation or measurement |
 | [`test11.../delivered_3scenario/`](test11_cost_printability_reliability/delivered_3scenario/README.md) | DND-11: three-scenario **delivered** purchased BOM (best/expected/worst) with per-line vendor and evidence labels | Cost arithmetic over sourced listings + allowances; every survivor over $500 at expected |
+| [`test11_shared_drive_gate_analysis/`](test11_shared_drive_gate_analysis/) | Concrete S3/S4 shared-drive machines, ordered rejection tests, S5 gate status | Calculated system models + unrendered CAD coupon; no printing or measurement |
 
-Test08 and Test09 contain the current quantitative engineering line. Test11 adds
-the cross-cutting purchased-cost, sourcing and reliability model. Their code,
-parameters, BOMs, CAD and measurement files remain separate because they are
-reproducible evidence rather than narrative documentation.
+Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation. Test11 adds the cross-cutting purchased-cost/sourcing/reliability model and the shared-drive family (S3/S4) with the S5 gate list as calculated evidence.
 
 ## Legacy experiments
 
@@ -51,9 +49,11 @@ python 06-experiments/test09_test08_validation/run.py
 python 06-experiments/test10_broad_architecture_screen/checks.py
 python 06-experiments/test11_cost_printability_reliability/cost_model.py
 python 06-experiments/test11_cost_printability_reliability/print_reliability.py
+python 06-experiments/test11_shared_drive_gate_analysis/checks.py
+python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
 ```
 
-All three baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.
+All four baseline workflows use the Python standard library. Optional CAD/rendering steps documented inside the experiment READMEs may require additional tools such as OpenSCAD.
 
 ## Project-level gates
 

@@ -192,16 +192,46 @@ qualified the motor source, detent/coupling, return friction or structure. Its
 regional update requires lifting/clearing affected cells and is weaker than S2–S4.
 Do not spend on a larger build until its existing Test09 coupon gates pass.
 
+### Test11 refinement of S3, S4 and S5
+
+[Test11](../06-experiments/test11_shared_drive_gate_analysis/) converts S3/S4
+from analogies into concrete machines and gives S5 an explicit gate list. It is
+**calculated, not measured**; no coupon has been printed.
+
+- **S3 machine.** A carriage dwells over 4 rows (20 stations). Two per-station
+  cam banks with four independent 5.08 mm-pitch planes each program 80 columns
+  per sweep; four sweeps per station cover the four height increments. Selector
+  fingers are **printed, not bought**, so bought per-channel count is zero. The
+  calculated schedule is **25.20 s** (3 s reset, 6 s travel, 11.6 s writes,
+  4 s verify, 0.6 s park) with a lean allowance near $94.
+  - Hardest gate: **four rows share one 5.08 mm band = 1.27 mm per row**. A
+    0.8 mm finger leaves a 0.47 mm web on a 0.4 mm nozzle — one extrusion.
+    Rejection is a single fit-coupon print (T11-A). If it fuses, drop to 2–3
+    rows/station and re-pay the timing.
+  - Second gate: cumulative engaged-finger friction at 320 channels (T11-C) and
+    a complete loaded dwell (T11-B).
+- **S4 machine.** 64 tiles read 4 bus revolutions; the tile coupler must be a
+  **printed dog clutch** because 64 bought clutches at the $6 ceiling are $384
+  before the rest of the machine. The distinct failure mode is **correlated bus
+  backlash** (T11-E): at 1°/joint over ~10 joints the calculated last-tile height
+  error is 0.088 mm, within a 0.25 mm margin, but 3°/joint fails.
+- **S5 gates.** All five remain **open** (motor supply, detent/coupling, return
+  friction, structure, regional isolation). The cost boundary is reproduced:
+  $332 working non-motor leaves a **$1.058/motor** ceiling against Test08's $1.25
+  allowance. `checks.py` asserts this so it cannot be forgotten.
+
 ## Comparative decision frame
 
 | Direction | Visible full-map parallelism | Surprise regional update | Bought cell-level parts | Passive load path | Dominant uncertainty |
 |---|---|---|---|---|---|
 | S1 threshold/ratchet | four broadcast cycles | good only with tile isolation | none intended | ratchet | 5.08 mm gate density and mask writing |
 | S2 planar tiles | tile/all-board parallel read | medium; writer/media dependent | none intended | stop planes | registration and fast surprise media |
-| S3 multi-row DMA | 320–400 writes/station | strong | must be zero or very cheap | local memory | loaded dwell and printable fan-out |
-| S4 shared-bus tiles | 64 tiles in parallel | strong | ~64 couplers | local memory | cheap clutch and correlated bus faults |
-| S5 rotary reference | 80 cells/station | weak/medium | 80 motors/drivers | rotor stop | already-defined Test09 gates |
+| S3 multi-row DMA | 320 bits/sweep × 4 planes/station | strong | **zero** (printed fingers) | local ratchet | 1.27 mm row land and loaded dwell |
+| S4 shared-bus tiles | 64 tiles in parallel | strong | printed clutch (bought fails at 64×$6) | local ratchet | correlated bus backlash |
+| S5 rotary reference | 80 cells/station | weak/medium | 80 motors/drivers | rotor stop | five open Test09 gates; $1.058 motor ceiling |
 
 The search does **not** justify promotion into `08-current-design/`. S1–S4 are
 architecture hypotheses whose fastest falsification tests should precede detailed
-CAD or BOM optimization.
+CAD or BOM optimization. [Test11](../06-experiments/test11_shared_drive_gate_analysis/)
+supplies the ordered rejection tests and 3D-printable coupon for S3/S4 plus the
+S5 gate list; it is calculated evidence and has not been printed or measured.

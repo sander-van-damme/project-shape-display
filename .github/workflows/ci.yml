@@ -25,3 +25,9 @@ jobs:
         run: python 06-experiments/test11_cost_printability_reliability/checks.py
       - name: Test11 delivered-BOM checks
         run: python 06-experiments/test11_cost_printability_reliability/delivered_3scenario/checks.py
+      - name: Test11 shared-drive rejection gates
+        run: |
+          python 06-experiments/test11_shared_drive_gate_analysis/checks.py
+          python 06-experiments/test11_shared_drive_gate_analysis/coupon_geometry.py
+          python 06-experiments/test11_shared_drive_gate_analysis/make_coupon_stl.py
+          python 06-experiments/test11_shared_drive_gate_analysis/verify_coupon_stl.py
