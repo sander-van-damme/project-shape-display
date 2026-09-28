@@ -6,6 +6,97 @@ Research can propose, compare or decompose architectures, but it is not automati
 
 The sections below contain the research backlog, broader investigations, and the current research direction.
 
+## Architecture-search critical unknowns — September 2026 refresh
+
+The [fresh broad search](../04-architecture-candidates/) changes the immediate
+question from “which complete design looks best?” to a small set of discriminators
+shared by several survivors. These questions are new hypotheses, not evidence.
+
+### Q1 — Can passive threshold selection fit beside a load-bearing cell?
+
+Can a 5.08 mm-pitch column contain a ratchet/escapement plus four independently
+encoded threshold gates while retaining printable walls, 40 mm travel and a
+useful downward load rating? The decisive test is not one hand-operated latch:
+a 2×5 adjacent array must execute adversarial masks from one common stroke
+without double steps, neighbor release or progressive phase error.
+
+**Reject S1 if:** geometry cannot be packed at final pitch, or any tested
+clearance/material setting that holds 5 N requires an unreliable selection force
+window after print/process variation.
+
+### Q2 — What is the fastest complete write-to-read path for planar media?
+
+External planar memory is valuable only if unexpected terrain can be encoded,
+installed, registered and read fast enough. Measure the entire path for one tile:
+receive 100 five-state values, write/punch/set the medium, exchange it, move the
+platen, settle and verify. Do not report punch or motor speed alone. Compare
+disposable film, reusable shutters and row-profile strips using the same map.
+
+**Reject S2 for surprise updates if:** a representative tile cannot complete the
+path within a proportional share of 30 s, or exchange moves an adjacent loaded
+cell/miniature unacceptably. It may remain useful for preplanned maps.
+
+### Q3 — Can hundreds of choices be fanned out without hundreds of actuators?
+
+S3 needs 320–400 decisions per station but cannot afford 320–400 conventional
+solenoids. Investigate whether a printable shutter register, preloaded binary
+mask, serial-to-parallel mechanical register or matrix can load choices while
+the carriage moves, then release them in one powered dwell. Count state-load
+time, common-drive force, reset and failure recovery.
+
+**Reject S3 if:** a 2×4 coupon cannot repeatedly complete loaded
+engage/write/disengage within 0.40–0.60 s, or extrapolated selector hardware and
+drivers leave no credible <$500 BOM.
+
+### Q4 — Is a cheap tile clutch actually independent under load?
+
+S4 moves the bought selector boundary to about 64 tiles. Determine whether a
+printed dog clutch, wrap spring, sliding key, compliant coupling or valve can
+engage one tile, leave its loaded neighbor stationary, and allow all tiles to
+engage synchronously without destructive torque accumulation.
+
+**Reject the shared bus if:** one jam propagates into neighboring state loss,
+phase error grows with bus length, or a complete protected coupler cannot fit an
+average $3 ideal / $6 absolute per-channel allowance before the rest of the BOM.
+
+### Q5 — How much isolation is enough for a regional reveal?
+
+The requirement currently lacks a numerical disturbance limit. Establish a test
+using a loaded untouched tile and a representative miniature: peak vertical and
+lateral motion, residual height error, and whether the miniature moves or tips
+while an adjacent tile resets. Sweep 5×5, 10×10 and 20×20-cell boundaries. This
+single protocol discriminates S1, S2 and S4 and determines the practical tile
+size.
+
+### Q6 — Can inexpensive verification replace per-cell sensors?
+
+Test a camera/structured-light or scanning-contact height check after programming.
+Measure acquisition plus retry time, detection of one-level errors, occlusion by
+miniatures, and whether verification can be limited to changed regions. This is
+not required if mechanics prove intrinsically reliable, but it may relax costly
+precision in S1–S4.
+
+## Next experiment sequence
+
+Run small experiments in rejection-value order rather than refining one design:
+
+1. **Common isolation rig:** two adjacent loaded tiles and interchangeable drive
+   fixtures. It supplies the Q5 disturbance baseline for every survivor.
+2. **Threshold strip:** 2×5 final-pitch ratchets with two threshold layers and a
+   common stroke. This can kill broadcast-memory families cheaply.
+3. **Planar-media pair:** two 5×5 tiles, deliberately misregistered across a
+   tolerance matrix, with timed exchange and 100 read cycles.
+4. **Shared-bus pair:** two small tiles, selective and simultaneous coupling,
+   including a forced jam. This tests S4 failure containment before a long shaft.
+5. **Mechanical-register head:** only if the latch coupon works, add a 2×4
+   preloaded selector register and measure a complete loaded dwell.
+6. **Verification trial:** introduce known one-level errors into the preceding
+   coupons and compare camera/scan detection and retry time.
+
+Do not build a complete 10×10 tile until at least two different survivor coupons
+have been tested with the same load and disturbance protocol. That comparison is
+more informative than polishing the first mechanism that moves.
+
 ## Research backlog
 
 Underlying mechanism and discipline knowledge is normalized in the
