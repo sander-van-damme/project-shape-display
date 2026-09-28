@@ -121,9 +121,12 @@ audited line-by-line in `test12/cost_closure.py`. **The path clears only for a m
 delivered**; at the sourced $2.66 AliExpress micro-stepper it is $574.36.
 
 **The one cost risk (K7):** the only *traceable matched* 8 mm 18° bipolar PM stepper found
-(MOONS 8PM020S1) lists at **$40/ea**. The sub-$1.86 price is an untraced marketplace multipack
-and must be sample-verified by the purchaser before a build. This is the **binding residual** of
-the cost path (see §7).
+(MOONS 8PM020S1) lists at **$40/ea**; the cheapest *matched, orderable* part is a Chinese OEM
+(CCHT) at **$11.20 @100** (→ **$1,366.87 delivered**) and **$8.20 @3,001+** (→ $1,088.47). The
+sub-$1.86 price is an untraced marketplace multipack with **no published step angle** and must be
+sample-verified by the purchaser before a build; [DND-49](/DND/issues/DND-49) therefore records K7
+**refuted on sourced evidence** — no matched, traced part exists at ≤$1.86, and the reduced-head
+design lever breaks the 30 s budget. This is the **binding residual** of the cost path (see §7).
 
 ## 6. Fabrication, assembly and print readiness
 
@@ -172,7 +175,7 @@ is not proof they fit.
 | K4 | Regional update disturbs neighbour | calculation | **partially-closed** — 0.017 mm rail-bending *structural* sub-bound vs a 0.10 mm gate; J2 engine returns **INCONCLUSIVE** — stiction release and wear drift are measurement-only. ([DND-41](/DND/issues/DND-41)) |
 | K5 | Cost > $500 delivered | calculation | **closed on the sourced path (DND-44)** — honest *expected* baseline is **$592.06** ($510.40 ×1.16; the old $501.12 used a $0.80 driver + best-case motor). A machine-preserving source path lands at **$424.95 delivered, $75.05 margin**, conditional on a motor ≤ **$1.86**. `test12/cost_closure.py` |
 | K6 | Time > 30 s at the realised step rate | calculation | **conditional, but not rate-bound (DND-44)** — 26.251 s at the design point; the **rate-independent floor is 18.65 s** and only **~268 pps** meets 30 s (400 used). The 45.07 s sweep corner is *not* rate-recoverable (its floor is 34.47 s). Verify the loaded **dwell** and scan accel, not a "measured rate". `test12/timing_closure.py` |
-| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open — the binding residual of K5** — path clears only at ≤$1.86/motor; the $1.05 multipack is untraced and the only matched part (MOONS 8PM020S1) is $40/ea → $3,200 |
+| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open — the binding residual of K5; REFUTED at ≤$1.86 on sourced evidence ([DND-49](/DND/issues/DND-49))** — path clears only at ≤$1.86/motor; the $1.05 multipack is untraced (no published step angle) and every *matched* part found is $8.20–$40 → **$1,088–$4,040 delivered**. The reduced-head lever (fewer motors) **fails the 30 s budget** (40 channels → ~104 s). `test12/k7_motor_trace.py` |
 | K8 | Lateral holding (knocked miniature) | calculation | **closed-analytically (DND-44)** — lateral load is carried by the column body against its **guide** and free-length bending, not the detent. 1 N → **0.01 mm** (<0.10 mm gate); governing limit ~**9.4 N**. The detent only holds ~0.002 N and never had to hold lateral. Residual: printed guide-wall shear. `test12/cross_cutting_closure.py` |
 | K9 | Angular margin vs print tolerance | calculation | **closed-analytically (DND-45)** — Monte-Carlo of the sourced ±0.05 mm FDM tolerance: 5 levels keep margin positive (worst draw **1.72°**, mean 5.52°, 0 % fail bounded / **1.31 %** Gaussian); **6 levels fail 65.6 %**; **4 levels robust**. The K12 level-count tradeoff now carries a hard margin bound. `test12/K9_ANGULAR_MARGIN.md` |
 | K10 | Regional-update time untested end to end | calculation | **closed-analytically (DND-44)** — common platen ⇒ one full 41 mm stroke per update: 1 row ~**3.9 s**, 10 rows ~**6.3 s**, 80 rows ~**24.7 s**. `test12/cross_cutting_closure.py` |
@@ -242,7 +245,7 @@ closest reachable state under the no-physical-test constraint ([DND-27](/DND/iss
 
 | Killer | The one measurement that closes it |
 |---|---|
-| **K7** | a matched 8 mm 18° bipolar PM stepper at **≤ $1.86 delivered** (purchase + sample one lot) |
+| **K7** | a matched 8 mm 18° bipolar PM stepper at **≤ $1.86 delivered** — **refuted on sourced evidence ([DND-49](/DND/issues/DND-49))**: cheapest matched part is $8.20–$11.20 (→ $1,088–$1,367 delivered); the reduced-head lever fails the 30 s budget. Unretired only by purchasing+sampling the untraced marketplace multipack (forbidden under [DND-27](/DND/issues/DND-27)) or changing the actuator class |
 | K2 | printed PLA–PLA contact **μ** and the as-printed **scallop depth** (needs μ ≤ 0.32 or depth ≥ 0.31 mm) |
 | K9 | as-printed **rotor radius/core offset** under the ±0.05 mm tolerance |
 | K1-abuse | printed **core crush/shear** at a localized 5 N point load |

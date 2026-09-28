@@ -30,6 +30,16 @@ python detent_contact.py && python detent_checks.py   # K2 scallop sweep
 python k9_angular_margin.py && python k9_checks.py    # K9 Monte-Carlo
 ```
 
+DND-49 K7 matched-motor sourcing trace:
+
+```text
+cd 06-experiments/test12_winner_convergence
+python k7_motor_trace.py && python k7_motor_trace_checks.py   # K7 sourcing
+```
+
+Sourcing detail: [`../test11_cost_printability_reliability/sourcing_notes.md`](../test11_cost_printability_reliability/sourcing_notes.md) §8.
+
+
 ## 1. The decision
 
 | # | Candidate | Disposition | Binding evidence |
@@ -110,7 +120,7 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 | K4 | regional update disturbs a loaded neighbour | **partially-closed** | 0.017 mm is a rail-bending *structural* sub-bound vs a 0.10 mm gate; the J2 engine returns **INCONCLUSIVE** — release/drift are measurement-only. |
 | K5 | purchased cost > $500 delivered | **conditional (range)** | $501.12 sourced (over ceiling); **$483.37** reduced; real but small margin. |
 | K6 | full-map time > 30 s at realised step rate | **conditional** | 26.25 s best corner; only **17/108** sweep cases pass at 400 pps, worst **45.07 s**; needs a measured ≥400 pps loaded rate. |
-| K7 | purchased-actuator cost cliff (80 motors + 80 drivers) | **open** | only traceable matched 8 mm PM stepper is **$40/ea** (→ $3,200); sub-$1.05 part untraced. |
+| K7 | purchased-actuator cost cliff (80 motors + 80 drivers) | **refuted at ≤$1.86 (sourced), residual (DND-49)** | [DND-49](/DND/issues/DND-49) `k7_motor_trace.py`: cheapest *matched, orderable* 8 mm 18° bipolar PM stepper is CCHT **$11.20 @100 / $8.20 @3,001+** → **$1,088–$1,367 delivered**; MOONS 8PM020S1 $40 → $4,040. The $1.05 multipack clears but has **no published step angle**. Reduced-head lever **fails the 30 s budget** (40 ch → ~104 s). |
 | K8 | lateral holding (knocked miniature) | **open** | hard stop resists downward load only; detent restoring torque ≈ **0.00139 mN·m**; no analytic pass. |
 | K9 | angular margin vs print tolerance | **closed-analytically** | Monte-Carlo propagation of the sourced ±0.05 mm FDM positional tolerance through the toe/sector geometry ([K9_ANGULAR_MARGIN.md](K9_ANGULAR_MARGIN.md), [DND-45](/DND/issues/DND-45)): 5 levels keep margin positive (0% fail, worst draw **1.72°**, mean 5.52°) under the bounded tolerance reading, but a Gaussian tail gives 1.31% fail; **6 levels fail 65.6%**; **4 levels is robust (0% everywhere)**. The K12 level-count tradeoff now carries a hard margin bound. |
 | K10 | regional-update time untested end to end | **open** | homing + full 41 mm platen stroke not bounded. |
