@@ -43,6 +43,15 @@ works. Update this matrix when project evidence changes.
 input remains the printed **release-force spread across many identical pawls**,
 whose break-even is ≈ 9% sd; the coupon exists to measure it.
 
+### Convergence decision (CTO, 2026-09-28)
+
+**No survivor is promoted to [`08-current-design/`](../08-current-design/README.md).**
+See [`convergence-decision-2026-09.md`](convergence-decision-2026-09.md) (ADR-001) and the ranked
+elimination order in [`convergence-plan.md`](convergence-plan.md). S1–S5 are one bet in five shapes:
+a passive, printable, final-pitch state/selection element written by a small shared programmer and
+able to hold load without powered holding. The field is unsupported on regional isolation
+(unmeasured), release-force variation (≈9% sd break-even), and matched delivered cost (<$500).
+
 ### Adversarial status of the survivors (Test11)
 
 The matrix above records *what evidence exists*. It does not record *what would
@@ -82,6 +91,24 @@ is mechanical, not a judgement call:
 
 The physical J2-0…J2-4 run remains the top missing evidence and is owned by the
 CTO.
+
+### Test11 survivor-specific calculated results
+
+[Test11 threshold-ratchet screen](../06-experiments/test11_threshold_ratchet_s1/README.md)
+(InventorAlpha) adds, for S1/S2:
+
+- S1 gate/pawl **fit** at pitch (2.28 mm budget closes); density is *not* the killer.
+- S1 worst-case stroke force ≈2.37 kN if 6,400 pawls arm in one stroke → **fails** unless banked
+  (**S1-B**: ≈296 N/stroke, ≈17.6 s).
+- S1/S2 mask writing needs ≥500 channels or off-line pre-write; serial is 2,560 s.
+- S1 full map ≈5.3 s, S2 full ≈2.0 s → timing passes; force and media-writing discriminate.
+- S2 survives only double-buffered with an off-line writer.
+
+### Physical evidence status
+
+**Printed: none. Measured: none.** The J2 isolation rig is **PRINT-READY PENDING HARDWARE**
+(slice-calculation verdict, no slicer binary, no print). The physical J2-0…J2-4 run is the top
+missing evidence and is owned by the CTO ([DND-14](/DND/issues/DND-14)).
 
 ## Mechanism coverage audit — September 2026
 
