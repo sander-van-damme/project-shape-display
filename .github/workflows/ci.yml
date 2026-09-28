@@ -22,11 +22,11 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
       - run: python -m pytest
-      - run: python tests/template/simulation.py --engine kinematic
+      - run: python experiments/template/simulation.py --engine kinematic
       - uses: actions/upload-artifact@v4
         with:
           name: template-simulation-results
-          path: tests/template/results/
+          path: experiments/template/results/
 
   physics-smoke:
     runs-on: ubuntu-latest
@@ -50,8 +50,8 @@ jobs:
           python -m pip install --disable-pip-version-check
           -r requirements-dev.txt ${{ matrix.packages }}
       - name: Smoke-test ${{ matrix.engine }} import
-        run: python tests/template/simulation.py --engine "${{ matrix.engine }}"
+        run: python experiments/template/simulation.py --engine "${{ matrix.engine }}"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.engine }}-results
-          path: tests/template/results/
+          path: experiments/template/results/

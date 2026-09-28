@@ -6,7 +6,7 @@ a common lifting platen. Full-scale timing is conditionally 26.25 s; the working
 purchased BOM is $432, or $518.40 with 20% contingency. Return friction, reliable
 angular memory, head coupling, structural support and sourcing remain gates.
 
-Start with the [engineering report](../../docs/architecture-investigation-2026-09.md).
+Start with the [engineering report](../../research/architecture-investigation-2026-09.md).
 Other evidence:
 
 - [Architecture families and rejection/iteration log](architectures.md)
@@ -19,16 +19,16 @@ Other evidence:
 From repository root, Python 3.11+, standard library only for analysis/checks:
 
 ```text
-python tests/test08_architecture_search/analysis.py
-python tests/test08_architecture_search/checks.py
+python experiments/test08_architecture_search/analysis.py
+python experiments/test08_architecture_search/checks.py
 ```
 
 Optional variable-section cam buckling screen (tested with NumPy 1.26.3):
 
 ```text
 python -m pip install numpy==1.26.3
-python tests/test08_architecture_search/cam_strength.py
-python tests/test08_architecture_search/cam_strength.py --core-radius 0.45
+python experiments/test08_architecture_search/cam_strength.py
+python experiments/test08_architecture_search/cam_strength.py --core-radius 0.45
 ```
 
 This solver checks itself against the closed-form uniform cantilever result and
@@ -36,7 +36,7 @@ records cross-section and element-count convergence. It is a structural screen,
 not a material qualification or rated load. Output is `results/cam_strength.json`;
 the override preserves a separate file documenting the rejected thin-core case.
 
-Optional report figure: `python tests/test08_architecture_search/plots.py`
+Optional report figure: `python experiments/test08_architecture_search/plots.py`
 (matplotlib 3.8.2). It writes `results/engineering_summary.png` and `.svg` from
 the current metrics and sensitivity sweep, without another simulation.
 
@@ -44,7 +44,7 @@ For actual parametric CSG/STL exports and scoped interference checks, install/us
 OpenSCAD (tested with the installed Windows command-line program):
 
 ```text
-python tests/test08_architecture_search/cad_check.py --render
+python experiments/test08_architecture_search/cad_check.py --render
 ```
 
 The CAD command can take several minutes. It fails on compiler warnings, errors,

@@ -9,14 +9,24 @@ turn terrain, walls, platforms, stairs, pits, and other map features into physic
 relief while leaving a usable surface for miniatures.
 
 The repository is deliberately experimental. Historical trials are preserved
-below `tests/`, and future experiments are free to use different mechanisms,
+below `experiments/`, and future experiments are free to use different mechanisms,
 languages, CAD systems, simulators, APIs, or folder layouts when that produces a
 better engineering result.
+
+## Repository layout
+
+The repository is organized by **what information is for**, rather than by file type:
+
+- [`project-scope/`](project-scope/) — product requirements, design context, fabrication constraints, and scale assumptions.
+- [`engineering-knowledge/`](engineering-knowledge/) — durable engineering memory: disciplines, mechanisms, transferable principles, architecture hypotheses, matrices, and sources.
+- [`research/`](research/) — investigations, research directions, and the backlog of unresolved hypotheses.
+- [`experiments/`](experiments/) — historical and current engineering experiments, prototypes, measurements, and reproducible evidence.
+- [`tools/`](tools/) — repository utilities for creating experiments and querying the knowledge base.
 
 ## Product target
 
 The engineering target is defined in more detail in
-[`docs/design-target.md`](docs/design-target.md). The most important constraints
+[`project-scope/design-target.md`](project-scope/design-target.md). The most important constraints
 are:
 
 - **Use case:** a real tabletop D&D battle map, not a generic demo display.
@@ -55,12 +65,12 @@ mechanism can plausibly scale toward these battle-map requirements.
 
 Shared project context:
 
-- [D&D miniature dimensions and travel basis](docs/miniature-dimensions.md)
-- [Bambu Lab X1 Carbon fabrication context](docs/fabrication-context.md)
-- [Mechanical knowledge base](docs/knowledge/README.md) — disciplines, mechanisms, principles and architectures
-- [Research backlog / ideas awaiting tests](docs/research-backlog.md)
-- [Cross-disciplinary mechanical multiplexing research](docs/mechanical-multiplexing-research-2026-09.md)
-- [Next research direction: externalized mechanical memory](docs/research-direction-2026-09.md)
+- [D&D miniature dimensions and travel basis](project-scope/miniature-dimensions.md)
+- [Bambu Lab X1 Carbon fabrication context](project-scope/fabrication-context.md)
+- [Engineering knowledge base](engineering-knowledge/README.md) — disciplines, mechanisms, principles and architectures
+- [Research backlog / ideas awaiting tests](research/research-backlog.md)
+- [Cross-disciplinary mechanical multiplexing research](research/mechanical-multiplexing-research-2026-09.md)
+- [Next research direction: externalized mechanical memory](research/research-direction-2026-09.md)
 
 ## Testing philosophy
 
@@ -84,18 +94,18 @@ and records enough information for someone else to understand or reproduce the
 result. Do not keep a weaker approach merely to stay compatible with the current
 framework.
 
-See [`tests/README.md`](tests/README.md) for the suggested workflow and the
+See [`experiments/README.md`](experiments/README.md) for the suggested workflow and the
 expectations that apply regardless of implementation.
 
 ## Suggested reference workflow
 
 The latest full-scale investigation is
-[`test08_architecture_search`](tests/test08_architecture_search/README.md).
-Its [engineering report](docs/architecture-investigation-2026-09.md) compares
+[`test08_architecture_search`](experiments/test08_architecture_search/README.md).
+Its [engineering report](research/architecture-investigation-2026-09.md) compares
 architecture families, models complete 80×80 map updates and records why the
 strongest remaining candidate is still conditional rather than product-qualified.
 
-The next experiment, [Test09 validation](tests/test09_test08_validation/README.md),
+The next experiment, [Test09 validation](experiments/test09_test08_validation/README.md),
 audits that candidate with an uncertainty register, independent timing and
 reliability checks, current sourcing, printable coupons and staged physical
 gates. Start with its X1C/PLA clearance coupons; no physical qualification or
@@ -106,11 +116,11 @@ Python 3.11 + PyYAML + CadQuery reference template with a deterministic simulato
 and optional MuJoCo/PyBullet backends:
 
 ```bash
-python scripts/new_test.py test08_my_experiment
+python tools/new_experiment.py test08_my_experiment
 python -m pip install -r requirements-dev.txt
-$EDITOR tests/test08_my_experiment/params.yaml
-python tests/test08_my_experiment/model.py
-python tests/test08_my_experiment/simulation.py
+$EDITOR experiments/test08_my_experiment/params.yaml
+python experiments/test08_my_experiment/model.py
+python experiments/test08_my_experiment/simulation.py
 ```
 
 Useful commands for the reference template:
@@ -120,16 +130,16 @@ Useful commands for the reference template:
 python -m pytest
 
 # Dependency-light baseline simulation
-python tests/template/simulation.py --engine kinematic
+python experiments/template/simulation.py --engine kinematic
 
 # Optional rigid-body backends
 python -m pip install mujoco pybullet
-python tests/template/simulation.py --engine mujoco
-python tests/template/simulation.py --engine pybullet
+python experiments/template/simulation.py --engine mujoco
+python experiments/template/simulation.py --engine pybullet
 
 # Optional parametric CAD export
 python -m pip install cadquery
-python tests/template/model.py
+python experiments/template/model.py
 ```
 
 PyChrono can still be useful for flexible bodies, cables, buckling, or FEA. It is

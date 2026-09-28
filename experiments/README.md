@@ -1,19 +1,19 @@
-# Test authoring guide
+# Experiment authoring guide
 
-## What a test is for
+## What an experiment is for
 
-A test is an engineering experiment that helps decide how to build the D&D
-battle-map shape display described in [`../docs/design-target.md`](../docs/design-target.md).
-Tests are the **evidence layer** for the [mechanical knowledge base](../docs/knowledge/README.md);
+An experiment is an engineering investigation that helps decide how to build the D&D
+battle-map shape display described in [`../project-scope/design-target.md`](../project-scope/design-target.md).
+Experiments are the **evidence layer** for the [mechanical knowledge base](../engineering-knowledge/README.md);
 a completed experiment should feed durable conclusions back into the relevant
 mechanism, principle or architecture card.
 
 The repository currently contains a Python/CadQuery/simulation framework, but
-**that framework is a suggestion, not a contract**. Future tests are explicitly
+**that framework is a suggestion, not a contract**. Future experiments are explicitly
 allowed to break its APIs, replace it, or ignore it when another approach gives
 better evidence.
 
-A useful test should make the following clear regardless of implementation:
+A useful experiment should make the following clear regardless of implementation:
 
 - the engineering question or hypothesis;
 - the mechanism or idea being evaluated;
@@ -34,7 +34,7 @@ Examples:
 
 Avoid names such as `testNN_validation` or `testNN_testXX_validation` when a
 mechanism/domain name can say what the experiment actually contains. Historical
-directory paths stay unchanged so old evidence and links remain reproducible.
+experiment directory names stay unchanged so old evidence and links remain reproducible.
 
 ## Suggested reference framework
 
@@ -51,7 +51,7 @@ starting point:
 Create a copy with:
 
 ```bash
-python scripts/new_test.py test08_my_experiment
+python tools/new_experiment.py test08_my_experiment
 ```
 
 The helper script and four-file layout are conveniences. They are not mandatory.
@@ -85,7 +85,7 @@ The current CI only verifies the maintained reference framework. An alternative
 test does not automatically need to plug into that CI; add appropriate checks
 when they provide value.
 
-## Project-level constraints to carry into tests
+## Project-level constraints to carry into experiments
 
 When relevant, evaluate against the full product target:
 
@@ -139,7 +139,7 @@ question second**.
 ## Legacy tests
 
 The [Test09 validation workflow](test09_test08_validation/README.md) follows
-Test08 without altering its evidence. Run `python tests/test09_test08_validation/run.py`
+Test08 without altering its evidence. Run `python experiments/test09_test08_validation/run.py`
 for deterministic analytical checks, or add `--render` for OpenSCAD coupon
 exports and scoped CAD checks. Physical records remain blank until measured.
 

@@ -1,7 +1,7 @@
 """Full-scale architecture experiment. Python standard library only; mm, s, N, USD.
 
 This is an event/geometry/force bound model, not a contact physics simulation.
-Run: python tests/test08_architecture_search/analysis.py
+Run: python experiments/test08_architecture_search/analysis.py
 """
 from pathlib import Path
 import csv

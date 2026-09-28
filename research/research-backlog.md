@@ -16,7 +16,7 @@ blanket rejection of every variant in the same family.
 
 ## R01 — high-speed travelling multi-row actuator
 
-**Test09 follow-up:** the [separate quantitative screen](../tests/test09_test08_validation/multirow.md)
+**Test09 follow-up:** the [separate quantitative screen](../experiments/test09_test08_validation/multirow.md)
 now covers 1–5 rows, 20/40/80 parallel columns, independent full-stroke drives
 and shared motion with local selectors. Four/five full-width shared rows have
 conditional timing windows, but no measured selector or qualified <$500 BOM.

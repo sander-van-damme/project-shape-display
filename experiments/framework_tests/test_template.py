@@ -11,7 +11,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[2]
-TEMPLATE = ROOT / "tests" / "template"
+TEMPLATE = ROOT / "experiments" / "template"
 
 
 def load_simulation():

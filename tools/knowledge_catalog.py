@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dynamically inventory docs/knowledge without a hand-maintained catalog."""
+"""Dynamically inventory engineering-knowledge without a hand-maintained catalog."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import sys
 import tomllib
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-KNOWLEDGE_ROOT = REPO_ROOT / "docs" / "knowledge"
+KNOWLEDGE_ROOT = REPO_ROOT / "engineering-knowledge"
 CARD_TYPES = {"discipline", "mechanism", "principle", "architecture"}
 
 
