@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a numbered shape-display test from the maintained template."""
+"""Create a numbered shape-display experiment from the maintained template."""
 
 from __future__ import annotations
 
@@ -16,10 +16,10 @@ NAME_PATTERN = re.compile(r"test\d{2}_[a-z0-9_]+$")
 def create_test(name: str) -> Path:
     if not NAME_PATTERN.fullmatch(name) or name == "test00_template":
         raise ValueError("name must match testNN_short_description")
-    destination = ROOT / "tests" / name
+    destination = ROOT / "experiments" / name
     if destination.exists():
         raise FileExistsError(f"test already exists: {destination}")
-    shutil.copytree(ROOT / "tests" / "template", destination, ignore=shutil.ignore_patterns("results"))
+    shutil.copytree(ROOT / "experiments" / "template", destination, ignore=shutil.ignore_patterns("results"))
     return destination
 
 

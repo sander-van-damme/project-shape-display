@@ -16,8 +16,8 @@ coupons on the actual X1C; do not buy eighty motors or print 6400 parts.
 Python 3.11+, standard library only; no package installation for this workflow:
 
 ```text
-python tests/test09_test08_validation/run.py
-python tests/test09_test08_validation/run.py --render
+python experiments/test09_test08_validation/run.py
+python experiments/test09_test08_validation/run.py --render
 ```
 
 The second command also needs **OpenSCAD 2021.01** on PATH (`openscad.com` on

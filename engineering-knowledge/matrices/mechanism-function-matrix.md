@@ -1,6 +1,6 @@
 # Mechanism × function matrix
 
-This is a human-readable synthesis view. Use `scripts/knowledge_catalog.py` for
+This is a human-readable synthesis view. Use `tools/knowledge_catalog.py` for
 the live machine-readable inventory.
 
 Legend: ✓ primary, ◐ partial/supporting, — not provided.

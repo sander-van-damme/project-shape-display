@@ -18,12 +18,12 @@ reliable passive height memory at 5.08 mm pitch? A small coupon can reject that
 idea before thousands of parts are printed.
 
 Reproduction and evidence are in
-[test08](../tests/test08_architecture_search/README.md), including the
-[architecture comparison](../tests/test08_architecture_search/architectures.md),
-[historical audit](../tests/test08_architecture_search/history.md),
-[source ledger](../tests/test08_architecture_search/sources.md),
-[parameters](../tests/test08_architecture_search/params.json) and
-[BOM](../tests/test08_architecture_search/bom.csv).
+[test08](../experiments/test08_architecture_search/README.md), including the
+[architecture comparison](../experiments/test08_architecture_search/architectures.md),
+[historical audit](../experiments/test08_architecture_search/history.md),
+[source ledger](../experiments/test08_architecture_search/sources.md),
+[parameters](../experiments/test08_architecture_search/params.json) and
+[BOM](../experiments/test08_architecture_search/bom.csv).
 
 ## Scope and search
 
@@ -324,6 +324,6 @@ do not glue thousands of critical cells into a monolithic board.
 This work does not use a kinematic animation as proof. Tests ensure the known
 weak cases remain failures. The proposed detent, hard stop, rotor retention and
 head still need detailed prototype design and physical qualification. The
-[prototype protocol](../tests/test08_architecture_search/prototype.md) gives
+[prototype protocol](../experiments/test08_architecture_search/prototype.md) gives
 measurable continuation/abandonment gates. That is the next decision point;
 neither a full-scale purchase nor a 6400-part print batch is justified yet.

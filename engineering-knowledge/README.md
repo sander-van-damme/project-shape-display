@@ -1,4 +1,4 @@
-# Mechanical knowledge base
+# Engineering knowledge base
 
 This directory is the project's **conceptual engineering memory**. Tests remain
 important, but they are the evidence layer rather than the primary storage model.
@@ -24,7 +24,7 @@ discipline
 - **Architectures (`A-xxx`)** — project-specific combinations of mechanisms and
   principles.
 
-The [research backlog](../research-backlog.md) tracks unresolved project
+The [research backlog](../research/research-backlog.md) tracks unresolved project
 hypotheses. It should link here rather than becoming a duplicate encyclopedia.
 
 ## Dynamic catalog
@@ -32,10 +32,10 @@ hypotheses. It should link here rather than becoming a duplicate encyclopedia.
 There is deliberately **no hand-maintained catalog file**.
 
 ```bash
-python scripts/knowledge_catalog.py
-python scripts/knowledge_catalog.py --format markdown
-python scripts/knowledge_catalog.py --type mechanism
-python scripts/knowledge_catalog.py --format json --write results/knowledge-catalog.json
+python tools/knowledge_catalog.py
+python tools/knowledge_catalog.py --format markdown
+python tools/knowledge_catalog.py --type mechanism
+python tools/knowledge_catalog.py --format json --write results/knowledge-catalog.json
 ```
 
 The script scans the current repository tree and reads TOML frontmatter from

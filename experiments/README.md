@@ -1,10 +1,10 @@
-# Test authoring guide
+# Experiment authoring guide
 
 ## What a test is for
 
 A test is an engineering experiment that helps decide how to build the D&D
-battle-map shape display described in [`../docs/design-target.md`](../docs/design-target.md).
-Tests are the **evidence layer** for the [mechanical knowledge base](../docs/knowledge/README.md);
+battle-map shape display described in [`../project-scope/design-target.md`](../project-scope/design-target.md).
+Tests are the **evidence layer** for the [mechanical knowledge base](../engineering-knowledge/README.md);
 a completed experiment should feed durable conclusions back into the relevant
 mechanism, principle or architecture card.
 
@@ -51,7 +51,7 @@ starting point:
 Create a copy with:
 
 ```bash
-python scripts/new_test.py test08_my_experiment
+python tools/new_experiment.py test08_my_experiment
 ```
 
 The helper script and four-file layout are conveniences. They are not mandatory.
@@ -139,7 +139,7 @@ question second**.
 ## Legacy tests
 
 The [Test09 validation workflow](test09_test08_validation/README.md) follows
-Test08 without altering its evidence. Run `python tests/test09_test08_validation/run.py`
+Test08 without altering its evidence. Run `python experiments/test09_test08_validation/run.py`
 for deterministic analytical checks, or add `--render` for OpenSCAD coupon
 exports and scoped CAD checks. Physical records remain blank until measured.
 

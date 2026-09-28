@@ -275,7 +275,7 @@ as proof that faults require no time. The aggregate model cannot certify recover
 coverage; review injected-fault traces separately. If no bounded recovery exists,
 record the failure in reliability and mark U19/U25 failed rather than entering 0.
 
-Run `python tests/test09_test08_validation/qualify.py --timing PATH_TO_COPY`.
+Run `python experiments/test09_test08_validation/qualify.py --timing PATH_TO_COPY`.
 Header-only shipped data produces `NOT_MEASURED`; missing traces, invalid
 numbers and duplicate run IDs are rejected. Stage A–E gates remain manual
 engineering decisions with linked records; a timing-only flag cannot override

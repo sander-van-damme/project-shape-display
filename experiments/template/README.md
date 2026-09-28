@@ -6,7 +6,7 @@ Reconfigure a 3×3 display to a staircase with one XY-Z plunger and verify final
 height accuracy, locking, collision count, travel and total simulated time.
 
 This directory is a **reference example**, not a required architecture. It is
-also the source copied when `scripts/new_test.py` is used. Future tests may use
+also the source copied when `tools/new_experiment.py` is used. Future tests may use
 different code, APIs, languages, CAD tools, simulation methods, or file layouts.
 
 ## Inputs and model
@@ -26,13 +26,13 @@ From the repository root:
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python tests/template/simulation.py --engine kinematic
+python experiments/template/simulation.py --engine kinematic
 
 # Optional CAD and physics tools
 python -m pip install cadquery mujoco pybullet
-python tests/template/model.py
-python tests/template/simulation.py --engine mujoco
-python tests/template/simulation.py --engine pybullet
+python experiments/template/model.py
+python experiments/template/simulation.py --engine mujoco
+python experiments/template/simulation.py --engine pybullet
 ```
 
 For flexible rods or buckling studies, PyChrono is another possible tool. It is
@@ -51,7 +51,7 @@ The eight-second limit is specific to this tiny 3×3 reference scenario; it is
 not the product-level timing target. Experiments that evaluate an actuation or
 map-update architecture should separately measure or estimate full-scale
 end-to-end map reconfiguration against the project target of **less than 30
-seconds** documented in `docs/design-target.md`.
+seconds** documented in `project-scope/design-target.md`.
 
 When copying this template, replace this goal and record the hypothesis,
 physical assumptions, engine-specific behavior and expected numeric bounds.
