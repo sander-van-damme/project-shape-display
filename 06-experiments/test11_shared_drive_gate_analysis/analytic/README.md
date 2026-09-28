@@ -40,21 +40,28 @@ when the input is not a measurement.
   worst case is **−0.05 mm** (the ±0.20 mm land window is itself the bound).
 - **Monte Carlo (200k, sigma = half_range/√3):** min-web pass fraction 1.0000,
   lateral 1.0000, land reach 0.9077.
-- **Pivot free play (M3) is NOT resolved analytically.** The coupon prints its
-  pivot in place with **no designed radial clearance**, so whether it frees is a
-  slicer/print-bias question. The analytic record deliberately leaves `M3_pivot`
-  blank so the engine returns `INCONCLUSIVE` rather than a false pass or kill.
-- **Disposition from the engine:** `INCONCLUSIVE_RUN_A4` with an explicit
-  analytic-evidence warning. The decision tree cannot reach
-  `S3_DENSITY_PRINTABLE` without an M3 answer.
+- **Pivot free play (M3) is now resolved analytically (DND-4).** The coupon was
+  changed from a printed-in-place pivot (no designed clearance) to a **designed
+  journal fit**: the finger boss (`PIVOT_D = 0.80`) turns in a base socket bore
+  `PIVOT_SOCKET_D = 0.80 + 2×0.20 = 1.20 mm`. The diametral free play is a
+  CAD-set **0.40 mm**; worst-case boss-high/socket-low tolerance leaves
+  **+0.08 mm** margin over the 0.20 mm free-gap floor, and the Monte Carlo pass
+  fraction is **0.99998** (200k samples; the tiny tail is normal-distribution
+  beyond the bounded ±0.06 tolerance, not a design boundary).
+- **Disposition from the engine:** `S3_DENSITY_PRINTABLE` on the `A1-ANALYTIC`
+  0.4 mm baseline row, with the explicit `[ANALYTIC SCREEN, NOT A PRINT]`
+  warning. The decision tree reaches a pass on M1–M6 analytically once M3 is a
+  designed fit.
 
 ## Residual uncertainty (vs a physical coupon)
 
 This is **not a print**. The analytic gate cannot see fusion, stringing, layer
-adhesion, elephant-foot, warp, or whether the printed-in-place pivot actually
-frees. It bounds the *dimensional* stack-up only. The highest-value cheap
-follow-up is an explicit **designed pivot clearance** added to the SCAD, which
-would convert M3 from unmodelled to analytic.
+adhesion, elephant-foot, warp, or how the printed-in-practice boss/socket pair
+deviates from the modelled tolerance class. It bounds the *dimensional* stack-up
+only. With the designed clearance, M3 is no longer an unmodelled slicer unknown,
+but the printed journal fit is still a **permanent qualitative risk** (ADR-001
+§5.2). The M4 land-reach worst case (−0.05 mm) and its 0.91 MC pass fraction are
+unchanged and are the next analytic item to close.
 
 ## FDM limit sources
 

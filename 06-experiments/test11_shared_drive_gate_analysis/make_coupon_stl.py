@@ -34,6 +34,10 @@ FINGER_T = 0.80
 FINGER_H = 3.20
 FINGER_L = 4.40
 PIVOT_D = 0.80
+# DND-4: designed radial journal clearance (finger boss vs base socket). The
+# socket bore is PIVOT_D + 2*PIVOT_CLR; see selector_fanout_coupon.scad.
+PIVOT_CLR = 0.20
+PIVOT_SOCKET_D = PIVOT_D + 2 * PIVOT_CLR
 NOTCH_D = 0.55
 
 BANK_R = 2.20
@@ -123,6 +127,15 @@ def base():
         for sy in (-1, 1):
             tris += box(sx * (PITCH - 0.5), sy * (PITCH * 2 - 0.5), 0.2,
                         0.8, 0.8, 1.2)
+    # DND-4: pivot posts with a designed socket bore. This stdlib generator has
+    # no boolean kernel, so the socket is represented as an inner post ring
+    # marker at the design diameter (PIVOT_SOCKET_D); the true bore is produced
+    # by the SCAD boolean. It is a parity/visual cue, not a volumetric subtract.
+    for x in (0, 1):
+        for y in range(ROWS_PER_STATION):
+            cx = (x - 0.5) * PITCH
+            cy = (y - 1.5) * PITCH
+            tris += cyl(cx, cy, 0.9, PIVOT_SOCKET_D, BAND + 0.6, axis="y")
     return tris
 
 

@@ -7,11 +7,12 @@
       "candidate": "S3",
       "name": "selector fan-out fit coupon",
       "question": "Do 4 independently rockable selector fingers and a 4-plane cam bank fit inside one 5.08 mm band on a 0.4 mm nozzle?",
-      "build": "selector_fanout_coupon.scad, part=assembled_2x4; also individual finger/bank",
+      "build": "selector_fanout_coupon.scad, part=assembled_2x4; also individual finger/bank. DND-4 analytic form: analytic/t11a_analytic_gate.py + runs/t11a_analytic_measurements.csv.",
       "measurement": ["minimum printed web between adjacent fingers", "notch diameter achieved", "finger pivot free play", "bank-to-finger toe contact height"],
       "pass": "web >= 0.20 mm on all 4 rows, notch present, pivot free without hand fitting",
       "kill": "web < 0.20 mm or any finger fuses to its neighbour at 0.4 mm nozzle; retry once at 0.2 mm nozzle then reject S3 head density",
-      "cost_of_test_min": 45
+      "cost_of_test_min": 45,
+      "analytic_result_dnd4": "M3 pivot resolved by a designed journal fit (PIVOT_CLR=0.20 mm/side, socket bore 1.20 mm); worst-case diametral free play +0.08 mm over the 0.20 mm floor; engine disposition S3_DENSITY_PRINTABLE on the 0.4 mm baseline (ANALYTIC SCREEN, NOT A PRINT). Remaining thin term: M4 land reach -0.05 mm worst case."
     },
     {
       "id": "T11-B",
