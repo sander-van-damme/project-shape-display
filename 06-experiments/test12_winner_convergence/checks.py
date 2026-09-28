@@ -128,26 +128,43 @@ class WinnerConvergenceChecks(unittest.TestCase):
         self.assertGreaterEqual(s["travel"]["increment_mm"], 9.9)
 
     def test_K1_abuse_screen_is_an_open_blocker(self):
-        # DND-41: 4.96 N < 5 N Test08 measurement-protocol screen; the 1 N service
-        # load is unsourced, so K1 is OPEN, not closed.
-        self.assertLess(m.CAM_CRITICAL_BUCKLING_N, m.ABUSE_SCREEN_N)
-        k1 = [k for k in m.stackup()["killers"] if k["id"] == "K1"]
+        # DND-44 closed K1 for the distributed SERVICE load (buckling_closure.py)
+        # and bounded the localized abuse case. The core-1.0 still does not meet
+        # the 5 N abuse screen; the 1 N service load was shown conservative.
+        b = m.stackup()
+        k1 = [k for k in b["killers"] if k["id"] == "K1"]
         self.assertEqual(len(k1), 1)
-        self.assertEqual(k1[0]["status"], "open")
+        self.assertIn("closed-analytically", k1[0]["status"])
+        # The localized 5 N screen is still named as the residual.
+        self.assertIn("abuse", k1[0]["result"])
 
     def test_killer_list_is_honestly_labelled(self):
         s = m.stackup()
         statuses = {k["id"]: k["status"] for k in s["killers"]}
-        # DND-41 relabels and the six added killers.
-        self.assertEqual(statuses["K1"], "open")
+        # DND-41 relabelled; DND-44 closed K1(service)/K5/K6/K8/K10 and bounded K11.
+        self.assertIn("closed-analytically", statuses["K1"])
         self.assertEqual(statuses["K4"], "partially-closed")
-        self.assertEqual(statuses["K5"], "conditional")
-        self.assertEqual(statuses["K6"], "conditional")
-        for kid in ("K7", "K8", "K9", "K10", "K11", "K12"):
-            self.assertEqual(statuses[kid], "open")
+        self.assertTrue(statuses["K6"].startswith("conditional"))
+        self.assertIn("closed-analytically", statuses["K5"])
+        self.assertIn("closed-analytically", statuses["K8"])
+        self.assertIn("closed-analytically", statuses["K10"])
+        self.assertTrue(statuses["K11"].startswith("bounded"))
+        # K7 remains the open binding residual; K9/K12 stay open/delegated.
+        self.assertTrue(statuses["K7"].startswith("open"))
+        self.assertIn("open", statuses["K9"])
+        self.assertEqual(statuses["K12"], "open")
         # K2 remains bounded-but-not-closed by DND-38.
-        self.assertEqual(statuses["K2"], "conditional-analytically")
+        self.assertTrue(statuses["K2"].startswith("conditional"))
         self.assertIn("0.323", [k["result"] for k in s["killers"] if k["id"] == "K2"][0])
+
+    def test_dnd44_cost_closure_anchors(self):
+        # The honest expected baseline is over the ceiling; the machine-preserving
+        # source path clears it. Both must be present so neither can be hidden.
+        s = m.stackup()["cost"]
+        self.assertGreater(s["expected_baseline_delivered_usd"], m.CEILING_USD)
+        self.assertLess(s["sourced_path_delivered_usd"], m.CEILING_USD)
+        self.assertGreater(m.CEILING_USD - s["sourced_path_delivered_usd"], 25.0)
+        self.assertTrue(s["sourced_path_pass"])
 
 
 if __name__ == "__main__":

@@ -3,7 +3,11 @@
 **Status:** PROMOTED as the single buildable winner by
 [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md)
 ([DND-35](/DND/issues/DND-35)). This directory is now the engineering source of truth for
-the machine.
+the machine. The DND-44 readiness closure (below) advances this from an honest
+*analytic definition* to the **closest reachable print-ready state**: six killers are
+now closed or bounded analytically, and the residual is reduced to a short list of
+named physical quantities (see [§7](#7-residual-uncertainty--risk-register) and the
+**Final readiness verdict** at the end).
 
 **Evidence class:** CALCULATION / SIMULATION / CAD over sourced listings and stated
 assumptions. **No printed or measured evidence exists and none will be produced**
@@ -99,23 +103,27 @@ Fixed expected subtotal **$284.00**; motor + driver channel is the cost driver.
 **Totals (expected delivered, additive ×1.16):**
 
 | Scenario | Purchased parts | Delivered | Verdict |
-|---|---:|---:|---|
-| As-listed (sourced pair) | $432.00 | **$501.12** | **over the ceiling by $1.12** |
-| − shift registers onto PCB (net $10.30; chips still bought at $0.0925) | $421.70 | **$489.17** | clears |
-| − RP2040 controller | $416.70 | **$483.37** | clears with $16.63 margin |
+|---|---|---:|---|
+| **Honest expected baseline (DND-44, BOM `unit_expected`)** | $510.40 | **$592.06** | **over the ceiling** |
+| As-listed (sourced pair: $1.05 motor + $0.80 TB6612) | $432.00 | $501.12 | over the ceiling by $1.12 |
+| Machine-preserving source path (DND-44, E1–E6) | $366.34 | **$424.95** | **clears, $75.05 margin** |
 
-Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`. **Cost
-correction ([DND-41](/DND/issues/DND-41)):** the prior table used a multiplicative
-`1.10 × 1.06 = 1.166` uplift and a $434.20 subtotal that does not reproduce; the repo's own
-`delivered_3scenario` grid prints the sourced-pair cell as **$501.12** ($432.00 × 1.16). The
-honest headline is a **range at/just over the ceiling**, clearing only on the reduced path by
-a small margin. The **best-case** delivered was $389.55 (all-cheapest untraced prices) — not
-used in this definition.
+Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`.
+**Cost correction ([DND-41](/DND/issues/DND-41) + [DND-44](/DND/issues/DND-44)):** the prior
+$501.12 headline was optimistic — it paired a $0.80 TB6612 (not the sourced DRV8833 the BOM's
+expected column carries at $1.58) with a best-case $1.05 motor. Re-derived from the BOM's own
+`unit_expected` column, the **honest expected delivered baseline is $592.06**. The
+machine-preserving source path — sourced **TB6612FNG $0.7955 @100** as the dual-H-bridge,
+sourced multipack motor $1.05, register/controller consolidation, spares-allowance removal and
+sourced fixed-line repricing — lands at **$424.95 delivered ($75.05 under the ceiling)**. Every
+change preserves the mechanism, pitch, travel, cell count and drive topology; all six are
+audited line-by-line in `test12/cost_closure.py`. **The path clears only for a motor ≤ $1.86
+delivered**; at the sourced $2.66 AliExpress micro-stepper it is $574.36.
 
 **The one cost risk (K7):** the only *traceable matched* 8 mm 18° bipolar PM stepper found
-(MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$3,200 (8× the
-ceiling). The sub-$1.05 price is an untraced marketplace multipack and must be sample-verified
-by the purchaser before a build. This is stated, not hidden (see §7).
+(MOONS 8PM020S1) lists at **$40/ea**. The sub-$1.86 price is an untraced marketplace multipack
+and must be sample-verified by the purchaser before a build. This is the **binding residual** of
+the cost path (see §7).
 
 ## 6. Fabrication, assembly and print readiness
 
@@ -158,22 +166,22 @@ is not proof they fit.
 
 | id | Risk | Class | Status |
 |---|---|---|---|
-| K1 | Cam buckling under handling load | calculation | **open** — 4.96 N critical **< 5 N** Test08 measurement-protocol screen; the 1 N service load is **unsourced**. Close with a sourced ≤4.5 N tabletop-load bound, else re-size the core. ([DND-41](/DND/issues/DND-41)) |
-| K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35 (torque/friction 0.92). Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. `test12_winner_convergence/DETENT_CONTACT.md` |
+| K1 | Cam buckling under handling load | calculation | **service load closed (DND-44)** — a miniature's base spreads its weight over the 5.08 mm grid, so even a 1 kg miniature on the smallest 25.4 mm base gives **≤0.39 N/column** (7.9 % of the 4.96 N core, **12.7× margin**). The 1 N working assumption was conservative. The *localized* 5 N abuse screen is **bounded**: a core re-size to 1.10 mm gives **5.60 N** and clears it, at the cost of step height 0.5→0.4 mm. Residual: printed core crush at a point load. `test12/buckling_closure.py` |
+| K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35. Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. Geometry selection delegated to [DND-45](/DND/issues/DND-45). `test12/DETENT_CONTACT.md` |
 | K3 | Gravity return vs guide friction | calculation | **closed** — 4.06× weight/drag margin (solid column) |
-| K4 | Regional update disturbs neighbour | calculation | **partially-closed** — 0.017 mm is a rail-bending *structural* sub-bound vs a 0.10 mm gate; the J2 engine returns **INCONCLUSIVE** — stiction release and wear drift are measurement-only. ([DND-41](/DND/issues/DND-41)) |
-| K5 | Cost > $500 delivered | calculation | **conditional (range)** — $501.12 sourced (over ceiling) → **$483.37** reduced; real but small margin. ([DND-41](/DND/issues/DND-41)) |
-| K6 | Time > 30 s | calculation | **conditional** — 26.251 s best corner; only **17/108** sweep cases pass at 400 pps, worst **45.07 s**; needs a measured ≥400 pps loaded rate. ([DND-41](/DND/issues/DND-41)) |
-| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open** — only traceable matched 8 mm PM stepper is $40/ea (→ $3,200); sub-$1.05 part untraced |
-| K8 | Lateral holding (knocked miniature) | calculation | **open** — hard stop resists downward load only; detent restoring torque ≈ 0.00139 mN·m; no analytic pass |
-| K9 | Angular margin vs print tolerance | calculation | **open** — 5 levels: 12.50° nominal → 6.50° after a 6° seating error; ±0.05 mm print tolerance not propagated |
-| K10 | Regional-update time untested end to end | uncertainty | **open** — homing + full 41 mm platen stroke not bounded |
-| K11 | Cycle life of printed detent/ratchet | uncertainty | **open** — single-cycle static model; creep/fatigue unmodelled |
-| K12 | Coarse-slope / multi-level usability | assumption | **open** — 10 mm steps may be too coarse; product decision |
+| K4 | Regional update disturbs neighbour | calculation | **partially-closed** — 0.017 mm rail-bending *structural* sub-bound vs a 0.10 mm gate; J2 engine returns **INCONCLUSIVE** — stiction release and wear drift are measurement-only. ([DND-41](/DND/issues/DND-41)) |
+| K5 | Cost > $500 delivered | calculation | **closed on the sourced path (DND-44)** — honest *expected* baseline is **$592.06** ($510.40 ×1.16; the old $501.12 used a $0.80 driver + best-case motor). A machine-preserving source path lands at **$424.95 delivered, $75.05 margin**, conditional on a motor ≤ **$1.86**. `test12/cost_closure.py` |
+| K6 | Time > 30 s at the realised step rate | calculation | **conditional, but not rate-bound (DND-44)** — 26.251 s at the design point; the **rate-independent floor is 18.65 s** and only **~268 pps** meets 30 s (400 used). The 45.07 s sweep corner is *not* rate-recoverable (its floor is 34.47 s). Verify the loaded **dwell** and scan accel, not a "measured rate". `test12/timing_closure.py` |
+| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open — the binding residual of K5** — path clears only at ≤$1.86/motor; the $1.05 multipack is untraced and the only matched part (MOONS 8PM020S1) is $40/ea → $3,200 |
+| K8 | Lateral holding (knocked miniature) | calculation | **closed-analytically (DND-44)** — lateral load is carried by the column body against its **guide** and free-length bending, not the detent. 1 N → **0.01 mm** (<0.10 mm gate); governing limit ~**9.4 N**. The detent only holds ~0.002 N and never had to hold lateral. Residual: printed guide-wall shear. `test12/cross_cutting_closure.py` |
+| K9 | Angular margin vs print tolerance | calculation | open, **delegated** ([DND-45](/DND/issues/DND-45)) — 5 levels: 12.50° nominal → 6.50° after a 6° seating error; ±0.05 mm print tolerance not yet propagated (Monte Carlo). |
+| K10 | Regional-update time untested end to end | calculation | **closed-analytically (DND-44)** — common platen ⇒ one full 41 mm stroke per update: 1 row ~**3.9 s**, 10 rows ~**6.3 s**, 80 rows ~**24.7 s**. `test12/cross_cutting_closure.py` |
+| K11 | Cycle life of printed detent/ratchet | calculation | **bounded ~10⁸ cycles (DND-44)** — detent surface strain 0.169 % vs an assumed 0.3 % endurance; order-of-magnitude only (creep/layer adhesion unmeasured). `test12/cross_cutting_closure.py` |
+| K12 | Coarse-slope / multi-level usability | assumption | **open — product decision** — 10 mm steps may be too coarse; a product/usability choice, not an engineering gap |
 | R1 | Whole-map reliability | assumption | open — q ≤ 1.57×10⁻⁶ needed for 99 %; no per-cell feedback |
 | R2 | 40 mm travel vs real miniature | assumption | open — no miniature measured; requirement may change |
-| R3 | Realised step rate ≥ 400 pps loaded | assumption | open |
-| R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea |
+| R3 | Realised step rate ≥ 400 pps loaded | assumption | **reframed by DND-44** — the binding quantity is the loaded engagement/settle dwell (K6), not the step rate per se |
+| R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea (same as K7) |
 | R5 | Frame/platen splice stiffness ratio (k = 0.25 assumed) | assumption | open — sets the ≤150 mm support spacing; higher k relaxes to 203.2 mm. Step 6 (DND-43) |
 | R6 | As-printed rail modulus (700 vs 2500 MPa spans the flatness pass/fail line) | assumption | open — Step 6 (DND-43) |
 | R7 | Sourced lift-motor torque at speed (0.30 N·m assumed) | assumption | open — Step 6 drive sizing depends on it until sample-verified |
@@ -185,16 +193,71 @@ time is **conditional** on an unmeasured step rate; isolation is a **structural 
 and K1 plus K7–K12 remain **open**. This is an honest readiness statement, not a print-ready
 claim.
 
+**Readiness update (DND-44):** the picture is sharper and materially better, but still not a
+print-ready claim. K1 (service), K5 (sourced path), K6 (reframed), K8 and K10 are **closed
+analytically**; K11 is **bounded**; K2 and K4 remain **conditional on a printed contact/release
+measurement**. The binding residuals are now just: **K7** (a matched motor at ≤$1.86), and the
+print-realisation quantities (μ, scallop depth, guide shear, creep, rotor tolerance). See the
+**Final readiness verdict** below.
+
 ## 8. Next actions
 
 1. **Analytic detent contact sweep** — **done** ([DND-38](/DND/issues/DND-38),
-   `test12_winner_convergence/DETENT_CONTACT.md`): K2 bounded, conditional. Next physical
-   step is a printed μ + scallop coupon, which DND-27 forbids.
-2. **Step-6 load/structure/power** — **done** ([DND-43](/DND/issues/DND-43),
+1. **Analytic detent contact sweep** — **done** ([DND-38](/DND/issues/DND-38),
+   `test12_winner_convergence/DETENT_CONTACT.md`): K2 bounded, conditional. **DND-44**
+   took it further: geometry selection at the sourced μ midpoint is delegated
+   ([DND-45](/DND/issues/DND-45)). Next physical step is a printed μ + scallop coupon,
+   which DND-27 forbids.
+2. **DND-44 readiness closure** — **done** (`test12_winner_convergence/DND44_READINESS.md`,
+   four analytic modules + 46 CI checks). K1(service)/K5/K6/K8/K10 closed; K11 bounded.
+3. **Step-6 load/structure/power** — **done** ([DND-43](/DND/issues/DND-43),
    `test13_step6_load_structure_power/`): corrected support spacing (≤ ~150 mm or stiffer
    rail), lift lead (≤ 2 mm or larger motor), and a now-required power-cut brake/detent.
    **Open follow-up for CostMfg/Fabricator:** fold the brake/detent and the re-sized lead
    into the BOM and the timing budget, and update the CAD support layout.
-3. **CostManufacturing** ratifies the BOM and printability.
-4. **Falsifier** adversarially reviews the killer list for a missed failure mode.
-5. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.
+4. **Falsifier adversarial audit** of the DND-44 closures — [DND-46](/DND/issues/DND-46).
+5. **CostManufacturing** ratifies the machine-preserving cost path — [DND-47](/DND/issues/DND-47).
+6. **Fabricator** confirms the CAD is print-ready against the harness and X1C envelope.
+
+---
+
+## 9. Final readiness verdict (DND-44)
+
+**Verdict: NOT YET PRINT-READY, but the remaining gap is small, specific and named.**
+
+The S5 winner is no longer a loose analytic definition. The DND-44 closure advances it to the
+closest reachable state under the no-physical-test constraint ([DND-27](/DND/issues/DND-27)):
+
+**Closed or bounded analytically (calculation, no print):**
+- **K1** — distributed tabletop service load ≤ 0.39 N/column (12.7× margin); localized abuse
+  bounded by a 1.10 mm core (5.60 N).
+- **K5** — machine-preserving source path at **$424.95 delivered ($75.05 margin)**, conditional
+  on K7.
+- **K6** — timing is bound by *assumed dwells*, not step rate; ~268 pps meets 30 s; floor 18.65 s.
+- **K8** — lateral load carried by the guide (1 N → 0.01 mm); governing limit ~9.4 N.
+- **K10** — regional updates 3.9–6.3 s for 1–10 rows.
+- **K11** — detent leaf ~10⁸ cycles (order-of-magnitude bound).
+
+**Still open — each needs exactly one physical quantity (unavailable under DND-27):**
+
+| Killer | The one measurement that closes it |
+|---|---|
+| **K7** | a matched 8 mm 18° bipolar PM stepper at **≤ $1.86 delivered** (purchase + sample one lot) |
+| K2 | printed PLA–PLA contact **μ** and the as-printed **scallop depth** (needs μ ≤ 0.32 or depth ≥ 0.31 mm) |
+| K9 | as-printed **rotor radius/core offset** under the ±0.05 mm tolerance |
+| K1-abuse | printed **core crush/shear** at a localized 5 N point load |
+| K4 | neighbour **stiction release force + wear drift** under load |
+| K8-residual | printed **guide-wall shear** strength |
+| K11-residual | printed-leaf **creep** over repeated writes |
+| R1 | counted **per-cell error rate** q (≤ 1.57×10⁻⁶ for 99 % maps) |
+| R2 | one **measured representative miniature** height vs the 40 mm travel |
+
+**Why this is not a FAILURE and not a SUCCESS under the board's two-trigger policy:** the
+machine is not proven un-buildable — every killer is now either closed or reduced to a single
+named printable measurement, and the cost path clears with margin. It is also **not yet a
+print-ready claim**: K7 (matched motor supply) and the print-realisation quantities remain
+unretired, and DND-27 forbids retiring them by measurement. The honest terminal state is
+**"one sourced purchase sample (K7) plus six printed-coupon measurements away from
+print-ready"**, all of which the DND-27 policy places outside agent reach.
+
+The mission-level disposition is recorded in the company `plan` document.
