@@ -24,43 +24,61 @@ python 06-experiments/test12_winner_convergence/checks.py    # regression + hone
 
 ## 1. The decision
 
+Two bets, not one (Falsifier audit, [DND-36](/DND/issues/DND-36)): **Bet A** is a *written*
+passive memory set by a shared writer (S1–S4); **Bet B** is S5's *absolute geometric stops*
+(a homed rotor + gravity-following toe, no written bit). A Bet-A failure does not imply a
+Bet-B failure, so S5 is chosen on its own evidence.
+
 | # | Candidate | Disposition | Binding evidence |
 |---|---|---|---|
-| S1 | threshold ratchet + broadcast lift | **kill** | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
-| S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; no surprise-map path |
-| S3 | multi-row mechanical DMA | **kill** | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (5.8× ceiling); CI-visible |
-| S4 | shared-bus tiles | **park** | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint |
-| **S5** | **programmed rotary stops + common lift** | **WIN** | only CAD + simulation + sourced-BOM candidate; 26.251 s; sourced cost path **$503.71**, reduced **$481.56** |
+| S1 | threshold ratchet + broadcast lift | **kill** (Bet A) | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
+| S2 | planar-memory tiles | **park** (Bet A) | survives only double-buffered with an off-line writer; no surprise-map path. Cost **conditional on the print gate** |
+| S3 | multi-row mechanical DMA | **kill** (Bet A) | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (sourced selectors); CI-visible |
+| S4 | shared-bus tiles | **park** (Bet A) | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint. Cost **conditional on the print gate** |
+| **S5** | **programmed rotary stops + common lift** | **WIN** (Bet B) | only CAD + simulation + sourced-BOM candidate; 26.251 s best corner (400 pps sweep passes 17/108); sourced pair **$501.12** (at/over ceiling), reduced **$483.37** |
+
+S1/S2/S4 cost is **not** cited as killing evidence: their BOMs are inflated by fallback lines
+for parts their designs intend to print (Falsifier Finding 2). S3's cost is driven by *sourced*
+selectors and remains a genuine kill.
 
 ## 2. End-to-end stack-up (winner)
 
-### Time — PASS
+> **Correction (Falsifier promotion review, [DND-36](/DND/issues/DND-36)).** The first pass of
+> this stack-up presented three contestable killers as `closed-analytically` and a cost figure
+> built on a *multiplicative* uplift. Both are corrected below. **S5 survives as the direction;
+> the promotion as originally stated is retracted.** S5 is **not** print-ready as stated.
+
+### Time — CONDITIONAL
 
 | Item | Value | Gate |
 |---|---:|---|
-| Full adversarial map, 400 pps | **26.251 s** | < 30.0 s |
-| Margin to hard cap | 3.749 s | — |
-| Margin to 27 s internal target | 0.749 s | — |
-| 40-channel head @ 800 pps | 39.72 s | fails (why the head is 80-channel) |
+| Full adversarial map, best corner, 400 pps | **26.251 s** | < 30.0 s |
+| Best-corner margin to hard cap | 3.749 s | — |
+| 400 pps sweep (`timing_sweep.csv`) | **17/108 cases < 30 s** | worst 45.07 s |
 
 Time is the Test09-reproduced value (`test09.../results/summary.json:16`) and is
-**calculated**, not measured. At 200 pps the schedule fails 30 s; the design depends on a
-realised ≥400 pps loaded step rate.
+**calculated**, not measured. **K6 is conditional:** 26.251 s is the best corner of a
+540-case sweep; at the design rate of 400 pps only **17/108** cases pass and the worst case
+is **45.07 s**. A realised **≥400 pps loaded** step rate is required and is unmeasured.
 
-### Cost — PASS on the reduction path
+### Cost — CONDITIONAL: the sourced pair is at/over the ceiling
 
-The motor + driver channel is the only cost cliff. Sourced pairing (2026-09-28):
+Corrected to the repository's own **additive** delivered model
+(`delivered_cost_model.py`: `parts × (1 + 0.10 ship + 0.06 tax) = parts × 1.16`):
 
-| Path | Parts subtotal | Delivered (×1.16) | vs $500 |
+| Path (additive ×1.16) | Parts | Delivered | vs $500 |
 |---|---:|---:|---|
-| Sourced motor $1.05 + TB6612 $0.80, unchanged fixed | $434.20 | **$503.71** | +$3.71 (on the ceiling) |
-| + fold 40 discrete shift registers onto the driver PCB (−$14) | $420.20 | **$487.46** | **−$12.54** |
-| + sourced RP2040 controller (−$5) | $415.20 | **$481.56** | **−$18.44** |
+| Sourced BOM expected scenario (CSV) | $510.40 | **$592.06** | over |
+| Sourced pair (motor $1.05 best, driver $0.80) | $432.00 | **$501.12** | **over by $1.12** |
+| + real net register saving $10.30 + RP2040 $5 | $413.00 | **$483.37** | under |
+| *As first published (multiplicative ×1.166)* | *$432.00* | *$503.71* | *defect* |
 
-Fixed subtotal **$284.00** is reproduced directly from
-`bom_S5_delivered.csv` (expected scenario) by `checks.py`, so the model cannot drift from
-the sourced BOM. Reaching the <$400 ideal band is **not** demonstrated; the winner lands
-in the project's "acceptable" band with margin.
+The original `DELIVERED_UPLIFT = 1.10 × 1.06` was inconsistent with the repo's additive
+model, and the advertised −$14 register saving was **double-counted** (the 74HC595s are still
+purchased; sourced $0.0925 → $3.70 for 40, so the real net saving is **$10.30**). Fixed
+subtotal **$284.00** is still reproduced from `bom_S5_delivered.csv` by `checks.py`.
+**K5 is conditional:** the cheapest sourced pair is **at/over $500**; only the reduced path
+clears, with a **small** real margin. Reaching the <$400 ideal band is **not** demonstrated.
 
 ### Reliability — OPEN (assumption, not measurement)
 
@@ -69,27 +87,39 @@ in the project's "acceptable" band with margin.
 - No per-cell feedback exists; q is an assumption and no counted coupon can be built
   under DND-27. This is a **permanent residual risk**, stated, not hidden.
 
-### Regional isolation — PASS (analytic bound)
+### Regional isolation — PARTIALLY CLOSED (structural bound only)
 
-The J2 rail-coupled neighbour bound is **0.017 mm** against a **0.10 mm** gate. Stiction
-(0.18–2.84 N) dominates rail shear, so the isolation concept is analytically sound. The
-0.10 mm gate itself is a design assumption, not a measured disturbance limit.
+The J2 rail-coupled neighbour bound is **0.017 mm** against a **0.10 mm** gate, but that is a
+**structural sub-bound**. The cited rig (`isolation_rig_runner.py`) returns **INCONCLUSIVE**:
+stiction release and cumulative wear drift are **measurement-class** terms, not analytically
+derivable. K4 is **not** closed.
 
 ### Travel — PASS (design envelope)
 
 40 mm travel, 5 levels → **10.0 mm** increment. The 40 mm figure is a **provisional
 envelope**: no representative miniature has been measured (`miniature_measured: false`).
 
-## 3. Killer list + cheapest falsification
+## 3. Killer list + cheapest falsification (corrected)
 
 | id | Risk | Status | Result vs gate |
 |---|---|---|---|
-| K1 | cam buckling under handling/abuse load | **closed-analytically** | 4.96 N critical vs **1 N service** (≈5× margin). The 5 N figure is a *sacrificial handling screen*, explicitly "not a whole-hand safety certification" (`test08/README.md:263`), and is retained as a coupon handling test, not a design gate. |
+| K1 | cam buckling under handling/abuse load | **open/contestable** | 4.96 N critical **< 5 N abuse screen (fails by 0.8 %)**. The 1 N service load is an **unsourced assumption** (`miniature_measured:false`); closes only on a sourced ≤4.5 N tabletop-load bound. |
 | K2 | printed rotary detent holds/repeats after a slipped step | **conditional** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38)): nominal leaf does not correct an 18° slip at the sourced PLA–PLA friction midpoint (torque/friction = 0.92); closes only for μ ≤ 0.323 or a deepened scallop (≥ 0.31 mm). Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
-| K4 | regional update disturbs a loaded neighbour | **closed-analytically** | 0.017 mm vs 0.10 mm gate. |
-| K5 | purchased cost > $500 delivered | **closed-analytically** | $503.71 sourced; **$481.56** reduced. |
-| K6 | full-map time > 30 s at realised step rate | **closed-analytically** | 26.25 s vs 30 s at 400 pps. |
+| K4 | regional update disturbs a loaded neighbour | **partially-closed (structural only)** | 0.017 mm rail sub-bound vs 0.10 mm gate; cited rig returns `INCONCLUSIVE`; stiction release + drift are measurement-class. |
+| K5 | purchased cost > $500 delivered | **conditional** | Additive: sourced pair **$501.12** (at/over ceiling); reduced **$483.37**. |
+| K6 | full-map time > 30 s at realised step rate | **conditional** | Best corner 26.25 s; at 400 pps only **17/108** sweep cases pass, worst 45.07 s. |
+| K7 | motor-cost cliff (80 motors + 80 drivers) | **open** | Only traceable matched 8 mm PM stepper is **$40/ea → $3,200** (8× ceiling); $1.05 is an untraced multipack. |
+| K8 | lateral holding of a knocked miniature | **open** | Hard stop resists downward load; lateral load resisted only by the detent (~0.0014 mN·m) + printed bushing. |
+| K9 | angular margin vs print tolerance | **open** | 12.50° nominal margin → 6.50° after a 6° seating error; ±0.05 mm tolerance on a 1.5 mm rotor not propagated. |
+| K10 | regional-update time not bounded end to end | **open** | Any write needs a full 41 mm platen stroke + head home/reference; regional time unbounded. |
+| K11 | printed detent/ratchet cycle life | **open** | Single-cycle static model; creep/fatigue of the 0.45 mm leaf over thousands of writes unmodelled. |
+
+**Cheapest falsifications (all analytic, no print):** (1) source the max tabletop vertical +
+lateral load → closes K1/K8; (2) re-run the additive cost model → confirms K5; (3) count
+`under_30` at 400 pps in `timing_sweep.csv` → confirms K6; (4) run
+`isolation_rig_runner.py` → confirms K4 as `INCONCLUSIVE`; (5) Monte-Carlo angular error from
+±0.05 mm print tolerance → bounds K9; (6) buckling check at 5 N → confirms K1.
 
 **Cheapest falsification for K2 (now run):** the analytic contact/sensitivity sweep of the
 detent interface over a sourced PLA contact-friction range is complete —

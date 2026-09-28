@@ -2,8 +2,11 @@
 
 **Status:** PROMOTED as the single buildable winner by
 [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md)
-([DND-35](/DND/issues/DND-35)). This directory is now the engineering source of truth for
-the machine.
+([DND-35](/DND/issues/DND-35)). This directory is the engineering source of truth for the
+machine — **but it is NOT print-ready as stated.** The Falsifier's winner-specific review
+([DND-36](/DND/issues/DND-36)) found three of six "closed" killers contestable or
+measurement-only and the cost stack-up inconsistent; ADR-002 §1.2/§3 and §5–§7 below carry
+the corrected labels and range. A printable-board test is justified once K1, K5 and K7 close.
 
 **Evidence class:** CALCULATION / SIMULATION / CAD over sourced listings and stated
 assumptions. **No printed or measured evidence exists and none will be produced**
@@ -30,11 +33,21 @@ draws no holding power per cell.
 | Criterion | S5 result | Nearest rival |
 |---|---|---|
 | Real CAD of mechanism | **yes** — rotor/follower/guides/lift plate, interference-checked | S1/S2/S4: none |
-| Timing under 30 s | **26.251 s** (reproduced) | S3 25.20 s (budget only) |
+| Timing under 30 s | **conditional** — best corner 26.251 s; 400 pps sweep passes 17/108 | S3 25.20 s (budget only) |
 | Purchased BOM sourced share | **82 %** | S4 37 %, S1 30 % |
 | Per-cell bought parts | **0** (passive printed rotors) | all survivors: 0 intended |
-| Expected-delivered cost | $503.71 sourced / **$481.56 reduced** | S4 $548.91 |
-| Decisive failure | none quantitative; K2 now bounded analytically | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
+| Expected-delivered cost | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $483.37 | S4 $548.91 |
+| Decisive failure | none proven; but K1/K4/K5/K6 contestable and K7–K11 open | S1 force, S2 surprise maps, S3 printability+cost, S4 clutch+backlash |
+
+**Two bets, not one** (Falsifier audit, [DND-36](/DND/issues/DND-36)): S1–S4 are *Bet A*
+(written passive memory); S5 is *Bet B* (absolute geometric stops — a homed rotor + gravity-
+following toe, no written bit). A Bet-A failure does not imply a Bet-B failure. S1/S2/S4 cost
+is **conditional on the print gate**, not a kill (their BOMs are fallback-inflated).
+
+**Promotion review correction** (Falsifier, [DND-36](/DND/issues/DND-36)): *"S5 promotion
+survives as a direction but fails as stated."* The corrected honest status: S5 remains the
+single best-evidenced winner, but K1/K4/K6 must not be presented as closed, K5 must be stated
+on the additive basis (sourced pair at/over $500), and K7–K11 must be carried.
 
 ADRs and evidence: [ADR-002](../07-evidence-and-decisions/convergence-decision-2026-09-b.md),
 [Test12 stack-up](../06-experiments/test12_winner_convergence/),
@@ -96,20 +109,22 @@ Fixed expected subtotal **$284.00**; motor + driver channel is the cost driver.
 | Fasteners | 1 | AliExpress M2/M3 | $12.00 | sourced |
 | Spares / misc | 1 | — | $15.00 | allowance |
 
-**Totals (expected delivered, ×1.16):**
+**Totals (corrected, additive delivered ×1.16 — the repository's own basis):**
 
 | Scenario | Purchased parts | Delivered | Verdict |
 |---|---:|---:|---|
-| As-listed (sourced pair) | $434.20 | **$503.71** | on ceiling (+$3.71) |
-| − shift registers onto PCB | $420.20 | **$487.46** | clears |
-| − RP2040 controller | $415.20 | **$481.56** | clears with $18.44 margin |
+| Sourced BOM expected scenario (CSV) | $510.40 | **$592.06** | over |
+| As-listed sourced pair (motor $1.05, driver $0.80) | $432.00 | **$501.12** | **at/over ceiling (+$1.12)** |
+| − real net register saving $10.30 — RP2040 $5 | $413.00 | **$483.37** | clears (~$16.63) |
 
-Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`. The
-**best-case** delivered was $389.55 (all-cheapest untraced prices) — that path is not used
-in this definition.
+Reproduced and asserted by `06-experiments/test12_winner_convergence/checks.py`. The earlier
+published figures ($503.71 / $481.56, "−$18.44 margin") used a **multiplicative** uplift
+(`1.10 × 1.06`) inconsistent with the repo's additive model and **double-counted** the register
+saving (the 74HC595s are still bought); both are withdrawn (Falsifier promotion review,
+[DND-36](/DND/issues/DND-36)). Reaching the <$400 ideal band is **not** demonstrated.
 
-**The one cost risk:** the only *traceable matched* 8 mm 18° bipolar PM stepper found
-(MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$4,000. The
+**The one cost risk (K7):** the only *traceable matched* 8 mm 18° bipolar PM stepper found
+(MOONS 8PM020S1) lists at **$40/ea**, which alone would put the machine at ~$3,200. The
 sub-$1.05 price is an untraced marketplace multipack and must be sample-verified by the
 purchaser before a build. This is stated, not hidden (see §7).
 
@@ -150,16 +165,25 @@ is not proof they fit.
 
 | id | Risk | Class | Status |
 |---|---|---|---|
-| K1 | Cam buckling under handling load | calculation | **closed** — 4.96 N critical vs 1 N service (≈5×); 5 N is a handling screen, not a gate |
+| K1 | Cam buckling under handling load | calculation | **open/contestable** — 4.96 N critical < 5 N abuse screen (fails by 0.8 %); 1 N service load is unsourced. Closes only on a sourced ≤4.5 N tabletop-load bound |
 | K2 | Printed detent holds/repeats after a slipped step | **conditional (analytic)** | open — bounded by [DND-38](/DND/issues/DND-38): nominal leaf corrects an 18° slip only for μ ≤ 0.323; fails at the sourced PLA–PLA midpoint μ = 0.35 (torque/friction 0.92). Closing levers: μ ≤ 0.32 or scallop depth ≥ 0.31 mm. `test12_winner_convergence/DETENT_CONTACT.md` |
 | K3 | Gravity return vs guide friction | calculation | **closed** — 4.06× weight/drag margin (solid column) |
-| K4 | Regional update disturbs neighbour | calculation | **closed** — 0.017 mm vs 0.10 mm gate |
-| K5 | Cost > $500 delivered | calculation | **closed** — $481.56 reduced |
-| K6 | Time > 30 s | calculation | **closed** — 26.251 s at 400 pps |
-| R1 | Whole-map reliability | assumption | open — q ≤ 1.57×10⁻⁶ needed for 99 %; no per-cell feedback |
+| K4 | Regional update disturbs neighbour | calculation | **partially-closed** — structural bound 0.017 mm vs 0.10 mm gate; stiction release + wear drift are measurement-class; cited rig returns `INCONCLUSIVE` |
+| K5 | Cost > $500 delivered | calculation | **conditional** — sourced pair $501.12 (at/over ceiling); reduced $483.37 |
+| K6 | Time > 30 s | calculation | **conditional** — best corner 26.251 s; at 400 pps 17/108 sweep cases pass, worst 45.07 s |
+| K7 | Motor-cost cliff (80 motors + 80 drivers) | sourced calculation | **open** — only traceable matched stepper is $40/ea → $3,200 (8× ceiling) |
+| K8 | Lateral holding of a knocked miniature | calculation | **open** — hard stop holds downward; lateral only via detent (~0.0014 mN·m) + bushing |
+| K9 | Angular margin vs print tolerance | calculation | **open** — 12.50° nominal → 6.50° after 6° seating error; ±0.05 mm tolerance unpropagated |
+| K10 | Regional-update time unbounded end to end | calculation | **open** — full 41 mm platen stroke + head home/reference per activation |
+| K11 | Printed detent/ratchet cycle life | qualitative | **open** — single-cycle static model; creep/fatigue unmodelled |
+| R1 | Whole-map reliability | assumption | open — q ≤ 1.57×10⁻⁶ needed for 99 %; no per-cell feedback; unclosable under DND-27 |
 | R2 | 40 mm travel vs real miniature | assumption | open — no miniature measured; requirement may change |
 | R3 | Realised step rate ≥ 400 pps loaded | assumption | open |
 | R4 | Matched motor supply at < $1.05 | assumption | open — only traceable matched part is $40/ea |
+
+**Print-readiness gate:** the machine is **not** print-ready as stated. A printable-board test
+is justified once **K1, K5 and K7** close (all three are analytically/sourcingly attackable
+under DND-27).
 
 ## 8. Next actions
 

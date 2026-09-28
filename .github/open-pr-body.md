@@ -1,84 +1,69 @@
-# DND-38: analytic detent contact sweep for S5 — bounds K2
-
-Resolves [DND-38](/DND/issues/DND-38). Turns the S5 winner's one residual risk
-(**K2**, printed rotary detent hold/repeat after a slipped step) from
-"qualitative, no closed form" into a bounded, parameterised condition, and gives
-the concrete closing levers. Calculation only — no print, no measurement
-([DND-27](/DND/issues/DND-27)).
-
-> **Note on base.** This branch is based on `dnd-35-convergence-winner` (the
-> accepted ADR-002 convergence, `afa4ba8`), which is not yet on `main`. Opening
-> this PR against `main` therefore also integrates the DND-35 winner promotion.
-
-## Engineering question
-
-Does the nominal printed detent (0.45 mm leaf, 10 mm long, 1 mm wide, 0.2 mm
-scallop; `test09/params.json`) correct a one-step (18°) rotor slip and hold
-height, across a **sourced** PLA–PLA static-friction range and a ±0.05 mm
-print-tolerance stack-up?
-
-## Evidence produced
-
-New, CI-gated analytic model `06-experiments/test12_winner_convergence/detent_contact.py`
-+ honesty/regression gates `detent_checks.py` + write-up `DETENT_CONTACT.md`.
-
-- Reproduces **all three existing detent anchors**: peak restoring torque
-  **0.00298 mN·m** (Test09), peak leaf force **6.58 mN** and strain **0.13 %**
-  (Test08).
-- Governing law: **`T_r/T_f = A·k/(μ·r)`**, exactly independent of E and
-  preload (both torques carry the leaf force) — asserted in tests.
-- **Nominal leaf fails at the sourced friction midpoint μ = 0.35**: restoring
-  0.00256 mN·m vs friction 0.00278 mN·m → ratio **0.92 < 1**. A slipped rotor
-  stays one 10 mm level wrong.
-- **μ cliff = 0.323**. Closes only at the low end of the sourced PLA range
-  (μ ≤ 0.32) **or** by deepening the scallop from 0.20 mm to **≥ 0.31 mm**
-  (1.55×; recommended 0.34 mm with 10 % margin).
-- Independent finding: the seated-valley friction dead-band is **0.00093 mN·m**,
-  ~**25× below** the 0.02356 mN·m toe-flat plateau disturbance — the detent alone
-  cannot hold terrain load; the **hard stop** remains the retention element.
-
-**Verdict: `conditional`.** The leaf as dimensioned is not sufficient across the
-sourced friction range; a geometry/friction change is required. It **does not
-kill S5**.
-
-## Assumptions / named un-modelled terms
-
-- Leaf modelled as a linear cantilever, `K = E·b·t³/(4·L³)`; friction as a Coulomb
-  moment `μ·F·r` opposing the slide at the mid rim radius (1.55 mm).
-- Modulus envelope 700–2500 MPa and μ 0.2/0.35/0.5 are taken from Test09 params
-  and the J2 analytic gate's sourced PLA–PLA range.
-- **Un-modelled and un-measurable under DND-27:** the as-printed μ, creep, wear,
-  and the FDM-achieved scallop depth. K2 therefore stays on the risk register as
-  a **conditional** item with a quantitative pass rule.
+# DND-35 / DND-39: adopt the Falsifier promotion review into the S5 winner definition
 
 ## What changed
+The Falsifier's winner-specific review (`falsifier-s5-promotion-review-2026-09.md`, merged
+PR #27) concluded: **"S5 promotion SURVIVES AS A DIRECTION but FAILS AS STATED."** This PR
+adopts its arithmetic and its corrected killer list into the winner definition.
 
-- `detent_contact.py`, `detent_checks.py`, `DETENT_CONTACT.md` — new model, gates
-  and write-up.
-- `test12_winner_convergence/checks.py` — K2 asserted as
-  `conditional-analytically` carrying the 0.323 rule.
-- `model.py`, `README.md` — K2 result updated; cheapest-falsification marked run.
-- `07-evidence-and-decisions/convergence-decision-2026-09-b.md` and
-  `08-current-design/README.md` — K2 status and next action updated.
-- `.github/workflows/ci.yml` — runs the detent sweep + checks on every push/PR.
+- **ADR-002** (`07-evidence-and-decisions/convergence-decision-2026-09-b.md`): new §1.1
+  (two bets, not one) and §1.2 (adopting the promotion review); §2 cost-disposition
+  correction; §3.1 K1 re-labelled `open/contestable`; §3.2 cost re-derived on the additive
+  basis; §4 register extended to K1–K11 + R1–R4.
+- **`08-current-design/README.md`**: status changed to **NOT print-ready as stated**;
+  corrected cost table ($501.12 sourced / $483.37 reduced); risk register K1–K11; a
+  print-readiness gate naming K1/K5/K7.
+- **`06-experiments/test12_winner_convergence/`** (`model.py`, `checks.py`, `README.md`):
+  - `DELIVERED_UPLIFT` corrected from the inconsistent `1.10 × 1.06 = 1.166` to the
+    repository's additive `1 + 0.10 + 0.06 = 1.16`; register saving corrected from the
+    double-counted −$14 to the real net −$10.30.
+  - Killer list re-labelled (K1 `open/contestable`, K4 `partially-closed`, K5/K6
+    `conditional`) and extended with **K7–K11** (motor-cost cliff, lateral holding,
+    print-tolerance angular margin, regional-update time, detent cycle life).
+  - `PRINT_READY_AS_STATED = False`.
+  - New checks: `test_delivered_uplift_matches_repository_additive_model`,
+    `test_two_bet_framing_and_no_fallback_cost_kill`,
+    `test_killer_list_labels_are_honest`, `test_time_is_conditional_not_closed`; the
+    K2/DND-38 detent check is preserved.
 
-## Tests run
+## Engineering question
+Does the S5 winner definition survive the Falsifier's adversarial review, and if not, what
+must be corrected before it is treated as print-ready?
 
-```text
-python 06-experiments/test12_winner_convergence/detent_contact.py   # JSON result
-python 06-experiments/test12_winner_convergence/detent_checks.py    # 9 checks, OK
-python 06-experiments/test12_winner_convergence/checks.py           # 9 checks, OK
-python 06-experiments/test12_winner_convergence/model.py            # stack-up
-```
+## Evidence produced
+- **Cost, corrected (calculation, project-consistent additive ×1.16):**
+  sourced BOM expected scenario $592.06; sourced pair **$501.12 (at/over the $500 ceiling)**;
+  reduced **$483.37**. The previously published $503.71/$481.56 used a multiplicative uplift
+  and a double-counted −$14 register saving.
+- **K1 (calculation):** 4.96 N critical **< 5 N abuse screen (fails by 0.8 %)**; the 1 N
+  service load is an unsourced assumption, so K1 is `open/contestable`, not closed.
+- **K4 (sourced read):** the cited isolation rig returns `INCONCLUSIVE`; only the 0.017 mm
+  structural sub-bound is analytic.
+- **K6 (calculation):** 26.251 s is the best corner of the Test09 540-case sweep; at 400 pps
+  only **17/108** cases pass, worst 45.07 s.
+- **K7 (sourced):** the only traceable matched 8 mm PM stepper is $40/ea → $3,200 (8× ceiling).
+- **K8–K11 (calculation/sourced):** lateral holding, angular margin, regional time, cycle life.
 
-## Passed / failed
+## Evidence class
+Sourced / assumption / calculation / simulation / CAD only. **No print, no measurement**
+([DND-27](/DND/issues/DND-27)). No board contact ([DND-32](/DND/issues/DND-32)).
 
-- **Passed:** anchor reproduction; E-independence; K2 bounded and CI-gated.
-- **Failed (design finding, not tool error):** the nominal printed detent does not
-  correct a step at the sourced midpoint friction.
+## What passed / failed
+- Passed: all Test08–Test12 checks incl. the new guard checks; the falsifier review checks
+  (`falsifier_s5_review_checks.py`) reproduce $501.12 / 17-of-108 / `INCONCLUSIVE`.
+- Corrected (was overstated): K1/K4/K5/K6 were presented as closed; the cost margin was
+  overstated. All withdrawn and re-labelled.
 
-## Remaining uncertainty / next test
+## What remains uncertain
+- K1 (tabletop load bound), K5/K7 (sourced motor price), K6 (measured ≥400 pps), K4 (stiction
+  release + drift), K9 (print-tolerance angular error), K2/K11 (printed detent). All are
+  attackable analytically or by sourcing; none requires a print.
 
-Only a printed μ + scallop-depth coupon can close K2 fully; DND-27 forbids it.
-Until then the design must either specify a controlled low-friction rim contact
-or adopt the ≥ 0.31 mm scallop.
+## Most informative next test
+Sourcing the maximum tabletop vertical + lateral load — a single sourced fact that closes or
+confirms **K1 and K8**, the two most decisive residuals.
+
+## Coordination
+- [DND-36](/DND/issues/DND-36) Falsifier review (adopted here).
+- [DND-37](/DND/issues/DND-37) BOM/printability ratification (should adopt the additive basis).
+- [DND-38](/DND/issues/DND-38) detent sweep (K2, merged).
+- [DND-39](/DND/issues/DND-39) CEO analytic-only convergence decision (this PR applies it).

@@ -37,9 +37,10 @@ class WinnerConvergenceChecks(unittest.TestCase):
 
     def test_sourced_cost_hugs_ceiling_and_reduction_clears_it(self):
         pair = m.winner_delivered_usd()
-        # The sourced motor+driver pair lands essentially ON the ceiling (the
-        # repo's own DND-11 check asserts within $5). Assert that honestly.
-        self.assertLess(abs(pair - m.CEILING_USD), 5.0)
+        # Corrected additive basis (Falsifier promotion review, DND-36): the
+        # sourced pair lands AT/OVER the ceiling, not under it.
+        self.assertGreaterEqual(pair, m.CEILING_USD)
+        self.assertLess(pair, m.CEILING_USD + 10.0)
         reduced = m.winner_reduced_delivered_usd()
         self.assertLess(reduced, m.CEILING_USD)
         # Must clear the ceiling by a real, non-trivial margin, not by cents.
@@ -47,6 +48,20 @@ class WinnerConvergenceChecks(unittest.TestCase):
         # Reaching the <$400 ideal band is NOT yet demonstrated; assert only
         # that we do not falsely claim it.
         self.assertGreater(reduced, m.PRINT_FLOOR_USD)
+
+    def test_delivered_uplift_matches_repository_additive_model(self):
+        # Falsifier promotion review: the repo's delivered model is additive
+        # (parts * (1 + ship + tax)). Guard against a multiplicative regression.
+        self.assertAlmostEqual(m.DELIVERED_UPLIFT, 1.16, places=6)
+        self.assertNotAlmostEqual(m.DELIVERED_UPLIFT, 1.10 * 1.06, places=3)
+
+    def test_two_bet_framing_and_no_fallback_cost_kill(self):
+        # Falsifier DND-36: S1-S4 are Bet A; S5 is Bet B. Cost must not be cited
+        # as the binding evidence for S1/S2/S4 (their BOMs are fallback-inflated).
+        for cand in ("S1", "S2", "S4"):
+            self.assertIn("Bet A", m.DISPOSITIONS[cand][1])
+        self.assertIn("Bet B", m.DISPOSITIONS["S5"][1])
+        self.assertIn("sourced selectors", m.DISPOSITIONS["S3"][1])
 
     def test_reliability_model_is_honest(self):
         q99 = m.required_q_for(0.99)
@@ -71,15 +86,36 @@ class WinnerConvergenceChecks(unittest.TestCase):
         s = m.stackup()
         self.assertTrue(s["time"]["pass"])
         self.assertTrue(s["cost"]["pass"])
-        for k in s["killers"]:
-            self.assertIn(k["status"],
-                          {"closed-analytically", "conditional-analytically", "qualitative"})
         # The one residual is K2, now bounded analytically (DND-38) but still not
         # closed: it must carry the quantitative rule, not be empty.
         k2 = [k for k in s["killers"] if k["id"] == "K2"]
         self.assertEqual(len(k2), 1)
         self.assertEqual(k2[0]["status"], "conditional-analytically")
         self.assertIn("0.323", k2[0]["result"])
+
+    def test_killer_list_labels_are_honest(self):
+        # Falsifier promotion review (DND-36): three of six "closed" killers are
+        # contestable/measurement-only, and five killers were unstated. The list
+        # must carry the corrected labels and the new killers, and must NOT
+        # present any contestable item as closed-analytically.
+        s = m.stackup()
+        status = {k["id"]: k["status"] for k in s["killers"]}
+        self.assertEqual(status["K1"], "open/contestable")
+        self.assertEqual(status["K5"], "conditional")
+        self.assertEqual(status["K6"], "conditional")
+        self.assertTrue(status["K4"].startswith("partially-closed"))
+        for kid in ("K7", "K8", "K9", "K10", "K11"):
+            self.assertIn(kid, status)
+        # winner is not print-ready while K1/K5/K7 are open
+        self.assertFalse(m.PRINT_READY_AS_STATED)
+
+    def test_time_is_conditional_not_closed(self):
+        # K6: 26.251 s is a best corner; the sweep mostly fails at 400 pps.
+        s = m.stackup()
+        self.assertTrue(s["time"]["pass"])  # best-corner arithmetic holds
+        k6 = next(k for k in s["killers"] if k["id"] == "K6")
+        self.assertEqual(k6["status"], "conditional")
+        self.assertIn("17/108", k6["result"])
 
 
 if __name__ == "__main__":

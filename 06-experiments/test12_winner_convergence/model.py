@@ -22,12 +22,15 @@ REPO = HERE.parent.parent
 # ---------------------------------------------------------------------------
 WINNER = "S5"
 # disposition: kill | park | win, with the binding evidence string.
+# Two-bet framing (Falsifier DND-36): S1-S4 are Bet A (written passive memory);
+# S5 is Bet B (absolute geometric stops). A Bet-A failure does not imply Bet-B
+# failure. S1/S2/S4 cost is CONDITIONAL on the print gate, not a kill.
 DISPOSITIONS = {
-    "S1": ("kill", "worst-case all-armed stroke 2368 N > 1500 N cap; mask write needs >=500 channels"),
-    "S2": ("park", "survives only double-buffered with an off-line writer; no surprise-map path"),
-    "S3": ("kill", "analytic printability FAIL (pivot 0.80<5.0, min web 0.24<0.88); delivered $2880.98"),
-    "S4": ("park", "printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3 deg/joint"),
-    "S5": ("win", "only CAD+simulation+sourced-BOM candidate; 26.25 s; sourced cost path $500.70"),
+    "S1": ("kill", "Bet A: worst-case all-armed stroke 2368 N > 1500 N cap; mask write needs >=500 channels"),
+    "S2": ("park", "Bet A: survives only double-buffered with an off-line writer; no surprise-map path"),
+    "S3": ("kill", "Bet A: analytic printability FAIL (pivot 0.80<5.0, min web 0.24<0.88); delivered $2880.98 (sourced selectors)"),
+    "S4": ("park", "Bet A: printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3 deg/joint"),
+    "S5": ("win", "Bet B: absolute stops; only CAD+simulation+sourced-BOM candidate; 26.25 s; sourced pair ~$501 at/near ceiling (corrected additive basis)"),
 }
 
 # ---------------------------------------------------------------------------
@@ -64,13 +67,23 @@ MOTOR_CHANNELS = COLS                  # 80, one per column of the head
 DRIVER_CHANNELS = COLS
 # Reduction path: fold the 40 discrete 74HC595 shift registers into the custom
 # driver PCB (a line already in the BOM) and use the sourced RP2040 controller.
-REDUCTION_REGISTERS_USD = 14.0         # 40 x $0.35 expected -> on-PCB shift registers
+# Corrected (Falsifier promotion review, DND-36): the $14 register "saving" is a
+# double-count — the 74HC595s are still purchased (sourced $0.0925 -> $3.70 for
+# 40), so the real net saving is ~$10.30, not $14. The fixed $25 PCB allowance
+# does not grow for 40 on-board packages + area.
+REDUCTION_REGISTERS_USD = 10.30        # real net saving, not the $14 allowance line
 REDUCTION_CONTROLLER_USD = 5.0         # $10 expected -> RP2040 $5 sourced
 
-# Sourced candidate prices (USD/ea, delivered-inclusive uplift applied by checks).
+# Sourced candidate prices (USD/ea). Corrected uplift: the repository's own cost
+# model (delivered_3scenario/delivered_cost_model.py) applies shipping+tax
+# ADDITIVELY to the parts subtotal: parts * (1 + 0.10 + 0.06) = parts * 1.16.
+# The earlier DELIVERED_UPLIFT = 1.10 * 1.06 = 1.166 was inconsistent with that
+# model and overstated the margin (Falsifier promotion review, DND-36).
 SOURCED_MOTOR_USD = 1.05               # Amazon multipack listing, 2026-09-28
 SOURCED_DRIVER_USD = 0.80              # TB6612FNG @100 (dual H-bridge, one bipolar motor)
-DELIVERED_UPLIFT = 1.10 * 1.06         # expected scenario +10% ship, +6% tax
+SHIPPING_FRACTION = 0.10               # expected scenario
+TAX_FRACTION = 0.06                    # expected scenario
+DELIVERED_UPLIFT = 1.0 + SHIPPING_FRACTION + TAX_FRACTION   # = 1.16, additive
 
 
 def winner_delivered_usd(motor_usd: float = SOURCED_MOTOR_USD,
@@ -117,9 +130,10 @@ KILLERS = [
     {
         "id": "K1",
         "risk": "cam buckling under handling/abuse load",
-        "status": "closed-analytically",
-        "result": f"{CAM_CRITICAL_BUCKLING_N:.2f} N critical vs {SERVICE_LOAD_N:.0f} N service load",
-        "gate": f">= {SERVICE_LOAD_N:.0f} N service (abuse screen kept as coupon handling test)",
+        "status": "open/contestable",
+        "result": f"{CAM_CRITICAL_BUCKLING_N:.2f} N critical vs 5 N abuse screen (fails by 0.8%); "
+                  f"1 N service load is an unsourced assumption (miniature_measured:false)",
+        "gate": "closes only on a SOURCED <=4.5 N tabletop-vertical-load bound",
     },
     {
         "id": "K2",
@@ -140,25 +154,72 @@ KILLERS = [
     {
         "id": "K4",
         "risk": "regional update disturbs a loaded neighbour",
-        "status": "closed-analytically",
-        "result": f"{J2_NEIGHBOUR_MM} mm vs {NEIGHBOUR_GATE_MM} mm gate",
-        "gate": f"< {NEIGHBOUR_GATE_MM} mm",
+        "status": "partially-closed (structural bound only)",
+        "result": f"{J2_NEIGHBOUR_MM} mm rail-coupled structural sub-bound vs {NEIGHBOUR_GATE_MM} mm gate; "
+                  f"cited rig returns INCONCLUSIVE; stiction release + wear drift are measurement-class",
+        "gate": "< 0.10 mm, but failure-relevant terms unclosable under DND-27",
     },
     {
         "id": "K5",
         "risk": "purchased cost exceeds $500 delivered",
-        "status": "closed-analytically",
-        "result": f"sourced pair ${winner_delivered_usd():.2f}; reduced ${winner_reduced_delivered_usd():.2f}",
-        "gate": f"< ${CEILING_USD:.0f} delivered",
+        "status": "conditional",
+        "result": f"additive basis: sourced pair ${winner_delivered_usd():.2f} (at/over ceiling); "
+                  f"reduced ${winner_reduced_delivered_usd():.2f}",
+        "gate": f"< ${CEILING_USD:.0f} delivered; small real margin on the reduced path only",
     },
     {
         "id": "K6",
         "risk": "full-map time exceeds 30 s at the realised step rate",
-        "status": "closed-analytically",
-        "result": f"{FULL_MAP_TIME_S:.2f} s at 400 pps vs {DEADLINE_S:.0f} s",
-        "gate": f"< {DEADLINE_S:.0f} s",
+        "status": "conditional",
+        "result": f"{FULL_MAP_TIME_S:.2f} s is the best corner of the Test09 540-case sweep; "
+                  f"at 400 pps only 17/108 cases pass, worst 45.07 s",
+        "gate": "< 30 s; needs a measured >=400 pps loaded rate",
+    },
+    {
+        "id": "K7",
+        "risk": "motor-cost cliff (80 motors + 80 drivers)",
+        "status": "open",
+        "result": "only traceable matched 8 mm PM stepper is $40/ea -> 80 x $40 = $3,200 (8x ceiling); "
+                  "$1.05 price is an untraced marketplace multipack",
+        "gate": "needs a sourced matched sub-$1.05 motor quote",
+    },
+    {
+        "id": "K8",
+        "risk": "lateral holding of a knocked miniature",
+        "status": "open",
+        "result": "hard stop resists downward load; lateral load resisted only by detent "
+                  "(peak restoring torque ~0.0014 mN.m) and printed bushing",
+        "gate": "Test08 lateral handling gate (0.1 N / 1 N) has no analytic closure",
+    },
+    {
+        "id": "K9",
+        "risk": "angular margin vs print tolerance",
+        "status": "open",
+        "result": "12.50 deg nominal margin falls to 6.50 deg after a 6 deg seating error; "
+                  "+/-0.05 mm print tolerance on a 1.5 mm rotor is not propagated",
+        "gate": "Monte-Carlo angular error from +/-0.05 mm tolerance",
+    },
+    {
+        "id": "K10",
+        "risk": "regional-update time not bounded end to end",
+        "status": "open",
+        "result": "any write needs a full 41 mm platen stroke and head home/reference "
+                  "(0.5 s axis reference + 0.4 s settle per activation)",
+        "gate": "bound regional update time in Test12",
+    },
+    {
+        "id": "K11",
+        "risk": "printed detent/ratchet cycle life",
+        "status": "open",
+        "result": "detent torque is a single-cycle static model; creep/fatigue of the 0.45 mm "
+                  "leaf over thousands of writes unmodelled (cross-cuts K2)",
+        "gate": "permanently qualitative under DND-27",
     },
 ]
+
+# The winner is NOT presented as print-ready while K1/K4/K5/K6 are contestable and
+# K7-K11 are open. A printable-board test is only justified once K1, K5 and K7 close.
+PRINT_READY_AS_STATED = False
 
 
 def stackup() -> dict:
@@ -176,7 +237,11 @@ def stackup() -> dict:
             "sourced_pair_usd": winner_delivered_usd(),
             "reduced_usd": winner_reduced_delivered_usd(),
             "ceiling_usd": CEILING_USD,
+            "uplift_basis": "additive +10% ship +6% tax (project-consistent)",
+            "sourced_pair_over_ceiling": winner_delivered_usd() >= CEILING_USD,
             "pass": winner_reduced_delivered_usd() < CEILING_USD,
+            "note": "sourced pair is AT/OVER the ceiling; only the reduced path clears, "
+                    "with a small real margin (Falsifier promotion review, DND-36)",
         },
         "reliability": {
             "q": PER_CELL_ERROR,
