@@ -66,6 +66,7 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python checks.py
           python model.py > /dev/null
+          python ratify_bom.py --selftest
       - name: Test12 analytic detent contact sweep (DND-38, K2)
         run: |
           cd 06-experiments/test12_winner_convergence

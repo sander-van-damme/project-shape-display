@@ -26,11 +26,15 @@ python 06-experiments/test12_winner_convergence/checks.py    # regression + hone
 
 | # | Candidate | Disposition | Binding evidence |
 |---|---|---|---|
-| S1 | threshold ratchet + broadcast lift | **kill** | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
-| S2 | planar-memory tiles | **park** | survives only double-buffered with an off-line writer; no surprise-map path |
-| S3 | multi-row mechanical DMA | **kill** | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (5.8× ceiling); CI-visible |
-| S4 | shared-bus tiles | **park** | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint |
-| **S5** | **programmed rotary stops + common lift** | **WIN** | only CAD + simulation + sourced-BOM candidate; 26.251 s; sourced cost path **$503.71**, reduced **$481.56** |
+| S1 | threshold ratchet + broadcast lift | **kill** (Bet A) | worst-case all-armed stroke **2368 N > 1500 N** cap; mask write needs ≥500 channels |
+| S2 | planar-memory tiles | **park** (Bet A) | survives only double-buffered with an off-line writer; no surprise-map path. Cost **conditional on the print gate** |
+| S3 | multi-row mechanical DMA | **kill** (Bet A) | sourced analytic printability **FAIL** (pivot 0.80 < 5.0; declared min web 0.24 < 0.88); delivered **$2880.98** (sourced selectors); CI-visible |
+| S4 | shared-bus tiles | **park** (Bet A) | printed dog clutch must carry tile torque; bus backlash fails 0.25 mm at 3°/joint. Cost **conditional on the print gate** |
+| **S5** | **programmed rotary stops + common lift** | **WIN** (Bet B) | only CAD + simulation + sourced-BOM candidate; 26.251 s; sourced cost path **$503.71**, reduced **$493.57** (DND-37 corrected) |
+
+S1/S2/S4 cost is **not** cited as killing evidence: their BOMs are inflated by fallback lines
+for parts their designs intend to print (Falsifier Finding 2). S3's cost is driven by *sourced*
+selectors and remains a genuine kill.
 
 ## 2. End-to-end stack-up (winner)
 
@@ -54,13 +58,20 @@ The motor + driver channel is the only cost cliff. Sourced pairing (2026-09-28):
 | Path | Parts subtotal | Delivered (×1.16) | vs $500 |
 |---|---:|---:|---|
 | Sourced motor $1.05 + TB6612 $0.80, unchanged fixed | $434.20 | **$503.71** | +$3.71 (on the ceiling) |
-| + fold 40 discrete shift registers onto the driver PCB (−$14) | $420.20 | **$487.46** | **−$12.54** |
-| + sourced RP2040 controller (−$5) | $415.20 | **$481.56** | **−$18.44** |
+| + fold 40 discrete shift registers onto the driver PCB (−$14 allowance) | $420.20 | $487.46 | *overstates saving* |
+| + sourced RP2040 controller (−$5) | $415.20 | $481.56 | *overstates saving* |
+| **Corrected reduced path (DND-37)** | **$423.30** | **$493.57** | **−$6.43** |
 
 Fixed subtotal **$284.00** is reproduced directly from
 `bom_S5_delivered.csv` (expected scenario) by `checks.py`, so the model cannot drift from
 the sourced BOM. Reaching the <$400 ideal band is **not** demonstrated; the winner lands
-in the project's "acceptable" band with margin.
+in the project's last-resort band with margin.
+
+**DND-37 correction:** the register consolidation above was priced at the line's $14
+*expected allowance* against a base re-priced to *sourced* prices; the register's sourced
+value is only $3.70, so the honest reduced total is **$493.57**, not $481.56. See
+[`ratify_bom.py`](ratify_bom.py) and the
+[ratification note](../../07-evidence-and-decisions/dnd37-bom-ratification.md).
 
 ### Reliability — OPEN (assumption, not measurement)
 
@@ -88,7 +99,7 @@ envelope**: no representative miniature has been measured (`miniature_measured: 
 | K2 | printed rotary detent holds/repeats after a slipped step | **conditional** | Analytic contact sweep ([DETENT_CONTACT.md](DETENT_CONTACT.md), [DND-38](/DND/issues/DND-38)): nominal leaf does not correct an 18° slip at the sourced PLA–PLA friction midpoint (torque/friction = 0.92); closes only for μ ≤ 0.323 or a deepened scallop (≥ 0.31 mm). Does not kill S5. |
 | K3 | gravity return vs guide friction | **closed-analytically** | 20.29 mN weight vs 5 mN assumed drag = 4.06×; 15.29 mN headroom (solid column). |
 | K4 | regional update disturbs a loaded neighbour | **closed-analytically** | 0.017 mm vs 0.10 mm gate. |
-| K5 | purchased cost > $500 delivered | **closed-analytically** | $503.71 sourced; **$481.56** reduced. |
+| K5 | purchased cost > $500 delivered | **closed-analytically** | $503.71 sourced; **$493.57** reduced (DND-37 corrected). |
 | K6 | full-map time > 30 s at realised step rate | **closed-analytically** | 26.25 s vs 30 s at 400 pps. |
 
 **Cheapest falsification for K2 (now run):** the analytic contact/sensitivity sweep of the
