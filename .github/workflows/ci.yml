@@ -7,6 +7,12 @@ name: engineering-checks
 permissions:
   contents: read
 
+# Cancel superseded runs on the same ref so rapid agent pushes get a fast
+# signal from the latest run instead of queueing stale duplicates.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   engineering-checks:
     runs-on: ubuntu-latest
@@ -15,6 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install test dependencies
         # buckling_closure.py (Test12 DND-44 K1) imports numpy via test08's
         # cam_strength.py. The runner's system python may or may not ship numpy;
@@ -285,9 +292,10 @@ jobs:
         # the full cycle (18.278 s), and a common-height read target is proposed.
         # The DND-112 companion checker is now a HARD GATE: every attack asserts
         # the resolved state, so --gate must exit 0. CALCULATION + CAD (DND-27).
+        # (The writer-rate + mask checks already ran authoritatively in the
+        # DND-111 step above on this same checkout; the gate below recomputes
+        # its numbers independently, so no re-run is needed here.)
         run: |
-          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
-          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 
       - name: "DND-112 independent audit of the DND-111 rate/read bound (report)"
@@ -295,9 +303,9 @@ jobs:
         # step above (--gate). Recomputes every DND-111 number independently of
         # a1_writer_rate.py. After DND-113 all attacks assert the resolved state.
         # CALCULATION + CAD only (DND-27).
+        # (The DND-104 audit gate already runs in its own step above; no re-run.)
         run: |
           python 07-evidence-and-decisions/falsifier_dnd112_checks.py
-          python 07-evidence-and-decisions/falsifier_dnd104_checks.py
 
       - name: "DND-114 common-height read target (CAD-validated)"
         # DND-114 converts the DND-113 PROPOSED common-height read target into a
@@ -306,8 +314,9 @@ jobs:
         # contrast passing and the CH-B hinge-arc DeltaZ bound inside the +/-1 mm
         # DoF. The companion checker is a HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); the top-face defect is still recorded.
+        # (Writer-rate + mask checks already ran in the DND-111 step; this gate
+        # recomputes independently.)
         run: |
-          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
 
       - name: "DND-115 state-encoding shutter (closes the read axis)"
@@ -321,8 +330,9 @@ jobs:
         # the neighbour body by 0.280 mm and the Monte Carlo stack-up passes.
         # The companion checker is a HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
+        # (Writer-rate already ran in the DND-111 step; this gate recomputes
+        # independently.)
         run: |
-          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
       - name: "DND-118 independent falsifier audit of the DND-115 shutter (HARD GATE)"
@@ -349,6 +359,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
@@ -370,18 +381,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends openscad
           openscad --version
-      - name: Install mesh validation dependency
+      - name: Install python dependencies
         # DND-82: trimesh's graph ops (body_count / split / merge_vertices)
         # require scipy, which `pip install trimesh` does NOT pull in; without it
         # the low-cost gate raised ModuleNotFoundError and failed the job.
         # Install scipy explicitly. watertight() is also now dependency-free, so
         # the gate still passes if scipy is ever absent.
-        run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11"
+        # Single pip step (was mesh-dep + inline PNG-dep below): the S6-LC PNG
+        # renders need numpy + pillow.
+        run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11" "numpy>=1.26" "pillow>=10"
       - name: Render + verify the S6-LC assembled + exploded machine PNGs (DND-88/DND-92)
         # "Everything assembled" for the low-cost candidate: the 8-bank field
         # strip + platen + gate/comb + installed columns, rasterized from the
@@ -391,7 +405,6 @@ jobs:
         # Kept ahead of the (pre-existing, DND-82) low-cost CAD mesh gate so a
         # failure there cannot hide this verification.
         run: |
-          python -m pip install --quiet "numpy>=1.26" "pillow>=10"
           python 08-integrated-designs/s6lc-low-cost/analysis/render_s6lc_images.py
           python 08-integrated-designs/s6lc-low-cost/analysis/render_s6lc_images.py --check
       - name: Re-render the low-cost variant parts (best-effort CAD refresh)
@@ -425,6 +438,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
@@ -445,6 +459,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
@@ -463,6 +478,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
@@ -486,13 +502,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends openscad
           openscad --version
-      - name: Install mesh validation dependency
-        run: python -m pip install --quiet "trimesh>=4"
+      - name: Install python dependencies
+        # Single pip step (was mesh-dep + DND-69 PNG-dep): mesh validation needs
+        # trimesh, PNG renders need numpy + pillow.
+        run: python -m pip install --quiet "trimesh>=4" "numpy>=1.26" "pillow>=10"
       - name: Render the full S5-R printable part set
         run: |
           python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_fab_parts.py
@@ -508,8 +527,6 @@ jobs:
             --json s5r-parts-printability-record.json \
             --fail-on-design-fail \
             08-integrated-designs/s5r-shared-drive-register/fabrication/scad/s5r_parts.scad
-      - name: Install PNG render dependency (DND-69)
-        run: python -m pip install --quiet "numpy>=1.26" "pillow>=10"
       - name: Regenerate + verify the board-viewable PNG renders (DND-69)
         # Rasterizes the committed OpenSCAD STLs with a software renderer (the
         # runner's OpenSCAD PNG backend needs a GL context; these renders do
@@ -552,6 +569,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
