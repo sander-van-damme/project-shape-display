@@ -1,84 +1,75 @@
-# DND-65: reconcile the assembly-manifest purchased BOM to the promoted S5-R model
+# DND-71 — S6-LC: ultra-low-cost shape-display alternative (<$250 purchased)
 
-Make the board-facing assembly manifest carry the **same purchased BOM as the promoted
-model** ($404.60 delivered working, incl. the sourced steel drive rod), so a board member
-generating a shopping list from the print/build package cannot under-buy or see a total
-that contradicts the handoff headline.
-
-**Evidence class:** documentation/gate reconcile over already-landed CAD / calculation /
-sourced-listing work. **No print, no purchase, no measurement**
-([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
-
-## Engineering question
-
-`08-current-design/fabrication/manifests/assembly_manifest.md` §"Purchased BOM" was generated
-verbatim from the **pre-DND-58 ratified CSV**
-(`06-experiments/test12_winner_convergence/s5r_bom_ratified.csv`), which produced two real
-inconsistencies:
-
-1. **Total contradicted the handoff headline.** The table total was **$388.10 delivered**,
-   labelled *"TOTAL (working scenario, sourced units)"*. But the promoted model
-   `s5r_register.bom(rows_in_bank=4)` returns **`delivered_usd = $404.60`**. $388.10 is the
-   *optimistic sourced-unit* variant (2 bank ICs, motor $12.39 / writer $2.20, no rod),
-   mislabelled as "working".
-2. **Missing purchased line.** No **sourced Ø6 mm steel drive-rod** row, though assembly
-   step 3 requires the board to source one ([DND-58](/DND/issues/DND-58)).
-
-**Answer:** the manifest + CSV now reconcile line-by-line to the promoted model.
+Closes/advances [DND-71](/DND/issues/DND-71) (board direction [DND-70](/DND/issues/DND-70)).
 
 ## What changed
 
-- **`s5r_bom_ratify.py::emit_bom_csv`** now emits the **WORKING** scenario at the DND-54
-  allowance units ($12.00 motor / $2.50 writer) + the block's own priced channels + the
-  DND-58 sourced steel rod. Delivered total reconciles to the model's
-  `delivered_usd` (**$404.60**). Adds the **steel drive-rod line**; labels the optimistic
-  **$387.18** as a non-working reference and records the superseded **$388.10** header as a
-  mislabel. A `Q8` selftest re-reads the emitted CSV and asserts TOTAL == model
-  `delivered_usd`, rod present, and scenario labels correct.
-- **`gen_manifests.py::purchased_bom_md`** reads the promoted model `bom(4)` and presents
-  the working figures + **$404.60** total + explicitly labelled non-working scenarios
-  (optimistic $387.18, rod-unpriced $401.12, DND-54 claim $397.53).
-- **`manifests/assembly_manifest.md`** regenerated: steel-rod line, working total $404.60,
-  correct scenario labelling, DND-27 "purchases nothing" note kept.
-- **`fab_package_checks.py`: new gate C8** — fails if the manifest/CSV BOM total contradicts
-  the model's `delivered_usd`, if the steel-rod line is absent, or if **$388.10** is
-  headlined as the working scenario. Verified to **FAIL** (exit 1) on a synthetic drift
-  (rod line removed + total reverted to $388.10).
-- **CI wiring needs no workflow-file change.** C8 lives in `fab_package_checks.py`, which the
-  existing `ci.yml` `fab-package` step already runs (`gen_manifests.py` → `fab_package_checks.py`);
-  the README coherence gate **R1–R6** (`tools/validate/readme_s5r_coherence.py`) is already
-  wired into `engineering-checks` ([DND-64](/DND/issues/DND-64)). So the new gate runs
-  unattended with no `.github/workflows/*` edit (which would have tripped GitHub's
-  maintainer-approval gate for a PR changing workflow files).
-- **READMEs** (`08-current-design/fabrication/README.md`, gate-count C1-C6 → C1-C8) and
-  `s5r_bom_ratify_checks.py` updated for the new working CSV.
+- **New subdir `09-lowcost-alternative/`** holding a complete candidate machine
+  definition: architecture rationale, real-OpenSCAD CAD, a sourced BOM with a
+  delivered total under the ceiling, and the analytic timing/force/cost model.
+- **`08-current-design/` (S5-R) is not touched** — the board required a new
+  subdir, and this PR opens/modifies none of it.
+- New CI: an `engineering-checks` step (model + 29 regression checks +
+  printability) and a real-OpenSCAD render job `s6lc-cad-render`.
+
+## Engineering question addressed
+
+Can the product (80×80 cells, 5.08 mm pitch, ≥40 mm travel, <30 s full map,
+regional updates) be built for **< $250 purchased parts, excluding printed**
+when S5-R's parts are $348.79 and its legacy fixed base alone is $218.70?
+
+## Result (all six analytic gates PASS)
+
+| Metric | S5-R | **S6-LC** |
+|---|---:|---:|
+| Purchased parts | $348.79 | **$139.77** |
+| Delivered (×1.16) | $404.60 | **$162.13** (margin $87.87) |
+| Full map | 24.615 s | **7.4 s** |
+| Bought actuators | 42 | **3** |
+
+The decisive move is removing the **40-solenoid writer bank** (replaced by a
+passive per-bank broadcast threshold mask) and the legacy lift/scan stock.
+S1's two known failures are addressed: banked reset bounds worst-case release
+force to 128 N (296 N ceiling), and the mask is set off-line (a stated product
+limitation, priced and documented, not hidden).
 
 ## Evidence produced
 
-| Check | Result |
-|---|---|
-| `06-experiments/test12_winner_convergence/s5r_bom_ratify.py --selftest` | **OK** (incl. new Q8 CSV reconcile: $404.60 == model) |
-| `06-experiments/test12_winner_convergence/s5r_bom_ratify_checks.py` | **OK** (11 tests) |
-| `06-experiments/test12_winner_convergence/s5r_register_checks.py` | **OK** (20 tests) |
-| `08-current-design/fabrication/tools/fab_package_checks.py` | **GATE: PASS** (C1–C8) |
-| `tools/validate/readme_s5r_coherence.py` | **GATE: PASS** (R1–R6) |
-| `tools/validate/analytic_printability.py` (`scad/s5r_parts.scad`) | **PASS** |
-| C8 synthetic drift (rod removed + total $388.10) | **GATE: FAIL** (exit 1) — as required |
+- `analysis/s6lc.py` — geometry, force, timing, BOM, gate screen.
+- `analysis/s6lc_checks.py` — **29/29 checks pass**.
+- `analysis/printability_s6lc.py` — sourced-FDM-limit table, **all PASS**.
+- `analysis/render_s6lc_cad.py` — **5 parts render watertight** (real OpenSCAD + trimesh).
+- `cad/*.json` — CAD + printability records; `bom_s6lc.csv` — BOM line table.
+- `evidence/architecture-rationale.md`, `evidence/printable-path.md`.
 
-Promoted model constants pinned by C8: delivered **$404.60**, parts **$348.79**, steel rod
-**$3.00 parts / $3.48 delivered**.
+## Assumptions / evidence class
 
-## Assumptions / limits
+**CAD + CALCULATION over sourced FDM limits and sourced actuator ratings. No
+part has been printed, purchased or measured** ([DND-27](/DND/issues/DND-27)).
+The platen speed (20 mm/s), settle/return/reset overheads, and the lead-screw
+efficiency are stated assumptions; break-evens are in `sensitivity()`.
 
-- Documentation + CI-gate reconcile over landed CAD/calc/sourced work; it changes no model
-  constant, geometry, or sourced price. The manifest derives its total from
-  `s5r_register.bom(4)`, so it tracks the model exactly.
-- The "$388.10" and "$387.18" figures are related but distinct *optimistic* variants
-  (2 bank ICs sourced-unit vs 1 shared bank IC); both are labelled as **not** the working
-  scenario.
-- Residual uncertainty is unchanged and remains **measurement-only** ([DND-27](/DND/issues/DND-27)).
+## What passed / what failed
 
-## Most informative next test
+- Passed: all six gates (cell fit, banked release force, lift torque, timing,
+  cost parts, cost delivered); sourced-FDM printability; watertight CAD.
+- Honest limitation: mask preparation is **off the visible budget** (double
+  buffering or pre-written media required for a known next map).
 
-None remaining for this issue. On close, [DND-57](/DND/issues/DND-57) auto-wakes the CEO for
-the terminal S5-R call.
+## Remaining uncertainty
+
+Measurement-only under DND-27: as-printed pawl release-force spread (S1-D),
+friction μ, pocket sharpness, pawl creep, platen flatness.
+
+## Most informative next test (no print)
+
+A CAD + mechanism-dynamics study of the **release-comb trip under a loaded
+neighbour**, plus a release-force-spread sensitivity that finds the sd at which
+the broadcast decode fails — owned by [DND-78](/DND/issues/DND-78) (Falsifier).
+
+## Follow-ups created
+
+- [DND-75](/DND/issues/DND-75) — InventorAlpha: divergent alternatives.
+- [DND-76](/DND/issues/DND-76) — InventorBeta: divergent cell/mechanism primitives.
+- [DND-77](/DND/issues/DND-77) — CostManufacturing: independent BOM ratification (blocked by DND-71).
+- [DND-78](/DND/issues/DND-78) — Falsifier: adversarial audit (blocked by DND-71).
