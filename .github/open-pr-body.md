@@ -1,70 +1,65 @@
-# DND-123: crosstalk normalisation corrected (6.37× → 5.95×); A13 now checks ADR internal consistency
+# DND-124: close DND-121 as superseded; disclose the shutter crosstalk modelling-convention residual
 
-## What changed
+## Context
 
-- **Model** `08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py`:
-  `shutter_read_contrast()` now computes `bright`, `dark` and the neighbour crosstalk term with the
-  **same area-weighted `A/d²` convention** (`A_vane = 0.44·1.60 = 0.704 mm²`). Previously the signal
-  used the point return `r/g²` while the crosstalk used `r·A_incone/g_nb²`, mixing conventions and
-  under-counting the crosstalk by `A_vane`. **No geometry change.**
-- **ADR** `07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md`: the gated ratio is
-  corrected to **5.95×**; the stale "0.068" crosstalk figure is corrected to 0.046 (4.6%).
-- **Falsifier checker** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py`: A6 reports
-  the corrected value; **A13 now parses the ADR's quoted crosstalk percentage and checks it is
-  internally consistent with the quoted gated ratio** (`f ⇒ (1+f)/(1/R+f)`).
-- **Register + READMEs**: new DND-123 sections; live headlines updated 6.37× → 5.95×.
+[DND-124](/DND/issues/DND-124) closes [DND-121](/DND/issues/DND-121) as **superseded by
+[DND-119](/DND/issues/DND-119)** (independently verified by the [DND-122](/DND/issues/DND-122)
+audit). Reconciling the closure surfaced one honesty item declared landed but not on `main`:
+the crosstalk **modelling-convention residual**.
+
+The earlier DND-124 branch was built on pre-DND-123 `9b406f3` and, if merged as-is, would have
+**reverted the DND-123 crosstalk fix** (re-landed `6.37×`, deleted the DND-123 entry). This PR is
+**rebased onto `main` (`8fa3b92`)** and carries only the ADR caveat + register note. The DND-123
+fix is preserved.
+
+## What changed (ADR prose + register only; **no geometry, no code, no gated-numeric change**)
+
+- `07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md` §3a — adds a **residual
+  modelling-convention caveat**. The neighbour crosstalk term `rho·A_nb/g_nb²` is area-scaled,
+  while the vane signal `rho·A_vane/g_vane²` is area-scaled against a chosen vane area reference.
+  Using the **full vane face** (`0.704 mm²`, main's own `vane_region`) gives **4.6% / 5.95×**
+  (shipped); clipping the vane to the read spot (`0.608 mm²`) gives **5.35% / 5.75×`; scaling by
+  the **whole read spot** (`1.550 mm²`, 3.2× the 0.44 mm vane width) gives `2.10% / 6.78×`, which
+  is not physical (the vane and neighbour patches do not both fill the spot).
+- `07-evidence-and-decisions/README.md` — new **DND-124** register entry recording the same, plus
+  the blocker correction (stale branch reverted DND-123; rebased).
 
 ## Engineering question
 
-Was the DND-119 crosstalk-corrected on/off ratio (6.37×) arithmetically sound, or was it — like the
-DND-112/DND-111 "number no artifact supports" class — a number whose internal arithmetic does not
-reconcile?
+Is the DND-123 area-consistent crosstalk figure (`4.6% / 5.95×`) sensitive to the choice of vane
+area reference — and if so, does any defensible convention threaten the 2× gate?
 
 ## Findings
 
-- **KO on the number (mechanism unaffected).** The ADR printed both "crosstalk **4.6%** of the vane
-  return" and the gated ratio **6.37×**. These are mutually inconsistent: 4.6% implies **5.95×**;
-  6.37× requires **3.25%**. The model's own function reported *two* crosstalk fractions
-  (`neighbour_over_vane_term = 0.0325` vs `neighbour_crosstalk_ratio_physical = 0.046`).
-- **Root cause.** `bright = r_vane/g_vane²` (point, no vane area) but
-  `ct = r_vane·A_incone/g_nb²` (area-weighted). The mixed dividing normalisation discounts the
-  crosstalk by `A_vane`.
-- **The DND-121 branch made the opposite error** (`ct = frac·r_nb/g_nb²`, a dimensionless fraction
-  times a point return → 7.41×). Neither 6.37× nor 7.41× is area-consistent.
-- **The physics survives.** With a consistent convention the gated ratio is **5.95×**, ~3× above
-  the 2× gate; `contrast_passes` stays TRUE. This is a margin correction, not a design failure.
+- The ratio is **mildly convention-dependent** (≈4.6–5.4% / **5.6–6.0×** across defensible vane
+  references), but **every** defensible convention leaves the on/off ratio far above the 2× gate.
+  No gate outcome or design decision changes. The shipped full-vane-face convention is retained.
+- The `whole-spot` variant (`2.1% / 6.78×`) is **not physical**: `A_spot` cancels only if both
+  patches fill the spot, which they do not (the spot is 3.2× the vane width).
 
-## Evidence produced (CALCULATION only)
+## Evidence produced (CALCULATION + CAD only, [DND-27](/DND/issues/DND-27))
 
-| Convention | crosstalk / vane | gated on/off |
-|---|---:|---:|
-| DND-119 as-written (mixed) | 3.25% | 6.37× |
-| **DND-123 area-consistent (shipped)** | **4.6%** | **5.95×** |
-| DND-121 branch (fraction × point) | 0.63% | 7.41× |
+| Vane area in the denominator | neighbour/vane | gated on/off | note |
+|---|---:|---:|---|
+| full vane face `0.704 mm²` (**shipped**) | 4.6% | **5.95×** | main's own `vane_region`; defensible |
+| vane clipped to the read spot `0.608 mm²` | 5.35% | 5.75× | most physical |
+| whole read spot `1.550 mm²` | 2.10% | 6.78× | **wrong** (spot 3.2× the 0.44 mm vane width) |
 
-## Relationship to the DND-122 follow-up (already on main)
+## Gates run on the rebased branch (all green)
 
-This branch is rebased on `a4338a7` (CTO's DND-122 follow-up: own-column clearance
-3.41 → 3.42 mm, A13 extended to the swept clearances). The A13 extensions are
-**merged in one checker**: the swept neighbour/own-column clearance checks from that
-follow-up, plus the new crosstalk-percentage internal-consistency check here.
+- `falsifier_dnd115_a1_shutter_audit.py --gate` → **CLEAN 14/14** (A13 `MATCH`: ADR 4.6% / 5.95×)
+- `falsifier_dnd115_checks.py --gate` → CLEAN 12/12
+- `falsifier_dnd114_checks.py --gate` → 7/7; `falsifier_dnd112_checks.py --gate` → 11/11
+- `reliability_mask_checks.py` → 78/78; `a1_writer_rate.py` exit 0
 
-## Gates run (all green)
+## Assumptions / residual uncertainty
 
-- `falsifier_dnd115_a1_shutter_audit.py --gate` → **CLEAN 14/14** (A13 now also catches the
-  percentage/ratio inconsistency; verified it FAILs the pre-DND-123 ADR text and a 6.37× tamper).
-- `falsifier_dnd115_checks.py --gate` → **CLEAN 12/12**; `falsifier_dnd114_checks.py --gate` →
-  **CLEAN 7/7**; `falsifier_dnd112_checks.py --gate` → **CLEAN 11/11**;
-  `reliability_mask_checks.py` → **78/78**; `a1_writer_rate.py` exit 0.
+- CALCULATION + CAD only. No print, no purchase, no measurement (DND-27). No board contact (DND-32).
+- The residual is **presentational**: it changes no gate outcome. Assumption-class optical constants
+  remain unmeasured (DND-27).
 
-## Assumptions / uncertainty
+## Most informative next test
 
-- CALCULATION only. No print, no purchase, no measurement (DND-27). No board contact (DND-32).
-- The 4.6% crosstalk and the 5.95×/7.72× pair rest on assumption-class optical constants; the
-  normalisation fix is pure arithmetic over the placed CAD geometry.
-
-## Next test
-
-- Physical single-cell A1 coupon (real LED/PD pair + linkage force/friction/wear) remains the only
-  route to retire the assumption-class / measurement-only residuals — a human/external handoff
-  (DND-27).
+None required on this axis. The DND-115 read axis is closed at CAD + calculation; the live main
+tree is CLEAN 14/14. Physical single-cell A1 coupon measurement is not an available evidence class
+(DND-27).

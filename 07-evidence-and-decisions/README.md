@@ -441,6 +441,27 @@ quoted 6.37×** as an artefact of mixing normalisations inside `shutter_read_con
   Evidence class CALCULATION only (DND-27).
 
 
+### DND-124 — residual disclosure: the crosstalk ratio is mildly convention-dependent
+
+[DND-124](/DND/issues/DND-124) closes [DND-121](/DND/issues/DND-121) as superseded by
+[DND-119](/DND/issues/DND-119) (verified by [DND-122](/DND/issues/DND-122)) and records one
+**presentational residual** on the now-merged DND-123 correction — no geometry, code, or gated-numeric
+change:
+
+- The neighbour crosstalk term `rho·A_nb/g_nb²` is **area-scaled**; the vane denominator chooses an
+  area reference. Using the **full vane face** (`0.704 mm²`, main's own `vane_region`) gives
+  **4.6% / 5.95×** (shipped). Clipping the vane to the read spot (`0.608 mm²`) gives **5.35% /
+  5.75×**. Scaling by the **whole read spot** (`1.550 mm²`, 3.2× the 0.44 mm vane width) gives
+  **2.10% / 6.78×**, which is **not physical** (the vane and neighbour patches do not both fill the spot).
+- Every defensible convention leaves the on/off ratio **far above the 2× gate** (5.6–6.0×), so no
+  gate outcome or design decision changes. The shipped 4.6% / 5.95× is retained.
+- A **first-class blocker correction**: the earlier DND-124 branch was built on pre-DND-123 `9b406f3`
+  and, if merged, would have reverted the DND-123 fix (re-landed 6.37×, deleted the DND-123 entry).
+  It is **rebased onto `8fa3b92`** and now carries only the ADR caveat + this register note.
+- **Gates:** A13 (`adr_numbers_match_model`) still MATCHes at 14/14; full suite re-run below.
+  Evidence class CALCULATION + CAD (DND-27).
+
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
