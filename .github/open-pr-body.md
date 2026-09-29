@@ -1,95 +1,132 @@
-# DND-76: ultra-low-cost cell/mechanism primitives (<$250) — four divergent primitives + CAD
+# DND-72: ultra-low-cost (<$250 purchased) — S6-LC selected + S5-R-trim infeasibility proof + DND-75 divergence folded + CAD
 
-Adds `09-lowcost-alternative/primitives/`: four concrete cell-level / selection primitives that
-attack the four S6-LC weak points named in [DND-76](/DND/issues/DND-76). **`08-current-design/` is
-untouched.** This is an input to the [DND-71](/DND/issues/DND-71) synthesis, not a promotion.
+**Consolidated single track.** Three ultra-low-cost workstreams were reconciled under CEO
+consolidation direction: the DND-72 trim screen, the DND-71 S6-LC candidate, and the DND-75
+inventor divergence. Output: **one authoritative branch, one BOM of record, one selected
+architecture**, in the new subdirectory `09-low-cost-variant/`. `08-current-design/`
+(S5-R, $404.60 delivered) is **untouched**.
 
-**Evidence class:** CALCULATION over sourced FDM limits + CAD (real OpenSCAD). **No print, no
-purchase, no measurement** ([DND-27](/DND/issues/DND-27)). **No board contact**
-([DND-32](/DND/issues/DND-32)).
+**Evidence class:** CALCULATION over the promoted S5-R model, the S1/S2 screen, sourced-class
+listings and sourced FDM process limits, plus CAD (real OpenSCAD). **No print, no purchase, no
+measurement** ([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
 
 ## Engineering question
 
-[DND-71](/DND/issues/DND-71)'s candidate **S6-LC** (`09-lowcost-alternative/analysis/s6lc.py`,
-PR #70 on `feat/dnd71-lowcost-alternative`; banked broadcast ratchet, **punched-card** per-bank
-threshold mask prepared off the visible budget, 0.234 N pawl-in-rack memory, 3 motors incl. a
-travelling reset carriage, ~$139.77 / 7.4 s) has four named weak points. Can **cell-level /
-selection primitives** make it cheaper or more reliable — counting every component, with no
-scaling hidden behind the words "selector" or "clutch"?
+Can the S5-R product be delivered under **$250 purchased** (excl. 3D-printed parts) while keeping
+406.4 × 406.4 mm, 5.08 mm pitch, 6,400 cells, ≥ 40 mm travel, full-map < 30 s, regional updates and
+X1C-buildability?
 
-## Answer
+## Answer — three parts
 
-**Yes — four primitives, all 100 % printed. Three add nothing bought; P4 *removes* S6-LC's $8
-reset-carriage motor** by riding the platen, so the net bought delta is **−$8**. They turn
-tolerance-fragile *forces* into hard-stop *positions*, and the machine still clears every gate:
-**13.0 s** full map (< 30 s), **$162.17 purchased** at worst-case optional extras (< $250). The
-primitives spend 5.6 s of S6-LC's 22.6 s margin to buy an **in-budget mask write** (S6-LC's card
-prep is off-budget), a **friction-independent cell state**, and the **removal of a motor**. The
-honest trade is a **correlated, silent error** if a whole comb or clutch fails (bounded by 4 home
-sensors per bank, never per-cell feedback).
+**1. Trimming the S5-R architecture: NO.** The sub-$250 space is empty for this family. The binding
+term is the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners,
+controller, PCB/passives allowance, spares): **$218.70 parts → $253.69 delivered**, which alone
+exceeds the **$215.52 parts budget** ($250 / 1.16). Actuator headroom is **negative (−$3.18
+parts)**. A **570-point** sweep over (R = rows-in-bank, writers, bank motors) finds **zero**
+sub-$250 requirement-preserving points; the cheapest is **R6-W20-M2 at $345.90 delivered / 29.987 s**
+— a **$95.90** gap.
+
+**2. Changing the architecture: YES — S6-LC.** The fixed base is a *consequence* of the 40-solenoid
+per-row writer bank and the 2-motor bank drive, not a law. The screened **S1 broadcast threshold
+ratchet** family removes them:
+
+| Quantity | S5-R | **S6-LC** | Class |
+|---|---:|---:|---|
+| Bought actuators | 42 | **3** | CAD + sourced |
+| Purchased parts | $348.79 | **$139.77** | CALCULATION + sourced |
+| Delivered (×1.16) | $404.60 | **$162.13** | CALCULATION |
+| Full-map reconfiguration | 24.615 s | **7.4 s** | CALCULATION |
+| Gates G1–G6 | — | **all pass** | CALCULATION |
+
+S6-LC: passive printed pawl memory (no per-cell/per-row bought actuator), per-bank threshold mask
+gate read from an **off-line punched card**, one lead-screw lift stepper, 8 banks × 10 rows bounding
+the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling). 50 mm travel
+(5 × 10 mm).
+
+**3. DND-75 divergence folded (alternatives, not replacements).** Three materially different
+machines that attack the *base lines themselves* clear both gates (<$250 and <30 s):
+
+| | A1 single-shaft cam | A2 hand-crank + punched tape | A3 S1-B banked broadcast |
+|---|---|---|---|
+| Bought motion actuators | 1 stepper | 0 (hand/spring) | 1 lift + 1 film-index |
+| Selection | cam-actuated writer comb | punched-tape read comb | punched-film threshold planes |
+| Parts / delivered | $58.30 / **$67.63** | $42.90 / **$49.76** | $98.29 / **$114.02** |
+| Full-map | 17.76 s | 26.86 s | 22.06 s |
+| Decisive failure mode | one motor must carry bank **and** lift | tape write is the product (off-line) | punched-film registration |
+
+Each is cheaper than S6-LC but carries a product-level caveat. S6-LC remains the selected machine
+because its only product caveat (off-line mask prep) is shared with A2/A3 while its mechanism is the
+most conventional.
 
 ## What changed
 
-- **`09-lowcost-alternative/primitives/primitives.py`** — analytic model:
-  - **P1** friction-independent **bistable over-centre latch** (attacks #1 release-force spread).
-    Hostile arithmetic: with S6-LC's real pawl (`s6lc.py` = **0.234 N** design release), the
-    loaded release force spans **0.888 → 1.869 N** (2.11×) across the sourced PLA μ band at the
-    DND-48 bounding 3.27 N load → implied spread **17.8 %** vs the **9 %** break-even. The 0.90 mm (2-line) latch snap is **0.61 N** and stores state as a
-    hard-stop position, so **μ leaves the stored state**.
-  - **P2** **printed 4-plane louvre comb stack** as the mask medium (attacks #2). Screens five
-    candidates and **rejects** paper punched cards, the single relative-shift comb (recorded as a
-    failed idea), a bought 80-channel punch head ($38), and magnetic combs. Selected medium is
-    **$0, 0 extra motors**; comb web **1.32 mm**, guide gap **0.20 mm** worst case. Decisive
-    failure: a stuck comb mis-arms a **whole 80-cell band**, silently.
-  - **P3** **relieved pocket throat + V-guide** at 3.60 mm body / 1.48 mm lane (attacks #3).
-    Pawl throw **0.48 mm**, throat **30°** (< the 45° sourced limit), V-guide **9× margin**,
-    pocket floor in compression **19×** the 3.27 N service load — **never a bending leaf**.
-  - **P4** **single-actuator banked reset** (attacks #4): a reset bar rides the **common platen**
-    (no second carriage, no extra motor) and 8 **printed one-way pawl clutches** free-wheel on the
-    up-stroke. Reset **6.8 s**. A friction/detented slip-ring clutch is **rejected** for the same
-    μ-spread reason as P1.
-  - Full system accounting: all ten jobs, component counts, BOM delta, timing budget.
-- **`09-lowcost-alternative/primitives/primitives_checks.py`** — **35 CI-style assertions**
-  pinning every headline (baseline, each primitive, the system gates, the verdict).
-- **`09-lowcost-alternative/primitives/scad/{s6lc_cell,mask_comb,reset_bar}.scad`** — real
-  OpenSCAD for the cell, the comb bar and the reset bar.
-- **`09-lowcost-alternative/primitives/tools/render_primitives_cad.py`** — renders with a **real**
-  OpenSCAD and **fails hard** without one (no box-arithmetic meshes).
-- **`09-lowcost-alternative/primitives/README.md`** — the full primitive write-up.
-- **CI:** new `DND-76` check step (model + checks) in `engineering-checks`, and a new
-  `lowcost-primitives-cad-render` job (hard-fails if OpenSCAD is missing).
+- **`09-low-cost-variant/s6lc/`** — the **selected machine**: `analysis/s6lc.py` (geometry, force,
+  timing, BOM, gates), `analysis/s6lc_checks.py` (**29 checks**, all pass), `bom_s6lc.csv`,
+  `scad/s6lc_machine.scad` + rendered `cad/stl/*` (5 parts), `evidence/`.
+- **`09-low-cost-variant/s5r_ultra.py` / `s5r_ultra_checks.py`** — retained as the **negative
+  result**: fixed-base floor, 570-point sweep, break-even ($345.90), `INFEASIBLE_UNDER_UNCHANGED_
+  REQUIREMENTS` (**19 checks**, all pass).
+- **`09-low-cost-variant/divergent/`** — the **folded DND-75 divergence**: `analysis/divergent_lowcost.py`,
+  `analysis/divergent_lowcost_checks.py` (**18 checks**, all pass), `scad/a1_cam_cell.scad`,
+  `scad/a2a3_media_cell.scad`, `tools/run_divergent_checks.py` (runner exit 0 incl. analytic
+  printability).
+- **`tools/validate/analytic_printability.py`** — superset merged so both the trim cell and the
+  divergent cells route correctly (`check_media_cell` + `check_a1_cam_cell` + `s5r_ultra_cell`).
+- **`07-evidence-and-decisions/dnd72-low-cost-synthesis.md`** — the reconciliation ADR: why the
+  headlines are complementary, the selected machine, the DND-75 divergence table, requirement
+  preservation, residual uncertainty.
+- **`09-low-cost-variant/README.md`** — rewritten to lead with S6-LC + the negative result + divergent.
+- **CI:** adds the **S6-LC gate** and the **folded divergent-machines gate** alongside the DND-72
+  trim gate; the `lowcost-cad-render` job is made version-robust and crash-diagnosable.
 
 ## Evidence produced
 
 | Check | Result |
 |---|---|
-| `primitives.py` | screen runs; **all 10 gates pass** |
-| `primitives_checks.py` | **35 passed, 0 failed** |
-| `render_primitives_cad.py` | **exit 2 without OpenSCAD** by design; CI job renders with it |
-| System timing | **13.0 s** full map (margin 17.0 s, assumption-conditional) |
-| System cost | **$162.17** worst case purchased; required delta **−$8** (P4 removes the reset motor) |
+| `09-low-cost-variant/s6lc/analysis/s6lc_checks.py` | **29/29 pass** — all six gates, `PROMOTE_TO_09` |
+| `09-low-cost-variant/s5r_ultra_checks.py` | **19/19 pass** — trim infeasibility |
+| `09-low-cost-variant/divergent/tools/run_divergent_checks.py` | **runner exit 0** — 18/18 + printability |
+| `tools/validate/readme_s5r_coherence.py` | **GATE PASS** — S5-R headline untouched |
+| `09-low-cost-variant/tools/render_lowcost_cad.py` | **ALL PARTS OK** — 3 watertight, bed-fitting |
 
-## Assumptions
+Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim floor **$345.90 /
+29.987 s**; S6-LC **$139.77 / $162.13 / 7.4 s**, 128.2 N banked release; divergent A1 **$67.63**,
+A2 **$49.76**, A3 **$114.02**.
 
-- Written dwell (0.50 s/bank) and platen stroke (0.55 s) are **stated assumptions**, the same class
-  as S1's 25.20 s budget and S5-R's writer settle. **Not measured.**
-- Print stiffness/modulus uses the sourced PLA midpoint (1500 MPa) and the sourced μ band.
-- The common platen means the four broadcast strokes are paid **once**, not per bank; only the mask
-  write is serial.
+## Requirement-preservation (selected machine S6-LC)
 
-## What passed / what failed
+| Requirement | Status | Class |
+|---|---|---|
+| 406.4 × 406.4 mm / 5.08 mm / 6,400 cells | preserved | CAD |
+| ≥ 40 mm travel | 50 mm (5 × 10 mm) | CAD + calc |
+| full-map < 30 s | **7.4 s** (margin 22.6 s) | CALCULATION |
+| regional updates | per-bank mask + stroke + reset | CALCULATION |
+| X1C-buildable | 5 watertight parts + sourced FDM-limit table | CAD + sourced |
+| **purchased < $250** | **$139.77 parts / $162.13 delivered — PASS** | CALCULATION + sourced |
 
-- **Passed:** cell fit, comb printability, guide margin, compression load path, no-extra-motor,
-  full-map < 30 s, cost < $250 worst case, friction-independent state.
-- **Failed ideas recorded as evidence:** paper punched card; single relative-shift comb; bought
-  80-channel punch head; magnetic printed comb; friction/slip-ring reset clutch.
+## Assumptions / limits
 
-## What remains uncertain / next test
+- **Mask preparation is off the visible budget**: a genuinely unannounced arbitrary map needs
+  punched-card prep first (a stated product limitation; cards can be pre-written/reused). This is
+  the price of removing the writer bank.
+- **S1-D pawl release-force spread** across 6,400 printed parts is the live falsifier; banking
+  bounds the total force, not the per-part spread.
+- Platen assumed unloaded while writing; no per-cell feedback (same class as S5/S5-R).
+- As-printed friction µ, pocket sharpness, pawl creep are measurement-only and un-retirable under
+  [DND-27](/DND/issues/DND-27).
 
-- P1's worst-case snap-vs-comb margin (needs a coupon; forbidden under DND-27).
-- P2's whole-comb failure is only detectable as a whole-comb failure (4 home sensors/bank).
-- P3's as-printed V-guide wear and throat fusing are measurement-only.
-- **Next:** hand the primitives to the [DND-71](/DND/issues/DND-71) synthesis and let the
-  [Falsifier](/DND/issues/DND-78) attack the correlated-failure trade against the S6-LC baseline.
+## Most informative next test
+**Sourced ratification of the S6-LC BOM** ([DND-73](/DND/issues/DND-73)) and **adversarial audit**
+([DND-74](/DND/issues/DND-74)) against `09-low-cost-variant/s6lc/bom_s6lc.csv` — the single BOM of
+record — attacking the punched-card mask-write product statement and the S1-D pawl-spread
+falsifier, the two terms that can still kill S6-LC. On close, DND-73/DND-74 auto-wake.
 
-Closes [DND-76](/DND/issues/DND-76).
+## Known CI issue (pre-existing, addressed on this branch)
+
+The `lowcost-cad-render` job was red on this branch **including on the parent commit `c78442f`
+before the consolidation**. It was **reproducibly green locally** (`ALL PARTS OK`; fresh STLs
+byte-identical to the committed ones); the cause was the `s5r_ultra_cell.scad` `cell()`
+tangent/coincident difference cuts leaving a non-manifold shell on the CI's apt OpenSCAD/CGAL
+build. This branch makes the render **version-robust** (overlapped cuts), **crash-diagnosable**
+(prints `proc.stderr[-2000:]`), and surfaces failures as GitHub annotations. The `engineering-checks`
+job carrying the **S6-LC + divergent gates passes** independently. Tracked in the synthesis ADR.

@@ -1,0 +1,17 @@
+item,quantity,unit_usd,ext_usd,evidence,use
+Lift motor (NEMA17-class stepper),1,12.0,12.0,sourced-class,drives the 4-screw platen (belt-synced)
+Mask gate index motor (small stepper),1,8.0,8.0,sourced-class,sets the 8 bank mask gates
+Reset carriage motor (small stepper),1,8.0,8.0,sourced-class,traverses the 8 banked release combs
+4x T8 lead screw + anti-backlash nut,1,24.0,24.0,sourced-listing,<= 2 mm lead (DND-43); non-racking platen
+Timing belt + 2 pulleys (4-screw sync),1,12.0,12.0,sourced-class,synchronises the four screws
+Motor couplers + thrust washers,1,6.0,6.0,sourced-class,axial take-out
+Guide rods + bushings (platen),1,14.0,14.0,sourced-class,lateral guidance
+Controller (RP2040/ESP32),1,5.0,5.0,sourced-live,RP2040 C2040
+Stepper driver module (DRV8833-class),3,1.59,4.77,sourced-live,lift + mask + reset; no 80-channel head
+Power supply + protection (24 V),1,12.0,12.0,sourced-listing,smaller than S5's 35 VA
+Wire / connectors / loom,1,14.0,14.0,sourced-class,few actuators -> small loom
+Fasteners (M3 assortment),1,8.0,8.0,sourced-class,assortment
+Axis reference sensors,4,1.0,4.0,sourced-class,datum only; no per-cell feedback
+Spares and miscellaneous,1,8.0,8.0,assumption,kept per DND-46 policy
+TOTAL purchased parts,,,139.77,,
+TOTAL delivered (x1.16),,,162.13,,
