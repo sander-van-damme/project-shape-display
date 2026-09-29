@@ -26,11 +26,23 @@ class RegisterChecks(unittest.TestCase):
         # The SCAD file is the CAD source of truth for the printability gate;
         # the model must not drift from it.
         scad = (HERE / "s5r_register.scad").read_text()
-        for token in ("PAWL_T = 0.90", "PAWL_LEN = 8.00", "KEEPER_T = 0.45",
-                      "KEEPER_OVER_CENTRE = 0.06", "WALL = 0.90",
+        for token in ("PAWL_T = 0.90", "PAWL_LEN = 8.00", "KEEPER_T = 0.90",
+                      "KEEPER_LEN = 4.00", "KEEPER_OVER_CENTRE = 0.06",
+                      "KEEPER_SHOULDER_X = 0.50", "WALL = 0.90",
                       "ROTOR_BORE_CLEAR = 0.40", "RACK_TOOTH_PITCH = 1.00",
                       "RACK_TOOTH_HEIGHT = 0.50", "BAR_D = 6.0"):
             self.assertIn(token, scad, f"{token} missing from s5r_register.scad")
+
+    def test_dnd59_keeper_reprofiled_to_two_lines(self):
+        # DND-59 R-DND54-KEEPER: the DND-54 keeper was 0.45 mm = 1 extrusion
+        # line (RISK). It is re-profiled to 0.90 mm = 2 lines (PASS) and moved
+        # into the row (Y) direction so it does not consume the pitch band.
+        self.assertGreaterEqual(s.KEEPER_LEAF_T_MM, s.MIN_WALL_MM - 1e-9)
+        self.assertEqual(s.KEEPER_LEAF_T_DND54_MM, 0.45)
+        fit = s.cell_fit()
+        self.assertEqual(fit["keeper_direction"], "Y (row direction), beside the pawl")
+        self.assertTrue(fit["fits_worst_case"])
+        self.assertGreaterEqual(fit["tip_gap_worst_mm"], 0.20)
 
     def test_dnd58_rack_reconciles_to_corrected_pitch(self):
         # DND-58: the DND-55 bank close-out re-dimensioned the rack to

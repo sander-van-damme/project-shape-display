@@ -206,15 +206,17 @@ reads the SCAD constants and returns:
 | Feature | Value | Limit | Verdict |
 |---|---:|---:|---|
 | pawl leaf thickness | 0.90 mm | 0.88 mm | PASS |
-| keeper leaf thickness | 0.45 mm | 0.88 mm | RISK (1 line; light latch) |
+| keeper leaf thickness | 0.45 mm | 0.88 mm | RISK (1 line) — **closed [DND-59](/DND/issues/DND-59) (0.90 mm, 2 lines)** |
 | housing wall | 0.90 mm | 0.88 mm | PASS |
 | lateral gap to neighbour (worst case) | 0.47 mm | 0.20 mm | PASS |
 | rotor bore free play (worst case) | 0.20 mm | 0.20 mm | PASS |
 | rack tooth height | 0.45 mm | 0.44 mm | PASS |
 
-The single RISK is the keeper leaf at one extrusion line — an **accepted** risk
-for a lightly-loaded bistable latch, stated rather than hidden. The load-bearing
-pawl is two lines and PASSes.
+The single RISK was the keeper leaf at one extrusion line. **[DND-59](/DND/issues/DND-59)
+closes it:** the keeper is re-profiled to 0.90 mm (2 lines) with its hold moved
+to a hard printed compression shoulder, and moved into the row (Y) axis so it
+does not consume the pitch band. The register now returns printability **PASS**.
+The load-bearing pawl is two lines and PASSes.
 
 ## 8. What this does and does not claim
 
@@ -235,10 +237,11 @@ pawl is two lines and PASSes.
 |---|---|---|---|
 | R-DND54-1 | As-printed pawl/keeper friction μ and gate/tip sharpness | measurement-only | open — inherits K2 class; no coupon ([DND-27](/DND/issues/DND-27)) |
 | R-DND54-2 | Printed-leaf creep/fatigue (G8 cycle life) | measurement-only | open — '≥1e6, order unknown' on DND-46 FDM constants |
-| R-DND54-3 | Crank speed (720 °/s) and writer settle (0.05 s) | assumption | conditional — break-even 468 °/s / 0.084 s; analogue of S5's K6 |
+| R-DND54-3 | Crank speed (720 °/s) and writer settle (0.05 s) | assumption | **bounded ([DND-59](/DND/issues/DND-59))** — break-even 468 °/s / 0.084 s re-derived; sourced NEMA17 class clears (2.15× torque); loaded curve is measurement-only |
 | R-DND54-4 | Multi-row (R=4) bar drive: torsion, per-row timing skew, full assembly interference | CAD/calc | **closed for envelopes/pitch** ([DND-55](/DND/issues/DND-55)); **sharpened** to a sourced-steel-rod requirement ([DND-58](/DND/issues/DND-58)) |
-| R-DND54-5 | Missed keeper set = silent row error | assumption | open — same class as S5's missed step; no per-cell feedback (R1 unchanged) |
-| R-DND54-6 | Sourced motor/solenoid at the assumed price and force | sourced | point-in-time; unretired by purchase ([DND-27](/DND/issues/DND-27)) |
+| R-DND54-5 | Missed keeper set = silent row error | assumption | **bounded ([DND-59](/DND/issues/DND-59))** — q ≤ 1.57e-6 required for a 99 % map; verify+retry relaxes 2–10×, redundancy 2× ~798×; as-printed q remains measurement-only |
+| R-DND54-6 | Sourced motor/solenoid at the assumed price and force | sourced | **closed agent-side ([DND-59](/DND/issues/DND-59))** — writer force re-derived bottom-up (0.2425 N); sourced 1.20 N class clears 4.95×; a published-force listing is a purchase-time confirmation |
+| R-DND54-KEEPER | Keeper leaf 0.45 mm = 1 extrusion line (printability RISK) | CAD/calc | **closed ([DND-59](/DND/issues/DND-59))** — re-profiled to 0.90 mm = 2 lines; hold moved to a hard compression shoulder; register printability PASS |
 
 ## 10. Decision and next actions
 

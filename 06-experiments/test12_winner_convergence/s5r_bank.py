@@ -245,8 +245,14 @@ def clearance_stack_up() -> dict:
     carriage_nose_z0_worst = carriage_nose_z0 - DIM_ACCURACY_MM
     column_top_worst = column_top + DIM_ACCURACY_MM
     comber_body_x = model_x_span / 2 + 6 * PITCH_MM
-    comber_stack_half = (reg.PAWL_T_MM + reg.KEEPER_LEAF_T_MM) / 2 + reg.PAWL_T_MM / 2
-    tine_x_gap = PITCH_MM - (reg.PAWL_T_MM + reg.KEEPER_LEAF_T_MM)
+    # DND-59: the keeper moved to +Y, so the X-band holds only the pawl and the
+    # comber tine X-gap is (PITCH - PAWL_T). The comber tine is also checked
+    # clear of the keeper in Y (tine at Y <= 0, keeper at Y >= PAWL_W/2).
+    comber_stack_half = reg.PAWL_T_MM / 2 + reg.PAWL_T_MM / 2
+    tine_x_gap = PITCH_MM - reg.PAWL_T_MM
+    tine_y_edge = -0.30 + 0.30            # tine outer edge in Y (SCAD: r*ROW_PITCH - 0.30 + 0.60)
+    keeper_y_inner = reg.PAWL_W_MM / 2.0
+    comber_clears_keeper_y_mm = keeper_y_inner - tine_y_edge
     return dict(
         bank_rows=BANK_ROWS,
         bank_y_span_mm=round(bank_y_span, 3),
@@ -266,10 +272,13 @@ def clearance_stack_up() -> dict:
                                           - comber_stack_half > 0.0),
         comber_tine_x_gap_mm=round(tine_x_gap, 3),
         comber_tines_ride_between_columns=bool(tine_x_gap > 0.0),
+        comber_clears_keeper_y_mm=round(comber_clears_keeper_y_mm, 3),
+        comber_clears_keeper_in_y=bool(comber_clears_keeper_y_mm > 0.0),
         note="The R-row bank adds depth in Y only; the in-row (X) pitch is "
-             "unchanged, so there is no pitch penalty. The comber tines ride "
-             "the (PITCH - stack) X-gap between column stacks; the carriage "
-             "nose clears the column tops in Z.",
+             "unchanged, so there is no pitch penalty. DND-59 moved the keeper "
+             "to +Y, so the comber tines ride the (PITCH - PAWL_T) X-gap and are "
+             "also clear of the keeper in Y; the carriage nose clears the column "
+             "tops in Z.",
     )
 
 

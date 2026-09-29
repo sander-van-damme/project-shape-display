@@ -30,11 +30,15 @@ PAWL_LEN = 8.00;                // Z extent of the cantilever
 PAWL_DEFLECT = 0.10;            // working deflection off the rack tooth
 
 // ---- keeper latch (bistable over-centre leaf, 5-position gate) ----
-KEEPER_T = 0.45;                // thickness in X (light latch; 1 line)
+// DND-59 re-profile (R-DND54-KEEPER): 0.45 (1 line, RISK) -> 0.90 mm (2 lines,
+// PASS); the HOLD is a hard printed shoulder in compression, so the leaf only
+// trips the snap. A longer leaf (4.00) keeps the snap strain low.
+KEEPER_T = 0.90;                // thickness in X (2 lines; PASS)
 KEEPER_W = 0.70;                // width in Y
-KEEPER_LEN = 3.00;              // Z cantilever
-KEEPER_OVER_CENTRE = 0.06;      // bistability offset
+KEEPER_LEN = 4.00;              // Z cantilever
+KEEPER_OVER_CENTRE = 0.06;      // bistability offset (snap trip only)
 KEEPER_GATE_STEP = 0.35;        // spacing of the 5 gate positions
+KEEPER_SHOULDER_X = 0.50;       // hard shoulder depth in X (hold, compression)
 
 // ---- shared drive bar with rack ----
 // DND-58 (from DND-55 bank close-out): DND-54's rack (pitch 0.60, tooth 0.45)
@@ -67,14 +71,20 @@ module pawl() {
 }
 
 module keeper() {
-    // a leaf offset outboard of the pawl in +X, with an over-centre nose
-    translate([PAWL_T + KEEPER_OVER_CENTRE, -KEEPER_W / 2, 0])
-        cube([KEEPER_T, KEEPER_W, KEEPER_LEN]);
+    // DND-59: the keeper leaf is re-profiled into the ROW (Y) direction, beside
+    // the pawl, so it does not consume the pitch-direction (X) band. Its
+    // thickness in Y is KEEPER_T (2 lines, 0.90).
+    translate([0, PAWL_W + KEEPER_OVER_CENTRE, 0])
+        cube([KEEPER_T, KEEPER_T, KEEPER_LEN]);
     // gate nose: 5 stacked positions (the writer moves the keeper index)
     for (k = [0:LEVELS - 1])
-        translate([PAWL_T + KEEPER_OVER_CENTRE + KEEPER_T, -KEEPER_W / 2,
+        translate([0, PAWL_W + KEEPER_OVER_CENTRE + KEEPER_T,
                    k * KEEPER_GATE_STEP])
-            cube([0.20, KEEPER_W, 0.15]);
+            cube([KEEPER_T, 0.20, 0.15]);
+    // hard printed shoulder: takes the pawl push-out in COMPRESSION when the
+    // keeper is dropped out (the hold does not depend on the over-centre offset)
+    translate([0, PAWL_W + KEEPER_OVER_CENTRE, -KEEPER_SHOULDER_X])
+        cube([KEEPER_T, KEEPER_SHOULDER_X, KEEPER_SHOULDER_X]);
 }
 
 module drive_bar() {
@@ -96,9 +106,13 @@ module cell() {
         // rotor bore
         translate([0, 0, -BAR_H - 1 - EPS]) cylinder(r = ROTOR_RADIUS + 0.10,
                                                      h = CELL_H + 2 * EPS);
-        // pawl + keeper side chamber (open slot)
+        // pawl side chamber (open slot, +X)
         translate([PAWL_T / 2, -PITCH / 2 - EPS, -BAR_H - 1 - EPS])
             cube([PITCH / 2, PITCH + 2 * EPS, CELL_H + 2 * EPS]);
+        // keeper side chamber (open slot, +Y; DND-59 keeper moved to the row
+        // direction so it does not consume the pitch-direction band)
+        translate([-PITCH / 2 - EPS, PAWL_W / 2, -BAR_H - 1 - EPS])
+            cube([PITCH + 2 * EPS, PITCH / 2, CELL_H + 2 * EPS]);
     }
 }
 

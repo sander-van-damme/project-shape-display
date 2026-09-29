@@ -116,7 +116,7 @@ power-transmission member — sourcing one rod is not the K7 cliff (which was ab
 | `s5r_bank_checks.py` (16 gates) | **OK** |
 | `s5r_bom_ratify.py --selftest` (DND-56 + rod reconcile) | **OK** |
 | `s5r_bom_ratify_checks.py` (11 gates) | **OK** |
-| register `analytic_printability.py` | PASS/RISK (unchanged keeper risk) |
+| register `analytic_printability.py` | PASS (keeper RISK closed by [DND-59](/DND/issues/DND-59)) |
 | `s5r_bank.py --cad` (6 positives + 5 interference queries) | all PASS/empty |
 | `tools/validate/validate_geometry.py` (real OpenSCAD, mesh) | HARNESS OK |
 
@@ -135,8 +135,9 @@ power-transmission member — sourcing one rod is not the K7 cliff (which was ab
 |---|---|---|---|
 | R-DND55-4 | Corrected rack stroke changes the DND-54 per-stroke advance | CAD/calc | **closed (this ADR)** |
 | R-DND54-4 | Multi-row bar drive torsion / envelopes | CAD/calc | **closed for envelopes/pitch; sharpened to sourced-rod** |
-| R-DND55-1 | Bar-torsion eccentricity `e` | assumption | open for a printed bar; irrelevant for the steel rod |
+| R-DND55-1 | Bar-torsion eccentricity `e` | assumption | open for a printed bar; **closed for the steel rod ([DND-59](/DND/issues/DND-59))** |
 | R-DND54-1/2 | As-printed friction / gate sharpness / creep | measurement-only | open — unmeasurable under [DND-27](/DND/issues/DND-27) |
+| R-DND54-KEEPER | Keeper leaf 1-line printability RISK | CAD/calc | **closed ([DND-59](/DND/issues/DND-59))**: 2 lines + compression shoulder |
 
 ## 9. Decision and next actions
 
