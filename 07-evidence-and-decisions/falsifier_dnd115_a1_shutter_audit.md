@@ -34,6 +34,16 @@
 | A10 | states survive linkage angular tolerance | **PASS** (robust to +/-20 deg) | geometry |
 | A11 | printability / min feature / watertight | **PASS** | CAD |
 | A12 | claim-5 (1.0 mm standoff infeasible) reproduces | **PASS** | calculation |
+| A13 | ADR/README quoted numbers match the live model | **PASS** (DND-122) | honesty |
+| A14 | MC on/off gate carries the crosstalk term | **PASS** (gap noted, DND-122) | consistency |
+
+**DND-122 re-verification:** two further independent attacks (A13, A14) added on
+top of the DND-118 register. On the **live main tree** (DND-119, PR #95) both PASS
+— the DND-119 correction is correctly and honestly applied. Note the branch the
+DND-122 ticket named, `cto/dnd121-shutter-framing` @ `9841736`, is a **parallel
+correction that is superseded by DND-119** and its ADR prose carries stale
+margins (0.255 / 0.093 / 0.441 / 4.60×); it need not merge. See the DND-122 note
+at the end of this register.
 
 **Verdict: CLEAN after DND-119 correction.** The core decisive geometry
 reproduces independently. The four DND-118 findings (A5/A6/A7/A9) were
@@ -216,5 +226,39 @@ change** (the reflective target Δz stays 0; the CAD is untouched):
 
 Both gates are green after the correction:
 `falsifier_dnd115_checks.py --gate` (12 attacks) and
-`falsifier_dnd115_a1_shutter_audit.py --gate` (12 attacks) exit 0. The register
+`falsifier_dnd115_a1_shutter_audit.py --gate` (14 attacks) exit 0. The register
 table above now reads all-PASS.
+
+## DND-122 re-verification note (independent attacks A13/A14)
+
+[DND-122](/DND/issues/DND-122) asked me to re-verify the DND-121 correction
+(branch `cto/dnd121-shutter-framing` @ `9841736`). Two facts emerged:
+
+1. **The corrections are already on main via DND-119 (PR #95), not DND-121.**
+   DND-121 is a parallel, never-merged correction; main's DND-119 is the live
+   artifact and does the same work (crosstalk modelled + gated, "off-beam"
+   corrected, absorber-DoF downgraded, MC aperture de-tautologised).
+2. **Main is honest; the DND-121 branch prose is not.** The DND-121 ADR types
+   margins its own code does not produce (neighbour sweep 0.255 vs 0.280; MC
+   0.093 / 0.441 / 4.60× vs 0.084 / 0.434 / 4.48×). Since DND-121 need not merge,
+   the fix is to **close DND-121 as superseded by DND-119**, not to correct its
+   prose.
+
+**A13 (ADR/README numbers match the live model) — PASS on main.** The model gives
+headline ideal **7.72×** and crosstalk-corrected **6.37×**; the ADR §3 table now
+carries the explicit row `On/off ratio incl. in-cone neighbour | 6.37× | gate 2×
+— PASS (DND-119)`, and `contrast_passes` requires `neighbour_crosstalk_gated`
+(ratio ≤ 1) **and** `on_off_return_ratio_with_crosstalk ≥ 2`. So the gated number
+is stated. (Minor, accepted: the ADR quotes the reader ±0.20 mm clearance as
+**0.325 mm**; an independent 200k-draw re-run gives **0.322 mm** — a 3 µm rounding
+difference, not a defect.)
+
+**A14 (MC on/off gate carries the crosstalk term) — PASS with a noted gap.** The
+tolerance MC's own `on_off_ratio` check is crosstalk-free (worst **4.49×**), while
+`contrast_passes` gates the crosstalk-inclusive ratio (worst **4.04×**); both clear
+2×. Not design-fatal; optional hardening is to add the term to the MC check.
+
+**Conclusion:** on the live main tree the DND-115 read axis is **clean at CAD +
+calculation (14/14)**; the four DND-118 findings are honestly repaired by DND-119.
+[DND-121](/DND/issues/DND-121) should be closed as superseded. Residuals remain
+assumption-class optical constants and measurement-only wear (DND-27).

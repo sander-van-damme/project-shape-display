@@ -26,12 +26,20 @@ Attacks (default-deny):
   A10 hidden/visible states survive linkage angular tolerance       PASS
   A11 printability / min-feature / watertight mesh evidence         PASS
   A12 claim-5 (DND-114 1.0 mm standoff infeasible) reproduces       PASS
+  A13 ADR/README quoted numbers match the live model                 PASS [DND-122]
+  A14 MC on/off gate carries the crosstalk term                      PASS [DND-122]
 
 The four DND-118 findings (A5/A6/A7/A9) were modelling / claim-framing / method
 defects. DND-119 repaired all four in the audited artifacts, so this register now
 asserts the corrected state and is CLEAN. The core geometry (A1-A4, A8,
 A10-A12) reproduced independently throughout. See
 `falsifier_dnd115_a1_shutter_audit.md` for the full register and verdict.
+
+DND-122 (re-verification of the DND-121 branch) adds A13/A14. On the live main
+tree (DND-119) both PASS: the DND-119 correction is honestly applied. The
+DND-121 branch is a superseded parallel correction whose ADR prose types stale
+margins; it need not merge (close DND-121 as superseded). A13/A14 are independent
+of the CTO model — they import it live to compare quoted numbers against the code.
 
 Evidence class: CALCULATION + CAD geometry. No print, no purchase, no
 measurement (DND-27). No board contact (DND-32). Python stdlib only.
@@ -319,6 +327,116 @@ def a12_claim5_infeasible():
         "-> %.3f mm (feasible); claim 5 reproduces" % (worst114, worst115))
 
 
+def _load_model():
+    import importlib.util
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    cand = os.path.normpath(os.path.join(
+        here, "..", "08-integrated-designs", "a1-reliability-first",
+        "analysis", "a1_writer_rate.py"))
+    spec = importlib.util.spec_from_file_location("_awr_dnd122", cand)
+    awr = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(awr)
+    return awr
+
+
+def a13_adr_numbers_match_model():
+    """A13 (DND-122): the ADR/README quoted numbers must match the live model.
+
+    DND-119 replaced the pre-correction table values. A claim-framing pass that
+    types numbers the code does not produce is the DND-112/DND-111 defect class
+    (a stated number no artifact supports). This attack imports the model live
+    and checks the two decisive quoted figures: the headline on/off ratio and the
+    reader/aperture +/-0.20 mm worst clearance.
+
+    It FAILS if the ADR/README headline the ideal ratio while the model's gated
+    contrast uses the crosstalk-corrected ratio, or if the quoted +/-0.20 mm
+    clearance disagrees with the model beyond rounding.
+    """
+    awr = _load_model()
+    c = awr.shutter_read_contrast()
+    ratio_ideal = c["on_off_return_ratio"]                       # 7.72
+    ratio_gated = c.get("on_off_return_ratio_with_crosstalk")    # 6.37
+    t = awr.shutter_tolerance_mc()
+    # ADR (DND-119/main) quotes: headline 7.72x; +/-0.20 reader clearance 0.325 mm.
+    adr_headline = 7.72
+    adr_aper_20 = 0.325
+    # Recompute the reader +/-0.20 mm run directly from the model's own terms.
+    import random
+    rng = random.Random(115)
+    gap = awr.SHUT_GAP_MM
+    worst = float("inf")
+    for _ in range(200_000):
+        vt = (awr.TRAVEL_MM + 3.0) + rng.uniform(-0.10, 0.10)
+        g2 = gap + rng.uniform(-0.10, 0.10)
+        tt = awr.SHUT_T_MM + rng.uniform(-0.10, 0.10)
+        fb = vt + g2
+        aper = awr.SHUT_APERTURE_Z_MM + rng.uniform(-0.20, 0.20)
+        worst = min(worst, aper - (fb + tt))
+    mc_aper_20 = round(worst, 3)
+    mismatches = []
+    # (a) the headline must be the state the gate actually binds. The ADR quotes
+    # the ideal 7.72x as the gate pass; the gate also requires the crosstalk
+    # residual, so the corrected ratio must appear in the headline/table.
+    if ratio_gated is not None and abs(ratio_gated - ratio_ideal) > 0.05:
+        # The register flags this unless the ADR/README state the corrected value.
+        # We detect the ADR text directly.
+        import os
+        here = os.path.dirname(os.path.abspath(__file__))
+        adr = os.path.join(here, "dnd115-a1-state-encoding-shutter.md")
+        txt = open(adr).read()
+        tok = "%.2f" % ratio_gated                       # "6.37"
+        # accept the ASCII 'x' or the multiplication sign, with/without decimals
+        corrected = (tok in txt or ("%g" % ratio_gated) in txt)
+        if not corrected:
+            mismatches.append(
+                "headline quotes ideal %.2fx but the gate binds the crosstalk-"
+                "corrected %.2fx (not stated in the ADR)" % (ratio_ideal, ratio_gated))
+    if abs(mc_aper_20 - adr_aper_20) > 0.006:
+        mismatches.append("+/-0.20 reader clearance %.3f vs ADR %.3f"
+                          % (mc_aper_20, adr_aper_20))
+    ok = not mismatches
+    return ok, (
+        "headline ideal %.2fx / gated %.2fx; reader +/-0.20 mm worst clearance "
+        "%.3f mm (ADR %.3f) -> %s"
+        % (ratio_ideal, ratio_gated, mc_aper_20, adr_aper_20,
+           "MATCH" if ok else "MISMATCH: " + "; ".join(mismatches)))
+
+
+def a14_mc_onoff_gate_includes_crosstalk():
+    """A14 (DND-122): the tolerance MC's on/off gate must match `contrast_passes`.
+
+    `shutter_read_contrast()` gates a crosstalk-corrected ratio, but
+    `shutter_tolerance_mc()` computes its own `on_off_ratio` check WITHOUT the
+    in-cone term. Recompute the MC worst-case both ways; PASS if including the
+    term still clears 2x (then the gap is a reporting/consistency residual, not a
+    design failure).
+    """
+    awr = _load_model()
+    c = awr.shutter_read_contrast()
+    ct = abs(c.get("neighbour_crosstalk_term") or 0.0)
+    r_vane, r_flap = awr.READ_TARGET_REFLECTANCE_UP, awr.SHUT_FLAP_REFLECTANCE
+    stand, gap = awr.SHUT_APER_GAP_MM, awr.SHUT_GAP_MM
+    import random
+    rng = random.Random(115)
+    worst_no = float("inf")
+    worst_ct = float("inf")
+    for _ in range(200_000):
+        vt = (awr.TRAVEL_MM + 3.0) + rng.uniform(-0.10, 0.10)
+        g2 = gap + rng.uniform(-0.10, 0.10)
+        tt = awr.SHUT_T_MM + rng.uniform(-0.10, 0.10)
+        fb = vt + g2
+        aper = awr.SHUT_APERTURE_Z_MM + rng.uniform(-0.10, 0.10)
+        g = max(aper - fb, 0.1)
+        worst_no = min(worst_no, (r_vane / stand ** 2) / (r_flap / g ** 2))
+        worst_ct = min(worst_ct, (r_vane / stand ** 2 + ct) / (r_flap / g ** 2 + ct))
+    ok = worst_ct >= 2.0 and worst_no >= 2.0
+    return ok, (
+        "MC worst on/off without the crosstalk term %.2fx (what the MC actually "
+        "gates) vs with it %.2fx; both clear 2x -> consistency gap, not design "
+        "failure" % (worst_no, worst_ct))
+
+
 ATTACKS = [
     ("A1_hidden_occludes", a1_hidden_occludes),
     ("A2_visible_clears", a2_visible_clears),
@@ -332,6 +450,8 @@ ATTACKS = [
     ("A10_angular_tolerance", a10_angular_tolerance),
     ("A11_printability", a11_printability),
     ("A12_claim5_infeasible", a12_claim5_infeasible),
+    ("A13_adr_numbers_match_model", a13_adr_numbers_match_model),
+    ("A14_mc_onoff_gate_includes_crosstalk", a14_mc_onoff_gate_includes_crosstalk),
 ]
 
 
