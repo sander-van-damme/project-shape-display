@@ -278,3 +278,24 @@ tolerance MC's own `on_off_ratio` check is crosstalk-free (worst **4.49×**), wh
 calculation (14/14)**; the four DND-118 findings are honestly repaired by DND-119.
 [DND-121](/DND/issues/DND-121) should be closed as superseded. Residuals remain
 assumption-class optical constants and measurement-only wear (DND-27).
+
+## DND-122 follow-up: A13 extended to the swept clearances (CTO)
+
+Reviewing the DND-122 re-verification surfaced one **residual A13-class defect on
+main that A13 did not yet cover**: the ADR §2 and README both quoted the *swept
+flap own-column clearance* as **3.41 mm**, while the live model's swept envelope
+produces `sweep_z_min - TRAVEL = 43.42 - 40.0 = ` **3.42 mm** (A8 reports
+3.420 mm). The CAD flat-underside echo is 3.55 mm, so *no* artifact supported
+3.41 mm — exactly the "a stated number no artifact supports" class this pass
+exists to close. Fix (this PR, main):
+
+- ADR §2 table and §7 prose: own-column clearance 3.41 → **3.42 mm**.
+- A1 README table and prose: 3.41 → **3.42 mm**.
+- `falsifier_dnd115_a1_shutter_audit.py` A13 extended to also parse and verify the
+  **swept neighbour** (0.280 mm) and **swept own-column** (3.42 mm) clearances in
+  the ADR against the live model, so this subclass now fails the gate.
+- Negative control: tampering the ADR own-column figure 3.42 → 3.41 makes A13
+  **FAIL** with exit 1 (verified).
+
+Gates after the fix: audit **14/14**, dnd115 **12/12**, dnd114 **7/7**, dnd112
+**11/11**, mask **78/78**, `a1_writer_rate` exit 0.

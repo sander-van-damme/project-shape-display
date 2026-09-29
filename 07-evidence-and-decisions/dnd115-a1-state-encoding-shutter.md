@@ -78,7 +78,7 @@ frame-fixed vane top** (`Δz = 0`); only the *shadow* is state-dependent.
 | Reader standoff / aperture | **1.8 mm / 0.44 mm** | CAD (DND-115 revision) |
 | Read spot | 1.405 mm | `a + 2·g·tan15°` |
 | Swept flap neighbour clearance | **0.280 mm** | CAD envelope |
-| Swept flap own-column clearance | **3.41 mm** | CAD envelope |
+| Swept flap own-column clearance | **3.42 mm** | CAD envelope |
 
 ## 3. The state-encoding contrast (CALCULATION)
 
@@ -229,7 +229,7 @@ read spot, the visible state 0%, a **7.72× on/off return ratio** (gate 2×), wi
 the reflective target still frame-fixed (`Δz = 0`). The recommended,
 tolerance-robust configuration uses a **1.8 mm standoff / 0.44 mm aperture** (the
 DND-114 1.0 mm standoff is infeasible under the stack-up); the swept flap clears
-the neighbour body by 0.280 mm and the own column by 3.41 mm, and the Monte Carlo
+the neighbour body by 0.280 mm and the own column by 3.42 mm, and the Monte Carlo
 stack-up passes at zero failures under realistic tolerances. **DND-119 corrected
 the claim framing** from the DND-118 audit with no geometry change: the neighbour
 crosstalk is now **modelled and gated** (physical in-cone ratio 0.068, corrected

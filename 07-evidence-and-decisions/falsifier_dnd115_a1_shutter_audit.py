@@ -356,6 +356,19 @@ def _adr_quoted_numbers(txt):
     expected values here would make the check tautological: it would only ever
     compare the model to itself.
     """
+    results = _adr_quoted_numbers_ext(txt)
+    return results[:3]
+
+
+def _adr_quoted_numbers_ext(txt):
+    """As `_adr_quoted_numbers` plus the swept neighbour/own-column clearances.
+
+    Returns (ideal, gated, aper_20, neighbour_clearance, own_column_clearance).
+    The two swept clearances were unguarded before DND-122 follow-up: the live
+    main ADR/README quoted an own-column clearance of 3.41 mm while the model's
+    swept envelope produces 3.42 mm (a number no artifact supported). This
+    extension makes that A13-class defect fail the gate.
+    """
     import re
     # e.g. "a **7.72x on/off return ratio**" or "| On/off return ratio | **7.72x** |"
     ideal = None
@@ -385,7 +398,17 @@ def _adr_quoted_numbers(txt):
         for mm in re.finditer(r"\u00b10\.20 mm[^0-9]{0,20}([0-9]+\.[0-9]+)\s*mm", txt):
             aper = float(mm.group(1))
             break
-    return ideal, gated, aper
+    # Swept neighbour clearance: "| Swept flap neighbour clearance | **0.280 mm** |"
+    nb = None
+    m = re.search(r"Swept flap neighbour clearance[^0-9]{0,24}([0-9]+\.[0-9]+)\s*mm", txt)
+    if m:
+        nb = float(m.group(1))
+    # Swept own-column clearance: "| Swept flap own-column clearance | **3.42 mm** |"
+    own = None
+    m = re.search(r"Swept flap own-column clearance[^0-9]{0,24}([0-9]+\.[0-9]+)\s*mm", txt)
+    if m:
+        own = float(m.group(1))
+    return ideal, gated, aper, nb, own
 
 
 def a13_adr_numbers_match_model():
@@ -401,15 +424,17 @@ def a13_adr_numbers_match_model():
     It FAILS if the ADR/README quotes a ratio the model does not produce, quote the
     ideal ratio while never stating the gated crosstalk-corrected ratio the gate
     actually binds, or quote a +/-0.20 mm clearance the model does not reproduce
-    beyond rounding. It FAILS (not UNRESOLVED) if the model is missing the
-    crosstalk term, so it is portable across tree states.
+    beyond rounding. It also FAILS if the ADR's swept neighbour/own-column
+    clearances differ from the model's swept envelope (DND-122 follow-up: main
+    quoted 3.41 mm while the model produces 3.42 mm). It FAILS (not UNRESOLVED) if
+    the model is missing the crosstalk term, so it is portable across tree states.
     """
     awr = _load_model()
     c = awr.shutter_read_contrast()
     ratio_ideal = c.get("on_off_return_ratio")
     ratio_gated = c.get("on_off_return_ratio_with_crosstalk")
     txt = open(_adr_path()).read()
-    adr_ideal, adr_gated, adr_aper_20 = _adr_quoted_numbers(txt)
+    adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own = _adr_quoted_numbers_ext(txt)
     # Recompute the reader +/-0.20 mm run directly from the model's own terms.
     import random
     rng = random.Random(115)
@@ -445,11 +470,29 @@ def a13_adr_numbers_match_model():
     elif abs(mc_aper_20 - adr_aper_20) > 0.006:
         mismatches.append("+/-0.20 reader clearance model %.3f mm vs ADR %.3f mm"
                           % (mc_aper_20, adr_aper_20))
+    # (d) The swept neighbour/own-column clearances the ADR quotes must be the
+    # model's own swept envelope (DND-122 follow-up: main quoted 3.41 vs 3.42).
+    nb_model = round(c.get("neighbour_flap_clearance_mm", float("nan")), 3)
+    sweep_z = c.get("sweep_z_mm") or [None, None]
+    own_model = (round(sweep_z[0] - awr.TRAVEL_MM, 3)
+                 if sweep_z[0] is not None else None)
+    if adr_nb is None:
+        mismatches.append("ADR does not state the swept neighbour clearance")
+    elif abs(adr_nb - nb_model) > 0.006:
+        mismatches.append("swept neighbour clearance model %.3f mm vs ADR %.3f mm"
+                          % (nb_model, adr_nb))
+    if adr_own is None:
+        mismatches.append("ADR does not state the swept own-column clearance")
+    elif own_model is not None and abs(adr_own - own_model) > 0.006:
+        mismatches.append("swept own-column clearance model %.3f mm vs ADR %.3f mm"
+                          % (own_model, adr_own))
     ok = not mismatches
     return ok, (
-        "ADR quotes ideal %s / gated %s / aper+/-0.20 %s mm; model ideal %s / gated "
-        "%s / aper+/-0.20 %.3f mm -> %s"
-        % (adr_ideal, adr_gated, adr_aper_20, ratio_ideal, ratio_gated, mc_aper_20,
+        "ADR quotes ideal %s / gated %s / aper+/-0.20 %s mm / swept nb %s / swept "
+        "own %s mm; model ideal %s / gated %s / aper+/-0.20 %.3f / swept nb %.3f / "
+        "swept own %s mm -> %s"
+        % (adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own, ratio_ideal,
+           ratio_gated, mc_aper_20, nb_model, own_model,
            "MATCH" if ok else "MISMATCH: " + "; ".join(mismatches)))
 
 

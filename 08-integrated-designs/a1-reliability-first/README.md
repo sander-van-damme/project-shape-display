@@ -238,7 +238,7 @@ CAD-validated **common-height read target**.
 | **Shadow of the read spot, hidden / visible** | **100% / 0%** | DND-115 calc |
 | **On/off return ratio** | **7.72×** (gate 2×) | DND-115 calc |
 | Shutter sweep — neighbour body clearance | **0.280 mm** | DND-115 calc |
-| Shutter sweep — own column clearance | **3.41 mm** | DND-115 calc |
+| Shutter sweep — own column clearance | **3.42 mm** | DND-115 calc |
 | Absorber (flap) standoff Δz | 0.55 mm (provenance only) | DND-115 calc / DND-119 |
 | **Single-cell resolution, as drawn** | **NO** — a down cell reads up | DND-113 |
 | **Single-cell resolution, with CH-A target** | **YES** — one fixed standoff | DND-114 |
@@ -273,7 +273,7 @@ state-dependent target z is reintroduced — only the *shadow* is state-dependen
 Computed at CAD + calculation: the hidden state covers **100%** of the read spot,
 the visible state **0%**, giving a **7.72× on/off return ratio** (gate 2×). The
 swept flap clears the neighbour body by **0.280 mm** and the own column by
-**3.41 mm**. A **tolerance stack-up (worst-case + 200k-draw Monte Carlo)** shows
+**3.42 mm**. A **tolerance stack-up (worst-case + 200k-draw Monte Carlo)** shows
 the DND-114 **1.0 mm standoff is infeasible** for a 0.44 mm flap under printed
 placing tolerances, so DND-115 adopts a **1.8 mm standoff / 0.44 mm aperture**
 (spot 1.405 mm, still clearing the neighbour by 0.353 mm). Residuals are now
