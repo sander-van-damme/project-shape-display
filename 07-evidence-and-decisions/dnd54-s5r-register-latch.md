@@ -21,6 +21,15 @@
 - **Evidence class:** CAD (SCAD + real-OpenSCAD render + mesh validation) and
   CALCULATION (force / timing / endurance over sourced FDM process limits and
   sourced actuator ratings). No purchase, no print, no measurement.
+- **DND-58 amendment (rack pitch + drive rod):** the [DND-55](/DND/issues/DND-55)
+  bank close-out refuted two register-level geometry values and this ADR now
+  carries the corrected ones: rack **pitch 0.60 → 1.00 mm / tooth 0.45 → 0.50 mm**
+  (the old 0.15 mm inter-tooth gap fuses at a 0.4 mm nozzle) and the per-stroke
+  advance becomes **1.00 mm**; the printed 3 × 2 drive-bar placeholder is replaced
+  by a **sourced steel rod d = 6 mm** (bar-torsion skew 4.96 mm → ≤0.005 mm vs the
+  0.35 mm keeper gate). Honest delivered BOM is now **$404.60** (adds the 1 steel
+  rod; the $401.12 channel-priced total is retained as `delivered_no_rod_usd`).
+  See §11.
 
 Run:
 
@@ -227,7 +236,7 @@ pawl is two lines and PASSes.
 | R-DND54-1 | As-printed pawl/keeper friction μ and gate/tip sharpness | measurement-only | open — inherits K2 class; no coupon ([DND-27](/DND/issues/DND-27)) |
 | R-DND54-2 | Printed-leaf creep/fatigue (G8 cycle life) | measurement-only | open — '≥1e6, order unknown' on DND-46 FDM constants |
 | R-DND54-3 | Crank speed (720 °/s) and writer settle (0.05 s) | assumption | conditional — break-even 468 °/s / 0.084 s; analogue of S5's K6 |
-| R-DND54-4 | Multi-row (R=4) bar drive: torsion, per-row timing skew, full assembly interference | CAD/calc | partially-closed — unit cell CAD only; full bar not CAD-interference-checked |
+| R-DND54-4 | Multi-row (R=4) bar drive: torsion, per-row timing skew, full assembly interference | CAD/calc | **closed for envelopes/pitch** ([DND-55](/DND/issues/DND-55)); **sharpened** to a sourced-steel-rod requirement ([DND-58](/DND/issues/DND-58)) |
 | R-DND54-5 | Missed keeper set = silent row error | assumption | open — same class as S5's missed step; no per-cell feedback (R1 unchanged) |
 | R-DND54-6 | Sourced motor/solenoid at the assumed price and force | sourced | point-in-time; unretired by purchase ([DND-27](/DND/issues/DND-27)) |
 
@@ -244,7 +253,7 @@ pawl is two lines and PASSes.
 3. **Next discriminating test (analytic/CAD, no coupon):** a **multi-row bar
    assembly CAD** (`R=4`) checking bar torsion, the reset comber envelope, and
    the writer carriage envelope — the only unit-cell-external geometry not yet
-   modelled.
+   modelled. **Done: [DND-55](/DND/issues/DND-55).**
 4. **CostManufacturing:** re-verify the 2-motor + 40-writer delivered BOM against
    sourced listings — **done ([DND-56](/DND/issues/DND-56))**: $397.53 reproduces;
    honest working total **$401.12 delivered** after pricing the block's marginal
@@ -253,3 +262,40 @@ pawl is two lines and PASSes.
    trigger is a buildable print-ready machine, which this is not yet (the
    measured-friction/creep residuals are unresolved and unmeasurable under
    DND-27). State that boundary plainly.
+
+## 11. DND-58 amendment — register reconciliation of the DND-55 corrections
+
+[DND-55](/DND/issues/DND-55) CAD-modelled the R=4 bank and returned two
+corrections that land at the **register** level (its residual R-DND55-4):
+
+**(a) Rack re-dimension.** The DND-54 rack (`RACK_TOOTH_PITCH = 0.60`,
+`RACK_TOOTH_HEIGHT = 0.45`) leaves a **0.15 mm inter-tooth gap** that fuses at a
+0.4 mm nozzle (one line = 0.44 mm). `s5r_register.scad` / `s5r_register.py` now
+carry **pitch 1.00 / tooth 0.50 mm** (gap 0.50 mm, printable). The per-stroke
+advance `RACK_STROKE_MM` is re-derived from the **pitch** (1.00 mm), not the old
+tooth height (0.45 mm); it was previously set to `RACK_TOOTH_HEIGHT_MM`.
+
+**(b) Timing is unchanged.** The pass is **angular**: the crank turns 72°/level
+regardless of rack pitch. The 0.60 → 1.00 mm linear advance does *not* move the
+select/reset times, so the full-map figure stays **24.62 s** (< 30 s, +5.39 s).
+`timing()` now reports `rack_stroke_mm = 1.00` and `crank_deg_per_level = 72` to
+make this traceable.
+
+**(c) Drive bar section.** The printed 3 × 2 placeholder (peak bar-torsion skew
+4.96 mm, ~28× the keeper gate/2 = 0.175 mm) is replaced by a **sourced steel rod
+d = 6 mm** (skew ≤ 0.003 mm, ~67× under the gate); an Ø8 printed round bar is the
+fallback. The register model declares `BAR_D_MM = 6.0`,
+`BAR_MATERIAL = "sourced steel rod"`, and `s5r_register.scad` renders a round rod.
+
+**(d) BOM delta.** One 6 mm × 406.4 mm steel rod enters the S5-R block at a
+**$3.00 sourced-class allowance** → **$3.48 delivered** at the repo's 1.16 uplift.
+The honest working total moves **$401.12 → $404.60 delivered** (`margin_usd =
+$95.40`). Both earlier figures are retained as fields (`delivered_claim_usd`
+$397.53, `delivered_no_rod_usd` $401.12) so the DND-54/DND-56 records still
+reproduce. `s5r_register_checks.py` gates all of the above.
+
+**Residuals after this amendment.** R-DND55-4 (register timing reconciliation) is
+**closed**; R-DND54-4 is closed for envelopes/pitch and sharpened to a
+sourced-rod requirement. R-DND55-1 (reaction eccentricity `e`) remains an
+assumption for any *printed* bar, but is made irrelevant by the steel rod. No new
+measurement-only residual is introduced. Evidence class: CAD + CALCULATION.

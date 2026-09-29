@@ -37,9 +37,14 @@ KEEPER_OVER_CENTRE = 0.06;      // bistability offset
 KEEPER_GATE_STEP = 0.35;        // spacing of the 5 gate positions
 
 // ---- shared drive bar with rack ----
-RACK_TOOTH_PITCH = 0.60;
-RACK_TOOTH_HEIGHT = 0.45;
-BAR_H = 2.0;
+// DND-58 (from DND-55 bank close-out): DND-54's rack (pitch 0.60, tooth 0.45)
+// left a 0.15 mm inter-tooth gap that FUSES at a 0.4 mm nozzle (< 0.44 mm line).
+// Re-dimensioned to pitch 1.00 / tooth 0.50 -> 0.50 mm gap. The per-stroke
+// advance is therefore 1.00 mm (one tooth) instead of 0.60 mm.
+RACK_TOOTH_PITCH = 1.00;
+RACK_TOOTH_HEIGHT = 0.50;
+BAR_D = 6.0;                    // sourced steel drive rod d=6 (DND-58); a round bar
+BAR_H = BAR_D;                  // (round steel; replaces the 3x2 printed placeholder)
 BAR_W = PITCH;                  // bar spans one column here; real bar is 80xR
 
 // ---- housing ----
@@ -73,9 +78,12 @@ module keeper() {
 }
 
 module drive_bar() {
-    // the toothed rack under the pawl tip
-    translate([-BAR_W / 2, -BAR_W / 2, -BAR_H]) cube([BAR_W, BAR_W, BAR_H]);
-    for (t = [0:6])
+    // the toothed rack under the pawl tip. DND-58: the bar is a SOURCED STEEL
+    // ROD (d=6 mm), modelled here as the round bar body; the rack teeth are the
+    // corrected 1.00/0.50 pitch/height.
+    translate([0, 0, -BAR_H / 2]) rotate([90, 0, 0])
+        cylinder(r = BAR_D / 2, h = BAR_W, center = true);
+    for (t = [0:3])
         translate([-BAR_W / 2 + t * RACK_TOOTH_PITCH, -BAR_W / 2, 0])
             cube([RACK_TOOTH_HEIGHT, BAR_W, RACK_TOOTH_HEIGHT]);
 }

@@ -28,14 +28,15 @@ selective-dropout mechanism. See §8 item 8 and the
 **closes the S5-R mechanism the way [DND-27](/DND/issues/DND-27) allows and promotes
 S5-R to a machine-definition candidate** — as a **4-row-deep shared bank** (the
 DND-52 option-1 was single-row and, counted honestly per row, could not meet 30 s).
-At R=4 with 40 writer solenoids and 2 bank motors: **$401.12 delivered working
+At R=4 with 40 writer solenoids and 2 bank motors: **$404.60 delivered working
 ($387.18–$421.51 sourced band), 24.62 s**, with all seven analytic gates passing
 (cell fit, zero neighbour cross-talk, writer force 18×, bank force 2.15×, latch
-inherits K1, time +5.4 s, cost −$99). The delivered figure was independently
+inherits K1, time +5.4 s, cost −$95). The delivered figure was independently
 ratified ([DND-56](/DND/issues/DND-56)); the working total prices the R=4 block's
-own marginal channels ($3.09) that the promoting model left implicit — and the
-model now carries them explicitly (`s5r_register.bom()` returns `delivered_usd`
-$401.12 vs the channels-unpriced claim `$397.53`). See
+own marginal channels ($3.09) **and its sourced steel drive rod** that the
+promoting model left implicit — and the model now carries both explicitly
+(`s5r_register.bom()` returns `delivered_usd` $404.60 vs the rod-unpriced
+`delivered_no_rod_usd` $401.12 and the channels-unpriced claim `$397.53`). See
 [§8 item 9](#8-next-actions) and the
 [ADR](../07-evidence-and-decisions/dnd54-s5r-register-latch.md). This is **CAD +
 CALCULATION only** — no print, no measurement; the as-printed μ/creep and the
@@ -52,6 +53,17 @@ and the DND-54 **rack fuses** (0.15 mm inter-tooth gap < one 0.44 mm line).
 printed round bar — and a **rack re-dimensioned to pitch 1.00 / tooth 0.50 mm**.
 See §8 item 10 and the
 [ADR](../07-evidence-and-decisions/dnd55-s5r-bank-assembly.md).
+
+**S5-R register reconciliation ([DND-58](/DND/issues/DND-58)):** the DND-55
+corrections are now folded into the register definition itself. `s5r_register.scad`
+/ `s5r_register.py` carry the corrected rack (**pitch 1.00 / tooth 0.50 mm**,
+`RACK_STROKE_MM = 1.00` — the DND-54 value was `RACK_TOOTH_HEIGHT_MM = 0.45`) and a
+**sourced steel drive rod d = 6 mm** (`BAR_D_MM`), rendered as a round rod in CAD.
+The full-map time is **unchanged at 24.62 s** because the bank pass is *angular*
+(72°/level; the linear per-stroke advance does not enter the timing). One steel rod
+adds **$3.00 parts → $3.48 delivered**, so the honest working BOM is now
+**$404.60 delivered** (`margin $95.40`); the earlier $401.12 / $397.53 figures are
+retained as `delivered_no_rod_usd` / `delivered_claim_usd`. R-DND55-4 is **closed**.
 
 ---
 
@@ -309,8 +321,9 @@ depth, guide shear, creep, rotor tolerance). See the **Final readiness verdict**
    The **R=4 shared-drive bank register** (40 writers, 2 bank motors) **clears every
    analytic gate**: cell fit, zero neighbour cross-talk (a dropped pawl carries no
    rack force), writer force 18×, bank force 2.15×, latch dormant in service
-   (inherits K1), **24.62 s full map**, **$401.12 delivered working** (ratified
-   [DND-56](/DND/issues/DND-56); $387.18–$421.51 sourced band). Real CAD of the unit
+    (inherits K1), **24.62 s full map**, **$404.60 delivered working** (ratified
+    [DND-56](/DND/issues/DND-56); $387.18–$421.51 sourced band; DND-58 adds the
+    steel rod). Real CAD of the unit
    cell renders and passes the sourced printability gate (one accepted RISK: the
    0.45 mm keeper leaf is 1 extrusion line). **Verdict: promote S5-R to a
    machine-definition candidate**; the remaining residuals (as-printed μ, gate/tip
@@ -331,6 +344,18 @@ depth, guide shear, creep, rotor tolerance). See the **Final readiness verdict**
     tooth 0.50 mm**. **Verdict:** R-DND54-4 closed for the envelopes and pitch, and
     sharpened for the bar (a sourced-rod requirement, not a printed part). No print,
     no measurement.
+11. **S5-R register reconciliation of the DND-55 corrections** — **done**
+    ([DND-58](/DND/issues/DND-58), `s5r_register.scad` / `s5r_register.py` /
+    `s5r_register_checks.py`, ADR amendment §11 in
+    [`dnd54-s5r-register-latch.md`](../07-evidence-and-decisions/dnd54-s5r-register-latch.md)).
+    The register now carries the corrected rack (**pitch 1.00 / tooth 0.50 mm**,
+    `RACK_STROKE_MM = 1.00`) and a **sourced steel drive rod d = 6 mm** (`BAR_D_MM`,
+    rendered as a round rod). **Timing unchanged at 24.62 s** (the bank pass is angular:
+    72°/level; the linear per-stroke advance does not enter the timing). **BOM: +$3.48
+    delivered** for the rod → honest working total **$404.60 delivered** (`margin
+    $95.40`); the earlier $401.12 / $397.53 figures are retained as
+    `delivered_no_rod_usd` / `delivered_claim_usd`. **Verdict:** R-DND55-4 closed;
+    R-DND54-4 closed for envelopes/pitch. No print, no measurement.
 
 ---
 
