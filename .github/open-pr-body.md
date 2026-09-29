@@ -1,5 +1,9 @@
 # DND-58 — S5-R register reconciliation: corrected 1.00 mm rack pitch + sourced steel drive rod
 
+> This PR carries DND-55 (S5-R R=4 multi-row bank assembly) plus DND-58 (the
+> register reconciliation of its corrections). DND-55's bank files are the base
+> this reconcile builds on and were not yet merged to `main`.
+
 ## What changed
 
 Applies the [DND-55] bank close-out corrections to the register definition
