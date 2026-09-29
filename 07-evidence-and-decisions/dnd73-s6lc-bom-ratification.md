@@ -7,13 +7,19 @@
   `77692c6`) on the repo's own **additive ×1.16** delivered basis
   ([DND-41](/DND/issues/DND-41)). Every line re-derives; no line is double-counted;
   the **parts ceiling is $215.52** ($250 / 1.16) and S6-LC clears it by **$75.75
-  parts / $87.87 delivered**. The **finding** is a two-part honesty result:
+  parts / $87.87 delivered**. The **finding** is a three-part honesty result:
   1. **56 % of the purchased total ($78.00) is un-traced `sourced-class` /
      `assumption` allowance** — a price without a retrieved listing. Only **44 %
      ($61.77)** is backed by a live listing or a committed trace. This is a
-     labelling weakness, not a cost failure: every traced line lands within
-     **+$0.39 / −$14.80** of its BOM allowance.
-  2. The architecture's **off-line punched-card mask medium is deliberately
+     labelling weakness, not a cost failure.
+  2. **Re-priced at the *stable order tier* (no flash deals, no spec-less
+     parts), two BOM lines are genuinely under-priced** — the 4× T8 lead-screw
+     line (+$4.76) and the motor-coupler line (+$6.32) — but the small motors,
+     loom and sensors are generous enough that the honest total is **$131.31
+     parts → $152.32 delivered** ($97.68 margin), i.e. *more* conservative than
+     the committed $139.77. The Q3 "cheapest-price" Δ column did not survive
+     scrutiny (see §4a).
+  3. The architecture's **off-line punched-card mask medium is deliberately
      OFF-BOM** as a shared tool. Priced at a modest **$20 shared-puncher
      allowance** on top of a deliberately hostile part pricing, the machine
      reaches **$266.65 delivered — this is the one credible breach of $250**, and
@@ -25,7 +31,7 @@
   under [DND-72](/DND/issues/DND-72).
 - **Inputs:** `09-low-cost-variant/s6lc/bom_s6lc.csv` and
   `09-low-cost-variant/s6lc/analysis/s6lc.py` (both on `main`); live 2026-09-29
-  AliExpress listings re-entered by hand. The independent re-derivation does
+  AliExpress/Amazon listings re-entered by hand. The independent re-derivation does
   **not** import `s6lc.bom()` for arithmetic, but `--selftest` reconciles against
   both the committed model and the CSV.
 - **Evidence class:** CALCULATION over sourced listings and stated assumptions.
@@ -36,10 +42,10 @@ Reproduce:
 
 ```text
 cd 09-low-cost-variant/s6lc/ratify
-python s6lc_bom_ratify.py           # full report (Q1-Q6)
+python s6lc_bom_ratify.py           # full report (Q1-Q7)
 python s6lc_bom_ratify.py --selftest # asserts every figure below
 python s6lc_bom_ratify.py --emit-csv # writes s6lc_bom_ratified.csv
-python s6lc_bom_ratify_checks.py     # 59 regression + honesty checks
+python s6lc_bom_ratify_checks.py     # 65 regression + honesty checks
 ```
 
 ## 1. What was checked
@@ -52,6 +58,7 @@ python s6lc_bom_ratify_checks.py     # 59 regression + honesty checks
 | Q4 | What unit price breaches $250 for each line? | Solve `(215.52 − other)/qty` | **every line ≥ 2× its BOM unit** |
 | Q5 | Optimistic / working / high / hostile delivered totals? | Scenario repricing | **$132 ↔ $243, all < $250** |
 | Q6 | Does any omitted/under-priced line break <$250? | Hostile sweep incl. off-BOM tool | **ONE: +$20 card puncher → $266.65** |
+| Q7 | At the *stable order tier*, are the BOM lines right? | Re-price every line at orderable, spec-complete listings | **2 under-priced, rest generous; total $152.32** |
 
 ## 2. Q1 — the claim reproduces exactly
 
@@ -111,9 +118,46 @@ The **only** line whose cheapest *torque-matched* listing exceeds its allowance
 is the **lift motor (+$0.39)** — the same +$0.39 finding as the S5-R ratification
 ([DND-56](/DND/issues/DND-56)), and immaterial at a $87.87 margin. The €4.24
 17HS4023 pancake (0.14 N·m) is **under torque** and must not be used to claim a
-lower BOM. The lead-screw trace is noteworthy: a complete 300 mm T8 lead-2 mm set
-(screw + brass nut + coupler + bracket) can be had for **$3.49**, so the BOM's
-$24 for four is **conservative**, not optimistic.
+lower BOM.
+
+> **Correction (§4a).** The Δ column above is the *cheapest marketplace* price,
+> and two of those rows are **not orderable**: the **$3.49 T8 set is a flash
+> deal** (stock 1, 30-day low €7.10), and the **$1.20 "28BYJ-48" rows are
+> board-only/partial titles with no motor spec**. §4a re-prices the whole BOM at
+> the *stable, spec-complete order tier* — the number a buyer actually pays.
+
+## 4a. Q7 — stable order-tier re-price (hostile-to-optimism)
+
+The Q3 trace deliberately took the lowest price it could find. Re-audited against
+the listing pages (2026-09-29), the following BOM lines are **under-priced** and
+the following are **generous**:
+
+| Line | BOM ext | Stable order tier | Δ | Verdict |
+|---|---:|---:|---:|---|
+| 4× T8 lead screw + nut | $24.00 | **$28.76** (4 × $7.19 stable lead-2 mm screw+nut) | **+$4.76** | **BOM UNDER-PRICED** |
+| Motor couplers + thrust washers | $6.00 | **$12.32** (4 × flexible 5→8 mm @ $3.08) | **+$6.32** | **BOM UNDER-PRICED** |
+| Power supply (24 V) | $12.00 | **$14.06** (verified 24 V 5 A/120 W; 48 W SKU unverified) | +$2.06 | BOM under-priced |
+| Lift motor | $12.00 | $12.49 (17HS4401S 40 N·cm) | +$0.49 | within tolerance |
+| Mask / reset motors | $8.00 ea | $3.31 ea (28BYJ-48 + ULN2003, spec-complete) | −$4.69 ea | **BOM generous** |
+| Wire / connectors / loom | $14.00 | $8.52 (JST/Dupont kit) | −$5.48 | BOM generous |
+| Axis reference sensors | $4.00 | $0.72 (micro endstop, 30-pack) | −$3.28 | BOM generous |
+| Belt + 2 pulleys | $12.00 | $10.19 (2-pulley + 3 m belt kit) | −$1.81 | BOM generous |
+| Guide rods + bushings | $14.00 | $12.84 (2 rods + 4 LM8UU) | −$1.16 | BOM generous |
+| Fasteners (M3) | $8.00 | $7.03 (800 pc kit) | −$0.97 | BOM generous |
+| Controller, driver, spares | $5.00 / $4.77 / $8.00 | $4.99 / $4.77 / $8.00 | ≈ $0 | confirmed |
+
+**Honest stable order-tier total: $131.31 parts → $152.32 delivered, margin
+$97.68.** The net of all corrections is **−$8.46** vs the committed BOM: the
+transmission under-pricing (+$11.08) is more than offset by the small-motor,
+loom and sensor over-pricing (−$19.52). So the $139.77 headline is not merely
+defensible, it is **conservative at the real order tier** — but the *reason* the
+earlier §4 trace looked favourable (four $3.49 screws) does not survive scrutiny.
+
+The honest statement is therefore *both*: **two BOM lines are genuinely
+under-priced and would be corrected in a revision**, and **the total still clears
+$250 by $97.68 delivered** once every line is priced at a stable, orderable,
+spec-complete listing.
+
 
 ## 5. Q4 — break-even unit prices ($250 delivered ceiling)
 
@@ -193,13 +237,21 @@ recorded as the honest limit of the claim:
   sits inside the design-criteria **ideal < $200 band**.
 - **Finding 1 (labelling):** 56 % of the purchased total is un-traced allowance;
   the critical lines are individually traced and land within +$0.39 / −$14.80.
-- **Finding 2 (scope):** the off-line mask medium excludes a shared card puncher;
+- **Finding 2 (line prices):** at the stable order tier, the **4× T8 lead-screw
+  line (+$4.76)** and the **motor-coupler line (+$6.32)** are under-priced; the
+  small motors / loom / sensors are generous. The honest stable-order-tier total
+  is **$131.31 parts → $152.32 delivered** (margin $97.68), so the committed
+  $139.77 is defensible (conservative), not optimistic, once the flash-deal
+  $3.49 screw and the spec-less $1.20 motor are removed from the trace.
+- **Finding 3 (scope):** the off-line mask medium excludes a shared card puncher;
   a $20 allowance on hostile pricing gives **$266.65 > $250**. The claim's only
   breach is a tool/product-statement dependency, not a part price.
 - **No line dies on cost.** S6-LC is the defensible ultra-low-cost BOM.
 - **Next test (analytic, no purchase):** (1) trace the PSU / loom / guide / belt
-  allowances to live listings to lift the traced share above 70 %; (2) have the
-  S6-LC evidence note state the card-puncher scope explicitly in the BOM header
-  so the shared-tool assumption is visible to a reader who never opens the ADR;
-  (3) hand the puncher-scope question to [DND-74](/DND/issues/DND-74) (Falsifier)
-  as part of its mask-write product-statement attack.
+  allowances to live *stable* listings to lift the traced share above 70 %;
+  (2) have the S6-LC evidence note state the card-puncher scope explicitly in the
+  BOM header so the shared-tool assumption is visible to a reader who never opens
+  the ADR; (3) hand the puncher-scope question to [DND-74](/DND/issues/DND-74)
+  (Falsifier) as part of its mask-write product-statement attack; (4) revise the
+  two under-priced lines (T8 set, couplers) in the BOM so the committed figure is
+  line-accurate even though the total is unchanged in spirit.

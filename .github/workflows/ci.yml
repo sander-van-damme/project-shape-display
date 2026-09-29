@@ -199,8 +199,10 @@ jobs:
         # purchased ceiling. Pins: the $139.77 parts / $162.13 delivered claim
         # reproduces on the additive x1.16 basis; 44% traced / 56% allowance is
         # disclosed; every cost-driving line has >2x break-even headroom; the
-        # hostile scenario clears ($243.45); and the honest finding that the
-        # off-BOM shared card puncher breaches $250 ($266.65) cannot be reversed.
+        # hostile scenario clears ($243.45); the stable order-tier re-price
+        # clears at $152.32 and flags the under-priced T8/coupler lines; and the
+        # honest finding that the off-BOM shared card puncher breaches $250
+        # ($266.65) cannot be reversed.
         run: |
           python 09-low-cost-variant/s6lc/ratify/s6lc_bom_ratify.py > /dev/null
           python 09-low-cost-variant/s6lc/ratify/s6lc_bom_ratify.py --selftest

@@ -271,7 +271,7 @@ def cheapest_matched(trace: list[dict]) -> dict:
 
 
 def trace_summary() -> dict:
-    bom_unit = {l[0]: l[2] for l in CLAIMED_LINES}
+    bom_unit = {line[0]: line[2] for line in CLAIMED_LINES}
     out = {}
     for item, trace in TRACED_LINES.items():
         best = cheapest_matched(trace)
@@ -465,6 +465,76 @@ def reconcile_with_csv() -> dict:
 
 
 # =============================================================================
+# Q7 -- stable order-tier re-price (the hostile-to-optimism pass).
+#
+# Q3's "cheapest matched" trace deliberately took the lowest price it could find.
+# Re-audited against the listing pages (2026-09-29), two of those rows are NOT
+# stable order-tier prices and must not be used to claim a low BOM:
+#
+#   * AE-T8-300-setkit-349 ($3.49): a flash/"Vroegboekdeal" price with stock 1
+#     and a 30-day low of EUR7.10 -- NOT an orderable price. The stable
+#     lead-2 mm screw+nut class is ~$7.19 each. The BOM's $24-line-of-four is
+#     therefore UNDER-priced, not conservative: 4 x $7.19 = $28.76 (+$4.76).
+#   * AE-28BYJ48-5V ($1.20): the sub-EUR1.5 rows are board-only/partial titles
+#     with no motor spec (one such row is explicitly EUR0.28 "board/lead only").
+#     A spec-complete motor+ULN2003 set is ~$3.31-4.99. The BOM's $8.00 line is
+#     OVER-priced here, so this correction is conservative in our favour.
+#
+# This pass re-prices the transmission AND allocation lines at their STABLE,
+# spec-complete order tier and reports the honest total. It is the number a
+# buyer would actually pay, not the best case on the marketplace.
+# =============================================================================
+STABLE_ORDER_TIER = {
+    # item -> stable order-tier unit (spec-complete, non-flash, orderable)
+    "Lift motor (NEMA17-class stepper)": 12.49,        # 17HS4401S 40 N.cm
+    "Mask gate index motor (small stepper)": 3.31,     # 28BYJ-48 + ULN2003
+    "Reset carriage motor (small stepper)": 3.31,
+    "4x T8 lead screw + anti-backlash nut": round(4 * 7.19, 2),  # 4 screw+nut sets
+    "Timing belt + 2 pulleys (4-screw sync)": 10.19,   # 2-pulley + 3 m belt kit
+    "Motor couplers + thrust washers": round(4 * 3.08, 2),  # 4 flexible 5->8
+    "Guide rods + bushings (platen)": round(2 * 4.84 + 4 * 0.79, 2),  # 2 rods + 4 bush
+    "Controller (RP2040/ESP32)": 4.99,                 # Pico module
+    "Stepper driver module (DRV8833-class)": 1.59,     # kept: A4988 = 2.46 worse
+    "Power supply + protection (24 V)": 14.06,         # verified 24V 5A/120W
+    "Wire / connectors / loom": 8.52,                  # JST/Dupont kit
+    "Fasteners (M3 assortment)": 7.03,                 # 800pc M3 kit
+    "Axis reference sensors": 0.18,                    # micro endstop in 30-pack
+    "Spares and miscellaneous": 8.00,                  # DND-46 policy, kept
+}
+
+
+def stable_order_tier() -> dict:
+    """Honest working total re-priced at the stable, spec-complete order tier.
+
+    Returns per-line deltas vs the committed BOM so an under-priced line is
+    visible line by line, plus the honest total and its margin.
+    """
+    bom = {line[0]: (line[1], line[2]) for line in CLAIMED_LINES}
+    rows = []
+    for item, unit in STABLE_ORDER_TIER.items():
+        qty, bom_unit = bom[item]
+        bom_ext = round(qty * bom_unit, 2)
+        stable_ext = round(qty * unit, 2)
+        rows.append(dict(item=item, qty=qty, bom_unit=bom_unit,
+                         stable_unit=unit, bom_ext=bom_ext,
+                         stable_ext=stable_ext,
+                         delta=round(stable_ext - bom_ext, 2),
+                         bom_evidence=next(e for (n, _q, _u, e, _x) in CLAIMED_LINES
+                                           if n == item)))
+    parts = round(sum(r["stable_ext"] for r in rows), 2)
+    d = delivered(parts)
+    return dict(rows=rows, parts=parts, delivered=d,
+                margin=round(CEILING - d, 2), clears=bool(d < CEILING),
+                under_priced=[r for r in rows if r["delta"] > 0.5],
+                over_priced=[r for r in rows if r["delta"] < -0.5],
+                net_delta=round(parts - parts_default(), 2))
+
+
+def parts_default() -> float:
+    return parts()
+
+
+# =============================================================================
 # Top-level result + report.
 # =============================================================================
 def run() -> dict:
@@ -476,6 +546,7 @@ def run() -> dict:
         break_even=break_even(),
         scenarios=scenarios(),
         hostile=hostile_findings(),
+        stable=stable_order_tier(),
     )
 
 
@@ -530,6 +601,17 @@ def report() -> None:
           f"${rec['model_delivered']:.2f} actuators {rec['model_actuators']}")
     csvr = reconcile_with_csv()
     print(f"      bom_s6lc.csv: {csvr['csv_rows']} lines, parts ${csvr['csv_parts']:.2f}")
+    print()
+    print("Q7  stable order-tier re-price (hostile-to-optimism; not flash/spec-less)")
+    st = r["stable"]
+    for row in st["rows"]:
+        flag = "  <-- BOM UNDER-PRICED" if row["delta"] > 0.5 else (
+            "  (BOM generous)" if row["delta"] < -0.5 else "")
+        print(f"    {row['item'][:44]:44s} BOM ${row['bom_ext']:6.2f} -> stable "
+              f"${row['stable_ext']:6.2f}  ({row['delta']:+.2f}){flag}")
+    print(f"    stable parts ${st['parts']:.2f}  delivered ${st['delivered']:.2f}  "
+          f"margin ${st['margin']:.2f}  clears={st['clears']}  "
+          f"net vs BOM ${st['net_delta']:+.2f}")
 
 
 # =============================================================================
@@ -572,6 +654,15 @@ def selftest() -> None:
     h = r["hostile"]
     assert not h["with_puncher_clears"], h
     assert h["with_puncher_margin"] < 0.0, h
+    # Q7: the stable order-tier re-price (no flash deals, no spec-less parts)
+    # still clears $250, and it identifies the BOM's genuinely under-priced lines.
+    st = r["stable"]
+    assert st["clears"], st
+    assert st["delivered"] < CEILING, st
+    under = {row["item"] for row in st["under_priced"]}
+    assert "4x T8 lead screw + anti-backlash nut" in under, st
+    assert "Motor couplers + thrust washers" in under, st
+    assert st["parts"] > 0.0, st
     # Reconciliation with the committed model and CSV.
     rec = reconcile_with_committed()
     assert abs(rec["model_parts"] - rd["parts"]) < 0.01, rec

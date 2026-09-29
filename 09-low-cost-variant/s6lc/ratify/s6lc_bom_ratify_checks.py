@@ -8,7 +8,8 @@ x1.16 uplift changes, (c) a traced line is no longer cheaper than (or equal to)
 the BOM figure, (d) any cost-driving line loses its >2x break-even headroom,
 (e) the hostile scenario stops clearing the ceiling, (f) the honest
 "hostile + shared card puncher breaks $250" finding is silently reversed, or
-(g) the committed model / CSV / ADR drifts.
+(g) the committed model / CSV / ADR drifts, or (h) the stable order-tier
+re-price stops clearing $250 or stops flagging the BOM's under-priced lines.
 """
 from __future__ import annotations
 
@@ -43,6 +44,7 @@ def main() -> int:
     be = res["break_even"]
     s = res["scenarios"]
     h = res["hostile"]
+    st = res["stable"]
 
     print("DND-73 S6-LC BOM ratification checks")
     print("=" * 36)
@@ -63,8 +65,8 @@ def main() -> int:
     check("traced share > 30%", ev["traced_share"] > 0.30, ev)
     check("allowance share is disclosed (56% un-traced)", ev["allowance_usd"] > 0.0, ev)
     check("spares line is labelled `assumption`",
-          any(l[0].startswith("Spares") and l[3] == "assumption"
-              for l in r.CLAIMED_LINES))
+          any(line[0].startswith("Spares") and line[3] == "assumption"
+              for line in r.CLAIMED_LINES))
 
     print("[3] Traced critical lines against the BOM unit")
     for item, t in tr.items():
@@ -138,6 +140,20 @@ def main() -> int:
         for token in ("DND-73", "139.77", "162.13", "1.16", "87.87",
                       "215.52", "allowance", "RATIFIED", "266.65", "S6-LC"):
             check(f"ADR contains {token!r}", token in text)
+
+    print("[10] Stable order-tier re-price (hostile to flash/spec-less optimism)")
+    check("stable order-tier still clears $250", st["clears"], st)
+    check("stable delivered is pinned at $152.32",
+          abs(st["delivered"] - 152.32) < 0.05, st)
+    under = {row["item"] for row in st["under_priced"]}
+    check("4x T8 lead screw line is flagged under-priced",
+          "4x T8 lead screw + anti-backlash nut" in under, under)
+    check("Motor couplers line is flagged under-priced",
+          "Motor couplers + thrust washers" in under, under)
+    check("no flash-deal/spec-less price is used as a stable order tier",
+          all(row["stable_unit"] > 0 for row in st["rows"]), st)
+    check("stable net delta is small (|net| < $15)",
+          abs(st["net_delta"]) < 15.0, st)
 
     print("=" * 36)
     print(f"{CHECKS - len(FAILURES)}/{CHECKS} checks passed")

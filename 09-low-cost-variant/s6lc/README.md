@@ -20,7 +20,10 @@ $404.60 delivered — **not modified by this directory**).
 > delivered** headline reproduces exactly; 44 % of parts is listing-traced and
 > 56 % is disclosed `sourced-class`/`assumption` allowance; every line has >2×
 > break-even headroom; a deliberately hostile repricing (allowances ×2 + premium
-> matched parts) still clears at **$243.45**. The one honest breach: the
+> matched parts) still clears at **$243.45**. Re-priced at the **stable order
+> tier** (no flash deals, no spec-less parts) the total is **$131.31 parts →
+> $152.32 delivered** ($97.68 margin), with two lines genuinely under-priced
+> (4× T8 lead-screw +$4.76, couplers +$6.32). The one honest breach: the
 > **off-line punched-card mask medium is off-BOM as a shared tool** — adding a
 > $20 puncher allowance gives **$266.65 > $250**. See
 > [`../../07-evidence-and-decisions/dnd73-s6lc-bom-ratification.md`](../../07-evidence-and-decisions/dnd73-s6lc-bom-ratification.md).
@@ -170,7 +173,7 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
 | [`scad/s6lc_machine.scad`](scad/s6lc_machine.scad) | the part set (real OpenSCAD) |
 | [`cad/`](cad/) | rendered STLs + CAD/printability records |
 | [`bom_s6lc.csv`](bom_s6lc.csv) | purchased BOM line table |
-| [`ratify/`](ratify/) | [DND-73](/DND/issues/DND-73) independent ratification: re-derivation, live trace, break-evens + 59-check CI gate |
+| [`ratify/`](ratify/) | [DND-73](/DND/issues/DND-73) independent ratification: re-derivation, live + stable order-tier trace, break-evens + 65-check CI gate |
 | [`evidence/`](evidence/) | architecture + printable-path statements |
 
 ## 9. Residual uncertainty (measurement-only or product)
