@@ -164,6 +164,15 @@ jobs:
         # from the promoted model s5r_register.py, or if the superseded
         # incumbent S5 is presented as the current machine / live register.
         run: python tools/validate/readme_s5r_coherence.py
+      - name: DND-71 S6-LC ultra-low-cost machine checks (<$250 purchased)
+        # The low-cost alternative lives in 09-lowcost-alternative/ and does NOT
+        # touch 08-current-design/. Locks the cost/time/force/geometry reasoning
+        # and the sourced-FDM printability table for the S6-LC candidate.
+        run: |
+          cd 09-lowcost-alternative/analysis
+          python s6lc.py > /dev/null
+          python s6lc_checks.py
+          python printability_s6lc.py
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
@@ -186,6 +195,27 @@ jobs:
         run: |
           which openscad
           python 06-experiments/test11_falsification_library/check_fixture.py
+
+  s6lc-cad-render:
+    # DND-71: render the S6-LC low-cost machine parts with a real OpenSCAD and
+    # mesh-validate them. This is the low-cost candidate's CAD evidence; a
+    # missing OpenSCAD is a hard failure (the render is the point). CAD only,
+    # not a print (DND-27).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Install mesh validation dependency
+        run: python -m pip install --quiet "trimesh>=4"
+      - name: Render + mesh-validate the S6-LC part set
+        run: python 09-lowcost-alternative/analysis/render_s6lc_cad.py
 
   winner-cad-render:
     # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and
