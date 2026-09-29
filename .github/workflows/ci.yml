@@ -181,12 +181,13 @@ jobs:
         run: |
           python 09-low-cost-variant/s5r_ultra.py > /dev/null
           python 09-low-cost-variant/s5r_ultra_checks.py
-      - name: "DND-72 selected machine S6-LC gate"
-        # Pins the SELECTED architecture folded into the DND-72 track: the
-        # S1-B broadcast threshold ratchet S6-LC. After the DND-93 G3 fix the
-        # corrected headline is $226.77 parts / $263.05 delivered (G6 FAIL),
-        # 11.96 s, NEMA23-class global-board lift. Fails if any gate or
-        # headline drifts (including the honest G6 failure).
+      - name: "DND-72 selected machine S6-LC gate (DND-93 + DND-97)"
+        # Pins the SELECTED architecture: the S1-B broadcast threshold ratchet
+        # S6-LC. After the DND-93 G3 fix + DND-97 mechanism repair the corrected
+        # headline is $226.77 parts (mission gate PASS) / $263.05 delivered
+        # (internal convention), 11.96 s, NEMA23-class global-board lift, owned
+        # half-lane cell fit, 0.45 leaf + P1 latch hold, G8 reliability reported
+        # UNRESOLVED. Fails if any gate or headline drifts.
         run: |
           python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
           python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
@@ -201,29 +202,26 @@ jobs:
         run: |
           python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py --selftest
           python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py
-      - name: "DND-91/S6-LC Falsifier adversarial audit (re-baselined by DND-93)"
-        # Hostile re-derivation of the SELECTED machine's headline. After the
-        # DND-93 G3 fix this gate asserts the CORRECTED state and keeps the
-        # still-open attacks locked: lift_axis now on 6,400 cells (was 800) and
-        # G3 passes; the release ceiling is comb-tooth bending (413 N), not the
-        # circular 296 N; mask-index + carriage-traverse timing priced; six
-        # honest BOM allowances -> G6 delivered cost FAILS at $263.05; a new
-        # reset-carriage torque gate passes. A1 cell-fit overflow, A2 pawl-
-        # spring section (8x), A6 absent reliability gate, A7 unloaded write and
-        # A8 regional/jam remain OPEN. CALCULATION only (DND-27).
+      - name: "DND-91 Falsifier findings RESOLUTION gate (DND-93 + DND-97)"
+        # Locks the repaired S6-LC against regression to the broken headline. The
+        # DND-91 audit broke A1 (cell fit), A2 (pawl spring + missing hold), A3
+        # (circular 296 N), A4 (unpriced timing), A5 (BOM soft lines), A6 (no
+        # reliability gate), A7 (unloaded write), A8 (regional/jam). This gate
+        # asserts each finding is RESOLVED: owned half-lane fit, 0.45 leaf + P1
+        # hold gate, comb-tooth ceiling, priced timing, repriced BOM + 6
+        # allowances, G8 reliability, A7/A8 restated as explicit limitations.
+        # CALCULATION only (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd91_checks.py
       - name: "DND-72 folded divergent machines gate"
         # DND-75 divergence folded onto the DND-72 track: A1 single-shaft cam,
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
-      - name: "DND-74 falsifier adversarial audit of S6-LC (re-baselined by DND-93)"
-        # Reproduces the DND-74 attack arithmetic from the repo constants as the
-        # historical record (global load 2560 N would break the old 0.30 N*m
-        # NEMA17; 0.37 N x 800 == the old circular 296 N "ceiling"; mask-write
-        # and reliability bounds) AND asserts the DND-93 fix is in place (lift
-        # on 6400 cells, comb-tooth structural limit, priced timing terms,
-        # allowances -> G6 fails). CALCULATION-only (DND-27).
+      - name: "DND-74 falsifier findings RESOLUTION gate (DND-93 + DND-97)"
+        # Reproduces the DND-74 attack arithmetic as the historical record AND
+        # asserts the fixes are in place (lift on 6400 cells, comb-tooth limit,
+        # priced timing, allowances) plus the DND-97 mission-gate verdict.
+        # CALCULATION-only (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd74_checks.py
 
   lowcost-cad-render:

@@ -1,5 +1,6 @@
 # 08 — Current design: S5-R — shared-drive programmable rotary register (R = 4)
 
+
 **Status:** **PROMOTED — this is the machine.** S5-R is the engineering source of truth
 and the slicer-ready build this repository hands over. It supersedes the incumbent S5
 (programmed stepped rotary stops + a full-width **80-motor** programming head), which the
