@@ -277,6 +277,29 @@ does not.
   mechanism/Z-standoff problem with a rate trade study (a per-cell Z stroke is fatal; a per-line
   refocus may be survivable). A breadboard optical check is a CTO physical handoff (DND-27).
 
+### DND-113 — read mechanism correction (resolves DND-112)
+
+[DND-113](/DND/issues/DND-113) responds to the DND-112 findings and **accepts the audit**
+(ADR [`dnd113-a1-read-mechanism.md`](dnd113-a1-read-mechanism.md)):
+
+- **Question (a) — common-height target:** **No** existing A1 artifact reads a single plane for
+  both states; the reader targets the column top face (moves 40 mm). A common-height target is
+  **proposed** (a reflective flag at the frame-anchored latch hinge, read at one standoff), pending
+  CAD.
+- **Question (b) — re-stated residual:** the binding read limit is the **state-dependent standoff**,
+  not ±0.264 mm registration (now up-state provenance only). `read_resolution_bound()` reports the
+  down-state spot **24.508 mm (4.824 pitches)** and the **~441×** neighbour/pocket ratio, and sets
+  `resolves_single_cell = False` for the as-drawn reader.
+- **Fixed:** the SCAD/ADR corner-reach formula (R2 → **4.081 mm**); the stop-and-go trapezoid
+  (T1 → **61.9** cells/s at 100 m/s²); the per-line ramp in `full_cycle` (T3 → **18.278 s** at 8
+  heads).
+- **Trade study (`z_stroke_trade_study()`):** a Z stroke per **cell** = **5.4 cells/s**, cycle
+  **> 2,380 s** (rate-fatal); per **line** (refocus) = **~29.8 s** (must be priced).
+- **Gate:** the DND-112 companion checker `falsifier_dnd112_checks.py --gate` now exits 0, asserting
+  the resolution. The read/verify axis remains **not** SUCCESS-eligible until the common-height
+  target is CAD-designed and validated. No print/measurement (DND-27).
+
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")

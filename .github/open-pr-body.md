@@ -1,86 +1,88 @@
-# DND-112: Falsifier — independent adversarial audit of the DND-111 A1 writer/reader rate bound
+# DND-113: CTO response to the DND-112 read finding — A1 read mechanism correction
+
+> **Stacked PR.** This branch is based on the DND-112 audit branch
+> (`falsifier/dnd112-a1-rate-audit`, PR #88), which is based on the DND-111
+> branch (`cto/dnd111-writer-rate-bound`, PR #87). Until #87 and #88 merge, the
+> diff against `main` includes their commits. The **DND-113 delta** is the read
+> mechanism correction described below.
 
 ## What changed
 
-Independent, default-deny audit of the DND-111 decisive number (the
-[DND-108] method). No re-write of the CTO model.
+DND-113 responds to the DND-112 independent audit ([DND-112], PR #88), which
+returned **NOT CLEAN (default-deny)** on the DND-111 *single-cell read* claim
+while reproducing the *rate* bound.
 
-- `07-evidence-and-decisions/falsifier_dnd112_a1_rate_audit.md` **(new)** — the
-  audit register: 11 attacks (T1–T4 rate, R1–R4 read, G1 gate impact, G2
-  down-state read, P1 SNR), each with the deciding number, the independent
-  recompute, and a pass/fail.
-- `07-evidence-and-decisions/falsifier_dnd112_checks.py` **(new)** — stdlib-only
-  companion checker. Recomputes every DND-111 number **independently of
-  `a1_writer_rate.py`**. Default mode prints the verdict and exits 0; `--gate`
-  exits non-zero on any unresolved attack.
-- `07-evidence-and-decisions/README.md` — DND-112 section + evidence-matrix row.
-- `.github/workflows/ci.yml` — DND-112 step (runs and prints the audit).
-- `08-current-design/` and `09-low-cost-variant/` **untouched**.
+- **Read model corrected** (`10-reliability-mask/analysis/a1_writer_rate.py`):
+  `read_resolution_bound()` now reports the **state-dependent standoff** (up-state
+  spot 3.072 mm; **down-state spot 24.508 mm = 4.824 pitches** at the 42 mm gap),
+  the corrected **corner reach 4.081 mm**, the neighbour-edge threshold, and the
+  **~441x** up-neighbour/down-pocket return ratio. `resolves_single_cell = False`
+  for the as-drawn fixed-height, top-face reader, and
+  `binding_read_limit = "state_dependent_standoff"`. The ±0.264 mm registration
+  number is retained **only as up-state provenance**.
+- **One new function answers question (a)** — `common_height_read_target()`:
+  **no** existing A1 artifact reads a common-height target; a concrete fix is
+  **proposed** (a reflective flag at the frame-anchored latch hinge, read at one
+  standoff for both states), pending CAD.
+- **Question (b) rate trade study** — `z_stroke_trade_study()`: a reader Z stroke
+  per **cell** is rate-fatal (**5.4 cells/s, > 2,380 s cycle**); per **line**
+  (refocus) costs **~29.8 s** and must be priced.
+- **Bundled small fixes from the audit:** the stop-and-go **trapezoid** (T1:
+  61.9 cells/s at 100 m/s², was 89.6 V-shaped) and the **per-line ramp** now
+  priced into `full_cycle` (T3: honest 8-head cycle **18.278 s**, was the
+  idealised 16.278 s; still < 30 s).
+- **CAD corrected** (`10-reliability-mask/scad/a1_reader_head.scad`): the
+  `CORNER_REACH = spot/2·√2` error is replaced with the true
+  `√2·(BODY/2) + spot/2 = 4.081 mm`; the down-state ~24.5 mm cone and a schematic
+  common-height flag are rendered; the render record now carries both spots.
+- **ADR:** new
+  [`07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](07-evidence-and-decisions/dnd113-a1-read-mechanism.md);
+  DND-111's ADR is banner-corrected on the read axis; README §4.2/§4.2a/§4.3/
+  §4.7/§7/§10 updated; the criteria-of-record remains `02-design-criteria/`.
+- **DND-112 checker re-baselined to the resolution** (the DND-93/97 convention):
+  `falsifier_dnd112_checks.py --gate` now exits **0**, asserting the corrected
+  state (R2 fixed, T1/T3 fixed, R1/R4/G2 carried). CI is wired to the `--gate`.
 
 ## Engineering question addressed
 
-Is the DND-111 bounded rate defensible, and is its single-cell read claim sound?
-Decide **analytically + CAD only**, no print/measurement ([DND-27]).
+**Is A1's single-cell read claim sound?** The DND-112 audit says no, and DND-113
+**accepts it**. The read is *state-dependent-standoff* bound, not registration
+bound: a down cell is read at a ~42 mm gap, its ~24.5 mm spot is swamped ~441x by
+up neighbours, so **a down cell reads up** — a silent wrong-cell failure that
+defeats A1's readback/retry advantage. The rate bound is unaffected.
 
-## Verdict: NOT CLEAN
+## Evidence produced (class: CALCULATION + CAD; no print, purchase or measurement — DND-27)
 
-**The rate side reproduces and stands; the single-cell read side fails.**
+- `a1_writer_rate.py` report: down spot 24.508 mm / 4.824 pitches; corner reach
+  4.081 mm; ratio 441.0; `resolves_single_cell=False`; Z trade study values.
+- CAD render: `SPOT_DOWN_diameter=24.5077`,
+  `CORNER_REACH_corrected=4.08148`, `down-state single-cell read resolvable:
+  false` (watertight reader mesh).
+- `reliability_mask_checks.py`: **60/60** pass (10 new DND-113 checks).
+- `falsifier_dnd112_checks.py --gate`: **exit 0**, 11/11 attacks assert the
+  resolution.
+- `falsifier_dnd104_checks.py`: 26/26 (unchanged).
 
-| Attack | Result | Deciding number |
-|---|---|---|
-| T1 stop-and-go excluded | PASS* | 30.4 cells/s @ X1C 20 m/s² (claimed 30); the 100 m/s² row is a V-shaped approximation, true 61.9 not 89.6 (+45%) |
-| T2 fly-over rate / band | PASS | 164.5 cells/s; band 71.4–228 reproduced exactly |
-| T3 ramp overhead | PASS* | ~24.6 % per-line accel/reversal omitted; cycle still < 30 s |
-| T4 seven-stage 16.278 s | PASS | reproduced exactly |
-| **R1 read gap by state** | **FAIL** | down-cell gap 42 mm → spot 24.51 mm = 4.82 pitches |
-| **R2 corner-reach formula** | **FAIL** | reported 2.172 mm; true reach 4.081 mm |
-| R3 neighbour threshold | PASS | ADR fails against own edge 1.80 instead of neighbour edge 3.28 |
-| **R4 registration decoupling** | **FAIL** | ±0.264 mm is not the binding read limit |
-| G1 gate impact | PASS* | no A1 gate flips (24.15→16.28 s, both < 30 s) |
-| **G2 down-state read** | **FAIL** | up-neighbour near-field return beats the pocket ~441× → silent miss |
-| P1 SNR provenance | PASS* | SNR ~1,462 set by TIA noise, not optics (assumption-class) |
+## Assumptions / uncertainty
 
-`*` reproduced, but recorded because the attack is non-decisive or the row is mis-stated.
+- All optical constants (5 mW LED, 0.45 A/W, 0.80/0.15 reflectance, 15°
+  half-angle, 2 mm aperture/gap, TIA noise) remain assumption/sourced-class. They
+  are **not** the deciding numbers for R1/G2 — those are geometric.
+- The **common-height read target is PROPOSED, not validated**: it needs a CAD
+  model, a flag-vs-neighbour contrast check, and a hinge-arc Δz-in-DoF bound.
+- The **read/verify axis is UNRESOLVED**; DND-110's "SUCCESS-eligible on the rate
+  axis" must **not** extend to it.
 
-## Why the read attack is decisive
+## Most informative next test
 
-The A1 state is the **column top height** and the reader rides at a fixed height
-above the **up**-plane. DND-111's 3.072 mm spot is the **up-state** spot; over a
-down cell the target is 40 mm lower, so the spot is 24.51 mm (4.82 pitches) and
-the four up neighbours (2 mm away, 5.08 mm lateral) dominate the return by
-~441×. A down cell reads **up** — a *silent* miss that defeats the
-readback/retry feature A1's whole reliability advantage rests on. This is a
-**mechanism** failure, not the gantry-registration tolerance DND-111 names as
-its residual, and no DND-111 coupon retires it.
+CAD-design and validate the proposed **latch-hinge read flag** (common-height
+target), then re-check R1/G2 against it. If that fails, re-run the per-line Z
+refocus trade study against the full cycle. Both are CALCULATION + CAD; no print
+(DND-27).
 
-## Consequence
+## Passed / failed
 
-- The **rate axis** may be treated as bounded (T2/T4 reproduced).
-- The **read/verify axis is UNRESOLVED**; DND-111's "SUCCESS-eligible on the
-  rate axis" must **not** be extended to a reader/retry promotion.
-- Next test (CTO): state whether any A1 artifact reads a **common-height**
-  target (latch flag/toe). If not, restate the read as a mechanism/Z-standoff
-  problem with a rate trade study — a per-cell Z stroke is rate-fatal (~6
-  cells/s), a per-line refocus may be survivable. Breadboard optical check is a
-  CTO physical handoff.
-
-## Evidence class
-
-CALCULATION + CAD geometry only. No print, no purchase, no measurement
-([DND-27]). No board contact ([DND-32]).
-
-## Checks run
-
-```
-python 07-evidence-and-decisions/falsifier_dnd112_checks.py         # report (exit 0)
-python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate  # exit 1 (4 FAILs)
-python 07-evidence-and-decisions/falsifier_dnd104_checks.py         # 26/26
-python 10-reliability-mask/analysis/reliability_mask_checks.py      # 50/50
-```
-
-## What remains uncertain
-
-- Optical constants are assumption-class (unmeasured). They do not change the
-  geometric R1/R2/G2 deciding numbers (42 mm gap, 4.08 mm reach).
-- A1 could refute R1/G2 by reading a common-height target; that is not in any
-  artifact I can see, so it is recorded as the CTO's required next statement.
+- **Passed:** rate bound (18.278 s < 30 s at 8 heads); CAD watertight; 60/60
+  checks; DND-112 `--gate` clean; DND-104 26/26.
+- **Failed / carried:** the as-drawn single-cell read (accepted as the audit's
+  finding; carried as the state-dependent-standoff residual).

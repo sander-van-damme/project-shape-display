@@ -1,4 +1,25 @@
-"""DND-111 - analytic bound on the A1 writer/reader rate + single-cell read.
+"""DND-111 + DND-113 - analytic bound on the A1 writer rate + read mechanism.
+
+DND-113 CORRECTION (from the DND-112 audit). The DND-112 independent audit
+reproduced the RATE bound but falsified the "single-cell read" claim:
+
+  * R1: the reader reads the column TOP FACE, so the interrogated gap is state
+    dependent (2 mm over an up cell, 42 mm over a down cell). The 3.072 mm spot
+    is the UP-state spot; the down-state spot is 24.5 mm = 4.82 pitches.
+  * G2: at that standoff the up neighbours beat the pocket return ~441x, so a
+    down cell reads up - a SILENT wrong-cell failure.
+  * R2: the CAD `CORNER_REACH = spot/2*sqrt(2)` is the wrong worst case; the
+    true reach with the aperture at the cell corner is 4.081 mm.
+  * R4: the +/-0.264 mm registration residual is an up-state-only number and is
+    NOT the binding read limit; the binding limit is the state-dependent
+    standoff.
+
+This module now carries the corrected read mechanism: the rate is outcome (a)
+BOUNDED, but the read/verify axis is UNRESOLVED until a COMMON-HEIGHT read
+target is adopted (proposed: a reflective flag at the frame-anchored latch
+hinge) or a per-line Z refocus is priced (`z_stroke_trade_study()`). DND-113
+also fixes the DND-112 T1 stop-and-go trapezoid and the T3 per-line ramp
+overhead.
 
 Replaces the unconstrained placeholder
 
@@ -103,17 +124,26 @@ def stop_and_go_cell_time_s(accel_mm_s2, pitch_mm=PITCH_MM,
                             settle_s=SETTLE_MS / 1000.0):
     """Time to move one pitch, stop, settle - ignoring actuation.
 
-    If the peak speed a triangular move can reach, sqrt(a*p), is below the
-    stage speed ceiling the move is triangular and takes 2*sqrt(p/a); else it
-    is speed-limited.
+    DND-113 fixes the DND-112 T1 defect: when the triangular peak speed
+    sqrt(a*p) exceeds the stage speed ceiling the move is a TRAPEZOID that
+    reaches the ceiling speed v within the pitch, not a constant-v crossing.
+    The correct speed-limited move time is
+        2*(v/a) + (p - v^2/a)/v
+    (the accel ramp, the constant-v cruise, the symmetric decel ramp). The
+    DND-111 code used p/v, which is the time to cross the pitch at the ceiling
+    speed even though the stage never reaches it inside one pitch, overstating
+    the stop-and-go rate by up to +45 %.
     """
     v_tri = math.sqrt(accel_mm_s2 * pitch_mm)
     if v_tri <= X1C_MAX_SPEED_MM_S:
         move_s = 2.0 * math.sqrt(pitch_mm / accel_mm_s2)
         mode = "triangular (slow axis)"
     else:
-        move_s = pitch_mm / X1C_MAX_SPEED_MM_S
-        mode = "speed-limited"
+        # Trapezoid: accelerate to the ceiling, cruise the remainder, decelerate.
+        t_acc = X1C_MAX_SPEED_MM_S / accel_mm_s2
+        d_acc = 0.5 * accel_mm_s2 * t_acc * t_acc
+        move_s = 2.0 * t_acc + (pitch_mm - 2.0 * d_acc) / X1C_MAX_SPEED_MM_S
+        mode = "trapezoidal (speed-limited)"
     total = move_s + settle_s
     return dict(move_s=move_s, v_peak_mm_s=v_tri, mode=mode,
                 total_s=total, cells_s=1.0 / total)
@@ -286,47 +316,65 @@ def read_integration_bound():
 def read_resolution_bound():
     """Contrast budget for separating one wrong cell in an 80x80 field.
 
-    The reader compares each cell's return against its neighbours. For a
-    single wrong cell to be resolved, the up/down contrast must exceed noise
-    by a margin, and the optical spot must not straddle neighbours.
+    DND-113 CORRECTION (DND-112 R1/R2/R4): DND-111 computed ONE spot at ONE
+    2 mm gap and called it "the single-cell read". That 3.072 mm spot is the
+    UP-state spot. The reader rides at a fixed height above the *up*-plane, and
+    the A1 state is the column-top height. Over a DOWN cell the reflective
+    target sits TRAVEL=40 mm lower, so the interrogated gap is ~42 mm and the
+    spot is ~24.5 mm = 4.82 pitches: a lensless aperture then integrates a
+    ~5x5 cell patch. The read is therefore NOT single-cell for the down half of
+    the states, and the four up neighbours (2 mm away, 5.08 mm lateral) beat
+    the pocket return by ~441x -- a silent wrong-cell failure, which is exactly
+    what A1's readback/retry exists to prevent.
 
-    Two independent requirements:
-      (R1) GEOMETRIC - the interrogated spot must be smaller than the pitch
-           (with margin) so a down cell does not return an up neighbour's
-           light. Spot <= pitch - 2*wall, and the working gap must keep the
-           spot in focus.
-      (R2) PHOTOMETRIC - the up/down return difference must exceed the noise
-           floor with the chosen integration time.
+    The binding limit is thus the STATE-DEPENDENT STANDOFF, not a gantry
+    registration tolerance. This function now reports:
+      * the correct worst-case corner reach (aperture at the cell corner);
+      * the physical crosstalk threshold (the neighbour's near edge, not the
+        own face edge);
+      * the state-dependent standoff ratio and the gap that would be needed;
+      * `resolves_single_cell` = False for the as-drawn (fixed-height,
+        top-face) reader, carrying the residual as required by DND-113.
+
+    A common-height target is PROPOSED in `common_height_read_target()`; the
+    rate cost of the alternative (a descending reader) is bounded in
+    `z_stroke_trade_study()`.
     """
-    # (R1) geometric: a lensless aperture of diameter d at gap g spreads by
-    # geometry. Required: the returned spot must land on the target column's
-    # TOP FACE, not spill onto a neighbour's face across the 0.74 mm lane.
     cell_top_mm = 3.60                  # CAD column body top face
     lane_mm = PITCH_MM / 2 - cell_top_mm / 2   # 0.74 mm owned half-lane
     half_face_mm = cell_top_mm / 2      # 1.80 mm from centre to top-face edge
+    neighbour_near_edge_mm = PITCH_MM - cell_top_mm / 2   # 3.28 mm
     aperture_mm = 2.0                   # assumption-class single-cell aperture
-    working_gap_mm = 2.0                # repo "~2 mm working gap"
+    working_gap_mm = 2.0                # reader-to-UP-top gap (assumption-class)
     half_angle_deg = 15.0
-    spot_at_target_mm = aperture_mm + 2 * working_gap_mm * math.tan(
+    spot_up_mm = aperture_mm + 2 * working_gap_mm * math.tan(
         math.radians(half_angle_deg))
-    # Worst case: aperture centred over a cell CORNER, so the spot reach is
-    # diagonal. CAD check (scad/a1_reader_head.scad) reports CORNER_REACH.
-    corner_reach_mm = spot_at_target_mm / 2 * math.sqrt(2)
-    spot_fits_centre = bool(spot_at_target_mm / 2 <= half_face_mm)
-    spot_fits_corner = bool(corner_reach_mm <= half_face_mm)
-    # Registration tolerance: max head-centre offset for the CORNER-reach spot
-    # to stay on the face. If the head is registered to cell centres better
-    # than this, a centred spot never reaches the corner case.
-    registration_needed_mm = max(0.0, half_face_mm - spot_at_target_mm / 2)
-    # Gap ceiling for the corner case to fit at zero registration error: the
-    # spot diameter must satisfy spot/2*sqrt(2) <= half_face.
-    gap_for_corner_mm = (half_face_mm * math.sqrt(2) - aperture_mm / 2) / math.tan(
+    gap_down_mm = TRAVEL_MM + working_gap_mm
+    spot_down_mm = aperture_mm + 2 * gap_down_mm * math.tan(
         math.radians(half_angle_deg))
-    gap_for_centre_mm = (half_face_mm - aperture_mm / 2) / math.tan(
-        math.radians(half_angle_deg))
+    # DND-112 R2: the true worst-case reach is with the aperture at the CELL
+    # CORNER: the farthest spot point is sqrt((BODY/2)^2+(BODY/2)^2) + spot/2.
+    # DND-111's `spot/2*sqrt(2)` was a centred aperture with a diagonal spot,
+    # and understated the reach by ~1.9 mm.
+    corner_hyp_mm = math.hypot(cell_top_mm / 2, cell_top_mm / 2)
+    corner_reach_mm = corner_hyp_mm + spot_up_mm / 2
+    spot_fits_centre = bool(spot_up_mm / 2 <= half_face_mm)
+    # DND-112 R3: the real crosstalk threshold is the NEIGHBOUR's near edge,
+    # not the own face edge. A centred spot only contaminates a neighbour when
+    # its reach exceeds PITCH - BODY/2 = 3.28 mm.
+    spot_contaminates_neighbour = bool(spot_up_mm / 2 > neighbour_near_edge_mm)
+    # Standoff / contrast: the down pocket is swamped by the up neighbours.
+    flux_neighbour = (cell_top_mm ** 2) / working_gap_mm ** 2
+    flux_pocket = (cell_top_mm ** 2) / gap_down_mm ** 2
+    standoff_ratio = flux_neighbour / flux_pocket
+    # The gap that WOULD fit the down spot on the 3.60 mm face (impossible to
+    # reach: the target sits 40 mm below the fixed-height reader).
+    gap_for_down_fit_mm = (cell_top_mm - aperture_mm) / (
+        2 * math.tan(math.radians(half_angle_deg)))
+    # Registration tolerance (kept for provenance; no longer the binding limit).
+    registration_needed_mm = max(0.0, half_face_mm - spot_up_mm / 2)
+
     # (R2) photometric: SIGNAL = reflected optical power converted to current.
-    # Photodiode responsivity R [A/W]. LED drive P_led [W]. Up vs down cell
-    # return fraction rho_up / rho_down.
     resp = READ_PHOTODIODE_RESPONSIVITY_A_W
     p_w = READ_LED_POWER_MW / 1000.0
     i_up = p_w * READ_TARGET_REFLECTANCE_UP * resp      # signal current, up cell
@@ -336,8 +384,6 @@ def read_resolution_bound():
     # Noise: (1) shot noise on the full photocurrent, bandwidth B set by the
     # integration time T (B ~ 1/(2T)); (2) ambient converted at the detector
     # and attenuated by the synchronous (modulated-LED) detection factor.
-    # Si photodiode in the 500 lux class produces ~ order-1 uA of DC ambient
-    # photocurrent; modulated detection rejects it by READ_DC_REJECTION.
     q = 1.602e-19
     T = READ_INTEGRATION_US * 1e-6
     B = 1.0 / (2.0 * T)
@@ -345,12 +391,14 @@ def read_resolution_bound():
     ambient_effective_a = ambient_dc_a * READ_DC_REJECTION
     total_dc_a = i_up + ambient_effective_a
     shot_a = math.sqrt(2.0 * q * total_dc_a * B)
-    # Johnson/amplifier input noise (TIA): ~10 nA/sqrt(Hz) at the input is a
-    # conservative device-class figure; over B.
+    # Johnson/amplifier input noise (TIA): ~10 nA/sqrt(Hz) at the input.
     amp_noise_a = 10e-9 * math.sqrt(B)
     noise_a = math.sqrt(shot_a ** 2 + amp_noise_a ** 2)
     snr = contrast / noise_a if noise_a > 0 else float("inf")
-    resolves = bool(spot_fits_centre and snr >= 5.0 and registration_needed_mm > 0)
+    # DND-113: the as-drawn fixed-height reader reading the column TOP FACE
+    # does NOT resolve a down cell (state-dependent standoff). It resolves only
+    # if a COMMON-HEIGHT target is adopted (see `common_height_read_target()`).
+    resolves = False
     return dict(
         evidence="CALCULATION + CAD over placed cell geometry + photometric budget",
         cad_source="10-reliability-mask/scad/a1_reader_head.scad",
@@ -358,16 +406,23 @@ def read_resolution_bound():
         cell_top_face_mm=cell_top_mm,
         owned_half_lane_mm=round(lane_mm, 3),
         half_face_mm=half_face_mm,
+        neighbour_near_edge_mm=round(neighbour_near_edge_mm, 3),
         working_gap_mm=working_gap_mm,
         aperture_mm=aperture_mm,
         half_angle_deg=half_angle_deg,
-        spot_at_target_mm=round(spot_at_target_mm, 3),
+        spot_at_target_mm=round(spot_up_mm, 3),
+        spot_up_state_mm=round(spot_up_mm, 3),
+        spot_down_state_mm=round(spot_down_mm, 3),
+        spot_down_state_pitches=round(spot_down_mm / PITCH_MM, 3),
+        gap_down_state_mm=gap_down_mm,
         spot_fits_centre=spot_fits_centre,
-        spot_fits_corner=spot_fits_corner,
+        corner_hyp_mm=round(corner_hyp_mm, 3),
         corner_reach_mm=round(corner_reach_mm, 3),
+        corner_reach_corrected=round(corner_reach_mm, 3),
+        spot_contaminates_neighbour=spot_contaminates_neighbour,
+        standoff_ratio_neighbour_over_pocket=round(standoff_ratio, 1),
+        gap_for_down_fit_mm=round(gap_for_down_fit_mm, 3),
         registration_tolerance_mm=round(registration_needed_mm, 3),
-        gap_for_centre_fit_mm=round(gap_for_centre_mm, 3),
-        gap_for_corner_fit_mm=round(gap_for_corner_mm, 3),
         reflectance_up=READ_TARGET_REFLECTANCE_UP,
         reflectance_down=READ_TARGET_REFLECTANCE_DOWN,
         i_up_a=i_up,
@@ -382,30 +437,109 @@ def read_resolution_bound():
         snr=round(snr, 2),
         snr_gate=5.0,
         resolves_single_cell=resolves,
+        binding_read_limit="state_dependent_standoff",
         verdict=(
-            "A single wrong cell among 6,400 IS resolvable by a single-cell "
-            "contrast read IF (R1) the spot stays on the 3.60 mm top face and "
-            "(R2) the up/down return difference clears noise. Photometrically "
-            f"this is easy (SNR ~{snr:.0f} at 50 us, gate 5.0). Geometrically "
-            f"the {aperture_mm:.0f} mm aperture at a {working_gap_mm:.0f} mm "
-            f"gap makes a "
-            f"{spot_at_target_mm:.2f} mm spot: it fits the face when "
-            f"centre-aligned (reach {spot_at_target_mm/2:.2f} <= {half_face_mm:.2f} "
-            f"mm: {spot_fits_centre}) but reaches "
-            f"{corner_reach_mm:.2f} mm at worst-case corner alignment "
-            f"(fits corner: {spot_fits_corner}). Therefore the head must be "
-            f"registered to cell centres to within "
-            f"{registration_needed_mm:.2f} mm (or the gap held to "
-            f"{gap_for_corner_mm:.2f} mm for zero-error corner alignment). "
-            "This is the real single-cell resolution limit: a REGISTRATION "
-            "tolerance, not a contrast one."
+            "The as-drawn fixed-height reader reading the column TOP FACE does "
+            f"NOT resolve a single down cell: the up-state spot is "
+            f"{spot_up_mm:.2f} mm but over a down cell the target is "
+            f"{gap_down_mm:.0f} mm away and the spot is "
+            f"{spot_down_mm:.2f} mm ({spot_down_mm/PITCH_MM:.2f} pitches), so "
+            f"the four up neighbours dominate the pocket return by "
+            f"~{standoff_ratio:.0f}x. The binding read limit is the "
+            "STATE-DEPENDENT STANDOFF, not a gantry registration tolerance "
+            f"({registration_needed_mm:.2f} mm is an up-state-only number). "
+            f"Correct worst-case corner reach is {corner_reach_mm:.2f} mm "
+            "(DND-111 quoted 2.17 mm; the aperture is at the cell corner). The "
+            f"photometric SNR is large (~{snr:.0f} at 50 us, gate 5.0) but is "
+            "assumption-class. A1 must either adopt a COMMON-HEIGHT read "
+            "target (`common_height_read_target()`) or price a per-line Z "
+            "refocus (`z_stroke_trade_study()`)."
         ),
         residual=(
-            "The reflectance pair (0.80/0.15), aperture, LED power, half-angle "
-            "and ambient level are assumption/sourced-class, not measured. The "
-            "resolution verdict reduces to a bounded registration requirement "
-            "(head-to-cell alignment) plus a bounded contrast requirement; "
-            "neither is a rate question and neither needs a print to state."
+            "DND-113: the read/verify axis is NOT SUCCESS-eligible until a "
+            "common-height read target is CAD-designed and validated, or a "
+            "per-line Z refocus is priced into the cycle. The +/-0.264 mm "
+            "registration number is retained only as an up-state provenance "
+            "figure; it is NOT the decisive read limit."
+        ),
+    )
+
+
+def common_height_read_target():
+    """Does A1 read a target at a single plane for both states? (DND-112 Q1)
+
+    DND-113 ANSWER: NOT in the current artifacts. The only reader artifact
+    (`scad/a1_reader_head.scad`) targets the column TOP FACE, which moves
+    TRAVEL=40 mm with the state. No latch flag/toe read at fixed z is specified
+    anywhere in A1. So the read as drawn is state-dependent-standoff bound
+    (option b).
+
+    A concrete COMMON-HEIGHT target IS available in the mechanism and is
+    PROPOSED here for CAD follow-up: the latch arm pivots on a frame-anchored
+    hinge (fixed z). Add a small reflective flag at the hinge end; the reader
+    interrogates that flag at a single standoff regardless of column height,
+    because the hinge z does not move. The arm's angular position (latch state)
+    then changes the flag's tilt, so the reader gets a binary fixed-standoff
+    return. This is a *proposal*, not a validated artifact: it needs a CAD
+    model, a flag-vs-neighbour contrast check, and a hinge-arc DeltaZ bound
+    (must stay inside the reader depth of field).
+    """
+    swing_deg = 30.0               # assumption-class latch toggle swing
+    dof_budget_mm = 1.0            # DND-112 pass threshold: within +/-1 mm
+    r_flag_max_mm = dof_budget_mm / math.sin(math.radians(swing_deg))
+    return dict(
+        evidence="DESIGN INTENT + geometry reasoning (no CAD artifact yet)",
+        answer="NO existing A1 artifact reads a common-height target",
+        current_target="column top face (moves TRAVEL=40 mm with state)",
+        proposed_target="reflective flag at the frame-anchored latch hinge (fixed z)",
+        proposed_standoff_note=(
+            "Reader interrogates the hinge-plane flag at one standoff for both "
+            "states; latch tilt encodes the state."),
+        swing_deg=swing_deg,
+        dof_budget_mm=dof_budget_mm,
+        r_flag_max_mm=round(r_flag_max_mm, 3),
+        status="PROPOSED - requires CAD model + contrast + DoF check",
+    )
+
+
+def z_stroke_trade_study():
+    """Rate cost of correcting the standoff with a reader Z stroke (DND-113 b).
+
+    A reader that descends to the pocket for the down state pays a 40 mm Z
+    stroke each way. Per CELL this is rate-fatal; per LINE (refocus at row
+    ends) it may be survivable. Bounds both with a trapezoidal Z move at
+    0.5 m/s and the sourced X1C 20 m/s^2.
+    """
+    v = 500.0                 # mm/s assumption-class Z axis
+    a = X1C_MAX_ACCEL_MM_S2
+    d = 2.0 * TRAVEL_MM       # down and back up
+    t_acc = v / a
+    d_acc = 0.5 * a * t_acc * t_acc
+    if d >= 2.0 * d_acc:
+        t_stroke = 2.0 * t_acc + (d - 2.0 * d_acc) / v
+    else:
+        t_stroke = 2.0 * math.sqrt(d / a)
+    t_stroke += SETTLE_MS / 1000.0
+    cell_s = t_stroke
+    cell_rate = 1.0 / cell_s
+    cycle_per_cell_s = 2.0 * CELLS * cell_s      # both write and verify passes
+    n_lines = COLS
+    cycle_per_line_s = 2.0 * n_lines * t_stroke
+    return dict(
+        evidence="CALCULATION over a trapezoidal 40 mm Z move",
+        z_speed_mm_s=v, z_accel_mm_s2=a,
+        stroke_mm=2.0 * TRAVEL_MM, stroke_time_s=round(t_stroke, 4),
+        per_cell_rate_cells_s=round(cell_rate, 2),
+        per_cell_cycle_s=round(cycle_per_cell_s, 1),
+        per_line_strokes=n_lines,
+        per_line_cycle_s=round(cycle_per_line_s, 1),
+        verdict=(
+            f"A Z stroke per CELL gives {cell_rate:.1f} cells/s and a full "
+            f"cycle >{cycle_per_cell_s/60:.0f} min - RATE-FATAL. A Z refocus "
+            f"per LINE costs {cycle_per_line_s:.1f} s for both passes - "
+            "survivable only if the rest of the cycle leaves that margin; it "
+            "must be added to the full_cycle. Conclusion: correct the standoff "
+            "with a COMMON-HEIGHT target, not by descending the reader."
         ),
     )
 
@@ -502,8 +636,10 @@ def achievable_rate(heads=8):
             f"~{PLACEHOLDER_CELLS_S/rate_best:.0f}-"
             f"{PLACEHOLDER_CELLS_S/rate_pess:.0f}x. The rate is ANALYTICALLY "
             "BOUNDED with the dominant limit named per operating point, which "
-            "is outcome (a); the residual is a gantry-registration / "
-            "snap-force tolerance question, not an unconstrained placeholder."
+            "is outcome (a) on the RATE axis. DND-113: the READ axis residual "
+            "is the state-dependent standoff (not gantry registration); see "
+            "`read_resolution_bound()`. The as-built snap force and gantry "
+            "repeatability remain tolerance residuals."
         ),
     )
 
@@ -529,23 +665,60 @@ def _actuation_ms():
     return w["device_class_pulse_ms"]
 
 
+def raster_pass_time_s(v_mm_s, heads):
+    """Honest raster pass time including per-line accel/reversal (DND-113).
+
+    DND-112 T3 found the DND-111 `full_cycle` charged only `cells/heads *
+    per-cell`, which assumes the head is already at speed on every line and
+    never reverses. A real raster line of ACTIVE_MM at speed v must accelerate
+    from rest and decelerate back to rest (or reverse) at each end, costing
+    `2*v/a`. With `heads` heads spread across x, the bar makes
+    `CELLS/heads/COLS` y-sweeps of ACTIVE_MM; each pays one accel + one decel.
+
+    The write/read per-cell time already contains the traverse; this function
+    adds ONLY the per-line ramp, so it does not double-count.
+    """
+    n_lines = CELLS / heads / COLS                    # y-sweeps per pass
+    line_s = ACTIVE_MM / v_mm_s + 2.0 * (v_mm_s / X1C_MAX_ACCEL_MM_S2)
+    ideal_per_cell_s = PITCH_MM / v_mm_s
+    pass_ideal_s = CELLS / heads * ideal_per_cell_s
+    ramp_overhead_s = n_lines * 2.0 * (v_mm_s / X1C_MAX_ACCEL_MM_S2)
+    return dict(
+        n_lines=round(n_lines, 3),
+        line_s=round(line_s, 4),
+        pass_ideal_s=round(pass_ideal_s, 4),
+        ramp_overhead_s=round(ramp_overhead_s, 4),
+        pass_honest_s=round(pass_ideal_s + ramp_overhead_s, 4),
+        overhead_fraction=round(ramp_overhead_s / pass_ideal_s, 4) if pass_ideal_s else 0.0,
+    )
+
+
 def full_cycle(heads=8, v_mm_s=1000.0):
     """Re-derive the A1 full-map cycle from the analytically bounded rate.
 
     Raster geometry: the gantry bar carries `heads` writer heads. It sweeps
     the full 80-cell width once per lane group, so the pass time for the
-    whole field is (cells / heads) * per-cell time. The head count is what
-    compensates for the honest per-head rate being several times under the
-    placeholder, and this function reports the head count that still clears
-    <30 s.
+    whole field is (cells / heads) * per-cell time, PLUS the per-line
+    accel/reversal overhead DND-113 adds (DND-112 T3: ~24.6 % at 8 heads).
+
+    The head count is what compensates for the honest per-head rate being
+    several times under the placeholder, and this function reports the head
+    count that still clears <30 s.
     """
     t_trav_ms = PITCH_MM / v_mm_s * 1e3
     t_act_ms = _actuation_ms()
     t_read_ms = READ_INTEGRATION_US / 1000.0
     write_cell_s = (max(t_trav_ms, t_act_ms) + SETTLE_MS) / 1000.0
     verify_cell_s = (max(t_trav_ms, t_read_ms) + SETTLE_MS) / 1000.0
-    write_all_s = CELLS * write_cell_s / heads
-    verify_s = CELLS * verify_cell_s / heads
+    write_ideal_s = CELLS * write_cell_s / heads
+    verify_ideal_s = CELLS * verify_cell_s / heads
+    # DND-113: add the per-line ramp to the traverse part of each pass. The
+    # per-cell time already contains PITCH/v plus actuation/read/settle, so the
+    # ramp is ADDED (not substituted) and the pass is not double-counted.
+    write_ramp = raster_pass_time_s(v_mm_s, heads)["ramp_overhead_s"]
+    verify_ramp = raster_pass_time_s(v_mm_s, heads)["ramp_overhead_s"]
+    write_all_s = write_ideal_s + write_ramp
+    verify_s = verify_ideal_s + verify_ramp
     stages = dict(
         digital_map=DIGITAL_MAP_S,
         mask_generation=MASK_GENERATION_S,
@@ -562,10 +735,14 @@ def full_cycle(heads=8, v_mm_s=1000.0):
         actuation_ms=round(t_act_ms, 3),
         write_cell_ms=round(write_cell_s * 1e3, 3),
         verify_cell_ms=round(verify_cell_s * 1e3, 3),
+        write_ideal_s=round(write_ideal_s, 4),
+        verify_ideal_s=round(verify_ideal_s, 4),
+        ramp_overhead_per_pass_s=round(write_ramp, 4),
         stages=stages, full_cycle_s=total,
         clears_30s=bool(total < 30.0),
         margin_s=round(30.0 - total, 4),
-        note="Pass time = cells/(heads) * per-cell time. The per-cell time is "
+        note="Pass time = cells/(heads) * per-cell time PLUS the per-line "
+             "accel/reversal ramp (DND-113, DND-112 T3). The per-cell time is "
              "max(traverse, actuation_or_read) + settle, from the bounded rate.",
     )
 
@@ -611,38 +788,43 @@ def full_cycle_pessimistic_sweep(v_mm_s=1000.0):
 # ---------------------------------------------------------------------------
 # 8. OUTCOME
 # ---------------------------------------------------------------------------
-# Exactly one outcome is recorded per DND-111 task 4:
+# DND-111 recorded a single outcome:
 #   (a) Bounded  - rate analytically bounded, residual narrows to
 #                  procurement/measurement detail.
 #   (b) Coupon-only - cannot be settled without a printed coupon.
-# The analysis above bounds the rate from sourced kinematics and the read from
-# CAD + a contrast budget. It does NOT require a print to decide the RATE.
-# The remaining uncertainty (gantry registration, as-printed latch snap force)
-# is a TOLERANCE/WEAR question, not the decisive rate question, and is
-# explicitly carried as residual.
+# The RATE remains outcome (a): bounded from sourced kinematics. DND-113
+# corrects the READ side. The rate-side outcome is now stated PER AXIS.
 OUTCOME = "a"
 
 OUTCOME_STATEMENT = (
-    "OUTCOME (a) BOUNDED. The A1 writer/reader rate is analytically bounded "
-    "from sourced component-class kinematics + the placed CAD. The dominant "
-    "limit is GANTRY TRAVERSE at the credible design point: at 1.0 m/s one "
-    "head writes/reads 164.5 cells/s (credible band 71-228 cells/s across "
-    "0.5-1.5 m/s and snap-trigger vs full-sweep toggle), a factor 4.4-14x "
-    "below the placeholder 1,000 cells/s. Stop-and-go is excluded outright at "
-    "5.08 mm pitch (30-90 cells/s). The full map still clears <30 s: at the "
-    "primary rate 8 parallel heads give 16.28 s including verification, and "
-    "even 4 heads give 26.0 s. Single-cell read resolution is bounded "
-    "geometrically (a ~2 mm-gap spot is ~3.07 mm, inside the 3.60 mm top "
-    "face) and photometrically (up/down contrast SNR ~1,460 against a gate of "
-    "5 at 50 us). The residual is no longer an unconstrained placeholder; it "
-    "is a gantry-registration + latch snap-force tolerance question, which is "
-    "a coupon question but NOT the decisive rate question."
+    "OUTCOME (a) BOUNDED on the RATE axis; the READ/VERIFY axis is "
+    "UNRESOLVED pending a common-height read target. The A1 writer rate is "
+    "analytically bounded from sourced component-class kinematics + placed "
+    "CAD. The dominant limit is GANTRY TRAVERSE at the credible design point: "
+    "at 1.0 m/s one head writes/reads 164.5 cells/s (credible band 71-228 "
+    "cells/s), a factor 4.4-14x below the placeholder 1,000 cells/s. "
+    "Stop-and-go is excluded outright (30.4 cells/s at X1C accel; the 100 "
+    "m/s^2 sensitivity row is 61.9, not 89.6 - DND-113 trapezoid fix). The "
+    "full map still clears <30 s with the honest per-line ramp overhead "
+    "(DND-113): 8 parallel heads give 18.28 s including verification; even 4 "
+    "heads give 30.0 s (borderline). The READ/VERIFY axis is NOT resolved: "
+    "the reader reading the column TOP FACE is state-dependent-standoff bound "
+    "(up-state spot 3.07 mm; down-state spot 24.5 mm = 4.82 pitches, drowned "
+    "by up neighbours ~441x), so a down cell can read up. The binding read "
+    "limit is the state-dependent standoff, NOT the +/-0.264 mm gantry "
+    "registration (which is an up-state-only figure). Fix: adopt a "
+    "common-height read target (proposed: a reflective flag at the "
+    "frame-anchored latch hinge) - a per-cell reader Z stroke is rate-fatal "
+    "(>1000 s cycle); a per-line refocus costs ~29.6 s for both passes and "
+    "must be priced. Until the read target is settled, A1's reliability "
+    "advantage (readback + retry) is unproven - that is the decisive "
+    "difference between a 0-silent machine and a decorated silent one."
 )
 
 
 def report():
     return dict(
-        issue="DND-111",
+        issue="DND-111 (rate) + DND-113 (read mechanism correction)",
         evidence_class="CALCULATION over sourced component-class limits + CAD "
                        "(no print, no purchase, no measurement; DND-27)",
         placeholder_replaced=dict(
@@ -655,6 +837,8 @@ def report():
         write_actuation=write_actuation_bound(),
         read_integration=read_integration_bound(),
         read_resolution=read_resolution_bound(),
+        common_height_read_target=common_height_read_target(),
+        z_stroke_trade_study=z_stroke_trade_study(),
         achievable=achievable_rate(),
         head_sweep=full_cycle_head_sweep(),
         head_sweep_pessimistic=full_cycle_pessimistic_sweep(),

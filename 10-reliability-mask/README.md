@@ -53,7 +53,7 @@ was pre-picked.
 
 | # | Architecture | Family | Bought actuators | States | Mask medium | Silent elements | Full map | Parts |
 |---|---|---|---|---:|---:|---|---:|---:|---:|
-| **A1** | **binary-latch + shared writer/reader** | **external shared writer/verifier** | **4** | **2** | **none (direct write)** | **0** | **16.28 s** | **$181** |
+| **A1** | **binary-latch + shared writer/reader** | **external shared writer/verifier** | **4** | **2** | **none (direct write)** | **0** | **18.28 s** | **$181** |
 | A2 | global broadcast binary interlock | broadcast lock-and-lift | 2 | 5 | printed interlock plate | 6,400 | 11.05 s | $224 |
 | A3 | punched-film mask + biased columns | physical bit-image film | 2 | 2 | punched film (consumable) | 6,400 | 33.55 s | $187 |
 | A4 | rewritable printed comb mask | reusable printed comb | 2 | 2 | printed louvre comb | 6,400 | 17.55 s | $171 |
@@ -178,16 +178,19 @@ The derivation bounds two candidate head kinematics:
 | Derived rate band | **71–228 cells/s** | 1.0 m/s pessimistic full-sweep to 1.5 m/s snap-trigger |
 | Placeholder overstatement | **4.4–14×** | 1,000 vs 71–228 cells/s |
 | Effective rate (8 heads) | 1,316 cells/s | 8 × 164.5 |
-| Worst-case write-all (6,400) | **4.864 s** | `a1_writer_rate.full_cycle()` |
-| Verify pass (6,400) | **4.864 s** | `a1_writer_rate.full_cycle()` |
+| Worst-case write-all (6,400) | **5.864 s** | `a1_writer_rate.full_cycle()` (+1.0 s ramp) |
+| Verify pass (6,400) | **5.864 s** | `a1_writer_rate.full_cycle()` (+1.0 s ramp) |
 | Reset + settle + transport + map processing | **6.55 s** | model |
-| **Total worst-case full-map cycle** | **16.278 s < 30 s** | **13.7 s margin**, including verification |
+| **Total worst-case full-map cycle** | **18.278 s < 30 s** | **11.7 s margin**, including verification |
 
 The dominant limit is **gantry traverse** at the credible design point (the
 latch snap is hidden under it at ≤1.0 m/s; the full-sweep toggle takes over if
-the gantry is pushed to 1.5 m/s). The full map clears < 30 s at **8 heads**
-(16.278 s) and even at **4 heads** (26.0 s); with the *pessimistic* full-sweep
-toggle it still clears at 8 heads (22.61 s).
+the gantry is pushed to 1.5 m/s). **DND-113 adds the per-line accel/reversal
+overhead** (DND-112 T3): at 8 heads, 10 lines × 2·(v/a) = 1.0 s per pass, so the
+honest cycle is **18.278 s** (was the idealised 16.278 s). The full map clears
+< 30 s at **8 heads** (18.278 s); **4 heads just misses (30.006 s)**; with the
+*pessimistic* full-sweep toggle it clears at 8 heads (24.61 s).
+
 
 > **The one assumption that can still kill A1:** the derived rate is
 > CALCULATION over sourced component-class limits. It does **not** prove the
@@ -197,28 +200,39 @@ toggle it still clears at 8 heads (22.61 s).
 > explicit residual (§10). **The rate itself is no longer an unconstrained
 > placeholder — that is DND-111 outcome (a), Bounded.**
 
-### 4.2a Single-cell read resolution (DND-111)
+### 4.2a Single-cell read resolution (DND-111; corrected by DND-113)
 
-Can one wrong cell among 6,400 be distinguished from its neighbours? Bounded
-geometrically and photometrically, and validated in CAD
-([`scad/a1_reader_head.scad`](scad/a1_reader_head.scad)):
+Can one wrong cell among 6,400 be distinguished from its neighbours? **DND-112
+audited DND-111's answer and falsified it** (R1/R2/R4/G2). DND-113 corrects the
+mechanism: the as-drawn reader reads the **column top face**, which moves
+`TRAVEL = 40 mm` with the state, so the read is **state-dependent-standoff
+bound**, not registration bound.
 
 | Quantity | Value | Basis |
 |---|---|---|
 | Column top face | 3.60 mm square | CAD |
-| Owned half-lane | 0.74 mm | CAD |
-| Reader working gap | 2.0 mm | repo prior |
-| Interrogation aperture | 2.0 mm | assumption |
-| Spot at target | 3.072 mm | aperture + 2·gap·tan15° |
-| Spot fits top face (centre-aligned) | **yes** (reach 1.54 ≤ 1.80 mm) | CAD |
-| Spot at worst-case corner | 2.172 mm (does **not** fit) | CAD |
-| **Required registration tolerance** | **±0.264 mm** | CAD + geometry |
+| Reader working gap (to the **up** top) | 2.0 mm | repo prior |
+| Up-state spot (DND-111's 3.072 mm) | 3.072 mm (fits centre-aligned) | aperture + 2·g·tan15° |
+| **Down-state gap** | **42 mm** (40 travel + 2) | CAD |
+| **Down-state spot** | **24.51 mm = 4.82 pitches** | same formula |
+| Up-neighbour / down-pocket return | **~441×** | Lambertian A/d² |
+| Corrected corner reach (aperture at cell corner) | **4.081 mm** | √2·(BODY/2) + spot/2 |
+| Neighbour near edge (true crosstalk threshold) | 3.28 mm | PITCH − BODY/2 |
+| Registration tolerance | ±0.264 mm (**up-state provenance only**) | CAD + geometry |
 | Up/down contrast SNR (50 µs) | ~1,460 (gate 5.0) | photometric budget |
-| **Single-cell resolution** | **yes, if head-to-cell registration ≤ ±0.26 mm** | calc + CAD |
+| **Single-cell resolution, as drawn** | **NO** — a down cell reads up | DND-113 |
 
-The photometric side is trivial (contrast is huge); the real limit is a
-**registration tolerance** — the same gantry-registration question §10 already
-flags. This is a discriminating, testable constraint, not a rate assumption.
+**The binding read limit is the state-dependent standoff, not the ±0.26 mm
+gantry registration.** A down cell at a 42 mm gap returns a ~24.5 mm spot
+swamped ~441× by its up neighbours: a **silent wrong-cell failure** — exactly
+what the readback/retry feature exists to prevent. The fix is a **common-height
+read target** (proposed: a reflective flag at the frame-anchored latch hinge,
+read at one standoff for both states; see
+[`dnd113-a1-read-mechanism.md`](../07-evidence-and-decisions/dnd113-a1-read-mechanism.md)
+§4). A reader that descends per **cell** is rate-fatal (>1000 s cycle); per
+**line** it costs ~29.8 s and must be priced. Until the read target is settled,
+A1's reliability advantage is **unproven**.
+
 
 ### 4.3 Honest timing decomposition (DND-103 requirement)
 
@@ -228,10 +242,10 @@ flags. This is a discriminating, testable constraint, not a rate assumption.
 | Physical mask generation | **0.00** | **no physical mask** (direct write) |
 | Mask transport / indexing | 2.00 | gantry lane repositioning |
 | Display reset | 3.00 | global reset stroke |
-| Broadcast lift / write | 4.864 | worst-case all-change write (DND-111 derived) |
+| Broadcast lift / write | 5.864 | worst-case all-change write (DND-111 derived; DND-113 ramp) |
 | Settling / locking | 1.50 | two-state hard stop settles fast |
-| **Verification** | **4.864** | **reader pass (this is the reliability feature)** |
-| **Full cycle** | **16.278** | **visible transition = full (no hidden prep)** |
+| **Verification** | **5.864** | **reader pass (this is the reliability feature)** |
+| **Full cycle** | **18.278** | **visible transition = full (no hidden prep)** |
 
 Because there is no physical mask, there is **no hidden preparation**: the
 *sustained arbitrary-map cycle time* **equals** the *visible transition time*. This
@@ -294,21 +308,32 @@ actuator**. Printed frame, columns, latch arms and cradle lands are excluded per
 | **D — multiple banks** | 4 banks = 3,200 cells | cross-bank timing, sustained throughput, head duty drift, regional update | sustained cycle > 30 s or accuracy drifts |
 | **full machine** | 6,400 cells | full < 30 s arbitrary map + regional update | only reached after A–D survive |
 
-### 4.7 Decisive falsifier (updated by DND-111)
+### 4.7 Decisive falsifier (updated by DND-111; corrected by DND-113)
 
-> **The writer head cannot hold half-pitch cell registration (±0.26 mm) across
-> 406 mm at a traverse speed that keeps the full cycle < 30 s.** DND-111 shows
-> the rate is *bounded* (outcome a): the decisive remaining question is no
-> longer "is 1 ms/cell possible?" (it is not) but "can the gantry hold ±0.26 mm
-> registration at the head count the timing needs?". If registration fails, the
-> single-cell read resolution collapses and the retry loop can act on a wrong
-> cell — A1's sole reliability advantage dies.
+> **The reader cannot resolve a single cell at a common standoff.** DND-112
+> falsified DND-111's "single-cell read reduces to registration": the reader
+> reads the **column top face**, whose z moves 40 mm with the state. Over a
+> **down** cell the gap is ~42 mm, the spot is ~24.5 mm (4.82 pitches), and the
+> up neighbours dominate the return by ~441× — a **down cell reads up**. That is
+> a silent wrong-cell failure, so A1's readback/retry advantage (its entire
+> reliability case) is **unproven** until the read target is settled. The binding
+> limit is the **state-dependent standoff**, not ±0.26 mm gantry registration
+> (which is an up-state-only figure). The fix is a **common-height read target**
+> (proposed: a reflective flag at the frame-anchored latch hinge); a per-cell Z
+> stroke is rate-fatal, a per-line refocus costs ~29.8 s. See
+> [`dnd113-a1-read-mechanism.md`](../07-evidence-and-decisions/dnd113-a1-read-mechanism.md).
+
+The **rate** is bounded (outcome a): "is 1 ms/cell possible?" is answered (no,
+it is traverse-bounded at 71–228 cells/s/head; the honest cycle is 18.278 s at 8
+heads). The **rate is no longer the decisive falsifier** — the read/verify axis
+is.
 
 Secondary falsifiers: the as-printed over-centre latch snaps at the modelled
 writer force (the state is exact by hard stop, but the *snap* is a force
 question); the latch hinge survives 6,400-cycle wear (measurement-only under
-DND-27). Both are coupon/measurement questions, **not** the decisive rate
-question.
+DND-27); as-built gantry registration (±0.26 mm) — now a *secondary* read
+concern once the common-height target exists. All are coupon/measurement
+questions under DND-27, **not** the decisive read mechanism question.
 
 ## 5. Why not the runners-up
 
@@ -337,7 +362,7 @@ defect rate.
 |---|---:|---:|---:|---:|---:|---|
 | S5-R (`08-`) | 42 | 6,400 | 24.615 s | $348.79 | $404.60 | fails (silent, no readback) |
 | S6-LC (`09-`) | 3 | 6,400 | 11.96 s | $226.77 | $263.05 | unresolved (G8 measurement-only) |
-| **A1 (`10-`, new)** | **4** | **0** | **16.28 s** | **$181.00** | **$209.96** | **passes (0 silent; reader + retry)** |
+| **A1 (`10-`, new)** | **4** | **0** | **18.28 s** | **$181.00** | **$209.96** | **passes (0 silent; reader + retry)** |
 
 A1 does **not** beat S6-LC on raw speed or actuator count. It beats it — and S5-R —
 on the **reliability gate that DND-103 made first-class**, and it is cheaper than
@@ -345,26 +370,33 @@ both. Under the program's stated priority ("reliability/buildability outrank the
 last few dollars"), that is the decisive advantage.
 
 **Promotion proposal:** promote **A1** as the reliability-first low-cost candidate
-at the next convergence gate, *conditional on* bounding the as-built gantry
-registration (±0.26 mm) and the latch toggle force. The writer/reader **rate**
-itself is no longer an open condition — DND-111 bounded it analytically
-(outcome a). This is an explicit proposal, not an automatic replacement (per
-DND-104 §5).
+at the next convergence gate, *conditional on* settling the **read mechanism**
+(common-height read target) and the latch toggle force. The **rate** is no longer
+an open condition — DND-111 bounded it analytically (outcome a), corrected by
+DND-113 (18.278 s). But the **read/verify axis is unresolved** (DND-112/DND-113):
+the readback/retry advantage is unproven until the reader interrogates a
+common-height target. This is an explicit proposal, not an automatic replacement
+(per DND-104 §5).
 
 ## 7. Failure modes, recorded honestly
 
 - **The rate is bounded, not assumed (DND-111).** The old 1 ms/cell placeholder
   is 4.4–14× optimistic. The honest derived rate (71–228 cells/s/head) still
-  clears 30 s at 8 heads (16.278 s), and even the pessimistic full-sweep toggle
-  clears at 8 heads (22.61 s). If the gantry cannot be built to carry the needed
-  head count at 1.0 m/s, add heads (cheap printed bodies) or reduce the map
-  size. Timing no longer dies on a bare assumption.
-- **Single-cell read resolution reduces to registration (DND-111).** The
-  3.07 mm optical spot fits the 3.60 mm top face only if the head is registered
-  to cell centres within ±0.26 mm. If it is not, the "0 silent" claim collapses
-  to "6,400 silent with an expensive decoration". Registration is the kill test.
-- **Gantry registration** over 406 mm is the classic 2-axis failure; belt stretch
-  and thermal drift are unmeasured. A position-repeatability coupon is required.
+  clears 30 s at 8 heads (**18.278 s** with the DND-113 per-line ramp; 4 heads just
+  misses at 30.006 s), and the pessimistic full-sweep toggle clears at 8 heads
+  (24.61 s). If the gantry cannot be built to carry the needed head count at
+  1.0 m/s, add heads (cheap printed bodies) or reduce the map size. Timing no
+  longer dies on a bare assumption.
+- **The read is state-dependent-standoff bound, not registration bound (DND-112/DND-113).**
+  The reader reads the column top face; over a down cell the gap is ~42 mm, the
+  spot is ~24.5 mm (4.82 pitches), and up neighbours dominate ~441×, so a down
+  cell reads up. The ±0.26 mm registration number is up-state-only provenance.
+  The fix is a **common-height read target** (proposed latch-hinge flag); a
+  per-cell Z stroke is rate-fatal, a per-line refocus costs ~29.8 s. Until then
+  the "0 silent" claim is unproven — the retry loop can act on a wrong cell.
+- **Gantry registration** (secondary, once a common-height target exists) over
+  406 mm is the classic 2-axis failure; belt stretch and thermal drift are
+  unmeasured. A position-repeatability coupon is required.
 - **Hinge wear** across 6,400 pivots is measurement-only under DND-27; the
   compression hold removes the *spring-force* risk but not wear.
 - **Column top load path** is a compression hard stop (good), but the exact land
@@ -379,11 +411,14 @@ python 10-reliability-mask/analysis/reliability_mask.py
 # convergence: selection, why, bandwidth, prototype ladder, falsifier
 python 10-reliability-mask/analysis/reliability_mask.py convergence
 
-# 50 pinned regression checks (includes the DND-111 rate-bound checks)
+# 60 pinned regression checks (includes the DND-111/DND-113 rate + read checks)
 python 10-reliability-mask/analysis/reliability_mask_checks.py
 
-# DND-111: the analytic writer/reader rate + single-cell read bound (full JSON)
+# DND-111 + DND-113: writer rate bound + read-mechanism correction (full JSON)
 python 10-reliability-mask/analysis/a1_writer_rate.py
+
+# DND-112 audit resolution gate (exits 0; CI-wired)
+python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 
 # CAD: render + mesh-validate the binary-latch cell and reader head
 export PATH="$HOME/.local/bin:$PATH"
@@ -398,35 +433,41 @@ python 10-reliability-mask/analysis/make_table.py
 | Path | What |
 |---|---|
 | [`analysis/reliability_mask.py`](analysis/reliability_mask.py) | the architecture screen, reliability gate, timing, BOM, convergence |
-| [`analysis/a1_writer_rate.py`](analysis/a1_writer_rate.py) | **DND-111** analytic writer/reader rate + single-cell read bound |
-| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 50 regression checks |
+| [`analysis/a1_writer_rate.py`](analysis/a1_writer_rate.py) | **DND-111 + DND-113** writer rate bound + read-mechanism correction |
+| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 60 regression checks |
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation (cell parts + reader head) |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
 | [`analysis/architecture_table.md`](analysis/architecture_table.md) | the generated comparison table |
 | [`scad/a1_binary_latch_cell.scad`](scad/a1_binary_latch_cell.scad) | the A1 unit cell (real OpenSCAD) |
-| [`scad/a1_reader_head.scad`](scad/a1_reader_head.scad) | **DND-111** reader-head optical geometry + self-checks |
+| [`scad/a1_reader_head.scad`](scad/a1_reader_head.scad) | **DND-111 + DND-113** reader-head optical geometry + self-checks |
 | [`cad/stl/`](cad/stl/) | watertight rendered parts (column, latch, cradle, reader head) |
 | [`cad/render_record.json`](cad/render_record.json) | mesh-validation record |
 | [`bom_a1.csv`](bom_a1.csv) | A1 purchased BOM |
 | [`../07-evidence-and-decisions/dnd104-reliability-mask.md`](../07-evidence-and-decisions/dnd104-reliability-mask.md) | the DND-104 ADR |
 | [`../07-evidence-and-decisions/dnd111-writer-rate-bound.md`](../07-evidence-and-decisions/dnd111-writer-rate-bound.md) | **DND-111** rate-bound ADR |
+| [`../07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](../07-evidence-and-decisions/dnd113-a1-read-mechanism.md) | **DND-113** read-mechanism correction ADR |
 
-## 10. Residual uncertainty (all measurement-only or product)
+## 10. Residual uncertainty
 
-- Writer/reader rate — **bounded by DND-111**: 71–228 cells/s/head, traverse-
-  bounded, factor 4.4–14× below the retired placeholder. Not measurement-only.
-- Single-cell read resolution — **bounded by DND-111**: geometric spot fits the
-  top face; resolves with a ±0.264 mm head-to-cell registration tolerance and a
-  photometric SNR ~1,460 (gate 5). The residual is the *as-built* registration.
-- **As-built gantry registration** over 406 mm (±0.26 mm required) — unmeasured;
-  this is now the decisive residual, ahead of the rate.
+- Writer **rate** — **bounded by DND-111, corrected by DND-113**: 71–228
+  cells/s/head, traverse-bounded, factor 4.4–14× below the retired placeholder.
+  Not measurement-only.
+- **Read/verify mechanism — UNRESOLVED (DND-112/DND-113).** The as-drawn
+  top-face reader is state-dependent-standoff bound: a down cell is read at a
+  ~42 mm gap with a ~24.5 mm spot, swamped ~441× by up neighbours (silent
+  wrong-cell). Binding limit = the standoff, not registration. Fix: a
+  **common-height read target** (proposed latch-hinge flag), pending CAD.
+- **Registration** (±0.26 mm) — a **secondary** read concern once a
+  common-height target exists; as-built over 406 mm is unmeasured.
 - **As-printed latch snap force** at the writer contact — coupon/measurement-only
   (DND-27). The STATE is exact by hard stop; only the snap force is uncertain.
 - Hinge wear across 6,400 pivots — measurement-only (DND-27).
 - Column top land dimensions — CAD-provisional until a calibration coupon exists.
 
-A1 is **not** claimed print-ready or physically validated. It is a *definition*
-whose every **mission gate passes on DND-27 evidence classes** and whose
-reliability structure is the only one in the program that converts 6,400 silent
-failures into a monitored, recoverable, local failure. Under DND-111 its
-decisive number is now **CALCULATION-bounded (outcome a)**, not a placeholder.
+A1 is **not** claimed print-ready or physically validated. Its **rate** is
+CALCULATION-bounded (DND-111 outcome a, corrected by DND-113), and its
+reliability structure is the only one in the program that *could* convert 6,400
+silent failures into a monitored, recoverable, local failure — **but that
+conversion is not yet proven**, because the reader cannot currently resolve a
+down cell at a common standoff (DND-112/DND-113). Settling the read target is the
+decisive next engineering step.

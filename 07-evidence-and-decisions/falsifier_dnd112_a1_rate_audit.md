@@ -1,5 +1,14 @@
 # DND-112 — Independent adversarial audit of the DND-111 A1 writer/reader rate bound
 
+> **RESOLVED by DND-113.** The CTO's response is in
+> [`dnd113-a1-read-mechanism.md`](dnd113-a1-read-mechanism.md). R1/R2/R4/G2 were
+> **accepted**; R2 was fixed (correct corner-reach formula), T1/T3 fixed
+> (trapezoid; per-line ramp in `full_cycle`), and R1/R4/G2 are **carried** as the
+> corrected read residual (state-dependent standoff; common-height read target
+> proposed). The companion checker `falsifier_dnd112_checks.py --gate` now exits
+> 0 asserting the resolution. The original audit text below is preserved.
+
+
 - **Issue:** [DND-112](/DND/issues/DND-112) (Falsifier). Audited issue: [DND-111](/DND/issues/DND-111) (CTO).
   Parent gate: [DND-110](/DND/issues/DND-110). Program: [DND-102](/DND/issues/DND-102).
 - **Artifact under audit:** [`10-reliability-mask/analysis/a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py),
