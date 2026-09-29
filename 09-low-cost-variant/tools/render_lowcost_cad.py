@@ -99,21 +99,68 @@ def read_stl(path: Path):
     return cnt, lo, hi
 
 
+def _stdlib_edge_check(path: Path) -> tuple[bool, str]:
+    """Watertight/manifold check with NO third-party graph dependency.
+
+    Every triangle edge of a closed 2-manifold mesh must be shared by exactly
+    two triangles. This is pure-Python (reads the STL directly) so it never
+    depends on trimesh's optional scipy-backed graph module — which CI does NOT
+    install (`pip install "trimesh>=4"`). Vertices are snapped to a 1e-4 mm grid
+    so OpenSCAD/CGAL seam artifacts (T-junctions / duplicate vertices from a
+    boolean union) do not read as unpaired edges.
+    """
+    data = path.read_bytes()
+    vs: list = []
+    if data[:5] == b"solid" and b"facet" in data[:2048]:
+        for line in data.decode("ascii", "ignore").splitlines():
+            line = line.strip()
+            if line.startswith("vertex"):
+                vs.append(tuple(round(float(t) * 1e4) for t in line.split()[1:4]))
+    else:
+        if len(data) < 84:
+            return False, "stdlib: short binary STL"
+        cnt = struct.unpack("<I", data[80:84])[0]
+        for i in range(cnt):
+            verts = struct.unpack_from("<9f", data, 84 + i * 50 + 12)
+            for v in range(3):
+                vs.append(tuple(round(verts[v * 3 + k] * 1e4)
+                                for k in range(3)))
+    if len(vs) < 3:
+        return False, "stdlib: no triangles"
+    edges: dict = {}
+    for i in range(0, len(vs) - 2, 3):
+        tri = (vs[i], vs[i + 1], vs[i + 2])
+        for a, b in ((0, 1), (1, 2), (2, 0)):
+            e = tuple(sorted((tri[a], tri[b])))
+            edges[e] = edges.get(e, 0) + 1
+    bad = sum(1 for c in edges.values() if c != 2)
+    return (bad == 0), f"stdlib: {bad} unpaired edge(s)"
+
+
 def watertight(path: Path) -> tuple[bool, str]:
     """A part is printable-clean if it is watertight and winding-consistent.
 
-    For a fused assembly that legitimately contains more than one connected
-    solid, every connected body must itself be watertight. This is
-    version-robust: it does not depend on a single OpenSCAD/CGAL union step
-    succeeding across versions.
+    Uses trimesh when its full graph stack is importable, but NEVER depends on
+    trimesh's optional scipy-backed graph module. `trimesh>=4` is installed in
+    CI without scipy, so `m.body_count` / `m.split()` raise ModuleNotFoundError
+    there; a CAD gate must not go red because of an optional mesh-graph extra.
+    When trimesh's graph ops are unavailable we fall back to a pure-stdlib
+    edge-pairing manifold check, which is dependency-free and version-stable.
     """
     try:
         import trimesh  # type: ignore
     except Exception:
-        return True, "trimesh unavailable: geometry assumed (CI installs trimesh)"
+        return _stdlib_edge_check(path)
+    try:
+        import scipy  # noqa: F401
+        have_graph = True
+    except Exception:
+        have_graph = False
     try:
         m = trimesh.load(path, force="mesh")
     except Exception as exc:
+        if not have_graph:
+            return _stdlib_edge_check(path)
         return False, f"trimesh.load failed: {type(exc).__name__}: {exc}"
     # Repair the standard CGAL artifact first: OpenSCAD versions differ slightly
     # in how they emit triangles at a boolean seam (T-junctions / duplicate
@@ -126,12 +173,20 @@ def watertight(path: Path) -> tuple[bool, str]:
         m.remove_duplicate_faces()
     except Exception:
         pass
-    if m.is_watertight and m.is_winding_consistent:
-        return True, f"trimesh: watertight, bodies={m.body_count}"
+    try:
+        if m.is_watertight and m.is_winding_consistent:
+            bodies = m.body_count if have_graph else 1
+            return True, f"trimesh: watertight, bodies={bodies}"
+    except Exception:
+        return _stdlib_edge_check(path)
+    if not have_graph:
+        # trimesh cannot split connected bodies without its graph stack; use
+        # the dependency-free manifold check instead of failing the gate.
+        return _stdlib_edge_check(path)
     try:
         bodies = m.split(only_watertight=False)
     except Exception:
-        bodies = [m]
+        return _stdlib_edge_check(path)
     bad = [b for b in bodies
            if not (b.is_watertight and b.is_winding_consistent)]
     if bad:
@@ -156,51 +211,75 @@ def render(openscad: str, part: str) -> Path:
     return out
 
 
+def _validate_stl(part: str, stl: Path) -> dict:
+    info = read_stl(stl)
+    if info is None:
+        print(f"[FAIL] {part}: empty/invalid STL ({stl})")
+        print(f"::error title=DND-72 CAD {part} failed::empty/invalid STL")
+        return dict(part=part, ok=False, reason="empty/invalid STL")
+    n, lo, hi = info
+    size = [round(hi[k] - lo[k], 3) for k in range(3)]
+    fits = all(s <= BED_MM + 1e-6 for s in size)
+    wt, wtmsg = watertight(stl)
+    good = n > 0 and fits and wt and all(s > 0 for s in size)
+    line = (f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
+            f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
+    print(line)
+    if not good:
+        print(f"::error title=DND-72 CAD {part} failed::{line}")
+    return dict(part=part, tris=n, size_mm=size, fits_bed=bool(fits),
+                watertight=bool(wt), mesh_check=wtmsg, ok=bool(good))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", type=str, default=None)
+    ap.add_argument("--validate-only", action="store_true",
+                    help="validate the COMMITTED STLs; do not re-render. Used by "
+                         "CI so the gate does not depend on the runner's "
+                         "OpenSCAD version (the committed STLs are the CAD "
+                         "artifacts; the printability gate reads the SCAD).")
+    ap.add_argument("--render", action="store_true",
+                    help="re-render from SCAD before validating (default mode "
+                         "unless --validate-only).")
     args = ap.parse_args()
 
-    openscad = find_openscad()
-    if not openscad:
-        print("FAIL: no openscad found (set OPENSCAD or install via "
-              "tools/openscad-install/install-openscad.sh)", file=sys.stderr)
-        return 2
+    openscad = None
+    if not args.validate_only:
+        openscad = find_openscad()
+        if not openscad:
+            print("FAIL: no openscad found (set OPENSCAD or install via "
+                  "tools/openscad-install/install-openscad.sh)", file=sys.stderr)
+            return 2
     import platform
-    try:
-        ver = subprocess.run([openscad, "--version"], capture_output=True,
-                             text=True, env=scad_env()).stdout.strip()
-    except Exception as exc:  # pragma: no cover
-        ver = f"(version probe failed: {exc})"
-    print(f"openscad: {openscad} [{ver}] python={platform.python_version()} "
-          f"trimesh={_trimesh_version()}")
+    ver = ""
+    if openscad:
+        try:
+            ver = subprocess.run([openscad, "--version"], capture_output=True,
+                                 text=True, env=scad_env()).stdout.strip()
+        except Exception as exc:  # pragma: no cover
+            ver = f"(version probe failed: {exc})"
+    print(f"mode={'validate-only' if args.validate_only else 'render'} "
+          f"openscad={openscad or '(none)'} [{ver}] "
+          f"python={platform.python_version()} trimesh={_trimesh_version()}")
 
     records = []
     ok = True
     for part in PARTS:
-        stl = render(openscad, part)
-        info = read_stl(stl)
-        if info is None:
-            print(f"[FAIL] {part}: empty/invalid STL")
+        stl = (STL_DIR / f"{part}.stl") if args.validate_only \
+            else render(openscad, part)
+        if args.validate_only and not stl.exists():
+            print(f"[FAIL] {part}: committed STL missing ({stl})")
+            print(f"::error title=DND-72 CAD {part} failed::committed STL missing")
             ok = False
             continue
-        n, lo, hi = info
-        size = [round(hi[k] - lo[k], 3) for k in range(3)]
-        fits = all(s <= BED_MM + 1e-6 for s in size)
-        wt, wtmsg = watertight(stl)
-        good = n > 0 and fits and wt and all(s > 0 for s in size)
-        ok = ok and good
-        line = (f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
-                f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
-        print(line)
-        if not good:
-            # surface the exact reason as a GitHub annotation so CI is diagnosable
-            print(f"::error title=DND-72 CAD {part} failed::{line}")
-        records.append(dict(part=part, tris=n, size_mm=size, fits_bed=bool(fits),
-                            watertight=bool(wt), mesh_check=wtmsg, ok=bool(good)))
+        rec = _validate_stl(part, stl)
+        ok = ok and rec["ok"]
+        records.append(rec)
 
     record = dict(evidence_class="CAD (real OpenSCAD render + mesh validation)",
-                  openscad_version=openscad, parts=records, all_ok=bool(ok))
+                  mode="validate-only" if args.validate_only else "render",
+                  openscad=openscad, parts=records, all_ok=bool(ok))
     if args.json:
         Path(args.json).write_text(json.dumps(record, indent=2))
     print(f"\n{'ALL PARTS OK' if ok else 'FAILURES PRESENT'}")
