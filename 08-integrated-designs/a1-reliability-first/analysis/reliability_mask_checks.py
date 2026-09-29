@@ -141,13 +141,21 @@ def main() -> int:
     check("DND-115 shutter fully clears the spot in the visible state",
           sc["visible_state_fully_clear"] is True
           and sc["visible_shadow_fraction"] <= 0.01)
-    check("DND-115 on/off return ratio clears the 2x gate",
+    check("DND-115 on/off return ratio clears the 2x gate (worst-case crosstalk)",
           sc["on_off_return_ratio"] >= sc["on_off_gate"]
           and sc["contrast_passes"] is True)
+    check("DND-121 crosstalk term is GATED, not only reported (A5)",
+          "neighbour_crosstalk_term" in sc
+          and sc["contrast_passes"] is True
+          and sc["on_off_return_ratio"] < sc["on_off_return_ratio_ideal"])
+    check("DND-121 neighbour top is weakly in-cone, not off-beam (A6)",
+          sc["neighbour_off_beam"] is False
+          and sc["neighbour_in_cone_mm"] > 0.0
+          and sc["neighbour_incidence_fraction"] < 0.10)
     check("DND-115 reflective TARGET stays frame-fixed (DeltaZ = 0)",
           sc["target_delta_z_mm"] == 0.0)
-    check("DND-115 absorber standoff stays inside the +/-1 mm DoF",
-          sc["absorber_in_dof"] is True and sc["absorber_delta_z_mm"] <= 1.0)
+    check("DND-121 absorber-DoF claim dropped (A7; reported, not certified)",
+          "absorber_in_dof" not in sc and sc["absorber_delta_z_mm"] > 0.0)
     check("DND-115 shutter sweep clears the neighbour body",
           sc["clears_neighbour"] is True
           and sc["neighbour_flap_clearance_mm"] > 0.0)
@@ -161,6 +169,10 @@ def main() -> int:
     check("DND-115 shutter passes the Monte Carlo stack-up (realistic pitch tol)",
           mc["passes_nominal"] is True
           and all(v == 0.0 for v in mc["fail_rate_nominal"].values()))
+    check("DND-121 MC aperture plane is its own feature, not pinned (A9)",
+          mc["tolerances_mm"].get("aperture_placement", 0.0) > 0.0
+          and mc["worst_case_nominal"]["aperture_clearance_mm"] < 0.81
+          and mc["fail_rate_nominal"]["aperture_clearance_mm"] == 0.0)
     check("DND-115 adopts the 1.8 mm standoff (DND-114 1.0 mm infeasible)",
           mc["standoff_mm"] == 1.8 and mc["aperture_mm"] == 0.44)
     zs = wr.z_stroke_trade_study()

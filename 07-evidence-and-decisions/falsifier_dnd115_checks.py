@@ -13,10 +13,12 @@ then checked against what DND-115 claims:
 
   S1  the shutter fully occludes the spot in the hidden state
   S2  the shutter fully clears the spot in the visible state
-  S3  the on/off return ratio clears the 2x gate
+  S3  the on/off return ratio clears the 2x gate, with the state-invariant
+      in-cone neighbour crosstalk term GATED (not only reported) [DND-121 A5/A6]
   S4  the reflective TARGET stays frame-fixed (DeltaZ = 0) - the shutter is an
       ABSORBER, so no state-dependent target z is reintroduced
-  S5  the absorber standoff stays inside the +/-1 mm DoF
+  S5  the neighbour top is correctly stated as weakly in-cone (not "off-beam"),
+      and the absorber term is confirmed negligible [DND-121 A6/A7]
   S6  the swept flap clears the neighbour column body
   S7  the swept flap stays above the own column top
   S8  the flap does not intrude into the reader aperture plane
@@ -131,22 +133,42 @@ def attack_s2_visible_clears():
 
 
 def attack_s3_on_off_ratio():
-    """S3: is the on/off return ratio above the 2x gate?"""
+    """S3: is the on/off return ratio above the 2x gate after the in-cone
+    neighbour crosstalk term is added to BOTH states (DND-121 A5/A6)?"""
     spot = _spot()
     hidden = _shadow_fraction(0.0, spot)
     visible = _shadow_fraction(SHUT_SWING_DEG, spot)
     flat_bot = SHUT_HINGE_Z_MM - FLAP_R_MM - SHUT_T_MM / 2.0
     g_vane = FLAG_GAP_MM
     g_flap = SHUT_APERTURE_Z_MM - flat_bot          # 0.80
-    bright = (1.0 - visible) * VANE_REFLECTANCE / g_vane ** 2
+    # In-cone neighbour term: cone radius at the neighbour-top plane vs the
+    # near-edge offset; the overlap fraction of the cone is state-invariant.
+    depth = SHUT_APERTURE_Z_MM - TRAVEL_MM          # 4.8 mm
+    r_cone = depth * math.tan(math.radians(HALF_ANGLE_DEG))
+    off = (PITCH_MM - COLUMN_BODY_MM / 2.0) - _hinge_x()
+    if r_cone <= off:
+        f_nb = 0.0
+    else:
+        n = 4000
+        dx = (r_cone - off) / n
+        area = 0.0
+        for i in range(n):
+            x = off + (i + 0.5) * dx
+            half = math.sqrt(max(0.0, r_cone ** 2 - x ** 2))
+            area += min(2.0 * half, COLUMN_BODY_MM) * dx
+        f_nb = area / (math.pi * r_cone ** 2)
+    nb_term = f_nb * VANE_REFLECTANCE / depth ** 2
+    bright = (1.0 - visible) * VANE_REFLECTANCE / g_vane ** 2 + nb_term
     dark = ((1.0 - hidden) * VANE_REFLECTANCE / g_vane ** 2
-            + hidden * FLAP_REFLECTANCE / g_flap ** 2)
+            + hidden * FLAP_REFLECTANCE / g_flap ** 2 + nb_term)
     ratio = bright / dark
     ok = ratio >= 2.0 and hidden >= 0.99 and visible <= 0.01
     return (ok,
-            "on/off ratio %.2fx (bright %.3f vs dark %.3f; gate 2x) -> %s"
-            % (ratio, bright, dark, "PASS" if ok else "FAIL"),
-            dict(ratio=ratio, bright=bright, dark=dark))
+            "on/off ratio %.2fx with the %.3f%% in-cone neighbour term "
+            "(+%.5f) gated in both states (gate 2x) -> %s"
+            % (ratio, f_nb * 100, nb_term, "PASS" if ok else "FAIL"),
+            dict(ratio=ratio, bright=bright, dark=dark, nb_term=nb_term,
+                 in_cone_fraction=f_nb))
 
 
 def attack_s4_target_frame_fixed():
@@ -164,17 +186,29 @@ def attack_s4_target_frame_fixed():
             dict(target_z=target_z, target_delta_z=target_delta_z))
 
 
-def attack_s5_absorber_in_dof():
-    """S5: does the absorber standoff stay inside the +/-1 mm DoF?"""
+def attack_s5_neighbour_in_cone():
+    """S5 (DND-121 A6/A7): the neighbour top is correctly stated as weakly
+    in-cone (NOT "off-beam"), and the absorber term is confirmed negligible
+    (so the dropped absorber-DoF claim was indeed vacuous)."""
+    depth = SHUT_APERTURE_Z_MM - TRAVEL_MM
+    r_cone = depth * math.tan(math.radians(HALF_ANGLE_DEG))
+    off = (PITCH_MM - COLUMN_BODY_MM / 2.0) - _hinge_x()
+    inside = off < r_cone
     flat_bot = SHUT_HINGE_Z_MM - FLAP_R_MM - SHUT_T_MM / 2.0
-    delta_z = flat_bot - Z_VANE_TOP
-    ok = abs(delta_z) <= DOF_MM
+    absorb_term = FLAP_REFLECTANCE / (SHUT_APERTURE_Z_MM - flat_bot) ** 2
+    vane_term = VANE_REFLECTANCE / FLAG_GAP_MM ** 2
+    negligible = absorb_term < vane_term
+    ok = inside and negligible
     return (ok,
-            "absorber underside at %.3f mm vs vane top %.1f mm -> absorber "
-            "DeltaZ %.3f mm <= DoF %.1f mm -> %s"
-            % (flat_bot, Z_VANE_TOP, delta_z, DOF_MM,
-               "inside" if ok else "OUTSIDE"),
-            dict(flat_bot=flat_bot, delta_z=delta_z))
+            "cone radius %.4f mm vs near-edge offset %.4f mm -> neighbour INSIDE "
+            "the cone by %.4f mm (weakly in-cone, NOT off-beam); absorber term "
+            "%.5f is %.2fx below the vane term %.5f (DoF claim was vacuous, "
+            "dropped by DND-121) -> %s"
+            % (r_cone, off, r_cone - off, absorb_term,
+               vane_term / absorb_term, vane_term,
+               "PASS" if ok else "FAIL"),
+            dict(r_cone=r_cone, off=off, absorb_term=absorb_term,
+                 vane_term=vane_term))
 
 
 def attack_s6_clears_neighbour():
@@ -236,7 +270,7 @@ ATTACKS = [
     ("S2_visible_clears", attack_s2_visible_clears),
     ("S3_on_off_ratio", attack_s3_on_off_ratio),
     ("S4_target_frame_fixed", attack_s4_target_frame_fixed),
-    ("S5_absorber_in_dof", attack_s5_absorber_in_dof),
+    ("S5_neighbour_in_cone", attack_s5_neighbour_in_cone),
     ("S6_clears_neighbour", attack_s6_clears_neighbour),
     ("S7_above_own_column", attack_s7_above_own_column),
     ("S8_aperture_clearance", attack_s8_aperture_clearance),

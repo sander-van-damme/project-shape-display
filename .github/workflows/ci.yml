@@ -325,20 +325,20 @@ jobs:
           python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
-      - name: "DND-118 independent falsifier audit of the DND-115 shutter (report)"
+      - name: "DND-118/121 independent falsifier audit of the DND-115 shutter (hard gate)"
         # The Falsifier's INDEPENDENT recomputation in
         # 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py (imports no
-        # model code). It is INTENTIONALLY NOT CLEAN: A5/A6 show the ADR's
-        # "off-beam neighbour" wording is false (weakly in-cone; on/off 7.72x ->
-        # 6.37x, still > 2x gate) and the crosstalk number is not gated; A7 shows
-        # the "absorber in DoF" check is vacuous; A9 shows the MC's aperture check
-        # is tautological. The core geometry (A1-A4, A8, A10-A12) reproduces. This
-        # step therefore RUNS the checker as a printed report (no --gate) so main
-        # stays green while the correction is tracked; a CTO follow-up fixes A5/A6/
-        # A7/A9 wording, after which this can become a hard gate.
+        # model code). DND-121 corrected the four modelling/claim-framing defects
+        # the first pass found (A5/A6/A7/A9): the ADR's "off-beam neighbour" wording
+        # is now "weakly in-cone" (state-invariant, 4.45% of the cone; on/off 7.72x
+        # -> 7.41x, still > 2x gate), the crosstalk term is GATED in contrast_passes,
+        # the vacuous "absorber in DoF" claim is dropped, and the MC models the
+        # aperture as its own tolerant frame feature (non-tautological). All 12
+        # attacks assert the corrected state, so this is a HARD GATE: --gate must
+        # exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
         run: |
-          python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py
+          python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py --gate
 
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and

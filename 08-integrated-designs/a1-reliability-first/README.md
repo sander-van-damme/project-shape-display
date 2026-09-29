@@ -236,13 +236,14 @@ CAD-validated **common-height read target**.
 | Shutter flap width × thickness × depth | 1.55 × 0.44 × 1.60 mm | DND-115 CAD |
 | Shutter hinge z / flap tip radius | 45.8 mm / 2.03 mm | DND-115 CAD |
 | **Shadow of the read spot, hidden / visible** | **100% / 0%** | DND-115 calc |
-| **On/off return ratio** | **7.72×** (gate 2×) | DND-115 calc |
+| **On/off return ratio** | **7.72× ideal / 7.41× crosstalk-gated** (gate 2×) | DND-115 + DND-121 calc |
 | Shutter sweep — neighbour body clearance | **0.255 mm** | DND-115 calc |
 | Shutter sweep — own column clearance | **3.41 mm** | DND-115 calc |
-| Absorber (flap) standoff Δz | 0.55 mm (DoF ±1 mm) | DND-115 calc |
+| Neighbour in-cone crosstalk | 4.45% of cone, state-invariant, **gated** | DND-121 calc |
+| Absorber (flap) standoff Δz | 0.55 mm (reported; DoF claim dropped) | DND-115/121 calc |
 | **Single-cell resolution, as drawn** | **NO** — a down cell reads up | DND-113 |
 | **Single-cell resolution, with CH-A target** | **YES** — one fixed standoff | DND-114 |
-| **State actually read (up vs down)?** | **YES** — shutter gives a 7.7× on/off return | DND-115 |
+| **State actually read (up vs down)?** | **YES** — state encoder gives a 7.41× gated on/off return | DND-121 |
 
 **The fix (DND-114) is a common-height read target, now CAD-validated.** The
 reader no longer interrogates the moving column top face. Instead it reads the
@@ -271,7 +272,9 @@ flap pivot sits directly over the vane, so a 90° crank swing moves the flap onl
 frame-fixed** (`Δz = 0`); the flap is an **absorber** (matte black), so no
 state-dependent target z is reintroduced — only the *shadow* is state-dependent.
 Computed at CAD + calculation: the hidden state covers **100%** of the read spot,
-the visible state **0%**, giving a **7.72× on/off return ratio** (gate 2×). The
+the visible state **0%**, giving a **7.72× ideal on/off return ratio** (**7.41×**
+once the state-invariant in-cone neighbour term is added to both states and gated;
+gate 2×, DND-121). The
 swept flap clears the neighbour body by **0.255 mm** and the own column by
 **3.41 mm**. A **tolerance stack-up (worst-case + 200k-draw Monte Carlo)** shows
 the DND-114 **1.0 mm standoff is infeasible** for a 0.44 mm flap under printed
@@ -279,6 +282,15 @@ placing tolerances, so DND-115 adopts a **1.8 mm standoff / 0.44 mm aperture**
 (spot 1.405 mm, still clearing the neighbour by 0.353 mm). Residuals are now
 assumption-class optical constants and measurement-only wear (DND-27). See
 [`dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md).
+
+**DND-121 corrects the closure framing** after the independent [DND-118](/DND/issues/DND-118)
+falsifier audit (no geometry change): the neighbour up-cell top is **weakly
+in-cone** (inside the 1.286 mm cone by 0.231 mm), so its crosstalk term is
+quantified (4.45% of the cone, state-invariant) and **gated** in `contrast_passes`;
+the "absorber inside ±1 mm DoF" claim is **dropped** as vacuous; and the Monte
+Carlo models the aperture plane as its **own frame feature** (±0.10 mm) so the
+aperture-clearance check is no longer tautological. The audit
+(`falsifier_dnd115_a1_shutter_audit.py --gate`, 12 attacks) is now a CI hard gate.
 
 
 ### 4.3 Honest timing decomposition (DND-103 requirement)
@@ -371,12 +383,16 @@ actuator**. Printed frame, columns, latch arms and cradle lands are excluded per
 > the 441× swing are eliminated. **DND-115 closes it:** the vane alone was
 > state-invariant, so a matte-dark **shutter flap** on the shared frame-fixed
 > hinge axis now shadows the read spot in one latch state (100%) and clears it in
-> the other (0%), giving a **7.72× on/off return ratio** with the reflective
+> the other (0%), giving a **7.72× ideal / 7.41× crosstalk-gated on/off return
+> ratio** with the reflective
 > target still frame-fixed (`Δz = 0`). See
 > [`dnd114-a1-common-height-read-target.md`](../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md)
 > and [`dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md)
 > (and the DND-113 correction
 > [`dnd113-a1-read-mechanism.md`](../../07-evidence-and-decisions/dnd113-a1-read-mechanism.md)).
+> **DND-121** applies the DND-118 falsifier corrections (in-cone crosstalk gated,
+> "off-beam" wording corrected, absorber-DoF claim dropped, MC aperture path
+> non-tautological) — no geometry change.
 
 The **rate** is bounded (outcome a): "is 1 ms/cell possible?" is answered (no,
 it is traverse-bounded at 71–228 cells/s/head; the honest cycle is 18.278 s at 8
@@ -474,7 +490,7 @@ python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py
 # convergence: selection, why, bandwidth, prototype ladder, falsifier
 python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py convergence
 
-# 75 pinned regression checks (includes the DND-111/113/114/115 rate + read checks)
+# 78 pinned regression checks (includes the DND-111/113/114/115/121 rate + read checks)
 python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
 
 # DND-111 + DND-113 + DND-114 + DND-115: writer rate bound + read mechanism
@@ -487,8 +503,9 @@ python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 # DND-114 common-height read target gate (exits 0; CI-wired)
 python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
 
-# DND-115 state-encoding shutter gate (exits 0; CI-wired)
+# DND-115/121 state-encoding shutter gates (exit 0; CI-wired)
 python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
+python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py --gate
 
 # CAD: render + mesh-validate the binary-latch cell and reader head
 export PATH="$HOME/.local/bin:$PATH"
@@ -503,8 +520,8 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
 | Path | What |
 |---|---|
 | [`analysis/reliability_mask.py`](analysis/reliability_mask.py) | the architecture screen, reliability gate, timing, BOM, convergence |
-| [`analysis/a1_writer_rate.py`](analysis/a1_writer_rate.py) | **DND-111 + DND-113 + DND-114** writer rate bound + read-mechanism correction + common-height target |
-| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 60 regression checks |
+| [`analysis/a1_writer_rate.py`](analysis/a1_writer_rate.py) | **DND-111 + DND-113 + DND-114 + DND-115/121** writer rate bound + read-mechanism correction + common-height target + state-encoding shutter |
+| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 78 regression checks |
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation (cell parts + reader head + CH flag) |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
 | [`analysis/architecture_table.md`](analysis/architecture_table.md) | the generated comparison table |
@@ -530,8 +547,11 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
   top z = 43 mm, Δz = 0) read at **one fixed standoff** (1.8 mm, DND-115): the
   spot (1.405 mm) clears the neighbour body by 0.353 mm. DND-115 adds the
   **state-encoding shutter** (matte-dark flap, 90° crank on the shared hinge
-  axis): hidden covers 100% of the spot, visible 0%, a 7.72× on/off return, with
-  the reflective target still frame-fixed. Residuals: the standoff/aperture and
+  axis): hidden covers 100% of the spot, visible 0%, a 7.72× ideal / 7.41×
+  crosstalk-gated on/off return, with the reflective target still frame-fixed.
+  DND-121 applies the DND-118 audit corrections (in-cone crosstalk gated,
+  "off-beam" wording fixed, absorber-DoF claim dropped, MC aperture path
+  non-tautological). Residuals: the standoff/aperture and
   the flap matte reflectance are assumption-class; the flap/hinge wear is
   measurement-only (DND-27).
 - **Registration** (±0.26 mm) — a **secondary** read concern once a
