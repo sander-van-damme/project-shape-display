@@ -277,6 +277,19 @@ jobs:
           python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
           python 10-reliability-mask/analysis/reliability_mask_checks.py
 
+      - name: "DND-112 independent audit of the DND-111 rate/read bound"
+        # The Falsifier default-deny audit (the DND-108 method). Recomputes every
+        # DND-111 number independently of a1_writer_rate.py. The RATE attacks
+        # (T2/T4) reproduce and stand; the READ attacks (R1/R2/R4/G2) FAIL against
+        # DND-111's own fixed-height reader + column-top geometry. The step RUNS
+        # and PRINTS the verdict (exit 0 by default). Run with --gate to make an
+        # unresolved attack a hard failure; that is not wired as the default gate
+        # because the read-side finding is a CTO mechanism correction, not a
+        # regression in the checker. CALCULATION + CAD only (DND-27).
+        run: |
+          python 07-evidence-and-decisions/falsifier_dnd112_checks.py
+          python 07-evidence-and-decisions/falsifier_dnd104_checks.py
+
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is
