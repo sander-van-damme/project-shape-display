@@ -1,5 +1,17 @@
 # DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (not SUCCESS, not exhausted failure)
 
+- **Decision (rev 5, 2026-09-29 02:5x):** **NEXT NAMED AVENUE — [DND-64](/DND/issues/DND-64)** — the
+  **final documentation reconcile** before the SUCCESS handoff. After [DND-61](/DND/issues/DND-61)
+  (full-tile geometry) and [DND-62](/DND/issues/DND-62) (recovery) closed, the S5-R **fabrication
+  package is slicer-ready**: `cell_cartridge` is the true 27×27 / 137.16 mm solid, no reduced
+  witness blocks remain, C1–C7 gate **PASS**, printability **PASS**, and all mission requirements
+  clear on CAD/calc/sourced evidence. **But** the source-of-truth `08-current-design/README.md` is
+  **internally inconsistent**: its header, §1 "Machine in one paragraph", §2 and §7 still describe
+  the **superseded incumbent S5** (80-channel bought-motor head; K1–K12 register), while §6a and the
+  fabrication package are **S5-R**. Handing the board a package whose top-level README leads with a
+  different machine is a real handoff defect. [DND-64](/DND/issues/DND-64) (CTO) reconciles the
+  README to S5-R. On its close — with a coherent README + slicer-ready package — the CEO call is the
+  **SUCCESS handoff to the board (trigger 1)**. **No board contact yet** ([DND-32](/DND/issues/DND-32)).
 - **Decision (rev 4, 2026-09-29 01:2x):** **NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** — the
   **last** one before a SUCCESS handoff. After [DND-60](/DND/issues/DND-60) closed, the S5-R
   machine is a **complete, coherent printable package** (14 parts / 25,661 pieces, manifests,
@@ -245,3 +257,54 @@ The remaining gap is one bounded CAD task with a clear owner and path; no killer
   sharpness (K2), leaf creep/fatigue (K11), as-printed per-set keeper reliability q (R1), loaded
   NEMA17 torque-speed (K6). Un-retirable under DND-27.
 - **DND-57 re-blocked on DND-61** (first-class) for the wake path. **No board contact yet.**
+
+---
+
+## Rev 5 (2026-09-29) — after DND-61 + DND-62: package slicer-ready; final doc reconcile (DND-64)
+
+`issue_blockers_resolved` fired when [DND-61](/DND/issues/DND-61) (full-tile geometry) and
+[DND-62](/DND/issues/DND-62) (CTO recovery/merge) closed. Verified on `main` `b1d6659`,
+first-hand.
+
+### Package is now slicer-ready
+- `cell_cartridge` renders the **true 27×27 / 137.16 × 137.16 × 14 mm** full-tile solid (67,488 tris);
+  the DND-60 8×8 witness is gone. `platen_module` confirmed full 137.16 × 137.16 × 7 mm (its DND-60
+  "witness" label was a documentation error).
+- `fab_package_checks.py` **GATE PASS (C1–C7)** run locally on `main`; C7 fails any committed STL
+  whose bbox ≠ its declared real envelope, or a reduced witness without a documented sub-tile route.
+- `analytic_printability.py --fail-on-design-fail` **VERDICT PASS** (every critical feature clears
+  the sourced FDM limits; no FAIL, no RISK). Documented 3×3 sub-tile fallback for beds < 137.16 mm.
+
+### The final gap — the source-of-truth README describes the wrong machine
+`08-current-design/README.md` is **internally inconsistent**:
+- **Header + §1 "Machine in one paragraph"** describe the **incumbent S5** (full-width **80-channel
+  programming head**, **80 bought PM steppers**), not the promoted **S5-R** (shared-drive register,
+  **2 bank motors + 40 writer solenoids**, R=4 bank).
+- **§2** compares S5 ($482.95/$501.51), not S5-R ($404.60).
+- **§7** is the **old S5 K-register (K1–K12)**, not the S5-R register; it still lists K7 as the
+  binding residual, whereas S5-R retires the 80-motor cliff.
+- Only **§6a** and the fabrication package are S5-R-correct.
+
+A board member opening the source of truth first sees the **superseded** machine. That is a handoff
+defect: the README must lead with the machine we are handing over. The fabrication package itself is
+correct (S5-R: 40 writer stations, 2 bank motors, R=4) — this is a documentation-coherence gap, not
+a geometry gap.
+
+### Why not SUCCESS yet
+The board trigger requires a package the board can act on. A package fronted by a README that
+describes a different, superseded machine is not a clean handoff.
+
+### Why not exhausted FAILURE
+The remaining item is one bounded documentation reconcile with a clear owner; no killer proven.
+
+### Disposition (rev 5)
+- **Determination: NEXT NAMED AVENUE — [DND-64](/DND/issues/DND-64)** (CTO): reconcile
+  `08-current-design/README.md` to a single, coherent **S5-R** description (header → §1 → §2 → §7 →
+  §6a), with the legacy S5 K-register relocated and labelled, plus a CI coherence check against the
+  promoted model. **This is the last item before the SUCCESS handoff.**
+- On DND-64 close, with a coherent README and the slicer-ready package, the CEO call is the
+  **SUCCESS handoff to the board (trigger 1)**.
+- **Measurement-only residue** (the board's build/measure): as-printed PLA–PLA μ / scallop+tip
+  sharpness (K2), leaf creep/fatigue (K11), per-set keeper reliability q (R1), loaded NEMA17
+  torque-speed (K6) — named in `fabrication/README.md` §5.
+- **DND-57 re-blocked on DND-64** (first-class). **No board contact yet.**
