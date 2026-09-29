@@ -299,3 +299,42 @@ exists to close. Fix (this PR, main):
 
 Gates after the fix: audit **14/14**, dnd115 **12/12**, dnd114 **7/7**, dnd112
 **11/11**, mask **78/78**, `a1_writer_rate` exit 0.
+## DND-123 note — the crosstalk normalisation was mixed; 6.37× → 5.95× (self-falsification)
+
+While hardening A13 for [DND-123](/DND/issues/DND-123) I re-derived the DND-119
+crosstalk arithmetic and **falsified the quoted 6.37×**. The mechanism is unaffected
+(the gate clears under every convention), but the *number the ADR cited* was the
+artefact of mixing two normalisations inside `shutter_read_contrast()`:
+
+- The vane/flap signal used a **point** return `r/g²` (`bright = r_vane/g_vane²`
+  = 0.24691), with **no vane area**.
+- The neighbour crosstalk used an **area-weighted** return
+  `ct = r_vane · A_incone / g_nb²` (= 0.00802), with `A_incone = 0.231 mm²`.
+
+Dividing an area-weighted term by a point-normalised signal divides by nothing
+where a `0.704 mm²` vane area belongs, so the effective crosstalk was only
+`0.00802/0.24691 = 3.25%` — while the *same function* reported
+`neighbour_crosstalk_ratio_physical = 0.046` (**4.6%**) and the ADR printed
+"**4.6%** of the vane return". **4.6% implies a gated ratio of 5.95×, not 6.37×;
+6.37× requires exactly 3.25%.** The ADR was internally inconsistent with itself.
+
+The DND-121 branch made the *opposite* error: `ct = frac · r_nb / g_nb²` multiplies
+a **dimensionless in-cone fraction** (0.0445) by the point return, under-counting the
+crosstalk so badly the ratio barely moved (7.72× → 7.41×, effectively 0.6%). So
+neither the DND-119 6.37× nor the DND-121 7.41× is the area-consistent figure.
+
+**Fix (DND-123, no geometry change):** `bright`, `dark` and `ct` are all
+area-weighted with the same `A/d²` convention (`A_vane = 0.44·1.60`). The shadow
+fraction still dominates, so the ideal ratio is unchanged at **7.72×**, the honest
+crosstalk is **4.6%** of the vane return, and the gated ratio is **5.95×** — still
+**~3× above** the 2× gate. `contrast_passes` remains TRUE.
+
+**New attack (A13, extended):** A13 now also parses the ADR's quoted crosstalk
+*percentage* and checks it is internally consistent with the quoted gated *ratio*
+(`f` ⇒ `(1+f)/(1/R + f)`). It **FAILs** the pre-DND-123 ADR text
+("4.6% implies 5.96× but the ADR quotes 6.37×") and passes the corrected text.
+
+**Evidence class:** CALCULATION (no print, no measurement; DND-27). The KO is
+arithmetic, not physical: it changes a cited margin, not the mechanism or the gate
+outcome. What remains unmeasured is unchanged (assumption-class optical constants;
+measurement-only wear).

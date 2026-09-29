@@ -361,8 +361,9 @@ does not.
 - **R1/G2/R4 re-check:** unchanged by the shutter; `resolves_single_cell_with_common_height_target`
   still holds with the shutter present. **Corrected by [DND-119](/DND/issues/DND-119):** the neighbour
   up-cell top is **weakly in-cone, state-invariant** (not "off-beam"); the crosstalk term is modelled
-  and **gated**, and the on/off ratio is **6.37×** with it included (still > 2× gate). See
-  [`falsifier_dnd115_a1_shutter_audit.md`](falsifier_dnd115_a1_shutter_audit.md).
+  and **gated**, and the on/off ratio is **5.95×** with it included (still > 2× gate;
+  DND-123 corrected this from the internally-inconsistent 6.37× — see the DND-123 entry
+  below). See [`falsifier_dnd115_a1_shutter_audit.md`](falsifier_dnd115_a1_shutter_audit.md).
 - **Gate:** `falsifier_dnd115_checks.py --gate` exits 0 (12 attacks, default-deny). Render + mesh
   validation of the shutter part is CI-wired. No print/measurement (DND-27). **Independently
   audited by the Falsifier in [DND-118](/DND/issues/DND-118)** — mechanism reproduces, closure
@@ -418,6 +419,26 @@ geometry change** (reflective target Δz stays 0):
   +0.434 mm nominal / +0.325 mm at ±0.20 mm — still positive.
 - **Gates:** `falsifier_dnd115_checks.py --gate` (12 attacks) and
   `falsifier_dnd115_a1_shutter_audit.py --gate` (12 attacks) both exit 0 after the correction.
+
+
+### DND-123 — crosstalk normalisation corrected; 6.37× → 5.95× (falsifier self-audit)
+
+[DND-123](/DND/issues/DND-123) re-derived the DND-119 crosstalk arithmetic and **falsified the
+quoted 6.37×** as an artefact of mixing normalisations inside `shutter_read_contrast()`:
+
+- The vane/flap signal used a **point** return `r/g²` (no vane area), while the neighbour term used
+  an **area-weighted** `r·A_incone/g_nb²`. Dividing the area-weighted crosstalk by a point-normalised
+  signal gave an effective **3.25%**, while the same function and the ADR printed **4.6%**.
+  **4.6% implies 5.95×, not 6.37×.** (The DND-121 branch made the opposite error — a dimensionless
+  in-cone *fraction* times the point return — giving 7.41×; also not area-consistent.)
+- **Fix (no geometry change):** `bright`, `dark`, `ct` are all area-weighted with the same `A/d²`
+  convention (`A_vane = 0.704 mm²`). Ideal ratio unchanged **7.72×**; gated ratio **5.95×**
+  (~3× above the 2× gate). `contrast_passes` stays TRUE.
+- **New/updated attack:** A13 now parses the ADR's crosstalk *percentage* and checks it is
+  internally consistent with the quoted gated *ratio*; it FAILs the pre-DND-123 ADR text
+  ("4.6% implies 5.96× but the ADR quotes 6.37×").
+- **Gates:** `falsifier_dnd115_a1_shutter_audit.py --gate` → 14/14; the model prose/verdict updated.
+  Evidence class CALCULATION only (DND-27).
 
 
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)

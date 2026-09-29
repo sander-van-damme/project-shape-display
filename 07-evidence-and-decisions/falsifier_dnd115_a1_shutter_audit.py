@@ -185,6 +185,7 @@ def a6_neighbour_off_beam():
     in_cone = dx < r_cone
     # The repaired model must expose the in-cone flag and the corrected ratio.
     model_ok = False
+    r = {}
     try:
         import importlib.util as _ilu
         import os as _os
@@ -204,10 +205,13 @@ def a6_neighbour_off_beam():
     ok = in_cone and model_ok
     return ok, (
         "neighbour near edge INSIDE the 15 deg cone by %.3f mm (weakly in-cone, "
-        "state-invariant, ~4.6%% of the vane term); corrected on/off 6.37x (> 2x "
-        "gate). DND-119 replaced the false 'off-beam' wording with the corrected "
-        "statement and the model exposes neighbour_in_cone (probe = %s)."
-        % (r_cone - dx, model_ok))
+        "state-invariant, ~4.6%% of the vane term); corrected on/off %.2fx (> 2x "
+        "gate; DND-123 area-consistent value). DND-119 replaced the false 'off-beam' "
+        "wording with the corrected statement and the model exposes neighbour_in_cone "
+        "(probe = %s)."
+        % (r_cone - dx,
+           (r.get("on_off_return_ratio_with_crosstalk", 0.0) if model_ok else 0.0),
+           model_ok))
 
 
 def a7_absorber_dof_meaningful():
@@ -347,27 +351,28 @@ def _adr_path():
 
 
 def _adr_quoted_numbers(txt):
-    """Parse the two decisive quoted figures out of the ADR text.
+    """Parse the decisive quoted figures out of the ADR text.
 
     Returns (ideal_ratio, gated_ratio, aper_20_clearance) with any figure that
     cannot be found left as None. We parse the ADR rather than hard-coding the
     numbers in the checker so that editing the ADR prose to an unsupported figure
-    makes this attack FAIL (the DND-112/DND-111 defect class). Hard-coded
-    expected values here would make the check tautological: it would only ever
-    compare the model to itself.
+    makes this attack FAIL (the DND-112/DND-111 defect class). Hard-coded expected
+    values here would make the check tautological: it would only ever compare the
+    model to itself.
     """
     results = _adr_quoted_numbers_ext(txt)
     return results[:3]
 
 
 def _adr_quoted_numbers_ext(txt):
-    """As `_adr_quoted_numbers` plus the swept neighbour/own-column clearances.
+    """As `_adr_quoted_numbers` plus the swept clearances and crosstalk percentage.
 
-    Returns (ideal, gated, aper_20, neighbour_clearance, own_column_clearance).
-    The two swept clearances were unguarded before DND-122 follow-up: the live
-    main ADR/README quoted an own-column clearance of 3.41 mm while the model's
-    swept envelope produces 3.42 mm (a number no artifact supported). This
-    extension makes that A13-class defect fail the gate.
+    Returns (ideal, gated, aper_20, neighbour_clearance, own_column_clearance,
+    crosstalk_pct). The two swept clearances were unguarded before the DND-122
+    follow-up: the live main ADR/README quoted an own-column clearance of 3.41 mm
+    while the model's swept envelope produces 3.42 mm (a number no artifact
+    supported). The crosstalk percentage is used by the DND-123 internal-
+    consistency sub-check. Any figure not found is left as None.
     """
     import re
     # e.g. "a **7.72x on/off return ratio**" or "| On/off return ratio | **7.72x** |"
@@ -408,7 +413,13 @@ def _adr_quoted_numbers_ext(txt):
     m = re.search(r"Swept flap own-column clearance[^0-9]{0,24}([0-9]+\.[0-9]+)\s*mm", txt)
     if m:
         own = float(m.group(1))
-    return ideal, gated, aper, nb, own
+    # Crosstalk quoted as a percentage of the vane return, e.g. "**4.6%** of the
+    # vane return" or "~4.6% of the vane term".
+    pct = None
+    m = re.search(r"([0-9]+\.[0-9]+)\s*%\s*\**\s*of the vane (?:return|term)", txt)
+    if m:
+        pct = float(m.group(1))
+    return ideal, gated, aper, nb, own, pct
 
 
 def a13_adr_numbers_match_model():
@@ -426,15 +437,18 @@ def a13_adr_numbers_match_model():
     actually binds, or quote a +/-0.20 mm clearance the model does not reproduce
     beyond rounding. It also FAILS if the ADR's swept neighbour/own-column
     clearances differ from the model's swept envelope (DND-122 follow-up: main
-    quoted 3.41 mm while the model produces 3.42 mm). It FAILS (not UNRESOLVED) if
-    the model is missing the crosstalk term, so it is portable across tree states.
+    quoted 3.41 mm while the model produces 3.42 mm), and if the ADR's quoted
+    crosstalk percentage is not internally consistent with its quoted gated ratio
+    (DND-123: "4.6%" and "6.37x" cannot both be right). It FAILS (not UNRESOLVED)
+    if the model is missing the crosstalk term, so it is portable across states.
     """
     awr = _load_model()
     c = awr.shutter_read_contrast()
     ratio_ideal = c.get("on_off_return_ratio")
     ratio_gated = c.get("on_off_return_ratio_with_crosstalk")
     txt = open(_adr_path()).read()
-    adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own = _adr_quoted_numbers_ext(txt)
+    (adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own,
+     adr_pct) = _adr_quoted_numbers_ext(txt)
     # Recompute the reader +/-0.20 mm run directly from the model's own terms.
     import random
     rng = random.Random(115)
@@ -486,12 +500,25 @@ def a13_adr_numbers_match_model():
     elif own_model is not None and abs(adr_own - own_model) > 0.006:
         mismatches.append("swept own-column clearance model %.3f mm vs ADR %.3f mm"
                           % (own_model, adr_own))
+    # (e) INTERNAL CONSISTENCY (DND-123): the ADR's quoted crosstalk percentage and
+    # its quoted gated ratio must be mutually consistent. A crosstalk fraction f of
+    # the vane return on both states takes ideal R to (1+f)/(1/R + f). The DND-119
+    # ADR printed "4.6%" and "6.37x" together, but 4.6% produces 5.95x; 6.37x needs
+    # 3.25%. This sub-check catches that class of stated-number inconsistency.
+    if adr_pct is not None and adr_ideal is not None and adr_gated is not None:
+        f = adr_pct / 100.0
+        implied = (1.0 + f) / (1.0 / adr_ideal + f)
+        if abs(implied - adr_gated) > 0.10:
+            mismatches.append(
+                "ADR internal inconsistency: crosstalk %.1f%% of the vane return "
+                "implies gated %.2fx but the ADR quotes %.2fx"
+                % (adr_pct, implied, adr_gated))
     ok = not mismatches
     return ok, (
         "ADR quotes ideal %s / gated %s / aper+/-0.20 %s mm / swept nb %s / swept "
-        "own %s mm; model ideal %s / gated %s / aper+/-0.20 %.3f / swept nb %.3f / "
-        "swept own %s mm -> %s"
-        % (adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own, ratio_ideal,
+        "own %s mm / crosstalk %s%%; model ideal %s / gated %s / aper+/-0.20 %.3f / "
+        "swept nb %.3f / swept own %s mm -> %s"
+        % (adr_ideal, adr_gated, adr_aper_20, adr_nb, adr_own, adr_pct, ratio_ideal,
            ratio_gated, mc_aper_20, nb_model, own_model,
            "MATCH" if ok else "MISMATCH: " + "; ".join(mismatches)))
 
