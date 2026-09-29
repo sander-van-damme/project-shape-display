@@ -1,0 +1,65 @@
+{
+  "scad": "10-reliability-mask/scad/a1_binary_latch_cell.scad",
+  "parts": {
+    "column": {
+      "stl": "10-reliability-mask/cad/stl/column.stl",
+      "triangles": 44,
+      "watertight": true,
+      "bbox_mm": [
+        3.6,
+        3.6,
+        46.0
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\""
+      ]
+    },
+    "latch": {
+      "stl": "10-reliability-mask/cad/stl/latch.stl",
+      "triangles": 124,
+      "watertight": true,
+      "bbox_mm": [
+        1.0,
+        1.2,
+        6.6
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\""
+      ]
+    },
+    "cradle": {
+      "stl": "10-reliability-mask/cad/stl/cradle.stl",
+      "triangles": 36,
+      "watertight": true,
+      "bbox_mm": [
+        5.08,
+        3.6,
+        3.0
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\""
+      ]
+    }
+  },
+  "evidence_class": "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). NOT a print, NOT a measurement (DND-27).",
+  "provisional_rules": {
+    "min_feature_mm": 0.44,
+    "min_wall_mm": 0.88,
+    "x1c_bed_mm": 256.0
+  }
+}
