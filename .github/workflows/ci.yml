@@ -189,6 +189,16 @@ jobs:
         run: |
           python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
           python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
+      - name: "DND-91 Falsifier adversarial audit of S6-LC"
+        # Hostile re-derivation of the SELECTED machine's headline. Asserts the
+        # counter-numbers of the audit (dnd91-s6lc-falsification.md): the cell
+        # lane gate ignores placement and the CAD pawl overflows the pitch band
+        # (A1); the pawl spring uses the root block 0.90 mm not the 0.45 mm leaf
+        # (A2, 8x); the 296 N "ceiling" is 0.37 N/cell x 800, not sourced (A3);
+        # timing/mask terms unpriced (A4); BOM soft lines repriced (A5); the
+        # program reliability gate is absent (A6); the unloaded-write assumption
+        # (A7); regional/jam asserted (A8). CALCULATION only (DND-27).
+        run: python 07-evidence-and-decisions/falsifier_dnd91_checks.py
       - name: "DND-72 folded divergent machines gate"
         # DND-75 divergence folded onto the DND-72 track: A1 single-shaft cam,
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
