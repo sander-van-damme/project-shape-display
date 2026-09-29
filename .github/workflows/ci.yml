@@ -173,6 +173,14 @@ jobs:
         run: |
           python 09-low-cost-variant/s5r_ultra.py > /dev/null
           python 09-low-cost-variant/s5r_ultra_checks.py
+      - name: "DND-72 selected machine S6-LC gate"
+        # Pins the SELECTED architecture folded into the DND-72 track: the
+        # S1-B broadcast threshold ratchet S6-LC at $139.77 parts / $162.13
+        # delivered / 7.4 s, no per-cell/per-row bought actuator, banked
+        # release force under ceiling. Fails if any gate or headline drifts.
+        run: |
+          python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
+          python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,

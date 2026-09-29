@@ -1,0 +1,72 @@
+{
+  "evidence_class": "CAD + mesh validation; no print/measurement (DND-27)",
+  "openscad_version": "",
+  "parts": [
+    {
+      "part": "cell",
+      "stl": "cad/stl/s6lc_cell.stl",
+      "bytes": 13723,
+      "watertight": true,
+      "faces": 104,
+      "bbox_mm": [
+        4.6,
+        3.6,
+        44.0
+      ],
+      "volume_cm3": 0.5494
+    },
+    {
+      "part": "bank",
+      "stl": "cad/stl/s6lc_bank.stl",
+      "bytes": 2846709,
+      "watertight": true,
+      "faces": 20160,
+      "bbox_mm": [
+        404.92,
+        13.76,
+        44.0
+      ],
+      "volume_cm3": 130.4064
+    },
+    {
+      "part": "gate",
+      "stl": "cad/stl/s6lc_gate.stl",
+      "bytes": 133165,
+      "watertight": true,
+      "faces": 972,
+      "bbox_mm": [
+        406.4,
+        2.0,
+        2.2
+      ],
+      "volume_cm3": 0.5722
+    },
+    {
+      "part": "comb",
+      "stl": "cad/stl/s6lc_comb.stl",
+      "bytes": 227652,
+      "watertight": true,
+      "faces": 1612,
+      "bbox_mm": [
+        406.4,
+        2.4,
+        2.0
+      ],
+      "volume_cm3": 0.6003
+    },
+    {
+      "part": "platen",
+      "stl": "cad/stl/s6lc_platen.stl",
+      "bytes": 1575,
+      "watertight": true,
+      "faces": 12,
+      "bbox_mm": [
+        406.4,
+        50.8,
+        2.0
+      ],
+      "volume_cm3": 41.2902
+    }
+  ],
+  "all_watertight": true
+}

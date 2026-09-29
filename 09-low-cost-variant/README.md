@@ -1,17 +1,40 @@
-# 09 — Ultra-low-cost S5-R variant (<$250 purchased): NEGATIVE RESULT + break-even
+# 09 — Ultra-low-cost (<$250 purchased) alternative: S6-LC selected + S5-R-trim negative result
 
-**Status: NEGATIVE RESULT.** The promoted S5-R machine cannot be brought under a
-**$250 purchased** cost while every other mission requirement is unchanged. The
-sub-$250 space for this architecture is **empty**, not merely thin. This
-directory is the proof, the sourced cost ladder, the topology screen and the
-**break-even number** — delivered exactly as [DND-72](/DND/issues/DND-72)
-permits ("a negative result is a valid deliverable").
+**Status: SYNTHESIS — one architecture selected.** Two questions were asked under
+[DND-70](/DND/issues/DND-70)/[DND-72](/DND/issues/DND-72) and are reconciled here:
 
-> **This does not touch `08-current-design/`.** S5-R remains the promoted
-> machine at **$404.60 delivered / 24.615 s**. This subdirectory is a *separate*
-> exploration of the <$250 question.
+1. **Can the S5-R architecture be trimmed under $250?** **No.** The fixed no-channel
+   base ($218.70 parts → $253.69 delivered) alone exceeds the $215.52 parts budget;
+   the requirement-preserving break-even is **$345.90 delivered**. Proof + 19 checks:
+   [`s5r_ultra.py`](s5r_ultra.py), [`s5r_ultra_checks.py`](s5r_ultra_checks.py).
+2. **Is there a *different* architecture under $250 that keeps every mission
+   requirement?** **Yes — [S6-LC](s6lc/README.md).** A **$139.77 parts / $162.13
+   delivered / 7.4 s** machine that removes the per-row bought actuator entirely.
 
-## Headline
+> **This does not touch `08-current-design/`.** S5-R remains the promoted machine at
+> **$404.60 delivered / 24.615 s**. This directory is a *separate* exploration of the
+> <$250 question. Full reconciliation: [`../07-evidence-and-decisions/dnd72-low-cost-synthesis.md`](../07-evidence-and-decisions/dnd72-low-cost-synthesis.md).
+
+## Selected machine — [S6-LC](s6lc/README.md)
+
+Family = the screened **S1 broadcast threshold ratchet**; height held by a passive printed
+pawl (no per-cell/per-row bought actuator); selection by an off-line **punched-card per-bank
+mask gate**; lift by **one** lead-screw stepper. Run:
+`python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py` → **29/29 pass**.
+
+| Quantity | Value | Class |
+|---|---:|---|
+| Purchased parts (excl. printed) | **$139.77** | CALCULATION + sourced |
+| Delivered (×1.16) | **$162.13** (margin $87.87) | CALCULATION |
+| Full-map reconfiguration | **7.4 s** (margin 22.6 s) | CALCULATION |
+| Bought actuators | **3 steppers** (vs S5-R's 42) | CAD + sourced |
+| Travel | 50 mm (5 × 10 mm) | CAD + CALC |
+| Gates G1–G6 | **all pass** | CALCULATION |
+
+The single architectural lever is **actuator count**: the S5-R fixed base is a *consequence* of
+the 40-solenoid writer bank and the 2-motor bank drive. Change the family and the base vanishes.
+
+## The negative result (why a trim cannot work)
 
 | Quantity | Value | Class |
 |---|---:|---|
@@ -33,18 +56,18 @@ configuration that still meets the mission's < 30 s full-map gate is **$345.90**
 
 | File | Purpose |
 |---|---|
-| [`s5r_ultra.py`](s5r_ultra.py) | Analytic model: fixed-base proof, topology screen, exhaustive budget scan, relaxation ladder, verdict. Imports the promoted S5-R model so it cannot drift. |
-| [`s5r_ultra_checks.py`](s5r_ultra_checks.py) | 19 CI-style assertions pinning every headline number. |
-| [`scad/s5r_ultra_cell.scad`](scad/s5r_ultra_cell.scad) | The unit cell of the cheapest requirement-preserving point (R=6 bank cross-section + unchanged DND-59 cell). Real OpenSCAD. |
+| [`s6lc/`](s6lc/README.md) | **Selected machine S6-LC** — model, 29 checks, BOM (`bom_s6lc.csv`), real-OpenSCAD CAD + renders, evidence notes. |
+| [`s5r_ultra.py`](s5r_ultra.py) | Negative-result proof: fixed-base floor, topology screen, exhaustive budget scan, relaxation ladder, verdict. Imports the promoted S5-R model so it cannot drift. |
+| [`s5r_ultra_checks.py`](s5r_ultra_checks.py) | 19 CI-style assertions pinning every negative-result headline number. |
+| [`scad/s5r_ultra_cell.scad`](scad/s5r_ultra_cell.scad) | The unit cell of the cheapest requirement-preserving S5-R trim point (R=6 bank cross-section + unchanged DND-59 cell). Real OpenSCAD. |
 | [`stl/`](stl/) | Watertight renders (`cell`, `pawl`, `keeper`). |
 | [`tools/render_lowcost_cad.py`](tools/render_lowcost_cad.py) | Renders + mesh-validates the parts with a real OpenSCAD, fails hard if OpenSCAD is missing. |
 
 Run:
 
 ```bash
-cd 06-experiments/test12_winner_convergence   # so the model imports resolve
-PYTHONPATH=$PWD python ../../09-low-cost-variant/s5r_ultra.py
-python 09-low-cost-variant/s5r_ultra_checks.py
+python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py       # 29/29 — selected machine
+python 09-low-cost-variant/s5r_ultra_checks.py               # 19/19 — negative result
 python 09-low-cost-variant/tools/render_lowcost_cad.py
 python tools/validate/analytic_printability.py \
   09-low-cost-variant/scad/s5r_ultra_cell.scad
