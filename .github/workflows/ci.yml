@@ -164,6 +164,42 @@ jobs:
         # from the promoted model s5r_register.py, or if the superseded
         # incumbent S5 is presented as the current machine / live register.
         run: python tools/validate/readme_s5r_coherence.py
+      - name: "DND-72 ultra-low-cost (<$250) variant screen + negative-result gate"
+        # Pins the DND-72 negative result: the S5-R fixed base alone ($253.69
+        # delivered) exceeds the $250 target; no sub-$250 configuration exists
+        # in the exhaustive lever sweep; the requirement-preserving floor is
+        # $345.90 (R6-W20-M2, 29.987 s). Fails if any headline drifts or the
+        # promoted S5-R control numbers move.
+        run: |
+          python 09-low-cost-variant/s5r_ultra.py > /dev/null
+          python 09-low-cost-variant/s5r_ultra_checks.py
+
+  lowcost-cad-render:
+    # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,
+    # mesh-validate every committed part (watertight, bed-fitting) and run the
+    # sourced analytic printability gate. A missing OpenSCAD here is a hard
+    # failure (the render is the point). CAD + sourced-limit evidence only.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Install mesh validation dependency
+        run: python -m pip install --quiet "trimesh>=4"
+      - name: Render + mesh-validate the low-cost variant CAD
+        run: python 09-low-cost-variant/tools/render_lowcost_cad.py
+      - name: Low-cost variant unit-cell printability (sourced FDM limits)
+        run: |
+          python tools/validate/analytic_printability.py \
+            --fail-on-design-fail \
+            --json s5r-ultra-printability-record.json \
+            09-low-cost-variant/scad/s5r_ultra_cell.scad
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the

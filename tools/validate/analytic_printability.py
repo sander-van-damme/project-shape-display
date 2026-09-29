@@ -465,6 +465,11 @@ def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
         return check_bank_assembly(path, spec)
     if "s5r_register" in name:
         return check_register_cell(path, spec)
+    if "s5r_ultra_cell" in name:
+        # DND-72: the ultra-low-cost variant keeps the promoted S5-R unit cell
+        # geometry unchanged (the mechanism is already minimal), so it uses the
+        # same feature-specific register-cell checker.
+        return check_register_cell(path, spec)
     return check_coupon(path, spec)
 
 
