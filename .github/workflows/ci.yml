@@ -194,6 +194,17 @@ jobs:
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
+      - name: "DND-73 S6-LC BOM ratification gate"
+        # Independent ratification of the S6-LC BOM of record against the $250
+        # purchased ceiling. Pins: the $139.77 parts / $162.13 delivered claim
+        # reproduces on the additive x1.16 basis; 44% traced / 56% allowance is
+        # disclosed; every cost-driving line has >2x break-even headroom; the
+        # hostile scenario clears ($243.45); and the honest finding that the
+        # off-BOM shared card puncher breaches $250 ($266.65) cannot be reversed.
+        run: |
+          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_ratify.py > /dev/null
+          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_ratify.py --selftest
+          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_ratify_checks.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,

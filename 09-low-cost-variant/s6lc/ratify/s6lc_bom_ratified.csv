@@ -1,0 +1,17 @@
+item,quantity,unit_bom_usd,unit_traced_usd,parts_usd,delivered_usd,evidence,trace_note
+Lift motor (NEMA17-class stepper),1,12.0,12.39,12.0,13.92,sourced-class,live listing; torque-matched to >=0.30 N.m
+Mask gate index motor (small stepper),1,8.0,1.2,8.0,9.28,sourced-class,live listing traced 2026-09-29
+Reset carriage motor (small stepper),1,8.0,1.2,8.0,9.28,sourced-class,live listing traced 2026-09-29
+4x T8 lead screw + anti-backlash nut,1,24.0,13.96,24.0,27.84,sourced-listing,live listing traced 2026-09-29
+Timing belt + 2 pulleys (4-screw sync),1,12.0,,12.0,13.92,sourced-class,sourced-class allowance (no retrieved trace)
+Motor couplers + thrust washers,1,6.0,,6.0,6.96,sourced-class,sourced-class allowance (no retrieved trace)
+Guide rods + bushings (platen),1,14.0,,14.0,16.24,sourced-class,sourced-class allowance (no retrieved trace)
+Controller (RP2040/ESP32),1,5.0,5.0,5.0,5.8,sourced-live,committed LCSC C2040 basis (DND-56)
+Stepper driver module (DRV8833-class),3,1.59,0.74,4.77,5.53,sourced-live,live listing traced 2026-09-29
+Power supply + protection (24 V),1,12.0,,12.0,13.92,sourced-listing,sourced-class allowance (no retrieved trace)
+Wire / connectors / loom,1,14.0,,14.0,16.24,sourced-class,sourced-class allowance (no retrieved trace)
+Fasteners (M3 assortment),1,8.0,,8.0,9.28,sourced-class,sourced-class allowance (no retrieved trace)
+Axis reference sensors,4,1.0,,4.0,4.64,sourced-class,sourced-class allowance (no retrieved trace)
+Spares and miscellaneous,1,8.0,,8.0,9.28,assumption,"ASSUMPTION allowance (spares, DND-46 policy)"
+TOTAL (WORKING: committed BOM on the x1.16 additive basis),,,,139.77,162.13,,ceiling $250 (-$87.87); parts ceiling $215.52
+scenario reference (not additive),,,,,,,optimistic/working/high/hostile delivered = $132.21 / $162.13 / $205.68 / $243.45. Hostile + shared off-BOM card puncher ($20) = $266.65 > $250 (the one honest breach).

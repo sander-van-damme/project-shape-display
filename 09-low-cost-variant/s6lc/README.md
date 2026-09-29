@@ -7,13 +7,23 @@ board direction [DND-70](/DND/issues/DND-70). Originally explored under
 **Base of record:** [`08-current-design/`](../../08-current-design/README.md) (S5-R,
 $404.60 delivered — **not modified by this directory**).
 
-> **Evidence class. Everything in this directory is CAD geometry + CALCULATION
+> Evidence class. Everything in this directory is CAD geometry + CALCULATION
 > over sourced FDM process limits and sourced actuator ratings. No part has been
 > printed, purchased or measured** ([DND-27](/DND/issues/DND-27)). Prices are
 > point-in-time sourced-class figures (2026-09). Independent ratification is
 > [DND-73](/DND/issues/DND-73); adversarial audit is [DND-74](/DND/issues/DND-74).
 > Synthesis against the S5-R-trim negative result:
 > [`../../07-evidence-and-decisions/dnd72-low-cost-synthesis.md`](../../07-evidence-and-decisions/dnd72-low-cost-synthesis.md).
+>
+> **Ratification status ([DND-73](/DND/issues/DND-73), 2026-09-29):**
+> **RATIFIED WITH ONE MATERIAL FINDING.** The **$139.77 parts → $162.13
+> delivered** headline reproduces exactly; 44 % of parts is listing-traced and
+> 56 % is disclosed `sourced-class`/`assumption` allowance; every line has >2×
+> break-even headroom; a deliberately hostile repricing (allowances ×2 + premium
+> matched parts) still clears at **$243.45**. The one honest breach: the
+> **off-line punched-card mask medium is off-BOM as a shared tool** — adding a
+> $20 puncher allowance gives **$266.65 > $250**. See
+> [`../../07-evidence-and-decisions/dnd73-s6lc-bom-ratification.md`](../../07-evidence-and-decisions/dnd73-s6lc-bom-ratification.md).
 
 ## 1. The target and the honest cost cliff
 
@@ -160,6 +170,7 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
 | [`scad/s6lc_machine.scad`](scad/s6lc_machine.scad) | the part set (real OpenSCAD) |
 | [`cad/`](cad/) | rendered STLs + CAD/printability records |
 | [`bom_s6lc.csv`](bom_s6lc.csv) | purchased BOM line table |
+| [`ratify/`](ratify/) | [DND-73](/DND/issues/DND-73) independent ratification: re-derivation, live trace, break-evens + 59-check CI gate |
 | [`evidence/`](evidence/) | architecture + printable-path statements |
 
 ## 9. Residual uncertainty (measurement-only or product)
