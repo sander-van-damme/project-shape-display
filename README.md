@@ -67,6 +67,22 @@ unresolved risks, enough CAD/calculation evidence to evaluate the architecture, 
 evidence/decision record explaining the promotion. Stage 08 must not be flooded with raw
 exploration.
 
+## Agent autonomy and repository operations
+
+This repository is an autonomous engineering workspace. Paperclip agents are trusted to manage
+ordinary repository work without waiting for board approval or rejection.
+
+- Agents may create, modify, move, or delete repository files; create branches and commits; open,
+  update, review, close, and **merge pull requests themselves**.
+- **No board approval is required for merges, ordinary refactors, experiments, design decisions, or
+  promotion of an architecture when the documented engineering evidence supports it.**
+- Branches, PRs, reviews, and checks are useful for traceability and engineering quality; they are
+  **not permission gates**.
+- Do not block ongoing work waiting for a board response. Escalation is reserved for genuinely
+  exceptional actions outside normal project iteration (for example, destroying/replacing the
+  repository as a whole).
+- Never commit credentials, tokens, private keys, or other secrets.
+
 ## Useful entry points
 
 - [Design criteria](02-design-criteria/README.md)
