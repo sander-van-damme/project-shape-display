@@ -148,9 +148,12 @@ def main() -> int:
     for p in parts:
         stl = STL_DIR / f"{p.key}.stl"
         stl.unlink(missing_ok=True)
+        # DND-61: the full 27x27 cartridge is a single ~10.5 min CGAL render on
+        # this container, so the per-part budget is 30 min (was 15 min when the
+        # cartridge was an 8x8 witness).
         proc = subprocess.run(
             [osc, "-o", str(stl), "-D", f'part="{p.scad_part}"', str(SCAD)],
-            capture_output=True, text=True, timeout=900, env=scad_env())
+            capture_output=True, text=True, timeout=1800, env=scad_env())
         log = (proc.stdout + proc.stderr).strip()
         if proc.returncode != 0 or not stl.exists() or stl.stat().st_size == 0:
             print(f"[FAIL] {p.key}: render failed: {log[-200:]}")

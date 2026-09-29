@@ -7,11 +7,11 @@
       "part": "cell_cartridge",
       "ok": true,
       "file": "cell_cartridge.stl",
-      "bytes": 1021977,
-      "tris": 6004,
+      "bytes": 11726140,
+      "tris": 67488,
       "bbox_mm": [
-        40.64,
-        40.64,
+        137.16,
+        137.16,
         14.0
       ],
       "fits_256_bed": true,

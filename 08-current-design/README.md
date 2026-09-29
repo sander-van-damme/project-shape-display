@@ -85,14 +85,20 @@ e = 6 mm (33× inside the gate; break-even e ≈ 201 mm). See
 [`dnd59-s5r-residual-retirement.md`](../07-evidence-and-decisions/dnd59-s5r-residual-retirement.md).
 The only residue left is **measurement-only** (§ consolidated table there).
 
-**S5-R fabrication package ([DND-60](/DND/issues/DND-60)):** the machine is now a
-**printable package**, not just a definition. `08-current-design/fabrication/`
-carries a **complete real-OpenSCAD printed-part set** (14 distinct parts,
-25,661 pieces), **14 watertight, bed-fitting STLs**, a **print manifest** and an
-**assembly manifest**, a **full-set printability PASS** against the sourced FDM
-limits, and a **CI coherence gate** that pins the package to the promoted model
-(`s5r_register.py`). See §6a. The only remaining residue is **measurement-only**
-(the board's own build/measure) — no agent-reachable fabrication work remains.
+**S5-R fabrication package ([DND-60](/DND/issues/DND-60), completed by
+[DND-61](/DND/issues/DND-61)):** the machine is now a **slicer-ready printable
+package**, not just a definition. `08-current-design/fabrication/` carries a
+**complete real-OpenSCAD printed-part set** (14 distinct parts, 25,661 pieces),
+**14 watertight, bed-fitting STLs**, a **print manifest** and an **assembly
+manifest**, a **full-set printability PASS** against the sourced FDM limits, and
+a **CI coherence gate** that pins the package to the promoted model
+(`s5r_register.py`). [DND-61](/DND/issues/DND-61) removed the last gap: the two
+structural tiles used to ship as **reduced witness blocks**; both now render at
+their **true full 27 × 27 / 137.16 × 137.16 mm** size as single manifold solids
+(the gate's new **C7** fails a reduced witness that lacks a real envelope or a
+documented sub-tile route). See §6a. The only remaining residue is
+**measurement-only** (the board's own build/measure) — no agent-reachable
+fabrication work remains.
 
 ---
 
@@ -259,27 +265,33 @@ cartridges** (≈135 mm), or raise the as-printed rail modulus toward bulk PLA, 
 thrust retainer, brake, detent leaf and motor head are **not** in the STLs; their omission
 is not proof they fit.
 
-### 6a. How to print and build the S5-R machine (the fabrication package, DND-60)
+### 6a. How to print and build the S5-R machine (the fabrication package, DND-60/DND-61)
 
-The **complete printable S5-R part set + print & assembly manifests** now live in
-[`fabrication/`](fabrication/) — this is the board's *"print this"* package:
+The **complete slicer-ready S5-R part set + print & assembly manifests** now live
+in [`fabrication/`](fabrication/) — this is the board's *"print this"* package:
 
 - **Part set:** [`fabrication/scad/s5r_parts.scad`](fabrication/scad/s5r_parts.scad)
   (every distinct printed part, driven by
   [`s5r_parts_common.scad`](fabrication/scad/s5r_parts_common.scad)) → 14
-  rendered, watertight STLs in [`fabrication/stl/`](fabrication/stl/).
+  rendered, watertight STLs in [`fabrication/stl/`](fabrication/stl/). The two
+  structural tiles are the **real full 27 × 27 / 137.16 × 137.16 mm** parts
+  ([DND-61](/DND/issues/DND-61)); no reduced witness blocks remain.
 - **Print manifest:** [`fabrication/manifests/print_manifest.md`](fabrication/manifests/print_manifest.md)
   — quantity, PLA, nozzle/layer, orientation, supports, sourced FDM limit per
   part, estimated mass/time. **Every critical feature PASSES** the sourced
   printability gate (no FAIL, no RISK).
+- **Sub-tile fallback:** a documented 3 × 3 `cell_cartridge_tile` route
+  (45.72 mm tiles) in the assembly manifest, only if the board's useful bed is
+  under 137.16 mm; not required on a 256 mm X1C.
 - **Assembly manifest:** [`fabrication/manifests/assembly_manifest.md`](fabrication/manifests/assembly_manifest.md)
   — exploded ordering, fasteners, and the ratified purchased BOM
   (**$404.60 delivered working**, [DND-56](/DND/issues/DND-56)).
 - **Coherence gate:** [`fabrication/tools/fab_package_checks.py`](fabrication/tools/fab_package_checks.py)
   — asserts the fabrication constants match the promoted register model, every
   part renders watertight and fits the 256 mm X1C bed, quantities match the
-  80 × 80 / 3 × 3 layout, and every part clears its sourced limit. Runs in CI
-  (`fab-package` job).
+  80 × 80 / 3 × 3 layout, every part clears its sourced limit, and (C7) no part
+  is a reduced witness without a real envelope or a documented sub-tile route.
+  Runs in CI (`fab-package` job).
 
 **Evidence class: CAD + sourced FDM limits + calculation. No part has been
 printed or measured** ([DND-27](/DND/issues/DND-27)); the board performs the

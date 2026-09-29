@@ -17,6 +17,15 @@
 | 9 | wiring | Wire the 2 bank H-bridge channels + 5 writer darlington chips + limit sensors; runs to the controller. | wire/loom allowance |
 | 10 | tension | Set pawl pre-load so each engaged tip bears on its rack tooth; verify a full forward+reverse bank pass drops/relatches the field (the DND-59 dropout/re-engage function). | no purchased parts |
 
+## Sub-tile print route (only if the useful bed is < 137.16 mm)
+
+The full 27x27 cartridge prints as ONE part on a 256 mm X1C. A board with a smaller useful bed can instead print the same geometry as a bolted sub-tile set (DND-61):
+
+- **Tile:** `cell_cartridge_tile` -- 9x9 cells = **45.72 x 45.72 mm**, single solid (the same `cell_cartridge` module at `cols=rows=9`).
+- **Tile count:** 3 x 3 = **9 sub-tiles per cartridge**; 9 cartridges per field => **81 sub-tiles per field**.
+- **Seam / joint:** tiles butt on the 5.08 mm cell grid; the +X/+Y tile carries the standard `FRAME_RAIL` lip (8 mm wide, 4 mm tall) and the two are joined by M3 through the lap. Joint clearance `SLOT_CLEAR = 0.15 mm` per the shared constants.
+- **Assembly:** identical to steps 1-4 below, with the cartridge build split into 9 tiles before the field is bolted to the frame rails.
+
 ## Printed-part count
 
 - **14 distinct printed parts, 25661 pieces total.**

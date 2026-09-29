@@ -62,8 +62,9 @@ RENDER_TARGETS = [
      / "s5r_bank.scad", ['-D', 'part="comber"']),
     ("s5r_bank_carriage", REPO / "06-experiments" / "test12_winner_convergence"
      / "s5r_bank.scad", ['-D', 'part="carriage"']),
-    # DND-60 complete printable part set (CAD witness blocks for the periodic
-    # parts; see 08-current-design/fabrication/README.md).
+    # DND-60/DND-61 complete printable part set. DND-61 renders the two
+    # structural tiles at their true full size (no reduced witness blocks); see
+    # 08-current-design/fabrication/README.md.
     ("s5r_fab_cell_cartridge", FAB_SCAD, ['-D', 'part="cell_cartridge"']),
     ("s5r_fab_rotor", FAB_SCAD, ['-D', 'part="rotor"']),
     ("s5r_fab_drive_pawl", FAB_SCAD, ['-D', 'part="drive_pawl"']),
@@ -95,9 +96,12 @@ def render(scad: Path, out: Path, osc: str, extra: list[str]) -> tuple[bool, str
     if not scad.exists():
         return False, f"missing source {scad}"
     try:
+        # DND-61: the full-tile S5-R cartridge is a single ~10.5 min CGAL render
+        # on the reference container, so the budget is 30 min (was 10 min when
+        # the cartridge was an 8x8 witness).
         proc = subprocess.run(
             [osc, "-o", str(out), *extra, str(scad)],
-            capture_output=True, text=True, timeout=600, env=openscad_env())
+            capture_output=True, text=True, timeout=1800, env=openscad_env())
     except subprocess.TimeoutExpired:
         return False, "render timed out"
     if proc.returncode != 0:

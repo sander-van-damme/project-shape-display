@@ -15,6 +15,9 @@ Asserts (all must pass for CI green):
   C5  Sourced-limit pass: every part's critical feature is >= its sourced FDM
       limit (no FAIL). A RISK would also fail the gate.
   C6  Assembly manifest covers every printed part.
+  C7  No reduced witness blocks (DND-61): every part's committed STL bbox must
+      match its declared real envelope; a part that is still a reduced witness
+      must name a documented sub-tile print route, else the gate fails.
 
 Run: python 08-current-design/fabrication/tools/fab_package_checks.py
 A manifest is regenerated first (in-memory checks) so a stale committed file
@@ -160,6 +163,27 @@ def main() -> int:
     for p in PARTS:
         check(p.key in asm or p.title.split("(")[0].strip() in asm,
               f"assembly manifest references {p.key}")
+
+    # --- C7 no reduced witness blocks (DND-61) ---------------------------
+    # The DND-60 gap: a part could ship as a reduced representative of a larger
+    # part with no route to the real geometry. Fail unless the committed STL bbox
+    # equals the declared real envelope (within a tolerance) OR the part names a
+    # documented sub-tile print route.
+    print("\n[C7] no reduced witness blocks (real envelope or documented route)")
+    for p in PARTS:
+        r = rrows.get(p.key, {})
+        bbox = r.get("bbox_mm")
+        env = p.analytic_envelope_mm
+        if env:
+            ok = bool(bbox) and all(
+                abs(bbox[k] - env[k]) <= 0.05 for k in range(3))
+            check(ok, f"{p.key}: STL bbox {bbox} == real envelope "
+                     f"{[round(v, 2) for v in env]}")
+        if p.witness_of:
+            check(bool(p.subtile_route),
+                  f"{p.key}: reduced witness names a documented sub-tile route")
+        else:
+            check(True, f"{p.key}: committed STL is the full-size part")
 
     print("\n" + "=" * 72)
     if FAILS:

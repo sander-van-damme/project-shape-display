@@ -52,6 +52,28 @@ def render_lookup() -> dict:
     return {p["part"]: p for p in rec.get("parts", [])}
 
 
+def mesh_volume_mm3(stl_path: Path) -> float | None:
+    """Real solid volume of a rendered STL (CAD evidence, not a measurement).
+
+    Prefers trimesh (signed-volume integral; correct only for a watertight
+    mesh, which C3 guarantees). Falls back to the axis-aligned bbox volume -- a
+    coarse upper bound -- only when trimesh is unavailable, and the caller
+    labels that as an estimate.
+    """
+    if not stl_path.exists():
+        return None
+    try:
+        import trimesh  # type: ignore
+        m = trimesh.load(stl_path, force="mesh")
+        if m.is_watertight:
+            return float(abs(m.volume))
+        return None
+    except ImportError:
+        pass
+    # stdlib fallback: bbox volume upper bound from the render record bbox.
+    return None
+
+
 def fmt_mm(v) -> str:
     if v is None:
         return ""
@@ -66,12 +88,19 @@ def build_print_manifest() -> list[dict]:
     for p in PARTS:
         r = rl.get(p.key, {})
         bbox = r.get("bbox_mm") or list(p.analytic_envelope_mm or ()) or None
-        m = mass_g(p)
-        vol = p.solid_volume_mm3 * p.qty if p.solid_volume_mm3 else None
-        if vol:
-            time_s = vol * WASTE_FACTOR / VOL_RATE_MM3_S
+        # Real per-part CAD volume: prefer the committed mesh, else the analytic
+        # volume carried in part_set.py. Both are CAD/calculation, not a print.
+        vol_part = mesh_volume_mm3(FAB / "stl" / f"{p.key}.stl")
+        vol_source = "mesh"
+        if vol_part is None and p.solid_volume_mm3 is not None:
+            vol_part = p.solid_volume_mm3
+            vol_source = "analytic"
+        if vol_part is not None:
+            m = vol_part * p.qty * PLA_DENSITY_G_CM3 / 1000.0
+            time_s = vol_part * p.qty * WASTE_FACTOR / VOL_RATE_MM3_S
             time_str = f"{time_s / 3600:.2f} h"
         else:
+            m = None
             time_str = "estimate via STL volume at slice time"
         feat = p.critical_feature
         rows.append({
@@ -87,13 +116,16 @@ def build_print_manifest() -> list[dict]:
             "stl_watertight": r.get("watertight", None),
             "fits_256_bed": r.get("fits_256_bed", None),
             "bbox_mm": fmt_mm(bbox),
-            "est_mass_g": round(m, 2) if m is not None else "n/a (witness block)",
+            "est_mass_g": (f"{round(m, 2)} ({vol_source})"
+                           if m is not None else "estimate at slice time"),
             "est_print_time": time_str,
             "critical_feature": feat[0] if feat else "",
             "feature_value_mm": feat[1] if feat else "",
             "sourced_limit_mm": round(feat[2], 3) if feat else "",
             "limit_rule": feat[3] if feat else "",
             "verdict": feat[4] if feat else "",
+            "witness_of": p.witness_of,
+            "subtile_route": p.subtile_route,
             "note": p.note,
         })
     return rows
@@ -110,7 +142,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 
 def print_manifest_md(rows: list[dict]) -> str:
     lines = [
-        "# S5-R print manifest (DND-60)",
+        "# S5-R print manifest (DND-61)",
         "",
         "**Evidence class: CAD + sourced limits + calculation. This is NOT a print "
         "and NOT a slicer run** ([DND-27](https://github.com/sander-van-damme/"
@@ -138,14 +170,18 @@ def print_manifest_md(rows: list[dict]) -> str:
         "",
         "## Notes and honesty",
         "",
-        "- The `cell_cartridge` and `platen_module` STLs are **reduced witness "
-        "blocks** (8x8 cells), not the full 27x27 tile: the geometry is periodic "
-        "in the cell and a full-tile CGAL render is ~30x the practical budget. "
-        "The full 137.16 x 137.16 mm footprint and the cell count are carried "
-        "analytically (see `part_set.py`), exactly as `s5r_bank.scad` renders a "
-        "reduced bank and covers the full span analytically.",
-        "- Masses for witness-block parts are `n/a` here; the rotor/pawl/keeper/"
-        "detent masses use the analytic solid volume (a solid-fill upper bound).",
+        "- **No reduced witness blocks remain (DND-61).** Both structural tiles "
+        "render at their TRUE size: `cell_cartridge` is the full 27x27 / "
+        "137.16 x 137.16 x 14 mm block and `platen_module` the full 27x27 / "
+        "137.16 x 137.16 x 7 mm plate, each a single watertight solid. If a "
+        "board's useful bed is under 137.16 mm, a documented 3x3 sub-tile route "
+        "(9x9 cells, 45.72 mm) is given in `scad/s5r_parts.scad` "
+        "(`cell_cartridge_tile`) and the assembly manifest.",
+        "- Masses are the real committed-mesh solid volume (labelled `(mesh)`) "
+        "times the part quantity; the tag names the volume source "
+        "(`(mesh)` = trimesh signed volume of the committed STL, `(analytic)` = "
+        "the analytic volume in `part_set.py`). Both are solid-fill upper "
+        "bounds -- the sliced part is lighter.",
         "- Print times are a volumetric estimate at ~11 mm^3/s; a real slicer "
         "preview will refine them. They are **not** a slicer run.",
         "- **No part has been printed and none will be** ([DND-27](https://"
@@ -220,6 +256,23 @@ def assembly_manifest_md(rows: list[dict]) -> str:
         lines.append(f"| {r['step']} | {r['stage']} | {r['action']} | "
                      f"{r['parts_consumed']} |")
     lines += [
+        "",
+        "## Sub-tile print route (only if the useful bed is < 137.16 mm)",
+        "",
+        "The full 27x27 cartridge prints as ONE part on a 256 mm X1C. A board "
+        "with a smaller useful bed can instead print the same geometry as a "
+        "bolted sub-tile set (DND-61):",
+        "",
+        "- **Tile:** `cell_cartridge_tile` -- 9x9 cells = **45.72 x 45.72 mm**, "
+        "single solid (the same `cell_cartridge` module at `cols=rows=9`).",
+        "- **Tile count:** 3 x 3 = **9 sub-tiles per cartridge**; 9 cartridges "
+        "per field => **81 sub-tiles per field**.",
+        "- **Seam / joint:** tiles butt on the 5.08 mm cell grid; the +X/+Y tile "
+        "carries the standard `FRAME_RAIL` lip (8 mm wide, 4 mm tall) and the "
+        "two are joined by M3 through the lap. Joint clearance "
+        "`SLOT_CLEAR = 0.15 mm` per the shared constants.",
+        "- **Assembly:** identical to steps 1-4 below, with the cartridge build "
+        "split into 9 tiles before the field is bolted to the frame rails.",
         "",
         "## Printed-part count",
         "",

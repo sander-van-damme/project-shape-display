@@ -1,4 +1,4 @@
-# S5-R fabrication package (DND-60)
+# S5-R fabrication package (DND-61)
 
 **This is the printable part set for the promoted S5-R machine** — the
 shared-drive programmable rotary register (R = 4) — plus the print and assembly
@@ -46,11 +46,14 @@ fabrication/
    exploded ordering, fastener list, and the purchased BOM
    ($404.60 delivered working; [DND-56](/DND/issues/DND-56) ratified).
 
-> **The STLs are CAD witnesses, not yet board print files.** Every part is real
-> OpenSCAD geometry, watertight, and fits the bed. Two parts (`cell_cartridge`,
-> `platen_module`) are **reduced witness blocks** of a periodic tile (see §5);
-> the full-tile footprint and cell count are carried analytically. This is
-> stated plainly so the board is not surprised.
+> **The STLs are the real printable parts (DND-61).** Every part is real
+> OpenSCAD geometry, watertight, and fits the 256 mm bed. The two structural
+> tiles render at their **true full size** — `cell_cartridge` is the real
+> 27 × 27 / 137.16 × 137.16 × 14 mm block and `platen_module` the real
+> 27 × 27 / 137.16 × 137.16 × 7 mm plate, each a single manifold solid. No
+> reduced witness blocks remain. A documented 3 × 3 **sub-tile route**
+> (45.72 mm tiles) is provided only as a fallback for a board whose useful bed
+> is under 137.16 mm (see §5).
 
 ## 3. The printed part set
 
@@ -79,15 +82,20 @@ forward.
 
 ## 5. Honesty / residual uncertainty (measurement-only residue)
 
-- **Reduced witness blocks.** `cell_cartridge` (8 × 8 cells) and `platen_module`
-  (27 × 27) render reduced representatives because a full 729-cell CGAL render
-  is ~30× the practical budget. The geometry is periodic in the cell; the full
-  footprint, cell count and mass are carried analytically in `tools/part_set.py`.
-  This mirrors the repo's existing `s5r_bank.scad` reduced-model precedent. The
-  board's slicer will see the true part, so this is a CAD-witness simplification,
-  not a fabrication gap.
-- **Mass / print time are estimates.** Mass is a solid-fill upper bound from the
-  analytic volume; print time is a volumetric estimate
+- **No reduced witness blocks (DND-61).** Both structural tiles render at their
+  true full size as single manifold solids. `cell_cartridge` is a 27 × 27 /
+  137.16 × 137.16 × 14 mm block (~67.5k triangles, ~10.5 min CGAL render);
+  `platen_module` is a 27 × 27 / 137.16 × 137.16 × 7 mm plate. `fab_package_checks.py`
+  **C7 fails if any part is a reduced witness without a declared real envelope
+  or a documented sub-tile route**, so this cannot silently regress.
+- **Sub-tile fallback route.** If a board's useful bed is under 137.16 mm, the
+  cartridge prints as a 3 × 3 set of `cell_cartridge_tile` parts (9 × 9 cells =
+  45.72 × 45.72 mm each; 9 tiles per cartridge, 81 per field) bolted on the
+  `FRAME_RAIL` lap with 0.15 mm joint clearance. This is a documented route, not
+  a required step on a 256 mm X1C.
+- **Mass / print time are estimates.** Mass is a solid-fill upper bound taken
+  from the committed mesh volume (labelled `(mesh)`); print time is a volumetric
+  estimate
   (~11 mm³/s), not a slicer preview.
 - **What only a physical build can retire** (the DND-27 residue the board's own
   build/measure closes): as-printed PLA–PLA friction μ and scallop/tip sharpness

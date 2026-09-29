@@ -53,10 +53,16 @@ class Part:
     # sourced-limit citation: (feature, value_mm, limit_mm, rule, verdict)
     critical_feature: tuple = ()
     note: str = ""
-    # for a reduced-witness CAD part: the analytic TRUE envelope (mm) and a
-    # volume estimate used only for the mass line, both clearly labelled.
+    # DND-61: every structural part now renders at its TRUE full-tile size.
+    # `analytic_envelope_mm` is retained only as a cross-check of the rendered
+    # bbox; `solid_volume_mm3` is the real mesh volume for the mass line.
     analytic_envelope_mm: tuple | None = None
     solid_volume_mm3: float | None = None
+    # Set ONLY when a part's committed STL is still a reduced representative of a
+    # larger part. Empty string means the STL is the real, full-size part.
+    # Non-empty must name the documented sub-tile print route (see DND-61).
+    witness_of: str = ""
+    subtile_route: str = ""
 
     @property
     def lines(self) -> float:
@@ -78,9 +84,11 @@ PARTS: list[Part] = [
                           "min robust wall (2 lines)", "PASS"),
         analytic_envelope_mm=(CARTRIDGE_COLS * PITCH_MM,
                               CARTRIDGE_ROWS * PITCH_MM, 14.0),
-        note="Full 27x27 block = 729 cells; STL is an 8x8 witness block "
-             "(uniform pitch). Footprint 137.16 x 137.16 mm; mass from the "
-             "analytic volume.",
+        solid_volume_mm3=141347.5,
+        note="DND-61: committed STL is the TRUE full 27x27 block = 729 cells "
+             "(137.16 x 137.16 x 14 mm, single watertight solid). Mass is the "
+             "real mesh solid volume (upper bound). A 3x3 sub-tile route "
+             "(9x9 cells, 45.72 mm) is documented for a <137 mm bed.",
     ),
     Part(
         "rotor", "rotor", "5-level stepped rotor cam", qty=COLS * ROWS_FULL,
@@ -164,7 +172,11 @@ PARTS: list[Part] = [
                           "min robust wall (2 lines)", "PASS"),
         analytic_envelope_mm=(CARTRIDGE_COLS * PITCH_MM,
                               CARTRIDGE_ROWS * PITCH_MM, 7.0),
-        note="Supports the column field; <= ~150 mm spacing (DND-43 flatness).",
+        solid_volume_mm3=80539.5,
+        note="DND-61: committed STL is the TRUE full 27x27 plate "
+             "(137.16 x 137.16 x 7 mm, single watertight solid); it was already "
+             "full geometry in DND-60 and is now labelled as such. Supports the "
+             "column field; <= ~150 mm spacing (DND-43 flatness).",
     ),
     Part(
         "lift_frame_rail", "lift_frame_rail", "lift frame rail (module joiner)",

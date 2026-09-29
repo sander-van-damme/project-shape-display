@@ -8,6 +8,13 @@
 // CAD EVIDENCE. Not a print, not a measurement ([DND-27]).
 // Units: mm. Process: Bambu X1C, PLA, 0.4 nozzle, 0.20 layers.
 // Parts longer than the 256 mm bed are split at the cartridge boundary.
+//
+// DND-61: both structural tiles (`cell_cartridge`, `platen_module`) render as
+// TRUE full 27x27 x 137.16 x 137.16 mm single solids -- no reduced witness
+// blocks remain in the committed STLs. The cartridge module also exposes a
+// documented sub-tile route (`cell_cartridge_tile`) for boards whose useful
+// bed is smaller than 137.16 mm or who prefer a bolted-tile build; the route is
+// one bolt-together part family and is not required for a 256 mm X1C.
 
 include <s5r_parts_common.scad>
 
@@ -21,19 +28,16 @@ module inner_cell() {
         cube([PITCH + 2 * EPS, PITCH / 2, CELL_H + 2 * EPS]);
 }
 
-// MODEL SIZE. A full 27x27 cartridge (729 cell bores) is ~30x over the
-// reasonable CGAL render budget for one part. The cartridge geometry is a
-// periodic cell array, so this module renders a REPRESENTATIVE_CART_BLOCK x
-// REPRESENTATIVE_CART_BLOCK witness block: it exercises the real 5.08 mm pitch,
-// the bore, both side chambers, the rack channel and the frame lip. The FULL
-// 27x27 footprint, cell count and mass are computed analytically in
-// tools/gen_manifests.py and stated on the manifest; the uniform-pitch argument
-// (identical to s5r_bank.scad's reduced-model note) carries the witness to the
-// full part. The STL is a CAD witness of the cell, not a print file.
-REPRESENTATIVE_CART_BLOCK = 8;   // 8x8 = 64 cells
-
-module cell_cartridge(cols = REPRESENTATIVE_CART_BLOCK,
-                      rows = REPRESENTATIVE_CART_BLOCK) {
+// MODEL SIZE (DND-61). The cartridge is rendered at its TRUE 27x27 full-tile
+// size by default: `cell_cartridge(CARTRIDGE_COLS, CARTRIDGE_ROWS)` below. That
+// is a single watertight/manifold solid (137.16 x 137.16 x 14 mm, ~67.5k tris,
+// ~10.5 min CGAL render on this container), which fits the 256 mm bed, so it is
+// a real slicer-ready print file -- no reduced witness block.
+//
+// The module still takes optional `cols`/`rows` so a smaller block can be
+// rendered for a quick geometry probe, but the committed STL is the full tile.
+module cell_cartridge(cols = CARTRIDGE_COLS,
+                      rows = CARTRIDGE_ROWS) {
     w = cols * PITCH;
     d = rows * PITCH;
     h = CELL_H;
@@ -54,6 +58,21 @@ module cell_cartridge(cols = REPRESENTATIVE_CART_BLOCK,
     // module frame lip on two edges (bolt-to-neighbour datum)
     translate([-w / 2, d / 2 - FRAME_RAIL, 0]) cube([w, FRAME_RAIL, FRAME_RAIL_H]);
     translate([w / 2 - FRAME_RAIL, -d / 2, 0]) cube([FRAME_RAIL, d, FRAME_RAIL_H]);
+}
+
+// DOCUMENTED SUB-TILE ROUTE (DND-61). Not needed on a 256 mm X1C -- the full
+// 137.16 mm tile prints as one part. Provided so a board with a smaller useful
+// bed (>= TILE_SPAN mm) can still print the real cartridge: a 27x27 cartridge
+// splits into a 3 x 3 grid of 9 x 9-cell sub-tiles, TILE_SPAN = 9 * 5.08 =
+// 45.72 mm, each a single solid. The seam is a bolted lap: the sub-tile that is
+// +X/+Y of its neighbour carries the same FRAME_RAIL lip; neighbours butt on
+// the 5.08 mm cell grid and are joined by M3 through the lip (see the assembly
+// manifest). 9 sub-tiles per cartridge x 9 cartridges = 81 sub-tiles per field.
+TILE_CELLS = 9;
+TILE_SPAN = TILE_CELLS * PITCH;   // 45.72 mm
+
+module cell_cartridge_tile(cols = TILE_CELLS, rows = TILE_CELLS) {
+    cell_cartridge(cols, rows);
 }
 
 module rotor() {
@@ -194,7 +213,7 @@ module comber_cam() {
 
 part = "cell_cartridge";
 
-if (part == "cell_cartridge")           cell_cartridge();
+if (part == "cell_cartridge")           cell_cartridge(CARTRIDGE_COLS, CARTRIDGE_ROWS);
 else if (part == "rotor")               rotor();
 else if (part == "drive_pawl")          drive_pawl();
 else if (part == "keeper")              keeper();
@@ -203,7 +222,7 @@ else if (part == "rack_strip")          rack_strip();
 else if (part == "bank_drive_housing")  bank_drive_housing();
 else if (part == "reset_comber")        reset_comber();
 else if (part == "writer_carriage")     writer_carriage();
-else if (part == "platen_module")       platen_module();
+else if (part == "platen_module")       platen_module(CARTRIDGE_COLS, CARTRIDGE_ROWS);
 else if (part == "lift_frame_rail")     lift_frame_rail();
 else if (part == "guide_bracket")       guide_bracket();
 else if (part == "solenoid_mount")      solenoid_mount();
