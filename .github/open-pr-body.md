@@ -19,7 +19,7 @@ Closes residual **R-DND54-4**: the multi-row (R = 4) bank geometry that
 
 > Branched from `main` (DND-54 already merged).
 
-## Engineering question
+## The call
 
 Does the R = 4 bank close at the assembly level — bar torsion inside the 0.35 mm keeper
 gate, and the reset-comber / writer-carriage envelopes fitting — without a coupon?
