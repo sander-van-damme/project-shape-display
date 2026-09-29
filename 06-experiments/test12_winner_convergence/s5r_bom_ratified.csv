@@ -1,7 +1,9 @@
 item,quantity,unit_expected_usd,unit_sourced_usd,parts_usd,delivered_usd,evidence,note
 "Fixed no-channel base (E1-E6: rods, belts, shafts, fasteners, power, loom, PCBs, lift/scanner motors, controller, registers)",1,218.7,218.7,218.7,253.69,SOURCED-reduced,motor AND 80-channel TB6612 driver block removed
-"Bank motor (NEMA17-class >=0.30 N.m, 4-wire bipolar)",2,12.0,12.39,24.78,28.74,ALLOWANCE->SOURCED-LIVE,cheapest torque-matched orderable 17HS4401S 42N.cm; 17HS4023 EUR4.24 is under torque
-"Writer solenoid (5 V push, >=1.2 N design target)",40,2.5,2.2,88.0,102.08,ALLOWANCE->SOURCED-LIVE,price supported; force (N) not published by any listing
+"Bank motor (NEMA17-class >=0.30 N.m, 4-wire bipolar)",2,12.0,12.39,24.0,27.84,ALLOWANCE (working); SOURCED-LIVE $12.39 is the optimistic,"cheapest torque-matched orderable 17HS4401S 42N.cm; 17HS4023 EUR4.24 is under torque. Working total uses the $12.00 allowance (DND-54), not the $12.39 sourced copy"
+"Writer solenoid (5 V push, >=1.2 N design target)",40,2.5,2.2,100.0,116.0,ALLOWANCE (working); SOURCED-LIVE $2.20 is the optimistic,price supported; force (N) not published by any listing. Working total uses the $2.50 allowance (DND-54)
 "Bank H-bridge channel (TB6612FNG dual, 1 IC/motor working)",2,0.7955,0.7955,1.59,1.84,SOURCED (LCSC C88224),2 motors need 2 channels; may share 1 dual IC
 Writer switch (ULN2803-class 8-channel darlington),5,0.3,0.3,1.5,1.74,ALLOWANCE,"ON/OFF low-side switch, not an H-bridge"
-"TOTAL (working scenario, sourced units)",,,,334.57,388.1,,ceiling $500 (-$111.9); ideal band $400 (+$-11.9)
+"Steel drive rod (sourced Ø6 mm ground rod, DND-58)",1,3.0,3.0,3.0,3.48,SOURCED-class allowance,"replaces the printed 3x2 placeholder bar; 6 mm x 406.4 mm cut rod, ~$6/m retail"
+TOTAL (WORKING scenario: DND-54 allowances + own channels + sourced steel rod),,,,348.79,404.6,,ceiling $500 (-$95.4); ideal band $400 (+$4.6)
+scenario reference (not additive),,,,,,,"WORKING (above) = $404.60 delivered = promoted model s5r_register.bom(4)['delivered_usd']; this is the delivered headline. OPTIMISTIC (1 shared bank IC, sourced motor $12.39 / writer $2.20) = $387.18 delivered, a reference, NOT the working scenario. The pre-DND-65 CSV's $388.10 header was the sourced-unit variant with 2 bank ICs and no steel rod; it is also NOT the working scenario. Rod-unpriced working intermediate = $401.12 (delivered_no_rod_usd)."

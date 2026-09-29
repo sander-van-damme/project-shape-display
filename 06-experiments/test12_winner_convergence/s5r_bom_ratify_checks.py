@@ -109,14 +109,25 @@ class RatificationChecks(unittest.TestCase):
         self.assertTrue(out.exists())
         with out.open(newline="") as fh:
             rows = list(csv.DictReader(fh))
-        body = [x for x in rows if not x["item"].startswith("TOTAL")]
-        total = [x for x in rows if x["item"].startswith("TOTAL")][0]
+        # Body lines are the additive purchased lines: exclude the TOTAL row and
+        # the non-additive "scenario reference" annotation row (DND-65).
+        body = [x for x in rows
+                if not x["item"].startswith("TOTAL")
+                and not x["item"].startswith("scenario reference")]
+        total = [x for x in rows if x["item"].startswith("TOTAL (WORKING")][0]
         parts_sum = round(sum(float(x["parts_usd"]) for x in body), 2)
         self.assertAlmostEqual(parts_sum, float(total["parts_usd"]), delta=0.05)
         delivered_sum = round(sum(float(x["delivered_usd"]) for x in body), 2)
         self.assertAlmostEqual(delivered_sum, float(total["delivered_usd"]), delta=0.05)
-        # At sourced actuator units the end-to-end total is inside the ideal band.
-        self.assertLess(float(total["delivered_usd"]), r.IDEAL_BAND)
+        # DND-65: the emitted WORKING total must equal the promoted model's
+        # delivered_usd, not the old sourced-unit $388.10 figure.
+        self.assertAlmostEqual(float(total["delivered_usd"]), 404.60, places=2)
+        self.assertGreater(float(total["delivered_usd"]), r.IDEAL_BAND)
+        # The steel drive rod (DND-58) must be a purchased line.
+        self.assertTrue(any("Steel drive rod" in x["item"] for x in rows))
+        # The optimistic $388.10 scenario must be labelled as non-working.
+        ref = [x for x in rows if x["item"].startswith("scenario reference")]
+        self.assertTrue(ref and "NOT the working scenario" in ref[0]["note"])
 
     def test_adr_document_carries_the_decisive_numbers(self):
         self.assertTrue(ADR.exists(), f"missing ADR {ADR}")

@@ -30,7 +30,7 @@ fabrication/
     part_set.py             the part list (drives everything below)
     render_fab_parts.py     render + mesh-validate the full set
     gen_manifests.py        generate the print + assembly manifests
-    fab_package_checks.py   CI coherence gate (C1-C6)
+    fab_package_checks.py   CI coherence gate (C1-C8)
 ```
 
 ## 2. How to print and build (board route)
@@ -88,6 +88,15 @@ forward.
   `platen_module` is a 27 × 27 / 137.16 × 137.16 × 7 mm plate. `fab_package_checks.py`
   **C7 fails if any part is a reduced witness without a declared real envelope
   or a documented sub-tile route**, so this cannot silently regress.
+- **Purchased BOM reconciled to the promoted model (DND-65).** The assembly
+  manifest's purchased-BOM table carries the **working** figures and the
+  **$404.60 delivered** total (DND-54 allowance units + the block's own channels
+  + the DND-58 sourced steel drive rod), equal to
+  `s5r_register.bom(rows_in_bank=4)["delivered_usd"]`. The optimistic-sourced
+  $387.18 and the superseded $388.10 header are shown only as explicitly labelled
+  non-working references. `fab_package_checks.py` **C8 fails if the manifest BOM
+  total contradicts the promoted model, if the steel-rod line is absent, or if
+  $388.10 is headlined as working**, so this cannot silently regress.
 - **Sub-tile fallback route.** If a board's useful bed is under 137.16 mm, the
   cartridge prints as a 3 × 3 set of `cell_cartridge_tile` parts (9 × 9 cells =
   45.72 × 45.72 mm each; 9 tiles per cartridge, 81 per field) bolted on the
