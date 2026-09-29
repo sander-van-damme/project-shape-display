@@ -177,3 +177,14 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
 The machine is **not** claimed print-ready or physically validated. It is a
 buildable *definition* whose every program gate is shown to pass on the DND-27
 evidence classes, at 60 % of S5-R's delivered cost.
+
+> **Falsifier audit [DND-74](/DND/issues/DND-74) — gate G3 does not stand as
+> written.** The adversarial audit
+> [`07-evidence-and-decisions/dnd74-s6lc-falsification.md`](../../07-evidence-and-decisions/dnd74-s6lc-falsification.md)
+> shows `lift_axis()` sizes the platen torque on one bank (800 cells) while the
+> write is global over 6,400 cells; corrected, the lift needs ≥1.63 N·m vs the
+> 0.30 N·m motor (**G3 fails ~5.4×**). It also shows the release-force "296 N
+> ceiling" is circular, the regional update is not bank-local, and the cost
+> headroom falls to $7.83 after honest allowances. Treat the "all gates pass /
+> 7.4 s / $162.13" headline as **pending a CTO `lift_axis()` fix**. Reproduce:
+> `python 07-evidence-and-decisions/falsifier_dnd74_checks.py`.
