@@ -18,4 +18,4 @@ Once the use case is understood:
 4. identify [research questions](../05-research-questions/);
 5. answer them with [experiments](../06-experiments/);
 6. consolidate the resulting [evidence and decisions](../07-evidence-and-decisions/);
-7. maintain the best-supported integrated state in [current design](../08-current-design/).
+7. maintain the best-supported integrated state in [integrated designs](../08-integrated-designs/README.md) (stage 08 may hold several complete machine architectures, each with its own status).

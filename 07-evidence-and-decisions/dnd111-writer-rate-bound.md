@@ -12,14 +12,14 @@
 - **Issue:** [DND-111](/DND/issues/DND-111) (CTO). Parent gate: [DND-110](/DND/issues/DND-110).
   Program: [DND-102](/DND/issues/DND-102).
 - **Architecture:** A1 binary-latch + shared writer/reader,
-  [`10-reliability-mask/`](../10-reliability-mask/README.md).
+  [`10-reliability-mask/`](../08-integrated-designs/a1-reliability-first/README.md).
 - **Criteria of record:** [`02-design-criteria/README.md`](../02-design-criteria/README.md)
   (strengthened by [DND-103](/DND/issues/DND-103)).
 - **Evidence class:** **CALCULATION over sourced component-class limits + CAD**.
   No print, no purchase, no measurement ([DND-27](/DND/issues/DND-27)). No board
   contact ([DND-32](/DND/issues/DND-32)).
-- **Deliverable:** [`10-reliability-mask/analysis/a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py),
-  [`10-reliability-mask/scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad),
+- **Deliverable:** [`10-reliability-mask/analysis/a1_writer_rate.py`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py),
+  [`10-reliability-mask/scad/a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad),
   the updated model/checks/README, and this ADR.
 - **Outcome: (a) BOUNDED.** The decisive number is now a bounded calculation,
   not an unconstrained placeholder.
@@ -40,7 +40,7 @@ coupon. So the honest next step (the DND-54 pattern) was to decide the rate
 
 ## 2. Method
 
-[`a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py) bounds
+[`a1_writer_rate.py`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py) bounds
 four independent per-cell limits and takes the binding one:
 
 1. **Stop-and-go** kinematics: move one pitch, stop, settle.
@@ -114,7 +114,7 @@ parallelism rather than an over-optimistic number.
 
 ### 3.3 Single-cell read resolution reduces to registration
 
-[`scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad)
+[`scad/a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad)
 models the reader over a 3×3 cell patch with the aperture at worst-case corner
 alignment. A 2 mm aperture at a 2 mm working gap makes a **3.072 mm spot**:
 

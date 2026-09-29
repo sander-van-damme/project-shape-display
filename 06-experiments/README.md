@@ -25,6 +25,7 @@ Every experiment should make clear:
 | [`test11_falsification_library/`](test11_falsification_library/) | Adversarial cheapest-rejection tests per survivor, per-cell reliability math and the shared Q5 isolation-rig protocol | Analytical + CAD + protocol; no printed/measured evidence |
 | [`test12_winner_convergence/`](test12_winner_convergence/) | S5 winner convergence stack-up (time, cost, reliability, isolation, K2 detent contact sweep) | Calculated/simulated + CAD; no printed/measured evidence |
 | [`test13_step6_load_structure_power/`](test13_step6_load_structure_power/) | Convergence Step 6: spliced full-span beam + platen at modelled column mass, lift torque-speed margin, flatness, power-cut behaviour | Calculated/simulated; no printed/measured evidence |
+| [`test14_low_cost_program/`](test14_low_cost_program/README.md) | Low-cost program: S5-R cost-trim **negative result** (`s5r_ultra`), the selected S6-LC machine's supporting screen (promoted to stage 08), DND-75 divergent machines, DND-76 primitives, DND-109 reliability-first cost envelope, DND-106/DND-107 reliability primitives and machines | Calculated + CAD + sourced; no printed/measured evidence |
 
 Test08 and Test09 contain the current quantitative engineering line. Their code, parameters, BOMs, CAD and measurement files remain separate because they are reproducible evidence rather than narrative documentation. Test11 adds the cross-cutting purchased-cost/sourcing/reliability model and the shared-drive family (S3/S4) with the S5 gate list as calculated evidence.
 

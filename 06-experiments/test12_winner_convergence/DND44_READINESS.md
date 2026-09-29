@@ -3,7 +3,7 @@
 > **⚠ Superseded in part by [DND-46](/DND/issues/DND-46) / [DND-48](/DND/issues/DND-48).**
 > The adversarial audit (`FALSIFIER_AUDIT.md`, `falsifier_checks.py`) broke three of the six
 > headlines below. **Use the robust register in
-> [`08-current-design/README.md` §7/§9](../../08-current-design/README.md), not the "After" column
+> [`08-current-design/README.md` §7/§9](../../08-integrated-designs/s5r-shared-drive-register/README.md), not the "After" column
 > here.** Summary of the corrections: **K1-service is 0.39–3.27 N/column** (not ≤0.39);
 > **K5 planning basis is $482.95** (not $424.95); **K8 is open** (at the repo's 40 mm free
 > length, 1 N → 0.356 mm, gate load 0.28 N — not 0.01 mm / ~9.4 N); **K6 is conditional on a

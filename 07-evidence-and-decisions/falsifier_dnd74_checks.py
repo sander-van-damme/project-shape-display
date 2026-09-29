@@ -3,7 +3,7 @@
 
 Run:  python3 07-evidence-and-decisions/falsifier_dnd74_checks.py
 
-Evidence class: CALCULATION on the repository's own declared 09-low-cost-variant/s6lc
+Evidence class: CALCULATION on the repository's own declared 08-integrated-designs/s6lc-low-cost
 constants, plus sourced-fact readings of the S1 screen. No print, no measurement
 (DND-27).
 
@@ -27,7 +27,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-S6LC_PY = REPO / "09-low-cost-variant" / "s6lc" / "analysis" / "s6lc.py"
+S6LC_PY = (REPO / "08-integrated-designs" / "s6lc-low-cost" / "analysis"
+           / "s6lc.py")
 
 FAILURES: list[str] = []
 CHECKS = 0

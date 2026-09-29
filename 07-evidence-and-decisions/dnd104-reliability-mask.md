@@ -10,7 +10,7 @@
 - **Criteria of record:** [`02-design-criteria/README.md`](../02-design-criteria/README.md)
   (strengthened by [DND-103](/DND/issues/DND-103), PR #83).
 - **Deliverable:** new candidate architecture `A1 binary-latch + shared
-  writer/reader` under [`10-reliability-mask/`](../10-reliability-mask/README.md).
+  writer/reader` under [`10-reliability-mask/`](../08-integrated-designs/a1-reliability-first/README.md).
 - **Evidence class:** **CALCULATION** over sourced FDM limits + sourced actuator
   ratings, plus **CAD** (real OpenSCAD + trimesh mesh validation). **No print, no
   purchase, no measurement** ([DND-27](/DND/issues/DND-27)). No board contact
@@ -42,8 +42,8 @@ The DND-104 brief required comparison of at least: S6-LC-style threshold masks;
 automatically punched film/sheet; continuous punched tape; reusable mechanical
 comb masks; automatically rewritten printed combs; and ≥1 novel alternative. The
 screen defines **seven** and prints every field for each
-([`reliability_mask.py`](../10-reliability-mask/analysis/reliability_mask.py),
-table in [`architecture_table.md`](../10-reliability-mask/analysis/architecture_table.md)):
+([`reliability_mask.py`](../08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py),
+table in [`architecture_table.md`](../08-integrated-designs/a1-reliability-first/analysis/architecture_table.md)):
 
 | # | Architecture | Family | Bought actuators | Silent elements | Full map | Parts |
 |---|---|---|---:|---:|---:|---:|

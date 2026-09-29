@@ -9,23 +9,23 @@ with the state, so a down cell is read at a ~42 mm gap with a ~24.5 mm spot
 that defeats A1's readback/retry reliability advantage. DND-114 turns the DND-113
 **PROPOSED** common-height target into a **CAD-validated artifact**.
 
-- **Cell CAD** (`10-reliability-mask/scad/a1_binary_latch_cell.scad`): a
+- **Cell CAD** (`08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad`): a
   parameterised common-height flag. **CH-A (adopted)** — a frame-fixed reflective
   vane on the frame cradle in the latch lane, top face at
   `z = TRAVEL + 3 = 43 mm`; because the cradle is frame-anchored, the target z
   does **not** move with the column, so **Δz = 0 by construction** for both
   states. **CH-B (fallback)** — an arm-carried flag at radius `r` whose mean z
   shifts by the hinge arc. New `part="flag"` printable selector and self-checks.
-- **Reader CAD** (`10-reliability-mask/scad/a1_reader_head.scad`): the flag is
+- **Reader CAD** (`08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad`): the flag is
   read at **one fixed standoff** (1.0 mm, dedicated 0.60 mm aperture); the
   schematic DND-113 flag is replaced by the real target + `flag_reader_head()`,
   with flag-vs-neighbour self-checks.
-- **Model** (`10-reliability-mask/analysis/a1_writer_rate.py`):
+- **Model** (`08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py`):
   `common_height_read_target()` now reports the **adopted** CH-A target (Δz=0)
   and the CH-B bound; new `flag_read_contrast()` computes the fixed-standoff
   geometry; `read_resolution_bound()` records both the as-drawn defect and
   `resolves_single_cell_with_common_height_target = True`.
-- **Render** (`10-reliability-mask/analysis/render_a1_cad.py`): renders +
+- **Render** (`08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py`): renders +
   mesh-validates the `flag` part and **fails hard** if the common-height checks
   do not pass.
 - **Docs:** new ADR

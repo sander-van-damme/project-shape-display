@@ -11,8 +11,8 @@
 
 - **Issue:** [DND-112](/DND/issues/DND-112) (Falsifier). Audited issue: [DND-111](/DND/issues/DND-111) (CTO).
   Parent gate: [DND-110](/DND/issues/DND-110). Program: [DND-102](/DND/issues/DND-102).
-- **Artifact under audit:** [`10-reliability-mask/analysis/a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py),
-  [`10-reliability-mask/scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad),
+- **Artifact under audit:** [`10-reliability-mask/analysis/a1_writer_rate.py`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py),
+  [`10-reliability-mask/scad/a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad),
   the ADR [`dnd111-writer-rate-bound.md`](dnd111-writer-rate-bound.md), and the
   re-derived model/checks/README.
 - **Companion checker:** [`falsifier_dnd112_checks.py`](falsifier_dnd112_checks.py) — stdlib-only,

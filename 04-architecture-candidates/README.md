@@ -249,15 +249,17 @@ from analogies into concrete machines and gives S5 an explicit gate list. It is
 | S4 shared-bus tiles | 64 tiles in parallel | strong | printed clutch (bought fails at 64×$6) | local ratchet | correlated bus backlash |
 | S5 rotary reference | 80 cells/station | weak/medium | 80 motors/drivers | rotor stop | five open Test09 gates; $1.058 motor ceiling |
 
-The search does **not** justify promotion into `08-current-design/`. S1–S4 are
+The search does **not** justify promotion into [`08-integrated-designs/`](../08-integrated-designs/README.md). S1–S4 are
 architecture hypotheses whose fastest falsification tests should precede detailed
 CAD or BOM optimization. [Test11](../06-experiments/test11_shared_drive_gate_analysis/)
 supplies the ordered rejection tests and 3D-printable coupon for S3/S4 plus the
 S5 gate list; it is calculated evidence and has not been printed or measured.
 
 > **Update ([DND-35](/DND/issues/DND-35), ADR-002):** the survivor field is now
-> converged. **S5 is promoted to [`08-current-design/`](../08-current-design/README.md)**
-> as the single buildable winner; S1/S2/S4 are parked and S3 is killed, each with recorded
+> converged. **S5 was promoted to `08-current-design/`** (the single-winner stage since
+> retired by [DND-117](/DND/issues/DND-117)); the S5-R package now lives at
+> [`08-integrated-designs/s5r-shared-drive-register/`](../08-integrated-designs/s5r-shared-drive-register/README.md)
+> as the buildable winner package; S1/S2/S4 are parked and S3 is killed, each with recorded
 > evidence in
 > [`07-evidence-and-decisions/convergence-decision-2026-09-b.md`](../07-evidence-and-decisions/convergence-decision-2026-09-b.md).
 > This candidate table is preserved as the search record.

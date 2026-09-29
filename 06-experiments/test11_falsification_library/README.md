@@ -102,7 +102,7 @@ evidence.
   This test does not duplicate it; it adds the reliability and isolation framing
   Test09's physical plan lacks. The cam-buckling 5 N abuse gate remains **not
   passed** even in the ideal model (Test08: ~4.96 N).
-- **No candidate is promoted** to [`08-current-design/`](../../08-current-design/).
+- **No candidate is promoted** to [`08-current-design/`](../../08-integrated-designs/s5r-shared-drive-register).
 
 ## Reproduce
 

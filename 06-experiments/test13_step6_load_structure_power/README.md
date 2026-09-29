@@ -51,7 +51,7 @@ Rails: **8 × 20 × 30 mm hollow tube, 2 mm wall** (Test09 coupon section),
 | Spliced @ 101.6 mm support spacing | **0.097 mm** | 0.027 mm | pass |
 
 **Finding S-1 (support spacing):** at the *soft printed* modulus the 203.2 mm spacing
-assumed in [`08-current-design`](../../08-current-design/README.md) §6 does **not** meet the
+assumed in [`08-current-design`](../../08-integrated-designs/s5r-shared-drive-register/README.md) §6 does **not** meet the
 0.25 mm flatness gate once the splice is modelled (`0.514 mm > 0.25 mm`). The largest
 spliced span that meets the gate at soft E is **151.4 mm**. The design lever is therefore
 either (a) support spacing **≤ ~150 mm** (i.e. the 406.4 mm axis is split into **3
@@ -124,6 +124,6 @@ torque-speed) for any sibling that keeps a common lift.
 ## 8. Links
 
 - Plan: [`07-evidence-and-decisions/convergence-plan.md`](../../07-evidence-and-decisions/convergence-plan.md) §3 Step 6.
-- Winner: [`08-current-design`](../../08-current-design/README.md) (S5) — §6 support/frame text is superseded by Finding S-1.
+- Winner: [`08-current-design`](../../08-integrated-designs/s5r-shared-drive-register/README.md) (S5) — §6 support/frame text is superseded by Finding S-1.
 - S3 gate: [PR #30](https://github.com/sander-van-damme/project-shape-display/pull/30), [DND-4](/DND/issues/DND-4).
 - Source issue: [DND-43](/DND/issues/DND-43); parent convergence [DND-35](/DND/issues/DND-35).

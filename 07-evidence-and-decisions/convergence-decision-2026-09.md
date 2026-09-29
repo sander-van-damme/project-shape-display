@@ -10,7 +10,7 @@
 
 ## 1. Decision
 
-**No architecture is promoted to [`08-current-design/`](../08-current-design/README.md).**
+**No architecture is promoted to [`08-current-design/`](../08-integrated-designs/s5r-shared-drive-register/README.md).**
 
 The surviving field S1–S5 is **one bet in five shapes**, not five independent architectures:
 

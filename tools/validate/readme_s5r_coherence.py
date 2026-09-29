@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """DND-64 CI coherence gate: the promoted-machine README must match the model.
 
-The source-of-truth document `08-current-design/README.md` must lead with the
+The source-of-truth document `08-integrated-designs/s5r-shared-drive-register/README.md` must lead with the
 **promoted S5-R machine**, not the superseded incumbent S5. This gate fails if
 the README's *promoted-machine headline* contradicts the promoted model
 (`06-experiments/test12_winner_convergence/s5r_register.py`), so the document
@@ -48,7 +48,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
-README = REPO / "08-current-design" / "README.md"
+README = (REPO / "08-integrated-designs" / "s5r-shared-drive-register"
+          / "README.md")
 MODEL = (REPO / "06-experiments" / "test12_winner_convergence"
          / "s5r_register.py")
 

@@ -6,7 +6,7 @@ This repository develops a tabletop shape display for physical Dungeons & Dragon
 
 ## Engineering flow
 
-The numbered root directories are intentionally ordered. Read them as the project argument from problem definition to current design:
+The numbered root directories are intentionally ordered. Read them as the project argument from problem definition to integrated designs:
 
 1. [`01-project-description/`](01-project-description/) — what is being built and why.
 2. [`02-design-criteria/`](02-design-criteria/) — requirements, scale, fabrication context and success criteria.
@@ -19,9 +19,10 @@ The numbered root directories are intentionally ordered. Read them as the projec
 5. [`05-research-questions/`](05-research-questions/) — unresolved hypotheses, investigations and research directions.
 6. [`06-experiments/`](06-experiments/) — calculations, simulations, CAD, prototypes and physical tests that generate evidence.
 7. [`07-evidence-and-decisions/`](07-evidence-and-decisions/) — consolidated evidence, architecture investigations and durable decisions.
-8. [`08-current-design/`](08-current-design/) — the current integrated design state, including an explicit statement when no architecture is yet qualified.
-9. [`09-low-cost-variant/`](09-low-cost-variant/) — the ultra-low-cost (<$250 purchased) exploration: S6-LC selected, S5-R-trim negative result.
-10. [`10-reliability-mask/`](10-reliability-mask/) — the reliability-first low-cost program ([DND-104](https://github.com/sander-van-damme/project-shape-display/issues)): seven-architecture screen and the selected `A1 binary-latch + shared writer/reader` candidate (zero silent-error cells).
+8. [`08-integrated-designs/`](08-integrated-designs/README.md) — the **single stage for complete machine architectures**. Stage 08 may hold **multiple** integrated-design packages, each with its own status (see the [stage index](08-integrated-designs/README.md)); a design becoming integrated does **not** delete or overwrite previous integrated designs.
+
+The numbered flow **terminates at 08**. A new machine architecture does **not** receive a new
+numbered root directory — see [New designs do not get new numbered stages](#new-designs-do-not-get-new-numbered-stages) below.
 
 
 ## Core target
@@ -40,11 +41,31 @@ project description
   -> research questions
   -> experiments
   -> evidence and decisions
-  -> current design
+  -> integrated designs (08, may hold several)
   -> new questions / updated knowledge
 ```
 
 Experiments are evidence, not the primary place to store durable engineering knowledge. Conclusions that survive testing should be fed back into the relevant mechanism, principle or architecture section.
+
+## New designs do not get new numbered stages
+
+The root numbers describe the **engineering lifecycle**, not architecture versions. Do not
+create `09-*`, `10-*`, `11-*`, … for a new machine.
+
+- A new **idea / mechanism / system concept** belongs in [`04-architecture-candidates/`](04-architecture-candidates/).
+- Evidence-generating work (calculations, simulations, CAD, screens, falsification tests)
+  belongs in [`06-experiments/`](06-experiments/).
+- Durable conclusions, comparisons and selection/rejection decisions belong in
+  [`07-evidence-and-decisions/`](07-evidence-and-decisions/).
+- Only an architecture that has matured into a **complete machine** is placed under
+  [`08-integrated-designs/<semantic-design-name>/`](08-integrated-designs/README.md).
+  Use meaning-bearing names, never `design-1/`, `design-2/`, or a new number.
+
+Promotion into stage 08 requires at minimum a coherent full-system mechanism, interaction with
+all important product requirements, timing/cost/scalability/reliability analysis, explicit
+unresolved risks, enough CAD/calculation evidence to evaluate the architecture, and an
+evidence/decision record explaining the promotion. Stage 08 must not be flooded with raw
+exploration.
 
 ## Useful entry points
 
@@ -54,7 +75,7 @@ Experiments are evidence, not the primary place to store durable engineering kno
 - [Research questions](05-research-questions/)
 - [Experiment guide](06-experiments/README.md)
 - [Evidence and decisions](07-evidence-and-decisions/)
-- [Current design state](08-current-design/)
+- [Integrated designs (stage 08)](08-integrated-designs/README.md)
 
 ## Copyright
 

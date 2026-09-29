@@ -35,7 +35,7 @@ currently rejected or unsupported on at least one conjunct:
 | Regional isolation | Architecturally plausible in S2/S4; bounded analytically (beam/stiction) but no measured disturbance limit exists (Q5). |
 | Reliability | At 0.01 % per-cell error, P(all 6400 correct) ≈ 52.7 %. No per-cell feedback in any cost model; no counted coupon possible. |
 
-**Therefore no survivor can be promoted to [`08-current-design/`](../08-current-design/README.md)
+**Therefore no survivor can be promoted to [`08-current-design/`](../08-integrated-designs/s5r-shared-drive-register/README.md)
 on present evidence.** Promotion requires a survivor to pass its named **analytic/simulation/CAD**
 gate below, at final pitch where the gate is about density. Under board directive
 [DND-27](/DND/issues/DND-27) no physical gate is available, so promotion also requires the residual
@@ -104,7 +104,7 @@ These were previously the job of a printed or measured coupon. They remain on th
 
 Apply in order; the first matching rule is the candidate's disposition.
 
-1. **Promote** a survivor to [`08-current-design/`](../08-current-design/README.md) only when it has
+1. **Promote** a survivor to [`08-current-design/`](../08-integrated-designs/s5r-shared-drive-register/README.md) only when it has
    a complete integrated machine description + three-scenario BOM + risk register **and** an
    analytic/simulation/CAD pass at final pitch on its named gate in §3 (§3.1), **and** the board
    has explicitly accepted the §3.2 qualitative risks. No physical pass is available under DND-27.

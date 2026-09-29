@@ -1,5 +1,12 @@
 # ADR-002 — Convergence to one buildable machine: S5 promoted to `08-current-design`
 
+> **Relocation note ([DND-117](/DND/issues/DND-117), 2026-09).** This ADR is preserved in its
+> original historical wording: it was written when `08-current-design/` was the single-winner
+> stage. That stage has since been retired; the S5-R package now lives at
+> [`08-integrated-designs/s5r-shared-drive-register/`](../08-integrated-designs/s5r-shared-drive-register/README.md)
+> and new machine designs no longer create numbered root stages. Links below are repointed to the
+> current location; the wording is not rewritten.
+
 - **Status:** Accepted (CTO), delegated merge authority ([DND-19](/DND/issues/DND-19)).
 - **Date:** 2026-09-28.
 - **Owner:** CTO.
@@ -18,7 +25,7 @@
 ## 1. Decision
 
 **Promote S5 — programmed stepped rotary stops + common lift — to
-[`08-current-design/`](../08-current-design/README.md) as the single buildable winner.**
+[`08-current-design/`](../08-integrated-designs/s5r-shared-drive-register/README.md) as the single buildable winner.**
 
 Every other candidate is recorded as killed or parked with binding evidence (§2). The
 decision rests on the fact that S5 is the **only** candidate that simultaneously has:

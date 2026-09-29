@@ -10,9 +10,19 @@ It should distinguish:
 - a rejected **specific hypothesis** from rejection of an entire mechanism family;
 - architecture comparisons from product qualification.
 
-The evidence here should update the knowledge sections in stages 03 and 04 and determine what is allowed to enter [`08-current-design/`](../08-current-design/).
+The evidence here should update the knowledge sections in stages 03 and 04 and determine what is allowed to enter [`08-integrated-designs/`](../08-integrated-designs/README.md).
 
 The **Evidence matrix** below is the compact status view. The **Architecture investigation** section records fuller system-level reasoning.
+
+> **Path relocation note ([DND-117](/DND/issues/DND-117), 2026-09).** Records written before the
+> DND-117 restructure refer to the old top-level stages `08-current-design/`,
+> `09-low-cost-variant/` and `10-reliability-mask/`. Those stages were retired; their content now
+> lives at [`08-integrated-designs/s5r-shared-drive-register/`](../08-integrated-designs/s5r-shared-drive-register/README.md),
+> [`06-experiments/test14_low_cost_program/`](../06-experiments/test14_low_cost_program/README.md)
+> (with the selected S6-LC machine at [`08-integrated-designs/s6lc-low-cost/`](../08-integrated-designs/s6lc-low-cost/README.md)),
+> and [`08-integrated-designs/a1-reliability-first/`](../08-integrated-designs/a1-reliability-first/README.md)
+> respectively. Historical wording in individual ADRs is preserved; where a link still says
+> `08-current-design/` the target is repointed to the current location.
 
 ## Evidence matrix
 
@@ -47,7 +57,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive
 spec: at the soft printed modulus the 203.2 mm support spacing assumed in
-[`08-current-design`](../08-current-design/README.md) fails the 0.25 mm flatness gate
+the integrated design [`08-integrated-designs/s5r-shared-drive-register/`](../08-integrated-designs/s5r-shared-drive-register/README.md) fails the 0.25 mm flatness gate
 (**0.514 mm**), so the axis needs **≤ ~150 mm** support spacing (3 cartridges/axis) or a
 stiffer rail; and the Test09 **8 mm** lift lead fails the torque-speed gate (**0.51×** margin
 against the sourced motor allowance), needing a **≤ 2 mm** lead or a larger motor. A power cut
@@ -65,7 +75,7 @@ this is a permanently qualitative risk recorded in
 ### Convergence decision (CTO, 2026-09-28)
 
 **Superseded by [ADR-002](convergence-decision-2026-09-b.md) ([DND-35](/DND/issues/DND-35)): S5 is
-promoted to [`08-current-design/`](../08-current-design/README.md) as the single buildable winner.**
+promoted to `08-current-design/` (the single-winner stage since retired by [DND-117](/DND/issues/DND-117); now [`08-integrated-designs/s5r-shared-drive-register/`](../08-integrated-designs/s5r-shared-drive-register/README.md)) as the single buildable winner.**
 ADR-001 (below) recorded the earlier "no promotion" posture and is preserved as the search record.
 
 **No survivor was promoted under ADR-001.** See
@@ -98,7 +108,7 @@ DND-91 audit below**: it adds the one break DND-91 did not find — the lift-axi
 sized on 1/8 the load — and converges with DND-91 on cost, ceiling, timing, reliability
 and regional behaviour. Reproducible checks:
 [`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated). Target:
-[`09-low-cost-variant/s6lc/`](../09-low-cost-variant/s6lc/README.md)
+[`08-integrated-designs/s6lc-low-cost/`](../08-integrated-designs/s6lc-low-cost/README.md)
 ([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)).
 
 **Unique break — lift-axis gate G3.** `lift_axis()` computes the platen load on
@@ -146,7 +156,7 @@ falsification experiments.
 
 ### Falsifier adversarial audit of S6-LC (DND-91 / DND-74, 2026-09)
 
-The DND-72 consolidation selected **S6-LC** (`09-low-cost-variant/s6lc/`, $139.77 parts →
+The DND-72 consolidation selected **S6-LC** (`08-integrated-designs/s6lc-low-cost/`, $139.77 parts →
 $162.13 delivered, 7.4 s full map, `PROMOTE_TO_09`) as the ultra-low-cost machine of record. The
 repointed Falsifier audit is
 [`dnd91-s6lc-falsification.md`](dnd91-s6lc-falsification.md), with a CI gate in
@@ -192,7 +202,7 @@ corrected state and keep the open attacks locked.
 [`dnd98-s6lc-bom-reratification.md`](dnd98-s6lc-bom-reratification.md) is the **independent
 re-ratification** of the corrected (post-DND-93) S6-LC purchased BOM — supersedes the DND-73
 ratification of the uncorrected BOM — CI-gated by
-`09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py` (68 checks) with the ratified artifact
+`08-integrated-designs/s6lc-low-cost/ratify/s6lc_bom_reratify_checks.py` (68 checks) with the ratified artifact
 `s6lc_bom_ratified.csv`. **Verdict: the `<$250 purchased, excluding 3D-printed parts` mission gate
 HOLDS** ($226.77, margin **+$23.23**); the repo's stricter **$250 *delivered* convention FAILS**
 ($263.05, −$13.05) — both stated, neither hidden. Findings: the +$87.00 growth is the NEMA17→NEMA23
@@ -207,7 +217,7 @@ remains measurement-gated (G7 unresolved, coupon C1).
 
 [`falsifier_dnd104_criteria.md`](falsifier_dnd104_criteria.md) is the **frozen, pre-registered**
 attack list for the reliability-first program [DND-104](/DND/issues/DND-104), written **before** the
-CTO's `10-reliability-mask/` model exists so convergence cannot cherry-pick gates. CI gate:
+CTO's [`08-integrated-designs/a1-reliability-first/`](../08-integrated-designs/a1-reliability-first/README.md) model exists so convergence cannot cherry-pick gates. CI gate:
 [`falsifier_dnd104_checks.py`](falsifier_dnd104_checks.py) (26 self-test checks; `audit(model)` /
 `--model <path>` applies the same checklist to the CTO model when it lands). It re-bases the
 DND-91/DND-74 method onto the [DND-103](/DND/issues/DND-103) reliability-first criteria and pins:
@@ -223,10 +233,10 @@ handoff; no board contact here.
 ### A1 writer/reader rate + single-cell read, analytically bounded (DND-111, 2026-09)
 
 [DND-110](/DND/issues/DND-110) left A1's whole timing argument resting on the bare placeholder
-`HEAD_RATE_CELLS_S = 1000.0` (1 ms/cell) in [`10-reliability-mask/analysis/reliability_mask.py`](../10-reliability-mask/analysis/reliability_mask.py).
+`HEAD_RATE_CELLS_S = 1000.0` (1 ms/cell) in [`a1-reliability-first/analysis/reliability_mask.py`](../08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py).
 [DND-111](/DND/issues/DND-111) replaces it with a sourced/CAD derivation
-([`10-reliability-mask/analysis/a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py) +
-[`scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad); ADR
+([`a1-reliability-first/analysis/a1_writer_rate.py`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py) +
+[`scad/a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad); ADR
 [`dnd111-writer-rate-bound.md`](dnd111-writer-rate-bound.md)):
 
 - **Stop-and-go is excluded** at 5.08 mm pitch: 30 cells/s at the sourced X1C acceleration
@@ -330,7 +340,7 @@ were adversarially audited by the Falsifier ([DND-46](/DND/issues/DND-46),
 [`FALSIFIER_AUDIT.md`](../06-experiments/test12_winner_convergence/FALSIFIER_AUDIT.md), 19 CI
 checks). **Three of the six closures do not survive as published** — K1-service, K5 and K8 — and
 K6/K11 are reframed. [DND-48](/DND/issues/DND-48) folds the robust figures into the register
-([`08-current-design/README.md` §7/§9](../08-current-design/README.md)) and the company `plan`:
+([`s5r-shared-drive-register/README.md` §7/§9](../08-integrated-designs/s5r-shared-drive-register/README.md)) and the company `plan`:
 **cost $482.95** (not $424.95), **service buckling 0.39–3.27 N/column**, **lateral gate exceeded
 at the 40 mm extension** (0.356 mm at 1 N), **time conditional on a loaded dwell AND a ≥268 pps
 loaded rate**, **cycle life ">=1e6, order unknown"**. Only **K10** remains a clean analytic
@@ -458,7 +468,7 @@ These bounds justify rejecting bought per-cell selection and ordinary serial
 visible writing as baselines. They do **not** establish that threshold gates,
 planar tiles, a multi-row head or module clutches work. The broad candidate
 record therefore retains four new survivor families alongside the rotary-stop
-reference and explicitly leaves `08-current-design/` unchanged.
+reference and explicitly leaves the S5-R integrated design unchanged.
 
 ## Purchased-cost, sourcing, printability and reliability evidence — September 2026
 

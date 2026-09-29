@@ -1,0 +1,133 @@
+{
+  "scad": "08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad",
+  "parts": {
+    "column": {
+      "stl": "08-integrated-designs/a1-reliability-first/cad/stl/column.stl",
+      "triangles": 44,
+      "watertight": true,
+      "bbox_mm": [
+        3.6,
+        3.6,
+        46.0
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\"",
+        "ECHO: \"HINGE_X=2.225 X_CLEAR_NB=1.055 X_CLEAR_OWN=0.425\"",
+        "ECHO: \"CH flag fits lane in X: true (FLAG_T/2=0.22 <= X_CLEAR_NB=1.055)\"",
+        "ECHO: \"CH-A target is frame-fixed: DeltaZ=0 at Z_FLAG_TOP=43\"",
+        "ECHO: \"CH-B hinge-arc DeltaZ=0.621166 mm (DOF budget 1 mm); in DoF: true\"",
+        "ECHO: \"CH-B max arm radius in DoF: R_FLAG_MAX=1.93185 mm\"",
+        "ECHO: \"min feature check (flag): true\""
+      ]
+    },
+    "latch": {
+      "stl": "08-integrated-designs/a1-reliability-first/cad/stl/latch.stl",
+      "triangles": 124,
+      "watertight": true,
+      "bbox_mm": [
+        1.0,
+        1.2,
+        6.6
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\"",
+        "ECHO: \"HINGE_X=2.225 X_CLEAR_NB=1.055 X_CLEAR_OWN=0.425\"",
+        "ECHO: \"CH flag fits lane in X: true (FLAG_T/2=0.22 <= X_CLEAR_NB=1.055)\"",
+        "ECHO: \"CH-A target is frame-fixed: DeltaZ=0 at Z_FLAG_TOP=43\"",
+        "ECHO: \"CH-B hinge-arc DeltaZ=0.621166 mm (DOF budget 1 mm); in DoF: true\"",
+        "ECHO: \"CH-B max arm radius in DoF: R_FLAG_MAX=1.93185 mm\"",
+        "ECHO: \"min feature check (flag): true\""
+      ]
+    },
+    "cradle": {
+      "stl": "08-integrated-designs/a1-reliability-first/cad/stl/cradle.stl",
+      "triangles": 36,
+      "watertight": true,
+      "bbox_mm": [
+        5.08,
+        3.6,
+        3.0
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\"",
+        "ECHO: \"HINGE_X=2.225 X_CLEAR_NB=1.055 X_CLEAR_OWN=0.425\"",
+        "ECHO: \"CH flag fits lane in X: true (FLAG_T/2=0.22 <= X_CLEAR_NB=1.055)\"",
+        "ECHO: \"CH-A target is frame-fixed: DeltaZ=0 at Z_FLAG_TOP=43\"",
+        "ECHO: \"CH-B hinge-arc DeltaZ=0.621166 mm (DOF budget 1 mm); in DoF: true\"",
+        "ECHO: \"CH-B max arm radius in DoF: R_FLAG_MAX=1.93185 mm\"",
+        "ECHO: \"min feature check (flag): true\""
+      ]
+    },
+    "flag": {
+      "stl": "08-integrated-designs/a1-reliability-first/cad/stl/flag.stl",
+      "triangles": 12,
+      "watertight": true,
+      "bbox_mm": [
+        0.44,
+        1.6,
+        0.82
+      ],
+      "fits_x1c_bed": true,
+      "echo": [
+        "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+        "ECHO: \"LATCH_T+CLEAR=0.65 <= OWNED_LANE=0.74\"",
+        "ECHO: \"latch fits owned lane: true\"",
+        "ECHO: \"min feature check (latch): true\"",
+        "ECHO: \"stop land (2 lines): true\"",
+        "ECHO: \"HINGE_X=2.225 X_CLEAR_NB=1.055 X_CLEAR_OWN=0.425\"",
+        "ECHO: \"CH flag fits lane in X: true (FLAG_T/2=0.22 <= X_CLEAR_NB=1.055)\"",
+        "ECHO: \"CH-A target is frame-fixed: DeltaZ=0 at Z_FLAG_TOP=43\"",
+        "ECHO: \"CH-B hinge-arc DeltaZ=0.621166 mm (DOF budget 1 mm); in DoF: true\"",
+        "ECHO: \"CH-B max arm radius in DoF: R_FLAG_MAX=1.93185 mm\"",
+        "ECHO: \"min feature check (flag): true\""
+      ]
+    }
+  },
+  "reader_head": {
+    "scad": "08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad",
+    "stl": "08-integrated-designs/a1-reliability-first/cad/stl/reader_head.stl",
+    "triangles": 922,
+    "watertight": true,
+    "bbox_mm": [
+      24.508,
+      24.508,
+      106.0
+    ],
+    "echo": [
+      "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+      "ECHO: \"WORK_GAP=2 APERTURE=2 HALF_ANGLE=15\"",
+      "ECHO: \"SPOT_UP_diameter=3.0718\"",
+      "ECHO: \"SPOT_DOWN_diameter=24.5077 = 4.82436 pitches\"",
+      "ECHO: \"CORNER_HYP=2.54558 CORNER_REACH_corrected=4.08148\"",
+      "ECHO: \"NEIGHBOUR_NEAR_EDGE=3.28 SPOT_CONTAMINATES=false\"",
+      "ECHO: \"spot fits top face at centre: true\"",
+      "ECHO: \"down-state single-cell read resolvable: false\"",
+      "ECHO: \"gap for centre fit: 2.98564\"",
+      "ECHO: \"FLAG_X=2.225 Z_FLAG_TOP=43 (frame-fixed; DeltaZ=0 for both states)\"",
+      "ECHO: \"FLAG_GAP=1 FLAG_AP=0.6 FLAG_SPOT_X=1.1359 X_CLEAR_NB=1.055\"",
+      "ECHO: \"flag spot clears neighbour body: true\"",
+      "ECHO: \"flag spot fits flag Y width: true\""
+    ]
+  },
+  "evidence_class": "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). NOT a print, NOT a measurement (DND-27).",
+  "provisional_rules": {
+    "min_feature_mm": 0.44,
+    "min_wall_mm": 0.88,
+    "x1c_bed_mm": 256.0
+  }
+}

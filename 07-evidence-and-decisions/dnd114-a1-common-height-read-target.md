@@ -11,11 +11,11 @@
   `08-current-design/` and `09-low-cost-variant/` untouched.
 - **Branch:** `cto/dnd114-common-height-read-target` from `main` (`1449b72`).
 - **Deliverables:** the parameterised flag in
-  [`a1_binary_latch_cell.scad`](../10-reliability-mask/scad/a1_binary_latch_cell.scad),
+  [`a1_binary_latch_cell.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad),
   the flag-read geometry in
-  [`a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad), the new
-  [`common_height_read_target()` / `flag_read_contrast()`](../10-reliability-mask/analysis/a1_writer_rate.py),
-  the rendered watertight meshes + [`render_record.json`](../10-reliability-mask/cad/render_record.json),
+  [`a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad), the new
+  [`common_height_read_target()` / `flag_read_contrast()`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py),
+  the rendered watertight meshes + [`render_record.json`](../08-integrated-designs/a1-reliability-first/cad/render_record.json),
   the re-baselined [`falsifier_dnd114_checks.py`](falsifier_dnd114_checks.py), this
   ADR, and README §4.2a.
 - **Outcome: the DND-113 proposal is now a validated CAD artifact.** The read is

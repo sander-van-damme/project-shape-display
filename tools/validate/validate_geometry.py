@@ -50,7 +50,8 @@ SHARED = REPO / "06-experiments" / "test11_shared_drive_gate_analysis"
 BED_MM = 256.0
 
 # --- fixtures to render: (label, scad file, extra -D args) --------------------
-FAB_SCAD = REPO / "08-current-design" / "fabrication" / "scad" / "s5r_parts.scad"
+FAB_SCAD = (REPO / "08-integrated-designs" / "s5r-shared-drive-register"
+            / "fabrication" / "scad" / "s5r_parts.scad")
 RENDER_TARGETS = [
     ("j2_isolation_rig", FAB / "j2_isolation_rig.scad", []),
     ("selector_fanout_coupon", SHARED / "selector_fanout_coupon.scad", []),
@@ -64,7 +65,7 @@ RENDER_TARGETS = [
      / "s5r_bank.scad", ['-D', 'part="carriage"']),
     # DND-60/DND-61 complete printable part set. DND-61 renders the two
     # structural tiles at their true full size (no reduced witness blocks); see
-    # 08-current-design/fabrication/README.md.
+    # 08-integrated-designs/s5r-shared-drive-register/fabrication/README.md.
     ("s5r_fab_cell_cartridge", FAB_SCAD, ['-D', 'part="cell_cartridge"']),
     ("s5r_fab_rotor", FAB_SCAD, ['-D', 'part="rotor"']),
     ("s5r_fab_drive_pawl", FAB_SCAD, ['-D', 'part="drive_pawl"']),

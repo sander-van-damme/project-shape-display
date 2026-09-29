@@ -11,8 +11,8 @@
   `08-current-design/` and `09-low-cost-variant/` untouched.
 - **Branch:** `cto/dnd113-read-mechanism` from the DND-112 audit tip (`447c8bc`).
 - **Deliverables:** the corrected
-  [`a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py),
-  [`a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad), the
+  [`a1_writer_rate.py`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py),
+  [`a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad), the
   updated model/checks/README, this ADR, and the re-baselined
   [`falsifier_dnd112_checks.py`](falsifier_dnd112_checks.py).
 - **Outcome: the audit is accepted.** The rate axis stays **BOUNDED**; the
@@ -27,7 +27,7 @@ DND-113 asked for a or b. The honest answer is **b, with a proposed a**:
 
 **a. Common-height read target — does ANY A1 artifact read a single plane for
 both states?** **No.** The only reader artifact,
-[`scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad),
+[`scad/a1_reader_head.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad),
 targets the **column top face**, which moves `TRAVEL = 40 mm` with the state.
 No latch toe/flag read at fixed z is specified anywhere in A1. The audit is
 therefore **correct on the artifacts as they stand**. A common-height target is

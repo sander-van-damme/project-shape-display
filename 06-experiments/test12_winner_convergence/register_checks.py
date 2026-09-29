@@ -25,7 +25,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
-REGISTER = REPO / "08-current-design" / "README.md"
+REGISTER = (REPO / "08-integrated-designs" / "s5r-shared-drive-register"
+            / "README.md")
 READINESS = HERE / "DND44_READINESS.md"
 
 sys.path.insert(0, str(HERE))

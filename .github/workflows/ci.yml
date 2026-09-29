@@ -159,7 +159,7 @@ jobs:
           python checks.py
           python model.py > /dev/null
       - name: DND-64 promoted-machine README coherence gate
-        # Fails if 08-current-design/README.md's promoted-machine headline
+        # Fails if 08-integrated-designs/s5r-shared-drive-register/README.md's promoted-machine headline
         # (machine name, actuator count, full-map time, delivered cost) drifts
         # from the promoted model s5r_register.py, or if the superseded
         # incumbent S5 is presented as the current machine / live register.
@@ -170,8 +170,8 @@ jobs:
         # guidance, single-actuator reset) for the <$250 architecture. No
         # print, no measurement (DND-27).
         run: |
-          python 09-low-cost-variant/primitives/primitives.py > /dev/null
-          python 09-low-cost-variant/primitives/primitives_checks.py
+          python 06-experiments/test14_low_cost_program/primitives/primitives.py > /dev/null
+          python 06-experiments/test14_low_cost_program/primitives/primitives_checks.py
       - name: "DND-72 ultra-low-cost (<$250) variant screen + negative-result gate"
         # Pins the DND-72 negative result: the S5-R fixed base alone ($253.69
         # delivered) exceeds the $250 target; no sub-$250 configuration exists
@@ -179,8 +179,8 @@ jobs:
         # $345.90 (R6-W20-M2, 29.987 s). Fails if any headline drifts or the
         # promoted S5-R control numbers move.
         run: |
-          python 09-low-cost-variant/s5r_ultra.py > /dev/null
-          python 09-low-cost-variant/s5r_ultra_checks.py
+          python 06-experiments/test14_low_cost_program/s5r_ultra.py > /dev/null
+          python 06-experiments/test14_low_cost_program/s5r_ultra_checks.py
       - name: "DND-72 selected machine S6-LC gate (DND-93 + DND-97)"
         # Pins the SELECTED architecture: the S1-B broadcast threshold ratchet
         # S6-LC. After the DND-93 G3 fix + DND-97 mechanism repair the corrected
@@ -189,8 +189,8 @@ jobs:
         # half-lane cell fit, 0.45 leaf + P1 latch hold, G8 reliability reported
         # UNRESOLVED. Fails if any gate or headline drifts.
         run: |
-          python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
-          python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
+          python 08-integrated-designs/s6lc-low-cost/analysis/s6lc.py > /dev/null
+          python 08-integrated-designs/s6lc-low-cost/analysis/s6lc_checks.py
       - name: "DND-98 S6-LC purchased-BOM re-ratification gate (post-DND-93)"
         # Independently re-derives the CORRECTED (DND-93, DND-74 branch 1)
         # S6-LC purchased BOM line by line and pins the ceiling verdict:
@@ -200,8 +200,8 @@ jobs:
         # per-cell bought hardware; G7 reliability break-even is 1.57e-6.
         # Fails if any headline drifts. Sourced listings + CALCULATION (DND-27).
         run: |
-          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py --selftest
-          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py
+          python 08-integrated-designs/s6lc-low-cost/ratify/s6lc_bom_reratify.py --selftest
+          python 08-integrated-designs/s6lc-low-cost/ratify/s6lc_bom_reratify_checks.py
       - name: "DND-91 Falsifier findings RESOLUTION gate (DND-93 + DND-97)"
         # Locks the repaired S6-LC against regression to the broken headline. The
         # DND-91 audit broke A1 (cell fit), A2 (pawl spring + missing hold), A3
@@ -216,7 +216,7 @@ jobs:
         # DND-75 divergence folded onto the DND-72 track: A1 single-shaft cam,
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
-        run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
+        run: python 06-experiments/test14_low_cost_program/divergent/tools/run_divergent_checks.py
       - name: "DND-109 reliability-first cost/printability envelope gate"
         # Sourced-class cost envelope + FDM-printability rules for the
         # reliability-first (DND-104) mechanism classes. Pins the x1.16 delivered
@@ -224,7 +224,7 @@ jobs:
         # sensitivity (zero per-cell is mandatory), the flag integrity of the
         # media/consumable rows, and the 99%-map per-cell error budget. Sourced
         # listings + CALCULATION only (DND-27).
-        run: python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py
+        run: python 06-experiments/test14_low_cost_program/reliability_sourcing/cost_envelope_checks.py
       - name: "DND-106 reliability-first primitives gate (child of DND-104)"
         # InventorAlpha reliability-first cell/mask primitives: R1 toggle-rocker
         # row-shared state (80 decisions vs 6,400), R2 double-acting wedge-gate
@@ -235,7 +235,7 @@ jobs:
         # arithmetic (80x/800x looser q) and the <30 s visible budget are
         # pinned; the analytic CAD printability gate is wired for the new cell.
         # CALCULATION + CAD only (DND-27).
-        run: python 09-low-cost-variant/divergent/tools/run_reliability_checks.py
+        run: python 06-experiments/test14_low_cost_program/divergent/tools/run_reliability_checks.py
       - name: "DND-74 falsifier findings RESOLUTION gate (DND-93 + DND-97)"
         # Reproduces the DND-74 attack arithmetic as the historical record AND
         # asserts the fixes are in place (lift on 6400 cells, comb-tooth limit,
@@ -249,7 +249,7 @@ jobs:
         # "a coupon can kill but cannot crown" bound, correlated detection,
         # per-cell precision counts, S1 mask-write times (2,560 s / 56 s / 8.96 s),
         # the DND-46 hostile-reprice cost ladder, and the default-deny audit()
-        # contract used against 10-reliability-mask/ when it lands. CALCULATION (DND-27).
+        # contract used against 08-integrated-designs/a1-reliability-first/ when it lands. CALCULATION (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd104_checks.py
       - name: "DND-104 reliability-first architecture screen + reliability gate"
         # Pins the reliability-first program: seven materially different
@@ -261,10 +261,10 @@ jobs:
         # that every global-lift machine fails the tabletop-load gate (DND-91
         # A7). CALCULATION over sourced limits; no print/measurement (DND-27).
         run: |
-          python 10-reliability-mask/analysis/reliability_mask.py > /dev/null
-          python 10-reliability-mask/analysis/reliability_mask.py convergence > /dev/null
-          python 10-reliability-mask/analysis/reliability_mask_checks.py
-          python 10-reliability-mask/analysis/make_table.py
+          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py convergence > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
+          python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
 
       - name: "DND-111 analytic writer/reader rate bound"
         # Replaces the DND-104 placeholder HEAD_RATE_CELLS_S = 1000.0 with a
@@ -274,8 +274,8 @@ jobs:
         # CALCULATION + CAD only (DND-27); asserts outcome (a) Bounded and that
         # the derived full cycle clears <30 s at 8 heads including verification.
         run: |
-          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
-          python 10-reliability-mask/analysis/reliability_mask_checks.py
+          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
 
       - name: "DND-113 read-mechanism correction (resolves the DND-112 read finding)"
         # DND-113 accepts the DND-112 audit: the rate stays bounded, the
@@ -286,8 +286,8 @@ jobs:
         # The DND-112 companion checker is now a HARD GATE: every attack asserts
         # the resolved state, so --gate must exit 0. CALCULATION + CAD (DND-27).
         run: |
-          python 10-reliability-mask/analysis/reliability_mask_checks.py
-          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
+          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 
       - name: "DND-112 independent audit of the DND-111 rate/read bound (report)"
@@ -308,7 +308,7 @@ jobs:
         # companion checker is a HARD GATE: --gate must exit 0. CALCULATION + CAD
         # (DND-27); the top-face defect is still recorded, not erased.
         run: |
-          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
 
   dnd104-cad-render:
@@ -329,7 +329,7 @@ jobs:
       - name: Install mesh validation dependency
         run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11"
       - name: Render + mesh-validate the DND-104 A1 cell
-        run: python 10-reliability-mask/analysis/render_a1_cad.py
+        run: python 08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,
@@ -364,26 +364,26 @@ jobs:
         # failure there cannot hide this verification.
         run: |
           python -m pip install --quiet "numpy>=1.26" "pillow>=10"
-          python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py
-          python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py --check
+          python 08-integrated-designs/s6lc-low-cost/analysis/render_s6lc_images.py
+          python 08-integrated-designs/s6lc-low-cost/analysis/render_s6lc_images.py --check
       - name: Re-render the low-cost variant parts (best-effort CAD refresh)
         # Refreshes the STLs from the SCAD when the runner's OpenSCAD can. The
         # committed STLs are the CAD artifacts that the gate below validates, so
         # a version-specific CGAL seam artifact here must not fail the gate.
         continue-on-error: true
-        run: python 09-low-cost-variant/tools/render_lowcost_cad.py --render
+        run: python 06-experiments/test14_low_cost_program/tools/render_lowcost_cad.py --render
       - name: Mesh-validate the committed low-cost variant CAD
         # Version-independent gate: validates the committed STLs (watertight,
         # bed-fitting, non-degenerate). The printability step below reads the
         # SCAD source directly. Together they are the CAD evidence; neither
         # depends on the runner's OpenSCAD version.
-        run: python 09-low-cost-variant/tools/render_lowcost_cad.py --validate-only
+        run: python 06-experiments/test14_low_cost_program/tools/render_lowcost_cad.py --validate-only
       - name: Low-cost variant unit-cell printability (sourced FDM limits)
         run: |
           python tools/validate/analytic_printability.py \
             --fail-on-design-fail \
             --json s5r-ultra-printability-record.json \
-            09-low-cost-variant/scad/s5r_ultra_cell.scad
+            06-experiments/test14_low_cost_program/scad/s5r_ultra_cell.scad
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
@@ -423,7 +423,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends openscad
           openscad --version
       - name: Render the primitive CAD parts
-        run: python 09-low-cost-variant/primitives/tools/render_primitives_cad.py
+        run: python 06-experiments/test14_low_cost_program/primitives/tools/render_primitives_cad.py
 
   winner-cad-render:
     # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and
@@ -467,19 +467,19 @@ jobs:
         run: python -m pip install --quiet "trimesh>=4"
       - name: Render the full S5-R printable part set
         run: |
-          python 08-current-design/fabrication/tools/render_fab_parts.py
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_fab_parts.py
       - name: Regenerate the print + assembly manifests
         run: |
-          python 08-current-design/fabrication/tools/gen_manifests.py
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/gen_manifests.py
       - name: Fabrication-package coherence gate (C1-C7)
         run: |
-          python 08-current-design/fabrication/tools/fab_package_checks.py
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/fab_package_checks.py
       - name: S5-R full part-set printability (sourced FDM limits)
         run: |
           python tools/validate/analytic_printability.py \
             --json s5r-parts-printability-record.json \
             --fail-on-design-fail \
-            08-current-design/fabrication/scad/s5r_parts.scad
+            08-integrated-designs/s5r-shared-drive-register/fabrication/scad/s5r_parts.scad
       - name: Install PNG render dependency (DND-69)
         run: python -m pip install --quiet "numpy>=1.26" "pillow>=10"
       - name: Regenerate + verify the board-viewable PNG renders (DND-69)
@@ -488,8 +488,8 @@ jobs:
         # not). Regenerates into images/, then verifies every recorded image is
         # present and a valid PNG. CAD render, not a print.
         run: |
-          python 08-current-design/fabrication/tools/render_images.py
-          python 08-current-design/fabrication/tools/render_images.py --check
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_images.py
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_images.py --check
       - name: Regenerate + verify the full-machine PNG renders (DND-88/DND-92)
         # "Everything assembled": the 3x3 cartridge field + frame + drive witness
         # + installed 9x9 register sub-block, and the DND-92 exploded view of the
@@ -497,19 +497,19 @@ jobs:
         # renderer; verifies every recorded image is present, valid, non-trivial,
         # and that the exploded view exists. CAD render, not a print.
         run: |
-          python 08-current-design/fabrication/tools/render_machine.py
-          python 08-current-design/fabrication/tools/render_machine.py --check
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_machine.py
+          python 08-integrated-designs/s5r-shared-drive-register/fabrication/tools/render_machine.py --check
       - name: Upload fabrication-package records
         uses: actions/upload-artifact@v4
         with:
           name: fabrication-package-records
           path: |
-            08-current-design/fabrication/manifests/*.json
-            08-current-design/fabrication/manifests/*.csv
-            08-current-design/fabrication/manifests/*.md
-            08-current-design/fabrication/images/*.png
-            09-low-cost-variant/s6lc/cad/*.json
-            09-low-cost-variant/s6lc/images/*.png
+            08-integrated-designs/s5r-shared-drive-register/fabrication/manifests/*.json
+            08-integrated-designs/s5r-shared-drive-register/fabrication/manifests/*.csv
+            08-integrated-designs/s5r-shared-drive-register/fabrication/manifests/*.md
+            08-integrated-designs/s5r-shared-drive-register/fabrication/images/*.png
+            08-integrated-designs/s6lc-low-cost/cad/*.json
+            08-integrated-designs/s6lc-low-cost/images/*.png
             s5r-parts-printability-record.json
           if-no-files-found: warn
 

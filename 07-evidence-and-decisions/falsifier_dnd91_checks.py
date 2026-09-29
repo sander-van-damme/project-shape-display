@@ -27,8 +27,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-S6LC_ANALYSIS = REPO / "09-low-cost-variant" / "s6lc" / "analysis"
-SCAD = REPO / "09-low-cost-variant" / "s6lc" / "scad" / "s6lc_machine.scad"
+S6LC_ANALYSIS = REPO / "08-integrated-designs" / "s6lc-low-cost" / "analysis"
+SCAD = (REPO / "08-integrated-designs" / "s6lc-low-cost" / "scad"
+        / "s6lc_machine.scad")
 
 sys.path.insert(0, str(S6LC_ANALYSIS))
 sys.path.insert(0, str(REPO / "06-experiments" / "test11_falsification_library"))
