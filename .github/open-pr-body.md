@@ -18,7 +18,7 @@ existing `09-low-cost-variant/` machine definitions are **untouched**.
 - `10-reliability-mask/analysis/reliability_mask.py` — divergence screen of
   **seven** materially different architectures, the DND-103 reliability gate,
   timing decomposition, BOM, and the convergence/selection record.
-- `10-reliability-mask/analysis/reliability_mask_checks.py` — **35/35** pinned
+- `10-reliability-mask/analysis/reliability_mask_checks.py` — **38/38** pinned
   regression checks (wired into CI).
 - `10-reliability-mask/analysis/architecture_table.md` — the full per-architecture
   comparison table (mechanism, actuators, repeated-cell complexity, mask method,
@@ -87,7 +87,7 @@ Which machine actually answers DND-103's gate — **"what has to work correctly
 
 ## What passed / failed
 
-- **Passed:** 35/35 DND-104 checks; 28/28 InventorBeta checks; CostManufacturing
+- **Passed:** 38/38 DND-104 checks; 28/28 InventorBeta checks; CostManufacturing
   envelope gate; 30/30 DND-106 InventorAlpha primitive checks (+ analytic CAD);
   all pre-existing S5-R/S6-LC/falsifier gates (no regressions).
 - **Failed / rejected (recorded, not hidden):** A2 global interlock, A3 punched

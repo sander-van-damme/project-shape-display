@@ -317,7 +317,7 @@ python 10-reliability-mask/analysis/make_table.py
 | Path | What |
 |---|---|
 | [`analysis/reliability_mask.py`](analysis/reliability_mask.py) | the architecture screen, reliability gate, timing, BOM, convergence |
-| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 35 regression checks |
+| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 38 regression checks |
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
 | [`analysis/architecture_table.md`](analysis/architecture_table.md) | the generated comparison table |
