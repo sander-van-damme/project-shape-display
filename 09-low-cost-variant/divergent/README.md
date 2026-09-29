@@ -91,7 +91,9 @@ land under $250.
 | [`analysis/divergent_lowcost_checks.py`](analysis/divergent_lowcost_checks.py) | 18 CI-style assertions pinning every headline. |
 | [`scad/a1_cam_cell.scad`](scad/a1_cam_cell.scad) | A1 unit cell + camshaft station at true 5.08 mm pitch. Printability **PASS**. |
 | [`scad/a2a3_media_cell.scad`](scad/a2a3_media_cell.scad) | A2/A3 punched-media cell. Printed features PASS; film thickness reported as an honest **MEDIA RISK**. |
+| [`reliability_primitives_alpha.py`](reliability_primitives_alpha.py) + [`.md`](reliability_primitives_alpha.md) + [checks](reliability_primitives_alpha_checks.py) + [CAD](scad/reliability_cell.scad) | **DND-106 reliability-first primitives** (child of DND-104): R1 row-rocker shared state, R2 double-acting wedge gate (driven reset), R3 mechanical readback, R4 rejected. 30 checks; full reliability-audit schema. |
 | [`tools/run_divergent_checks.py`](tools/run_divergent_checks.py) | Runs screen + checks + both CAD printability gates. |
+| [`tools/run_reliability_checks.py`](tools/run_reliability_checks.py) | Runs the DND-106 screen + 30 checks + analytic CAD printability. |
 
 ### DND-107 reliability-first machines (InventorBeta, mask + non-mask)
 

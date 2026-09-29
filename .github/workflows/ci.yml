@@ -225,6 +225,17 @@ jobs:
         # media/consumable rows, and the 99%-map per-cell error budget. Sourced
         # listings + CALCULATION only (DND-27).
         run: python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py
+      - name: "DND-106 reliability-first primitives gate (child of DND-104)"
+        # InventorAlpha reliability-first cell/mask primitives: R1 toggle-rocker
+        # row-shared state (80 decisions vs 6,400), R2 double-acting wedge-gate
+        # (driven positive reset, removes the A8 gravity-drop class), R3
+        # mechanical read-rod readback (detectable/recoverable), R4 shared
+        # return bar recorded REJECTED. Each primitive must answer the FULL
+        # reliability-audit schema + ten functional jobs; the correlation
+        # arithmetic (80x/800x looser q) and the <30 s visible budget are
+        # pinned; the analytic CAD printability gate is wired for the new cell.
+        # CALCULATION + CAD only (DND-27).
+        run: python 09-low-cost-variant/divergent/tools/run_reliability_checks.py
       - name: "DND-74 falsifier findings RESOLUTION gate (DND-93 + DND-97)"
         # Reproduces the DND-74 attack arithmetic as the historical record AND
         # asserts the fixes are in place (lift on 6400 cells, comb-tooth limit,
