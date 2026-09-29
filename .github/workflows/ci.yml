@@ -303,13 +303,27 @@ jobs:
         # DND-114 converts the DND-113 PROPOSED common-height read target into a
         # CAD-validated artifact: a frame-fixed reflective vane (CH-A, DeltaZ=0)
         # read at ONE standoff for both states, with the flag-vs-neighbour
-        # contrast passing (spot half-width 0.568 mm < 1.055 mm lane clearance)
-        # and the CH-B hinge-arc DeltaZ bound inside the +/-1 mm DoF. The
-        # companion checker is a HARD GATE: --gate must exit 0. CALCULATION + CAD
-        # (DND-27); the top-face defect is still recorded, not erased.
+        # contrast passing and the CH-B hinge-arc DeltaZ bound inside the +/-1 mm
+        # DoF. The companion checker is a HARD GATE: --gate must exit 0.
+        # CALCULATION + CAD (DND-27); the top-face defect is still recorded.
         run: |
           python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
+
+      - name: "DND-115 state-encoding shutter (closes the read axis)"
+        # DND-114 made the read target common-height but state-INVARIANT. DND-115
+        # adds the encoder: a matte-dark flap on a crank sharing the frame-fixed
+        # latch hinge axis, which shadows the fixed-standoff read spot in one
+        # latch state (100%) and clears it in the other (0%), giving a >2x on/off
+        # return ratio while the reflective TARGET stays frame-fixed (DeltaZ=0).
+        # The 1.0 mm DND-114 standoff is INFEASIBLE under the tolerance stack-up,
+        # so the adopted standoff is 1.8 mm (aperture 0.44 mm); the shutter clears
+        # the neighbour body by 0.255 mm and the Monte Carlo stack-up passes.
+        # The companion checker is a HARD GATE: --gate must exit 0.
+        # CALCULATION + CAD (DND-27); no print, no measurement.
+        run: |
+          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and

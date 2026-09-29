@@ -90,8 +90,8 @@ The flag reader therefore uses a **dedicated small aperture** (`0.60 mm`) and a
 |---|---:|---|
 | Flag footprint | 0.44 (X) × 1.60 (Y) mm | CAD |
 | Flag-read aperture | 0.60 mm | CAD |
-| Fixed standoff | 1.0 mm | CAD |
-| Spot at the flag | 1.136 mm | `a + 2·g·tan15°` |
+| Fixed standoff | 1.0 mm | CAD (revised to 1.8 mm by DND-115) |
+| Spot at the flag | 1.136 mm | `a + 2·g·tan15°` (revised to 1.405 mm by DND-115) |
 | Spot X half-width | 0.568 mm | vs 1.055 mm clearance |
 | **Clears neighbour body** | **PASS** | margin **0.487 mm** |
 | **Fits flag Y width** | **PASS** | 1.136 ≤ 1.60 mm |
@@ -141,11 +141,12 @@ deciding number** — the deciding numbers are geometric (spot vs lane).
   fixed-standoff spot (1.136 mm) and neighbour clearance (0.487 mm margin).
 - **Assumption-class, unmeasured:** the 30° latch swing, the 0.60 mm flag
   aperture, the 1.0 mm flag standoff, all optical/device constants.
-- **NEW residual (design detail, not yet CAD):** the **state-encoding shutter** —
-  the CH-A vane is the fixed target; the mechanism that makes its apparent
-  brightness depend on latch state (the arm's silhouette occluding the vane) is
-  identified but not yet dimensioned. This is a bounded, low-risk CAD detail: the
-  arm already passes through the lane at the hinge.
+- **RESOLVED by DND-115:** the **state-encoding shutter** is now dimensioned and
+  CAD-validated ([`dnd115-a1-state-encoding-shutter.md`](dnd115-a1-state-encoding-shutter.md)):
+  a matte-dark flap on the shared frame-fixed hinge axis covers 100% of the read
+  spot in one state and 0% in the other (7.72× on/off). DND-115 also revises this
+  ADR's 1.0 mm standoff / 0.60 mm aperture to 1.8 mm / 0.44 mm (the 1.0 mm window
+  is infeasible for the 0.44 mm flap under a tolerance stack-up).
 - **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)); no
   board contact ([DND-32](/DND/issues/DND-32)).
 

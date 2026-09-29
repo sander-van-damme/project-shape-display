@@ -43,8 +43,10 @@ FLAG_T_MM = 0.44
 FLAG_W_MM = 1.60
 FLAG_H_MM = 0.80
 FLAG_Z_TOP_MM = TRAVEL_MM + 3.0
-FLAG_GAP_MM = 1.0
-FLAG_AP_MM = 0.60
+# DND-115 revised the fixed standoff 1.0 -> 1.8 mm and the aperture 0.60 ->
+# 0.44 mm so the state-encoding shutter flap fits with a tolerance-robust window.
+FLAG_GAP_MM = 1.8
+FLAG_AP_MM = 0.44
 SWING_DEG = 30.0
 DOF_BUDGET_MM = 1.0
 CH_B_FLAG_R_MM = 1.20

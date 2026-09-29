@@ -27,7 +27,7 @@ SCAD_READER = ROOT / "scad" / "a1_reader_head.scad"
 OUT = ROOT / "cad" / "stl"
 RECORD = ROOT / "cad" / "render_record.json"
 
-PARTS = ["column", "latch", "cradle", "flag"]
+PARTS = ["column", "latch", "cradle", "flag", "shutter"]
 
 # Provisional FDM rules (DND-102 criteria): 1 line @ 0.4 mm nozzle, 2-line wall.
 MIN_FEATURE_MM = 0.44
@@ -116,6 +116,25 @@ def main() -> int:
         raise SystemExit("FATAL: CH-A common-height target is not frame-fixed")
     if "CH flag fits lane in X: true" not in cell_echoes:
         raise SystemExit("FATAL: CH-A flag does not fit the latch lane")
+    # DND-115: assert the state-encoding shutter geometry is valid.
+    if "SHUT flap clears vane top: true" not in cell_echoes:
+        raise SystemExit("FATAL: shutter flap intersects the vane top face")
+    if "SHUT flat flap top below reader aperture plane (" not in cell_echoes \
+            or "): true" not in cell_echoes:
+        raise SystemExit(
+            "FATAL: shutter flap intrudes into the reader aperture plane")
+    if "SHUT clears neighbour body (sweep x " not in cell_echoes \
+            or "): true" not in cell_echoes:
+        raise SystemExit("FATAL: shutter sweep collides with the neighbour body")
+    if "SHUT flap above own column top (" not in cell_echoes \
+            or "): true" not in cell_echoes:
+        raise SystemExit("FATAL: shutter sweep collides with the own column")
+    if "SHUT min feature (flap): true" not in cell_echoes:
+        raise SystemExit("FATAL: shutter flap violates the minimum feature rule")
+    if "SHUT read spot=1.40" not in cell_echoes:
+        raise SystemExit("FATAL: shutter read spot is not the expected ~1.405 mm")
+    if "covers spot: true" not in cell_echoes:
+        raise SystemExit("FATAL: shutter flap does not cover the read spot")
     record["evidence_class"] = (
         "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). "
         "NOT a print, NOT a measurement (DND-27)."

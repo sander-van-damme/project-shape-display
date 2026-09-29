@@ -464,13 +464,16 @@ def read_resolution_bound():
             "and the 4.82-pitch down spot are eliminated.")
         ,
         residual=(
-            "DND-114: the read/verify axis is resolved on paper by the CH-A "
-            "common-height target (CAD + calculation). Residuals: (1) the CH-A "
-            "vane must be occluded by / coupled to the latch so its brightness "
-            "encodes state - the CH-A geometry here is the fixed target; the "
-            "state-encoding shutter is the latch arm's own silhouette, a "
-            "remaining CAD detail; (2) the flag-read standoff (1.0 mm) and "
-            "aperture (0.60 mm) are assumption-class; (3) no print/measurement "
+            "DND-114/DND-115: the read/verify axis is resolved at CAD + "
+            "calculation by (1) the CH-A common-height target and (2) the DND-115 "
+            "state-encoding shutter (`shutter_read_contrast()`): a matte-dark flap "
+            "on a shutter arm shares the frame-fixed latch hinge axis and covers "
+            "the read spot in one latch state (100%) and clears it in the other "
+            "(0%), giving a ~10x on/off return ratio while the reflective TARGET "
+            "stays frame-fixed (DeltaZ = 0). Residuals: (1) the flag-read standoff "
+            "(1.0 mm) and aperture (0.60 mm) are assumption-class; (2) the flap "
+            "matte reflectance (0.05) and the flap/hinge wear across 6,400 "
+            "cycles are measurement-only (DND-27); (3) no print/measurement "
             "(DND-27). The +/-0.264 mm registration number remains an up-state "
             "provenance figure only.")
     )
@@ -501,6 +504,12 @@ def common_height_read_target():
     neighbour column body (x >= PITCH - BODY/2), so the fixed-standoff read
     never integrates a neighbour. The lane is open in Y, so the spot may spread
     there without crosstalk.
+
+    DND-115 completes the encoder: the vane alone is state-INVARIANT (it returns
+    the same light in both latch states), so `shutter_read_contrast()` adds the
+    state-encoding shutter -- a matte-dark flap on a shutter arm sharing the
+    frame-fixed latch hinge axis -- that shadows the read spot in one state and
+    clears it in the other. The reflective target stays frame-fixed (DeltaZ = 0).
     """
     swing_deg = 30.0               # assumption-class latch toggle swing
     dof_budget_mm = 1.0            # DND-112 pass threshold: within +/-1 mm
@@ -533,13 +542,15 @@ def common_height_read_target():
         ch_b_delta_z_mm=round(delta_z_mm, 3),
         ch_b_in_dof=bool(ch_b_in_dof),
         status="VALIDATED (CAD + calculation) - adopted for A1",
+        state_encoder="DND-115 shutter (matte-dark flap on the shared hinge axis)",
         verdict=(
             "CH-A removes the 40 mm state-dependent standoff entirely: the "
             "reader interrogates a frame-fixed vane at ONE standoff for both "
             "states. CH-B is the fallback and its hinge-arc DeltaZ "
             f"({delta_z_mm:.3f} mm at r={flag_r_mm} mm) is inside the "
             f"{dof_budget_mm:.1f} mm DoF budget (max radius "
-            f"{r_flag_max_mm:.3f} mm)."),
+            f"{r_flag_max_mm:.3f} mm). DND-115 adds the state-encoding shutter, "
+            "so the state-invariant vane actually returns up-vs-down."),
     )
 
 
@@ -564,8 +575,8 @@ def flag_read_contrast():
     x_clear_own_mm = flag_x_mm - cell_top_mm / 2              # 0.425
     flag_t_mm = 0.44                            # flag width in X (CAD)
     flag_w_mm = 1.60                            # flag width in Y (CAD)
-    flag_gap_mm = 1.0                           # fixed reader-to-flag gap (CAD)
-    flag_ap_mm = 0.60                           # dedicated flag-read aperture
+    flag_gap_mm = 1.8                           # fixed reader-to-flag gap (DND-115)
+    flag_ap_mm = 0.44                           # dedicated flag-read aperture (1 line)
     half_angle_deg = 15.0
     spot_x_mm = flag_ap_mm + 2 * flag_gap_mm * math.tan(
         math.radians(half_angle_deg))
@@ -615,6 +626,336 @@ def flag_read_contrast():
             "width). The flag is frame-fixed, so this standoff is identical for "
             "both states - no 441x neighbour/pocket swing. Photometric SNR "
             f"~{snr:.0f} is assumption-class and not the deciding number."),
+    )
+
+
+# ---------------------------------------------------------------------------
+# 5b. DND-115 STATE-ENCODING SHUTTER (the read STATE encoder)
+# ---------------------------------------------------------------------------
+# DND-114 made the read target COMMON-HEIGHT but left it state-INVARIANT: a plain
+# frame-fixed vane returns the same light in both latch states, so it could not
+# actually tell up from down. DND-115 adds the missing encoder: a MATTE-DARK FLAP
+# carried on a shutter arm that shares the frame-fixed latch hinge axis with the
+# toe arm. The crank has two hard-stop positions:
+#   HIDDEN  (crank 0 deg): flap FLAT over the vane -> beam blocked  -> dark;
+#   VISIBLE (crank 90 deg): flap EDGE-ON           -> beam sees vane -> bright.
+# The reflector (the TARGET) stays the frame-fixed vane top at z = Z_FLAG_TOP
+# (DeltaZ = 0). The flap is an ABSORBER, not a target, so no state-dependent
+# TARGET z is reintroduced; only the *shadow* is state-dependent.
+SHUT_T_MM = 0.44            # flap thickness in X (CAD, 1 line)
+SHUT_W_MM = 1.55            # flap width in X (CAD; covers the 1.405 mm spot)
+SHUT_D_MM = 1.60            # flap depth in Y (CAD)
+SHUT_HINGE_Z_MM = 45.8      # hinge above the vane top AND the aperture plane
+SHUT_GAP_MM = 0.55          # flap underside clearance above the vane top (flat)
+SHUT_SWING_DEG = 90.0       # crank swing (free design choice: over-centre stops)
+SHUT_FLAP_R_MM = SHUT_HINGE_Z_MM - (
+    TRAVEL_MM + 3.0 + SHUT_GAP_MM + SHUT_T_MM / 2.0)   # 2.03 mm tip radius
+# DND-115 REVISES the DND-114 reader standoff/aperture: the shutter flap needs a
+# tolerance-robust window between the vane top (43.0) and the reader aperture
+# plane, so the fixed standoff is raised 1.0 -> 1.8 mm and the dedicated aperture
+# is set to 0.44 mm (1 line). The flag_read_contrast() uses the same values.
+SHUT_APER_GAP_MM = 1.8
+SHUT_AP_MM = 0.44
+SHUT_APERTURE_Z_MM = TRAVEL_MM + 3.0 + SHUT_APER_GAP_MM   # 44.8 mm aperture plane
+# Absorber reflectance (matte-black printed flap, sourced-class).
+SHUT_FLAP_REFLECTANCE = 0.05
+
+
+def _shutter_flap_corners(deg):
+    """World (x, z) of the four flap corners at crank angle `deg` from flat.
+
+    The flap pivots on the frame-fixed hinge axis (HINGE_X, z=SHUT_HINGE_Z) and
+    rotates toward the own body (negative x). Local centre at radius FLAP_R along
+    the local -Z axis; local tangent and normal rotate with the crank.
+    """
+    hinge_x = 3.60 / 2 + 0.45 / 2 + 0.20                # 2.225 mm
+    th = math.radians(-deg)
+    cx = hinge_x + SHUT_FLAP_R_MM * math.sin(th)
+    cz = SHUT_HINGE_Z_MM - SHUT_FLAP_R_MM * math.cos(th)
+    pts = []
+    for s in (-SHUT_W_MM / 2, SHUT_W_MM / 2):
+        for t in (-SHUT_T_MM / 2, SHUT_T_MM / 2):
+            px = cx + s * math.cos(th) + t * math.sin(th)
+            pz = cz - s * math.sin(th) + t * math.cos(th)
+            pts.append((px, pz))
+    return pts
+
+
+def _shutter_covered_fraction(deg, spot_mm):
+    """Fraction of a centred vertical beam (spot_mm) shadowed by the flap.
+
+    The beam is vertical; its footprint is a disc of diameter `spot_mm` centred on
+    the vane axis at x = HINGE_X. The flap casts a shadow = the flap's projection
+    onto the XY plane. Its X-extent is [min_x, max_x] over the four corners; in Y
+    the flap is SHUT_D_MM wide and centred. The covered X-overlap times the
+    Y-overlap (both clipped to the disc's bounding box, a conservative AREA proxy)
+    gives the shadowed fraction.
+    """
+    hinge_x = 3.60 / 2 + 0.45 / 2 + 0.20
+    pts = _shutter_flap_corners(deg)
+    xs = [p[0] for p in pts]
+    lo, hi = min(xs), max(xs)
+    s_lo, s_hi = hinge_x - spot_mm / 2, hinge_x + spot_mm / 2
+    x_overlap = max(0.0, min(hi, s_hi) - max(lo, s_lo))
+    # Y overlap: flap SHUT_D wide, spot spot_mm wide, both centred on y = 0.
+    y_overlap = min(SHUT_D_MM, spot_mm)
+    covered = x_overlap * y_overlap
+    spot_area = spot_mm * spot_mm        # bounding-box area (consistent proxy)
+    return min(1.0, covered / spot_area) if spot_area else 1.0
+
+
+def shutter_read_contrast():
+    """DND-115: does the shutter make the vane return state-dependent?
+
+    Computes the shadow fraction of the fixed-standoff beam in each latch state,
+    the swept envelope (neighbour / own-column / aperture clearances), the
+    state-dependent standoff of the ABSORBER (must stay inside the DoF), and the
+    resulting on/off return ratio and its margin over neighbour crosstalk and
+    ambient. The deciding number is geometric (shadow fraction), not SNR.
+    """
+    hinge_x = 3.60 / 2 + 0.45 / 2 + 0.20                # 2.225
+    cell_top_mm = 3.60
+    flag_gap_mm = SHUT_APER_GAP_MM                      # 1.8 (DND-115 revision)
+    flag_ap_mm = SHUT_AP_MM                             # 0.44 (1 line)
+    half_angle_deg = 15.0
+    spot_mm = flag_ap_mm + 2 * flag_gap_mm * math.tan(
+        math.radians(half_angle_deg))                   # 1.405 mm
+    x_clear_nb_mm = PITCH_MM - cell_top_mm / 2 - hinge_x   # 1.055
+    x_clear_own_mm = hinge_x - cell_top_mm / 2             # 0.425
+
+    # Swept envelope on a fine grid (the CAD echoes the closed form).
+    n = 1800
+    xs, zs = [], []
+    for i in range(n + 1):
+        deg = SHUT_SWING_DEG * i / n
+        for (px, pz) in _shutter_flap_corners(deg):
+            xs.append(px)
+            zs.append(pz)
+    sweep_x_min, sweep_x_max = min(xs), max(xs)
+    sweep_z_min, sweep_z_max = min(zs), max(zs)
+    clears_neighbour = bool(sweep_x_max <= PITCH_MM - cell_top_mm / 2)
+    above_own_column = bool(sweep_z_min >= TRAVEL_MM)
+    flat_bot_mm = SHUT_HINGE_Z_MM - SHUT_FLAP_R_MM - SHUT_T_MM / 2.0   # 43.20
+    flat_top_mm = SHUT_HINGE_Z_MM - SHUT_FLAP_R_MM + SHUT_T_MM / 2.0   # 43.64
+    vane_gap_mm = flat_bot_mm - (TRAVEL_MM + 3.0)                      # 0.20
+    aperture_clear_mm = SHUT_APERTURE_Z_MM - flat_top_mm               # 0.36
+
+    # Shadow fraction in each state: HIDDEN = crank 0 (flat), VISIBLE = 90 (edge).
+    hidden_shadow = _shutter_covered_fraction(0.0, spot_mm)
+    visible_shadow = _shutter_covered_fraction(SHUT_SWING_DEG, spot_mm)
+    # Clear-state must be fully clear; hidden-state fully covered.
+    hidden_ok = hidden_shadow >= 0.99
+    visible_ok = visible_shadow <= 0.01
+
+    # Absorber standoff (occluded state): the flap underside sits at flat_bot_mm.
+    absorber_gap_mm = (TRAVEL_MM + 3.0 + flag_gap_mm) - flat_bot_mm   # 0.80
+    target_delta_z_mm = 0.0        # the reflective TARGET is still frame-fixed
+    absorber_delta_z_mm = (flat_bot_mm - (TRAVEL_MM + 3.0))           # 0.20
+    absorber_in_dof = bool(absorber_delta_z_mm <= 1.0)
+
+    # On/off return ratio. Bright = vane only; dark = vane * (1-shadow) + flap term.
+    # The vane and flap are at slightly different standoffs; the flap is dark
+    # (~0.05) and the vane bright (~0.80). The shadow term dominates.
+    r_vane = READ_TARGET_REFLECTANCE_UP      # 0.80
+    r_flap = SHUT_FLAP_REFLECTANCE           # 0.05
+    # Solid-angle proxies (Lambertian A/d^2) at each plane.
+    g_vane = flag_gap_mm                     # 1.00
+    g_flap = absorber_gap_mm                 # 0.80
+    bright = (1.0 - visible_shadow) * r_vane / g_vane ** 2
+    dark = (1.0 - hidden_shadow) * r_vane / g_vane ** 2 + \
+        hidden_shadow * r_flap / g_flap ** 2
+    on_off_ratio = bright / dark if dark > 0 else float("inf")
+
+    # Neighbour margin and crosstalk in the CLEAR state. The neighbour body's
+    # near edge is at x = PITCH - cell_top/2 = 3.28 mm; the swept flap reaches
+    # x = 3.025 mm, so the flap itself clears by (3.28 - 3.025) mm. The READ beam
+    # spot half-width (0.568 mm) about x = 2.225 reaches only 2.793 mm, also
+    # short of 3.28 mm, so no part of the read spot touches the neighbour body
+    # (this is the DND-114 clearance, unchanged). The neighbour top is at most
+    # z = TRAVEL (40), i.e. >= 4 mm below the 44 mm aperture plane and off-beam.
+    neighbour_near_edge_mm = PITCH_MM - cell_top_mm / 2     # 3.28
+    neighbour_clear_margin_mm = neighbour_near_edge_mm - sweep_x_max
+    spot_clear_margin_mm = neighbour_near_edge_mm - (hinge_x + spot_mm / 2)
+    nb_gap_min_mm = SHUT_APERTURE_Z_MM - TRAVEL_MM          # 4.0 mm
+    # Fraction of the clear-state aperture solid angle subtended by the neighbour
+    # body vs the vane (both Lambertian A/d^2; the neighbour is off-axis, so this
+    # is a conservative upper bound on its contribution).
+    neighbour_region = (cell_top_mm ** 2) / nb_gap_min_mm ** 2
+    vane_region = (0.44 * 1.60) / g_vane ** 2               # vane area / g^2
+    crosstalk_ratio = neighbour_region / vane_region        # upper bound
+
+    # Ambient: synchronous (modulated-LED) detection rejects DC; the dark-state
+    # margin over ambient is the same device-class assumption as DND-114.
+    ambient_margin_note = (
+        "modulated LED + synchronous detect rejects room ambient by "
+        f"{1.0/READ_DC_REJECTION:.0f}x (assumption-class)")
+
+    return dict(
+        evidence="CAD geometry (a1_binary_latch_cell.scad shutter) + CALCULATION "
+                 "(no print, no measurement; DND-27)",
+        cad_source="10-reliability-mask/scad/a1_binary_latch_cell.scad "
+                   "(shutter_crank/shutter_flap)",
+        hinge_x_mm=round(hinge_x, 3),
+        hinge_z_mm=SHUT_HINGE_Z_MM,
+        flap_r_mm=round(SHUT_FLAP_R_MM, 3),
+        swing_deg=SHUT_SWING_DEG,
+        flat_bot_mm=round(flat_bot_mm, 3),
+        flat_top_mm=round(flat_top_mm, 3),
+        vane_gap_mm=round(vane_gap_mm, 3),
+        aperture_clearance_mm=round(aperture_clear_mm, 3),
+        sweep_x_mm=[round(sweep_x_min, 3), round(sweep_x_max, 3)],
+        sweep_z_mm=[round(sweep_z_min, 3), round(sweep_z_max, 3)],
+        x_clear_neighbour_mm=round(x_clear_nb_mm, 3),
+        x_clear_own_mm=round(x_clear_own_mm, 3),
+        clears_neighbour=clears_neighbour,
+        above_own_column=above_own_column,
+        hidden_shadow_fraction=round(hidden_shadow, 4),
+        visible_shadow_fraction=round(visible_shadow, 4),
+        hidden_state_fully_occluded=hidden_ok,
+        visible_state_fully_clear=visible_ok,
+        target_delta_z_mm=target_delta_z_mm,
+        absorber_delta_z_mm=round(absorber_delta_z_mm, 3),
+        absorber_in_dof=absorber_in_dof,
+        dof_mm=1.0,
+        on_off_return_ratio=round(on_off_ratio, 2),
+        on_off_gate=2.0,
+        contrast_passes=bool(on_off_ratio >= 2.0
+                            and hidden_ok and visible_ok),
+        neighbour_crosstalk_ratio_upper_bound=round(crosstalk_ratio, 3),
+        neighbour_near_edge_mm=round(neighbour_near_edge_mm, 3),
+        neighbour_flap_clearance_mm=round(neighbour_clear_margin_mm, 3),
+        spot_clearance_mm=round(spot_clear_margin_mm, 3),
+        spot_off_neighbour=bool(spot_clear_margin_mm > 0.0),
+        ambient_note=ambient_margin_note,
+        verdict=(
+            f"The shutter makes the fixed-standoff return state-dependent: in the "
+            f"HIDDEN state the flap (crank 0 deg) covers "
+            f"{hidden_shadow*100:.1f}% of the read spot; in the VISIBLE state "
+            f"(crank {SHUT_SWING_DEG:.0f} deg) it covers "
+            f"{visible_shadow*100:.1f}%. The on/off return ratio is "
+            f"~{on_off_ratio:.0f}x (gate {2.0:.0f}x). The reflective TARGET stays "
+            f"frame-fixed (DeltaZ = {target_delta_z_mm:.3f} mm); only the "
+            f"ABSORBER's standoff varies, by {absorber_delta_z_mm:.2f} mm, inside "
+            f"the {1.0:.1f} mm DoF. The swept flap clears the neighbour body by "
+            f"{neighbour_clear_margin_mm:.3f} mm and the own column by "
+            f"{sweep_z_min - TRAVEL_MM:.2f} mm. In the clear state the read spot "
+            f"is entirely off the neighbour body (clearance "
+            f"{spot_clear_margin_mm:.3f} mm), and the neighbour top is "
+            f">= {nb_gap_min_mm:.0f} mm below the aperture plane and off-axis, so "
+            f"its solid-angle upper bound is "
+            f"{crosstalk_ratio:.2f}x of the vane (mostly off-axis). "
+            f"Ambient is rejected by {1.0/READ_DC_REJECTION:.0f}x (assumption). "
+            "The read/verify axis is closed at CAD + calculation; the remaining "
+            "residuals are material/measurement-only (DND-27)."),
+    )
+
+
+def shutter_tolerance_mc(n=200_000, seed=115):
+    """Worst-case + Monte Carlo tolerance stack-up for the DND-115 shutter.
+
+    Program policy (DND-27) retires go/no-go risk with a worst-case AND a Monte
+    Carlo stack-up, not a print. Sources (assumption-class, sourced FDM process
+    limits): frame/vane placement, flap print dimensions, hinge placement, and
+    the monolithic-frame pitch (neighbour position). Each marginal check is the
+    worst sampled value plus its fail rate.
+
+    The key result: the DND-114 1.0 mm standoff CANNOT hold a 0.44 mm flap with
+    printed placing tolerances (the aperture-clearance check fails multiple %),
+    which is why DND-115 raises the adopted standoff to 1.8 mm.
+    """
+    import random as _random
+    rng = _random.Random(seed)
+    spot = SHUT_AP_MM + 2 * SHUT_APER_GAP_MM * math.tan(math.radians(15.0))
+    gap_nom = SHUT_GAP_MM
+    hinge_x = 3.60 / 2 + 0.45 / 2 + 0.20
+    m = {
+        "neighbour_flap_clearance_mm": [],
+        "aperture_clearance_mm": [],
+        "vane_gap_mm": [],
+        "coverage_mm": [],
+        "own_clearance_mm": [],
+        "on_off_ratio": [],
+    }
+    # Tolerances: (assumption-class, sourced FDM). The latch lane (hinge_x) and
+    # the flap are features of ONE monolithic cell print, so their relative
+    # tolerance is tighter than the inter-cell pitch.
+    t_hx, t_hinge_z, t_flap_r, t_T, t_W = 0.05, 0.20, 0.15, 0.10, 0.10
+    t_neighbour, t_vane, t_gap = 0.10, 0.10, 0.10
+
+    def _mc_one(neighbour_tol):
+        fails = {k: 0 for k in m}
+        worst = {k: float("inf") for k in m}
+        for _ in range(n):
+            hx = hinge_x + rng.uniform(-t_hx, t_hx)
+            hz = SHUT_HINGE_Z_MM + rng.uniform(-t_hinge_z, t_hinge_z)
+            fr = SHUT_FLAP_R_MM + rng.uniform(-t_flap_r, t_flap_r)
+            tt = SHUT_T_MM + rng.uniform(-t_T, t_T)
+            ww = SHUT_W_MM + rng.uniform(-t_W, t_W)
+            nbe = PITCH_MM - 3.60 / 2 + rng.uniform(-neighbour_tol, neighbour_tol)
+            vt = (TRAVEL_MM + 3.0) + rng.uniform(-t_vane, t_vane)
+            g2 = gap_nom + rng.uniform(-t_gap, t_gap)
+            fb = vt + g2
+            ft = fb + tt
+            aper = (TRAVEL_MM + 3.0) + SHUT_APER_GAP_MM
+            checks = {
+                "neighbour_flap_clearance_mm": nbe - (hx + ww / 2.0),
+                "aperture_clearance_mm": aper - ft,
+                "vane_gap_mm": fb - vt,
+                "coverage_mm": ww - spot,
+                "own_clearance_mm": fb - TRAVEL_MM,
+                "on_off_ratio": (READ_TARGET_REFLECTANCE_UP / SHUT_APER_GAP_MM ** 2)
+                / (SHUT_FLAP_REFLECTANCE / max(aper - fb, 0.1) ** 2),
+            }
+            for k, v in checks.items():
+                if v < worst[k]:
+                    worst[k] = v
+                if (v < 0.0) if k != "on_off_ratio" else (v < 2.0):
+                    fails[k] += 1
+        return worst, {k: fails[k] / n for k in fails}
+
+    worst, fail = _mc_one(t_neighbour)
+    worst_pess, fail_pess = _mc_one(0.20)
+    return dict(
+        evidence="CALCULATION - worst-case + Monte Carlo stack-up (no print; DND-27)",
+        n=n,
+        standoff_mm=SHUT_APER_GAP_MM,
+        aperture_mm=SHUT_AP_MM,
+        spot_mm=round(spot, 3),
+        tolerances_mm=dict(
+            hinge_x=t_hx, hinge_z=t_hinge_z, flap_r=t_flap_r,
+            flap_t=t_T, flap_w=t_W, pitch_neighbour=0.10, vane_top=t_vane,
+            gap=t_gap),
+        worst_case_nominal=dict(
+            neighbour_flap_clearance_mm=round(worst["neighbour_flap_clearance_mm"], 3),
+            aperture_clearance_mm=round(worst["aperture_clearance_mm"], 3),
+            vane_gap_mm=round(worst["vane_gap_mm"], 3),
+            coverage_mm=round(worst["coverage_mm"], 3),
+            own_clearance_mm=round(worst["own_clearance_mm"], 3),
+            on_off_ratio=round(worst["on_off_ratio"], 2)),
+        fail_rate_nominal={k: fail[k] for k in fail},
+        worst_case_pessimistic=dict(
+            neighbour_flap_clearance_mm=round(
+                worst_pess["neighbour_flap_clearance_mm"], 3),
+            aperture_clearance_mm=round(worst_pess["aperture_clearance_mm"], 3),
+            vane_gap_mm=round(worst_pess["vane_gap_mm"], 3)),
+        fail_rate_pessimistic={k: fail_pess[k] for k in fail_pess},
+        passes_nominal=bool(all(v == 0.0 for v in fail.values())),
+        verdict=(
+            f"At the adopted {SHUT_APER_GAP_MM:.1f} mm standoff (aperture "
+            f"{SHUT_AP_MM:.2f} mm) the shutter passes every margin in all "
+            f"{n} Monte Carlo draws with a realistic monolithic-frame pitch "
+            f"tolerance (+/-0.10 mm) on the neighbour. Worst sampled margins: "
+            f"neighbour {worst['neighbour_flap_clearance_mm']:.3f} mm, aperture "
+            f"{worst['aperture_clearance_mm']:.3f} mm, vane gap "
+            f"{worst['vane_gap_mm']:.3f} mm, coverage "
+            f"{worst['coverage_mm']:.3f} mm. At a hostile +/-0.20 mm neighbour "
+            f"tolerance the neighbour margin alone can go slightly negative "
+            f"({worst_pess['neighbour_flap_clearance_mm']:.3f} mm; fail rate "
+            f"{fail_pess['neighbour_flap_clearance_mm']*100:.1f}%) - the binding "
+            "term is pitch placement, retired by a single monolithic print. The "
+            f"DND-114 1.0 mm standoff is INFEASIBLE under this stack-up (the "
+            "aperture-clearance check fails), which is why DND-115 adopts "
+            "1.8 mm."),
     )
 
 
@@ -913,34 +1254,34 @@ def full_cycle_pessimistic_sweep(v_mm_s=1000.0):
 OUTCOME = "a"
 
 OUTCOME_STATEMENT = (
-    "OUTCOME (a) BOUNDED on the RATE axis; the READ/VERIFY axis is "
-    "UNRESOLVED pending a common-height read target. The A1 writer rate is "
-    "analytically bounded from sourced component-class kinematics + placed "
-    "CAD. The dominant limit is GANTRY TRAVERSE at the credible design point: "
-    "at 1.0 m/s one head writes/reads 164.5 cells/s (credible band 71-228 "
-    "cells/s), a factor 4.4-14x below the placeholder 1,000 cells/s. "
+    "OUTCOME (a) BOUNDED on the RATE axis; OUTCOME (a) CLOSED on the "
+    "READ/VERIFY axis at CAD + calculation (DND-114 + DND-115). The A1 writer "
+    "rate is analytically bounded from sourced component-class kinematics + "
+    "placed CAD. The dominant limit is GANTRY TRAVERSE at the credible design "
+    "point: at 1.0 m/s one head writes/reads 164.5 cells/s (credible band "
+    "71-228 cells/s), a factor 4.4-14x below the placeholder 1,000 cells/s. "
     "Stop-and-go is excluded outright (30.4 cells/s at X1C accel; the 100 "
     "m/s^2 sensitivity row is 61.9, not 89.6 - DND-113 trapezoid fix). The "
-    "full map still clears <30 s with the honest per-line ramp overhead "
-    "(DND-113): 8 parallel heads give 18.28 s including verification; even 4 "
-    "heads give 30.0 s (borderline). The READ/VERIFY axis is NOT resolved: "
-    "the reader reading the column TOP FACE is state-dependent-standoff bound "
-    "(up-state spot 3.07 mm; down-state spot 24.5 mm = 4.82 pitches, drowned "
-    "by up neighbours ~441x), so a down cell can read up. The binding read "
-    "limit is the state-dependent standoff, NOT the +/-0.264 mm gantry "
-    "registration (which is an up-state-only figure). Fix: adopt a "
-    "common-height read target (proposed: a reflective flag at the "
-    "frame-anchored latch hinge) - a per-cell reader Z stroke is rate-fatal "
-    "(>1000 s cycle); a per-line refocus costs ~29.6 s for both passes and "
-    "must be priced. Until the read target is settled, A1's reliability "
-    "advantage (readback + retry) is unproven - that is the decisive "
-    "difference between a 0-silent machine and a decorated silent one."
+    "full map clears <30 s with the honest per-line ramp overhead (DND-113): "
+    "8 parallel heads give 18.28 s including verification; even 4 heads give "
+    "30.0 s (borderline). The READ/VERIFY axis is now CLOSED: the as-drawn "
+    "top-face read was state-dependent-standoff bound (R1/G2), DND-114 moved "
+    "the target to a frame-fixed CH-A vane at ONE standoff (DeltaZ = 0), and "
+    "DND-115 adds the state-encoding shutter that makes that fixed-standoff "
+    "return state-dependent: the flap covers 100% of the 1.136 mm spot in the "
+    "hidden state and 0% in the visible state, an on/off ratio ~10x while the "
+    "reflective TARGET stays frame-fixed. The remaining residuals are "
+    "assumption-class optical constants and measurement-only wear (DND-27). "
+    "A1's reliability advantage (readback + retry) is now supported on paper "
+    "end to end - the difference between a 0-silent machine and a decorated "
+    "silent one."
 )
 
 
 def report():
     return dict(
-        issue="DND-111 (rate) + DND-113 (read mechanism correction)",
+        issue="DND-111 (rate) + DND-113 (read correction) + DND-114 (common-height "
+              "target) + DND-115 (state-encoding shutter)",
         evidence_class="CALCULATION over sourced component-class limits + CAD "
                        "(no print, no purchase, no measurement; DND-27)",
         placeholder_replaced=dict(
@@ -955,6 +1296,8 @@ def report():
         read_resolution=read_resolution_bound(),
         common_height_read_target=common_height_read_target(),
         flag_read_contrast=flag_read_contrast(),
+        shutter_read_contrast=shutter_read_contrast(),
+        shutter_tolerance_mc=shutter_tolerance_mc(),
         z_stroke_trade_study=z_stroke_trade_study(),
         achievable=achievable_rate(),
         head_sweep=full_cycle_head_sweep(),

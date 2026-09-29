@@ -133,6 +133,36 @@ def main() -> int:
     check("DND-114 read resolves with the common-height target (not as drawn)",
           rr["resolves_single_cell_with_common_height_target"] is True
           and rr["resolves_single_cell"] is False)
+    # --- DND-115: the state-encoding shutter -------------------------------
+    sc = wr.shutter_read_contrast()
+    check("DND-115 shutter fully occludes the spot in the hidden state",
+          sc["hidden_state_fully_occluded"] is True
+          and sc["hidden_shadow_fraction"] >= 0.99)
+    check("DND-115 shutter fully clears the spot in the visible state",
+          sc["visible_state_fully_clear"] is True
+          and sc["visible_shadow_fraction"] <= 0.01)
+    check("DND-115 on/off return ratio clears the 2x gate",
+          sc["on_off_return_ratio"] >= sc["on_off_gate"]
+          and sc["contrast_passes"] is True)
+    check("DND-115 reflective TARGET stays frame-fixed (DeltaZ = 0)",
+          sc["target_delta_z_mm"] == 0.0)
+    check("DND-115 absorber standoff stays inside the +/-1 mm DoF",
+          sc["absorber_in_dof"] is True and sc["absorber_delta_z_mm"] <= 1.0)
+    check("DND-115 shutter sweep clears the neighbour body",
+          sc["clears_neighbour"] is True
+          and sc["neighbour_flap_clearance_mm"] > 0.0)
+    check("DND-115 shutter sweep stays above the own column top",
+          sc["above_own_column"] is True)
+    check("DND-115 shutter does not intrude into the reader aperture plane",
+          sc["aperture_clearance_mm"] > 0.0)
+    check("DND-115 read spot stays entirely off the neighbour body",
+          sc["spot_off_neighbour"] is True)
+    mc = wr.shutter_tolerance_mc(n=20_000)
+    check("DND-115 shutter passes the Monte Carlo stack-up (realistic pitch tol)",
+          mc["passes_nominal"] is True
+          and all(v == 0.0 for v in mc["fail_rate_nominal"].values()))
+    check("DND-115 adopts the 1.8 mm standoff (DND-114 1.0 mm infeasible)",
+          mc["standoff_mm"] == 1.8 and mc["aperture_mm"] == 0.44)
     zs = wr.z_stroke_trade_study()
     check("DND-113 reader Z stroke per cell is rate-fatal (>1000 s)",
           zs["per_cell_cycle_s"] > 1000.0)
