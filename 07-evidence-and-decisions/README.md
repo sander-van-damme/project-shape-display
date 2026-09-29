@@ -105,6 +105,35 @@ subtotal error). The unsourced **$1.05 motor** is the largest existential cost r
 traceable matched part is $40/ea → $3,200 for 80). See the review for the ranked, print-free
 falsification experiments.
 
+### Falsifier adversarial audit of S6-LC (DND-91 / DND-74, 2026-09)
+
+The DND-72 consolidation selected **S6-LC** (`09-low-cost-variant/s6lc/`, $139.77 parts →
+$162.13 delivered, 7.4 s full map, `PROMOTE_TO_09`) as the ultra-low-cost machine of record. The
+repointed Falsifier audit is
+[`dnd91-s6lc-falsification.md`](dnd91-s6lc-falsification.md), with a CI gate in
+[`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) (35 checks).
+
+**Verdict: S6-LC survives as a *definition*, but its "all gates pass" headline is not valid as
+derived.** Eight attacks; the two load-bearing ones are **broken**:
+
+- **A1 cell fit BROKEN** — `column_fit()` compares pawl+bleed against the *whole* inter-body gap
+  (1.48 mm), but a cell owns only 0.74 mm to its half-pitch, and the CAD places the 0.90 mm pawl at
+  `BODY/2 + 0.10` so it reaches 2.80 mm > 2.54 mm half-pitch: **0.260 mm overflow into the
+  neighbour**. The pitch claim is not established.
+- **A2 pawl spring BROKEN (8×)** — the model uses the 0.90 mm root block as the bending section, but
+  the CAD leaf is `PAWL_T/2 = 0.45 mm`; true `k` is 0.0801 N/mm, release ≈ 0.020 N (8× softer), and
+  there is **no hold-force gate** at all.
+- A3 the 296 N "ceiling" is `0.37 N/cell × 800` (the old S1 pawl), not a sourced limit → G2 is
+  circular. A4 timing prices 4 strokes + dwells only (mask index, carriage traverse unpriced).
+  A5 soft BOM lines repriced to plausible retail give **$196.93 delivered** (margin $53), plus
+  unlisted mask media / puncher / splice hardware. A6 the program's per-cell reliability gate is
+  **absent from S6-LC**: at q=1e-4, P(all 6,400 correct) = **52.7 %**, with no per-cell feedback.
+  A7 the "platen unloaded while writing" assumption contradicts a tabletop map with minis on it.
+  A8 regional/jam behaviour is asserted, not modelled.
+
+**Mandatory next step:** coupon **C1** (a 4×4 unit-cell print at true pitch + a push-pull gauge)
+before any full-machine print — the cheapest experiment that can reject A1/A2/A6/S1-D.
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
