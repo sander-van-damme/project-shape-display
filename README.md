@@ -8,7 +8,7 @@ This repository develops a tabletop shape display for physical Dungeons & Dragon
 
 The numbered root directories are intentionally ordered. Read them as the project argument from problem definition to integrated designs:
 
-1. [`01-project-description/`](01-project-description/) — what is being built and why.
+1. [`01-project-description/`](01-project-description/) — what is being built and why, including the [standing Board mandate](01-project-description/board-mandate.md).
 2. [`02-design-criteria/`](02-design-criteria/) — requirements, scale, fabrication context and success criteria.
 3. Engineering knowledge used to construct solutions:
    - [`03-engineering-knowledge/`](03-engineering-knowledge/) — knowledge model, sources and cross-cutting synthesis.
