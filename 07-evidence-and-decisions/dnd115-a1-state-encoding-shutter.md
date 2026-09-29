@@ -15,14 +15,14 @@
   untouched.
 - **Branch:** `cto/dnd115-state-encoding-shutter` from `main` (`60d33d7`).
 - **Deliverables:** the parameterised `shutter_crank()` / `shutter_flap()` in
-  [`a1_binary_latch_cell.scad`](../10-reliability-mask/scad/a1_binary_latch_cell.scad)
+  [`a1_binary_latch_cell.scad`](../08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad)
   with a `part="shutter"` printable selector and self-checks; the new
-  [`shutter_read_contrast()` / `shutter_tolerance_mc()`](../10-reliability-mask/analysis/a1_writer_rate.py);
-  the hard CAD self-checks in [`render_a1_cad.py`](../10-reliability-mask/analysis/render_a1_cad.py);
+  [`shutter_read_contrast()` / `shutter_tolerance_mc()`](../08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py);
+  the hard CAD self-checks in [`render_a1_cad.py`](../08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py);
   the re-baselined [`falsifier_dnd114_checks.py`](falsifier_dnd114_checks.py)
   (standoff/aperture revision); the new [`falsifier_dnd115_checks.py`](falsifier_dnd115_checks.py)
   (9 attacks, default-deny); the rendered watertight shutter mesh +
-  [`render_record.json`](../10-reliability-mask/cad/render_record.json); this ADR;
+  [`render_record.json`](../08-integrated-designs/a1-reliability-first/cad/render_record.json); this ADR;
   and README §4.2a/§4.7/§6/§10.
 - **Outcome: the read/verify axis is CLOSED at CAD + calculation (outcome a).**
   The shutter shadows the fixed-standoff read spot in one latch state (100%) and
@@ -169,7 +169,7 @@ reflective target z is unchanged.
   re-baselined to 1.8 mm / 0.44 mm.
 - `.github/workflows/ci.yml`: new **hard gate** running
   `falsifier_dnd115_checks.py --gate`.
-- `10-reliability-mask/README.md` §4.2a/§4.7/§6/§10: updated from "residual" to
+- `08-integrated-designs/a1-reliability-first/README.md` §4.2a/§4.7/§6/§10: updated from "residual" to
   "closed".
 
 ## 8. Residual uncertainty / evidence classification

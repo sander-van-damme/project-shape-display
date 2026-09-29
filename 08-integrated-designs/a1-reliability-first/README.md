@@ -278,7 +278,7 @@ the DND-114 **1.0 mm standoff is infeasible** for a 0.44 mm flap under printed
 placing tolerances, so DND-115 adopts a **1.8 mm standoff / 0.44 mm aperture**
 (spot 1.405 mm, still clearing the neighbour by 0.353 mm). Residuals are now
 assumption-class optical constants and measurement-only wear (DND-27). See
-[`dnd115-a1-state-encoding-shutter.md`](../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md).
+[`dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md).
 
 
 ### 4.3 Honest timing decomposition (DND-103 requirement)

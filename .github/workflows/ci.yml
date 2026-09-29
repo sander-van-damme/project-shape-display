@@ -322,7 +322,7 @@ jobs:
         # The companion checker is a HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
         run: |
-          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
       - name: "DND-118 independent falsifier audit of the DND-115 shutter (report)"

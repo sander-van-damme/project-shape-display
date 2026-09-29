@@ -112,24 +112,24 @@ deciding number** — the deciding numbers are geometric (spot vs lane).
 
 ## 5. What changed (all calculation + CAD; no print)
 
-- `10-reliability-mask/scad/a1_binary_latch_cell.scad`: added the parameterised
+- `08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad`: added the parameterised
   `ch_a_frame_vane()` and `ch_b_arm_flag()` modules, a `part="flag"` printable
   selector, a `common_height_target()` module, and the flag self-checks
   (`HINGE_X`, lane fit, Δz=0, hinge-arc bound, `R_FLAG_MAX`, min feature).
-- `10-reliability-mask/scad/a1_reader_head.scad`: replaced the DND-113 schematic
+- `08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad`: replaced the DND-113 schematic
   flag with the real CH-A vane + a `flag_reader_head()` at the fixed standoff,
   and added the flag-read self-checks (`FLAG_SPOT_X`, neighbour clearance,
   flag-Y fit).
-- `10-reliability-mask/analysis/a1_writer_rate.py`: `common_height_read_target()`
+- `08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py`: `common_height_read_target()`
   now reports the **ADOPTED** CH-A target (Δz=0) and the CH-B bound; new
   `flag_read_contrast()` computes the fixed-standoff geometry; `read_resolution_bound()`
   reports both the as-drawn defect and
   `resolves_single_cell_with_common_height_target = True`.
-- `10-reliability-mask/analysis/render_a1_cad.py`: renders + mesh-validates the
+- `08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py`: renders + mesh-validates the
   `flag` part and **fails hard** if the common-height checks do not pass.
-- `10-reliability-mask/cad/render_record.json`: now carries the flag mesh
+- `08-integrated-designs/a1-reliability-first/cad/render_record.json`: now carries the flag mesh
   (watertight, 0.44×1.6×0.82 mm) and the flag-read echoes.
-- `10-reliability-mask/README.md` §4.2a + the decisive falsifier: updated from
+- `08-integrated-designs/a1-reliability-first/README.md` §4.2a + the decisive falsifier: updated from
   "proposed" to "adopted + CAD-validated", with the one remaining CAD detail
   called out.
 
