@@ -82,13 +82,19 @@ PAWL_W_MM = 0.70               # width in Y (row direction)
 PAWL_DEFLECTION_MM = 0.10      # working deflection off the rack tooth
 PAWL_TARGET_FORCE_N = 0.14     # design target; checked against the leaf calc
 
-# Keeper latch: bistable over-centre leaf, 5-position gate. The keeper is a
-# lightly loaded latch, so 1 line (0.45 mm) is acceptable; its force is small.
-KEEPER_LEAF_T_MM = 0.45
-KEEPER_LEAF_L_MM = 3.00
+# Keeper latch: bistable over-centre leaf, 5-position gate.
+# DND-59 re-profile (R-DND54-KEEPER): the DND-54 keeper was 0.45 mm = 1
+# extrusion line (RISK), and its hold was a bending-spring force set by the
+# over-centre offset (tolerance-fragile). The keeper is now 0.90 mm = 2 lines
+# (PASS) and its HOLD is a hard printed shoulder in compression; the leaf only
+# trips the snap. A longer leaf (4.00 mm) keeps the snap strain low.
+KEEPER_LEAF_T_MM = 0.90
+KEEPER_LEAF_L_MM = 4.00
 KEEPER_LEAF_W_MM = 0.70
 KEEPER_OVER_CENTRE_MM = 0.06   # offset making the detent bistable
 KEEPER_GATE_STEP_MM = 0.35     # spacing of the 5 gate positions
+KEEPER_LEAF_T_DND54_MM = 0.45  # superseded (1 line); kept for the record
+KEEPER_LEAF_L_DND54_MM = 3.00
 
 # Drive rack on the shared bar.
 # DND-58 (DND-55 bank close-out): the DND-54 rack (pitch 0.60 / tooth 0.45)
@@ -181,19 +187,44 @@ def keeper_hold() -> dict:
 
 
 def cell_fit() -> dict:
-    """Geometry: does the pawl + keeper stack fit the 5.08 mm cell band?"""
+    """Two-axis geometry: does the pawl + keeper fit the 5.08 mm cell?
+
+    DND-59 re-profile (R-DND54-KEEPER): the keeper was 1 line (0.45 mm) and sat
+    BEHIND the pawl in the pitch direction (X), so the X-band held pawl+keeper.
+    Re-profiling it to 2 lines (0.90 mm) there would consume the free band
+    (worst-case gap 0.02 mm < 0.20 mm). The keeper is therefore re-profiled into
+    the ROW direction (Y), beside the pawl, where the cell has room: the X-band
+    then holds only the pawl, and the Y-band holds pawl+keeper. Both axes clear.
+
+    X-band free width = PITCH - 2R (between rotor edges).
+    Y-band free width = PITCH - 2R too (row pitch = column pitch), but the
+    pawl+keeper pair is 0.70 + 0.90 = 1.60 mm, inside 2.08 mm.
+    """
     rotor_dia = 2.0 * ROTOR_RADIUS_MM
     free_band = PITCH_MM - rotor_dia
-    stack_nom = PAWL_T_MM + KEEPER_LEAF_T_MM
-    stack_worst = stack_nom + 2.0 * DIM_ACCURACY_MM
+    # X: pawl only (keeper moved to Y).
+    stack_x = PAWL_T_MM
+    stack_x_worst = stack_x + 2.0 * DIM_ACCURACY_MM
+    # Y: pawl + keeper side by side.
+    stack_y = PAWL_W_MM + KEEPER_LEAF_T_MM
+    stack_y_worst = stack_y + 2.0 * DIM_ACCURACY_MM
+    # Bounding (worst) axis for the crosstalk gate.
+    worst_gap = min(free_band - stack_x_worst, free_band - stack_y_worst)
     return dict(
         pitch_mm=PITCH_MM, rotor_dia_mm=round(rotor_dia, 3),
         free_band_mm=round(free_band, 3),
-        in_band_stack_nominal_mm=round(stack_nom, 3),
-        in_band_stack_worst_mm=round(stack_worst, 3),
-        stack_inside_band=bool(stack_worst <= free_band),
-        tip_gap_worst_mm=round(free_band - stack_worst, 3),
-        fits_worst_case=bool((free_band - stack_worst) > 0.0),
+        keeper_direction="Y (row direction), beside the pawl",
+        x_stack_nominal_mm=round(stack_x, 3),
+        x_stack_worst_mm=round(stack_x_worst, 3),
+        x_tip_gap_worst_mm=round(free_band - stack_x_worst, 3),
+        y_stack_nominal_mm=round(stack_y, 3),
+        y_stack_worst_mm=round(stack_y_worst, 3),
+        y_tip_gap_worst_mm=round(free_band - stack_y_worst, 3),
+        in_band_stack_nominal_mm=round(stack_y, 3),
+        in_band_stack_worst_mm=round(stack_y_worst, 3),
+        stack_inside_band=bool(stack_y_worst <= free_band),
+        tip_gap_worst_mm=round(worst_gap, 3),
+        fits_worst_case=bool(worst_gap > 0.0),
     )
 
 
@@ -469,9 +500,10 @@ def sensitivity(rows_in_bank: int = ROWS_IN_BANK) -> dict:
     pawl = pawl_spring()
     req_one_motor = (COLS * rows_in_bank * (pawl["force_n"] + WRITE_LOAD_N)
                      / BUS_EFFICIENCY) * BANK_PINION_RADIUS_MM / 1000.0  # N.m
-    # (c) Print tolerance at which the pawl/keeper stack still fits the band
+    # (c) Print tolerance at which the pawl/keeper stack still fits the band.
+    # DND-59: the bounding axis is the Y-band (pawl + keeper side by side).
     free_band = PITCH_MM - 2.0 * ROTOR_RADIUS_MM
-    stack_nom = PAWL_T_MM + KEEPER_LEAF_T_MM
+    stack_nom = PAWL_W_MM + KEEPER_LEAF_T_MM
     max_accuracy = (free_band - stack_nom) / 2.0
     # (d) Writer settle needed at the chosen crank speed
     fixed_nosettle = (tc.fixed_s() + (groups - 1) * tc.index_s()

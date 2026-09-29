@@ -21,6 +21,7 @@ import unittest
 from pathlib import Path
 
 import s5r_bank as b
+import s5r_register as reg
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
@@ -143,6 +144,18 @@ class BankChecks(unittest.TestCase):
         self.assertIn("RACK_TOOTH_PITCH = 1.00", text)
         self.assertIn("RACK_TOOTH_HEIGHT = 0.50", text)
         self.assertNotIn("RACK_TOOTH_PITCH = 0.60", text)
+
+    def test_dnd59_keeper_is_two_lines_and_in_y(self):
+        # DND-59: the keeper is re-profiled to 2 lines and moved to +Y; the bank
+        # SCAD must carry KEEPER_T = 0.90 and the comber must be clear of it.
+        self.assertAlmostEqual(_scad_const("KEEPER_T"), 0.90, places=6)
+        self.assertGreaterEqual(reg.KEEPER_LEAF_T_MM, reg.MIN_WALL_MM - 1e-9)
+        c = b.clearance_stack_up()
+        self.assertTrue(c["comber_clears_keeper_in_y"])
+        self.assertGreater(c["comber_clears_keeper_y_mm"], 0.0)
+        # the keeper no longer consumes the X-band, so the tine gap grows
+        self.assertAlmostEqual(c["comber_tine_x_gap_mm"],
+                               b.PITCH_MM - reg.PAWL_T_MM, places=3)
 
     def test_adr_document_carries_the_decisive_numbers(self):
         self.assertTrue(ADR.exists(), f"missing ADR {ADR}")

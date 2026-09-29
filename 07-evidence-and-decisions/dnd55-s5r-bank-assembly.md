@@ -167,7 +167,7 @@ tooth) instead of 0.60 mm; that is a DND-54 rack-level change, recorded here.
 
 | id | Residual | Class | Status |
 |---|---|---|---|
-| R-DND55-1 | Bar-torsion **eccentricity `e`** (tooth-flank contact offset) | assumption | **open** — dominant input; e = W/2 worst case; measured only by a coupon ([DND-27](/DND/issues/DND-27)). Steel rod makes it irrelevant |
+| R-DND55-1 | Bar-torsion **eccentricity `e`** (tooth-flank contact offset) | assumption | **closed for the steel rod ([DND-59](/DND/issues/DND-59))** — at e = pinion radius (6 mm) the peak skew is 0.0052 mm, 33× inside gate/2; break-even e ≈ 201 mm. Remains an assumption only for the printed-bar fallback |
 | R-DND55-2 | Bar torsion model (Saint-Venant bound, no FEA, no attachments) | calculation | open — a bound, not FEA |
 | R-DND55-3 | Reduced (8-column) CAD vs full 80-column torso | CAD | analytic uniform-pitch argument; not a 320-body render |
 | R-DND55-4 | Corrected rack stroke 1.00 mm changes the DND-54 per-stroke advance | CAD/calc | **closed ([DND-58](/DND/issues/DND-58))** — register reconciled to pitch 1.00 / tooth 0.50, `RACK_STROKE_MM = 1.00`; timing unchanged (angular pass) |

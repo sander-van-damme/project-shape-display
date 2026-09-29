@@ -146,24 +146,36 @@ def check_register_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) ->
     add_wall("pawl leaf thickness (PAWL_T)", c["PAWL_T"],
              "spring leaf across the pitch band; 1 line is the hard floor")
 
-    # 2. keeper leaf thickness.
+    # 2. keeper leaf thickness (DND-59: re-profiled to 2 lines).
     add_wall("keeper leaf thickness (KEEPER_T)", c["KEEPER_T"],
-             "bistable over-centre leaf")
+             "bistable over-centre leaf; DND-59 re-profile to 2 lines")
+
+    # 2b. keeper hard shoulder (DND-59): must be a printable feature >= 1 line.
+    if "KEEPER_SHOULDER_X" in c:
+        add("keeper hard shoulder (KEEPER_SHOULDER_X)", c["KEEPER_SHOULDER_X"],
+            spec.min_feature_mm, "auto", "min_feature",
+            "the compression hold shoulder must print as a solid feature")
 
     # 3. housing wall.
     add_wall("housing wall (WALL)", c["WALL"], "structural cell wall")
 
     # 4. free lateral gap between the pawl/keeper stack and the neighbour cell.
+    # DND-59: the keeper is re-profiled into the ROW (Y) direction, so the X-band
+    # holds only the pawl and the Y-band holds pawl + keeper. Both axes checked.
     free_band = c["PITCH"] - 2.0 * c["ROTOR_RADIUS"]
-    stack = c["PAWL_T"] + c["KEEPER_T"] + c["KEEPER_OVER_CENTRE"]
-    v = lateral_clearance(free_band - stack, required_mm=0.20, spec=spec)
-    checks.append(Check(
-        feature="free lateral gap to neighbour cell (PITCH - 2R - stack), worst case",
-        value_mm=v.pessimistic_mm, limit_mm=0.20,
-        verdict="PASS" if v.ok else "FAIL",
-        rule="lateral running clearance", evidence=v.evidence, source=v.source,
-        note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; this is the "
-             "no-neighbour-cross-talk geometric gate"))
+    stack_x = c["PAWL_T"]
+    stack_y = c["PAWL_W"] + c["KEEPER_T"]
+    for axis, stack in (("X (pitch)", stack_x), ("Y (row)", stack_y)):
+        v = lateral_clearance(free_band - stack, required_mm=0.20, spec=spec)
+        checks.append(Check(
+            feature=f"free lateral gap to neighbour cell, {axis} "
+                    f"(PITCH - 2R - stack), worst case",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; this is "
+                 "the no-neighbour-cross-talk geometric gate"))
 
     # 5. rotor bore clearance (printed journal fit).
     if "ROTOR_BORE_CLEAR" in c:

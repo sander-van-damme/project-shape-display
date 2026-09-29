@@ -50,14 +50,15 @@ PAWL_W = 0.70;                  // pawl width in Y (row direction)
 PAWL_LEN = 8.00;                // cantilever length (Z)
 PAWL_XY_CLEAR = 0.40;           // designed pawl-to-rack lateral free play
 CELL_H = 7.0;                   // S5 cell height (rotor hub top above rack top)
-KEEPER_T = 0.45;
+KEEPER_T = 0.90;                // DND-59: re-profiled to 2 lines (was 0.45)
 KEEPER_GATE_STEP = 0.35;        // height a dropped pawl is held clear
 
 // ---- reset comber (one reverse pass trips every dropped pawl) -------------
-// The comber tines ride in the clear X-gap BETWEEN column stacks (the column
-// stack is (PAWL_T + KEEPER_T) wide in a 5.08 mm pitch, leaving >3.7 mm of free
-// X), so in X the comber is already clear of every pawl/keeper. It swings in Z:
-// parked low, then up to the pawl plane to trip a dropped pawl over-centre.
+// DND-59: the keeper moved to +Y (row direction), so the X-gap between column
+// stacks now holds only the pawl (PAWL_T = 0.90 in 5.08), leaving >4.1 mm of
+// free X. The comber tines ride that X-gap, and at Y = -0.30 they are also
+// clear of the keeper (which occupies +Y 0.35..1.25). It swings in Z: parked
+// low, then up to the pawl plane to trip a dropped pawl over-centre.
 COMBER_TINE_T = 0.90;           // tine thickness (X): 2 lines, robust printed rake tine
 COMBER_TINE_L = 14.0;           // tine length (Z)
 COMBER_Z_LOW = -2.0;            // comber park position (below the pawl tips)
@@ -97,9 +98,10 @@ module one_column(row_i = 0, dropped = false) {
             cube([PAWL_T, PAWL_W, PAWL_LEN]);
         // rotor hub sits on top of the pawl (cantilever root)
         translate([0, 0, base + PAWL_LEN]) cylinder(r = ROTOR_RADIUS, h = CELL_H);
-        // keeper leaf outboard in +X, alongside the pawl
-        translate([PAWL_T / 2, -PAWL_W / 2, base])
-            cube([KEEPER_T, PAWL_W, PAWL_LEN + CELL_H]);
+        // keeper leaf outboard in +Y (ROW direction), BESIDE the pawl -- DND-59
+        // moved the keeper out of the pitch (X) band so it does not consume it.
+        translate([-PAWL_T / 2, PAWL_W / 2, base])
+            cube([PAWL_T, KEEPER_T, PAWL_LEN + CELL_H]);
     }
 }
 

@@ -65,6 +65,26 @@ adds **$3.00 parts → $3.48 delivered**, so the honest working BOM is now
 **$404.60 delivered** (`margin $95.40`); the earlier $401.12 / $397.53 figures are
 retained as `delivered_no_rod_usd` / `delivered_claim_usd`. R-DND55-4 is **closed**.
 
+**S5-R residual retirement ([DND-59](/DND/issues/DND-59)):** the remaining
+**agent-reachable** S5-R residuals are now retired or bounded on the DND-27
+evidence classes. **R-DND54-KEEPER** is **closed**: the keeper leaf is re-profiled
+**0.45 → 0.90 mm (1 → 2 extrusion lines, printability RISK → PASS)** and its
+*hold* is moved from a tolerance-fragile bending-spring offset to a **hard printed
+shoulder in compression** (144–324× the pawl push-out). The re-profile moves the
+keeper into the **row (Y) axis** so it does not consume the pitch band (X gap
+0.98 mm, Y gap 0.28 mm worst case). **R-DND54-6** is **closed agent-side**: the
+writer force is re-derived bottom-up (**0.2425 N**) and the sourced 5 V push
+solenoid class (**1.20 N**, 4.95×) clears it. **R-DND54-5** is **bounded
+agent-side**: a 99 % full map needs per-keeper **q ≤ 1.57e-6**, and a per-group
+verify+retry relaxes it **2–10×** (writer redundancy **~798×**); the as-printed q
+is the measurement-only residue. **R-DND54-3** is **bounded agent-side**:
+break-evens re-derived (min crank **468 deg/s**, 1.54×; max settle **0.084 s**,
+1.67×) and the sourced NEMA17 class clears at 2.15× torque. **R-DND55-1** is
+**closed for the steel rod**: skew 0.0052 mm even at an extreme eccentricity
+e = 6 mm (33× inside the gate; break-even e ≈ 201 mm). See
+[`dnd59-s5r-residual-retirement.md`](../07-evidence-and-decisions/dnd59-s5r-residual-retirement.md).
+The only residue left is **measurement-only** (§ consolidated table there).
+
 ---
 
 ## 1. Machine in one paragraph
@@ -354,8 +374,34 @@ depth, guide shear, creep, rotor tolerance). See the **Final readiness verdict**
     72°/level; the linear per-stroke advance does not enter the timing). **BOM: +$3.48
     delivered** for the rod → honest working total **$404.60 delivered** (`margin
     $95.40`); the earlier $401.12 / $397.53 figures are retained as
-    `delivered_no_rod_usd` / `delivered_claim_usd`. **Verdict:** R-DND55-4 closed;
+    `delivered_no_rod_usd` / `delivered_claim_usd`.     **Verdict:** R-DND55-4 closed;
     R-DND54-4 closed for envelopes/pitch. No print, no measurement.
+12. **S5-R residual retirement — the last agent-reachable residuals** — **done**
+    ([DND-59](/DND/issues/DND-59), `s5r_residuals.py` + `s5r_residuals_checks.py`,
+    ADR [`dnd59-s5r-residual-retirement.md`](../07-evidence-and-decisions/dnd59-s5r-residual-retirement.md)).
+    Retires the four agent-reachable residuals + one inherited residual:
+    keeper leaf RISK (re-profile to 2 lines + compression shoulder), writer force
+    (bottom-up 0.2425 N vs sourced 1.20 N, 4.95×), missed-set reliability (q ≤
+    1.57e-6; verify/redundancy levers 2–10×/798×), crank break-evens (468 deg/s,
+    0.084 s; sourced class clears), and bar eccentricity (closed for the steel
+    rod). **Registry now: every S5-R residual is closed/bounded agent-side except
+    the measurement-only residue.**
+
+### 8a. Consolidated S5-R residual registry (DND-59)
+
+| Residual | Status | Evidence class |
+|---|---|---|
+| R-DND54-KEEPER (keeper leaf 1 line RISK) | **closed** — 2 lines + compression shoulder; printability PASS | CAD + CALCULATION |
+| R-DND54-6 (writer force unconfirmed) | **closed agent-side** — bottom-up 0.2425 N; sourced class 1.20 N (4.95×) | CALCULATION + sourced |
+| R-DND54-5 (missed set = silent error) | **bounded agent-side** — q ≤ 1.57e-6; verify/redundancy levers quantified | CALCULATION |
+| R-DND54-3 (crank 720 deg/s, settle 0.05 s) | **bounded agent-side** — break-evens 468 deg/s / 0.084 s; sourced class clears | CALCULATION + sourced |
+| R-DND55-1 (bar eccentricity e) | **closed for the steel rod** — 33× inside gate at extreme e | CALCULATION |
+| R-DND54-4 (multi-row bar/envelopes) | closed for envelopes/pitch; sharpened to sourced rod ([DND-55](/DND/issues/DND-55)/[DND-58](/DND/issues/DND-58)) | CAD + CALCULATION |
+| R-DND55-4 (rack reconcile) | closed ([DND-58](/DND/issues/DND-58)) | CAD + CALCULATION |
+| R-DND54-1 (as-printed friction mu, gate/tip sharpness) | **measurement-only** (un-retirable, [DND-27](/DND/issues/DND-27)) | — |
+| R-DND54-2 (printed-leaf creep/fatigue) | **measurement-only** (un-retirable, [DND-27](/DND/issues/DND-27)) | — |
+| R-DND54-5-q (as-printed per-set q) | **measurement-only** (requirement bounded by DND-59) | — |
+| R-DND54-3-curve (loaded NEMA17 curve) | **measurement-only** | — |
 
 ---
 
