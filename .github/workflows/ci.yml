@@ -261,19 +261,21 @@ jobs:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is
     # a hard failure so a skipped render can never be mistaken for valid CAD.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install --quiet "numpy>=1.26" trimesh
-      - name: Install OpenSCAD (rootless)
-        run: bash tools/openscad-install/install-openscad.sh
-      - name: Render + mesh-validate the DND-104 A1 cell
+      - name: Install OpenSCAD
         run: |
-          export PATH="$HOME/.local/bin:$PATH"
-          python 10-reliability-mask/analysis/render_a1_cad.py
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Install mesh validation dependency
+        run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11"
+      - name: Render + mesh-validate the DND-104 A1 cell
+        run: python 10-reliability-mask/analysis/render_a1_cad.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,
