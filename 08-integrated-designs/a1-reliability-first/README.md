@@ -283,7 +283,9 @@ assumption-class optical constants and measurement-only wear (DND-27).
 change: the neighbour top is **not** off-beam but **weakly in-cone and
 state-invariant** (cone radius 1.286 mm vs 1.055 mm near-edge offset), so the
 crosstalk term is modelled and **gated** in `contrast_passes` — the
-crosstalk-corrected on/off ratio is **6.37×** (still > 2× gate). The vacuous
+crosstalk-corrected on/off ratio is **5.95×** (still > 2× gate; DND-123 corrected
+this from the internally-inconsistent 6.37×, which mixed point- and area-normalised
+returns). The vacuous
 "absorber within ±1 mm DoF" check is downgraded to **provenance only**, and the
 tolerance MC now samples an explicit reader/aperture placement tolerance so its
 aperture check can fail (worst +0.434 mm nominal / +0.325 mm at ±0.20 mm, still

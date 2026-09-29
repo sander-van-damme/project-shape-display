@@ -91,10 +91,10 @@ XY footprint at each crank angle:
 | Shadow of the read spot — HIDDEN | **100%** | fully occluded |
 | Shadow of the read spot — VISIBLE | **0%** | fully clear |
 | On/off return ratio | **7.72×** | gate 2× — **PASS** |
-| On/off ratio incl. in-cone neighbour | **6.37×** | gate 2× — **PASS** (DND-119) |
+| On/off ratio incl. in-cone neighbour | **5.95×** | gate 2× — **PASS** (DND-123; was 6.37×) |
 | Reflective target Δz | **0.000 mm** | frame-fixed — **PASS** |
 | Absorber standoff Δz | 0.55 mm | **provenance only** (DND-119; term 7.7× below the vane term) |
-| Neighbour crosstalk (clear state) | **4.6%** of the vane return; **modelled and GATED** (ratio ≤ 1) | **PASS** (DND-119) |
+| Neighbour crosstalk (clear state) | **4.6%** of the vane return; **modelled and GATED** (ratio ≤ 1) | **PASS** (DND-119/123) |
 | Ambient | rejected ~1000× (modulated LED + sync detect) | assumption-class |
 
 The deciding numbers are **geometric** (shadow fraction, lane clearance), not
@@ -111,8 +111,11 @@ claim-framing/method defects are corrected here with **no geometry change**:
   neighbour-top plane the coaxial 15° cone radius is **1.286 mm** vs the
   **1.055 mm** near-edge offset, so the edge is in-cone by **0.231 mm**. The
   in-cone part of the neighbour top is the **0.231 mm²** crescent (4.45% of the
-  cone); it contributes a small **state-invariant** return (~4.6% of the vane
-  term); the corrected on/off is **6.37×**, still > 2× gate.
+  cone); it contributes a small **state-invariant** return (**4.6%** of the vane
+  term — the ADR previously printed 6.37× here, which corresponds to only 3.25%
+  and was the artefact of mixing an area-weighted crosstalk against a point-
+  normalised vane return; DND-123 corrects it); the area-consistent corrected
+  on/off is **5.95×**, still > 2× gate.
 - **A7 — absorber DoF downgraded.** The "absorber Δz inside ±1 mm DoF" check is
   **vacuous**: the target is the frame-fixed vane (Δz = 0), and the absorber term
   is 7.7× below the vane term. It is reported for provenance only and **not**
@@ -232,8 +235,8 @@ DND-114 1.0 mm standoff is infeasible under the stack-up); the swept flap clears
 the neighbour body by 0.280 mm and the own column by 3.42 mm, and the Monte Carlo
 stack-up passes at zero failures under realistic tolerances. **DND-119 corrected
 the claim framing** from the DND-118 audit with no geometry change: the neighbour
-crosstalk is now **modelled and gated** (physical in-cone ratio 0.068, corrected
-on/off **6.37×** > 2× gate), the false "off-beam" wording is removed (the
+crosstalk is now **modelled and gated** (physical in-cone ratio 0.046, area-
+consistent corrected on/off **5.95×** > 2× gate; DND-123), the false "off-beam" wording is removed (the
 neighbour is weakly in-cone, state-invariant), the vacuous "absorber in DoF"
 claim is downgraded to provenance, and the tolerance MC samples an independent
 reader/aperture placement so its aperture check can fail (still +0.44/+0.34 mm).

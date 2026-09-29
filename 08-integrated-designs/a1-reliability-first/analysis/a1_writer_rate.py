@@ -469,8 +469,9 @@ def read_resolution_bound():
             "state-encoding shutter (`shutter_read_contrast()`): a matte-dark flap "
             "on a shutter arm shares the frame-fixed latch hinge axis and covers "
             "the read spot in one latch state (100%) and clears it in the other "
-            "(0%), giving a 7.72x on/off return ratio (6.37x once the "
-            "state-invariant in-cone neighbour term is included; both > 2x gate) "
+            "(0%), giving a 7.72x on/off return ratio (5.95x once the "
+            "state-invariant in-cone neighbour term is included; both > 2x gate; "
+            "DND-123 corrected this from 6.37x, which mixed area conventions) "
             "while the reflective TARGET stays frame-fixed (DeltaZ = 0). Residuals: "
             "(1) the flag-read standoff (1.8 mm) and aperture (0.44 mm) are "
             "assumption-class; (2) the flap matte reflectance (0.05) and the "
@@ -763,12 +764,18 @@ def shutter_read_contrast():
     # (~0.05) and the vane bright (~0.80). The shadow term dominates.
     r_vane = READ_TARGET_REFLECTANCE_UP      # 0.80
     r_flap = SHUT_FLAP_REFLECTANCE           # 0.05
-    # Solid-angle proxies (Lambertian A/d^2) at each plane.
+    # Solid-angle proxies (Lambertian A/d^2) at each plane. DND-123: the vane and
+    # flap returns are AREA-WEIGHTED (A_vane) so that they share the SAME A/d^2
+    # convention as the neighbour crosstalk term below. Previously the signal used
+    # the point return r/g^2 while the crosstalk used r*A/g^2, mixing conventions
+    # and under-counting the crosstalk by the vane area (0.704 mm^2). The shadow
+    # fraction still dominates, so the ideal ratio is unchanged.
+    A_VANE_MM2 = 0.44 * 1.60                 # vane reflecting face (CAD)
     g_vane = flag_gap_mm                     # 1.8 (DND-115 standoff)
     g_flap = absorber_gap_mm                 # 1.25 (flat_bot to aperture)
-    bright = (1.0 - visible_shadow) * r_vane / g_vane ** 2
-    dark = (1.0 - hidden_shadow) * r_vane / g_vane ** 2 + \
-        hidden_shadow * r_flap / g_flap ** 2
+    bright = (1.0 - visible_shadow) * r_vane * A_VANE_MM2 / g_vane ** 2
+    dark = (1.0 - hidden_shadow) * r_vane * A_VANE_MM2 / g_vane ** 2 + \
+        hidden_shadow * r_flap * A_VANE_MM2 / g_flap ** 2
     on_off_ratio = bright / dark if dark > 0 else float("inf")
 
     # Neighbour margin and crosstalk in the CLEAR state. The neighbour body's
@@ -826,9 +833,15 @@ def shutter_read_contrast():
     # DND-119 (A6): the in-cone neighbour term is state-invariant, so it adds the
     # SAME return to the bright and dark states. Physically the neighbour return is
     # r_vane * in-cone area / g_nb^2 (bright up-face at the neighbour-top plane),
-    # normalised the same way as the vane term r_vane/g_vane^2. Model it explicitly
-    # and recompute the on/off ratio with the crosstalk included. (Matches the
-    # DND-118 audit: ~0.008 vs the ~0.247 vane term, on/off 7.72x -> 6.37x.)
+    # area-weighted the SAME way as the vane term (r_vane * A_vane / g_vane^2).
+    # DND-123 (Falsifier): the previous 6.37x figure mixed conventions - the
+    # neighbour term was area-weighted but the vane signal was the point return
+    # r_vane/g_vane^2 - which under-counted the neighbour by A_vane and produced an
+    # effective crosstalk of 3.25% while the same function reported 4.6%. With both
+    # area-weighted the honest crosstalk is ~4.6% of the vane return and the gated
+    # on/off is ~5.95x (still > 2x gate). The DND-121 branch made the opposite error
+    # (a dimensionless in-cone FRACTION times the point return), so neither stale
+    # figure is the area-consistent one.
     crosstalk_term = r_vane * neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
     bright_with_crosstalk = bright + crosstalk_term
     dark_with_crosstalk = dark + crosstalk_term
@@ -1405,8 +1418,9 @@ OUTCOME_STATEMENT = (
     "the target to a frame-fixed CH-A vane at ONE standoff (DeltaZ = 0), and "
     "DND-115 adds the state-encoding shutter that makes that fixed-standoff "
     "return state-dependent: the flap covers 100% of the 1.405 mm spot in the "
-    "hidden state and 0% in the visible state, a 7.72x on/off ratio (6.37x "
-    "including the state-invariant in-cone neighbour term; both > 2x gate) "
+    "hidden state and 0% in the visible state, a 7.72x on/off ratio (5.95x "
+    "including the state-invariant in-cone neighbour term; both > 2x gate; "
+    "DND-123 corrected this from 6.37x) "
     "while the "
     "reflective TARGET stays frame-fixed. DND-119 (A5/A6/A7/A9) corrects the "
     "audit-found framing defects: the neighbour crosstalk term is now modelled "
