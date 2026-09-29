@@ -1,62 +1,49 @@
-# DND-98: independently re-ratify the corrected S6-LC purchased BOM
+# DND-103: reliability-first design-criteria audit (buildability + repeated-mechanism gate)
 
-Closes [DND-98](/DND/issues/DND-98).
+Closes [DND-103](/DND/issues/DND-103). Parent program: [DND-102](/DND/issues/DND-102).
 
 ## What changed
 
-Adds the **independent re-ratification of the corrected (post-DND-93) S6-LC purchased BOM**, which
-supersedes the DND-73 ratification of the uncorrected BOM.
+Doc-only update to `02-design-criteria/README.md` (no code, geometry, BOM or CAD touched):
 
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py` — re-derives the 20 BOM lines **by hand**
-  (not imported from `bom()`), with evidence-class audit, DND-73→DND-93 delta, break-evens,
-  optimistic/working/high/hostile/lean scenarios, per-cell sensitivity and reliability scaling.
-  `--selftest` and `--emit-csv` included.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py` — CI gate, **68 checks**.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_ratified.csv` — ratified purchased BOM.
-- `07-evidence-and-decisions/dnd98-s6lc-bom-reratification.md` — the ADR.
-- `.github/workflows/ci.yml` — wires the new gate; `07-evidence-and-decisions/README.md` and
-  `09-low-cost-variant/s6lc/README.md` — index/table updates.
+- **Surface pitch does not constrain the internal mechanism** — the 5.08 mm figure is a *visible
+  surface resolution* requirement, **not** a per-cell mechanism-size budget. Internal selection /
+  memory / locking / programming machinery may live under several cells, beside the display, at
+  bank/module level, in a moving external mechanism, in a replaceable mask, in a tape/card/film, or
+  in a separate mask-generation subsystem.
+- **Repeated-mechanism reliability criteria** — explicit *strongly discouraged* list (one-extrusion-line
+  moving features; tiny printed springs whose exact force decides correctness; sub-mm precision
+  interactions repeated thousands of times; friction-sensitive retention where a hard stop is possible;
+  6,400-cell tight tolerances; silent unrecoverable single-cell failures) and *preferred* list (large
+  positive engagement; hard stops; compression-loaded structures; generous clearances; replaceable
+  modules; accessible wear parts; individually testable repeated parts; redundancy / recovery).
+- **Per-architecture reliability audit (required)** — repeated moving parts, precision contacts/cell,
+  compliant printed elements, wear interfaces, tolerance-sensitive interactions, correlated vs
+  single-cell failure modes, serviceability. Gate question: *what has to work correctly 6,400 times?*
+- **Provisional design rule** for minimum repeatable feature size — no invented precision around
+  printer tolerances (7 µm lidar ≠ part tolerance; X1C publishes no universal part tolerance).
+- **Mask subsystem + honest timing** — mask generator is inside the product boundary; timing must be
+  decomposed (digital / mask-gen / transport / reset / lift / settle / verify) and both
+  *visible-transition* and *sustained cycle* times reported.
+- **Prototype ladder requirement** — Prototype A single cell → B 5×5 array → C one bank → D multiple
+  banks → full machine.
+- **Reliability + prototype testability added as gates** in the concept-comparison list (items 10–11).
+- **Regional-update trade-off** — regional updates may be satisfied at bank/segment/mask-strip level
+  where simpler; the trade-off must be quantified and surfaced.
 
-## Engineering question
+## Purpose
 
-Does the corrected S6-LC purchased BOM still hold the board ceiling, and if not, which ceiling and
-which requirement must move? The issue requires an explicit statement of the **`<$250 purchased,
-excluding 3D-printed parts`** gate (DND-70/DND-72) under working and hostile pricing.
+Removes the failure mode where surface pitch silently becomes an internal mechanism budget, and makes
+reliability/buildability a first-class gate. Unblocks the [DND-104](/DND/issues/DND-104) reliability-first
+architecture program for convergence/selection.
 
-## Evidence produced (sourced listings + CALCULATION; no print/purchase/measurement, DND-27)
+## Evidence discipline
 
-- Corrected headline **reproduces**: **$226.77 parts / $263.05 delivered (×1.16)**, reconciling with
-  `s6lc.bom()` and `bom_s6lc.csv`.
-- **`<$250 purchased` mission gate HOLDS: +$23.23.**
-- **`$250 delivered` repo convention FAILS: −$13.05** (both stated, neither hidden).
-- Growth since DND-73: **+$18.00** (NEMA17→NEMA23 lift re-price) + **+$69.00** six DND-91/A5
-  capability allowances = **+$87.00**.
-- Evidence class: 35 % traced / **65 % allowance** ($69.00 A5).
-- Break-even at $250 purchased: tightest line is the **lift motor** ($30 → cap $53.23, **1.77×**).
-- Scenarios (purchased): opt $199.79 / work $226.77 / high $245.61 / lean $187.26 all clear;
-  **hostile $300.58 breaches by $50.58**.
-- **No per-cell bought hardware** (3 motors; 3.543 cents/cell, 0.363 cents/cell headroom).
-- 99 %-map reliability needs **q ≤ 1.57e−6**; G7 remains measurement-gated (coupon C1).
+Documentation/engineering-policy change only. No print, no purchase, no measurement (DND-27). No
+sourced-fact, calculation, CAD or measured claims are introduced beyond the already-sourced X1C /
+miniature references.
 
-## Assumptions
+## Verification
 
-- EUR listing prices carried verbatim as USD (repo K7/DND-56 convention; conservative for a US buyer).
-- The lead-screw line ($24) is under-priced ~$4.76 vs its stable order tier; carried at the committed
-  figure and flagged rather than silently re-priced.
-- Lift-load model and G3 branch choice are the CTO's (DND-93); this PR ratifies the resulting BOM,
-  it does not re-open the mechanism.
-
-## Passed / failed / uncertain
-
-- **Passed:** `s6lc_checks` 40/40, `falsifier_dnd91_checks` 40/40, `falsifier_dnd74_checks` 28/28,
-  `s6lc_bom_reratify_checks` 68/68.
-- **Failed (recorded):** delivered cost convention ($263.05), hostile-pricing purchased ceiling.
-- **Uncertain:** A5 allowance realism; G7 reliability (measurement-only).
-
-## Next test
-
-Printed coupon **C1** (4×4 unit-cell at true pitch + push-pull gauge) to resolve A1/A2/A6 and G7 —
-the cheapest experiment that can reject the remaining mechanism assumptions.
-
-Evidence class: **CALCULATION + sourced listings only.** No print, no purchase, no measurement
-(DND-27). No board contact (DND-32). `08-current-design/` untouched.
+- Doc-only diff; no executable checks affected.
+- `engineering-checks` CI suite runs green on the push event for this branch.
