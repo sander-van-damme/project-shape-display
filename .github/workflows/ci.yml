@@ -103,6 +103,11 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python k7_motor_trace.py > /dev/null
           python k7_motor_trace_checks.py
+      - name: Test12 DND-52 head-actuator / drive-topology pivot screen
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python nx52_head_actuator.py > /dev/null
+          python nx52_head_actuator_checks.py
       - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
         run: |
           cd 06-experiments/test12_winner_convergence

@@ -168,6 +168,35 @@ names the physical test that would confirm or reject it.
   is not the split but the **joint**: the same ratchet that holds load must also
   be reliably indexed by a sub-2 N bank force. T11-B measures both in one dwell.
 
+## Q3 follow-up — DND-52 actuator-class / drive-topology screen (September 2026)
+
+[DND-52](../07-evidence-and-decisions/dnd52-head-actuator-pivot.md) answers the
+remaining half of Q3 for the **S5** family after [DND-49](/DND/issues/DND-49)
+refuted K7 (no matched ≤$1.86 motor). It holds the S5 mechanism and swaps the head
+actuator class or drive topology. Result (**calculated, sourced prices, no print**):
+
+- **One serious survivor — the shared-drive programmable rotary register (S5-R).**
+  2 index motors + 8 off-pitch writer solenoids → **$44 parts, $304.73 delivered**
+  (inside the ideal <$400 band), **24.65 s** full map, pitch unchanged because the
+  register sits in the head above the 5.08 mm field. Its decisive quantity is
+  mechanical: selective dropout/re-engage of an 80-rotor bank — not computable in
+  the repo's CAD and forbidden to coupon under [DND-27](/DND/issues/DND-27).
+- **The wider-head lever is refuted on cost, not just pitch.** An R=4 head needs
+  20 stations; the ceiling is met only for a per-station matched motor ≤ **$9.82**,
+  which sits between the two real tiers ($11.20 @100 / $8.20 @3,001+). At the
+  order tier available (20–40 pcs) it is **$531.99, over**. Combined with the 30 s
+  failure in [DND-49](/DND/issues/DND-49), this closes the lever.
+- **Printed-pancake (printed axial rotor + bought coil) is cost-cheap ($383.19)
+  but torque-unproven** — a magnetic FEA could decide it; a printed-pole torque
+  coupon is forbidden under [DND-27](/DND/issues/DND-27).
+- **Micro-servo** is rejected on pitch (12–23 mm body at 5.08 mm pitch);
+  **global lift + printed memory** was already killed (S1 force / S2 mask write).
+
+Consequence for Q3: the fan-out problem is **not** answered by buying fewer/motor
+class change alone — every bought-actuator lever either fails cost on the real
+price tier or fails pitch. The only surviving lever moves selection into a
+**printed shared register**, whose reliability is the new binding unknown.
+
 ## Next experiment sequence
 
 Run small experiments in rejection-value order rather than refining one design:
