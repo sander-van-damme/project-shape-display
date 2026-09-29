@@ -29,17 +29,19 @@ why the answer is a **broadcast passive-mask** machine, not a cheaper solenoid.
 | Trim S5-R BOM lines | **rejected** | fixed base ($218.70) alone busts the $215.52 parts budget |
 | Per-cell solenoid + latch | rejected | 6,400 coils → thousands of $ and wires ([Test10]) |
 | One XYZ writer | rejected | >213 cells/s serial; modelled ~76 min ([Test10]) |
-| **S6-LC broadcast mask (chosen)** | **adopted** | 3 bought motors, all gates pass, $139.77 parts |
+| **S6-LC broadcast mask (chosen)** | **adopted** | 3 bought motors; after DND-93 G6 fails ($263.05 delivered), G1–G5/G7 pass |
 | S2 planar first-stop tiles | held | needs 256 plates + a writer; more bought structure |
 | Keep 40 soldenoids but cheaper ones | rejected | still ~$60–100 and 40 bought actuators; cost cliff remains |
 
 ## 4. Why banking (8 × 10 rows)
 
 A single all-armed broadcast stroke would have to release every armed pawl at
-once: 6,400 × 0.160 N = **1,024 N**, above the S1 2.4 kN-style failure. Banking
-the **reset** to 800 cells bounds it to **128 N**. Banking is not needed for
-*writing* because writing is passive (the mask decides), so S6-LC keeps the fast
-global 4-stroke write and pays the reset bank-by-bank.
+once: 6,400 × 0.160 N = **1,024 N**, above the **413 N** independent comb-tooth
+limit derived in DND-93. Banking the **reset** to 800 cells bounds it to
+**128 N** (3.2× under limit). Banking is not needed for *writing* because writing
+is passive (the mask decides), so S6-LC keeps the fast global 4-stroke write and
+pays the reset bank-by-bank. Note the global write does load the **lift** axis
+with all 6,400 cells (2,560 N, DND-93), so the lift motor is a NEMA23 class.
 
 ## 5. Discriminating next tests (no print allowed)
 

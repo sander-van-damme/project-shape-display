@@ -114,6 +114,13 @@ and cell fit** (the SCAD leaf is 0.45 mm and overflows the pitch band).
 The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write), combined
 with the DND-91 pawl/CAD fixes, then a re-run of the S6-LC gate.
 
+**Fixed by [DND-93](/DND/issues/DND-93) (2026-09).** The lift axis is now sized on the whole
+6,400-cell board (G3 passes, NEMA23-class, 1.35×); the six allowances are in the BOM and the
+release ceiling is an independent comb-tooth limit. **G6 delivered cost now fails at $263.05**
+(verdict REJECT). The A1/A2 pawl/CAD defects remain open. See
+[`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md); `falsifier_dnd74_checks.py` is re-baselined
+(28 checks) to reproduce the attack arithmetic and assert the fix.
+
 ### Falsifier review of the S5 promotion (DND-36)
 
 The CTO's [DND-35](/DND/issues/DND-35) convergence (ADR-002, branch
@@ -161,6 +168,20 @@ derived.** Eight attacks; the two load-bearing ones are **broken**:
 
 **Mandatory next step:** coupon **C1** (a 4×4 unit-cell print at true pitch + a push-pull gauge)
 before any full-machine print — the cheapest experiment that can reject A1/A2/A6/S1-D.
+
+### S6-LC G3 fix and re-run (DND-93, 2026-09)
+
+[DND-93](/DND/issues/DND-93) fixed the decisive G3 defect and the audit's bounded findings, then
+re-ran the gate. **G3 now passes** (`lift_axis` sized on all 6,400 cells = 2,560 N → 1.6297 N·m,
+NEMA23-class 2.2 N·m, 1.35×). A real comb-tooth structural limit (**413 N**) replaces the circular
+296 N; a **reset-carriage torque gate (G7)** was added (0.082 N·m vs 0.16 N·m, 1.96×); the
+mask-index and carriage-traverse timing terms are now priced (full map **11.96 s**); and the six
+honest BOM allowances (+$69) plus the NEMA23 motor bring delivered cost to **$263.05**. **G6
+(delivered < $250) now FAILS by $13.05**: corrected verdict **REJECT**. A1/A2/A6/A7/A8 remain open
+mechanism defects. Details:
+[`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md). The DND-91 gate
+[`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) is re-baselined (40 checks) to assert the
+corrected state and keep the open attacks locked.
 
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 

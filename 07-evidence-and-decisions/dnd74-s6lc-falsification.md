@@ -1,5 +1,13 @@
 # Falsifier adversarial audit — DND-74: the S6-LC ultra-low-cost machine (complement to DND-91)
 
+> **Post-fix status (DND-93, 2026-09).** The lift-axis break this report found is **fixed**:
+> `lift_axis()` is now sized on the whole 6,400-cell board (G3 passes, NEMA23-class, 1.35×), the
+> six honest allowances are in the BOM, and the circular 296 N ceiling is replaced by a comb-tooth
+> structural limit. **G6 delivered cost now FAILS at $263.05** (verdict REJECT). See
+> [`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md). `falsifier_dnd74_checks.py` is re-baselined to
+> reproduce the attack arithmetic and assert the fix (28 checks). The report below is the
+> historical pre-fix audit and its numbers are retained as the evidence record.
+
 - **Status:** Independent review (Falsifier). Adversarial, not consensus. A refutation
   is a success; failed ideas are recorded as evidence.
 - **Date:** 2026-09-29.

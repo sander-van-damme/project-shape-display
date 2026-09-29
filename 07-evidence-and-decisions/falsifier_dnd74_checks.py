@@ -1,15 +1,23 @@
 #!/usr/bin/env python3
-"""Falsifier DND-74 checks: the S6-LC ultra-low-cost audit, asserted.
+"""Falsifier DND-74 checks: the S6-LC ultra-low-cost audit (RE-BASELINED by DND-93).
 
 Run:  python3 07-evidence-and-decisions/falsifier_dnd74_checks.py
 
 Evidence class: CALCULATION on the repository's own declared 09-low-cost-variant/s6lc
 constants, plus sourced-fact readings of the S1 screen. No print, no measurement
-(DND-27). These checks are deliberately HOSTILE to the S6-LC promotion: they assert
-the discrepancies the report `dnd74-s6lc-falsification.md` claims, so the audit can be
-verified rather than trusted.
+(DND-27).
 
-Exit 0 if every finding holds (i.e. the audit reproduces), 1 otherwise.
+HISTORY. As delivered (original gate) these checks asserted the PRE-FIX broken
+state: `lift_axis()` sized on one bank while the write is global (decisive G3
+break), a circular 296 N release ceiling, cost headroom collapsing under honest
+allowances, and the mask-write/reliability bounds. [DND-93](/DND/issues/DND-93)
+then fixed the lift axis and the bounded findings. This gate is re-baselined so
+that it still *reproduces the attack arithmetic from the constants* (as the
+historical record) AND asserts that the fix has landed and the corrected gate
+result holds. The superseding, live adversarial gate is
+`falsifier_dnd91_checks.py` (40 checks).
+
+Exit 0 if every assertion holds, 1 otherwise.
 """
 from __future__ import annotations
 
@@ -50,60 +58,59 @@ def _torque(force_n: float, lead_mm: float, eff: float = 0.5) -> float:
 def main() -> int:
     s6 = _load_s6lc()
 
-    print("DND-74 S6-LC falsification checks")
+    print("DND-74 S6-LC falsification checks (re-baselined by DND-93)")
     print("=" * 40)
 
-    # --- Attack 2: lift-axis sizing is wrong by the bank factor --------------
-    print("[A2] Lift-axis sizing (the decisive break)")
-    fit = s6.column_fit()
+    # --- Attack 2: lift-axis sizing ------------------------------------------
+    # The historical attack arithmetic is reproduced from the constants, and the
+    # DND-93 fix is asserted in place.
+    print("[A2] Lift-axis sizing (was the decisive break; FIXED by DND-93)")
     lift = s6.lift_axis()
     lead = s6.LEAD_MM
-    motor = s6.LIFT_MOTOR_TORQUE_NM
-    check("A2a lift_axis is coded on one bank's cells",
-          lift["cells_lifted"] == s6.CELLS_PER_BANK == 800,
-          f"cells_lifted={lift['cells_lifted']}")
-    check("A2b the mechanism writes the whole board (global strokes)",
-          s6.timing()["strokes"] == 4 and s6.BANKS * s6.RESET_S > 0,
-          "timing banks only the reset")
-    # Correct the load to all 6400 cells at the model's own 0.4 N/cell.
+    # Historical: the old motor was a 0.30 N*m NEMA17 and the global load would
+    # have broken it. Reproduce that arithmetic from the constants.
+    old_motor = 0.30
     global_load = s6.LIFT_LOAD_N * s6.CELLS
     tq_global = _torque(global_load, lead)
-    check("A2c global write load (6400 x 0.4 N) exceeds the motor",
-          tq_global > motor,
-          f"{global_load:.0f} N -> {tq_global:.2f} Nm vs {motor} Nm")
-    # Even per-screw on 4 belt-synced screws.
-    tq_each = _torque(global_load / 4.0, lead)
-    check("A2d per-screw torque also exceeds the NEMA17",
-          tq_each > motor,
-          f"{tq_each:.3f} Nm/screw vs {motor} Nm")
-    # And the as-coded gate passes -> the inconsistency is real.
-    check("A2e as-coded G3 passes only because of the wrong input",
-          lift["passes"] and lift["margin"] >= 1.3,
-          f"as-coded margin {lift['margin']}x")
-    # Sensitivity: gravity+pawl only still fails.
+    check("A2a historical: global load is 2560 N -> 1.63 Nm",
+          abs(global_load - 2560.0) < 1e-6 and abs(tq_global - 1.6297) < 1e-3,
+          f"{global_load:.0f} N -> {tq_global:.4f} Nm")
+    check("A2b historical: the old 0.30 N*m NEMA17 would FAIL the global load",
+          tq_global > old_motor, f"{tq_global:.2f} Nm > {old_motor} Nm")
+    check("A2c historical: per-screw on 4 screws also breaks the NEMA17",
+          _torque(global_load / 4.0, lead) > old_motor,
+          f"{_torque(global_load / 4.0, lead):.3f} Nm/screw")
+    check("A2d the mechanism writes the whole board (global strokes)",
+          s6.timing()["strokes"] == 4 and s6.BANKS * s6.RESET_S > 0,
+          "timing banks only the reset")
+    check("A2e FIX: lift_axis is now sized on all 6400 cells",
+          lift["cells_lifted"] == s6.CELLS, f"cells_lifted={lift['cells_lifted']}")
+    check("A2f FIX: G3 passes with a NEMA23-class motor (1.35x)",
+          lift["passes"] and abs(lift["margin"] - 1.35) < 0.01,
+          f"{lift['torque_needed_nm']} Nm vs {lift['motor_torque_nm']} Nm, {lift['margin']}x")
+    # Sensitivity: gravity+pawl only still failed the old motor.
     tq_soft = _torque(s6.CELLS * s6.pawl_spring()["release_force_n"], lead)
-    check("A2f even gravity+pawl-only global load exceeds the motor",
-          tq_soft > motor, f"{tq_soft:.2f} Nm vs {motor} Nm")
+    check("A2g historical: even gravity+pawl-only global load broke the NEMA17",
+          tq_soft > old_motor, f"{tq_soft:.2f} Nm vs {old_motor} Nm")
 
-    # --- Attack 1: cost headroom collapses with honest allowances ------------
-    print("[A1] Cost ladder honesty")
+    # --- Attack 1: cost headroom with honest allowances ----------------------
+    print("[A1] Cost ladder honesty (allowances ADDED by DND-93)")
     b = s6.bom()
     added = 15.0 + 20.0 + 18.0 + 3.0 + 8.0 + 5.0
-    delivered_after = (b["purchased_parts_usd"] + added) * s6.UPLIFT
-    check("A1a base BOM matches the quoted $139.77 parts",
-          abs(b["purchased_parts_usd"] - 139.77) < 0.02,
-          f"{b['purchased_parts_usd']}")
-    check("A1b +$69 allowances still under $250 delivered",
-          delivered_after < s6.COST_GATE_USD,
-          f"{delivered_after:.2f}")
-    check("A1c but headroom collapses below $10",
-          s6.COST_GATE_USD - delivered_after < 10.0,
-          f"headroom ${s6.COST_GATE_USD - delivered_after:.2f}")
-    check("A1d the model's own >=$50 margin check would now fail",
-          (s6.COST_GATE_USD - delivered_after) < 50.0)
+    old_parts = 139.77
+    old_delivered = old_parts * s6.UPLIFT
+    check("A1a historical base was $139.77 parts",
+          abs(old_parts - 139.77) < 1e-9)
+    check("A1b historical: +$69 allowances would give $242.17 delivered",
+          abs((old_parts + added) * s6.UPLIFT - 242.17) < 0.02,
+          f"{(old_parts + added) * s6.UPLIFT:.2f}")
+    check("A1c FIX: model now carries the six allowance lines",
+          sum(1 for r in b["lines"] if r["evidence"] == "allowance") == 6)
+    check("A1d FIX: parts now $226.77 (allowances + NEMA23 lift)",
+          abs(b["purchased_parts_usd"] - 226.77) < 1e-9, f"${b['purchased_parts_usd']}")
 
     # --- Attack 3: mask write is load-bearing, off the visible budget --------
-    print("[A3] Mask-write product statement")
+    print("[A3] Mask-write product statement (bounded, unchanged)")
     ops = 3200 * (s6.LEVELS - 1)          # S1 holes-if-punch convention
     check("A3a serial punch is hopeless (>>30 s)",
           ops * 0.20 > 30.0 * 10, f"{ops * 0.20:.0f} s")
@@ -111,12 +118,12 @@ def main() -> int:
           ops / 30.0 > 400.0, f"{ops / 30.0:.0f} ops/s")
 
     # --- Attack 3b: regional update is not bank-local ------------------------
-    print("[A3b] Regional updates")
+    print("[A3b] Regional updates (bounded, unchanged)")
     check("A3b one global platen => all banks see every stroke",
           s6.timing()["strokes"] == 4 and s6.BANKS == 8)
 
     # --- Attack 4: per-cell reliability roll ---------------------------------
-    print("[A4] No per-cell feedback / reliability")
+    print("[A4] No per-cell feedback / reliability (bounded, unchanged)")
     p = 1e-4
     p_all = (1 - p) ** s6.CELLS
     check("A4a at 0.01% per-cell error P(all 6400 correct) ~= 52.7%",
@@ -124,42 +131,44 @@ def main() -> int:
     check("A4b project goal q=1.57e-6 gives >=99%",
           (1 - 1.57e-6) ** s6.CELLS >= 0.99)
 
-    # --- Attack 5: circular release-force ceiling ----------------------------
-    print("[A5] Release-force ceiling provenance")
-    # S1's banked output (0.37 N/cell x 800) is reused as S6-LC's "ceiling".
+    # --- Attack 5: release-force ceiling provenance -------------------------
+    print("[A5] Release-force ceiling provenance (FIXED by DND-93)")
+    # Historical: S1's banked output (0.37 N/cell x 800) was reused as a "ceiling".
     s1_per_cell = 0.37
-    s1_break_even = 1500.0 / s6.CELLS
-    check("A5a S1 per-cell 0.37 N x 800 == the '296 N ceiling'",
+    check("A5a historical: 0.37 N x 800 == the old '296 N ceiling'",
           abs(s1_per_cell * s6.CELLS_PER_BANK - 296.0) < 1.0)
-    check("A5b the 'ceiling' is S1's own banked output, not a structural limit",
-          s6.release_force()["banked_ceiling_n"] == 296.0)
-    # S1's own un-banked all-armed force (0.37 N x 6400 = 2368 N) exceeds the S1
-    # 1500 N structural cap, so S1's "296 N" was a banked reduction, not a ceiling.
-    check("A5c S1 un-banked all-armed exceeds the 1500 N structural cap",
-          s1_per_cell * s6.CELLS > 1500.0,
-          f"{s1_per_cell * s6.CELLS:.0f} N")
-    check("A5c2 but S6-LC's softer pawl stays under the cap (so banked is fine)",
-          s6.release_force()["unbanked_all_armed_n"] < 1500.0,
-          f"{s6.release_force()['unbanked_all_armed_n']} N")
-    check("A5d S1 break-even (0.234) < our per-pawl check uses it as ceiling",
-          abs(s1_break_even - 0.234375) < 1e-6)
+    check("A5b FIX: the ceiling is no longer hard-coded 296 N",
+          s6.release_force()["banked_ceiling_n"] != 296.0,
+          f"{s6.release_force()['banked_ceiling_n']} N")
+    check("A5c FIX: the ceiling is an independent comb-tooth bending limit",
+          "CALCULATION" in s6.release_force()["banked_ceiling_evidence"])
+    check("A5d historical: S1 un-banked all-armed exceeded its 1500 N cap",
+          s1_per_cell * s6.CELLS > 1500.0, f"{s1_per_cell * s6.CELLS:.0f} N")
 
-    # --- Attack 6: timing omits mask index -----------------------------------
-    print("[A6] Timing completeness")
+    # --- Attack 6: timing omits mask index (FIXED) ---------------------------
+    print("[A6] Timing completeness (FIXED by DND-93)")
     tm = s6.timing()
-    check("A6a timing still passes 30 s",
-          tm["clears_30s"], f"{tm['full_map_s']} s")
-    check("A6b but 4 mask-index moves fit comfortably (<30 s)",
-          tm["full_map_s"] + 4 * 1.0 < 30.0)
+    check("A6a FIX: mask-index term is now priced", tm["mask_index_s"] > 0.0)
+    check("A6b FIX: carriage-traverse term is now priced",
+          tm["carriage_traverse_s"] > 0.0)
+    check("A6c full map still passes 30 s", tm["clears_30s"], f"{tm['full_map_s']} s")
 
     # --- Attack 7: pawl cam-out threshold ------------------------------------
-    print("[A7] Pawl load holding")
+    print("[A7] Pawl load holding (bounded, unchanged)")
     k = s6.pawl_spring()["rate_n_per_mm"]
     pocket = 0.80
     check("A7a lateral force to cam the toe out is < 1 N",
           k * pocket < 1.0, f"{k * pocket:.3f} N")
 
-    # --- Evidence-class compliance table sanity ------------------------------
+    # --- Corrected verdict ----------------------------------------------------
+    print("[V] Corrected gate result (DND-93)")
+    dec = s6.decide()
+    check("V1 G3 passes on the global board", dec["gates"]["G3_lift_axis_torque"])
+    check("V2 G6 delivered cost FAILS honestly", not dec["gates"]["G6_cost_under_250_delivered"],
+          f"${b['delivered_usd']} vs $250")
+    check("V3 verdict is REJECT", dec["verdict"] == "REJECT")
+
+    # --- Evidence-class -------------------------------------------------------
     print("[A8] Evidence-class")
     check("A8 every S6-LC gate is CALCULATION/CAD (no print/measurement)",
           "no print" in s6.decide()["evidence_class"])
@@ -169,6 +178,7 @@ def main() -> int:
     if FAILURES:
         print("FAILED: " + ", ".join(FAILURES))
         return 1
+    print("Audit arithmetic reproduces and the DND-93 fix is asserted.")
     return 0
 
 

@@ -1,5 +1,5 @@
 item,quantity,unit_usd,ext_usd,evidence,use
-Lift motor (NEMA17-class stepper),1,12.0,12.0,sourced-class,drives the 4-screw platen (belt-synced)
+Lift motor (NEMA23-class stepper),1,30.0,30.0,sourced-class,global-board lift (DND-74 branch 1); 4-screw belt-synced
 Mask gate index motor (small stepper),1,8.0,8.0,sourced-class,sets the 8 bank mask gates
 Reset carriage motor (small stepper),1,8.0,8.0,sourced-class,traverses the 8 banked release combs
 4x T8 lead screw + anti-backlash nut,1,24.0,24.0,sourced-listing,<= 2 mm lead (DND-43); non-racking platen
@@ -13,5 +13,11 @@ Wire / connectors / loom,1,14.0,14.0,sourced-class,few actuators -> small loom
 Fasteners (M3 assortment),1,8.0,8.0,sourced-class,assortment
 Axis reference sensors,4,1.0,4.0,sourced-class,datum only; no per-cell feedback
 Spares and miscellaneous,1,8.0,8.0,assumption,kept per DND-46 policy
-TOTAL purchased parts,,,139.77,,
-TOTAL delivered (x1.16),,,162.13,,
+Mask index mechanism (rack/cam + 8 linkages),1,15.0,15.0,allowance,DND-91 A5: real required capability, was unlisted
+Reset carriage rail + frame hardware,1,20.0,20.0,allowance,DND-91 A5: carriage traverses 406.4 mm, was unpriced
+Thrust bearings (4x axial 2560 N),1,18.0,18.0,allowance,"DND-91 A5: global lift axial load, was unpriced"
+Homing / limit switches (6 axes),1,3.0,3.0,allowance,DND-91 A5: only 4 datum sensors priced before
+Cable chain / strain relief,1,8.0,8.0,allowance,DND-91 A5: moving reset carriage
+Power connector / switch / fuse,1,5.0,5.0,allowance,DND-91 A5: PSU protection hardware
+TOTAL purchased parts,,,226.77,,
+TOTAL delivered (x1.16),,,263.05,,

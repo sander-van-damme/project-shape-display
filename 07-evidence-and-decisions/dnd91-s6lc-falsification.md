@@ -1,5 +1,17 @@
 # DND-91 - Adversarial falsification audit of the selected machine S6-LC
 
+> **Post-fix status (DND-93, 2026-09).** The agent-side fix for the audit's G3/lift finding and
+> the bounded findings (A3, A4, A5) has landed: [DND-93](/DND/issues/DND-93),
+> [`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md). The corrected S6-LC model now: sizes the lift on
+> the whole 6,400-cell board (G3 pass, NEMA23-class, 1.35×); uses a comb-tooth structural limit
+> (**413 N**) instead of the circular 296 N; prices the mask-index and carriage-traverse timing
+> terms (full map **11.96 s**); adds the six honest BOM allowances (+$69) and a reset-carriage
+> torque gate (G7; 0.082 N·m vs 0.16 N·m). **G6 delivered cost now FAILS at $263.05 (> $250)**;
+> verdict **REJECT**. **A1 (cell-fit overflow), A2 (pawl-spring section, 8×), A6 (absent
+> reliability gate), A7 (unloaded write) and A8 (regional/jam) remain OPEN.** The report below is
+> the historical pre-fix audit; its attack descriptions are retained as the evidence record and
+> are re-baselined by `falsifier_dnd91_checks.py` (40 checks).
+
 - **Issue:** [DND-91](/DND/issues/DND-91) (Falsifier). Parent [DND-84](/DND/issues/DND-84).
   Supersedes the mis-targeted [DND-74](/DND/issues/DND-74) "S5-R variant" audit; DND-74's own
   description is repointed to this same S6-LC target (see section 7).
