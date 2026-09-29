@@ -38,6 +38,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
 | Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
 | Test13 Step-6 load/structure/power, spliced beam (DND-43) | — | ✓ | ✓ | — | — | — | — |
+| DND-74 S6-LC falsifier audit (lift sizing, cost headroom, mask write) | ✓ | ✓ | — | — | — | — | — |
 
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive
@@ -86,6 +87,33 @@ Three findings, all **calculation/sourced**, body review, no physical evidence:
 3. **Reliability helper convention was inverted** (`zero_failure_trials` returned the ~58× weaker
     legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
 
+### Falsifier adversarial audit of the S6-LC ultra-low-cost machine (DND-74, 2026-09)
+
+[`dnd74-s6lc-falsification.md`](dnd74-s6lc-falsification.md) is the **complement to the
+DND-91 audit below**: it adds the one break DND-91 did not find — the lift-axis gate is
+sized on 1/8 the load — and converges with DND-91 on cost, ceiling, timing, reliability
+and regional behaviour. Reproducible checks:
+[`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated). Target:
+[`09-low-cost-variant/s6lc/`](../09-low-cost-variant/s6lc/README.md)
+([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)).
+
+**Unique break — lift-axis gate G3.** `lift_axis()` computes the platen load on
+`CELLS_PER_BANK` (800) while the mechanism writes the **whole 6,400-cell board** in one
+global stroke. Corrected, the load is 2,560 N → **≥1.63 N·m** needed vs a 0.30 N·m NEMA17
+(0.41 N·m per screw on four screws) → **fails 5.4×**, even gravity+pawl only fails 2.2×.
+DND-91 audits the lift axis only under the unloaded-product assumption (its A7); this
+factor-8 input error is new.
+
+**Convergent with DND-91:** cost headroom collapses $87.87 → **$7.83** with +$69 honest
+allowances; the "296 N ceiling" is circular (DND-91 A3); the regional update is not
+bank-local (A8); the mask write is load-bearing (2,560 s serial punch; 30 s needs 427 ops/s);
+no per-cell feedback gives P(all 6,400 correct) = **52.7 %** at 0.01 % (A6); timing survives
+even with mask-index overhead (A4). This report **defers to DND-91 A1/A2 on pawl geometry
+and cell fit** (the SCAD leaf is 0.45 mm and overflows the pitch band).
+
+The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write), combined
+with the DND-91 pawl/CAD fixes, then a re-run of the S6-LC gate.
+
 ### Falsifier review of the S5 promotion (DND-36)
 
 The CTO's [DND-35](/DND/issues/DND-35) convergence (ADR-002, branch
@@ -104,6 +132,35 @@ own additive basis; the model's $503.71 uses an inconsistent multiplicative upli
 subtotal error). The unsourced **$1.05 motor** is the largest existential cost risk (the only
 traceable matched part is $40/ea → $3,200 for 80). See the review for the ranked, print-free
 falsification experiments.
+
+### Falsifier adversarial audit of S6-LC (DND-91 / DND-74, 2026-09)
+
+The DND-72 consolidation selected **S6-LC** (`09-low-cost-variant/s6lc/`, $139.77 parts →
+$162.13 delivered, 7.4 s full map, `PROMOTE_TO_09`) as the ultra-low-cost machine of record. The
+repointed Falsifier audit is
+[`dnd91-s6lc-falsification.md`](dnd91-s6lc-falsification.md), with a CI gate in
+[`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) (35 checks).
+
+**Verdict: S6-LC survives as a *definition*, but its "all gates pass" headline is not valid as
+derived.** Eight attacks; the two load-bearing ones are **broken**:
+
+- **A1 cell fit BROKEN** — `column_fit()` compares pawl+bleed against the *whole* inter-body gap
+  (1.48 mm), but a cell owns only 0.74 mm to its half-pitch, and the CAD places the 0.90 mm pawl at
+  `BODY/2 + 0.10` so it reaches 2.80 mm > 2.54 mm half-pitch: **0.260 mm overflow into the
+  neighbour**. The pitch claim is not established.
+- **A2 pawl spring BROKEN (8×)** — the model uses the 0.90 mm root block as the bending section, but
+  the CAD leaf is `PAWL_T/2 = 0.45 mm`; true `k` is 0.0801 N/mm, release ≈ 0.020 N (8× softer), and
+  there is **no hold-force gate** at all.
+- A3 the 296 N "ceiling" is `0.37 N/cell × 800` (the old S1 pawl), not a sourced limit → G2 is
+  circular. A4 timing prices 4 strokes + dwells only (mask index, carriage traverse unpriced).
+  A5 soft BOM lines repriced to plausible retail give **$196.93 delivered** (margin $53), plus
+  unlisted mask media / puncher / splice hardware. A6 the program's per-cell reliability gate is
+  **absent from S6-LC**: at q=1e-4, P(all 6,400 correct) = **52.7 %**, with no per-cell feedback.
+  A7 the "platen unloaded while writing" assumption contradicts a tabletop map with minis on it.
+  A8 regional/jam behaviour is asserted, not modelled.
+
+**Mandatory next step:** coupon **C1** (a 4×4 unit-cell print at true pitch + a push-pull gauge)
+before any full-machine print — the cheapest experiment that can reject A1/A2/A6/S1-D.
 
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
