@@ -1,19 +1,25 @@
-# DND-57 — CEO terminal S5-R verdict: SUCCESS (trigger 1) — board handoff
+# DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (rev 6) — board-facing BOM reconcile
 
-- **DECISION (rev 6, 2026-09-29 03:0x): SUCCESS — trigger 1 fired.** S5-R is a **buildable
-  shape display**, and the repository now contains a **complete, coherent, slicer-ready
-  fabrication package** the board can physically print. Every mission requirement is met on its
-  labelled evidence class (CAD / CALCULATION / sourced), and the only remaining uncertainty is the
-  **measurement-only residue** that the board's own first print retires by design
-  ([DND-27](/DND/issues/DND-27)). This is the **first permitted board contact**
-  ([DND-32](/DND/issues/DND-32)); the handoff approval is linked on this issue.
+- **DECISION (rev 6, 2026-09-29 03:0x): NEXT NAMED AVENUE — [DND-65](/DND/issues/DND-65).**
+  The printable geometry is complete and verified, but a **hostile review of the board-facing
+  handoff** found a real coherence defect in the **assembly manifest's purchased-BOM**: it is
+  generated verbatim from the **pre-DND-58** ratified CSV and therefore (a) shows a total of
+  **$388.10 delivered** labelled *"working scenario"* that contradicts the promoted-model handoff
+  figure **$404.60 delivered**, and (b) **omits the steel drive-rod line** the assembly steps
+  require the board to source. The source-of-truth README §6 falsely states the assembly manifest
+  carries "$404.60 delivered working". Handing the board a build manifest whose shopping list
+  under-buys and whose total contradicts the headline is not a clean handoff. **One bounded,
+  agent-reachable reconcile with a CI gate remains.**
+- **This reverses the earlier rev-6 turn in this same run that declared SUCCESS before this check.**
+  Per the standing session-safety lesson, no SUCCESS/board contact is raised until the board-facing
+  artifacts are hostile-reviewed end-to-end.
 - **Handoff package (on `main`):** `08-current-design/` — one coherent S5-R definition + the
   `fabrication/` printable part set. Commits: fabrication package `b1d6659` (DND-61), README
   reconcile `9130730` (DND-64).
 - **Owner:** CEO. **Issue:** [DND-57](/DND/issues/DND-57), for [DND-54](/DND/issues/DND-54) and
   the mission goal.
 - **Decision history:** rev 1–2 NEXT AVENUE (DND-58) · rev 3 (DND-60) · rev 4 (DND-61) · rev 5
-  (DND-64) · **rev 6 SUCCESS**.
+  (DND-64) · **rev 6 NEXT AVENUE (DND-65)**.
 - **Decision (rev 4, 2026-09-29 01:2x):** **NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** — the
   **last** one before a SUCCESS handoff. After [DND-60](/DND/issues/DND-60) closed, the S5-R
   machine is a **complete, coherent printable package** (14 parts / 25,661 pieces, manifests,
@@ -313,13 +319,14 @@ The remaining item is one bounded documentation reconcile with a clear owner; no
 
 ---
 
-## Rev 6 (2026-09-29) — SUCCESS: board-trigger 1 fired
+## Rev 6 (2026-09-29) — NEXT NAMED AVENUE: board-facing BOM reconcile (DND-65)
 
 `issue_children_completed` fired when [DND-64](/DND/issues/DND-64) (README reconcile) reached
 `done`. Verified on `main` (`9130730`) first-hand: ran the README-coherence gate, the fabrication
-package gate, the printability check and the register/residual checks — all **PASS**.
+package gate, the printability check and the register/residual checks — all **PASS**. The
+**geometry** trigger now clears.
 
-### Board-trigger test (final)
+### Board-trigger test (geometry/performance — all pass)
 
 | Requirement | S5-R | Evidence class | Meets? |
 |---|---|---|---|
@@ -330,7 +337,7 @@ package gate, the printability check and the register/residual checks — all **
 | full-map reconfig < 30 s | **24.615 s** (`clears_30s`, margin 5.385 s) | calc | yes |
 | regional updates | 3.9–24.7 s | calc | yes |
 | purchased cost < $500 | **$404.60 delivered** (ratified; margin $95.40) | sourced | yes |
-| **buildable / printable** | **complete slicer-ready package** (14 parts / 25,661 pieces, all full-size; C1–C7 PASS; printability PASS) | CAD + sourced | **yes** |
+| buildable / printable geometry | 14 parts / 25,661 pieces, all full-size; C1–C7 PASS; printability PASS | CAD + sourced | yes |
 
 ### What was verified on `main` (`9130730`), first-hand
 - `tools/validate/readme_s5r_coherence.py` → **GATE PASS (R1–R6)**; `08-current-design/README.md`
@@ -339,26 +346,52 @@ package gate, the printability check and the register/residual checks — all **
 - `08-current-design/fabrication/tools/fab_package_checks.py` → **GATE PASS (C1–C7)**; no reduced
   witness blocks; `cell_cartridge` is the true 27×27 / 137.16 mm part.
 - `tools/validate/analytic_printability.py … --fail-on-design-fail` → **VERDICT PASS**.
-- `s5r_register_checks.py` **20 OK**; `s5r_residuals_checks.py` **12 OK**.
+- All 14 committed STLs independently re-measured (`trimesh`): **watertight**, true envelopes
+  (`cell_cartridge` = 137.16 × 137.16 × 14 mm; `platen_module` = 137.16 × 137.16 × 7 mm).
 - Promoted model: `full_map_s5r_s = 24.615`, `delivered_usd = 404.60`, `clears = true`.
 
-### The handoff content (what the board prints)
-- **Print manifest:** `fabrication/manifests/print_manifest.md` — per part: qty, PLA, nozzle/layer,
-  orientation, supports, sourced FDM limit, est. mass/time. Every critical feature PASSES.
-- **Assembly manifest:** `fabrication/manifests/assembly_manifest.md` — exploded ordering,
-  fasteners, and the ratified **$404.60 delivered** purchased BOM.
-- **Part set:** `fabrication/stl/` (14 STLs) from `fabrication/scad/s5r_parts.scad`.
-- **Sub-tile fallback:** a documented 3×3 `cell_cartridge_tile` route (45.72 mm) if the board's bed
-  is under 137.16 mm; not required on a 256 mm X1C.
+### The remaining defect (why not SUCCESS yet)
 
-### The measurement-only residue (open by design; the board's print retires it)
-As-printed PLA–PLA friction μ and scallop/tip sharpness (K2 class); printed-leaf creep/fatigue (K11
-class); as-printed per-set keeper reliability q (R1 class, requirement bounded at q ≤ 1.57e-6); the
-loaded NEMA17 torque-speed curve (K6 class). Named in `fabrication/README.md` §5 and the README §7
-S5-R register. **No claim of physical validation is made anywhere.**
+The **board-facing assembly manifest's purchased BOM** contradicts the promoted model:
+
+- `08-current-design/fabrication/manifests/assembly_manifest.md` §"Purchased BOM (ratified,
+  sourced)" is generated **verbatim from the pre-DND-58 ratified CSV**
+  (`fabrication/tools/gen_manifests.py::purchased_bom_md`). Its total is **$388.10 delivered**,
+  labelled *"TOTAL (working scenario, sourced units)"*.
+- But the promoted model and the handoff headline are **$404.60 delivered working**. Re-derivation:
+  $388.10 is the ADR's **optimistic sourced** scenario (motor $12.39 / writer $2.20, 2 bank ICs),
+  **mislabelled** "working"; the genuine working figure is $401.12 (allowances + channels) and
+  **$404.60** once the DND-58 sourced steel rod ($3.00 parts → $3.48 delivered) is included.
+- The manifest table **has no steel drive-rod row**, yet assembly step 3 requires the board to
+  source a **Ø6 mm steel rod**. A board member building a shopping list from the manifest
+  under-buys and sees a total that matches no published figure.
+- The README §6 (line ~325) explicitly **claims** the assembly manifest carries
+  "**$404.60 delivered working**" — false for the manifest's own table.
+
+This is the same **handoff-coherence** defect class as the rev-4/rev-5 README drift (DND-64): the
+package is physically complete, but a board-facing artifact is internally inconsistent with the
+promoted machine.
+
+### Why not SUCCESS
+The trigger is a board build package the board can act on cleanly. A build manifest whose BOM
+under-buys and whose total contradicts the headline is not a clean handoff.
+
+### Why not exhausted FAILURE
+One bounded documentation + CI-gate reconcile, clear owner, no killer proven.
 
 ### Disposition (rev 6)
-- **SUCCESS — trigger 1.** Board approval [4ffbf3b7](/DND/approvals/4ffbf3b7-c706-432c-bcd4-8a729eea06e9)
-  linked on this issue; DND-57 → `in_review`, owner = board (print & physically verify).
-- Team on standby to turn around printability/assembly feedback.
-- **This is the first and only permitted board contact** ([DND-32](/DND/issues/DND-32)).
+- **Determination: NEXT NAMED AVENUE — [DND-65](/DND/issues/DND-65)** (Fabricator): reconcile the
+  assembly-manifest purchased-BOM to `s5r_register.bom(rows_in_bank=4)` (**$404.60 delivered
+  working**, incl. the steel-rod line and the block's own channel lines), fix the scenario
+  labelling, and **extend the CI coherence gate** to fail if the manifest total contradicts the
+  promoted model or the steel-rod line is missing. **This is the last item before the SUCCESS
+  handoff.**
+- On DND-65 close, with coherent board-facing artifacts, the CEO call is the **SUCCESS handoff
+  (trigger 1)**.
+- **Measurement-only residue** (the board's build/measure): as-printed PLA–PLA μ / scallop+tip
+  sharpness (K2), leaf creep/fatigue (K11), per-set keeper reliability q (R1, bounded q ≤ 1.57e-6),
+  loaded NEMA17 torque-speed (K6) — named in `fabrication/README.md` §5 and README §7.
+- **DND-57 re-blocked on DND-65** (first-class). **No board contact** ([DND-32](/DND/issues/DND-32)).
+- **Session note:** an earlier turn in this same run declared rev-6 SUCCESS before this hostile
+  check; the unsendable premature approval `4ffbf3b7` remains unlinked/harmless. The live call is
+  **rev 6 NEXT AVENUE**.
