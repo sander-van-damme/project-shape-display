@@ -41,15 +41,27 @@ The full 27x27 cartridge prints as ONE part on a 256 mm X1C. A board with a smal
 
 ## Purchased BOM (ratified, sourced)
 
-Reproduced from `06-experiments/test12_winner_convergence/s5r_bom_ratified.csv` (DND-56). **No part is purchased by this package** ([DND-27](https://github.com/sander-van-damme/project-shape-display)); the listing is the board's sourcing reference.
+Line detail reproduced from `06-experiments/test12_winner_convergence/s5r_bom_ratified.csv` (DND-56/DND-58) and reconciled to the promoted model `s5r_register.bom(rows_in_bank=4)` (DND-65). **No part is purchased by this package** ([DND-27](https://github.com/sander-van-damme/project-shape-display)); the listing is the board's sourcing reference.
 
-| Item | Qty | Unit $ (sourced) | Deliverable $ | Evidence |
+**Scenario: WORKING** — the DND-54 allowance units ($12.00 bank motor / $2.50 writer), the block's own priced channels, and the DND-58 sourced steel drive rod. Units below are the working (allowance) units; the `Deliverable $` column is that unit x qty x 1.16 (additive uplift).
+
+**Working delivered total: $404.60** (= `s5r_register.bom(4)['delivered_usd']`)
+
+| Item | Qty | Unit $ (working) | Deliverable $ | Evidence |
 |---|---:|---:|---:|---|
 | Fixed no-channel base (E1-E6: rods, belts, shafts, fasteners, power, loom, PCBs, lift/scanner motors, controller, registers) | 1 | 218.7 | 253.69 | SOURCED-reduced |
-| Bank motor (NEMA17-class >=0.30 N.m, 4-wire bipolar) | 2 | 12.39 | 28.74 | ALLOWANCE->SOURCED-LIVE |
-| Writer solenoid (5 V push, >=1.2 N design target) | 40 | 2.2 | 102.08 | ALLOWANCE->SOURCED-LIVE |
+| Bank motor (NEMA17-class >=0.30 N.m, 4-wire bipolar) | 2 | 12.0 | 27.84 | ALLOWANCE (working); SOURCED-LIVE $12.39 is the optimistic |
+| Writer solenoid (5 V push, >=1.2 N design target) | 40 | 2.5 | 116.0 | ALLOWANCE (working); SOURCED-LIVE $2.20 is the optimistic |
 | Bank H-bridge channel (TB6612FNG dual, 1 IC/motor working) | 2 | 0.7955 | 1.84 | SOURCED (LCSC C88224) |
 | Writer switch (ULN2803-class 8-channel darlington) | 5 | 0.3 | 1.74 | ALLOWANCE |
-| TOTAL (working scenario, sourced units) |  |  | 388.1 |  |
+| Steel drive rod (sourced Ø6 mm ground rod, DND-58) | 1 | 3.0 | 3.48 | SOURCED-class allowance |
+| **TOTAL (working: allowances + own channels + sourced steel rod)** |  |  | **404.60** | reconciled to promoted model |
+
+**Other scenarios (references, not the delivered headline):**
+
+- **Optimistic sourced** (motor $12.39 / writer $2.20 / 1 shared bank IC): **$387.18 delivered** (`s5r_bom_ratify.py` Q6). A reference, **not** the working scenario.
+- **Pre-DND-65 CSV header mislabel** ($388.10): the sourced-unit variant with 2 bank ICs and no steel rod; it is **not** the working scenario despite the old "working" label. Superseded by this reconcile; see [DND-65](/DND/issues/DND-65).
+- **Working, rod-unpriced** (DND-56 intermediate): **$401.12** (`delivered_no_rod_usd`).
+- **DND-54 claim, channels & rod unpriced**: **$397.53** (`delivered_claim_usd`).
 
 Source links for each line are in the ratified BOM note column and the DND-54/56/58/59 ADRs under `07-evidence-and-decisions/`.

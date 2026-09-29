@@ -1,0 +1,536 @@
+{
+  "evidence_class": "CAD",
+  "renderer": "software rasterizer (numpy+Pillow) over committed OpenSCAD STLs",
+  "openscad_png_backend": "unavailable in-container (no GL/X); STLs are real OpenSCAD output (render_fab_parts.py)",
+  "not_a_print": true,
+  "size_px": 900,
+  "images": [
+    {
+      "file": "images/cell_cartridge_iso.png",
+      "kind": "part",
+      "part": "cell_cartridge",
+      "view": "iso",
+      "source_mesh": "stl/cell_cartridge.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        14.0
+      ]
+    },
+    {
+      "file": "images/cell_cartridge_front.png",
+      "kind": "part",
+      "part": "cell_cartridge",
+      "view": "front",
+      "source_mesh": "stl/cell_cartridge.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        14.0
+      ]
+    },
+    {
+      "file": "images/cell_cartridge_top.png",
+      "kind": "part",
+      "part": "cell_cartridge",
+      "view": "top",
+      "source_mesh": "stl/cell_cartridge.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        14.0
+      ]
+    },
+    {
+      "file": "images/rotor_iso.png",
+      "kind": "part",
+      "part": "rotor",
+      "view": "iso",
+      "source_mesh": "stl/rotor.stl",
+      "bbox_mm": [
+        3.0,
+        3.0,
+        7.0
+      ]
+    },
+    {
+      "file": "images/rotor_front.png",
+      "kind": "part",
+      "part": "rotor",
+      "view": "front",
+      "source_mesh": "stl/rotor.stl",
+      "bbox_mm": [
+        3.0,
+        3.0,
+        7.0
+      ]
+    },
+    {
+      "file": "images/rotor_top.png",
+      "kind": "part",
+      "part": "rotor",
+      "view": "top",
+      "source_mesh": "stl/rotor.stl",
+      "bbox_mm": [
+        3.0,
+        3.0,
+        7.0
+      ]
+    },
+    {
+      "file": "images/drive_pawl_iso.png",
+      "kind": "part",
+      "part": "drive_pawl",
+      "view": "iso",
+      "source_mesh": "stl/drive_pawl.stl",
+      "bbox_mm": [
+        1.4,
+        1.2,
+        9.6
+      ]
+    },
+    {
+      "file": "images/drive_pawl_front.png",
+      "kind": "part",
+      "part": "drive_pawl",
+      "view": "front",
+      "source_mesh": "stl/drive_pawl.stl",
+      "bbox_mm": [
+        1.4,
+        1.2,
+        9.6
+      ]
+    },
+    {
+      "file": "images/drive_pawl_top.png",
+      "kind": "part",
+      "part": "drive_pawl",
+      "view": "top",
+      "source_mesh": "stl/drive_pawl.stl",
+      "bbox_mm": [
+        1.4,
+        1.2,
+        9.6
+      ]
+    },
+    {
+      "file": "images/keeper_iso.png",
+      "kind": "part",
+      "part": "keeper",
+      "view": "iso",
+      "source_mesh": "stl/keeper.stl",
+      "bbox_mm": [
+        1.1,
+        1.4,
+        4.0
+      ]
+    },
+    {
+      "file": "images/keeper_front.png",
+      "kind": "part",
+      "part": "keeper",
+      "view": "front",
+      "source_mesh": "stl/keeper.stl",
+      "bbox_mm": [
+        1.1,
+        1.4,
+        4.0
+      ]
+    },
+    {
+      "file": "images/keeper_top.png",
+      "kind": "part",
+      "part": "keeper",
+      "view": "top",
+      "source_mesh": "stl/keeper.stl",
+      "bbox_mm": [
+        1.1,
+        1.4,
+        4.0
+      ]
+    },
+    {
+      "file": "images/detent_leaf_iso.png",
+      "kind": "part",
+      "part": "detent_leaf",
+      "view": "iso",
+      "source_mesh": "stl/detent_leaf.stl",
+      "bbox_mm": [
+        0.9,
+        0.8,
+        6.0
+      ]
+    },
+    {
+      "file": "images/detent_leaf_front.png",
+      "kind": "part",
+      "part": "detent_leaf",
+      "view": "front",
+      "source_mesh": "stl/detent_leaf.stl",
+      "bbox_mm": [
+        0.9,
+        0.8,
+        6.0
+      ]
+    },
+    {
+      "file": "images/detent_leaf_top.png",
+      "kind": "part",
+      "part": "detent_leaf",
+      "view": "top",
+      "source_mesh": "stl/detent_leaf.stl",
+      "bbox_mm": [
+        0.9,
+        0.8,
+        6.0
+      ]
+    },
+    {
+      "file": "images/rack_strip_iso.png",
+      "kind": "part",
+      "part": "rack_strip",
+      "view": "iso",
+      "source_mesh": "stl/rack_strip.stl",
+      "bbox_mm": [
+        137.16,
+        3.0,
+        2.68
+      ]
+    },
+    {
+      "file": "images/rack_strip_front.png",
+      "kind": "part",
+      "part": "rack_strip",
+      "view": "front",
+      "source_mesh": "stl/rack_strip.stl",
+      "bbox_mm": [
+        137.16,
+        3.0,
+        2.68
+      ]
+    },
+    {
+      "file": "images/rack_strip_top.png",
+      "kind": "part",
+      "part": "rack_strip",
+      "view": "top",
+      "source_mesh": "stl/rack_strip.stl",
+      "bbox_mm": [
+        137.16,
+        3.0,
+        2.68
+      ]
+    },
+    {
+      "file": "images/bank_drive_housing_iso.png",
+      "kind": "part",
+      "part": "bank_drive_housing",
+      "view": "iso",
+      "source_mesh": "stl/bank_drive_housing.stl",
+      "bbox_mm": [
+        60.0,
+        40.0,
+        30.0
+      ]
+    },
+    {
+      "file": "images/bank_drive_housing_front.png",
+      "kind": "part",
+      "part": "bank_drive_housing",
+      "view": "front",
+      "source_mesh": "stl/bank_drive_housing.stl",
+      "bbox_mm": [
+        60.0,
+        40.0,
+        30.0
+      ]
+    },
+    {
+      "file": "images/bank_drive_housing_top.png",
+      "kind": "part",
+      "part": "bank_drive_housing",
+      "view": "top",
+      "source_mesh": "stl/bank_drive_housing.stl",
+      "bbox_mm": [
+        60.0,
+        40.0,
+        30.0
+      ]
+    },
+    {
+      "file": "images/reset_comber_iso.png",
+      "kind": "part",
+      "part": "reset_comber",
+      "view": "iso",
+      "source_mesh": "stl/reset_comber.stl",
+      "bbox_mm": [
+        4.0,
+        22.12,
+        14.0
+      ]
+    },
+    {
+      "file": "images/reset_comber_front.png",
+      "kind": "part",
+      "part": "reset_comber",
+      "view": "front",
+      "source_mesh": "stl/reset_comber.stl",
+      "bbox_mm": [
+        4.0,
+        22.12,
+        14.0
+      ]
+    },
+    {
+      "file": "images/reset_comber_top.png",
+      "kind": "part",
+      "part": "reset_comber",
+      "view": "top",
+      "source_mesh": "stl/reset_comber.stl",
+      "bbox_mm": [
+        4.0,
+        22.12,
+        14.0
+      ]
+    },
+    {
+      "file": "images/writer_carriage_iso.png",
+      "kind": "part",
+      "part": "writer_carriage",
+      "view": "iso",
+      "source_mesh": "stl/writer_carriage.stl",
+      "bbox_mm": [
+        44.0,
+        25.0,
+        28.0
+      ]
+    },
+    {
+      "file": "images/writer_carriage_front.png",
+      "kind": "part",
+      "part": "writer_carriage",
+      "view": "front",
+      "source_mesh": "stl/writer_carriage.stl",
+      "bbox_mm": [
+        44.0,
+        25.0,
+        28.0
+      ]
+    },
+    {
+      "file": "images/writer_carriage_top.png",
+      "kind": "part",
+      "part": "writer_carriage",
+      "view": "top",
+      "source_mesh": "stl/writer_carriage.stl",
+      "bbox_mm": [
+        44.0,
+        25.0,
+        28.0
+      ]
+    },
+    {
+      "file": "images/platen_module_iso.png",
+      "kind": "part",
+      "part": "platen_module",
+      "view": "iso",
+      "source_mesh": "stl/platen_module.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        7.0
+      ]
+    },
+    {
+      "file": "images/platen_module_front.png",
+      "kind": "part",
+      "part": "platen_module",
+      "view": "front",
+      "source_mesh": "stl/platen_module.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        7.0
+      ]
+    },
+    {
+      "file": "images/platen_module_top.png",
+      "kind": "part",
+      "part": "platen_module",
+      "view": "top",
+      "source_mesh": "stl/platen_module.stl",
+      "bbox_mm": [
+        137.16,
+        137.16,
+        7.0
+      ]
+    },
+    {
+      "file": "images/lift_frame_rail_iso.png",
+      "kind": "part",
+      "part": "lift_frame_rail",
+      "view": "iso",
+      "source_mesh": "stl/lift_frame_rail.stl",
+      "bbox_mm": [
+        145.16,
+        8.0,
+        10.0
+      ]
+    },
+    {
+      "file": "images/lift_frame_rail_front.png",
+      "kind": "part",
+      "part": "lift_frame_rail",
+      "view": "front",
+      "source_mesh": "stl/lift_frame_rail.stl",
+      "bbox_mm": [
+        145.16,
+        8.0,
+        10.0
+      ]
+    },
+    {
+      "file": "images/lift_frame_rail_top.png",
+      "kind": "part",
+      "part": "lift_frame_rail",
+      "view": "top",
+      "source_mesh": "stl/lift_frame_rail.stl",
+      "bbox_mm": [
+        145.16,
+        8.0,
+        10.0
+      ]
+    },
+    {
+      "file": "images/guide_bracket_iso.png",
+      "kind": "part",
+      "part": "guide_bracket",
+      "view": "iso",
+      "source_mesh": "stl/guide_bracket.stl",
+      "bbox_mm": [
+        16.0,
+        3.0,
+        20.0
+      ]
+    },
+    {
+      "file": "images/guide_bracket_front.png",
+      "kind": "part",
+      "part": "guide_bracket",
+      "view": "front",
+      "source_mesh": "stl/guide_bracket.stl",
+      "bbox_mm": [
+        16.0,
+        3.0,
+        20.0
+      ]
+    },
+    {
+      "file": "images/guide_bracket_top.png",
+      "kind": "part",
+      "part": "guide_bracket",
+      "view": "top",
+      "source_mesh": "stl/guide_bracket.stl",
+      "bbox_mm": [
+        16.0,
+        3.0,
+        20.0
+      ]
+    },
+    {
+      "file": "images/solenoid_mount_iso.png",
+      "kind": "part",
+      "part": "solenoid_mount",
+      "view": "iso",
+      "source_mesh": "stl/solenoid_mount.stl",
+      "bbox_mm": [
+        41.6,
+        6.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/solenoid_mount_front.png",
+      "kind": "part",
+      "part": "solenoid_mount",
+      "view": "front",
+      "source_mesh": "stl/solenoid_mount.stl",
+      "bbox_mm": [
+        41.6,
+        6.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/solenoid_mount_top.png",
+      "kind": "part",
+      "part": "solenoid_mount",
+      "view": "top",
+      "source_mesh": "stl/solenoid_mount.stl",
+      "bbox_mm": [
+        41.6,
+        6.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/comber_cam_iso.png",
+      "kind": "part",
+      "part": "comber_cam",
+      "view": "iso",
+      "source_mesh": "stl/comber_cam.stl",
+      "bbox_mm": [
+        15.8,
+        16.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/comber_cam_front.png",
+      "kind": "part",
+      "part": "comber_cam",
+      "view": "front",
+      "source_mesh": "stl/comber_cam.stl",
+      "bbox_mm": [
+        15.8,
+        16.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/comber_cam_top.png",
+      "kind": "part",
+      "part": "comber_cam",
+      "view": "top",
+      "source_mesh": "stl/comber_cam.stl",
+      "bbox_mm": [
+        15.8,
+        16.0,
+        4.0
+      ]
+    },
+    {
+      "file": "images/assembly_assembled.png",
+      "kind": "assembly",
+      "scene": "assembled",
+      "view": "1",
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    },
+    {
+      "file": "images/assembly_assembled_2.png",
+      "kind": "assembly",
+      "scene": "assembled",
+      "view": "_2",
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    },
+    {
+      "file": "images/assembly_exploded.png",
+      "kind": "assembly",
+      "scene": "exploded",
+      "view": "1",
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    }
+  ],
+  "verdict": "PASS",
+  "elapsed_s": 26.1
+}
