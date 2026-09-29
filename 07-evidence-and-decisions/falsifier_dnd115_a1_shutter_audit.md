@@ -238,20 +238,36 @@ table above now reads all-PASS.
    DND-121 is a parallel, never-merged correction; main's DND-119 is the live
    artifact and does the same work (crosstalk modelled + gated, "off-beam"
    corrected, absorber-DoF downgraded, MC aperture de-tautologised).
-2. **Main is honest; the DND-121 branch prose is not.** The DND-121 ADR types
-   margins its own code does not produce (neighbour sweep 0.255 vs 0.280; MC
-   0.093 / 0.441 / 4.60× vs 0.084 / 0.434 / 4.48×). Since DND-121 need not merge,
-   the fix is to **close DND-121 as superseded by DND-119**, not to correct its
-   prose.
+2. **The DND-121 branch is a genuinely stale model, not just stale prose.**
+   Its own `a1_writer_rate.py` returns `on_off_return_ratio = 7.41` (main: 7.72)
+   and exposes **no** `on_off_return_ratio_with_crosstalk` field at all, and its
+   ADR does not state a ±0.20 mm reader clearance. So the branch's code, not only
+   its prose, diverges from the live gated model. Since DND-121 need not merge, the
+   fix is to **close DND-121 as superseded by DND-119**, not to correct its prose.
 
-**A13 (ADR/README numbers match the live model) — PASS on main.** The model gives
-headline ideal **7.72×** and crosstalk-corrected **6.37×**; the ADR §3 table now
-carries the explicit row `On/off ratio incl. in-cone neighbour | 6.37× | gate 2×
-— PASS (DND-119)`, and `contrast_passes` requires `neighbour_crosstalk_gated`
-(ratio ≤ 1) **and** `on_off_return_ratio_with_crosstalk ≥ 2`. So the gated number
-is stated. (Minor, accepted: the ADR quotes the reader ±0.20 mm clearance as
-**0.325 mm**; an independent 200k-draw re-run gives **0.322 mm** — a 3 µm rounding
-difference, not a defect.)
+**A13 (ADR/README numbers match the live model) — PASS on main, after one
+self-correction.** The model gives headline ideal **7.72×** and crosstalk-corrected
+**6.37×**; the ADR §3 table now carries the explicit row `On/off ratio incl.
+in-cone neighbour | 6.37× | gate 2× — PASS (DND-119)`, and `contrast_passes`
+requires `neighbour_crosstalk_gated` (ratio ≤ 1) **and**
+`on_off_return_ratio_with_crosstalk ≥ 2`. So the gated number is stated. (Minor,
+accepted: the ADR quotes the reader ±0.20 mm clearance as **0.325 mm**; an
+independent 200k-draw re-run gives **0.322 mm** — a 3 µm rounding difference, not a
+defect.)
+
+> **A13 was hardened after a First-cut-KO (self-adversarial).** The first A13 cut
+> (commit `96d26b5`/superseded) compared the model against **hard-coded expected
+> literals** `7.72`/`0.325` rather than parsing the ADR, and **crashed with a
+> `TypeError` (UNRESOLVED)** when the tree lacked the crosstalk field instead of
+> failing. So it (i) was partly tautological — it would have passed even if the ADR
+> prose were changed to an unsupported figure — and (ii) the PR claim "A13-style
+> FAIL on the superseded DND-121 branch" was **unsupported: it errored, it did not
+> FAIL.** The shipped A13 now **parses the ADR text** for the ideal ratio, gated
+> ratio and ±0.20 mm clearance, and returns a clean FAIL (not a crash) when the
+> crosstalk term is absent. Verified three ways: PASS on main; **FAIL** (not
+> UNRESOLVED) on the superseded DND-121 branch tree; and **FAIL** when the ADR gated
+> figure is tampered 6.37× → 6.99×. This closes the loophole that the checker meant
+> to guard against (a number no artifact supports).
 
 **A14 (MC on/off gate carries the crosstalk term) — PASS with a noted gap.** The
 tolerance MC's own `on_off_ratio` check is crosstalk-free (worst **4.49×**), while

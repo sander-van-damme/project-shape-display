@@ -340,27 +340,76 @@ def _load_model():
     return awr
 
 
+def _adr_path():
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(here, "dnd115-a1-state-encoding-shutter.md")
+
+
+def _adr_quoted_numbers(txt):
+    """Parse the two decisive quoted figures out of the ADR text.
+
+    Returns (ideal_ratio, gated_ratio, aper_20_clearance) with any figure that
+    cannot be found left as None. We parse the ADR rather than hard-coding the
+    numbers in the checker so that editing the ADR prose to an unsupported figure
+    makes this attack FAIL (the DND-112/DND-111 defect class). Hard-coded
+    expected values here would make the check tautological: it would only ever
+    compare the model to itself.
+    """
+    import re
+    # e.g. "a **7.72x on/off return ratio**" or "| On/off return ratio | **7.72x** |"
+    ideal = None
+    m = re.search(r"\*\*([0-9]+\.[0-9]+)\s*[x\u00d7]\s*on/off return ratio\*\*", txt)
+    if m:
+        ideal = float(m.group(1))
+    else:
+        m = re.search(r"On/off return ratio[^0-9]{0,12}([0-9]+\.[0-9]+)\s*[x\u00d7]", txt)
+        if m:
+            ideal = float(m.group(1))
+    gated = None
+    m = re.search(r"On/off ratio incl\. in-cone neighbour[^0-9]{0,12}"
+                  r"([0-9]+\.[0-9]+)\s*[x\u00d7]", txt)
+    if m:
+        gated = float(m.group(1))
+    else:
+        m = re.search(r"([0-9]+\.[0-9]+)\s*[x\u00d7]\s*(?:\(DND-119\)|including the "
+                      r"state-invariant in-cone neighbour)", txt)
+        if m:
+            gated = float(m.group(1))
+    # "... aperture clearance is +0.434 mm nominal and +0.325 mm at +/-0.20 mm ..."
+    aper = None
+    for mm in re.finditer(r"([0-9]+\.[0-9]+)\s*mm at \u00b10\.20 mm", txt):
+        aper = float(mm.group(1))
+        break
+    if aper is None:
+        for mm in re.finditer(r"\u00b10\.20 mm[^0-9]{0,20}([0-9]+\.[0-9]+)\s*mm", txt):
+            aper = float(mm.group(1))
+            break
+    return ideal, gated, aper
+
+
 def a13_adr_numbers_match_model():
     """A13 (DND-122): the ADR/README quoted numbers must match the live model.
 
     DND-119 replaced the pre-correction table values. A claim-framing pass that
     types numbers the code does not produce is the DND-112/DND-111 defect class
-    (a stated number no artifact supports). This attack imports the model live
-    and checks the two decisive quoted figures: the headline on/off ratio and the
-    reader/aperture +/-0.20 mm worst clearance.
+    (a stated number no artifact supports). This attack parses the ADR text for
+    the two decisive quoted figures (headline on/off ratio, the crosstalk-corrected
+    ratio, and the reader/aperture +/-0.20 mm worst clearance) and recomputes the
+    model live, so an unsupported ADR edit fails.
 
-    It FAILS if the ADR/README headline the ideal ratio while the model's gated
-    contrast uses the crosstalk-corrected ratio, or if the quoted +/-0.20 mm
-    clearance disagrees with the model beyond rounding.
+    It FAILS if the ADR/README quotes a ratio the model does not produce, quote the
+    ideal ratio while never stating the gated crosstalk-corrected ratio the gate
+    actually binds, or quote a +/-0.20 mm clearance the model does not reproduce
+    beyond rounding. It FAILS (not UNRESOLVED) if the model is missing the
+    crosstalk term, so it is portable across tree states.
     """
     awr = _load_model()
     c = awr.shutter_read_contrast()
-    ratio_ideal = c["on_off_return_ratio"]                       # 7.72
-    ratio_gated = c.get("on_off_return_ratio_with_crosstalk")    # 6.37
-    t = awr.shutter_tolerance_mc()
-    # ADR (DND-119/main) quotes: headline 7.72x; +/-0.20 reader clearance 0.325 mm.
-    adr_headline = 7.72
-    adr_aper_20 = 0.325
+    ratio_ideal = c.get("on_off_return_ratio")
+    ratio_gated = c.get("on_off_return_ratio_with_crosstalk")
+    txt = open(_adr_path()).read()
+    adr_ideal, adr_gated, adr_aper_20 = _adr_quoted_numbers(txt)
     # Recompute the reader +/-0.20 mm run directly from the model's own terms.
     import random
     rng = random.Random(115)
@@ -375,31 +424,32 @@ def a13_adr_numbers_match_model():
         worst = min(worst, aper - (fb + tt))
     mc_aper_20 = round(worst, 3)
     mismatches = []
-    # (a) the headline must be the state the gate actually binds. The ADR quotes
-    # the ideal 7.72x as the gate pass; the gate also requires the crosstalk
-    # residual, so the corrected ratio must appear in the headline/table.
-    if ratio_gated is not None and abs(ratio_gated - ratio_ideal) > 0.05:
-        # The register flags this unless the ADR/README state the corrected value.
-        # We detect the ADR text directly.
-        import os
-        here = os.path.dirname(os.path.abspath(__file__))
-        adr = os.path.join(here, "dnd115-a1-state-encoding-shutter.md")
-        txt = open(adr).read()
-        tok = "%.2f" % ratio_gated                       # "6.37"
-        # accept the ASCII 'x' or the multiplication sign, with/without decimals
-        corrected = (tok in txt or ("%g" % ratio_gated) in txt)
-        if not corrected:
-            mismatches.append(
-                "headline quotes ideal %.2fx but the gate binds the crosstalk-"
-                "corrected %.2fx (not stated in the ADR)" % (ratio_ideal, ratio_gated))
-    if abs(mc_aper_20 - adr_aper_20) > 0.006:
-        mismatches.append("+/-0.20 reader clearance %.3f vs ADR %.3f"
+    # (a) The model must expose the crosstalk-corrected ratio at all.
+    if ratio_gated is None:
+        mismatches.append(
+            "model exposes no on_off_return_ratio_with_crosstalk; the gated "
+            "crosstalk term is absent from this tree")
+    # (b) The ADR must quote the ratio the model produces (both the ideal and, when
+    # the gate binds it, the corrected value).
+    if ratio_ideal is not None and adr_ideal is not None and abs(adr_ideal - ratio_ideal) > 0.05:
+        mismatches.append("ADR headline %.2fx vs model %.2fx" % (adr_ideal, ratio_ideal))
+    if ratio_gated is not None and adr_gated is not None and abs(adr_gated - ratio_gated) > 0.05:
+        mismatches.append("ADR gated %.2fx vs model %.2fx" % (adr_gated, ratio_gated))
+    if ratio_gated is not None and adr_gated is None:
+        mismatches.append(
+            "model gated %.2fx is not stated in the ADR (gate binds the corrected "
+            "value; the ADR must carry it)" % ratio_gated)
+    # (c) The quoted +/-0.20 mm clearance must reproduce from the model.
+    if adr_aper_20 is None:
+        mismatches.append("ADR does not state a +/-0.20 mm reader clearance")
+    elif abs(mc_aper_20 - adr_aper_20) > 0.006:
+        mismatches.append("+/-0.20 reader clearance model %.3f mm vs ADR %.3f mm"
                           % (mc_aper_20, adr_aper_20))
     ok = not mismatches
     return ok, (
-        "headline ideal %.2fx / gated %.2fx; reader +/-0.20 mm worst clearance "
-        "%.3f mm (ADR %.3f) -> %s"
-        % (ratio_ideal, ratio_gated, mc_aper_20, adr_aper_20,
+        "ADR quotes ideal %s / gated %s / aper+/-0.20 %s mm; model ideal %s / gated "
+        "%s / aper+/-0.20 %.3f mm -> %s"
+        % (adr_ideal, adr_gated, adr_aper_20, ratio_ideal, ratio_gated, mc_aper_20,
            "MATCH" if ok else "MISMATCH: " + "; ".join(mismatches)))
 
 

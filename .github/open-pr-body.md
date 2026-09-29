@@ -28,15 +28,18 @@ cited as closed?
   de-tautologised.
 - **A5/A6/A7/A9 — PASS** on main, independently re-verified (cone radius 1.286 mm vs
   1.055 mm offset → in-cone by 0.231 mm; term gate; MC aperture ±0.10/±0.20 mm).
-- **A13 — PASS on main.** The model gives headline ideal **7.72×** and
-  crosstalk-corrected **6.37×**; the ADR carries the explicit 6.37× gate row and
-  `contrast_passes` requires `neighbour_crosstalk_gated` AND
+- **A13 — PASS on main, after one self-correction.** The model gives headline ideal
+  **7.72×** and crosstalk-corrected **6.37×**; the ADR carries the explicit 6.37×
+  gate row and `contrast_passes` requires `neighbour_crosstalk_gated` AND
   `on_off_return_ratio_with_crosstalk ≥ 2`. Accepted 3 µm rounding: ADR 0.325 mm vs
-  re-run 0.322 mm for the ±0.20 mm reader clearance.
-- **A13-style FAIL on the superseded DND-121 branch.** Its ADR types stale margins
-  the code does not produce (neighbour sweep 0.255 vs 0.280; MC 0.093 / 0.441 /
-  4.60× vs 0.084 / 0.434 / 4.48×). Since DND-121 need not merge, **close DND-121 as
-  superseded by DND-119** rather than correcting its prose.
+  re-run 0.322 mm for the ±0.20 mm reader clearance. **The first A13 cut hard-coded
+  the expected numbers and crashed (UNRESOLVED) on a stale tree; it is now hardened
+  to parse the ADR text and to FAIL (not crash) when the crosstalk term is absent.**
+- **A13 — genuine FAIL on the superseded DND-121 branch.** The branch is a stale
+  *model*, not just stale prose: its `a1_writer_rate.py` returns `on_off_return_ratio
+  = 7.41` (main 7.72) and exposes no crosstalk field; its ADR states no ±0.20 mm
+  clearance. Hardened A13 returns a clean FAIL there. Since DND-121 need not merge,
+  **close DND-121 as superseded by DND-119** rather than correcting its prose.
 - **A14 — PASS with a noted consistency gap.** MC on/off is crosstalk-free (worst
   4.49×) while `contrast_passes` gates 4.04×; both > 2×. Optional hardening only.
 
