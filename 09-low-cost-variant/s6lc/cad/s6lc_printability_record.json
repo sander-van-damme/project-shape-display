@@ -4,7 +4,7 @@
   "material": "PLA",
   "nozzle_mm": 0.4,
   "layer_mm": 0.2,
-  "overall": "PASS",
+  "overall": "RISK",
   "checks": [
     {
       "feature": "column wall / body feature",
@@ -19,7 +19,13 @@
       "verdict": "PASS"
     },
     {
-      "feature": "pawl leaf thickness",
+      "feature": "pawl LEAF thickness (bending axis)",
+      "value": 0.45,
+      "limit": 0.44,
+      "verdict": "RISK"
+    },
+    {
+      "feature": "pawl root block thickness",
       "value": 0.9,
       "limit": 0.44,
       "verdict": "PASS"
@@ -31,14 +37,8 @@
       "verdict": "PASS"
     },
     {
-      "feature": "pawl + bleed fits lane",
-      "value": 0.18,
-      "limit": 0.0,
-      "verdict": "PASS"
-    },
-    {
-      "feature": "gate + bleed fits lane (stacked in Z)",
-      "value": 0.28,
+      "feature": "pawl leaf + clearance fits OWNED lane",
+      "value": 0.09,
       "limit": 0.0,
       "verdict": "PASS"
     },

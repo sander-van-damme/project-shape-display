@@ -5,11 +5,11 @@
     {
       "part": "cell",
       "stl": "cad/stl/s6lc_cell.stl",
-      "bytes": 13723,
+      "bytes": 14751,
       "watertight": true,
-      "faces": 104,
+      "faces": 112,
       "bbox_mm": [
-        4.6,
+        4.05,
         3.6,
         44.0
       ],

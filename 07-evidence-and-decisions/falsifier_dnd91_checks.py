@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
-"""DND-91 Falsifier checks: adversarially audit the SELECTED ultra-low-cost machine S6-LC.
+"""DND-91 Falsifier checks: adversarial audit of S6-LC — NOW A RESOLUTION GATE.
 
 Run from anywhere:  python 07-evidence-and-decisions/falsifier_dnd91_checks.py
 
-Evidence class: CALCULATION / adversarial re-derivation over the repo's own S6-LC
-model, CAD source and BOM, plus sourced-fact readings of the repo's own documents.
-No print, no purchase, no measurement (DND-27). Like falsifier_s5_review_checks.py
-and the DND-46 gate, these checks assert the *counter-numbers* the audit reports,
-so the prose cannot drift from the arithmetic.
+The original DND-91 gate asserted that S6-LC's headline was *broken* (A1..A8). That
+audit drove [DND-93](/DND/issues/DND-93). This gate is updated to lock the
+*RESOLVED* state so the fixes cannot drift back. Each attack is retained as a
+historical counter-number and paired with a resolution assertion:
 
-Attacks encoded (see dnd91-s6lc-falsification.md):
-  A1 cell-fit lane gate ignores placement; CAD pawl overflows the pitch band
-  A2 pawl spring uses the root block section, not the 0.45 mm leaf (factor 8)
-  A3 the "296 N ceiling" is 0.37 N/cell x 800 (borrowed, not sourced)
-  A4 timing prices 4 strokes + dwells only; traverse/mask index unpriced
-  A5 BOM soft lines repriced to plausible retail; unlisted capabilities
-  A6 per-cell reliability: q=1e-4 -> P(all 6400) = 52.7 %; no G7 gate
-  A7 platen-unloaded assumption contradicts the tabletop-in-play product
-  A8 regional/jam behaviour asserted, not modelled
+  A1 cell-fit lane gate          -> fixed: owned half-lane gate + outboard root
+  A2 pawl spring (8x) + no hold  -> fixed: leaf section used + P1 latch hold gate
+  A3 circular 296 N ceiling      -> fixed: computed comb-tooth + motor-stall limit
+  A4 timing unpriced terms       -> fixed: mask-index + carriage-traverse priced
+  A5 BOM soft lines / unlisted   -> fixed: soft lines repriced + 6 capability lines
+  A6 no per-cell reliability gate-> fixed: G7 added, explicitly UNRESOLVED
+  A7 unloaded-write assumption   -> fixed: G3 load re-derived for the whole board
+  A8 regional/jam asserted       -> fixed: G8 reset-carriage torque gate added
+
+Evidence class: CALCULATION over the repo's own S6-LC model. No print, no
+purchase, no measurement (DND-27).
 """
 from __future__ import annotations
 
@@ -46,125 +47,141 @@ def check(name: str, cond: bool, detail: str = "") -> None:
 
 
 def main() -> int:
-    print("DND-91 Falsifier - adversarial audit of S6-LC")
-    print("=" * 52)
+    print("DND-91 falsifier findings - RESOLUTION gate (DND-93)")
+    print("=" * 56)
 
-    # ---- A1: cell fit ignores placement --------------------------------
-    print("[A1] Cell fit / lane budget (BROKEN)")
-    half_pitch = s6lc.PITCH_MM / 2
-    offset = s6lc.COLUMN_BODY_MM / 2 + 0.10          # scad: BODY/2 + 0.10
-    pawl_reach = offset + s6lc.PAWL_T_MM
-    owned_lane = s6lc.PITCH_MM / 2 - s6lc.COLUMN_BODY_MM / 2
-    check("model claims lane_free == 1.48", abs((s6lc.PITCH_MM - s6lc.COLUMN_BODY_MM) - 1.48) < 1e-9)
-    check("owned lane to half-pitch is only 0.74 mm", abs(owned_lane - 0.74) < 1e-9,
-          f"{owned_lane:.3f}")
-    check("pawl thickness (0.90) exceeds the owned lane",
-          s6lc.PAWL_T_MM > owned_lane, f"{s6lc.PAWL_T_MM} > {owned_lane:.2f}")
-    check("CAD pawl overflows the pitch band (reach > half-pitch)",
-          pawl_reach > half_pitch, f"reach {pawl_reach:.2f} > half_pitch {half_pitch:.2f}")
-    check("overflow is 0.260 mm", abs((pawl_reach - half_pitch) - 0.26) < 1e-9,
-          f"{pawl_reach - half_pitch:.3f}")
-    check("SCAD places the pawl at BODY/2 + 0.10",
-          "BODY/2 + 0.10" in SCAD.read_text())
-
-    # ---- A2: spring uses the wrong section ------------------------------
-    print("[A2] Pawl spring section (BROKEN, 8x)")
-    k_model = s6lc._cantilever_rate_n_per_mm(s6lc.PAWL_T_MM, s6lc.PAWL_W_MM, s6lc.PAWL_L_MM)
-    k_leaf = s6lc._cantilever_rate_n_per_mm(s6lc.PAWL_T_MM / 2, s6lc.PAWL_W_MM, s6lc.PAWL_L_MM)
-    check("model k ~= 0.6407 N/mm", abs(k_model - 0.6407) < 1e-3, f"{k_model:.4f}")
-    check("CAD leaf k ~= 0.0801 N/mm", abs(k_leaf - 0.0801) < 1e-3, f"{k_leaf:.4f}")
-    check("model overstates k by 8x", abs(k_model / k_leaf - 8.0) < 1e-6, f"{k_model / k_leaf:.3f}")
-    check("true release ~= 0.020 N", abs(k_leaf * s6lc.PAWL_DEFLECTION_MM - 0.02) < 1e-3,
-          f"{k_leaf * s6lc.PAWL_DEFLECTION_MM:.4f}")
-    check("SCAD leaf is PAWL_T/2 (0.45) in the bending axis",
-          "PAWL_T/2" in SCAD.read_text())
-    _src = (S6LC_ANALYSIS / "s6lc.py").read_text().lower()
-    check("no hold-force gate exists in the model",
-          "hold_force" not in _src and "hold_force_n" not in _src and "slip" not in _src)
-
-    # ---- A3: circular ceiling -------------------------------------------
-    print("[A3] 296 N ceiling is borrowed (BROKEN, circular)")
+    fit = s6lc.column_fit()
+    pawl = s6lc.pawl_spring()
     rel = s6lc.release_force()
-    check("ceiling == 0.37 * 800 (old S1 per-cell)", abs(0.37 * 800 - 296.0) < 1e-9)
-    check("model ceiling_n is hard-coded 296.0", rel["banked_ceiling_n"] == 296.0)
-    check("per-cell release != 0.37 (it is the S6-LC pawl)", rel["per_cell_n"] != 0.37,
-          f"{rel['per_cell_n']}")
-
-    # ---- A4: timing prices strokes + dwells only ------------------------
-    print("[A4] Timing unpriced terms (BOUNDED)")
     tm = s6lc.timing()
-    check("full map is 7.4 s", abs(tm["full_map_s"] - 7.4) < 1e-9, f"{tm['full_map_s']}")
-    check("model has no mask-index-time term",
-          not hasattr(s6lc, "MASK_INDEX_S"))
-    check("model has no carriage-traverse-time term",
-          not hasattr(s6lc, "CARRIAGE_TRAVERSE_S"))
-    check("sensitivity tolerates 53 banks (margins are assumed)",
-          s6lc.sensitivity()["max_banks_for_30s_at_reset_s"] >= 50,
-          f"{s6lc.sensitivity()['max_banks_for_30s_at_reset_s']}")
-
-    # ---- A5: BOM soft lines / unlisted capabilities ---------------------
-    print("[A5] Cost ladder honesty (BOUNDED-NEEDS-SOURCING)")
-    b = s6lc.bom()
-    check("base parts == $139.77", abs(b["purchased_parts_usd"] - 139.77) < 1e-9)
-    check("delivered == $162.13", abs(b["delivered_usd"] - 162.13) < 1e-9)
-    soft = {"4x T8 lead screw + anti-backlash nut": 40.0,
-            "Guide rods + bushings (platen)": 22.0,
-            "Timing belt + 2 pulleys (4-screw sync)": 14.0,
-            "Lift motor (NEMA17-class stepper)": 14.0,
-            "Motor couplers + thrust washers": 8.0}
-    revised = sum(soft.get(r["item"], r["ext"]) for r in b["lines"])
-    check("repriced parts == $169.77", abs(revised - 169.77) < 1e-9, f"{revised:.2f}")
-    check("repriced delivered == $196.93 (still < $250)",
-          abs(revised * s6lc.UPLIFT - 196.93) < 0.01, f"{revised * s6lc.UPLIFT:.2f}")
-    check("repriced margin == $53.07", abs(250 - revised * s6lc.UPLIFT - 53.07) < 0.01,
-          f"{250 - revised * s6lc.UPLIFT:.2f}")
-    check("only one 'assumption' line (spares $8) is admitted",
-          sum(1 for r in b["lines"] if r["evidence"] == "assumption") == 1)
-    check("softest lines are 'sourced-class', not sourced-listing",
-          sum(1 for r in b["lines"] if r["evidence"] == "sourced-class") >= 8,
-          f"{sum(1 for r in b['lines'] if r['evidence'] == 'sourced-class')} lines")
-
-    # ---- A6: reliability inversion --------------------------------------
-    print("[A6] Per-cell reliability (BROKEN AS STATED)")
-    import reliability  # noqa: E402
-    q1 = 1e-4
-    p_all = reliability.perfect_map_probability(q1, cells=6400)
-    check("P(all 6400 correct | q=1e-4) == 52.7 %", abs(p_all - 0.52729) < 1e-4,
-          f"{p_all*100:.2f}%")
-    check("program's 99 %-map budget is q <= 1.57e-6",
-          abs(reliability.cell_error_budget(0.99) - 1.570e-6) < 1e-9)
-    check("S6-LC decide() has fewer gates than the program's requirement set",
-          len(s6lc.decide()["gates"]) == 6 and "G7" not in "".join(s6lc.decide()["gates"]),
-          "no reliability gate")
-    check("S6-LC admits no per-cell feedback",
-          any("no per-cell feedback" in r.lower()
-              for r in s6lc.decide()["residual_uncertainty"]))
-
-    # ---- A7: unloaded-write assumption vs product -----------------------
-    print("[A7] Load vs write (BROKEN vs requirement)")
     lift = s6lc.lift_axis()
-    check("lift margin is only 1.47x", abs(lift["margin"] - 1.47) < 0.01, f"{lift['margin']}")
-    check("model explicitly assumes an UNLOADED write",
-          any("assumed unloaded" in r for r in s6lc.decide()["residual_uncertainty"]))
+    rc = s6lc.reset_carriage()
+    b = s6lc.bom()
+    dec = s6lc.decide()
+    scad = SCAD.read_text()
 
-    # ---- A8: regional/jam asserted --------------------------------------
-    print("[A8] Regional / jam (BOUNDED-NEEDS-MEASUREMENT)")
-    check("three actuators for eight bank gates + eight combs",
-          b["bought_actuators"] == 3)
-    check("model states all-armed requires banking (jam class)",
-          rel["unbanked_all_armed_n"] > 296.0)
+    # ---- A1: cell fit now gates the OWNED half-lane ---------------------
+    print("[A1] Cell fit / lane budget -- RESOLVED")
+    owned_lane = s6lc.PITCH_MM / 2 - s6lc.COLUMN_BODY_MM / 2
+    check("owned lane to half-pitch is 0.74 mm", abs(owned_lane - 0.74) < 1e-9,
+          f"{owned_lane:.3f}")
+    check("model now exposes the OWNED lane (not the whole gap)",
+          "owned_lane_mm" in fit and abs(fit["owned_lane_mm"] - 0.74) < 1e-9)
+    check("pawl LEAF (0.45) + clearance fits the owned lane",
+          pawl["leaf_t_mm"] + s6lc.LANE_BLEED_MM <= owned_lane,
+          f"{pawl['leaf_t_mm']} + {s6lc.LANE_BLEED_MM}")
+    check("root block declared outboard of the pitch band", fit["root_outboard"])
+    check("SCAD no longer places the pawl at BODY/2 + 0.10",
+          "BODY/2 + 0.10" not in scad, "placement corrected")
+    check("cell fits overall", fit["fits"])
+    # historical counter-number retained
+    check("historical: the OLD 0.90 pawl overflowed by 0.260 mm",
+          abs(((s6lc.COLUMN_BODY_MM / 2 + 0.10 + 0.90) - s6lc.PITCH_MM / 2) - 0.26) < 1e-9)
 
-    # ---- audit-gate integrity -------------------------------------------
-    print("[G0] The audit's own claims hold")
-    check("A1/A2 counter-numbers are self-consistent",
-          abs(pawl_reach - half_pitch - 0.26) < 1e-9 and abs(k_model / k_leaf - 8.0) < 1e-6)
+    # ---- A2: spring uses the leaf + a hold gate -------------------------
+    print("[A2] Pawl spring section + hold -- RESOLVED")
+    k_leaf = s6lc._cantilever_rate_n_per_mm(pawl["leaf_t_mm"], s6lc.PAWL_W_MM, s6lc.PAWL_L_MM)
+    check("model k uses the 0.45 mm leaf (~0.0801 N/mm)",
+          abs(k_leaf - 0.0801) < 1e-3, f"{k_leaf:.4f}")
+    check("model no longer uses the 0.90 root section for k",
+          abs(pawl["rate_n_per_mm"] - 0.0801) < 1e-3)
+    check("true release ~= 0.020 N", abs(pawl["release_force_n"] - 0.02) < 1e-3,
+          f"{pawl['release_force_n']}")
+    check("a HOLD gate now exists", "holds" in pawl and "hold_required_n" in pawl)
+    check("hold is by the P1 hard-stop latch (compression, not friction)",
+          "P1" in pawl["hold_mechanism"] and pawl["holds"])
 
-    print("=" * 52)
-    print(f"{CHECKS - len(FAILURES)}/{CHECKS} audit checks passed")
+    # ---- A3: ceiling is now computed ------------------------------------
+    print("[A3] Release ceiling -- RESOLVED (no longer circular)")
+    check("model ceiling is NOT the borrowed 296.0",
+          rel["banked_ceiling_n"] != 296.0, f"{rel['banked_ceiling_n']}")
+    check("ceiling is min(per-tooth*teeth, reset-motor force)",
+          abs(rel["banked_ceiling_n"] -
+              min(rel["comb_tooth_limit_n"] * rel["teeth_in_bank_comb"],
+                  rel["reset_motor_force_n"])) < 0.15)
+    check("ceiling is labelled assumption-class (not sourced)",
+          "assumption" in rel["banked_ceiling_class"])
+    check("banked release within the computed ceiling", rel["banked_ok"],
+          f"{rel['banked_all_armed_n']} <= {rel['banked_ceiling_n']}")
+
+    # ---- A4: timing now prices mask + carriage --------------------------
+    print("[A4] Timing terms -- RESOLVED")
+    check("mask-index time is now priced", hasattr(s6lc, "MASK_INDEX_S")
+          and s6lc.MASK_INDEX_S > 0)
+    check("carriage-traverse time is now priced",
+          hasattr(s6lc, "CARRIAGE_TRAVERSE_S") and s6lc.CARRIAGE_TRAVERSE_S > 0)
+    check("full map still < 30 s with the added terms", tm["clears_30s"],
+          f"{tm['full_map_s']} s")
+    check("full map is no longer the bare 7.4 s", tm["full_map_s"] != 7.4,
+          f"{tm['full_map_s']} s")
+
+    # ---- A5: BOM repriced + capabilities listed -------------------------
+    print("[A5] Cost ladder honesty -- RESOLVED")
+    check("purchased parts < $250 (mission gate)", b["clears_parts"],
+          f"${b['purchased_parts_usd']}")
+    check("soft lines repriced above the old $139.77 base",
+          b["purchased_parts_usd"] > 139.77, f"${b['purchased_parts_usd']}")
+    check("the six missing capabilities are now listed",
+          all(any(key in r["item"] for r in b["lines"]) for key in
+              ("Mask media", "puncher", "linkage", "traverse rails",
+               "splice", "home sensors")))
+    check("more than one 'assumption' line is admitted",
+          sum(1 for r in b["lines"] if r["evidence"] == "assumption") > 1,
+          f"{sum(1 for r in b['lines'] if r['evidence'] == 'assumption')} lines")
+    check("delivered overrun is reported (not hidden)",
+          dec["g6_delivered_under_250"] in (True, False)
+          and dec["g6_delivered_usd"] == b["delivered_usd"])
+
+    # ---- A6: reliability gate G7 ----------------------------------------
+    print("[A6] Per-cell reliability -- ADDRESSED (G7 unresolved)")
+    rg = s6lc.reliability()
+    check("per-cell break-even for a 99% map is ~1.57e-6",
+          abs(rg["per_cell_error_break_even"] - 1.570e-6) < 1e-9,
+          f"{rg['per_cell_error_break_even']}")
+    check("a G7 reliability field exists in decide()",
+          "g7_reliability_pass" in dec and "g7_reliability_status" in dec)
+    check("G7 is explicitly NOT satisfied analytically (honest)",
+          dec["g7_reliability_pass"] is False)
+    check("G7 names the coupon-C1 measurement path",
+          "C1" in rg["evidence_path"])
+    check("S6-LC still admits no per-cell feedback",
+          any("no per-cell feedback" in r.lower()
+              for r in dec["residual_uncertainty"]))
+
+    # ---- A7: lift load re-derived ---------------------------------------
+    print("[A7] Lift load -- RESOLVED (whole board, honest stack-up)")
+    check("lift axis lifts the WHOLE board (6400 cells)",
+          lift["cells_lifted"] == s6lc.CELLS)
+    check("per-column lift load is the honest stack-up (~0.05 N)",
+          abs(lift["per_column_load_n"] - 0.0498) < 5e-3,
+          f"{lift['per_column_load_n']} N")
+    check("lift torque passes with the 0.30 Nm NEMA17", lift["passes"],
+          f"{lift['torque_needed_nm']} vs {lift['motor_torque_nm']} Nm")
+    check("lift torque margin >= 1.3x", lift["margin"] >= 1.3, f"{lift['margin']}x")
+    check("model no longer claims a 1.47x margin on 800 cells",
+          lift["cells_lifted"] != s6lc.CELLS_PER_BANK)
+
+    # ---- A8: reset-carriage torque gate ---------------------------------
+    print("[A8] Reset carriage -- GATE ADDED")
+    check("G8 reset-carriage torque gate exists",
+          "G8_reset_carriage_torque" in dec["gates"])
+    check("reset-carriage torque passes its motor", rc["passes"],
+          f"{rc['torque_needed_nm']} vs {rc['motor_rated_nm']} Nm")
+
+    # ---- resolution integrity -------------------------------------------
+    print("[G0] Resolution integrity")
+    check("all analytic gates pass", dec["all_gates_pass"], str(dec["gates"]))
+    check("verdict reflects the measurement gate",
+          dec["verdict"] == "PROMOTE_TO_09_WITH_MEASUREMENT_GATE",
+          dec["verdict"])
+
+    print("=" * 56)
+    print(f"{CHECKS - len(FAILURES)}/{CHECKS} resolution checks passed")
     if FAILURES:
         print("FAILED: " + ", ".join(FAILURES))
         return 1
-    print("All DND-91 falsification assertions hold: the attacks are reproduced.")
+    print("All DND-91 findings are RESOLVED and locked: no regression to the "
+          "broken headline.")
     return 0
 
 

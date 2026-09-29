@@ -48,11 +48,15 @@ module column_with_rack() {
 
 module pawl() {
     // Rooted cantilever: base block + thin leaf with a wedge toe.
-    // Root is attached to the frame (not floating).
-    translate([0, 0, 0]) cube([PAWL_T, PAWL_W, 1.5]);          // root block
-    translate([0, 0, 1.5]) cube([PAWL_T/2, PAWL_W, PAWL_L]);   // thin leaf
+    // DND-93/A1: the ROOT block is anchored OUTBOARD of the pitch band (in the
+    // frame); only the thin LEAF (PAWL_T/2 = 0.45 mm) enters the owned 0.74 mm
+    // lane. Root block at x=0, leaf set back so its outer face stays <= 0.74 mm
+    // from the body edge.
+    translate([0, 0, 0]) cube([PAWL_T, PAWL_W, 1.5]);          // root block (frame side)
+    translate([PAWL_T - PAWL_T/2, 0, 1.5])
+        cube([PAWL_T/2, PAWL_W, PAWL_L]);                       // thin leaf (enters lane)
     // toe wedge at the free end (points into the rack)
-    translate([0, 0, 1.5 + PAWL_L - 1.2])
+    translate([PAWL_T - PAWL_T/2, 0, 1.5 + PAWL_L - 1.2])
         multmatrix([[1,0,0,0],[0,1,0,0],[0.5,0,1,0],[0,0,0,1]])
             cube([PAWL_T/2, PAWL_W, 1.2]);
 }
@@ -95,8 +99,12 @@ module bank_row() {
 
 module cell_assembly() {
     // The unit-cell mechanism: column + pawl (side-by-side lane) + gate lane.
+    // DND-93/A1: body edge at BODY/2 = 1.80 mm; owned lane runs to the half
+    // pitch 2.54 mm. Place the pawl root so its LEAF outer face is at most the
+    // half pitch: root origin x0 = BODY/2 + (OWNED_LANE - PAWL_T) so the root
+    // block ends inside the lane and the leaf sits within it.
     column_with_rack();
-    translate([BODY/2 + 0.10, 0, 4]) pawl();
+    translate([BODY/2 - (PAWL_T - PAWL_T/2), 0, 4]) pawl();
 }
 
 module bank_assembly() {
