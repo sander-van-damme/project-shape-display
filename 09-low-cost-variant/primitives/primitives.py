@@ -5,8 +5,7 @@ shape display (<$250 purchased, excl. printed parts).
 CONTEXT
 -------
 [DND-71] is the CTO's out-of-the-box <$250 architecture. Its candidate
-**S6-LC** (`09-lowcost-alternative/analysis/s6lc.py`, PR #70 on
-`feat/dnd71-lowcost-alternative`) is a banked broadcast ratchet (see
+**S6-LC** (`../s6lc/analysis/s6lc.py`) is a banked broadcast ratchet (see
 `06-experiments/test11_threshold_ratchet_s1/`):
 
   * passive printed **pawl-in-rack** column memory (5 pockets, 10 mm steps,
