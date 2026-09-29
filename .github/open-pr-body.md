@@ -1,85 +1,84 @@
-# DND-97: S6-LC mechanism-defect repair (A1/A2/A6/A7/A8) + mission-gate clarification
+# DND-88 / DND-92: "everything assembled" + exploded views — full S5-R machine + S6-LC
 
-Repairs the remaining mechanism/geometry defects of the selected **S6-LC** machine
-(`09-low-cost-variant/s6lc/`) flagged by the [DND-91](/DND/issues/DND-91) audit after
-[DND-93](/DND/issues/DND-93) fixed the lift-axis gate G3 and the DND-74/91 bounded findings.
-Mines the unmerged `cto/dnd93-fix-s6lc-g3` (#80) A1/A2 geometry work onto `main`, keeping DND-93's
-conservative G3 choice (global broadcast + NEMA23-class lift) so the fixes do not conflict.
+The board asked ([DND-68](/DND/issues/DND-68) comment `430f2c19`): **"I also want images of
+everything assembled."** and (comment `3075ea65`): **"include an exploded view of the complete
+assembly."** The [DND-69](/DND/issues/DND-69) gallery showed only one 3 × 3 per-cell register and
+single-part views; it did **not** show the whole machine, and the S6-LC low-cost candidate had
+**zero** PNGs. [DND-92](/DND/issues/DND-92) adds the board-required **exploded view of the complete
+assembly** for both the promoted S5-R machine and the S6-LC low-cost exploration.
 
-**Evidence class:** CALCULATION over sourced FDM limits + sourced actuator ratings + CAD (real
-OpenSCAD, watertight). **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)).
-**No board contact** ([DND-32](/DND/issues/DND-32)). `08-current-design/` untouched.
+**Evidence class: CAD render of the committed OpenSCAD meshes. NOT a print and NOT a measurement**
+([DND-27](/DND/issues/DND-27)). No part has been printed, purchased or measured. This PR visualises
+geometry only.
 
-## Engineering question
+## What this adds
 
-Can S6-LC's mechanism defects (A1 cell fit, A2 pawl spring/hold, A6 reliability, A7 unloaded write,
-A8 regional/jam) be repaired without re-opening the DND-93 G3 decision — and what is the honest
-verdict against the **mission's** cost gate?
+### S5-R (promoted machine) — full machine assembled
 
-## Answer
+New [`08-current-design/fabrication/tools/render_machine.py`](08-current-design/fabrication/tools/render_machine.py)
+composes the **whole machine** from the committed part STLs at their real assembly offsets and
+rasterizes it with the DND-69 software renderer (**imported, not forked**):
 
-**Defects repaired; mission gate passes; one measurement-gated item remains.**
+- the **3 × 3 cartridge field** (411.48 × 411.48 mm = the real 81 × 81 cell envelope; 80 × 80 =
+  6,400 used);
+- the **3 × 3 platen lift deck** under it;
+- the perimeter **lift-frame rails** and corner **guide brackets**;
+- three witness **rack strip + sourced steel rod** rows;
+- the **bank drive housing** (−X edge) and the **writer carriage** (+X edge).
 
-- **A1 cell fit.** The cell owns only **half** the inter-body gap (0.74 mm); the old check compared
-  the pawl against the whole 1.48 mm gap and the CAD placed it at `BODY/2 + 0.10`, overflowing the
-  2.54 mm half-pitch by **0.260 mm**. Fixed: owned-lane gate, root block outboard, 0.45 mm leaf
-  in-lane (`0.45 + 0.20 ≤ 0.74`), SCAD re-placed and re-rendered watertight.
-- **A2 pawl spring + hold.** `k` now uses the **0.45 mm CAD leaf** (8× correction; release
-  **0.020 N**). The softer leaf cannot hold by friction, so a **hold gate** is added, held by the
-  **DND-76 P1 bistable over-centre latch** — a hard-stop compression, not a bending preload.
-- **A6 reliability.** **G8** added, reported **explicitly UNRESOLVED** (no per-cell feedback; coupon
-  C1 is the evidence path).
-- **A7/A8.** The unloaded-write and regional/jam cases are restated as **explicit product
-  limitations** needing a test, not bare assumptions.
-- **Mission gate clarified.** DND-70's gate is the **purchased** figure ("under 250$ excluding
-  3d printed parts"). `decide()` now separates the **mission gates (G1–G5, G7)** from the repo's
-  internal 1.16 delivered convention (G6) and reports both: **G5 = $226.77 < $250 PASS**;
-  G6 = $263.05 (over).
+Views: iso / top / front → `assembly_full_machine_{iso,top,front}.png`.
 
-**Verdict: `PROMOTE_TO_09_WITH_MEASUREMENT_GATE`.**
+A **documented installed-register 9 × 9 sub-block** (81 of the 6,400 cells, 45.72 × 45.72 mm) at
+iso/top/front → `assembly_register_9x9_*.png`. The full 6,400 installed cells are **not**
+individually modelled and every image label states the cell count it shows.
 
-## What changed
+### S6-LC (low-cost exploration) — assembled machine
 
-- `09-low-cost-variant/s6lc/analysis/s6lc.py` — owned-lane `column_fit`, leaf-section `pawl_spring`
-  + hold gate, `reliability()` G8, `decide()` mission/delivered split and restated limitations.
-- `analysis/s6lc_checks.py` (48/48), `printability_s6lc.py` (owned-lane keys), `scad/s6lc_machine.scad`
-  (pawl re-placed) + re-rendered STLs, `03`-independent gates.
-- `07-evidence-and-decisions/falsifier_dnd91_checks.py` (37/37) and `falsifier_dnd74_checks.py`
-  (31/31) rewritten as **findings-resolution** gates.
-- New ADR `07-evidence-and-decisions/dnd97-s6lc-mechanism-repair.md`; README updated; CI steps updated.
+New [`09-low-cost-variant/s6lc/analysis/render_s6lc_images.py`](09-low-cost-variant/s6lc/analysis/render_s6lc_images.py)
+rasterizes the committed S6-LC STLs into assembled iso/top/front views:
 
-## Evidence produced
+- the **8-bank field strip** (406.4 × 406.4 mm, 80 × 80 = 6,400 cells); each bank renders **3 of its
+  10 rows** at true 5.08 mm pitch (stated on every label);
+- the `s6lc_platen` broadcast deck, a per-bank `s6lc_gate` and a `s6lc_comb`;
+- an installed representative column sub-block.
 
-| Check | Result |
-|---|---|
-| `s6lc/analysis/s6lc_checks.py` | **48/48** |
-| `falsifier_dnd91_checks.py` (resolution) | **37/37** |
-| `falsifier_dnd74_checks.py` (resolution) | **31/31** |
-| `s5r_ultra_checks.py` (DND-72 control) | 19/19 |
-| `primitives_checks.py` / divergent runner | pass / exit 0 |
-| `readme_s5r_coherence.py` | GATE PASS |
-| CAD render `render_s6lc_cad.py` | 5 parts watertight |
+→ `09-low-cost-variant/s6lc/images/s6lc_machine_assembled_{iso,top,front}.png`.
 
-## Gate table (corrected)
+### Complete-assembly exploded views (DND-92, board requirement)
 
-| Gate | Result |
-|---|---|
-| G1 cell fit (owned half-lane) | PASS |
-| G2 release (banked) | PASS (128 N vs 413 N) |
-| G3 lift axis (global board, NEMA23) | PASS (1.35×) |
-| G4 full map < 30 s | PASS (11.96 s) |
-| **G5 purchased parts < $250 (mission gate)** | **PASS ($226.77)** |
-| G6 delivered < $250 (internal convention) | $263.05 — over |
-| G7 reset-carriage torque | PASS |
-| **G8 per-cell reliability** | **UNRESOLVED (measurement, coupon C1)** |
+Both render tools now also emit an **exploded view of the complete assembly**, separating the same
+committed solids along the assembly axis (drive/rod layer · platen deck · cartridge field + frame ·
+installed register) so the build order is readable:
 
-## Assumptions / limits
+- **S5-R** → `assembly_full_machine_exploded_{iso,front}.png`;
+- **S6-LC** → `s6lc_machine_exploded_{iso,front}.png`.
 
-- G8 reliability is measurement-only (un-retirable under DND-27); coupon C1 is the path.
-- Per-column lift load is the conservative S1 allowance (assumption-class), not measured.
-- P1 latch snap-force spread across 6,400 parts (~±20 %) is assumption-class.
+The per-layer offsets are a **visualisation aid only** — recorded in the render record's `meta` as
+`explode_dz_mm`, never a design position — and no design geometry changes. Each image keeps the
+**"CAD render, not a print"** caveat and the full-field vs representative-sub-block cell-count label.
 
-## Most informative next test
+### Reproducibility
 
-**Coupon C1** (unit-cell pitch/latch/hold/engage coupon) to bound A1/A2/G8, then sourced re-ratification
-of the DND-93 BOM (tracked by [DND-98](/DND/issues/DND-98)). Physical build is gated by DND-27.
+Both tools regenerate headlessly and write machine-readable records
+(`render_machine_record.json`, `s6lc/cad/render_images_record.json`). CI now regenerates and verifies
+both sets (valid, non-blank PNG, real dimensions), and both `--check` paths **fail if the exploded
+view is missing** so it cannot silently regress.
+
+## Acceptance criteria
+
+- [x] New full-machine assembled PNGs, valid and non-blank with real pixel dimensions.
+- [x] **Exploded view of the complete assembly** (DND-92) for S5-R and S6-LC.
+- [x] READMEs link the new assembled + exploded images; labels distinguish **S5-R (promoted)** from
+  **S6-LC (low-cost exploration)**.
+- [x] Representative-sub-block renders explicitly labelled with the cell count shown.
+- [x] Render tools + record JSON added and reproducible; existing coherence gates still green.
+- [x] Evidence class stated: CAD render of committed meshes, not a print, not a measurement.
+
+## Verification (run locally on this branch)
+
+- `render_machine.py` + `--check` → PASS (8 images, incl. 2 exploded); `render_s6lc_images.py` +
+  `--check` → PASS (5 images, incl. 2 exploded); `render_images.py --check` → PASS (45 images).
+- `08-current-design/fabrication/tools/fab_package_checks.py` → **GATE: PASS**.
+- `tools/validate/readme_s5r_coherence.py` → **GATE: PASS**.
+- `09-low-cost-variant/s6lc/analysis/s6lc_checks.py` → 29/29 PASS.
+- No design numbers changed; `08-current-design/` machine definition untouched.
