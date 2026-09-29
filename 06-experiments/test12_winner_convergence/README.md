@@ -65,6 +65,26 @@ python s5r_bom_ratify.py --emit-csv  # writes s5r_bom_ratified.csv
 python s5r_bom_ratify_checks.py      # regression + honesty gates
 ```
 
+DND-55 S5-R R=4 multi-row bank assembly (bar torsion + comber/carriage envelopes):
+
+```text
+cd 06-experiments/test12_winner_convergence
+python s5r_bank.py && python s5r_bank_checks.py               # bank model (torsion, envelopes)
+python s5r_bank.py --cad                                      # real OpenSCAD render + interference
+python ../../tools/validate/analytic_printability.py s5r_bank.scad
+```
+
+**DND-55 headline (CAD + CALCULATION, no print):** the R=4 bank's reset-comber and
+writer-carriage **envelopes fit** (all five interference queries empty in a real OpenSCAD
+render; carriage/column clearance 0.40 mm worst case), and R=4 adds **no pitch penalty**
+(0.0 mm). But the DND-54 drive bar and rack do **not** survive this close-out: the printed
+**3 × 2 placeholder bar is ~28× over** the bar-torsion gate (peak tip skew 4.96 mm vs
+gate/2 = 0.175 mm), and the DND-54 rack (pitch 0.60 / tooth 0.45) leaves a **0.15 mm
+inter-tooth gap that fuses** at a 0.4 mm nozzle. **Corrections:** a **sourced steel rod
+d = 5–6 mm** (skew ≤ 0.005 mm, 39–67× under the gate) or an Ø8 printed round bar, and a
+**rack re-dimensioned to pitch 1.00 / tooth 0.50 mm** (gap 0.50 mm). See
+[`dnd55-s5r-bank-assembly.md`](../../07-evidence-and-decisions/dnd55-s5r-bank-assembly.md).
+
 Sourcing detail: [`../test11_cost_printability_reliability/sourcing_notes.md`](../test11_cost_printability_reliability/sourcing_notes.md) §8.
 
 

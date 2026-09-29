@@ -211,6 +211,113 @@ def check_register_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) ->
     }
 
 
+def check_bank_assembly(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-55 S5-R R=4 multi-row bank assembly.
+
+    Same sourced rules and evidence class as `check_coupon`, applied to the
+    ADDED parts of the bank: the drive bar / rack teeth, the reset-comber tine,
+    the writer-carriage wall and nose, and the cross-row (Y) spacing. It reads
+    the SCAD constants so it tracks the CAD source of truth rather than
+    duplicating values.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add(feature, value, limit, verdict, rule_key, note=""):
+        r = rl[rule_key]
+        if verdict == "auto":
+            verdict = _verdict(value, limit)
+        checks.append(Check(feature, round(value, 3), round(limit, 3), verdict,
+                            r.label, r.evidence, r.source, note))
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    # 1. drive bar cross-section in the two printed in-plane directions.
+    add_wall("drive bar width (BAR_W)", c["BAR_W"], "bar section across Y")
+    add_wall("drive bar height (BAR_H)", c["BAR_H"], "bar section across Z")
+
+    # 2. rack tooth height (a small printed tooth).
+    add("rack tooth height (RACK_TOOTH_HEIGHT)", c["RACK_TOOTH_HEIGHT"],
+        spec.min_feature_mm, "auto", "min_feature",
+        "a tooth narrower than one line cannot print")
+
+    # 3. rack tooth pitch must leave a printable gap between teeth.
+    tooth_gap = c["RACK_TOOTH_PITCH"] - c["RACK_TOOTH_HEIGHT"]
+    if tooth_gap > 0:
+        add("rack tooth gap (RACK_TOOTH_PITCH - tooth)", tooth_gap,
+            spec.min_feature_mm, "auto", "min_feature",
+            "inter-tooth void narrower than one line fuses the rack")
+    else:
+        checks.append(Check("rack tooth gap (RACK_TOOTH_PITCH - tooth)",
+                            round(tooth_gap, 3), round(spec.min_feature_mm, 3),
+                            "FAIL", rl["min_feature"].label,
+                            rl["min_feature"].evidence, rl["min_feature"].source,
+                            "teeth overlap: no rack void"))
+
+    # 4. reset-comber tine thickness.
+    add_wall("reset comber tine thickness (COMBER_TINE_T)", c["COMBER_TINE_T"],
+             "comber rake tine")
+
+    # 5. writer-carriage wall thickness (body and nose).
+    add_wall("writer carriage wall (CARRIAGE_WALL)", c["CARRIAGE_WALL"],
+             "carriage body printed wall")
+
+    # 6. cross-row (Y) spacing: adjacent R rows must clear after print error.
+    row_free = c["ROW_PITCH"] - c["BAR_W"]
+    v = lateral_clearance(row_free, required_mm=0.20, spec=spec)
+    checks.append(Check(
+        feature="cross-row free gap (ROW_PITCH - BAR_W), worst case",
+        value_mm=v.pessimistic_mm, limit_mm=0.20,
+        verdict="PASS" if v.ok else "FAIL",
+        rule="lateral running clearance", evidence=v.evidence, source=v.source,
+        note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; the "
+             "R-row bank must keep every row clear of its neighbour"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer: real toolpath decisions (seam placement, thin-wall "
+            "detection, bridging params) are not modelled.",
+            "Not a printer: machine calibration, filament lot, moisture and "
+            "temperature effects are not modelled.",
+            "FDM dimensional accuracy is a generic assumption (+/-0.1 mm/face); "
+            "the actual X1C value is not measured here.",
+            "These checks retire geometry-vs-process risk only; they do not "
+            "validate function, fit, or mechanism behaviour.",
+        ],
+    }
+
+
+def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Route a SCAD source to its feature-specific printability checker."""
+    name = path.name
+    if "s5r_bank" in name:
+        return check_bank_assembly(path, spec)
+    if "s5r_register" in name:
+        return check_register_cell(path, spec)
+    return check_coupon(path, spec)
+
+
 def check_coupon(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
     c = parse_scad_constants(coupon_path)
     rl = {r.key: r for r in rules(spec)}
@@ -347,8 +454,7 @@ def main() -> int:
         print(f"ERROR: {path} not found", file=sys.stderr)
         return 2
 
-    res = (check_register_cell(path) if "s5r_register" in path.name
-           else check_coupon(path))
+    res = (_dispatch_checker(path))
     print_table(res)
     if args.json:
         Path(args.json).write_text(json.dumps(res, indent=2) + "\n")

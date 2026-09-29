@@ -125,6 +125,16 @@ jobs:
           python s5r_bom_ratify.py --selftest
           python s5r_bom_ratify.py --emit-csv > /dev/null
           python s5r_bom_ratify_checks.py
+      - name: Test12 DND-55 S5-R R=4 bank assembly (torsion + envelopes)
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python s5r_bank.py > /dev/null
+          python s5r_bank_checks.py
+      - name: DND-55 S5-R bank-assembly printability (sourced FDM limits)
+        run: |
+          python tools/validate/analytic_printability.py \
+            --json s5r-bank-printability-record.json \
+            06-experiments/test12_winner_convergence/s5r_bank.scad
       - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
         run: |
           cd 06-experiments/test12_winner_convergence

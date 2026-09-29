@@ -41,6 +41,18 @@ $401.12 vs the channels-unpriced claim `$397.53`). See
 CALCULATION only** — no print, no measurement; the as-printed μ/creep and the
 multi-row bar assembly remain named residuals.
 
+**S5-R bank update ([DND-55](/DND/issues/DND-55)):** the R=4 **multi-row bank
+assembly** is now CAD-modelled and closed analytically. The reset-comber and
+writer-carriage **envelopes fit** (five empty OpenSCAD interference queries;
+carriage/column clearance 0.40 mm worst case) and **R=4 adds no pitch penalty**.
+Two DND-54 geometry claims do **not** survive: the printed **3 × 2 placeholder
+bar is ~28× over** the bar-torsion gate (peak tip skew 4.96 mm vs gate/2 = 0.175 mm)
+and the DND-54 **rack fuses** (0.15 mm inter-tooth gap < one 0.44 mm line).
+**Fixes:** a **sourced steel drive rod d = 5–6 mm** (skew ≤ 0.005 mm) — or an Ø8
+printed round bar — and a **rack re-dimensioned to pitch 1.00 / tooth 0.50 mm**.
+See §8 item 10 and the
+[ADR](../07-evidence-and-decisions/dnd55-s5r-bank-assembly.md).
+
 ---
 
 ## 1. Machine in one paragraph
@@ -306,6 +318,19 @@ depth, guide shear, creep, rotor tolerance). See the **Final readiness verdict**
    unmeasurable under [DND-27](/DND/issues/DND-27). Next discriminating (no-coupon)
    test: a **multi-row (R=4) bar-assembly CAD** for torsion / reset-comber / writer
    envelope.
+10. **S5-R R=4 multi-row bank assembly** — **done** ([DND-55](/DND/issues/DND-55),
+    `test12_winner_convergence/s5r_bank.py` + `_checks.py` + `s5r_bank.scad`,
+    ADR [`dnd55-s5r-bank-assembly.md`](../07-evidence-and-decisions/dnd55-s5r-bank-assembly.md)).
+    **CAD:** the R=4 bank (racked bar + 8 modelled columns + reset comber + writer-carriage
+    sweep envelope) renders in real OpenSCAD; **all five interference queries empty**
+    (run / selected / comber-park / comber-trip / carriage-sweep), so the **comber and
+    carriage envelopes fit** and **R=4 adds no pitch penalty**. **CALCULATION:** the
+    printed **3 × 2 bar is ~28× over** the keeper gate (skew 4.96 mm vs 0.175 mm) —
+    **fix: sourced steel rod d = 5–6 mm** (skew ≤ 0.005 mm) or an Ø8 printed round bar;
+    and the DND-54 **rack (0.60/0.45) fuses** (0.15 mm gap) — **fix: rack pitch 1.00 /
+    tooth 0.50 mm**. **Verdict:** R-DND54-4 closed for the envelopes and pitch, and
+    sharpened for the bar (a sourced-rod requirement, not a printed part). No print,
+    no measurement.
 
 ---
 
