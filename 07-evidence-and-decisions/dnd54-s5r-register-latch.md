@@ -98,7 +98,7 @@ vs 8 writers is $80 and it is well inside the ceiling (§5).
 | G4 | bank drive force (320 pawls × 0.0874 N / 0.60 bus) | 46.6 N | 100 N (2 motors) | **2.15×** | calc |
 | G5 | latch vs service load (latch dormant in service) | 0 N added | inherits K1 | unchanged | calc |
 | G6 | full-map time | **24.62 s** | < 30 s | **+5.39 s** | calc |
-| G7 | delivered cost | **$397.53** | ≤ $500 | **−$102.47** | sourced |
+| G7 | delivered cost | **$401.12** (working; $387.18 opt / $421.51 high) | ≤ $500 | **−$98.88** | sourced |
 | G8 | cycle life (printed pawl/keeper leaf) | ≥1e6, order unknown | reported | — | calc |
 
 **G2 is the pivotal one.** A *dropped-out* pawl is held clear of the rack by its
@@ -118,10 +118,41 @@ motor alone would be only 1.07×** — the sensitivity number that says *use two
 **Cost (delivered = parts × 1.16, the repo's additive basis, imported from
 `cost_closure.py`):** no-channel base **$218.70** + 2 bank motors × $12 +
 40 writers × $2.50 = **$342.70 parts → $397.53 delivered, $102.47 under the $500
-ceiling** — inside the program's ideal <$400 band and $969 under the S5 incumbent's
-refuted $1,366.87. The 80-channel driver block ($63.64) leaves with the motors.
-*Sourced point-in-time prices; the DND-52 $304.73 figure was the smaller W=8
-variant and did not include the second bank motor or the wider writer bank.*
+ceiling** ($969 under the S5 incumbent's refuted $1,366.87). The 80-channel driver
+block ($63.64) leaves with the motors. *Sourced point-in-time prices; the DND-52
+$304.73 figure was the smaller W=8 variant and did not include the second bank
+motor or the wider writer bank.*
+
+**Independent ratification ([DND-56](/DND/issues/DND-56)).** The $397.53 figure was
+re-derived from first principles against sourced listings and **reproduces exactly**
+(the no-channel base and the `218.70 + 63.64 = 282.34` driver-block identity both
+hold — no double-count); the two actuator allowances trace to **$12.39 (motor) /
+$2.20 (writer)**, within ±$0.40. **One material correction:** `bom()` prices the
+S5-R block's *own* channels at **zero**. The 80-channel TB6612 block leaves *with*
+the motors, but the 2 bank steppers and 40 writer solenoids still need channels —
+2 bank H-bridge ICs + 5 ULN2803-class writer switches = **$3.09 parts** (the
+writers are on/off, so a ~$0.30 darlington channel suffices, not a TB6612). Pricing
+them explicitly (they were only *implicitly* covered by the fixed
+`Custom driver PCBs and passives` line, which was sized for the 80-motor head):
+
+| Scenario | Delivered | vs $500 | vs <$400 |
+|---|---:|---:|---:|
+| Optimistic (sourced units, 1 bank IC) | **$387.18** | −$112.82 | −$12.82 |
+| **Working (allowances + marginal channels)** | **$401.12** | **−$98.88** | **+$1.12** |
+| High (premium NEMA17 + premium writer) | **$421.51** | −$78.49 | +$21.51 |
+| Claim above (channels unpriced) | $397.53 | −$102.47 | −$2.47 |
+
+The credible delivered figure is therefore **$401.12** (working), i.e.
+**$387.18–$421.51** across the sourced band — **solidly under the $500 ceiling, but
+~$1.12 *over* the program's ideal <$400 band** in the working scenario. The
+ceiling-level verdict is unchanged; the "<$400 ideal" phrasing only held because
+the block channels were unpriced. Break-even for the $500 ceiling: bank motor
+**$54.62/ea**, writer **$4.63/ea** — 4.5× and 1.85× the allowances, so no line
+dies on cost. Residual: the writer solenoid's **force (N) is not published by any
+listing** (R-DND54-6), and no 2–4-piece contract quote exists — both
+purchase-gated under [DND-27](/DND/issues/DND-27). The ratifying note is
+`07-evidence-and-decisions/dnd54-s5r-bom-ratification.md`
+(`06-experiments/test12_winner_convergence/s5r_bom_ratify.py`, 11 CI gates).
 
 **Time (24.62 s, calc):** fixed platen/reference 5.26 s + 19 group-index moves
 (19 × 0.071 s) + 20 groups × 0.90 s. Per group: 8 writer stations × 0.05 s +
@@ -135,11 +166,12 @@ variant and did not include the second bank motor or the wider writer bank.*
 | writer station settle | 0.05 s | **0.084 s** | 1.67× |
 | bank motor torque (2 motors) | 0.30 N·m | **0.14 N·m** | 2.15× |
 | per-face print accuracy (fit) | ±0.10 mm | **±0.365 mm** | 3.65× |
-| actuators | $124 parts | ceiling at ~$460 parts | $102.47 headroom |
+| actuators | $124 parts | ceiling at ~$460 parts | $98.88 headroom |
 
 **The time gate is conditional on the crank speed and the writer settle, exactly
 as S5's K6 is conditional on its loaded dwell.** The geometry gate is robust
-(3.65× the assumed print error). The cost gate has $102 of headroom.
+(3.65× the assumed print error). The cost gate has $98.88 of headroom at the
+working tier (see §5).
 
 ## 7. CAD evidence
 
@@ -200,7 +232,9 @@ pawl is two lines and PASSes.
    the writer carriage envelope — the only unit-cell-external geometry not yet
    modelled.
 4. **CostManufacturing:** re-verify the 2-motor + 40-writer delivered BOM against
-   sourced listings (a child issue).
+   sourced listings — **done ([DND-56](/DND/issues/DND-56))**: $397.53 reproduces;
+   honest working total **$401.12 delivered** after pricing the block's marginal
+   channels (§5). Amendment folded into this ADR.
 5. **Do NOT contact the board.** S5-R promotion is an internal ADR; the board
    trigger is a buildable print-ready machine, which this is not yet (the
    measured-friction/creep residuals are unresolved and unmeasurable under
