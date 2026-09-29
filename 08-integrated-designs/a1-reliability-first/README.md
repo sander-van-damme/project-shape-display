@@ -207,7 +207,7 @@ honest cycle is **18.278 s** (was the idealised 16.278 s). The full map clears
 > explicit residual (§10). **The rate itself is no longer an unconstrained
 > placeholder — that is DND-111 outcome (a), Bounded.**
 
-### 4.2a Single-cell read resolution (DND-111; corrected by DND-113; fixed by DND-114)
+### 4.2a Single-cell read resolution (DND-111; corrected by DND-113; fixed by DND-114; closed by DND-115)
 
 Can one wrong cell among 6,400 be distinguished from its neighbours? **DND-112
 audited DND-111's answer and falsified it** (R1/R2/R4/G2). DND-113 corrected the
@@ -229,11 +229,20 @@ CAD-validated **common-height read target**.
 | **Common-height target (CH-A, adopted)** | **frame-fixed vane, top z = 43 mm** | DND-114 CAD |
 | **CH-A hinge-arc Δz** | **0.000 mm** (frame-fixed) | DND-114 CAD |
 | CH-B fallback hinge-arc Δz (r = 1.20 mm, 30° swing) | **0.621 mm** (DoF ±1 mm) | DND-114 calc |
-| Flag-read fixed standoff / aperture | 1.0 mm / 0.60 mm | DND-114 CAD |
-| Flag-read spot | 1.136 mm; clears neighbour by **0.487 mm** | DND-114 calc |
+| Flag-read fixed standoff / aperture | **1.8 mm / 0.44 mm** (DND-115 revision) | DND-115 CAD |
+| Flag-read spot | **1.405 mm**; clears neighbour by **0.353 mm** | DND-115 calc |
 | Registration tolerance | ±0.264 mm (**secondary** gantry concern) | CAD + geometry |
+| **State-encoding shutter (DND-115)** | **matte-dark flap, 90° crank on the shared hinge axis** | DND-115 CAD |
+| Shutter flap width × thickness × depth | 1.55 × 0.44 × 1.60 mm | DND-115 CAD |
+| Shutter hinge z / flap tip radius | 45.8 mm / 2.03 mm | DND-115 CAD |
+| **Shadow of the read spot, hidden / visible** | **100% / 0%** | DND-115 calc |
+| **On/off return ratio** | **7.72×** (gate 2×) | DND-115 calc |
+| Shutter sweep — neighbour body clearance | **0.255 mm** | DND-115 calc |
+| Shutter sweep — own column clearance | **3.41 mm** | DND-115 calc |
+| Absorber (flap) standoff Δz | 0.55 mm (DoF ±1 mm) | DND-115 calc |
 | **Single-cell resolution, as drawn** | **NO** — a down cell reads up | DND-113 |
 | **Single-cell resolution, with CH-A target** | **YES** — one fixed standoff | DND-114 |
+| **State actually read (up vs down)?** | **YES** — shutter gives a 7.7× on/off return | DND-115 |
 
 **The fix (DND-114) is a common-height read target, now CAD-validated.** The
 reader no longer interrogates the moving column top face. Instead it reads the
@@ -244,13 +253,32 @@ by construction, for both states. The reader rides at **one fixed standoff**
 half-width (0.568 mm) stays under the 1.055 mm clearance to the neighbour column
 body, so the read integrates **only the flag** — the 4.82-pitch down spot and
 the ~441× neighbour/pocket swing are **eliminated**. The latch holds the column
-in compression against a hard stop, so the arm position is the column position;
-the state is encoded by the arm's silhouette at the fixed-standoff target. A
-fallback **CH-B** arm-carried flag has its hinge-arc `Δz` bounded at 0.621 mm
-inside the ±1 mm DoF. Residual: the state-encoding shutter is a CAD detail, and
-the standoff/aperture are assumption-class. A reader that descends per **cell**
+in compression against a hard stop, so the arm position is the column position.
+A fallback **CH-B** arm-carried flag has its hinge-arc `Δz` bounded at 0.621 mm
+inside the ±1 mm DoF. A reader that descends per **cell**
 remains rate-fatal (>1000 s cycle); per **line** it costs ~29.8 s. See
 [`dnd114-a1-common-height-read-target.md`](../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md).
+
+**DND-115 closes the read axis by making that fixed target state-dependent.**
+DND-114's vane is common-height but **state-invariant** — a plain post returns
+the same light in both latch states, so it cannot actually tell up from down.
+DND-115 adds the missing encoder: a **matte-dark flap** on a **shutter crank**
+that shares the frame-fixed latch hinge axis with the toe arm. The crank has two
+hard-stop positions — **hidden** (flap flat over the vane, plane normal +Z: the
+beam is blocked) and **visible** (flap edge-on: the beam reaches the vane). The
+flap pivot sits directly over the vane, so a 90° crank swing moves the flap only
+~2.87 mm laterally (inside the own lane). The **reflective target stays
+frame-fixed** (`Δz = 0`); the flap is an **absorber** (matte black), so no
+state-dependent target z is reintroduced — only the *shadow* is state-dependent.
+Computed at CAD + calculation: the hidden state covers **100%** of the read spot,
+the visible state **0%**, giving a **7.72× on/off return ratio** (gate 2×). The
+swept flap clears the neighbour body by **0.255 mm** and the own column by
+**3.41 mm**. A **tolerance stack-up (worst-case + 200k-draw Monte Carlo)** shows
+the DND-114 **1.0 mm standoff is infeasible** for a 0.44 mm flap under printed
+placing tolerances, so DND-115 adopts a **1.8 mm standoff / 0.44 mm aperture**
+(spot 1.405 mm, still clearing the neighbour by 0.353 mm). Residuals are now
+assumption-class optical constants and measurement-only wear (DND-27). See
+[`dnd115-a1-state-encoding-shutter.md`](../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md).
 
 
 ### 4.3 Honest timing decomposition (DND-103 requirement)
@@ -327,7 +355,7 @@ actuator**. Printed frame, columns, latch arms and cradle lands are excluded per
 | **D — multiple banks** | 4 banks = 3,200 cells | cross-bank timing, sustained throughput, head duty drift, regional update | sustained cycle > 30 s or accuracy drifts |
 | **full machine** | 6,400 cells | full < 30 s arbitrary map + regional update | only reached after A–D survive |
 
-### 4.7 Decisive falsifier (updated by DND-111; corrected by DND-113; fixed by DND-114)
+### 4.7 Decisive falsifier (updated by DND-111; corrected by DND-113; fixed by DND-114; closed by DND-115)
 
 > **The reader cannot resolve a single cell at a common standoff.** DND-112
 > falsified DND-111's "single-cell read reduces to registration": the reader
@@ -338,18 +366,23 @@ actuator**. Printed frame, columns, latch arms and cradle lands are excluded per
 > the as-drawn artifacts. DND-113 re-stated the binding limit as the
 > **state-dependent standoff** (not ±0.26 mm registration). **DND-114 fixes it:**
 > the CAD-validated **CH-A frame-fixed reflective vane** (top z = 43 mm,
-> `Δz = 0`) is read at **one fixed standoff** (1.0 mm), so the down spot is
-> 1.136 mm and clears the neighbour body by 0.487 mm — the 4.82-pitch spot and
-> the 441× swing are eliminated. The read axis is no longer
-> state-dependent-standoff bound. See
+> `Δz = 0`) is read at **one fixed standoff**, so the down spot is 1.405 mm and
+> clears the neighbour body by 0.353 mm — the 4.82-pitch spot and
+> the 441× swing are eliminated. **DND-115 closes it:** the vane alone was
+> state-invariant, so a matte-dark **shutter flap** on the shared frame-fixed
+> hinge axis now shadows the read spot in one latch state (100%) and clears it in
+> the other (0%), giving a **7.72× on/off return ratio** with the reflective
+> target still frame-fixed (`Δz = 0`). See
 > [`dnd114-a1-common-height-read-target.md`](../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md)
+> and [`dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md)
 > (and the DND-113 correction
 > [`dnd113-a1-read-mechanism.md`](../../07-evidence-and-decisions/dnd113-a1-read-mechanism.md)).
 
 The **rate** is bounded (outcome a): "is 1 ms/cell possible?" is answered (no,
 it is traverse-bounded at 71–228 cells/s/head; the honest cycle is 18.278 s at 8
-heads). The read/verify axis is now **CAD-validated** by the DND-114 target; the
-remaining residual is the state-encoding shutter detail, not the physics.
+heads). The read/verify axis is now **closed at CAD + calculation** by the
+DND-114 target plus the DND-115 shutter; the remaining residuals are
+assumption-class optical constants and measurement-only wear, not physics.
 
 Secondary falsifiers: the as-printed over-centre latch snaps at the modelled
 writer force (the state is exact by hard stop, but the *snap* is a force
@@ -393,14 +426,14 @@ both. Under the program's stated priority ("reliability/buildability outrank the
 last few dollars"), that is the decisive advantage.
 
 **Promotion proposal:** promote **A1** as the reliability-first low-cost candidate
-at the next convergence gate, *conditional on* dimensioning the **state-encoding
-shutter** for the common-height target and the latch toggle force. The **rate** is
-no longer an open condition — DND-111 bounded it analytically (outcome a),
-corrected by DND-113 (18.278 s). The **read/verify axis is now CAD-validated** by
-DND-114 (frame-fixed CH-A target, Δz = 0, one fixed standoff): the as-drawn
-state-dependent-standoff defect is fixed, so the readback/retry advantage is no
-longer unproven on the mechanism. This is an explicit proposal, not an automatic
-replacement (per DND-104 §5).
+at the next convergence gate. The **rate** is no longer an open condition —
+DND-111 bounded it analytically (outcome a), corrected by DND-113 (18.278 s). The
+**read/verify axis is now CLOSED at CAD + calculation**: DND-114 gave a
+frame-fixed CH-A target (Δz = 0) and DND-115 added the state-encoding shutter
+(hidden covers 100% of the read spot, visible 0%, 7.72× on/off, target still
+frame-fixed), so the readback/retry advantage is no longer unproven on the
+mechanism. The latch toggle force remains a coupon/measurement residual (DND-27).
+This is an explicit proposal, not an automatic replacement (per DND-104 §5).
 
 ## 7. Failure modes, recorded honestly
 
@@ -411,16 +444,19 @@ replacement (per DND-104 §5).
   (24.61 s). If the gantry cannot be built to carry the needed head count at
   1.0 m/s, add heads (cheap printed bodies) or reduce the map size. Timing no
   longer dies on a bare assumption.
-- **The as-drawn read was state-dependent-standoff bound (DND-112/DND-113); DND-114 fixes it.**
+- **The as-drawn read was state-dependent-standoff bound (DND-112/DND-113); DND-114 fixes it and DND-115 closes it.**
   The as-drawn reader read the column top face; over a down cell the gap was
   ~42 mm, the spot ~24.5 mm (4.82 pitches), and up neighbours dominated ~441×, so
   a down cell read up. The ±0.26 mm registration number is up-state-only
   provenance. DND-114 replaces the target with a **CAD-validated frame-fixed
   reflective vane** (top z = 43 mm, Δz = 0) read at **one fixed standoff**
-  (1.0 mm); the flag spot (1.136 mm) clears the neighbour body by 0.487 mm, so
-  the read integrates only the flag. A per-cell Z stroke remains rate-fatal
-  (>1000 s cycle); a per-line refocus costs ~29.8 s. Residual: the state-encoding
-  shutter is a CAD detail; the standoff/aperture are assumption-class.
+  (1.8 mm, DND-115); the spot (1.405 mm) clears the neighbour body by 0.353 mm.
+  DND-115 adds the **state-encoding shutter** (matte-dark flap on the shared
+  hinge axis): hidden covers 100% of the spot, visible 0%, a 7.72× on/off return,
+  with the reflective target still frame-fixed. A per-cell Z stroke remains
+  rate-fatal (>1000 s cycle); a per-line refocus costs ~29.8 s. Residual: the
+  standoff/aperture and the flap matte reflectance are assumption-class; wear is
+  measurement-only (DND-27).
 - **Gantry registration** (secondary, once a common-height target exists) over
   406 mm is the classic 2-axis failure; belt stretch and thermal drift are
   unmeasured. A position-repeatability coupon is required.
@@ -438,10 +474,11 @@ python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py
 # convergence: selection, why, bandwidth, prototype ladder, falsifier
 python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask.py convergence
 
-# 60 pinned regression checks (includes the DND-111/DND-113 rate + read checks)
+# 75 pinned regression checks (includes the DND-111/113/114/115 rate + read checks)
 python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
 
-# DND-111 + DND-113: writer rate bound + read-mechanism correction (full JSON)
+# DND-111 + DND-113 + DND-114 + DND-115: writer rate bound + read mechanism
+# (full JSON, incl. shutter_read_contrast() + shutter_tolerance_mc())
 python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py
 
 # DND-112 audit resolution gate (exits 0; CI-wired)
@@ -449,6 +486,9 @@ python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 
 # DND-114 common-height read target gate (exits 0; CI-wired)
 python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
+
+# DND-115 state-encoding shutter gate (exits 0; CI-wired)
+python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
 # CAD: render + mesh-validate the binary-latch cell and reader head
 export PATH="$HOME/.local/bin:$PATH"
@@ -468,27 +508,32 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation (cell parts + reader head + CH flag) |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
 | [`analysis/architecture_table.md`](analysis/architecture_table.md) | the generated comparison table |
-| [`scad/a1_binary_latch_cell.scad`](scad/a1_binary_latch_cell.scad) | the A1 unit cell (real OpenSCAD) + **DND-114** common-height flag |
-| [`scad/a1_reader_head.scad`](scad/a1_reader_head.scad) | **DND-111 + DND-113 + DND-114** reader-head optical geometry + self-checks |
-| [`cad/stl/`](cad/stl/) | watertight rendered parts (column, latch, cradle, flag, reader head) |
+| [`scad/a1_binary_latch_cell.scad`](scad/a1_binary_latch_cell.scad) | the A1 unit cell (real OpenSCAD) + **DND-114** common-height flag + **DND-115** shutter |
+| [`scad/a1_reader_head.scad`](scad/a1_reader_head.scad) | **DND-111 + DND-113 + DND-114/115** reader-head optical geometry + self-checks |
+| [`cad/stl/`](cad/stl/) | watertight rendered parts (column, latch, cradle, flag, shutter, reader head) |
 | [`cad/render_record.json`](cad/render_record.json) | mesh-validation record |
 | [`bom_a1.csv`](bom_a1.csv) | A1 purchased BOM |
-| [`../07-evidence-and-decisions/dnd104-reliability-mask.md`](../../07-evidence-and-decisions/dnd104-reliability-mask.md) | the DND-104 ADR |
-| [`../07-evidence-and-decisions/dnd111-writer-rate-bound.md`](../../07-evidence-and-decisions/dnd111-writer-rate-bound.md) | **DND-111** rate-bound ADR |
-| [`../07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](../../07-evidence-and-decisions/dnd113-a1-read-mechanism.md) | **DND-113** read-mechanism correction ADR |
-| [`../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md`](../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md) | **DND-114** common-height read target ADR |
+| [`../../07-evidence-and-decisions/dnd104-reliability-mask.md`](../../07-evidence-and-decisions/dnd104-reliability-mask.md) | the DND-104 ADR |
+| [`../../07-evidence-and-decisions/dnd111-writer-rate-bound.md`](../../07-evidence-and-decisions/dnd111-writer-rate-bound.md) | **DND-111** rate-bound ADR |
+| [`../../07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](../../07-evidence-and-decisions/dnd113-a1-read-mechanism.md) | **DND-113** read-mechanism correction ADR |
+| [`../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md`](../../07-evidence-and-decisions/dnd114-a1-common-height-read-target.md) | **DND-114** common-height read target ADR |
+| [`../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md) | **DND-115** state-encoding shutter ADR |
 
 ## 10. Residual uncertainty
 
 - Writer **rate** — **bounded by DND-111, corrected by DND-113**: 71–228
   cells/s/head, traverse-bounded, factor 4.4–14× below the retired placeholder.
   Not measurement-only.
-- **Read/verify mechanism — CAD-VALIDATED (DND-114).** The as-drawn top-face
-  reader was state-dependent-standoff bound (DND-112/DND-113). DND-114 specifies
-  a **frame-fixed reflective vane** (CH-A, top z = 43 mm, Δz = 0) read at **one
-  fixed standoff** (1.0 mm): the flag spot (1.136 mm) clears the neighbour body
-  by 0.487 mm, so the read integrates only the flag. Residual: the state-encoding
-  shutter is a CAD detail; the standoff/aperture are assumption-class.
+- **Read/verify mechanism — CLOSED at CAD + calculation (DND-114 + DND-115).**
+  The as-drawn top-face reader was state-dependent-standoff bound
+  (DND-112/DND-113). DND-114 specifies a **frame-fixed reflective vane** (CH-A,
+  top z = 43 mm, Δz = 0) read at **one fixed standoff** (1.8 mm, DND-115): the
+  spot (1.405 mm) clears the neighbour body by 0.353 mm. DND-115 adds the
+  **state-encoding shutter** (matte-dark flap, 90° crank on the shared hinge
+  axis): hidden covers 100% of the spot, visible 0%, a 7.72× on/off return, with
+  the reflective target still frame-fixed. Residuals: the standoff/aperture and
+  the flap matte reflectance are assumption-class; the flap/hinge wear is
+  measurement-only (DND-27).
 - **Registration** (±0.26 mm) — a **secondary** read concern once a
   common-height target exists; as-built over 406 mm is unmeasured.
 - **As-printed latch snap force** at the writer contact — coupon/measurement-only
@@ -498,9 +543,10 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
 
 A1 is **not** claimed print-ready or physically validated. Its **rate** is
 CALCULATION-bounded (DND-111 outcome a, corrected by DND-113), its **read/verify
-mechanism** is CAD-validated by DND-114 (frame-fixed common-height target), and
-its reliability structure is the only one in the program that *could* convert
-6,400 silent failures into a monitored, recoverable, local failure — **and that
-conversion is now supported on paper** by the common-height read target. The
-remaining residual is the state-encoding shutter geometry, a CAD detail, plus the
+mechanism** is CLOSED at CAD + calculation by DND-114 (frame-fixed common-height
+target) and DND-115 (state-encoding shutter: 7.72× on/off, target still
+frame-fixed), and its reliability structure is the only one in the program that
+*could* convert 6,400 silent failures into a monitored, recoverable, local
+failure — **and that conversion is now supported on paper end to end**. The
+remaining residuals are assumption-class optical constants and the
 coupon/measurement questions that DND-27 forbids settling physically.

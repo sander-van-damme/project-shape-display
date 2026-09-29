@@ -331,6 +331,35 @@ does not.
   the historical defect, not erased.
 - **Gate:** the companion checker `falsifier_dnd114_checks.py --gate` exits 0 (7 attacks). Render +
   mesh validation of the flag part is CI-wired. No print/measurement (DND-27).
+- **Superseded in part by [DND-115](/DND/issues/DND-115):** the 1.0 mm standoff / 0.60 mm aperture
+  proved infeasible for the state-encoding shutter under a tolerance stack-up, so DND-115 adopts a
+  **1.8 mm standoff / 0.44 mm aperture** (spot 1.405 mm). The CH-A target, Δz = 0, and the R1/G2
+  result are unchanged; `falsifier_dnd114_checks.py` is re-baselined to the DND-115 values.
+
+
+### DND-115 — state-encoding shutter (closes the read/verify axis)
+
+[DND-115](/DND/issues/DND-115) closes the one artifact DND-114 left open (ADR
+[`dnd115-a1-state-encoding-shutter.md`](dnd115-a1-state-encoding-shutter.md)):
+
+- **The gap:** DND-114's CH-A vane is common-height but **state-invariant** — a plain post returns
+  the same light in both latch states, so it cannot distinguish up from down.
+- **The mechanism:** a **matte-dark flap** on a **shutter crank** sharing the frame-fixed latch hinge
+  axis. Hidden (flap flat over the vane, normal +Z) blocks the beam; visible (flap edge-on) clears it.
+  The pivot is directly over the vane, so a 90° crank swing moves the flap only ~2.87 mm laterally.
+- **State encoding:** hidden covers **100%** of the 1.405 mm read spot, visible **0%** → **7.72×**
+  on/off return ratio (gate 2×). The reflective **target stays frame-fixed** (`Δz = 0`); the flap is an
+  absorber (ρ ≈ 0.05), so no state-dependent target z is reintroduced.
+- **Standoff revision:** the adopted fixed standoff is **1.8 mm** with a **0.44 mm** aperture (the
+  DND-114 1.0 mm window is infeasible for a 0.44 mm flap under printed tolerances). Swept flap clears
+  the neighbour body by **0.255 mm**, the own column by **3.41 mm**.
+- **Tolerance stack-up:** worst-case + a **200k-draw Monte Carlo** (`shutter_tolerance_mc()`): zero
+  failures on every margin at realistic (±0.10 mm) frame pitch tolerance; the binding term is
+  inter-cell pitch, retired by a single monolithic print.
+- **R1/G2/R4 re-check:** unchanged by the shutter; `resolves_single_cell_with_common_height_target`
+  still holds with the shutter present.
+- **Gate:** `falsifier_dnd115_checks.py --gate` exits 0 (9 attacks, default-deny). Render + mesh
+  validation of the shutter part is CI-wired. No print/measurement (DND-27).
 
 
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
