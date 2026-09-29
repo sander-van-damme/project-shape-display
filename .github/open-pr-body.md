@@ -1,66 +1,57 @@
-# DND-122: independent re-verification of the DND-121/DND-119 shutter corrections (A5/A6/A7/A9)
+# DND-122 follow-up: fix the unsupported own-column clearance (3.41 → 3.42 mm) and gate it in A13
 
 ## What changed
 
+- **ADR** `07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md` (§2 table
+  and §7 prose) and **A1 README** `08-integrated-designs/a1-reliability-first/README.md`
+  (table and prose): swept flap **own-column clearance 3.41 → 3.42 mm**.
 - **Falsifier checker** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py`:
-  two further independent attacks added:
-  - **A13 (`adr_numbers_match_model`)** — imports the model live and checks that the
-    numbers the ADR/README quote match what the code produces (headline on/off and
-    the ±0.20 mm reader clearance). Guards the DND-112/DND-111 defect class.
-  - **A14 (`mc_onoff_gate_includes_crosstalk`)** — checks whether the tolerance MC's
-    own on/off gate carries the in-cone term that `contrast_passes` carries.
-- **Falsifier register** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.md`:
-  table extended to A13/A14; new "DND-122 re-verification note".
+  **A13 extended** to parse the ADR's **swept neighbour** (0.280 mm) and **swept
+  own-column** (3.42 mm) clearances and compare them to the live model's swept
+  envelope, so this subclass now fails the gate.
+- **Audit register** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.md`:
+  a short "DND-122 follow-up" note recording the finding, the fix, and the negative
+  control.
 
 ## Engineering question
 
-Were the DND-118 audit findings (A5/A6/A7/A9) **correctly and honestly** applied —
-mechanism *and* the numbers cited to support it — and may the DND-115 read axis be
-cited as closed?
+Does the live main tree quote any DND-115 shutter number that **no artifact
+supports** — the DND-112/DND-111 defect class that [DND-122](/DND/issues/DND-122)
+closed for the superseded DND-121 branch?
 
-## Findings
+## Evidence produced
 
-- **The corrections are on main via [DND-119](/DND/issues/DND-119) (PR #95), not the
-  DND-121 branch the ticket named.** DND-121 (`cto/dnd121-shutter-framing` @
-  `9841736`) is a **parallel, never-merged** correction; main's DND-119 is the live
-  artifact and does the same work: crosstalk modelled + gated, "off-beam" wording
-  corrected to weakly-in-cone, absorber-DoF claim downgraded, MC aperture plane
-  de-tautologised.
-- **A5/A6/A7/A9 — PASS** on main, independently re-verified (cone radius 1.286 mm vs
-  1.055 mm offset → in-cone by 0.231 mm; term gate; MC aperture ±0.10/±0.20 mm).
-- **A13 — PASS on main, after one self-correction.** The model gives headline ideal
-  **7.72×** and crosstalk-corrected **6.37×**; the ADR carries the explicit 6.37×
-  gate row and `contrast_passes` requires `neighbour_crosstalk_gated` AND
-  `on_off_return_ratio_with_crosstalk ≥ 2`. Accepted 3 µm rounding: ADR 0.325 mm vs
-  re-run 0.322 mm for the ±0.20 mm reader clearance. **The first A13 cut hard-coded
-  the expected numbers and crashed (UNRESOLVED) on a stale tree; it is now hardened
-  to parse the ADR text and to FAIL (not crash) when the crosstalk term is absent.**
-- **A13 — genuine FAIL on the superseded DND-121 branch.** The branch is a stale
-  *model*, not just stale prose: its `a1_writer_rate.py` returns `on_off_return_ratio
-  = 7.41` (main 7.72) and exposes no crosstalk field; its ADR states no ±0.20 mm
-  clearance. Hardened A13 returns a clean FAIL there. Since DND-121 need not merge,
-  **close DND-121 as superseded by DND-119** rather than correcting its prose.
-- **A14 — PASS with a noted consistency gap.** MC on/off is crosstalk-free (worst
-  4.49×) while `contrast_passes` gates 4.04×; both > 2×. Optional hardening only.
+- The [DND-122](/DND/issues/DND-122) review (A13) verified the live main figures
+  0.280 / 0.084 / 0.434 / 4.48× / 0.325 mm — all reproduced by the model.
+- Reviewing that pass surfaced one **uncovered** figure: the ADR/README quoted the
+  swept own-column clearance as **3.41 mm**, while the live model's swept envelope
+  produces `sweep_z_min − TRAVEL = 43.42 − 40.0 = ` **3.42 mm** (audit A8 reports
+  3.420 mm). The CAD flat-underside echo is 3.55 mm, so **no artifact supported
+  3.41 mm**.
+- Fix applied and the figure is now gated: **negative control** — tampering the ADR
+  own-column figure back to 3.41 makes A13 **FAIL** with exit 1 (verified).
 
-## Gates run (all green)
+## Calculations / simulations / tests run
 
 - `falsifier_dnd115_a1_shutter_audit.py --gate` → **CLEAN 14/14**
 - `falsifier_dnd115_checks.py --gate` → **CLEAN 12/12**
 - `falsifier_dnd114_checks.py --gate` → **CLEAN 7/7**
 - `falsifier_dnd112_checks.py --gate` → **CLEAN 11/11**
 - `reliability_mask_checks.py` → **78/78**
+- `a1_writer_rate.py` → exit 0
 
 ## Assumptions / uncertainty
 
-- CALCULATION + CAD only. No print, no purchase, no measurement (DND-27). No board
-  contact (DND-32). Nothing here is a physical validation.
-- The ~4.6% in-cone crosstalk figure and the 6.37×/7.72× ratio pair rest on
-  assumption-class optical constants; the mechanism and clearances are geometric.
+- 3.42 mm is the model's fine-grid **swept envelope** min; the CAD flat-underside
+  echo is 3.55 mm (the rotating corner dips lower than the flat underside). The ADR
+  table labels the row "CAD envelope"; the authoritative swept value is the model's
+  43.42 − 40.0. Only a wording/number fix — **no geometry change**.
+- Evidence class **CALCULATION + CAD only** ([DND-27](/DND/issues/DND-27)); no print,
+  no measurement. No board contact ([DND-32](/DND/issues/DND-32)).
 
-## Next test
+## Remaining / next
 
-- Close [DND-121](/DND/issues/DND-121) as superseded by DND-119.
-- Optional A14 hardening (add the crosstalk term to the MC gate).
-- Physical coupon (linkage force/friction/wear + real reflectance) is the only route
-  to retire the measurement-only residuals — a human/external handoff (DND-27).
+- Superseded sibling [DND-121](/DND/issues/DND-121) and PR #94 (branch
+  `cto/dnd121-shutter-framing`) should be **closed as superseded** — its model is
+  the pre-DND-119 tree (`on_off_return_ratio` 7.41, no crosstalk field) and merging
+  it would regress main. Handled separately on the issue thread.
