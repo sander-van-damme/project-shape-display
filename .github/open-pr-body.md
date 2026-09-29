@@ -44,8 +44,12 @@ inconsistencies:
   the model's `delivered_usd`, if the steel-rod line is absent, or if **$388.10** is
   headlined as the working scenario. Verified to **FAIL** (exit 1) on a synthetic drift
   (rod line removed + total reverted to $388.10).
-- **`ci.yml`** `fab-package` job now documents/runs the **C1–C8** gate; the README coherence
-  gate **R1–R6** was already wired into `engineering-checks` ([DND-64](/DND/issues/DND-64)).
+- **CI wiring needs no workflow-file change.** C8 lives in `fab_package_checks.py`, which the
+  existing `ci.yml` `fab-package` step already runs (`gen_manifests.py` → `fab_package_checks.py`);
+  the README coherence gate **R1–R6** (`tools/validate/readme_s5r_coherence.py`) is already
+  wired into `engineering-checks` ([DND-64](/DND/issues/DND-64)). So the new gate runs
+  unattended with no `.github/workflows/*` edit (which would have tripped GitHub's
+  maintainer-approval gate for a PR changing workflow files).
 - **READMEs** (`08-current-design/fabrication/README.md`, gate-count C1-C6 → C1-C8) and
   `s5r_bom_ratify_checks.py` updated for the new working CSV.
 
