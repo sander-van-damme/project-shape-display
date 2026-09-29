@@ -479,7 +479,98 @@ def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
         # a printed camshaft / writer comb. It needs its own checker for the new
         # features (cam disc, comb finger) while reusing the register checks.
         return check_a1_cam_cell(path, spec)
+    if "b2b3_reliability_cell" in name:
+        # DND-107: the reliability-first machines. Checks the B2 toggle hinge /
+        # hard-stop lug and the B3 pawl / drum follower finger at true pitch.
+        return check_reliability_cell(path, spec)
     return check_coupon(path, spec)
+
+
+def check_reliability_cell(coupon_path: Path,
+                           spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-107 B2/B3 reliability-first cell.
+
+    The DND-103 rule is that the repeated feature must be GENEROUS, not a single
+    extrusion line. This checker therefore reports each repeated feature against
+    the 2-line robust target (spec.min_wall_mm) with the 1-line hard floor
+    (spec.min_feature_mm), plus the hard-stop lug engagement as a positive
+    feature. It is the reliability-arm of the CAD evidence, complementing the
+    existing pitch-budget cells.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    def add(feature, value, limit, rule_key, note=""):
+        r = rl[rule_key]
+        checks.append(Check(feature, round(value, 3), round(limit, 3),
+                            _verdict(value, limit), r.label, r.evidence,
+                            r.source, note))
+
+    # The repeated compliant hinge (B2) -- must be a robust 2-line feature.
+    add_wall("B2 toggle hinge thickness (TOGGLE_T)", c["TOGGLE_T"],
+             "the only compliant per-cell element in B2; DND-103 wants >= 2 lines")
+    # The B2 hard-stop lug: a POSITIVE engagement (not friction). Floor = 1 line.
+    add("B2 toggle hard-stop lug engagement (TOGGLE_LUG)", c["TOGGLE_LUG"],
+        spec.min_feature_mm, "min_feature",
+        "positive engagement depth; the hold is a hard stop, not friction")
+    add_wall("B2 hard-stop shoulder (TOGGLE_SHOULDER)", c["TOGGLE_SHOULDER"],
+             "the compression-loaded stop face")
+    # The B3 repeated pawl (unchanged register part).
+    add_wall("B3 pawl leaf thickness (PAWL_T)", c["PAWL_T"],
+             "repeated per-cell one-way pawl; keeper is deleted in B3")
+    # The B3 drum follower finger: the row-level decision element.
+    add_wall("B3 drum follower finger (GATE_BAR_T)", c["GATE_BAR_T"],
+             "one per row-station; the repeated decision is per-row, not per-cell")
+    add_wall("B3 drum track ridge (TRACK_RIDGE_T)", c["TRACK_RIDGE_T"],
+             "the printed/embossed bit on the drum surface")
+    # Shared structural/rack features.
+    add_wall("printed frame wall (WALL)", c["WALL"], "structural frame wall")
+    add("rack pocket depth (POCKET_DEPTH)", c["POCKET_DEPTH"],
+        spec.min_feature_mm, "min_feature",
+        "a pocket shallower than one line cannot print")
+
+    # Column lane: the column body must leave a positive half-pitch lane. DND-103
+    # says pitch is not the mechanism budget, but the COLUMN still tiles at pitch.
+    if "COLUMN_BODY" in c and "PITCH" in c:
+        owned_lane = (c["PITCH"] - c["COLUMN_BODY"]) / 2.0
+        checks.append(Check(
+            feature="column owned half-lane ((PITCH - COLUMN_BODY)/2)",
+            value_mm=round(owned_lane, 3), limit_mm=0.10,
+            verdict="PASS" if owned_lane >= 0.10 else "FAIL",
+            rule="visible-surface tiling gap",
+            evidence="design criteria: square columns tile at 5.08 mm pitch",
+            source="DND-103; column top only must honor pitch",
+            note="mechanisms may live below/beside; only the column top tiles"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer; geometry-vs-process only.",
+            "Hinge fatigue life and toggle snap repeatability are measurement-only "
+            "and are NOT established by this analytic table.",
+        ],
+    }
 
 
 def check_media_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:

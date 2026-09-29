@@ -93,6 +93,28 @@ land under $250.
 | [`scad/a2a3_media_cell.scad`](scad/a2a3_media_cell.scad) | A2/A3 punched-media cell. Printed features PASS; film thickness reported as an honest **MEDIA RISK**. |
 | [`tools/run_divergent_checks.py`](tools/run_divergent_checks.py) | Runs screen + checks + both CAD printability gates. |
 
+### DND-107 reliability-first machines (InventorBeta, mask + non-mask)
+
+The reliability-first divergence (after [DND-103](/DND/issues/DND-103) made
+reliability/buildability first-class gates) lives in
+[`reliability_machines_beta.md`](reliability_machines_beta.md):
+**B1** shared-shaft screw memory (non-mask, **reported FAILED** — a real negative
+result), **B2** single-source pressure blanket (non-mask, PASS), **B3** rotary
+drum mask (mask, PASS, deletes the per-cell keeper → 80× fewer decisions).
+
+| File | Purpose |
+|---|---|
+| [`analysis/reliability_machines_beta.py`](analysis/reliability_machines_beta.py) | the DND-107 screen: 3 machines, BOM, 7-stage timing decomposition, gates, DND-103 reliability audit |
+| [`analysis/reliability_machines_beta_checks.py`](analysis/reliability_machines_beta_checks.py) | 28 CI-style assertions |
+| [`scad/b2b3_reliability_cell.scad`](scad/b2b3_reliability_cell.scad) | B2 toggle / B3 pawl + drum-follower witness at true pitch; printability **PASS** |
+| [`tools/run_reliability_machines_checks.py`](tools/run_reliability_machines_checks.py) | runs DND-107 screen + checks + CAD printability |
+
+Run:
+
+```bash
+python 09-low-cost-variant/divergent/tools/run_reliability_machines_checks.py
+```
+
 Run:
 
 ```bash
