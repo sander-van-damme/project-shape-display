@@ -33,6 +33,11 @@ existing `09-low-cost-variant/` machine definitions are **untouched**.
   blanket, B3 rotary drum mask) with their own 28 checks + CAD.
 - `09-low-cost-variant/reliability_sourcing/cost_envelope_dnd104.*` —
   CostManufacturing DND-109: sourced-class cost + FDM-printability envelope.
+- `09-low-cost-variant/divergent/reliability_primitives_alpha.*` — InventorAlpha
+  DND-106: reliability-first **cell/selection/reset primitives** (R1 toggle-rocker
+  row-shared state, R2 double-acting wedge-gate cell, R3 mechanical read-rod
+  readback, R4 shared return bar **rejected**), full reliability-audit schema +
+  ten functional jobs, with 30 checks and a true-pitch CAD cell.
 - `07-evidence-and-decisions/dnd104-reliability-mask.md` — the decision record;
   evidence matrix updated.
 - `.github/workflows/ci.yml` — DND-104 checks + a `dnd104-cad-render` job.
@@ -61,6 +66,16 @@ Which machine actually answers DND-103's gate — **"what has to work correctly
   transition time. Write and verify terms are **computed** from head count × rate.
 - **CAD:** binary-latch unit cell rendered with real OpenSCAD, watertight, bed-fitting.
 - **Full comparison table** with a decisive falsifier recorded per architecture.
+- **DND-106 primitives (InventorAlpha):** three materially different
+  reliability-first primitives, each answering the full reliability-audit schema:
+  R1 cuts the "must work 6,400 times" count to **80 row-rocker decisions** (80×
+  looser q, 80-cell detectable blast radius); R2 makes reset a **platen-driven
+  positive hard stop**, removing DND-91's A8 gravity-drop failure class; R3 adds
+  **80 mechanical read points** (2 bought sensors, $4) turning a correlated error
+  into a detectable/recoverable one. R4 (shared return bar: 3,904 N summed, one
+  jam stalls all) is recorded **REJECTED**. 30/30 checks; the machine clears the
+  <30 s visible gate at **11.80 s**; analytic printability: all walls PASS, only
+  the intentional compliant R3 sensing finger is RISK.
 
 ## Assumptions
 
@@ -73,7 +88,8 @@ Which machine actually answers DND-103's gate — **"what has to work correctly
 ## What passed / failed
 
 - **Passed:** 35/35 DND-104 checks; 28/28 InventorBeta checks; CostManufacturing
-  envelope gate; all pre-existing S5-R/S6-LC/falsifier gates (no regressions).
+  envelope gate; 30/30 DND-106 InventorAlpha primitive checks (+ analytic CAD);
+  all pre-existing S5-R/S6-LC/falsifier gates (no regressions).
 - **Failed / rejected (recorded, not hidden):** A2 global interlock, A3 punched
   film, A4 rewritable comb, A6 embossed tape (6,400 silent elements; A3 also
   >30 s); A5 (bank-only readback, 6,392 silent); A7 (camshaft repeatability +
