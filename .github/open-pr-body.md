@@ -1,132 +1,75 @@
-# DND-72: ultra-low-cost (<$250 purchased) — S6-LC selected + S5-R-trim infeasibility proof + DND-75 divergence folded + CAD
+# DND-93: fix S6-LC lift-axis G3 (global board) + honest allowances — G6 now fails
 
-**Consolidated single track.** Three ultra-low-cost workstreams were reconciled under CEO
-consolidation direction: the DND-72 trim screen, the DND-71 S6-LC candidate, and the DND-75
-inventor divergence. Output: **one authoritative branch, one BOM of record, one selected
-architecture**, in the new subdirectory `09-low-cost-variant/`. `08-current-design/`
-(S5-R, $404.60 delivered) is **untouched**.
+**Follows the DND-74/DND-91 falsification audit.** DND-74 (superseded by DND-91) broke **G3**:
+`analysis/s6lc.py:lift_axis()` sized the platen torque on one bank (**800 cells**) while the
+mechanism writes the **whole 6,400-cell board** in one global stroke (only the reset is banked).
+This PR fixes G3, fixes the audit's bounded findings in the same pass, and re-runs the gate.
 
-**Evidence class:** CALCULATION over the promoted S5-R model, the S1/S2 screen, sourced-class
-listings and sourced FDM process limits, plus CAD (real OpenSCAD). **No print, no purchase, no
-measurement** ([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
+**Evidence class:** CALCULATION over sourced FDM limits + sourced actuator ratings, plus CAD
+geometry. **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)). No board
+contact ([DND-32](/DND/issues/DND-32)).
 
 ## Engineering question
 
-Can the S5-R product be delivered under **$250 purchased** (excl. 3D-printed parts) while keeping
-406.4 × 406.4 mm, 5.08 mm pitch, 6,400 cells, ≥ 40 mm travel, full-map < 30 s, regional updates and
-X1C-buildability?
+Can S6-LC's lift axis be sized honestly for the architecture as described, and does the corrected
+machine still close the < $250 delivered gate?
 
-## Answer — three parts
+## Answer
 
-**1. Trimming the S5-R architecture: NO.** The sub-$250 space is empty for this family. The binding
-term is the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners,
-controller, PCB/passives allowance, spares): **$218.70 parts → $253.69 delivered**, which alone
-exceeds the **$215.52 parts budget** ($250 / 1.16). Actuator headroom is **negative (−$3.18
-parts)**. A **570-point** sweep over (R = rows-in-bank, writers, bank motors) finds **zero**
-sub-$250 requirement-preserving points; the cheapest is **R6-W20-M2 at $345.90 delivered / 29.987 s**
-— a **$95.90** gap.
+**G3 is fixed and passes — but the honest BOM now breaks G6 (delivered cost). Corrected verdict:
+REJECT.**
 
-**2. Changing the architecture: YES — S6-LC.** The fixed base is a *consequence* of the 40-solenoid
-per-row writer bank and the 2-motor bank drive, not a law. The screened **S1 broadcast threshold
-ratchet** family removes them:
+- **Branch chosen (DND-74 branch 1): keep the global broadcast.** `lift_axis()` now carries all
+  **6,400 cells**: `0.4 N × 6400 = 2,560 N → 1.6297 N·m`; four belt-synced screws share it. A
+  **NEMA23-class motor (2.2 N·m, ~$30)** is required — the old 0.30 N·m NEMA17 passed only on the
+  1/8 load. **G3: 1.35× PASS.**
+- **Bounded findings fixed:** the circular **296 N ceiling** is replaced by an independent
+  **comb-tooth bending limit (413 N)**; a **reset-carriage torque gate (G7)** is added (0.082 N·m
+  vs 0.16 N·m, 1.96×); the **mask-index (1.0 s)** and **carriage-traverse (3.556 s)** timing terms
+  are priced → full map **11.96 s** (< 30 s, G4 PASS).
+- **Cost:** add the six honest allowances (**+$69**) and re-price the lift motor (**+$18**) →
+  parts **$226.77**, delivered **$263.05**. **G6 (< $250) FAILS by $13.05.** The model reports the
+  miss rather than hiding it.
+- **Branch 2 (bank the write)** was evaluated analytically and does **not** rescue it cheaply: it
+  fits 30 s only at **~40 mm/s = 1,200 rpm** on a 2 mm lead (unmodelled torque/wear), abandoning
+  the "4 broadcast strokes" premise and returning to ~$242 delivered (only $7.83 headroom).
 
-| Quantity | S5-R | **S6-LC** | Class |
-|---|---:|---:|---|
-| Bought actuators | 42 | **3** | CAD + sourced |
-| Purchased parts | $348.79 | **$139.77** | CALCULATION + sourced |
-| Delivered (×1.16) | $404.60 | **$162.13** | CALCULATION |
-| Full-map reconfiguration | 24.615 s | **7.4 s** | CALCULATION |
-| Gates G1–G6 | — | **all pass** | CALCULATION |
+## Corrected gate table
 
-S6-LC: passive printed pawl memory (no per-cell/per-row bought actuator), per-bank threshold mask
-gate read from an **off-line punched card**, one lead-screw lift stepper, 8 banks × 10 rows bounding
-the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling). 50 mm travel
-(5 × 10 mm).
-
-**3. DND-75 divergence folded (alternatives, not replacements).** Three materially different
-machines that attack the *base lines themselves* clear both gates (<$250 and <30 s):
-
-| | A1 single-shaft cam | A2 hand-crank + punched tape | A3 S1-B banked broadcast |
-|---|---|---|---|
-| Bought motion actuators | 1 stepper | 0 (hand/spring) | 1 lift + 1 film-index |
-| Selection | cam-actuated writer comb | punched-tape read comb | punched-film threshold planes |
-| Parts / delivered | $58.30 / **$67.63** | $42.90 / **$49.76** | $98.29 / **$114.02** |
-| Full-map | 17.76 s | 26.86 s | 22.06 s |
-| Decisive failure mode | one motor must carry bank **and** lift | tape write is the product (off-line) | punched-film registration |
-
-Each is cheaper than S6-LC but carries a product-level caveat. S6-LC remains the selected machine
-because its only product caveat (off-line mask prep) is shared with A2/A3 while its mechanism is the
-most conventional.
-
-## What changed
-
-- **`09-low-cost-variant/s6lc/`** — the **selected machine**: `analysis/s6lc.py` (geometry, force,
-  timing, BOM, gates), `analysis/s6lc_checks.py` (**29 checks**, all pass), `bom_s6lc.csv`,
-  `scad/s6lc_machine.scad` + rendered `cad/stl/*` (5 parts), `evidence/`.
-- **`09-low-cost-variant/s5r_ultra.py` / `s5r_ultra_checks.py`** — retained as the **negative
-  result**: fixed-base floor, 570-point sweep, break-even ($345.90), `INFEASIBLE_UNDER_UNCHANGED_
-  REQUIREMENTS` (**19 checks**, all pass).
-- **`09-low-cost-variant/divergent/`** — the **folded DND-75 divergence**: `analysis/divergent_lowcost.py`,
-  `analysis/divergent_lowcost_checks.py` (**18 checks**, all pass), `scad/a1_cam_cell.scad`,
-  `scad/a2a3_media_cell.scad`, `tools/run_divergent_checks.py` (runner exit 0 incl. analytic
-  printability).
-- **`tools/validate/analytic_printability.py`** — superset merged so both the trim cell and the
-  divergent cells route correctly (`check_media_cell` + `check_a1_cam_cell` + `s5r_ultra_cell`).
-- **`07-evidence-and-decisions/dnd72-low-cost-synthesis.md`** — the reconciliation ADR: why the
-  headlines are complementary, the selected machine, the DND-75 divergence table, requirement
-  preservation, residual uncertainty.
-- **`09-low-cost-variant/README.md`** — rewritten to lead with S6-LC + the negative result + divergent.
-- **CI:** adds the **S6-LC gate** and the **folded divergent-machines gate** alongside the DND-72
-  trim gate; the `lowcost-cad-render` job is made version-robust and crash-diagnosable.
-
-## Evidence produced
-
-| Check | Result |
-|---|---|
-| `09-low-cost-variant/s6lc/analysis/s6lc_checks.py` | **29/29 pass** — all six gates, `PROMOTE_TO_09` |
-| `09-low-cost-variant/s5r_ultra_checks.py` | **19/19 pass** — trim infeasibility |
-| `09-low-cost-variant/divergent/tools/run_divergent_checks.py` | **runner exit 0** — 18/18 + printability |
-| `tools/validate/readme_s5r_coherence.py` | **GATE PASS** — S5-R headline untouched |
-| `09-low-cost-variant/tools/render_lowcost_cad.py` | **ALL PARTS OK** — 3 watertight, bed-fitting |
-
-Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim floor **$345.90 /
-29.987 s**; S6-LC **$139.77 / $162.13 / 7.4 s**, 128.2 N banked release; divergent A1 **$67.63**,
-A2 **$49.76**, A3 **$114.02**.
-
-## Requirement-preservation (selected machine S6-LC)
-
-| Requirement | Status | Class |
+| Gate | Old | Corrected |
 |---|---|---|
-| 406.4 × 406.4 mm / 5.08 mm / 6,400 cells | preserved | CAD |
-| ≥ 40 mm travel | 50 mm (5 × 10 mm) | CAD + calc |
-| full-map < 30 s | **7.4 s** (margin 22.6 s) | CALCULATION |
-| regional updates | per-bank mask + stroke + reset | CALCULATION |
-| X1C-buildable | 5 watertight parts + sourced FDM-limit table | CAD + sourced |
-| **purchased < $250** | **$139.77 parts / $162.13 delivered — PASS** | CALCULATION + sourced |
+| G1 cell fit | PASS | PASS |
+| G2 release (banked) | PASS vs 296 N | **PASS** vs **413 N** (independent) |
+| G3 lift-axis torque | PASS (1/8 load) | **PASS** 1.63 N·m vs 2.2 N·m |
+| G4 full map < 30 s | 7.4 s | **PASS** 11.96 s |
+| G5 cost < $250 parts | PASS $139.77 | **PASS** $226.77 |
+| G6 cost < $250 delivered | PASS $162.13 | **FAIL $263.05** |
+| G7 reset carriage (new) | — | **PASS** 0.082 vs 0.16 N·m |
 
-## Assumptions / limits
+## Still open (not this issue's scope)
 
-- **Mask preparation is off the visible budget**: a genuinely unannounced arbitrary map needs
-  punched-card prep first (a stated product limitation; cards can be pre-written/reused). This is
-  the price of removing the writer bank.
-- **S1-D pawl release-force spread** across 6,400 printed parts is the live falsifier; banking
-  bounds the total force, not the per-part spread.
-- Platen assumed unloaded while writing; no per-cell feedback (same class as S5/S5-R).
-- As-printed friction µ, pocket sharpness, pawl creep are measurement-only and un-retirable under
-  [DND-27](/DND/issues/DND-27).
+A1 cell-fit overflow (0.260 mm into the neighbour band), A2 pawl-spring section (8×, no hold-force
+gate), A6 absent reliability gate, A7 unloaded-write assumption, A8 regional/jam — all remain
+listed in `decide()["residual_uncertainty"]` and locked open in the re-baselined falsifier gate.
 
-## Most informative next test
-**Sourced ratification of the S6-LC BOM** ([DND-73](/DND/issues/DND-73)) and **adversarial audit**
-([DND-74](/DND/issues/DND-74)) against `09-low-cost-variant/s6lc/bom_s6lc.csv` — the single BOM of
-record — attacking the punched-card mask-write product statement and the S1-D pawl-spread
-falsifier, the two terms that can still kill S6-LC. On close, DND-73/DND-74 auto-wake.
+## Checks run
 
-## Known CI issue (pre-existing, addressed on this branch)
+- `python 09-low-cost-variant/s6lc/analysis/s6lc.py` — corrected screen.
+- `python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py` — **40/40** (corrected result locked).
+- `python 07-evidence-and-decisions/falsifier_dnd91_checks.py` — **40/40** (re-baselined; fixed
+  items corrected, open attacks remain open).
+- `s5r_ultra_checks.py`, DND-76 primitives, DND-75 divergence gates — still green.
 
-The `lowcost-cad-render` job was red on this branch **including on the parent commit `c78442f`
-before the consolidation**. It was **reproducibly green locally** (`ALL PARTS OK`; fresh STLs
-byte-identical to the committed ones); the cause was the `s5r_ultra_cell.scad` `cell()`
-tangent/coincident difference cuts leaving a non-manifold shell on the CI's apt OpenSCAD/CGAL
-build. This branch makes the render **version-robust** (overlapped cuts), **crash-diagnosable**
-(prints `proc.stderr[-2000:]`), and surfaces failures as GitHub annotations. The `engineering-checks`
-job carrying the **S6-LC + divergent gates passes** independently. Tracked in the synthesis ADR.
+## Artifacts
+
+- `07-evidence-and-decisions/dnd93-s6lc-g3-fix.md` — full report.
+- `07-evidence-and-decisions/falsifier_dnd91_checks.py` — re-baselined 40-check gate.
+- `09-low-cost-variant/s6lc/` — corrected model, checks, BOM CSV, README, rationale.
+- `.github/workflows/ci.yml` — step comments updated (S6-LC gate, DND-91 audit gate).
+
+## Residual uncertainty / next test
+
+The cheapest deciding experiment is non-physical (DND-27): a **cost/mechanism trade study** — shed
+≥ $13 delivered without dropping a capability, or re-design the write for banking at a platen speed
+that still fits 30 s and re-time/re-cost it. A1/A2/A6/A7/A8 are a separate mechanism-fix track and
+must be resolved before S6-LC is called buildable.
