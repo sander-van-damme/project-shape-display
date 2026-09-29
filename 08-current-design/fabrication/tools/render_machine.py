@@ -387,6 +387,11 @@ def check_images(json_path: Path) -> int:
             w, h = im.size
             if w < 200 or h < 200:
                 fails.append(f"{img['file']}: too small {w}x{h}")
+    # DND-92: the board-required exploded view of the complete assembly must be
+    # present, so it cannot silently regress out of the record/CI.
+    if not any(i.get("kind") == "machine_exploded"
+               for i in rec.get("images", [])):
+        fails.append("no exploded-view image of the complete assembly (DND-92)")
     for f in fails:
         print(f"[FAIL] {f}")
     total = len(rec.get("images", []))
