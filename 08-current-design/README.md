@@ -85,6 +85,15 @@ e = 6 mm (33× inside the gate; break-even e ≈ 201 mm). See
 [`dnd59-s5r-residual-retirement.md`](../07-evidence-and-decisions/dnd59-s5r-residual-retirement.md).
 The only residue left is **measurement-only** (§ consolidated table there).
 
+**S5-R fabrication package ([DND-60](/DND/issues/DND-60)):** the machine is now a
+**printable package**, not just a definition. `08-current-design/fabrication/`
+carries a **complete real-OpenSCAD printed-part set** (14 distinct parts,
+25,661 pieces), **14 watertight, bed-fitting STLs**, a **print manifest** and an
+**assembly manifest**, a **full-set printability PASS** against the sourced FDM
+limits, and a **CI coherence gate** that pins the package to the promoted model
+(`s5r_register.py`). See §6a. The only remaining residue is **measurement-only**
+(the board's own build/measure) — no agent-reachable fabrication work remains.
+
 ---
 
 ## 1. Machine in one paragraph
@@ -249,6 +258,35 @@ cartridges** (≈135 mm), or raise the as-printed rail modulus toward bulk PLA, 
 **What the coupon is not:** it is a contact/guide/fit coupon, not an automated printer. The
 thrust retainer, brake, detent leaf and motor head are **not** in the STLs; their omission
 is not proof they fit.
+
+### 6a. How to print and build the S5-R machine (the fabrication package, DND-60)
+
+The **complete printable S5-R part set + print & assembly manifests** now live in
+[`fabrication/`](fabrication/) — this is the board's *"print this"* package:
+
+- **Part set:** [`fabrication/scad/s5r_parts.scad`](fabrication/scad/s5r_parts.scad)
+  (every distinct printed part, driven by
+  [`s5r_parts_common.scad`](fabrication/scad/s5r_parts_common.scad)) → 14
+  rendered, watertight STLs in [`fabrication/stl/`](fabrication/stl/).
+- **Print manifest:** [`fabrication/manifests/print_manifest.md`](fabrication/manifests/print_manifest.md)
+  — quantity, PLA, nozzle/layer, orientation, supports, sourced FDM limit per
+  part, estimated mass/time. **Every critical feature PASSES** the sourced
+  printability gate (no FAIL, no RISK).
+- **Assembly manifest:** [`fabrication/manifests/assembly_manifest.md`](fabrication/manifests/assembly_manifest.md)
+  — exploded ordering, fasteners, and the ratified purchased BOM
+  (**$404.60 delivered working**, [DND-56](/DND/issues/DND-56)).
+- **Coherence gate:** [`fabrication/tools/fab_package_checks.py`](fabrication/tools/fab_package_checks.py)
+  — asserts the fabrication constants match the promoted register model, every
+  part renders watertight and fits the 256 mm X1C bed, quantities match the
+  80 × 80 / 3 × 3 layout, and every part clears its sourced limit. Runs in CI
+  (`fab-package` job).
+
+**Evidence class: CAD + sourced FDM limits + calculation. No part has been
+printed or measured** ([DND-27](/DND/issues/DND-27)); the board performs the
+first physical print. The package carries an explicit
+[**measurement-only residue**](fabrication/README.md#5-honesty--residual-uncertainty-measurement-only-residue)
+(as-printed μ, leaf creep, per-set reliability, loaded torque-speed) that only a
+physical build can retire.
 
 ## 7. Residual uncertainty / risk register
 
