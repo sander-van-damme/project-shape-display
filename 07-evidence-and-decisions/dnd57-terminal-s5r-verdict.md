@@ -1,5 +1,13 @@
 # DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (not SUCCESS, not exhausted failure)
 
+- **Decision (rev 3, 2026-09-29 01:1x):** **NEXT NAMED AVENUE — [DND-60](/DND/issues/DND-60).**
+  After [DND-59](/DND/issues/DND-59) closed, every **analysis** residual on S5-R is retired or
+  bounded agent-side, and the only residue left is **measurement-only** (un-retirable under
+  [DND-27](/DND/issues/DND-27)). But `08-current-design/` is still a **definition**, not a
+  **printable package** — there is no complete STL set or assembly/print manifest for the full
+  machine. Producing that package is agent-reachable CAD work and is the last avenue between the
+  machine definition and the board's SUCCESS trigger. **No board contact**
+  ([DND-32](/DND/issues/DND-32)).
 - **Decision (rev 2, 2026-09-29 01:0x):** **NEXT NAMED AVENUE — still.** After
   [DND-58](/DND/issues/DND-58) closed (rack 1.00 mm pitch + sourced steel rod folded in;
   **$404.60 delivered**, 24.62 s), S5-R is **still not print-ready** and the program is **still
@@ -136,3 +144,49 @@ and DND-59 is a live, agent-reachable avenue. A dead end is not proven.
 - **Measurement-only residue** (un-retirable under DND-27), to be reported in any final package:
   R-DND54-1/-2 (as-printed μ, gate/tip sharpness, leaf creep) and the R1-class per-cell error rate.
 - **DND-57 re-blocked on DND-59** (first-class) for the wake path. **No board contact.**
+
+---
+
+## Rev 3 (2026-09-29) — after DND-59: NEXT NAMED AVENUE = the printable fabrication package
+
+`issue_children_completed` fired when [DND-59](/DND/issues/DND-59) (the consolidated
+agent-reachable residual retirement) reached `done`. Re-tested the board trigger on `main`
+`eef0d44`.
+
+### What DND-59 changed
+All agent-reachable S5-R **analysis** residuals are now retired or bounded:
+- **R-DND54-KEEPER closed** — keeper re-profiled 0.45 → **0.90 mm (2 lines)**, hold moved to a
+  **hard compression shoulder** (144–324×), printability RISK → **PASS**. DND-59 also found a real
+  hidden failure mode: the old bending-spring hold was tolerance-fragile (a 200k-sample Monte-Carlo
+  over sourced print tolerance shows it can print to zero hold) — the compression shoulder removes
+  that dependence.
+- **R-DND54-6 closed agent-side** — writer force re-derived bottom-up (0.2425 N); sourced 5 V push
+  solenoid class (1.20 N) clears 4.95×.
+- **R-DND54-5 bounded** — 99 % map needs per-keeper q ≤ 1.57e-6; per-group verify+retry relaxes
+  2–10×, writer redundancy ~798×.
+- **R-DND54-3 bounded** — break-evens 468 °/s / 0.084 s; sourced NEMA17 class clears (2.15× torque).
+- **R-DND55-1 closed** for the sourced steel rod (33× inside gate at extreme e).
+
+**The only residue left is measurement-only** (R-DND54-1/-2, the as-printed q, the loaded NEMA17
+curve) — un-retirable under DND-27.
+
+### The remaining gap: definition vs printable package
+`08-current-design/` is a **machine definition (README)**, and every CAD artifact to date is a
+unit cell, bank, or coupon. There is **no complete printable part set, no print manifest, and no
+assembly manifest** for the full machine. "Ready for the board to physically print" requires
+exactly that package. Building it is agent-reachable CAD work (real OpenSCAD + sourced FDM limits),
+with no print and no purchase.
+
+### Board-trigger test (rev 3)
+All mission requirements still clear on their labelled class — 406.4 × 406.4 mm, 5.08 mm, 6,400
+cells, 41 mm stroke, 24.62 s calc, regional bounded, **$404.60 sourced** — **except the
+buildable/print-ready package**, which does not yet exist.
+
+### Disposition (rev 3)
+- **Determination: NEXT NAMED AVENUE — [DND-60](/DND/issues/DND-60)** (Fabricator, with CTO
+  integration): the complete printable S5-R fabrication package (STL set + print manifest +
+  assembly manifest + printability pass + CI coherence gate).
+- **Measurement-only residue** (un-retirable under DND-27), to be reported in the final package
+  for the board's own build/measure: R-DND54-1/-2, the as-printed per-set q, the loaded NEMA17
+  speed/torque curve.
+- **DND-57 re-blocked on DND-60** (first-class) for the wake path. **No board contact.**
