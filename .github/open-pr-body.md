@@ -1,98 +1,107 @@
-# DND-114: CAD-design + validate the A1 common-height read target (latch-hinge flag)
+# DND-115: CAD-design + validate the A1 state-encoding shutter
 
 ## What changed
 
-[DND-113](/DND/issues/DND-113) left the A1 **read/verify axis UNRESOLVED**: the
-as-drawn reader targets the **column top face**, which moves `TRAVEL = 40 mm`
-with the state, so a down cell is read at a ~42 mm gap with a ~24.5 mm spot
-(4.82 pitches) swamped ~441× by up neighbours — a **silent wrong-cell failure**
-that defeats A1's readback/retry reliability advantage. DND-114 turns the DND-113
-**PROPOSED** common-height target into a **CAD-validated artifact**.
+[DND-114](/DND/issues/DND-114) gave A1 a CAD-validated **common-height read
+target** (CH-A frame-fixed vane, `Δz = 0`), but left it **state-invariant**: a
+plain post returns the same light in both latch states, so the read could not
+actually distinguish up from down — and A1's readback/retry advantage (its whole
+reliability case) stayed unproven. DND-115 dimensions and CAD-validates the
+**state-encoding shutter** that closes this, the last agent-reachable read-axis
+artifact.
 
-- **Cell CAD** (`10-reliability-mask/scad/a1_binary_latch_cell.scad`): a
-  parameterised common-height flag. **CH-A (adopted)** — a frame-fixed reflective
-  vane on the frame cradle in the latch lane, top face at
-  `z = TRAVEL + 3 = 43 mm`; because the cradle is frame-anchored, the target z
-  does **not** move with the column, so **Δz = 0 by construction** for both
-  states. **CH-B (fallback)** — an arm-carried flag at radius `r` whose mean z
-  shifts by the hinge arc. New `part="flag"` printable selector and self-checks.
-- **Reader CAD** (`10-reliability-mask/scad/a1_reader_head.scad`): the flag is
-  read at **one fixed standoff** (1.0 mm, dedicated 0.60 mm aperture); the
-  schematic DND-113 flag is replaced by the real target + `flag_reader_head()`,
-  with flag-vs-neighbour self-checks.
-- **Model** (`10-reliability-mask/analysis/a1_writer_rate.py`):
-  `common_height_read_target()` now reports the **adopted** CH-A target (Δz=0)
-  and the CH-B bound; new `flag_read_contrast()` computes the fixed-standoff
-  geometry; `read_resolution_bound()` records both the as-drawn defect and
-  `resolves_single_cell_with_common_height_target = True`.
+- **Mechanism (CAD).** A **matte-dark flap** on a **shutter crank** that shares
+  the frame-fixed latch hinge axis with the toe arm. The crank has two hard-stop
+  positions: **HIDDEN** (flap flat over the vane, plane normal +Z → the beam is
+  blocked) and **VISIBLE** (flap edge-on, normal ≈ +X → the beam reaches the
+  frame-fixed vane). The flap pivot **is** the hinge axis, placed directly over
+  the vane, so a 90° crank swing moves the flap only ~2.87 mm laterally — inside
+  the own lane. The flap is an **absorber** (ρ ≈ 0.05), so the reflective
+  **target stays the frame-fixed vane top** (`Δz = 0`); only the *shadow* is
+  state-dependent. No state-dependent target z is reintroduced.
+
+- **Cell CAD** (`10-reliability-mask/scad/a1_binary_latch_cell.scad`):
+  `shutter_crank()` + `shutter_flap(state)`, a `part="shutter"` printable
+  selector, and shutter self-checks (vane gap, aperture clearance, neighbour
+  envelope, own-column clearance, min feature, spot coverage).
+
+- **Reader CAD** (`10-reliability-mask/scad/a1_reader_head.scad`): the flag-read
+  standoff/aperture are revised to the DND-115 values (see below).
+
+- **Model** (`10-reliability-mask/analysis/a1_writer_rate.py`): new
+  `shutter_read_contrast()` (shadow fraction, on/off ratio, envelope clearances,
+  absorber Δz) and `shutter_tolerance_mc()` (worst-case + 200k-draw Monte
+  Carlo); `flag_read_contrast()` re-baselined; `OUTCOME_STATEMENT` updated.
+
 - **Render** (`10-reliability-mask/analysis/render_a1_cad.py`): renders +
-  mesh-validates the `flag` part and **fails hard** if the common-height checks
-  do not pass.
+  mesh-validates the `shutter` part and **fails hard** if any shutter self-check
+  does not pass.
+
 - **Docs:** new ADR
-  [`07-evidence-and-decisions/dnd114-a1-common-height-read-target.md`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/dnd114-a1-common-height-read-target.md);
-  README §4.2a / §4.7 / §7 / §9 / §10 and the evidence index updated from
-  "proposed" to "adopted + CAD-validated".
+  [`07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md);
+  the DND-114 ADR gets a "resolved by DND-115" note and a standoff-supersession
+  note; README §4.2a / §4.7 / §6 / §9 / §10 and the evidence index updated from
+  "residual" to "closed".
+
 - **Gate/CI:** new
-  [`falsifier_dnd114_checks.py`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/falsifier_dnd114_checks.py)
-  (7 attacks, `--gate` exits 0), CI-wired; the DND-113
-  `reliability_mask_checks.py` "no artifact" check is superseded by DND-114
-  checks (64/64 pass).
+  [`falsifier_dnd115_checks.py`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/falsifier_dnd115_checks.py)
+  (9 attacks, default-deny, `--gate` exits 0), CI-wired as a hard gate. The
+  DND-114 companion is re-baselined to the revised reader.
 
-## Engineering question addressed
+## Engineering question
 
-Can A1 read a **single cell at one fixed standoff for both states**, removing the
-state-dependent-standoff defect that DND-112/DND-113 identified?
+Can the frame-fixed CH-A vane's return be made **unambiguously state-dependent**
+at one fixed standoff, without reintroducing a state-dependent target z?
 
-## Evidence produced (CALCULATION + CAD — no print, no purchase, no measurement; DND-27)
+## Evidence produced
 
-| Item | Value | Check |
-|---|---:|---|
-| CH-A target | frame-fixed vane, top z = 43 mm | **Δz = 0.000 mm** |
-| CH-B hinge-arc Δz (r = 1.20 mm, 30° swing) | 0.621 mm | inside the ±1.0 mm DoF |
-| Max CH-B radius in DoF | 1.932 mm | `DoF / (2·sin15°)` |
-| Flag-read spot (a = 0.60 mm, g = 1.0 mm) | 1.136 mm | — |
-| Spot X half-width vs neighbour clearance | 0.568 vs 1.055 mm | **PASS**, margin 0.487 mm |
-| Spot vs flag Y width | 1.136 vs 1.60 mm | **PASS** |
-| R1/G2 re-check | fixed standoff | 42 mm gap / 24.5 mm spot / 441× ratio **eliminated** |
+- Hidden state covers **100%** of the read spot; visible state **0%**.
+- **On/off return ratio 7.72×** (gate 2×).
+- Reflective target Δz = **0.000 mm**; absorber Δz = **0.55 mm** (inside ±1 mm DoF).
+- Swept flap clears the neighbour body by **0.28 mm**, the own column by **3.41 mm**.
+- Monte Carlo (200k draws): **zero failures** on every margin at realistic
+  (±0.10 mm) frame pitch tolerance.
 
-- Watertight meshes rendered by **real OpenSCAD + trimesh validation**
-  (`flag.stl` 0.44 × 1.6 × 0.82 mm; reader head re-rendered).
-- `falsifier_dnd114_checks.py --gate` exits 0; the DND-112 gate and the
-  reliability-mask regression suite (64/64) still pass.
+## Standoff revision (important)
 
-## Assumptions
+The DND-114 **1.0 mm standoff / 0.60 mm aperture is infeasible** for a 0.44 mm
+flap under printed placing tolerances — the aperture-clearance check fails in
+~0.5 %, rising to ~32 % for a tight gap split (`shutter_tolerance_mc()`). DND-115
+therefore adopts a **1.8 mm standoff / 0.44 mm aperture**: spot 1.405 mm, which
+still clears the neighbour body by 0.353 mm and fits the flag Y-width. The
+frame-fixed target and `Δz = 0` are unchanged — only the standoff distance moves.
 
-- Latch toggle swing 30° (assumption-class); flag-read aperture 0.60 mm and
-  standoff 1.0 mm (assumption-class); all optical/device constants unchanged
-  (assumption-class).
+## Verification run
 
-## What passed / failed
+| Gate | Result |
+|---|---|
+| `reliability_mask_checks.py` | **75/75 PASS** |
+| `falsifier_dnd115_checks.py --gate` | **CLEAN 9/9** (new) |
+| `falsifier_dnd114_checks.py --gate` | **CLEAN 7/7** (re-baselined) |
+| `falsifier_dnd112_checks.py --gate` | **exit 0** |
+| `falsifier_dnd104_checks.py` | **26/26 PASS** |
+| `render_a1_cad.py` (OpenSCAD + trimesh) | column / latch / cradle / flag / **shutter (watertight, 1.55×1.60×2.75 mm)** / reader all pass |
 
-- **Passed:** CH-A Δz=0; CH-B Δz-in-DoF; flag fits the lane in X; flag spot
-  clears the neighbour body; flag spot fits the flag footprint; the as-drawn
-  top-face defect is still recorded (not erased).
-- **Failed:** the naive reuse of the 2.0 mm top-face aperture at the flag does
-  **not** clear the neighbour (2.54 mm spot > 2.11 mm lane) — hence the dedicated
-  0.60 mm flag-read aperture. This is captured in the CAD self-checks.
+## Assumptions / residual uncertainty
 
-## What remains uncertain
-
-- The **state-encoding shutter** geometry (how the latch arm's silhouette
-  modulates the CH-A vane) is identified but not yet dimensioned — a bounded CAD
-  detail, not a physics risk.
-- The flag standoff/aperture are assumption-class; no physical validation (DND-27).
-- The ±0.264 mm gantry registration is now a **secondary** concern, not the
-  binding read limit.
+- **Assumption-class (unmeasured):** flap matte reflectance (0.05), standoff
+  (1.8 mm) and aperture (0.44 mm), printed placing tolerances, all optical
+  constants.
+- **Measurement-only (DND-27):** flap/hinge wear across 6,400 cycles, as-printed
+  snap force, as-built pitch over 406 mm.
+- The shutter crank linkage is drawn schematic (shared hinge axis); the flap and
+  its swept envelope are the validated quantities.
 
 ## Most informative next test
 
-Dimension the **state-encoding shutter** in the cell CAD (arm silhouette vs the
-CH-A vane at the fixed standoff) and confirm the binary bright/dark contrast
-margin at 1.0 mm — still CALCULATION + CAD only (DND-27).
+An independent Falsifier audit of the decisive DND-115 number (the 7.72× on/off
+return ratio and the swept-envelope clearances) against the placed CAD, and — if
+the Falsifier finds it clean — the DND-110 terminal gate can consider A1's
+read/verify axis closed at CAD + calculation.
 
-## Cross-references
+## Evidence class / governance
 
-- Parent: [DND-113](/DND/issues/DND-113), PR #89 (read-mechanism correction).
-- Program: [DND-102](/DND/issues/DND-102); gate: [DND-110](/DND/issues/DND-110).
-- Evidence class: CALCULATION + CAD only; no print/purchase/measurement
-  ([DND-27](/DND/issues/DND-27)); no board contact ([DND-32](/DND/issues/DND-32)).
+**CALCULATION + CAD only.** No print, no purchase, no measurement
+([DND-27](/DND/issues/DND-27)). No board contact ([DND-32](/DND/issues/DND-32)).
+`08-current-design/` and `09-low-cost-variant/` untouched. No direct pushes to
+`main`.
