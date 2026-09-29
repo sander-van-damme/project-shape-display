@@ -204,11 +204,12 @@ jobs:
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
-      - name: "DND-74 falsifier adversarial audit of S6-LC"
-        # Asserts the S6-LC audit findings so a silent re-quote cannot return:
-        # G3 lift gate computed on 1/8 the load (BROKEN), circular release-force
-        # ceiling, cost headroom collapse under honest allowances, mask-write
-        # load-bearing, per-cell reliability roll. CALCULATION-only (DND-27).
+      - name: "DND-74 falsifier findings RESOLUTION gate (DND-93)"
+        # Locks the DND-74 findings (lift-axis on 1/8 load, circular ceiling,
+        # cost-headroom collapse, mask-write load-bearing, reliability roll) in
+        # their RESOLVED state: whole-board honest lift load, computed ceiling,
+        # repriced BOM + listed capabilities, G7 reliability, priced mask/carriage
+        # time, hold gate. CALCULATION-only (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd74_checks.py
 
   lowcost-cad-render:

@@ -1,5 +1,11 @@
 # DND-91 - Adversarial falsification audit of the selected machine S6-LC
 
+> **RESOLVED under [DND-93](/DND/issues/DND-93).** The A1/A2/A3/A4/A5/A6/A7/A8 findings below were
+> repaired by the CTO and locked by [`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) (now a
+> findings-resolution gate, **39/39**). See [`dnd93-s6lc-repair.md`](dnd93-s6lc-repair.md). The text
+> below is the original hostile audit, retained as evidence; read its headline numbers as
+> *pre-repair*.
+
 - **Issue:** [DND-91](/DND/issues/DND-91) (Falsifier). Parent [DND-84](/DND/issues/DND-84).
   Supersedes the mis-targeted [DND-74](/DND/issues/DND-74) "S5-R variant" audit; DND-74's own
   description is repointed to this same S6-LC target (see section 7).

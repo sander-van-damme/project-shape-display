@@ -1,5 +1,10 @@
 # Falsifier adversarial audit — DND-74: the S6-LC ultra-low-cost machine (complement to DND-91)
 
+> **RESOLVED under [DND-93](/DND/issues/DND-93).** The findings below were repaired by the CTO and
+> locked by [`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (now a findings-resolution
+> gate, **23/23**). See [`dnd93-s6lc-repair.md`](dnd93-s6lc-repair.md). The text below is the
+> original hostile audit, retained as evidence; read the headline numbers as *pre-repair*.
+
 - **Status:** Independent review (Falsifier). Adversarial, not consensus. A refutation
   is a success; failed ideas are recorded as evidence.
 - **Date:** 2026-09-29.
