@@ -213,16 +213,18 @@ jobs:
           openscad --version
       - name: Install mesh validation dependency
         run: python -m pip install --quiet "trimesh>=4"
-      - name: Render + mesh-validate the low-cost variant CAD
-        run: python 09-low-cost-variant/tools/render_lowcost_cad.py
       - name: Render + verify the S6-LC assembled machine PNGs (DND-88)
         # "Everything assembled" for the low-cost candidate: the 8-bank field
         # strip + platen + gate/comb + installed columns, rasterized from the
         # committed S6-LC STLs with the shared software renderer. CAD, not a print.
+        # Kept ahead of the (pre-existing, DND-82) low-cost CAD mesh gate so a
+        # failure there cannot hide this verification.
         run: |
           python -m pip install --quiet "numpy>=1.26" "pillow>=10"
           python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py
           python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py --check
+      - name: Render + mesh-validate the low-cost variant CAD
+        run: python 09-low-cost-variant/tools/render_lowcost_cad.py
       - name: Low-cost variant unit-cell printability (sourced FDM limits)
         run: |
           python tools/validate/analytic_printability.py \
