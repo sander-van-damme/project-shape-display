@@ -1,69 +1,77 @@
-# DND-54: price the S5-R block's own channels in the model ($401.12 honest total)
-
-Advances [DND-54](/DND/issues/DND-54), folding in the material finding of the
-[DND-56](/DND/issues/DND-56) BOM ratification. The promoting model
-(`s5r_register.bom()`) priced the S5-R actuator block's **own** bought driver
-channels at zero, so its headline `$397.53` delivered total was not
-convention-correct: the fixed no-channel base removes **both** the 80-motor line
-**and** the 80-channel TB6612 driver block, and the `nx52_head_actuator.py`
-contract requires every option to *"declare its own channel cost exactly once
-(no double-count)."* This PR makes the model declare them.
-
-**Evidence class: CALCULATION over sourced listings and stated assumptions. No
-purchase, print or physical measurement** ([DND-27](/DND/issues/DND-27)).
+# DND-55 — S5-R R=4 multi-row bank assembly: bar torsion + comber/carriage envelopes
 
 ## What changed
 
-- `06-experiments/test12_winner_convergence/s5r_register.py` — `bom()` now prices
-  the block's own channels: **2 bank H-bridge ICs** (1 dual TB6612 per bank motor,
-  `$0.7955` each = `$1.59`) **+ 5 ULN2803-class writer darlington chips** (8
-  ON/OFF writers each, `$0.30` each = `$1.50`) = **`$3.09` parts**. The honest
-  working total is `delivered_usd = $401.12`; the channels-unpriced DND-54 claim
-  is preserved as `delivered_claim_usd = $397.53` (and `parts_claim_usd`). G7
-  still passes: `$98.88` under the `$500` ceiling.
-- `s5r_register_checks.py` — new gate `test_block_channels_priced_once_and_claim_reproduces`
-  asserts the channel line is priced once, the claim reproduces exactly, and the
-  honest total equals the ratification's working scenario (16 gates, was 15).
-- `s5r_bom_ratify.py` — `reconcile_with_s5r_module()` now reconciles the model's
-  **honest** total and channel line against the ratification's working scenario,
-  in addition to the claim.
-- `07-evidence-and-decisions/dnd54-s5r-register-latch.md` — §5 states the model
-  now carries the channels; `$397.53` is the claim, `$401.12` the working total.
-- `08-current-design/README.md` — notes the model carries the channels explicitly.
+Closes residual **R-DND54-4**: the multi-row (R = 4) bank geometry that
+[DND-54] left as an assertion. Uses only the evidence classes [DND-27] permits —
+**CAD + CALCULATION; no print, no purchase, no measurement**.
+
+- `06-experiments/test12_winner_convergence/s5r_bank.py` — bank model: parametric bar
+  torsion, candidate sections, clearance stack-ups, envelope fit, CAD harness, decision.
+- `s5r_bank_checks.py` — 16 regression + honesty gates (CI).
+- `s5r_bank.scad` — R = 4 bank CAD: columns + racked bar + reset comber + writer-carriage
+  sweep envelope, with scoped interference queries.
+- `07-evidence-and-decisions/dnd55-s5r-bank-assembly.md` — the ADR.
+- `06-experiments/test12_winner_convergence/README.md`, `08-current-design/README.md` — folded in.
+- `tools/validate/analytic_printability.py` gains a bank-assembly branch;
+  `validate_geometry.py` and `render_winner_cad.py` render the bank parts;
+  `.github/workflows/ci.yml` runs the model checks, printability and CAD render.
+
+> Branched from `main` (DND-54 already merged).
 
 ## Engineering question
 
-Does the promoting S5-R model price its own bought channels exactly once, so its
-BOM is auditable and the delivered total is the honest one — while still clearing
-the `$500` ceiling and the `$30 s` time gate?
+Does the R = 4 bank close at the assembly level — bar torsion inside the 0.35 mm keeper
+gate, and the reset-comber / writer-carriage envelopes fitting — without a coupon?
 
-## Evidence produced
+## Result — the torsion number and the envelopes
 
-- Model now returns: fixed no-channel `$218.70`, actuators `$124.00`, channels
-  `$3.09`, parts `$345.79`, **delivered `$401.12`** (working), margin `$98.88`,
-  claim `$397.53`. `s5r_register.py`, `s5r_register_checks.py` (16 gates),
-  `s5r_bom_ratify.py --selftest` + `s5r_bom_ratify_checks.py` (11 gates) all pass;
-  all 12 test12 check suites green; the exact CI commands pass locally.
+**Bar torsion (CALCULATION).** Driven from both ends, resisting 320 ganged pawls. The
+reaction is modelled as an eccentric axial line (eccentricity `e` = an assumption; the
+coupon that would measure tooth contact is forbidden). Peak tip skew at mid-span:
 
-## Assumptions
+| Bar section | J (mm⁴) | G (MPa) | e (mm) | skew (mm) | vs gate/2 = 0.175 |
+|---|---:|---:|---:|---:|:--:|
+| printed PLA 3 × 2 (**DND-54 placeholder**) | 4.64 | 556 | 1.5 | **4.96** | **FAIL ~28×** |
+| printed PLA 3 × 12 (on-edge) | 90.99 | 556 | 1.5 | 0.253 | FAIL (1.4×) |
+| printed PLA round Ø8 | 402.1 | 556 | 4.0 | 0.153 | PASS |
+| **sourced steel rod Ø5** | 61.4 | 76 923 | 2.5 | **0.0045** | PASS (~39×) |
+| **sourced steel rod Ø6** | 127.2 | 76 923 | 3.0 | **0.0026** | PASS (~67×) |
 
-- Working channel count: conservative 1 dual TB6612 per bank motor (2 ICs); the
-  optimistic shared-IC case (1 IC, `$2.30` total) is carried alongside.
-- Writer solenoids are ON/OFF loads, so a `$0.30` ULN2803-class darlington
-  suffices (not an H-bridge) — the DND-56 insight.
-- Unit prices are sourced point-in-time (LCSC C88224 `$0.7955`; ULN2803 allowance).
+**Fix: a sourced Ø6 mm steel drive rod** (or an Ø8 printed round bar, re-checking `e`).
+The 3 × 2 placeholder bar is refuted by ~28×.
 
-## Passed / failed
+**Assembly envelopes (CAD).** Real OpenSCAD renders six parts; **all five scoped
+interference queries are EMPTY** — `run_all_engaged`, `selected_dropped_pawl`,
+`comber_park`, `comber_trip`, `writer_carriage_sweep`. Carriage-to-column clearance is
+**0.40 mm worst case**; the comber tine rides a **3.73 mm** X-gap between column stacks;
+**R = 4 adds no pitch penalty** (0.0 mm).
 
-- **Passed:** channel pricing, claim reproduction, cross-module reconciliation,
-  G7 cost gate (`$401.12 < $500`), all test12 suites.
-- **Failed:** nothing. The DND-54 `< $400 ideal` phrasing was already corrected by
-  the CTO amendment to "optimistic scenario; ~$1.12 over working."
+**Printability (CALCULATION).** PASS after one correction: the DND-54 rack
+(pitch 0.60 / tooth 0.45) leaves a **0.15 mm inter-tooth gap that fuses** at a 0.4 mm
+nozzle; re-dimensioned to **pitch 1.00 / tooth 0.50 mm** (gap 0.50 mm). Comber tine
+0.60 → 0.90 mm (1 → 2 lines).
 
-## Remains uncertain / next test
+## Verdict
 
-- Writer-solenoid **force (N) is not published** by any listing (R-DND54-6), and
-  no 2-piece contract quote exists — both purchase-gated ([DND-27](/DND/issues/DND-27)).
-- The **multi-row (R=4) bar assembly CAD** (bar torsion, reset comber, writer
-  carriage envelope) remains the next discriminating agent-reachable test
-  (DND-54 §10 item 3); it is CTO-owned, not a cost item.
+R-DND54-4 **closed for the comber/carriage envelopes and the pitch/Y lay-out**, and
+**sharpened for the bar** (a sourced-rod requirement, not a printed part). Not a
+print-ready claim, not board contact.
+
+## Assumptions / what passed / what is uncertain
+
+- **Passed:** 16 new checks, the geometry harness, the winner-CAD render, and the full
+  test12 suite (all green).
+- **Assumed:** the reaction eccentricity `e` (dominant input; steel makes it irrelevant),
+  Poisson 0.35, carriage/comber datums.
+- **Uncertain:** the bar model is a Saint-Venant bound, not FEA; the CAD is a reduced
+  8-column model (80-column length covered analytically); as-printed friction/wear/creep
+  remain measurement-only.
+
+## Most informative next test
+
+Reconcile the register's per-stroke advance to the corrected **1.00 mm rack pitch**
+(R-DND55-4), and cost/source the Ø6 mm steel rod in the bank BOM.
+
+[DND-27]: /DND/issues/DND-27
+[DND-54]: /DND/issues/DND-54

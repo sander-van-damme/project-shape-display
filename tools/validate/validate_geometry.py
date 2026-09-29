@@ -55,6 +55,12 @@ RENDER_TARGETS = [
     ("selector_fanout_coupon", SHARED / "selector_fanout_coupon.scad", []),
     ("s5r_register_cell", REPO / "06-experiments" / "test12_winner_convergence"
      / "s5r_register.scad", ['-D', 'part="cell"']),
+    ("s5r_bank_assembly", REPO / "06-experiments" / "test12_winner_convergence"
+     / "s5r_bank.scad", ['-D', 'part="assembly"']),
+    ("s5r_bank_comber", REPO / "06-experiments" / "test12_winner_convergence"
+     / "s5r_bank.scad", ['-D', 'part="comber"']),
+    ("s5r_bank_carriage", REPO / "06-experiments" / "test12_winner_convergence"
+     / "s5r_bank.scad", ['-D', 'part="carriage"']),
 ]
 
 
