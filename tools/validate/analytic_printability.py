@@ -470,7 +470,143 @@ def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
         # geometry unchanged (the mechanism is already minimal), so it uses the
         # same feature-specific register-cell checker.
         return check_register_cell(path, spec)
+    if "a2a3_media_cell" in name:
+        # DND-75: A2/A3 punched-media cell. Checks the printed column/rack/pawl/
+        # gate at true pitch plus the punched film thickness (the media risk).
+        return check_media_cell(path, spec)
+    if "a1_cam_cell" in name:
+        # DND-75: the A1 divergent machine keeps the S5-R register cell and adds
+        # a printed camshaft / writer comb. It needs its own checker for the new
+        # features (cam disc, comb finger) while reusing the register checks.
+        return check_a1_cam_cell(path, spec)
     return check_coupon(path, spec)
+
+
+def check_media_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-75 A2/A3 punched-media cell.
+
+    Checks the printed column body, rack pocket, pawl, gate bar and housing wall
+    at the true 5.08 mm pitch, plus the punched film/hole features. The film
+    thickness is a MEDIA risk (it is bought/punched, not printed), reported
+    separately so it is not mistaken for a printed-wall failure.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add(feature, value, limit, verdict, rule_key, note=""):
+        r = rl[rule_key]
+        if verdict == "auto":
+            verdict = _verdict(value, limit)
+        checks.append(Check(feature, round(value, 3), round(limit, 3), verdict,
+                            r.label, r.evidence, r.source, note))
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    for key, label, note in (
+        ("PAWL_T", "pawl leaf thickness (PAWL_T)", "printed cantilever pawl"),
+        ("GATE_BAR_T", "gate bar thickness (GATE_BAR_T)", "printed gate bar"),
+        ("WALL", "housing wall (WALL)", "printed cell wall"),
+        ("COLUMN_BODY", "column body (COLUMN_BODY)",
+         "the necked column must print"),
+    ):
+        if key in c:
+            add_wall(label, c[key], note)
+
+    # rack pocket depth is a small printed feature
+    if "POCKET_DEPTH" in c:
+        add("rack pocket depth (POCKET_DEPTH)", c["POCKET_DEPTH"],
+            spec.min_feature_mm, "auto", "min_feature",
+            "a pocket shallower than one line cannot print")
+
+    # media hole vs the pitch band: the hole must fit inside one cell
+    if "HOLE_D" in c and "PITCH" in c:
+        v = lateral_clearance(c["PITCH"] - c["HOLE_D"], required_mm=0.20,
+                              spec=spec)
+        checks.append(Check(
+            feature="media hole fit inside one cell (PITCH - HOLE_D)",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note="a hole wider than the cell would leak to the neighbour"))
+
+    # film thickness is a MEDIA (bought/punched) risk, not a printed wall
+    if "FILM_T" in c:
+        checks.append(Check(
+            feature="punched film thickness (FILM_T) -- MEDIA, not printed",
+            value_mm=round(c["FILM_T"], 3), limit_mm=spec.min_feature_mm,
+            verdict="RISK" if c["FILM_T"] < spec.min_feature_mm else "PASS",
+            rule="media minimum thickness (not an FDM wall)",
+            evidence="MEDIA / purchased material, punched off-line",
+            source="DND-75 A2/A3; media is not an FDM extrusion",
+            note="thin film is a media handling risk, reported separately from "
+                 "printed-wall limits"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer; geometry-vs-process only.",
+            "The punched media is not printed here; its handling is a separate "
+            "risk (reported as a media check, not a printability pass).",
+        ],
+    }
+
+
+def check_a1_cam_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-75 A1 single-shaft cam cell.
+
+    Reuses the register-cell checks (the rotor/pawl/keeper are unchanged) and
+    adds the A1-specific printed features: the cam disc thickness and the
+    writer-comb finger thickness. Evidence class and limits are identical.
+    """
+    base = check_register_cell(coupon_path, spec)
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    extra: list[Check] = []
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        extra.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                           v, r.label, r.evidence, r.source,
+                           note + " (hard floor = 1 line "
+                           f"{spec.min_feature_mm:.2f} mm)"))
+
+    for key, label, note in (
+        ("CAM_T", "cam disc thickness (CAM_T)", "printed cam section"),
+        ("COMB_T", "writer comb finger thickness (COMB_T)",
+         "cam-actuated comb replaces the 40 writer solenoids"),
+        ("ROD_D_PRINTED", "printed rod wall if printed instead of sourced",
+         "sourced rod is d=8; printed wall must be >= 2 lines if substituted"),
+    ):
+        if key in c:
+            add_wall(label, c[key], note)
+
+    checks = base["checks"] + [asdict(x) for x in extra]
+    fails = [x for x in checks if x["verdict"] == "FAIL"]
+    risks = [x for x in checks if x["verdict"] == "RISK"]
+    base["checks"] = checks
+    base["verdict"] = "FAIL" if fails else ("RISK" if risks else "PASS")
+    return base
 
 
 def check_coupon(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:

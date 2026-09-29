@@ -97,8 +97,26 @@ Reproduce: `python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py` → **29/29
 - **As-printed friction µ, pocket sharpness, pawl creep** are measurement-only and un-retirable
   under DND-27.
 
-## 6. Decision and next steps
+## 6. Folded divergence (DND-75)
 
+The DND-75 inventor response attacks the **base lines themselves** rather than the actuator block, and
+is folded here as `09-low-cost-variant/divergent/`. Three materially different machines clear both
+gates (<$250 and <30 s):
+
+| | A1 single-shaft cam | A2 hand-crank + punched tape | A3 S1-B banked broadcast |
+|---|---|---|---|
+| Bought motion actuators | 1 stepper | 0 (hand/spring) | 1 lift + 1 film-index |
+| Selection | cam-actuated writer comb | punched-tape read comb | punched-film threshold planes |
+| Parts / delivered | $58.30 / **$67.63** | $42.90 / **$49.76** | $98.29 / **$114.02** |
+| Full-map | 17.76 s | 26.86 s | 22.06 s |
+| Decisive failure mode | one motor must carry bank **and** lift | tape write is the product (off-line) | punched-film registration |
+
+These are **alternatives to S6-LC**, not replacements: each is cheaper but carries a product-level
+caveat (A2's off-line tape write, A1's single-motor phasing, A3's film registration). S6-LC remains
+the selected machine because its only product caveat (off-line mask prep) is shared with A2/A3 while
+its mechanism is the most conventional. 18 checks + analytic printability pass.
+
+## 7. Decision and next steps
 1. **Selected architecture for DND-70 = S6-LC**, in `09-low-cost-variant/s6lc/`. `08-current-design/`
    (S5-R, $404.60) is untouched.
 2. The DND-72 negative-result model (`s5r_ultra.py`) is **retained** as the proof that trimming the
@@ -110,7 +128,7 @@ Reproduce: `python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py` → **29/29
    then adversarially attack the punched-card mask-write product statement and the S1-D pawl-spread
    falsifier, since those are the two terms that can still kill S6-LC.
 
-## 7. Known CI issue (pre-existing, not from this consolidation)
+## 8. Known CI issue (pre-existing, not from this consolidation)
 
 The `lowcost-cad-render` job (`render_lowcost_cad.py` over `scad/s5r_ultra_cell.scad`) is **red on
 the branch, including on the parent commit `c78442f` before the consolidation**. It is

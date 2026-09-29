@@ -181,6 +181,11 @@ jobs:
         run: |
           python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
           python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
+      - name: "DND-72 folded divergent machines gate"
+        # DND-75 divergence folded onto the DND-72 track: A1 single-shaft cam,
+        # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
+        # <30 s. Runs the screen + 18 checks + analytic printability.
+        run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,
