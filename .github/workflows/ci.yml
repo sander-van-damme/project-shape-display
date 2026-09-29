@@ -170,8 +170,8 @@ jobs:
         # guidance, single-actuator reset) for the <$250 architecture. No
         # print, no measurement (DND-27).
         run: |
-          python 09-lowcost-alternative/primitives/primitives.py > /dev/null
-          python 09-lowcost-alternative/primitives/primitives_checks.py
+          python 09-low-cost-variant/primitives/primitives.py > /dev/null
+          python 09-low-cost-variant/primitives/primitives_checks.py
       - name: "DND-72 ultra-low-cost (<$250) variant screen + negative-result gate"
         # Pins the DND-72 negative result: the S5-R fixed base alone ($253.69
         # delivered) exceeds the $250 target; no sub-$250 configuration exists
@@ -206,6 +206,14 @@ jobs:
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
+      - name: "DND-74 falsifier adversarial audit of S6-LC (re-baselined by DND-93)"
+        # Reproduces the DND-74 attack arithmetic from the repo constants as the
+        # historical record (global load 2560 N would break the old 0.30 N*m
+        # NEMA17; 0.37 N x 800 == the old circular 296 N "ceiling"; mask-write
+        # and reliability bounds) AND asserts the DND-93 fix is in place (lift
+        # on 6400 cells, comb-tooth structural limit, priced timing terms,
+        # allowances -> G6 fails). CALCULATION-only (DND-27).
+        run: python 07-evidence-and-decisions/falsifier_dnd74_checks.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,
@@ -287,7 +295,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends openscad
           openscad --version
       - name: Render the primitive CAD parts
-        run: python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py
+        run: python 09-low-cost-variant/primitives/tools/render_primitives_cad.py
 
   winner-cad-render:
     # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and

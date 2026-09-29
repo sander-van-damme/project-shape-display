@@ -197,3 +197,14 @@ delivered-cost gate (G6, $263.05 > $250). It remains a *definition* whose gates
 G1–G5 and G7 pass on the DND-27 evidence classes; closing requires shedding
 ≥ $13 delivered or re-designing the write (see
 [`dnd93-s6lc-g3-fix.md`](../../07-evidence-and-decisions/dnd93-s6lc-g3-fix.md)).
+
+> **Falsifier audit [DND-74](/DND/issues/DND-74): gate G3 did not stand as
+> written** — `lift_axis()` sized the platen torque on one bank (800 cells) while
+> the write is global over 6,400 cells. This was **fixed in
+> [DND-93](/DND/issues/DND-93)**: the global load is now modelled (2,560 N →
+> 1.63 N·m, NEMA23-class motor, 1.35×) and the corrected gates are in §5a. The
+> DND-74 audit's other findings (circular 296 N ceiling, unpriced timing,
+> allowances) are also folded in; **G6 now fails**. Reproduce:
+> `python 07-evidence-and-decisions/falsifier_dnd74_checks.py` (the DND-74 gate)
+> and `python 07-evidence-and-decisions/falsifier_dnd91_checks.py` (the
+> re-baselined 40-check gate).

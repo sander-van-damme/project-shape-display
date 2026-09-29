@@ -38,6 +38,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
 | Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
 | Test13 Step-6 load/structure/power, spliced beam (DND-43) | — | ✓ | ✓ | — | — | — | — |
+| DND-74 S6-LC falsifier audit (lift sizing, cost headroom, mask write) | ✓ | ✓ | — | — | — | — | — |
 
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive
@@ -85,6 +86,40 @@ Three findings, all **calculation/sourced**, body review, no physical evidence:
    and the sourced $40 8 mm-motor finding stand.)
 3. **Reliability helper convention was inverted** (`zero_failure_trials` returned the ~58× weaker
     legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
+
+### Falsifier adversarial audit of the S6-LC ultra-low-cost machine (DND-74, 2026-09)
+
+[`dnd74-s6lc-falsification.md`](dnd74-s6lc-falsification.md) is the **complement to the
+DND-91 audit below**: it adds the one break DND-91 did not find — the lift-axis gate is
+sized on 1/8 the load — and converges with DND-91 on cost, ceiling, timing, reliability
+and regional behaviour. Reproducible checks:
+[`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated). Target:
+[`09-low-cost-variant/s6lc/`](../09-low-cost-variant/s6lc/README.md)
+([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)).
+
+**Unique break — lift-axis gate G3.** `lift_axis()` computes the platen load on
+`CELLS_PER_BANK` (800) while the mechanism writes the **whole 6,400-cell board** in one
+global stroke. Corrected, the load is 2,560 N → **≥1.63 N·m** needed vs a 0.30 N·m NEMA17
+(0.41 N·m per screw on four screws) → **fails 5.4×**, even gravity+pawl only fails 2.2×.
+DND-91 audits the lift axis only under the unloaded-product assumption (its A7); this
+factor-8 input error is new.
+
+**Convergent with DND-91:** cost headroom collapses $87.87 → **$7.83** with +$69 honest
+allowances; the "296 N ceiling" is circular (DND-91 A3); the regional update is not
+bank-local (A8); the mask write is load-bearing (2,560 s serial punch; 30 s needs 427 ops/s);
+no per-cell feedback gives P(all 6,400 correct) = **52.7 %** at 0.01 % (A6); timing survives
+even with mask-index overhead (A4). This report **defers to DND-91 A1/A2 on pawl geometry
+and cell fit** (the SCAD leaf is 0.45 mm and overflows the pitch band).
+
+The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write), combined
+with the DND-91 pawl/CAD fixes, then a re-run of the S6-LC gate.
+
+**Fixed by [DND-93](/DND/issues/DND-93) (2026-09).** The lift axis is now sized on the whole
+6,400-cell board (G3 passes, NEMA23-class, 1.35×); the six allowances are in the BOM and the
+release ceiling is an independent comb-tooth limit. **G6 delivered cost now fails at $263.05**
+(verdict REJECT). The A1/A2 pawl/CAD defects remain open. See
+[`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md); `falsifier_dnd74_checks.py` is re-baselined
+(28 checks) to reproduce the attack arithmetic and assert the fix.
 
 ### Falsifier review of the S5 promotion (DND-36)
 
