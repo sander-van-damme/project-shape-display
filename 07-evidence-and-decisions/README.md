@@ -352,16 +352,16 @@ does not.
   absorber (ρ ≈ 0.05), so no state-dependent target z is reintroduced.
 - **Standoff revision:** the adopted fixed standoff is **1.8 mm** with a **0.44 mm** aperture (the
   DND-114 1.0 mm window is infeasible for a 0.44 mm flap under printed tolerances). Swept flap clears
-  the neighbour body by **0.280 mm**, the own column by **3.41 mm**.
+  the neighbour body by **0.280 mm**, the own column by **3.42 mm**.
 - **Tolerance stack-up:** worst-case + a **200k-draw Monte Carlo** (`shutter_tolerance_mc()`): zero
   failures on every margin at realistic (±0.10 mm) frame pitch tolerance; the binding term is
   inter-cell pitch, retired by a single monolithic print. **Corrected by [DND-119](/DND/issues/DND-119):**
   the MC now samples an explicit reader/aperture placement tolerance, so its aperture check can fail
-  (worst +0.434 mm nominal / +0.325 mm at ±0.20 mm — still positive).
+  (worst +0.434 mm nominal / +0.425 mm at ±0.20 mm — still positive).
 - **R1/G2/R4 re-check:** unchanged by the shutter; `resolves_single_cell_with_common_height_target`
   still holds with the shutter present. **Corrected by [DND-119](/DND/issues/DND-119):** the neighbour
   up-cell top is **weakly in-cone, state-invariant** (not "off-beam"); the crosstalk term is modelled
-  and **gated**, and the on/off ratio is **6.37×** with it included (still > 2× gate). See
+  and **gated**, and the on/off ratio is **6.78×** with it included (still > 2× gate). See
   [`falsifier_dnd115_a1_shutter_audit.md`](falsifier_dnd115_a1_shutter_audit.md).
 - **Gate:** `falsifier_dnd115_checks.py --gate` exits 0 (12 attacks, default-deny). Render + mesh
   validation of the shutter part is CI-wired. No print/measurement (DND-27). **Independently
@@ -385,7 +385,7 @@ imports nothing from `a1_writer_rate.py`):
 - **FAIL A5/A6 (crosstalk):** the ADR's "neighbour top is off-beam" is **false** — at the
   neighbour-top plane the coaxial 15° cone radius is 1.286 mm vs the 1.055 mm near-edge offset, so
   a bright neighbour is weakly in-cone (≈4.4% of the cone; ≈4.6% of the vane return,
-  state-invariant). Correcting for it the on/off ratio falls **7.72× → 6.37×** — **still above the
+  state-invariant). Correcting for it the on/off ratio falls **7.72× → 6.78×** — **still above the
   2× gate**, but the number was **reported and never gated** (`contrast_passes` ignores it).
 - **FAIL A7 (framing):** "absorber Δz 0.55 mm inside ±1 mm DoF" is **vacuous** — the DoF budget
   applies to a reflective *target*; the target is frame-fixed (Δz = 0) and the absorber term is
@@ -407,15 +407,15 @@ geometry change** (reflective target Δz stays 0):
 
 - **A5 (gated):** `shutter_read_contrast()` now models the neighbour return physically (in-cone
   crescent) and carries it into `contrast_passes` via `neighbour_crosstalk_gated` (ratio ≤ 1) and
-  `on_off_return_ratio_with_crosstalk ≥ 2` (6.37×). The `2.589×` body-area proxy is retained only as
+  `on_off_return_ratio_with_crosstalk ≥ 2` (**6.78×**; DND-121 dimensionally-consistent normalization). The `2.589×` body-area proxy is retained only as
   a labelled over-conservative provenance figure.
 - **A6 (wording):** the false "off-beam" wording is replaced by "weakly in-cone, state-invariant"
-  (cone radius 1.286 mm vs 1.055 mm near-edge offset; in-cone crescent 0.231 mm² = 4.45% of the cone). Corrected on/off **6.37×** (> 2× gate).
+  (cone radius 1.286 mm vs 1.055 mm near-edge offset; in-cone crescent 0.231 mm² = 4.45% of the cone). Corrected on/off **6.78×** (> 2× gate).
 - **A7 (framing):** the "absorber within ±1 mm DoF" check is downgraded to provenance only and
   explicitly not counted as evidence (absorber term 7.7× below the vane term).
 - **A9 (method):** `shutter_tolerance_mc()` now samples an explicit reader/aperture-plane placement
   tolerance (±0.10 mm; hostile ±0.20 mm), so `aperture_clearance` can fail. Worst sampled clearance
-  +0.434 mm nominal / +0.325 mm at ±0.20 mm — still positive.
+  +0.434 mm nominal / +0.425 mm at ±0.20 mm — still positive.
 - **Gates:** `falsifier_dnd115_checks.py --gate` (12 attacks) and
   `falsifier_dnd115_a1_shutter_audit.py --gate` (12 attacks) both exit 0 after the correction.
 

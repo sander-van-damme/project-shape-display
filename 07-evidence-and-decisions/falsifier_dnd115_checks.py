@@ -311,15 +311,22 @@ def attack_s11_neighbour_in_cone():
             + hidden * FLAP_REFLECTANCE / g_flap ** 2)
     # independent in-cone area (exact crescent, not the chord proxy)
     inc_area = _in_cone_crescent_area(cone_r, nb_offset)
-    ct_ratio = (inc_area / depth ** 2) / ((FLAG_AP_MM * SHUT_D_MM) / FLAG_GAP_MM ** 2)
-    ct_term = VANE_REFLECTANCE * inc_area / depth ** 2
-    corrected = (bright + ct_term) / (dark + ct_term)
-    ok = in_cone and (corrected >= 2.0)
+    # DND-121: the neighbour term must use the SAME area convention as the vane
+    # (the read-spot area the detector integrates), so the ratio is area-consistent.
+    spot_area = math.pi * (spot / 2.0) ** 2
+    vane_abs = VANE_REFLECTANCE * spot_area / FLAG_GAP_MM ** 2
+    nb_abs = VANE_REFLECTANCE * inc_area / depth ** 2
+    flap_abs = FLAP_REFLECTANCE * spot_area / g_flap ** 2
+    corrected = ((1.0 - visible) * vane_abs + nb_abs) / (
+        (1.0 - hidden) * vane_abs + hidden * flap_abs + nb_abs)
+    ct_ratio = nb_abs / vane_abs
+    ok = in_cone and (corrected >= 2.0) and (ct_ratio <= 1.0)
     return (ok,
             "neighbour near edge is INSIDE the 15 deg cone by %.3f mm (weakly "
-            "in-cone, state-invariant); corrected on/off %.2fx (>= 2x gate) - "
-            "'off-beam' wording falsified (DND-118 A6)"
-            % (cone_r - nb_offset, corrected),
+            "in-cone, state-invariant, %.1f%% of the vane return); corrected "
+            "on/off %.2fx (>= 2x gate) - 'off-beam' wording falsified "
+            "(DND-118 A6, DND-121 consistent normalization)"
+            % (cone_r - nb_offset, ct_ratio * 100.0, corrected),
             dict(corrected=corrected, in_cone=in_cone))
 
 

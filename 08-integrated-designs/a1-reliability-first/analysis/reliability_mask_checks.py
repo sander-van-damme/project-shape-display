@@ -149,8 +149,14 @@ def main() -> int:
     check("DND-119 neighbour crosstalk is GATED, not only reported",
           sc["neighbour_crosstalk_gated"] is True
           and sc["neighbour_crosstalk_ratio_physical"] <= 1.0)
+    check("DND-121 crosstalk term is dimensionally consistent (area convention)",
+          sc["neighbour_over_vane_term"] > 0.0
+          and abs(sc["neighbour_over_vane_term"]
+                  - sc["neighbour_return_abs"] / sc["vane_return_abs"]) < 1e-3)
     check("DND-119 crosstalk-corrected on/off ratio still clears 2x",
           sc["on_off_return_ratio_with_crosstalk"] >= sc["on_off_gate"])
+    check("DND-121 crosstalk-corrected on/off is below the ideal (term is a drag)",
+          sc["on_off_return_ratio_with_crosstalk"] < sc["on_off_return_ratio"])
     check("DND-119 absorber standoff is provenance-only (NOT evidence)",
           sc["absorber_in_dof"] is True
           and sc["absorber_delta_z_mm"] <= 1.0

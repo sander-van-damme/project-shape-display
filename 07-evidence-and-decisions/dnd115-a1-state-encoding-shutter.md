@@ -78,7 +78,7 @@ frame-fixed vane top** (`Δz = 0`); only the *shadow* is state-dependent.
 | Reader standoff / aperture | **1.8 mm / 0.44 mm** | CAD (DND-115 revision) |
 | Read spot | 1.405 mm | `a + 2·g·tan15°` |
 | Swept flap neighbour clearance | **0.280 mm** | CAD envelope |
-| Swept flap own-column clearance | **3.41 mm** | CAD envelope |
+| Swept flap own-column clearance | **3.42 mm** | CAD envelope |
 
 ## 3. The state-encoding contrast (CALCULATION)
 
@@ -91,10 +91,10 @@ XY footprint at each crank angle:
 | Shadow of the read spot — HIDDEN | **100%** | fully occluded |
 | Shadow of the read spot — VISIBLE | **0%** | fully clear |
 | On/off return ratio | **7.72×** | gate 2× — **PASS** |
-| On/off ratio incl. in-cone neighbour | **6.37×** | gate 2× — **PASS** (DND-119) |
+| On/off ratio incl. in-cone neighbour | **6.78×** | gate 2× — **PASS** (DND-121) |
 | Reflective target Δz | **0.000 mm** | frame-fixed — **PASS** |
 | Absorber standoff Δz | 0.55 mm | **provenance only** (DND-119; term 7.7× below the vane term) |
-| Neighbour crosstalk (clear state) | **4.6%** of the vane return; **modelled and GATED** (ratio ≤ 1) | **PASS** (DND-119) |
+| Neighbour crosstalk (clear state) | **2.1%** of the vane return; **modelled and GATED** (ratio ≤ 1) | **PASS** (DND-121) |
 | Ambient | rejected ~1000× (modulated LED + sync detect) | assumption-class |
 
 The deciding numbers are **geometric** (shadow fraction, lane clearance), not
@@ -111,8 +111,8 @@ claim-framing/method defects are corrected here with **no geometry change**:
   neighbour-top plane the coaxial 15° cone radius is **1.286 mm** vs the
   **1.055 mm** near-edge offset, so the edge is in-cone by **0.231 mm**. The
   in-cone part of the neighbour top is the **0.231 mm²** crescent (4.45% of the
-  cone); it contributes a small **state-invariant** return (~4.6% of the vane
-  term); the corrected on/off is **6.37×**, still > 2× gate.
+  cone); it contributes a small **state-invariant** return (**2.1%** of the
+  vane term); the corrected on/off is **6.78×**, still > 2× gate.
 - **A7 — absorber DoF downgraded.** The "absorber Δz inside ±1 mm DoF" check is
   **vacuous**: the target is the frame-fixed vane (Δz = 0), and the absorber term
   is 7.7× below the vane term. It is reported for provenance only and **not**
@@ -121,7 +121,7 @@ claim-framing/method defects are corrected here with **no geometry change**:
   aperture plane to the nominal vane top, so `aperture_clearance` could never
   fail. It now samples an explicit reader/aperture-plane placement tolerance
   (±0.10 mm; hostile ±0.20 mm) and the aperture check is fail-able. Worst sampled
-  aperture clearance is **+0.434 mm** nominal and **+0.325 mm** at ±0.20 mm —
+  aperture clearance is **+0.434 mm** nominal and **+0.425 mm** at ±0.20 mm —
   still positive, so the design survives; the method now demonstrates it.
 
 ## 4. The DND-115 revision to the DND-114 standoff (IMPORTANT)
@@ -153,15 +153,22 @@ hostile ±0.20 mm) instead of being pinned to the nominal vane top.
 | Vane gap | 0.450 mm | 0.000 | 0.000 |
 | Coverage | 0.045 mm | 0.000 | 0.000 |
 | Own clearance | 3.351 mm | 0.000 | 0.000 |
-| On/off ratio | 4.48× | 0.000 | 0.000 |
+| On/off ratio | 4.18× | 0.000 | 0.000 |
 
 The binding term is the **inter-cell pitch tolerance** on the neighbour body; a
 single monolithic frame print retires it (nominal-tolerance fail rate is **0**
 across 200k draws). The worst-case neighbour clearance can go negative only
-under the hostile ±0.20 mm pitch assumption, at 0.036 %. **DND-119 (A9):** the
-aperture-clearance check is now fail-able (independent reader placement); worst
-sampled clearance is +0.434 mm nominal and +0.325 mm at ±0.20 mm reader
-placement, so the design survives and the pre-DND-119 tautology is retired.
+under the hostile ±0.20 mm pitch assumption, at 0.036 %. **DND-119/121 (A9/A14):**
+the aperture-clearance check is now fail-able (independent reader placement); worst
+sampled clearance is +0.434 mm nominal and +0.425 mm at ±0.20 mm reader
+placement, so the design survives and the pre-DND-119 tautology is retired. The
+MC on/off check now carries the same state-invariant in-cone neighbour term as
+`contrast_passes` (A14), so the stack-up gates the quantity the ADR quotes.
+
+> **Numbers are model-generated (DND-121/A13).** The margins, fail rates and
+> ratios above are the literal output of
+> `shutter_tolerance_mc(n=200_000, seed=115)`. The merged DND-122 audit attack
+> **A13** asserts the ADR/README figures equal the live model values.
 
 ## 6. R1/G2/R4 re-checked with the shutter present
 
@@ -229,11 +236,11 @@ read spot, the visible state 0%, a **7.72× on/off return ratio** (gate 2×), wi
 the reflective target still frame-fixed (`Δz = 0`). The recommended,
 tolerance-robust configuration uses a **1.8 mm standoff / 0.44 mm aperture** (the
 DND-114 1.0 mm standoff is infeasible under the stack-up); the swept flap clears
-the neighbour body by 0.280 mm and the own column by 3.41 mm, and the Monte Carlo
+the neighbour body by 0.280 mm and the own column by 3.42 mm, and the Monte Carlo
 stack-up passes at zero failures under realistic tolerances. **DND-119 corrected
 the claim framing** from the DND-118 audit with no geometry change: the neighbour
 crosstalk is now **modelled and gated** (physical in-cone ratio 0.068, corrected
-on/off **6.37×** > 2× gate), the false "off-beam" wording is removed (the
+on/off **6.78×** > 2× gate), the false "off-beam" wording is removed (the
 neighbour is weakly in-cone, state-invariant), the vacuous "absorber in DoF"
 claim is downgraded to provenance, and the tolerance MC samples an independent
 reader/aperture placement so its aperture check can fail (still +0.44/+0.34 mm).

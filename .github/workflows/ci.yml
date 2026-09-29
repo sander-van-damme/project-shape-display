@@ -331,10 +331,13 @@ jobs:
         # model only to probe the repaired claims; the geometry/arithmetic is
         # recomputed in-file). DND-118 found A5/A6/A7/A9 claim-framing/method
         # defects: the "off-beam neighbour" wording was false (weakly in-cone;
-        # on/off 7.72x -> 6.37x, still > 2x gate), the crosstalk number was
-        # reported but not gated, the "absorber in DoF" check was vacuous, and the
-        # MC aperture check was tautological. DND-119 corrected all four with NO
-        # geometry change, so this is now a HARD GATE: --gate must exit 0.
+        # on/off 7.72x -> 6.78x after DND-121, still > 2x gate), the crosstalk
+        # number was reported but not gated, the "absorber in DoF" check was
+        # vacuous, and the MC aperture check was tautological. DND-119 corrected
+        # all four with NO geometry change; DND-121 fixed the crosstalk-term
+        # normalization (area-consistent) and added attack A13, which parses the
+        # ADR and asserts its quoted numbers equal the live model. This is a
+        # HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
         run: |
           python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py --gate

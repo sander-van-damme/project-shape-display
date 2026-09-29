@@ -26,12 +26,16 @@ Attacks (default-deny):
   A10 hidden/visible states survive linkage angular tolerance       PASS
   A11 printability / min-feature / watertight mesh evidence         PASS
   A12 claim-5 (DND-114 1.0 mm standoff infeasible) reproduces       PASS
+  A13 ADR-quoted numbers equal the live model output                PASS (added DND-121)
 
 The four DND-118 findings (A5/A6/A7/A9) were modelling / claim-framing / method
-defects. DND-119 repaired all four in the audited artifacts, so this register now
-asserts the corrected state and is CLEAN. The core geometry (A1-A4, A8,
-A10-A12) reproduced independently throughout. See
-`falsifier_dnd115_a1_shutter_audit.md` for the full register and verdict.
+defects. DND-119 repaired all four in the audited artifacts; DND-121 then fixed
+the crosstalk-term normalization (area-consistent, on/off 6.78x) and added A13,
+which parses the ADR and asserts its quoted figures equal the live model, so the
+claim-drift defect class cannot recur. This register now asserts the corrected
+state and is CLEAN. The core geometry (A1-A4, A8, A10-A12) reproduced
+independently throughout. See `falsifier_dnd115_a1_shutter_audit.md` for the full
+register and verdict.
 
 Evidence class: CALCULATION + CAD geometry. No print, no purchase, no
 measurement (DND-27). No board contact (DND-32). Python stdlib only.
@@ -132,21 +136,30 @@ def a4_target_frame_fixed():
 
 def a5_crosstalk_gated():
     """A5: is the neighbour crosstalk term now GATED in contrast_passes?"""
-    # Physical in-cone crosstalk ratio (the term the repair actually gates).
+    # Physical, area-CONSISTENT in-cone crosstalk ratio (the term the repair
+    # gates): both the neighbour patch and the vane are scaled by their actual
+    # illuminated areas at the detector (DND-121 normalization).
     depth = SHUT_APER_Z - TRAVEL
     cone_r = depth * math.tan(math.radians(HALF_ANGLE_DEG))
     nb_off = NB_NEAR - HINGE_X
-    band_x = max(0.0, cone_r - nb_off)
-    chord_y = 2.0 * math.sqrt(max(0.0, cone_r ** 2 - nb_off ** 2))
-    inc_area = min(band_x, BODY) * min(chord_y, BODY)
-    phys = (inc_area / depth ** 2) / ((SHUT_AP * SHUT_D) / SHUT_APER_GAP ** 2)
+    # exact crescent area between x=nb_off and x=cone_r (not the band x chord proxy)
+    def _seg(_R, _x):
+        if _x >= _R:
+            return 0.0
+        return _R ** 2 * math.acos(_x / _R) - _x * math.sqrt(_R ** 2 - _x ** 2)
+    inc_area = _seg(cone_r, nb_off)
+    spot = SHUT_AP + 2 * SHUT_APER_GAP * math.tan(math.radians(HALF_ANGLE_DEG))
+    spot_area = math.pi * (spot / 2.0) ** 2
+    vane_abs = R_VANE * spot_area / SHUT_APER_GAP ** 2
+    nb_abs = R_VANE * inc_area / depth ** 2
+    phys = nb_abs / vane_abs
     gated = _probe_model()
     ok = gated and (phys <= 1.0)
     return ok, (
-        "crosstalk GATED after DND-119: physical in-cone ratio = %.3f x (<= 1); "
-        "the repaired model carries neighbour_crosstalk_gated into "
-        "contrast_passes (probe = %s). The DND-118 A5 defect (reported, not "
-        "gated) is repaired." % (phys, gated))
+        "crosstalk GATED after DND-119/121: area-consistent in-cone ratio = "
+        "%.4f x (<= 1); the repaired model carries neighbour_crosstalk_gated "
+        "into contrast_passes (probe = %s). The DND-118 A5 defect (reported, "
+        "not gated) is repaired." % (phys, gated))
 
 
 def _probe_model():
@@ -177,6 +190,8 @@ def a6_neighbour_off_beam():
     in_cone = dx < r_cone
     # The repaired model must expose the in-cone flag and the corrected ratio.
     model_ok = False
+    live_ratio = float("nan")
+    live_pct = float("nan")
     try:
         import importlib.util as _ilu
         import os as _os
@@ -187,8 +202,10 @@ def a6_neighbour_off_beam():
         _mod = _ilu.module_from_spec(_spec)
         _spec.loader.exec_module(_mod)
         r = _mod.shutter_read_contrast()
+        live_ratio = r.get("on_off_return_ratio_with_crosstalk", float("nan"))
+        live_pct = 100.0 * r.get("neighbour_over_vane_term", float("nan"))
         model_ok = bool(r.get("neighbour_in_cone") is True
-                        and r.get("on_off_return_ratio_with_crosstalk", 0) >= 2.0
+                        and live_ratio >= 2.0
                         and "weakly in-cone" in r.get("verdict", "")
                         and "NOT off-beam" in r.get("verdict", ""))
     except Exception:  # noqa: BLE001
@@ -196,10 +213,11 @@ def a6_neighbour_off_beam():
     ok = in_cone and model_ok
     return ok, (
         "neighbour near edge INSIDE the 15 deg cone by %.3f mm (weakly in-cone, "
-        "state-invariant, ~4.6%% of the vane term); corrected on/off 6.37x (> 2x "
-        "gate). DND-119 replaced the false 'off-beam' wording with the corrected "
-        "statement and the model exposes neighbour_in_cone (probe = %s)."
-        % (r_cone - dx, model_ok))
+        "state-invariant, %.1f%% of the vane return - live model); corrected "
+        "on/off %.2fx (> 2x gate). DND-119/121 replaced the false 'off-beam' "
+        "wording with the corrected statement and the model exposes "
+        "neighbour_in_cone (probe = %s)."
+        % (r_cone - dx, live_pct, live_ratio, model_ok))
 
 
 def a7_absorber_dof_meaningful():
@@ -319,6 +337,72 @@ def a12_claim5_infeasible():
         "-> %.3f mm (feasible); claim 5 reproduces" % (worst114, worst115))
 
 
+def a13_adr_numbers_match_model():
+    """A13 (DND-122/DND-121): the ADR/README quoted numbers must equal the live model.
+
+    Parses `07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md` and
+    checks the decisive quoted figures against the live output of
+    `shutter_read_contrast()` / `shutter_tolerance_mc()`. A claim-framing pass that
+    states numbers the code does not produce is the DND-112/DND-111 defect class
+    (a stated number no artifact supports). This makes the drift self-enforcing.
+    """
+    import importlib.util as _ilu
+    import os as _os
+    import re as _re
+    _here = _os.path.dirname(_os.path.abspath(__file__))
+    adr_path = _os.path.join(_here, "dnd115-a1-state-encoding-shutter.md")
+    _p = _os.path.join(_here, "..", "08-integrated-designs",
+                       "a1-reliability-first", "analysis", "a1_writer_rate.py")
+    _spec = _ilu.spec_from_file_location("_a1wr_probe_a13", _p)
+    _mod = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    c = _mod.shutter_read_contrast()
+    t = _mod.shutter_tolerance_mc()
+    text = open(adr_path, encoding="utf-8").read()
+    mismatches = []
+
+    def _check(label, pattern, actual, tol):
+        m = _re.search(pattern, text)
+        if not m:
+            mismatches.append("%s: not found in ADR" % label)
+            return
+        quoted = float(m.group(1))
+        if abs(quoted - actual) > tol:
+            mismatches.append("%s ADR %.3f vs model %.3f"
+                              % (label, quoted, actual))
+
+    # §2 sweep clearance and §3 ratios.
+    _check("sweep clearance",
+           r"Swept flap neighbour clearance \| \*\*([\d.]+) mm",
+           c["neighbour_flap_clearance_mm"], 0.005)
+    _check("crosstalk-corrected on/off",
+           r"On/off ratio incl\. in-cone neighbour \| \*\*([\d.]+)×",
+           c["on_off_return_ratio_with_crosstalk"], 0.02)
+    # §5 MC table.
+    _check("MC neighbour clearance",
+           r"Neighbour flap clearance \| \*\*([\d.]+) mm",
+           t["worst_case_nominal"]["neighbour_flap_clearance_mm"], 0.005)
+    _check("MC aperture clearance",
+           r"Aperture clearance \| \*\*([\d.]+) mm",
+           t["worst_case_nominal"]["aperture_clearance_mm"], 0.005)
+    _check("MC on/off ratio",
+           r"On/off ratio \| ([\d.]+)×",
+           t["worst_case_nominal"]["on_off_ratio"], 0.02)
+    ok = not mismatches
+    return ok, (
+        "ADR quoted sweep %.3f / on-off %.2fx / MC %.3f, %.3f, %.2fx vs live model "
+        "%.3f / %.2fx / %.3f, %.3f, %.2fx -> %s"
+        % (c["neighbour_flap_clearance_mm"], c["on_off_return_ratio_with_crosstalk"],
+           t["worst_case_nominal"]["neighbour_flap_clearance_mm"],
+           t["worst_case_nominal"]["aperture_clearance_mm"],
+           t["worst_case_nominal"]["on_off_ratio"],
+           c["neighbour_flap_clearance_mm"], c["on_off_return_ratio_with_crosstalk"],
+           t["worst_case_nominal"]["neighbour_flap_clearance_mm"],
+           t["worst_case_nominal"]["aperture_clearance_mm"],
+           t["worst_case_nominal"]["on_off_ratio"],
+           "MATCH" if ok else "MISMATCH: " + "; ".join(mismatches)))
+
+
 ATTACKS = [
     ("A1_hidden_occludes", a1_hidden_occludes),
     ("A2_visible_clears", a2_visible_clears),
@@ -332,6 +416,7 @@ ATTACKS = [
     ("A10_angular_tolerance", a10_angular_tolerance),
     ("A11_printability", a11_printability),
     ("A12_claim5_infeasible", a12_claim5_infeasible),
+    ("A13_adr_numbers_match_model", a13_adr_numbers_match_model),
 ]
 
 

@@ -216,5 +216,28 @@ change** (the reflective target Δz stays 0; the CAD is untouched):
 
 Both gates are green after the correction:
 `falsifier_dnd115_checks.py --gate` (12 attacks) and
-`falsifier_dnd115_a1_shutter_audit.py --gate` (12 attacks) exit 0. The register
+`falsifier_dnd115_a1_shutter_audit.py --gate` (13 attacks) exit 0. The register
 table above now reads all-PASS.
+
+## DND-121 correction note (crosstalk normalization + A13 self-enforcement)
+
+[DND-121](/DND/issues/DND-121) resumed after the [DND-122](/DND/issues/DND-122)
+re-verification found a residual A13 (the correction pass had hand-typed margins
+the model did not produce). DND-121:
+
+- **Area-consistent crosstalk normalization.** The DND-119 model added
+  `rho * A_nb / g_nb^2` (an area-scaled term) to `rho / g_vane^2` (a unit-area
+  proxy) — a dimensional mismatch. DND-121 scales neighbour and vane by their
+  **actual illuminated areas** (the read-spot area the detector integrates), so
+  the crosstalk ratio is a dimensionless, convention-invariant **2.1%** of the
+  vane return; the corrected on/off is **6.78×** (gate 2×). All defensible
+  area conventions leave the ratio far above 2×; 6.78× is the physically direct
+  value.
+- **A14 hardening.** `shutter_tolerance_mc()`'s on/off check now carries the
+  same state-invariant crosstalk term as `contrast_passes` (worst MC on/off
+  **4.18×**).
+- **A13 added.** The independent audit now **parses the ADR** and asserts its
+  quoted figures equal the live `shutter_read_contrast()` /
+  `shutter_tolerance_mc()` output, so the A13 drift class cannot recur.
+- Stale margins corrected to model values (own-column 3.42 mm; ±0.20 mm aperture
+  clearance +0.425 mm).

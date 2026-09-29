@@ -815,26 +815,42 @@ def shutter_read_contrast():
     cone_area_mm2 = math.pi * cone_radius_at_nb_mm ** 2
     neighbour_cone_fraction = (neighbour_incident_area_mm2 / cone_area_mm2
                                if cone_area_mm2 > 0 else 0.0)
-    # Neighbour return = r_vane (bright top) * in-cone area / g_nb^2; vane return =
-    # r_vane * vane area / g_aper^2. The in-cone neighbour is state-INVARIANT.
-    neighbour_region = neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
-    vane_region = (0.44 * 1.60) / g_vane ** 2               # vane area / g^2
-    crosstalk_ratio = neighbour_region / vane_region        # in-cone neighbour/vane
-    # The old, deliberately over-conservative body-area proxy (whole 3.6 mm face at
-    # the minimum neighbour gap, ignoring the cone); kept for provenance, NOT gated.
-    neighbour_face_area_ratio = ((cell_top_mm ** 2) / nb_gap_min_mm ** 2) / vane_region
-    # DND-119 (A6): the in-cone neighbour term is state-invariant, so it adds the
-    # SAME return to the bright and dark states. Physically the neighbour return is
-    # r_vane * in-cone area / g_nb^2 (bright up-face at the neighbour-top plane),
-    # normalised the same way as the vane term r_vane/g_vane^2. Model it explicitly
-    # and recompute the on/off ratio with the crosstalk included. (Matches the
-    # DND-118 audit: ~0.008 vs the ~0.247 vane term, on/off 7.72x -> 6.37x.)
-    crosstalk_term = r_vane * neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
-    bright_with_crosstalk = bright + crosstalk_term
-    dark_with_crosstalk = dark + crosstalk_term
+    # DND-121 (A13 normalization fix): the neighbour and the vane must be added to
+    # the SAME photometric proxy. Tret both as Lambertian patches and use each
+    # source's ACTUAL illuminated area at the common detector:
+    #   vane  : rho_vane * A_spot   / g_vane^2
+    #   neighbour: rho_vane * A_nb  / g_nb^2    (bright up-face, in-cone part)
+    #   flap  : rho_flap * A_spot   / g_flap^2
+    # where A_spot = pi*(spot/2)^2 is the read-spot area the detector integrates on
+    # the vane/flap. The earlier code added `rho*A_nb/g_nb^2` to `rho/g_vane^2`
+    # (an absolute area term vs a unit-area proxy) - a dimensional mismatch that
+    # made the correction depend on an arbitrary area reference. The
+    # area-INDEPENDENT dimensionless ratio r = nb_return/vane_return is what the
+    # gate needs; the resulting on/off is invariant to the area convention.
+    spot_r_mm = spot_mm / 2.0
+    spot_area_mm2 = math.pi * spot_r_mm ** 2
+    vane_return_abs = r_vane * spot_area_mm2 / g_vane ** 2
+    nb_return_abs = r_vane * neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
+    flap_return_abs = r_flap * spot_area_mm2 / g_flap ** 2
+    crosstalk_ratio = nb_return_abs / vane_return_abs        # dimensionless
+    # Re-express the state returns in the same absolute convention and add the
+    # state-INVARIANT neighbour return to BOTH states.
+    bright_abs = (1.0 - visible_shadow) * vane_return_abs
+    dark_abs = (1.0 - hidden_shadow) * vane_return_abs + hidden_shadow * flap_return_abs
+    bright_with_crosstalk = bright_abs + nb_return_abs
+    dark_with_crosstalk = dark_abs + nb_return_abs
+    # Keep the unit-area `bright`/`dark`/`on_off_ratio` above as the (equivalent)
+    # ideal figures; the crosstalk-corrected ratio is the gated one.
     on_off_with_crosstalk = (bright_with_crosstalk / dark_with_crosstalk
                              if dark_with_crosstalk > 0 else float("inf"))
-    neighbour_over_vane_term = crosstalk_term / bright
+    # The old, deliberately over-conservative body-area proxy (whole 3.6 mm face at
+    # the minimum neighbour gap, ignoring the cone); kept for provenance, NOT gated.
+    neighbour_face_area_ratio = (((cell_top_mm ** 2) / nb_gap_min_mm ** 2)
+                                 / (spot_area_mm2 / g_vane ** 2))
+    # Add the crosstalk to the unit-area proxies for `contrast_passes`, scaled by
+    # the dimensionless ratio so both conventions agree exactly.
+    crosstalk_term = crosstalk_ratio * bright
+    neighbour_over_vane_term = crosstalk_ratio
     # DND-119 (A5): the neighbour crosstalk term is a MARGIN, not just a report.
     # Gate it: the in-cone neighbour return must not dominate the signal. The
     # gated criterion is crosstalk_ratio <= 1 (the neighbour solid-angle term is
@@ -886,12 +902,14 @@ def shutter_read_contrast():
                             and hidden_ok and visible_ok
                             and crosstalk_gated and crosstalk_residual_ok),
         neighbour_crosstalk_ratio_upper_bound=round(crosstalk_ratio, 3),
-        neighbour_crosstalk_ratio_physical=round(crosstalk_ratio, 3),
+        neighbour_crosstalk_ratio_physical=round(crosstalk_ratio, 4),
         neighbour_crosstalk_ratio_body_area_proxy=round(
             neighbour_face_area_ratio, 3),
         neighbour_crosstalk_gated=crosstalk_gated,
         neighbour_crosstalk_term=round(crosstalk_term, 5),
         neighbour_over_vane_term=round(neighbour_over_vane_term, 4),
+        neighbour_return_abs=round(nb_return_abs, 5),
+        vane_return_abs=round(vane_return_abs, 5),
         neighbour_in_cone=neighbour_in_cone,
         neighbour_incident_area_mm2=round(neighbour_incident_area_mm2, 4),
         neighbour_cone_fraction=round(neighbour_cone_fraction, 4),
@@ -984,6 +1002,13 @@ def shutter_tolerance_mc(n=200_000, seed=115):
     # nominal vane top + gap, so aperture_clearance_mm could never fail
     # (a tautology). Now the reader/aperture placement is sampled independently.
     t_aper = 0.10
+    # DND-121 (A14): the MC on/off check must gate the SAME quantity the ADR/verdict
+    # gates - the crosstalk-inclusive ratio - not the optimistic neighbour-free one.
+    # The in-cone neighbour term is state-invariant and is a fixed fraction `cr` of
+    # the vane return (computed once, geometry-only), so it scales with the vane
+    # term: bright_ct = bright*(1+cr), dark_ct = dark + cr*bright.
+    _c0 = shutter_read_contrast()
+    crosstalk_ratio = _c0["neighbour_over_vane_term"]   # dimensionless nb/vane
 
     def _mc_one(neighbour_tol, aper_tol=t_aper):
         fails = {k: 0 for k in m}
@@ -1009,8 +1034,13 @@ def shutter_tolerance_mc(n=200_000, seed=115):
                 "vane_gap_mm": fb - vt,
                 "coverage_mm": ww - spot,
                 "own_clearance_mm": fb - TRAVEL_MM,
-                "on_off_ratio": (READ_TARGET_REFLECTANCE_UP / SHUT_APER_GAP_MM ** 2)
-                / (SHUT_FLAP_REFLECTANCE / max(aper - fb, 0.1) ** 2),
+                # DND-121 (A14): gate the crosstalk-inclusive on/off ratio. The
+                # neighbour is state-invariant, so it adds to both the bright and
+                # dark returns; cr is its vane-relative fraction.
+                "on_off_ratio": ((READ_TARGET_REFLECTANCE_UP / SHUT_APER_GAP_MM ** 2)
+                * (1.0 + crosstalk_ratio))
+                / ((SHUT_FLAP_REFLECTANCE / max(aper - fb, 0.1) ** 2)
+                   + crosstalk_ratio * READ_TARGET_REFLECTANCE_UP / SHUT_APER_GAP_MM ** 2),
             }
             for k, v in checks.items():
                 if v < worst[k]:
