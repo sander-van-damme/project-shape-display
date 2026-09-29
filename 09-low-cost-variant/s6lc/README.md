@@ -1,9 +1,12 @@
 # 09 — Ultra-low-cost alternative: S6-LC
 
-**Status:** **selected candidate machine definition, folded into the DND-72 track.**
+**Status:** **selected candidate machine definition, folded into the DND-72 track — NOT
+decision-ready after [DND-93](/DND/issues/DND-93) (G6 delivered cost fails).**
 **Owner:** CTO. **Issue:** [DND-72](/DND/issues/DND-72) (authoritative synthesis node) /
 board direction [DND-70](/DND/issues/DND-70). Originally explored under
 [DND-71](/DND/issues/DND-71), consolidated here by CEO direction.
+**Fix of record:** [DND-93](/DND/issues/DND-93) — G3 lift-axis corrected; delivered cost now
+**$263.05 (> $250)**, verdict **REJECT**.
 **Base of record:** [`08-current-design/`](../../08-current-design/README.md) (S5-R,
 $404.60 delivered — **not modified by this directory**).
 
@@ -11,7 +14,9 @@ $404.60 delivered — **not modified by this directory**).
 > over sourced FDM process limits and sourced actuator ratings. No part has been
 > printed, purchased or measured** ([DND-27](/DND/issues/DND-27)). Prices are
 > point-in-time sourced-class figures (2026-09). Independent ratification is
-> [DND-73](/DND/issues/DND-73); adversarial audit is [DND-74](/DND/issues/DND-74).
+> [DND-73](/DND/issues/DND-73); adversarial audit is [DND-91](/DND/issues/DND-91)
+> (supersedes [DND-74](/DND/issues/DND-74)); the G3 fix + re-run is
+> [`../../07-evidence-and-decisions/dnd93-s6lc-g3-fix.md`](../../07-evidence-and-decisions/dnd93-s6lc-g3-fix.md).
 > Synthesis against the S5-R-trim negative result:
 > [`../../07-evidence-and-decisions/dnd72-low-cost-synthesis.md`](../../07-evidence-and-decisions/dnd72-low-cost-synthesis.md).
 
@@ -50,9 +55,9 @@ on stroke *k* only the cells whose **bank threshold mask gate** is open advance.
 Four binary masks encode five heights (0/10/20/30/40 mm). State is cleared by a
 **travelling reset carriage** that trips the eight banked release combs one bank
 at a time — which is what bounds the worst-case simultaneous release force.
-The only bought actuators are **three small steppers**: one lift motor (four
-belt-synced lead screws), one mask-gate index motor, and one reset-carriage
-motor. **$139.77 purchased parts / $162.13 delivered**; **7.4 s** full-map.
+The only bought actuators are **three steppers**: one **NEMA23-class** lift motor (four
+belt-synced lead screws — the global stroke carries all 6,400 cells), one mask-gate index motor,
+and one reset-carriage motor. **$226.77 purchased parts / $263.05 delivered**; **11.96 s** full-map.
 
 ## 3. Why this machine (design rationale)
 
@@ -64,8 +69,8 @@ motor. **$139.77 purchased parts / $162.13 delivered**; **7.4 s** full-map.
 | Lift | printed cam platen + 2 bank motors | **1 stepper, 4 belt-synced screws** | fewer bought parts |
 | Selection medium | 40 solenoids over passive rotors | **per-bank punched/printed threshold mask** | $0 actuator |
 | Map write | rotating rotor to a hard stop | **4 broadcast 10 mm strokes** | massively parallel |
-| Cost (delivered) | $404.60 | **$162.13** | −60 % |
-| Full-map time | 24.615 s | **7.4 s** | only 4 strokes, not 80 rows |
+| Cost (delivered) | $404.60 | **$263.05** (G6 FAIL) | −35 % |
+| Full-map time | 24.615 s | **11.96 s** | only 4 strokes, not 80 rows |
 
 The architecture family is the already-screened **S1 broadcast threshold
 ratchet** ([`04-architecture-candidates/`](../04-architecture-candidates/README.md),
@@ -73,8 +78,9 @@ ratchet** ([`04-architecture-candidates/`](../04-architecture-candidates/README.
 S1's two open failures were addressed, not ignored:
 
 1. **Worst-case release force** (S1 B2: ~2.4 kN all-armed). Fixed by **banking
-   the reset** (S1-B): one bank of 800 cells at a time → **128 N**, 2.3× under
-   the 296 N ceiling.
+   the reset** (S1-B): one bank of 800 cells at a time → **128 N**, 3.2× under
+   an independent comb-tooth structural limit (**413 N**; the earlier "296 N
+   ceiling" was circular — see [DND-91](/DND/issues/DND-91)/[DND-93](/DND/issues/DND-93)).
 2. **Mask write time** (S1 C: serial 2560 s, 80-channel 56 s). Fixed by making
    the mask a **pre-written / off-line medium**, exactly as the S1/S2 screen
    permits. This is stated as a **product limitation**, not hidden (see §6).
@@ -103,26 +109,31 @@ S1's two open failures were addressed, not ignored:
 | Pawl leaf | 0.90 × 1.20 × 8.00 mm | CAD + calculation |
 | Travel / level | 40 mm / 10 mm × 4 | design criteria |
 | Banks | 8 × 10 rows (800 cells) | calculation (release force) |
-| Bought actuators | **3** (lift, mask index, reset carriage) | `s6lc.py` `bom()` |
-| Full-map time | **7.4 s** (30 s gate, 22.6 s margin) | `timing()` |
-| Purchased parts | **$139.77** (< $250) | `bom()` |
-| Delivered | **$162.13** (< $250, $87.87 margin) | `bom()` |
+| Bought actuators | **3** (NEMA23 lift, mask index, reset carriage) | `s6lc.py` `bom()` |
+| Full-map time | **11.96 s** (30 s gate, 18.04 s margin) | `timing()` |
+| Purchased parts | **$226.77** (< $250) | `bom()` |
+| Delivered | **$263.05** (> $250 — **G6 FAIL**) | `bom()` |
 
-### 5a. Gate table (`analysis/s6lc.py` `decide()`)
+### 5a. Gate table (`analysis/s6lc.py` `decide()` — corrected by DND-93)
 
 | Gate | Result | Margin |
 |---|---|---|
-| G1 cell fit (pitch/printability) | **PASS** | body 3.60, lane 1.48 |
-| G2 worst-case release force (banked) | **PASS** | 128 N vs 296 N |
-| G3 lift-axis torque | **PASS** | 1.47× |
-| G4 full map < 30 s | **PASS** | 7.4 s vs 30 s |
-| G5 cost < $250 parts | **PASS** | $139.77 |
-| G6 cost < $250 delivered | **PASS** | $162.13 |
+| G1 cell fit (pitch/printability) | **PASS** | lane budget (A1 placement overflow still open) |
+| G2 worst-case release force (banked) | **PASS** | 128 N vs 413 N (independent) |
+| G3 lift-axis torque (global board) | **PASS** | 1.63 N·m vs 2.2 N·m (1.35×) |
+| G4 full map < 30 s | **PASS** | 11.96 s vs 30 s |
+| G5 cost < $250 parts | **PASS** | $226.77 |
+| G6 cost < $250 delivered | **FAIL** | **$263.05 (over by $13.05)** |
+| G7 reset-carriage torque (new) | **PASS** | 0.082 N·m vs 0.16 N·m (1.96×) |
+
+**Corrected verdict: REJECT.** The G3 fix (DND-93) moved the lift motor to a NEMA23 class
+(+$18) and added the six honest allowances (+$69); delivered cost is now **$13.05 over** the
+$250 gate. The A1/A2/A6/A7/A8 mechanism defects from [DND-91](/DND/issues/DND-91) remain open.
 
 ## 6. Product limitation (stated, not hidden)
 
 **Mask preparation is off-line.** S6-LC's visible transition is the four
-broadcast strokes + banked reset (7.4 s). The per-bank threshold mask must be
+broadcast strokes + banked reset (11.96 s). The per-bank threshold mask must be
 set before the transition. Two legitimate modes:
 
 - **Reused/pre-written media.** Cards or gate combs for common maps are printed
@@ -132,7 +143,7 @@ set before the transition. Two legitimate modes:
   the S2 trade. If the next map is known ~10 s ahead, the <30 s visible target is
   met without qualification.
 
-A genuinely unannounced, arbitrary map is **mask-set-time first**, not 7.4 s.
+A genuinely unannounced, arbitrary map is **mask-set-time first**, not 11.96 s.
 This is a deliberate, documented limitation of this architecture, recorded
 here and in the [DND-71](/DND/issues/DND-71) plan. It is the honest price of
 removing the 40-solenoid writer bank.
@@ -142,7 +153,7 @@ removing the 40-solenoid writer bank.
 ```bash
 cd 09-low-cost-variant/s6lc/analysis
 python s6lc.py             # full machine screen (JSON)
-python s6lc_checks.py      # 29 regression checks
+python s6lc_checks.py      # 40 regression checks
 python printability_s6lc.py   # sourced FDM-limit table + record
 # CAD (real OpenSCAD; see tools/openscad-install/TOOLS)
 export PATH="$HOME/.local/bin:$PATH"
@@ -154,7 +165,7 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
 | Path | What |
 |---|---|
 | [`analysis/s6lc.py`](analysis/s6lc.py) | machine model: geometry, force, timing, BOM, gates |
-| [`analysis/s6lc_checks.py`](analysis/s6lc_checks.py) | 29 regression checks |
+| [`analysis/s6lc_checks.py`](analysis/s6lc_checks.py) | 40 regression checks |
 | [`analysis/printability_s6lc.py`](analysis/printability_s6lc.py) | sourced-FDM-limit table |
 | [`analysis/render_s6lc_cad.py`](analysis/render_s6lc_cad.py) | real-OpenSCAD render + mesh check |
 | [`scad/s6lc_machine.scad`](scad/s6lc_machine.scad) | the part set (real OpenSCAD) |
@@ -173,7 +184,16 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
   guidance budget; the as-printed value is measurement-only.
 - **No per-cell feedback.** A missed pawl is a silent local height error — the
   same failure class as S5/S5-R.
+- **Open mechanism defects ([DND-91](/DND/issues/DND-91), not fixed by
+  [DND-93](/DND/issues/DND-93)):** the CAD pawl overflows the pitch band by
+  0.260 mm (A1); the spring rate uses the root block, 8× too stiff, with no
+  hold-force gate (A2); the program reliability gate is absent (A6); the
+  unloaded-write assumption contradicts tabletop play (A7); regional/jam
+  behaviour is asserted (A8).
 
-The machine is **not** claimed print-ready or physically validated. It is a
-buildable *definition* whose every program gate is shown to pass on the DND-27
-evidence classes, at 60 % of S5-R's delivered cost.
+The machine is **not** claimed print-ready or physically validated, and after
+DND-93 it is **not decision-ready**: the corrected model **rejects** on the
+delivered-cost gate (G6, $263.05 > $250). It remains a *definition* whose gates
+G1–G5 and G7 pass on the DND-27 evidence classes; closing requires shedding
+≥ $13 delivered or re-designing the write (see
+[`dnd93-s6lc-g3-fix.md`](../../07-evidence-and-decisions/dnd93-s6lc-g3-fix.md)).

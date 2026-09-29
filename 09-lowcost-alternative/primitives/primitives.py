@@ -70,7 +70,10 @@ STEP_MM = 10.0
 TRAVEL_MM = STEP_MM * (LEVELS - 1)   # 40 mm
 
 # --- S6-LC baseline (inherited from the DND-71 brief + S1 spec) -------------
-S6LC_PARTS_USD = 139.77              # brief-stated
+S6LC_PARTS_USD = 139.77              # DND-76 brief-stated baseline. NOTE: DND-93
+                                    # later corrected the S6-LC BOM to $226.77
+                                    # parts (honest allowances + NEMA23 lift);
+                                    # this screen's baseline is the DND-76 state.
 S6LC_MOTORS = 3                      # brief-stated
 
 # S1 column/rack baseline the S6-LC cell descends from

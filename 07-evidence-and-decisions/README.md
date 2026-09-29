@@ -134,6 +134,20 @@ derived.** Eight attacks; the two load-bearing ones are **broken**:
 **Mandatory next step:** coupon **C1** (a 4×4 unit-cell print at true pitch + a push-pull gauge)
 before any full-machine print — the cheapest experiment that can reject A1/A2/A6/S1-D.
 
+### S6-LC G3 fix and re-run (DND-93, 2026-09)
+
+[DND-93](/DND/issues/DND-93) fixed the decisive G3 defect and the audit's bounded findings, then
+re-ran the gate. **G3 now passes** (`lift_axis` sized on all 6,400 cells = 2,560 N → 1.6297 N·m,
+NEMA23-class 2.2 N·m, 1.35×). A real comb-tooth structural limit (**413 N**) replaces the circular
+296 N; a **reset-carriage torque gate (G7)** was added (0.082 N·m vs 0.16 N·m, 1.96×); the
+mask-index and carriage-traverse timing terms are now priced (full map **11.96 s**); and the six
+honest BOM allowances (+$69) plus the NEMA23 motor bring delivered cost to **$263.05**. **G6
+(delivered < $250) now FAILS by $13.05**: corrected verdict **REJECT**. A1/A2/A6/A7/A8 remain open
+mechanism defects. Details:
+[`dnd93-s6lc-g3-fix.md`](dnd93-s6lc-g3-fix.md). The DND-91 gate
+[`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) is re-baselined (40 checks) to assert the
+corrected state and keep the open attacks locked.
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
