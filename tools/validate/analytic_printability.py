@@ -479,7 +479,102 @@ def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
         # a printed camshaft / writer comb. It needs its own checker for the new
         # features (cam disc, comb finger) while reusing the register checks.
         return check_a1_cam_cell(path, spec)
+    if "b2b3_reliability_cell" in name:
+        # DND-107: the reliability-first machines. Checks the B2 toggle hinge /
+        # hard-stop lug and the B3 pawl / drum follower finger at true pitch.
+        return check_reliability_cell(path, spec)
+    if "reliability_cell" in name:
+        # DND-106: the reliability-first cell/mechanism primitives (wedge gate,
+        # row rocker + staircase, read-comb finger) at true 5.08 mm pitch.
+        return check_dnd106_reliability_cell(path, spec)
     return check_coupon(path, spec)
+
+
+def check_reliability_cell(coupon_path: Path,
+                           spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-107 B2/B3 reliability-first cell.
+
+    The DND-103 rule is that the repeated feature must be GENEROUS, not a single
+    extrusion line. This checker therefore reports each repeated feature against
+    the 2-line robust target (spec.min_wall_mm) with the 1-line hard floor
+    (spec.min_feature_mm), plus the hard-stop lug engagement as a positive
+    feature. It is the reliability-arm of the CAD evidence, complementing the
+    existing pitch-budget cells.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    def add(feature, value, limit, rule_key, note=""):
+        r = rl[rule_key]
+        checks.append(Check(feature, round(value, 3), round(limit, 3),
+                            _verdict(value, limit), r.label, r.evidence,
+                            r.source, note))
+
+    # The repeated compliant hinge (B2) -- must be a robust 2-line feature.
+    add_wall("B2 toggle hinge thickness (TOGGLE_T)", c["TOGGLE_T"],
+             "the only compliant per-cell element in B2; DND-103 wants >= 2 lines")
+    # The B2 hard-stop lug: a POSITIVE engagement (not friction). Floor = 1 line.
+    add("B2 toggle hard-stop lug engagement (TOGGLE_LUG)", c["TOGGLE_LUG"],
+        spec.min_feature_mm, "min_feature",
+        "positive engagement depth; the hold is a hard stop, not friction")
+    add_wall("B2 hard-stop shoulder (TOGGLE_SHOULDER)", c["TOGGLE_SHOULDER"],
+             "the compression-loaded stop face")
+    # The B3 repeated pawl (unchanged register part).
+    add_wall("B3 pawl leaf thickness (PAWL_T)", c["PAWL_T"],
+             "repeated per-cell one-way pawl; keeper is deleted in B3")
+    # The B3 drum follower finger: the row-level decision element.
+    add_wall("B3 drum follower finger (GATE_BAR_T)", c["GATE_BAR_T"],
+             "one per row-station; the repeated decision is per-row, not per-cell")
+    add_wall("B3 drum track ridge (TRACK_RIDGE_T)", c["TRACK_RIDGE_T"],
+             "the printed/embossed bit on the drum surface")
+    # Shared structural/rack features.
+    add_wall("printed frame wall (WALL)", c["WALL"], "structural frame wall")
+    add("rack pocket depth (POCKET_DEPTH)", c["POCKET_DEPTH"],
+        spec.min_feature_mm, "min_feature",
+        "a pocket shallower than one line cannot print")
+
+    # Column lane: the column body must leave a positive half-pitch lane. DND-103
+    # says pitch is not the mechanism budget, but the COLUMN still tiles at pitch.
+    if "COLUMN_BODY" in c and "PITCH" in c:
+        owned_lane = (c["PITCH"] - c["COLUMN_BODY"]) / 2.0
+        checks.append(Check(
+            feature="column owned half-lane ((PITCH - COLUMN_BODY)/2)",
+            value_mm=round(owned_lane, 3), limit_mm=0.10,
+            verdict="PASS" if owned_lane >= 0.10 else "FAIL",
+            rule="visible-surface tiling gap",
+            evidence="design criteria: square columns tile at 5.08 mm pitch",
+            source="DND-103; column top only must honor pitch",
+            note="mechanisms may live below/beside; only the column top tiles"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer; geometry-vs-process only.",
+            "Hinge fatigue life and toggle snap repeatability are measurement-only "
+            "and are NOT established by this analytic table.",
+        ],
+    }
 
 
 def check_media_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
@@ -607,6 +702,112 @@ def check_a1_cam_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> d
     base["checks"] = checks
     base["verdict"] = "FAIL" if fails else ("RISK" if risks else "PASS")
     return base
+
+
+def check_dnd106_reliability_cell(coupon_path: Path,
+                                  spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-106 reliability-first cell primitives.
+
+    Checks the printed features the DND-106 primitives add at the true 5.08 mm
+    pitch: the R2 wedge-gate body and its hard stops, the R1 row-rocker
+    load-bearing arm and its 2-line staircase step/tooth, the R3 read-comb
+    finger, plus the unchanged column body and housing wall. The R3 finger width
+    is a deliberately compliant SENSING member, so it is reported as a sensing
+    risk rather than a load-bearing wall failure. Evidence class and sourced
+    limits are identical to the other checkers.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add(feature, value, limit, verdict, rule_key, note=""):
+        r = rl[rule_key]
+        if verdict == "auto":
+            verdict = _verdict(value, limit)
+        checks.append(Check(feature, round(value, 3), round(limit, 3), verdict,
+                            r.label, r.evidence, r.source, note))
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    for key, label, note in (
+        ("GATE_BODY_T", "R2 wedge-gate body (GATE_BODY_T)",
+         "sliding gate across the pitch lane; 2 lines robust"),
+        ("GATE_HIGH_STOP", "R2 gate high-stop wall (GATE_HIGH_STOP)",
+         "printed hard stop, raised state"),
+        ("GATE_LOW_STOP", "R2 gate low-stop wall (GATE_LOW_STOP)",
+         "printed hard stop, lowered state (platen-driven reset)"),
+        ("GATE_SHOULDER", "R2 gate shoulder (GATE_SHOULDER)",
+         "shoulder that blocks the column lift tooth"),
+        ("ROCKER_ARM_T", "R1 row-rocker arm (ROCKER_ARM_T)",
+         "load-bearing toggle arm; wants 3 lines"),
+        ("STEP_TOOTH_W", "R1 staircase step/tooth (STEP_TOOTH_W)",
+         "2-line ledge tooth carrying one cell in compression"),
+        ("FINGER_T", "R3 read-comb finger thickness (FINGER_T)",
+         "compliant sensing finger across its bending axis"),
+        ("COLUMN_BODY", "column body (COLUMN_BODY)",
+         "visible column body at pitch"),
+        ("WALL", "housing wall (WALL)", "printed cell wall"),
+    ):
+        if key in c:
+            add_wall(label, c[key], note)
+
+    if "ROTOR_R" in c:
+        add_wall("R1 rocker pivot boss (2 x ROTOR_R)", 2.0 * c["ROTOR_R"],
+                 "printed-in-place pivot boss, not an inserted pin")
+
+    # The R3 finger width is a deliberately COMPLIANT sensing member, not a
+    # load-bearing wall. Report it separately as a sensing risk.
+    if "FINGER_W" in c:
+        checks.append(Check(
+            feature="R3 read-comb finger width (FINGER_W) -- SENSING, not a wall",
+            value_mm=round(c["FINGER_W"], 3), limit_mm=spec.min_wall_mm,
+            verdict="RISK" if c["FINGER_W"] < spec.min_wall_mm else "PASS",
+            rule="compliant sensing member (not a load-bearing wall)",
+            evidence="CAD + CALCULATION; the finger only senses gate state",
+            source="DND-106 R3",
+            note="a thin sensing finger is intended to flex; it is printed "
+                 "replaceable and carries no terrain load"))
+
+    if {"GATE_LANE", "GATE_BODY_T"} <= c.keys():
+        v = lateral_clearance(c["GATE_LANE"] - c["GATE_BODY_T"],
+                              required_mm=0.20, spec=spec)
+        checks.append(Check(
+            feature="R2 gate running clearance (GATE_LANE - GATE_BODY_T), worst case",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; the "
+                 "wedge must slide, not fuse"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer; geometry-vs-process only.",
+            "A RISK on the R3 sensing finger is intended (it must flex); it is "
+            "not a load-bearing-wall failure.",
+            "The gate slide friction and the rocker toggle force are "
+            "measurement-only (DND-27 forbids the coupon print here).",
+        ],
+    }
 
 
 def check_coupon(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:

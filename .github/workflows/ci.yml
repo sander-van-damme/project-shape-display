@@ -217,6 +217,25 @@ jobs:
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
+      - name: "DND-109 reliability-first cost/printability envelope gate"
+        # Sourced-class cost envelope + FDM-printability rules for the
+        # reliability-first (DND-104) mechanism classes. Pins the x1.16 delivered
+        # convention and $215.52 parts ceiling, the per-cell bought-hardware
+        # sensitivity (zero per-cell is mandatory), the flag integrity of the
+        # media/consumable rows, and the 99%-map per-cell error budget. Sourced
+        # listings + CALCULATION only (DND-27).
+        run: python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py
+      - name: "DND-106 reliability-first primitives gate (child of DND-104)"
+        # InventorAlpha reliability-first cell/mask primitives: R1 toggle-rocker
+        # row-shared state (80 decisions vs 6,400), R2 double-acting wedge-gate
+        # (driven positive reset, removes the A8 gravity-drop class), R3
+        # mechanical read-rod readback (detectable/recoverable), R4 shared
+        # return bar recorded REJECTED. Each primitive must answer the FULL
+        # reliability-audit schema + ten functional jobs; the correlation
+        # arithmetic (80x/800x looser q) and the <30 s visible budget are
+        # pinned; the analytic CAD printability gate is wired for the new cell.
+        # CALCULATION + CAD only (DND-27).
+        run: python 09-low-cost-variant/divergent/tools/run_reliability_checks.py
       - name: "DND-74 falsifier findings RESOLUTION gate (DND-93 + DND-97)"
         # Reproduces the DND-74 attack arithmetic as the historical record AND
         # asserts the fixes are in place (lift on 6400 cells, comb-tooth limit,
@@ -232,6 +251,40 @@ jobs:
         # the DND-46 hostile-reprice cost ladder, and the default-deny audit()
         # contract used against 10-reliability-mask/ when it lands. CALCULATION (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd104_checks.py
+      - name: "DND-104 reliability-first architecture screen + reliability gate"
+        # Pins the reliability-first program: seven materially different
+        # architectures (A1 binary-latch + shared writer/reader, A2 global
+        # broadcast binary interlock, A3 punched film, A4 rewritable comb, A5
+        # banked ratchet + coarse readback, A6 embossed tape, A7 shared
+        # camshaft). Asserts A1 is the only all-gate-feasible machine, that its
+        # repeated silent-error set is structurally zero (reader verifies), and
+        # that every global-lift machine fails the tabletop-load gate (DND-91
+        # A7). CALCULATION over sourced limits; no print/measurement (DND-27).
+        run: |
+          python 10-reliability-mask/analysis/reliability_mask.py > /dev/null
+          python 10-reliability-mask/analysis/reliability_mask.py convergence > /dev/null
+          python 10-reliability-mask/analysis/reliability_mask_checks.py
+          python 10-reliability-mask/analysis/make_table.py
+
+  dnd104-cad-render:
+    # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
+    # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is
+    # a hard failure so a skipped render can never be mistaken for valid CAD.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Install mesh validation dependency
+        run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11"
+      - name: Render + mesh-validate the DND-104 A1 cell
+        run: python 10-reliability-mask/analysis/render_a1_cad.py
 
   lowcost-cad-render:
     # DND-72: render the ultra-low-cost variant unit cell with a real OpenSCAD,

@@ -39,6 +39,8 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
 | Test13 Step-6 load/structure/power, spliced beam (DND-43) | — | ✓ | ✓ | — | — | — | — |
 | DND-74 S6-LC falsifier audit (lift sizing, cost headroom, mask write) | ✓ | ✓ | — | — | — | — | — |
+| DND-104 reliability-first architecture screen (A1–A7; silent-error gate) | ✓ | ✓ | — | ✓ | — | — | — |
+| DND-104 A1 binary-latch + shared writer/reader (selected candidate) | ✓ | ✓ | — | ✓ | — | — | — |
 
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive

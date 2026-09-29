@@ -1,62 +1,116 @@
-# DND-98: independently re-ratify the corrected S6-LC purchased BOM
+# DND-104: reliability-first low-cost shape display + automatic mask system
 
-Closes [DND-98](/DND/issues/DND-98).
+Closes [DND-104](/DND/issues/DND-104). Parent [DND-102](/DND/issues/DND-102).
+Children folded into this PR: [DND-107](/DND/issues/DND-107) (InventorBeta
+divergent machines), [DND-109](/DND/issues/DND-109) (CostManufacturing cost +
+printability envelope). [DND-106](/DND/issues/DND-106) (InventorAlpha primitives)
+and [DND-108](/DND/issues/DND-108) (Falsifier pre-registered criteria) land on
+their own branches/PRs.
 
 ## What changed
 
-Adds the **independent re-ratification of the corrected (post-DND-93) S6-LC purchased BOM**, which
-supersedes the DND-73 ratification of the uncorrected BOM.
+A **new candidate architecture root `10-reliability-mask/`** plus supporting
+divergence and envelope material. `08-current-design/` (S5-R provenance) and the
+existing `09-low-cost-variant/` machine definitions are **untouched**.
 
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py` — re-derives the 20 BOM lines **by hand**
-  (not imported from `bom()`), with evidence-class audit, DND-73→DND-93 delta, break-evens,
-  optimistic/working/high/hostile/lean scenarios, per-cell sensitivity and reliability scaling.
-  `--selftest` and `--emit-csv` included.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py` — CI gate, **68 checks**.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_ratified.csv` — ratified purchased BOM.
-- `07-evidence-and-decisions/dnd98-s6lc-bom-reratification.md` — the ADR.
-- `.github/workflows/ci.yml` — wires the new gate; `07-evidence-and-decisions/README.md` and
-  `09-low-cost-variant/s6lc/README.md` — index/table updates.
+- `10-reliability-mask/README.md` — the selected machine definition: mechanism,
+  reliability audit, honest timing, BOM, prototype ladder, decisive falsifier.
+- `10-reliability-mask/analysis/reliability_mask.py` — divergence screen of
+  **seven** materially different architectures, the DND-103 reliability gate,
+  timing decomposition, BOM, and the convergence/selection record.
+- `10-reliability-mask/analysis/reliability_mask_checks.py` — **40/40** pinned
+  regression checks (wired into CI).
+- `10-reliability-mask/analysis/architecture_table.md` — the full per-architecture
+  comparison table (mechanism, actuators, repeated-cell complexity, mask method,
+  reset method, timing, BOM, printability, reliability risks, prototype path,
+  decisive falsifier).
+- `10-reliability-mask/scad/a1_binary_latch_cell.scad` + `cad/stl/*` +
+  `cad/render_record.json` — **real OpenSCAD** unit cell, mesh-validated
+  watertight.
+- `10-reliability-mask/bom_a1.csv` — purchased BOM.
+- `09-low-cost-variant/divergent/reliability_machines_beta.*` — InventorBeta
+  DND-107: three additional complete machines (B1 screw/nut memory, B2 pressure
+  blanket, B3 rotary drum mask) with their own 28 checks + CAD.
+- `09-low-cost-variant/reliability_sourcing/cost_envelope_dnd104.*` —
+  CostManufacturing DND-109: sourced-class cost + FDM-printability envelope.
+- `09-low-cost-variant/divergent/reliability_primitives_alpha.*` — InventorAlpha
+  DND-106: reliability-first **cell/selection/reset primitives** (R1 toggle-rocker
+  row-shared state, R2 double-acting wedge-gate cell, R3 mechanical read-rod
+  readback, R4 shared return bar **rejected**), full reliability-audit schema +
+  ten functional jobs, with 30 checks and a true-pitch CAD cell.
+- `07-evidence-and-decisions/dnd104-reliability-mask.md` — the decision record;
+  evidence matrix updated.
+- `.github/workflows/ci.yml` — DND-104 checks + a `dnd104-cad-render` job.
 
 ## Engineering question
 
-Does the corrected S6-LC purchased BOM still hold the board ceiling, and if not, which ceiling and
-which requirement must move? The issue requires an explicit statement of the **`<$250 purchased,
-excluding 3D-printed parts`** gate (DND-70/DND-72) under working and hostile pricing.
+Which machine actually answers DND-103's gate — **"what has to work correctly
+6,400 times?"** — and can it still meet ~400×400 mm / 5.08 mm / 6,400 cells /
+≥40 mm travel / <30 s / <$250 purchased?
 
-## Evidence produced (sourced listings + CALCULATION; no print/purchase/measurement, DND-27)
+## Evidence produced
 
-- Corrected headline **reproduces**: **$226.77 parts / $263.05 delivered (×1.16)**, reconciling with
-  `s6lc.bom()` and `bom_s6lc.csv`.
-- **`<$250 purchased` mission gate HOLDS: +$23.23.**
-- **`$250 delivered` repo convention FAILS: −$13.05** (both stated, neither hidden).
-- Growth since DND-73: **+$18.00** (NEMA17→NEMA23 lift re-price) + **+$69.00** six DND-91/A5
-  capability allowances = **+$87.00**.
-- Evidence class: 35 % traced / **65 % allowance** ($69.00 A5).
-- Break-even at $250 purchased: tightest line is the **lift motor** ($30 → cap $53.23, **1.77×**).
-- Scenarios (purchased): opt $199.79 / work $226.77 / high $245.61 / lean $187.26 all clear;
-  **hostile $300.58 breaches by $50.58**.
-- **No per-cell bought hardware** (3 motors; 3.543 cents/cell, 0.363 cents/cell headroom).
-- 99 %-map reliability needs **q ≤ 1.57e−6**; G7 remains measurement-gated (coupon C1).
+- **Divergence of seven architectures** (A1–A7), then selection: nothing pre-picked.
+- **Reliability gate result.** A1 (`binary-latch + shared writer/reader`) is the
+  **only** architecture with a **structurally zero silent-error set** and the only
+  one passing the tabletop-load gate (DND-91 A7). Every other architecture has
+  ≈6,400 silent elements. On the program model `(1−q)^6400`, at q=1e-4 that is
+  100 % vs 52.7 % map correctness.
+- **Selection:** A1 — two-state columns held by an over-centre latch between two
+  printed hard stops (zero compliant parts deciding correctness, zero precision
+  contacts/cell), a shared 2-axis gantry that writes only changed cells then
+  **reads every cell back** so a failed toggle is detected and re-driven.
+  **$181.00 parts / $209.96 delivered**, **24.15 s** worst case *including*
+  verification, **4 bought actuators**, no per-cell/no per-row bought actuator.
+- **Honest timing:** no physical mask ⇒ sustained cycle time **equals** visible
+  transition time. Write and verify terms are **computed** from head count × rate.
+- **CAD:** binary-latch unit cell rendered with real OpenSCAD, watertight, bed-fitting.
+- **Full comparison table** with a decisive falsifier recorded per architecture.
+- **DND-106 primitives (InventorAlpha):** three materially different
+  reliability-first primitives, each answering the full reliability-audit schema:
+  R1 cuts the "must work 6,400 times" count to **80 row-rocker decisions** (80×
+  looser q, 80-cell detectable blast radius); R2 makes reset a **platen-driven
+  positive hard stop**, removing DND-91's A8 gravity-drop failure class; R3 adds
+  **80 mechanical read points** (2 bought sensors, $4) turning a correlated error
+  into a detectable/recoverable one. R4 (shared return bar: 3,904 N summed, one
+  jam stalls all) is recorded **REJECTED**. 30/30 checks; the machine clears the
+  <30 s visible gate at **11.80 s**; analytic printability: all walls PASS, only
+  the intentional compliant R3 sensing finger is RISK.
 
 ## Assumptions
 
-- EUR listing prices carried verbatim as USD (repo K7/DND-56 convention; conservative for a US buyer).
-- The lead-screw line ($24) is under-priced ~$4.76 vs its stable order tier; carried at the committed
-  figure and flagged rather than silently re-priced.
-- Lift-load model and G3 branch choice are the CTO's (DND-93); this PR ratifies the resulting BOM,
-  it does not re-open the mechanism.
+- Writer/reader rate 1 ms/cell at 8 parallel heads (assumption-class; **prototype
+  B is the kill test**).
+- Gantry XY registration over 406 mm, hinge wear, and as-printed hard-stop
+  dimensions are unmeasured.
+- Sourced-class point-in-time prices (2026-09); no quotation obtained.
 
-## Passed / failed / uncertain
+## What passed / failed
 
-- **Passed:** `s6lc_checks` 40/40, `falsifier_dnd91_checks` 40/40, `falsifier_dnd74_checks` 28/28,
-  `s6lc_bom_reratify_checks` 68/68.
-- **Failed (recorded):** delivered cost convention ($263.05), hostile-pricing purchased ceiling.
-- **Uncertain:** A5 allowance realism; G7 reliability (measurement-only).
+- **Passed:** 40/40 DND-104 checks; 28/28 InventorBeta checks; CostManufacturing
+  envelope gate; 30/30 DND-106 InventorAlpha primitive checks (+ analytic CAD);
+  all pre-existing S5-R/S6-LC/falsifier gates (no regressions).
+- **Failed / rejected (recorded, not hidden):** A2 global interlock, A3 punched
+  film, A4 rewritable comb, A6 embossed tape (6,400 silent elements; A3 also
+  >30 s); A5 (bank-only readback, 6,392 silent); A7 (camshaft repeatability +
+  6,400 silent). InventorBeta's B1 shared driveshaft FAILS as drawn (timing- and
+  torque-feasible sets disjoint).
 
-## Next test
+## What remains uncertain
 
-Printed coupon **C1** (4×4 unit-cell at true pitch + push-pull gauge) to resolve A1/A2/A6 and G7 —
-the cheapest experiment that can reject the remaining mechanism assumptions.
+- The 1 ms/cell writer/reader rate and single-cell read resolution — the whole A1
+  reliability advantage rests on prototype B.
+- Gantry registration, hinge wear, printed hard-stop dimensions (measurement-only
+  under [DND-27](/DND/issues/DND-27)).
 
-Evidence class: **CALCULATION + sourced listings only.** No print, no purchase, no measurement
-(DND-27). No board contact (DND-32). `08-current-design/` untouched.
+## Most informative next test
+
+**Prototype A** (one cell: latch toggle + reader distinguish) then **Prototype B**
+(5×5 array: writer/reader scan + a deliberately stuck cell caught by retry) — the
+cheapest tests that bound the A1 falsifier.
+
+## Governance / evidence discipline
+
+CALCULATION over sourced FDM limits + sourced actuator ratings, plus CAD. **No
+print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)). No
+`08-current-design/` change. No board contact ([DND-32](/DND/issues/DND-32)).

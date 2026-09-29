@@ -20,6 +20,8 @@ The numbered root directories are intentionally ordered. Read them as the projec
 6. [`06-experiments/`](06-experiments/) — calculations, simulations, CAD, prototypes and physical tests that generate evidence.
 7. [`07-evidence-and-decisions/`](07-evidence-and-decisions/) — consolidated evidence, architecture investigations and durable decisions.
 8. [`08-current-design/`](08-current-design/) — the current integrated design state, including an explicit statement when no architecture is yet qualified.
+9. [`09-low-cost-variant/`](09-low-cost-variant/) — the ultra-low-cost (<$250 purchased) exploration: S6-LC selected, S5-R-trim negative result.
+10. [`10-reliability-mask/`](10-reliability-mask/) — the reliability-first low-cost program ([DND-104](https://github.com/sander-van-damme/project-shape-display/issues)): seven-architecture screen and the selected `A1 binary-latch + shared writer/reader` candidate (zero silent-error cells).
 
 
 ## Core target

@@ -91,7 +91,31 @@ land under $250.
 | [`analysis/divergent_lowcost_checks.py`](analysis/divergent_lowcost_checks.py) | 18 CI-style assertions pinning every headline. |
 | [`scad/a1_cam_cell.scad`](scad/a1_cam_cell.scad) | A1 unit cell + camshaft station at true 5.08 mm pitch. Printability **PASS**. |
 | [`scad/a2a3_media_cell.scad`](scad/a2a3_media_cell.scad) | A2/A3 punched-media cell. Printed features PASS; film thickness reported as an honest **MEDIA RISK**. |
+| [`reliability_primitives_alpha.py`](reliability_primitives_alpha.py) + [`.md`](reliability_primitives_alpha.md) + [checks](reliability_primitives_alpha_checks.py) + [CAD](scad/reliability_cell.scad) | **DND-106 reliability-first primitives** (child of DND-104): R1 row-rocker shared state, R2 double-acting wedge gate (driven reset), R3 mechanical readback, R4 rejected. 30 checks; full reliability-audit schema. |
 | [`tools/run_divergent_checks.py`](tools/run_divergent_checks.py) | Runs screen + checks + both CAD printability gates. |
+| [`tools/run_reliability_checks.py`](tools/run_reliability_checks.py) | Runs the DND-106 screen + 30 checks + analytic CAD printability. |
+
+### DND-107 reliability-first machines (InventorBeta, mask + non-mask)
+
+The reliability-first divergence (after [DND-103](/DND/issues/DND-103) made
+reliability/buildability first-class gates) lives in
+[`reliability_machines_beta.md`](reliability_machines_beta.md):
+**B1** shared-shaft screw memory (non-mask, **reported FAILED** — a real negative
+result), **B2** single-source pressure blanket (non-mask, PASS), **B3** rotary
+drum mask (mask, PASS, deletes the per-cell keeper → 80× fewer decisions).
+
+| File | Purpose |
+|---|---|
+| [`analysis/reliability_machines_beta.py`](analysis/reliability_machines_beta.py) | the DND-107 screen: 3 machines, BOM, 7-stage timing decomposition, gates, DND-103 reliability audit |
+| [`analysis/reliability_machines_beta_checks.py`](analysis/reliability_machines_beta_checks.py) | 28 CI-style assertions |
+| [`scad/b2b3_reliability_cell.scad`](scad/b2b3_reliability_cell.scad) | B2 toggle / B3 pawl + drum-follower witness at true pitch; printability **PASS** |
+| [`tools/run_reliability_machines_checks.py`](tools/run_reliability_machines_checks.py) | runs DND-107 screen + checks + CAD printability |
+
+Run:
+
+```bash
+python 09-low-cost-variant/divergent/tools/run_reliability_machines_checks.py
+```
 
 Run:
 
