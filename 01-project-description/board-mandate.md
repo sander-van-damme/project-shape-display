@@ -250,10 +250,10 @@ Adapter:
 `opencode_local`
 
 Command:
-`/usr/local/bin/opencode-free-failover`
+Leave empty
 
 Primary model:
-`opencode/muse-spark-1.3-contributor-free`
+`relay/auto`
 
 Working directory:
 `/home/odroid/project-shape-display`
