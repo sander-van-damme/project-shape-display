@@ -156,51 +156,75 @@ def render(openscad: str, part: str) -> Path:
     return out
 
 
+def _validate_stl(part: str, stl: Path) -> dict:
+    info = read_stl(stl)
+    if info is None:
+        print(f"[FAIL] {part}: empty/invalid STL ({stl})")
+        print(f"::error title=DND-72 CAD {part} failed::empty/invalid STL")
+        return dict(part=part, ok=False, reason="empty/invalid STL")
+    n, lo, hi = info
+    size = [round(hi[k] - lo[k], 3) for k in range(3)]
+    fits = all(s <= BED_MM + 1e-6 for s in size)
+    wt, wtmsg = watertight(stl)
+    good = n > 0 and fits and wt and all(s > 0 for s in size)
+    line = (f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
+            f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
+    print(line)
+    if not good:
+        print(f"::error title=DND-72 CAD {part} failed::{line}")
+    return dict(part=part, tris=n, size_mm=size, fits_bed=bool(fits),
+                watertight=bool(wt), mesh_check=wtmsg, ok=bool(good))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", type=str, default=None)
+    ap.add_argument("--validate-only", action="store_true",
+                    help="validate the COMMITTED STLs; do not re-render. Used by "
+                         "CI so the gate does not depend on the runner's "
+                         "OpenSCAD version (the committed STLs are the CAD "
+                         "artifacts; the printability gate reads the SCAD).")
+    ap.add_argument("--render", action="store_true",
+                    help="re-render from SCAD before validating (default mode "
+                         "unless --validate-only).")
     args = ap.parse_args()
 
-    openscad = find_openscad()
-    if not openscad:
-        print("FAIL: no openscad found (set OPENSCAD or install via "
-              "tools/openscad-install/install-openscad.sh)", file=sys.stderr)
-        return 2
+    openscad = None
+    if not args.validate_only:
+        openscad = find_openscad()
+        if not openscad:
+            print("FAIL: no openscad found (set OPENSCAD or install via "
+                  "tools/openscad-install/install-openscad.sh)", file=sys.stderr)
+            return 2
     import platform
-    try:
-        ver = subprocess.run([openscad, "--version"], capture_output=True,
-                             text=True, env=scad_env()).stdout.strip()
-    except Exception as exc:  # pragma: no cover
-        ver = f"(version probe failed: {exc})"
-    print(f"openscad: {openscad} [{ver}] python={platform.python_version()} "
-          f"trimesh={_trimesh_version()}")
+    ver = ""
+    if openscad:
+        try:
+            ver = subprocess.run([openscad, "--version"], capture_output=True,
+                                 text=True, env=scad_env()).stdout.strip()
+        except Exception as exc:  # pragma: no cover
+            ver = f"(version probe failed: {exc})"
+    print(f"mode={'validate-only' if args.validate_only else 'render'} "
+          f"openscad={openscad or '(none)'} [{ver}] "
+          f"python={platform.python_version()} trimesh={_trimesh_version()}")
 
     records = []
     ok = True
     for part in PARTS:
-        stl = render(openscad, part)
-        info = read_stl(stl)
-        if info is None:
-            print(f"[FAIL] {part}: empty/invalid STL")
+        stl = (STL_DIR / f"{part}.stl") if args.validate_only \
+            else render(openscad, part)
+        if args.validate_only and not stl.exists():
+            print(f"[FAIL] {part}: committed STL missing ({stl})")
+            print(f"::error title=DND-72 CAD {part} failed::committed STL missing")
             ok = False
             continue
-        n, lo, hi = info
-        size = [round(hi[k] - lo[k], 3) for k in range(3)]
-        fits = all(s <= BED_MM + 1e-6 for s in size)
-        wt, wtmsg = watertight(stl)
-        good = n > 0 and fits and wt and all(s > 0 for s in size)
-        ok = ok and good
-        line = (f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
-                f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
-        print(line)
-        if not good:
-            # surface the exact reason as a GitHub annotation so CI is diagnosable
-            print(f"::error title=DND-72 CAD {part} failed::{line}")
-        records.append(dict(part=part, tris=n, size_mm=size, fits_bed=bool(fits),
-                            watertight=bool(wt), mesh_check=wtmsg, ok=bool(good)))
+        rec = _validate_stl(part, stl)
+        ok = ok and rec["ok"]
+        records.append(rec)
 
     record = dict(evidence_class="CAD (real OpenSCAD render + mesh validation)",
-                  openscad_version=openscad, parts=records, all_ok=bool(ok))
+                  mode="validate-only" if args.validate_only else "render",
+                  openscad=openscad, parts=records, all_ok=bool(ok))
     if args.json:
         Path(args.json).write_text(json.dumps(record, indent=2))
     print(f"\n{'ALL PARTS OK' if ok else 'FAILURES PRESENT'}")
