@@ -48,6 +48,13 @@ For a 400 mm active width:
 So the full display is likely to require on the order of **79–80 independently
 height-adjustable columns per axis**, or roughly **6,200–6,400 columns total**.
 
+**This is a column-count requirement, not a per-cell mechanism-size budget.** A
+5.08 mm surface pitch does not require the selection, memory, locking or
+programming machinery to fit inside each 5.08 mm cell; see **Surface pitch does
+not constrain the internal mechanism** below. Column *tops* honor the pitch;
+internal precision machinery should be as large, shared, sparse, external or
+modular as the product allows.
+
 This is an important scalability check. A mechanism that works beautifully for
 a 5×5 prototype but cannot plausibly scale in actuator count, wiring, power,
 mechanical density, speed, or cost toward this order of magnitude is not yet a
@@ -141,6 +148,16 @@ No stricter numeric local-update time is fixed yet. Future tests should measure
 representative reveal workloads (for example one room, corridor, 10×10-cell
 module and several separated regions) before a lower target is set.
 
+**Trade-off against architecture simplicity.** Regional updates remain valuable
+but are **not** a licence to add thousands of microscopic per-cell mechanisms.
+Where a shared-mechanism or mask-based architecture supports only coarse
+bank-local / segment-level / mask-strip updates rather than true arbitrary-subset
+updates, that is an acceptable simplification **provided the trade-off is
+quantified and surfaced as an explicit product decision**. Candidate mask
+approaches worth evaluating include bank-local updates, replacing only one mask
+segment, multiple independent mask strips, partial replay, and modular terrain
+regions. Prefer the simplest mechanism that preserves practical fog-of-war use.
+
 ### Fabrication baseline
 
 Prototype and small-batch fabrication is expected to use a **Bambu Lab X1
@@ -205,10 +222,172 @@ When evaluating a mechanism, explicitly discuss how it affects:
 9. **Regional updates:** can part of the map be revealed or changed without a
    full-board reset or disturbing unrelated terrain?
 10. **Buildability and reliability:** can it actually be fabricated, assembled,
-   calibrated, maintained, and used repeatedly?
+    calibrated, maintained, and used repeatedly? Run the **Repeated-mechanism
+    reliability criteria** and per-architecture reliability audit below; answer
+    the gate question "what has to work correctly 6,400 times?" and minimize it.
+11. **Prototype testability:** can the repeated mechanism be validated in a small
+    coupon before scaling (see **Prototype ladder requirement** below)?
+
+Items 10 and 11 are **gates**, not tie-breakers: a design that wins on
+spreadsheet cost, pitch or timing but loses on repeated-mechanism reliability is
+not a viable product.
 
 A prototype does not need to satisfy every full-scale target immediately. Its
 documentation should make clear which target it tests and what remains unsolved.
+
+## Surface pitch does not constrain the internal mechanism (reliability-first rule)
+
+The 5.08 mm figure is a **visible surface resolution** requirement. It is the
+center-to-center spacing of the columns that form the terrain, so that map
+features tile like square pixels.
+
+It is **not** a requirement that the selection, memory, locking, reset or
+programming machinery physically fit inside a single 5.08 × 5.08 mm cell
+footprint. Treating surface pitch as an internal mechanism-size budget is the
+single most damaging pattern observed in earlier architecture work: it forces
+sub-millimetre pawls, keepers, springs, teeth and clearances that are
+theoretically printable but unlikely to be reliable when repeated ~6,400 times.
+
+Mechanisms may live:
+
+- underneath several cells;
+- beside the display;
+- at row / bank / module level;
+- in a moving external mechanism;
+- in a replaceable mask;
+- in a tape, card or film;
+- in a separate mask-generation subsystem.
+
+**Rule:** keep the dense visible surface at its required pitch, and make the
+precision machinery controlling it **as large, shared, sparse, external, or
+modular as the product allows**. Design at whatever scale makes the repeated
+mechanism robust; only the column *top* needs to honor the surface pitch.
+
+Explicitly prefer, as a program principle:
+
+> **Thousands of simple things + a few sophisticated shared mechanisms.**
+
+and reject:
+
+> Thousands of tiny sophisticated mechanisms that happen to fit in CAD.
+
+This applies regardless of whether the machine is mask-based. Any architecture
+that pushes precision, compliance or tolerance-critical interaction into every
+cell should be challenged and justified against a shared-mechanism alternative.
+
+## Repeated-mechanism reliability criteria
+
+Reliability and real-world buildability are **first-class design gates**, not
+tie-breakers. An architecture that passes analytic, CAD, cost and pitch gates can
+still be the wrong answer if it depends on thousands of fragile micro-mechanisms.
+
+For every architecture, answer this gate question explicitly:
+
+> **What has to work correctly 6,400 times?**
+
+Minimize that answer. An architecture with one complicated but accessible shared
+mechanism and 6,400 extremely simple passive columns is generally preferable to
+one with 6,400 sophisticated per-cell mechanisms.
+
+### Strongly discouraged
+
+- Critical moving features that are a single extrusion line wide.
+- Tiny printed springs whose **exact force** determines correctness.
+- Sub-millimetre precision interactions repeated thousands of times.
+- Friction-sensitive state retention where a **positive hard stop** is possible.
+- Mechanisms that require extremely tight tolerances across all 6,400 cells.
+- Architectures where one **silent microscopic failure** yields an incorrect
+  cell with no practical recovery or detection path.
+
+### Preferred
+
+- Large positive engagement features (pins in slots, teeth of generous module,
+  pegs in detents) rather than relying on friction.
+- Hard stops and mechanical end-of-travel rather than force balance.
+- Compression-loaded structures rather than tiny bending members.
+- Generous clearances that tolerate normal FDM print variation.
+- Replaceable modules and accessible wear parts.
+- Repeated parts that can be tested individually as a coupon.
+- Architecture-level redundancy or an explicit error-recovery / re-home path.
+
+### Per-architecture reliability audit (required)
+
+Report, with an evidence class for each:
+
+1. Number of repeated moving parts.
+2. Number of precision contacts **per cell**.
+3. Number of compliant printed elements.
+4. Number of wear interfaces (and their expected service life).
+5. Number of tolerance-sensitive interactions.
+6. Likely **correlated** failure modes (one cause taking out many cells).
+7. Likely **single-cell** failure modes.
+8. Serviceability: can a failed cell or wear part be reached and replaced?
+
+Prefer failure modes that are **detectable, recoverable, local and repairable**.
+Avoid designs where a hidden latch silently fails and can never be found.
+
+### Provisional design rule for minimum repeatable feature size
+
+Where a numerical minimum feature size cannot be honestly established without
+physical testing, define a conservative engineering rule and **clearly label it
+provisional**. Do not invent false precision around printer tolerances:
+
+- Bambu's 7 µm lidar figure is a sensor specification, not a part tolerance.
+- Published X1C specifications do **not** give a universal finished-part
+  dimensional tolerance.
+- Any claimed minimum feature or clearance is a **provisional design rule**
+  until a calibration-coupon batch on the actual X1C + PLA process confirms it.
+
+## Mask subsystem and honest timing
+
+The mask generator is **part of the machine, not an external assumption**. If an
+architecture relies on a physical mask, tape, film or comb, the subsystem that
+produces it is inside the product boundary and must be designed, costed, timed
+and tested alongside the display.
+
+Mask-selection medium may be disposable, reusable, rewritable, continuously
+generated, cassette-stored, or generated while the previous terrain is
+displayed. All of these are in scope and should be compared quantitatively.
+
+### Timing decomposition (report every stage)
+
+Full arbitrary-map change must still target **< 30 s**, reported honestly. Do not
+claim a fast arbitrary-map update while hiding substantial mask preparation.
+Report each stage separately:
+
+1. Digital map processing.
+2. Physical mask generation.
+3. Mask transport / indexing.
+4. Display reset.
+5. Broadcast lift operations.
+6. Settling / locking.
+7. Verification (if used).
+
+If double buffering hides mask preparation from the visible transition, report
+**both**:
+
+- **visible transition time** (what the player sees), and
+- **sustained arbitrary-map cycle time** (throughput between arbitrary maps).
+
+A design that requires minutes of uncounted preparation between arbitrary maps is
+a product problem even if the visible motion takes ten seconds.
+
+## Prototype ladder requirement
+
+No architecture may jump from calculations to a 6,400-cell machine. Every
+selected architecture must define a prototype ladder as part of its design:
+
+- **Prototype A — single cell:** validate the fundamental latch / ratchet /
+  support principle.
+- **Prototype B — small full-pitch array (e.g. 5×5):** validate neighbouring
+  cells, tolerances, friction, assembly, repeated cycling.
+- **Prototype C — one complete bank/module:** validate mask selection, reset,
+  lift load, correlated failures.
+- **Prototype D — multiple banks:** validate scaling and timing.
+- **Full machine:** only after the repeated mechanism has survived A–D.
+
+A mechanism that cannot be meaningfully tested in a small, inexpensive coupon is
+**less attractive** and should be scored down accordingly.
 
 ## Miniature dimensions and vertical-travel basis
 
