@@ -242,6 +242,15 @@ jobs:
         # priced timing, allowances) plus the DND-97 mission-gate verdict.
         # CALCULATION-only (DND-27).
         run: python 07-evidence-and-decisions/falsifier_dnd74_checks.py
+      - name: "DND-104 pre-registered adversarial audit gate (DND-108)"
+        # Pins the pre-registered attack counter-numbers for the reliability-first
+        # DND-104 program: map-yield (1-q)^N (52.7 % at q=1e-4, N=6400), the coupon
+        # zero-failure trial counts (29,956 / 299,572 / 1,908,109 at 95 %), the
+        # "a coupon can kill but cannot crown" bound, correlated detection,
+        # per-cell precision counts, S1 mask-write times (2,560 s / 56 s / 8.96 s),
+        # the DND-46 hostile-reprice cost ladder, and the default-deny audit()
+        # contract used against 10-reliability-mask/ when it lands. CALCULATION (DND-27).
+        run: python 07-evidence-and-decisions/falsifier_dnd104_checks.py
       - name: "DND-104 reliability-first architecture screen + reliability gate"
         # Pins the reliability-first program: seven materially different
         # architectures (A1 binary-latch + shared writer/reader, A2 global
