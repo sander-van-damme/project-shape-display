@@ -117,11 +117,25 @@ motor alone would be only 1.07×** — the sensitivity number that says *use two
 
 **Cost (delivered = parts × 1.16, the repo's additive basis, imported from
 `cost_closure.py`):** no-channel base **$218.70** + 2 bank motors × $12 +
-40 writers × $2.50 = **$342.70 parts → $397.53 delivered, $102.47 under the $500
-ceiling** ($969 under the S5 incumbent's refuted $1,366.87). The 80-channel driver
-block ($63.64) leaves with the motors. *Sourced point-in-time prices; the DND-52
+40 writers × $2.50 = **$342.70 parts → $397.53 delivered** as the *channels-unpriced
+claim* ($102.47 under the $500 ceiling; $969 under the S5 incumbent's refuted
+$1,366.87). The 80-channel driver block ($63.64) leaves with the motors. The
+**honest working total is `$401.12`** once the S5-R block's own marginal channels
+are priced (§ below); `s5r_register.bom(4)` now returns both (`delivered_claim_usd`
+= `$397.53`, `delivered_usd` = `$401.12`). *Sourced point-in-time prices; the DND-52
 $304.73 figure was the smaller W=8 variant and did not include the second bank
 motor or the wider writer bank.*
+
+**The model prices the block's own channels (the DND-56 fix, now in `bom()`).**
+The fixed no-channel base has **both** the 80-motor line **and** the 80-channel
+TB6612 driver block removed, so — by the `nx52_head_actuator.py` contract,
+*"every option declares its own channel cost exactly once"* — the S5-R block must
+declare its channels. `bom()` now charges **2 bank H-bridge ICs** (1 dual TB6612
+per bank motor, `$0.7955` each = `$1.59`) **+ 5 ULN2803-class writer darlington
+chips** (8 ON/OFF writers each, `$0.30` each = `$1.50`) = **`$3.09` parts**,
+bringing the honest working total to **`$401.12`** — the same figure the DND-56
+ratification derived independently. `s5r_register_checks.py` gates this so a
+future edit cannot silently re-zero the channel line.
 
 **Independent ratification ([DND-56](/DND/issues/DND-56)).** The $397.53 figure was
 re-derived from first principles against sourced listings and **reproduces exactly**

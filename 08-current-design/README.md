@@ -33,7 +33,9 @@ At R=4 with 40 writer solenoids and 2 bank motors: **$401.12 delivered working
 (cell fit, zero neighbour cross-talk, writer force 18×, bank force 2.15×, latch
 inherits K1, time +5.4 s, cost −$99). The delivered figure was independently
 ratified ([DND-56](/DND/issues/DND-56)); the working total prices the R=4 block's
-own marginal channels ($3.09) that the promoting model left implicit. See
+own marginal channels ($3.09) that the promoting model left implicit — and the
+model now carries them explicitly (`s5r_register.bom()` returns `delivered_usd`
+$401.12 vs the channels-unpriced claim `$397.53`). See
 [§8 item 9](#8-next-actions) and the
 [ADR](../07-evidence-and-decisions/dnd54-s5r-register-latch.md). This is **CAD +
 CALCULATION only** — no print, no measurement; the as-printed μ/creep and the

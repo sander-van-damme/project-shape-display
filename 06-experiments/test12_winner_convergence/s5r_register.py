@@ -284,25 +284,63 @@ def delivered(parts_usd: float) -> float:
     return round(parts_usd * cc.UPLIFT, 2)
 
 
+# --- Purchased driver channels for the S5-R actuator block -------------------
+# The fixed no-channel base (nx.FIXED_PARTS_NO_CHANNEL) has BOTH the 80-motor
+# line AND the 80-channel TB6612 driver block removed, by the nx52 contract:
+# "every option declares its own channel cost exactly once (no double-count)".
+# The S5-R block therefore OWNS its channels:
+#   * 2 bank steppers (bipolar) need 2 H-bridge channels. Priced conservatively
+#     at 1 dual TB6612 IC per motor (2 ICs) -- the working figure used by the
+#     DND-56 ratification; the optimistic 1-IC shared case is carried alongside.
+#   * 40 writer solenoids are ON/OFF loads: a ULN2803-class 8-channel darlington
+#     (~$0.30) switches 8 each -> 5 chips. No H-bridge is needed (DND-56).
+# These are marginal-bought-channel parts; the `Custom driver PCBs and passives`
+# line stays in the fixed base but was sized for the 80-motor H-bridge head, so
+# pricing the S5-R channels explicitly makes the BOM auditable.
+BANK_ICS_WORKING = BANK_MOTORS          # 1 dual H-bridge IC per bank motor
+BANK_ICS_OPTIMISTIC = 1                 # both motors share one dual IC
+BANK_IC_USD = cc.TB6612_SOURCED         # $0.7955, LCSC C88224 (E1 source)
+WRITER_CHIP_USD = 0.30                  # ULN2803-class 8-ch darlington
+WRITER_CHIPS = (WRITERS + 7) // 8       # 5 chips for 40 writers
+
+
 def bom(rows_in_bank: int) -> dict:
     bank_motors = BANK_MOTORS
     motor_usd = 12.00
     writers = WRITERS
     writer_usd = 2.50
     actuator_parts = bank_motors * motor_usd + writers * writer_usd
-    parts = nx.FIXED_PARTS_NO_CHANNEL + actuator_parts
+    # Channels the S5-R block owns (priced exactly once; not in the fixed base).
+    channel_parts = round(BANK_ICS_WORKING * BANK_IC_USD
+                          + WRITER_CHIPS * WRITER_CHIP_USD, 2)
+    channel_parts_optimistic = round(BANK_ICS_OPTIMISTIC * BANK_IC_USD
+                                     + WRITER_CHIPS * WRITER_CHIP_USD, 2)
+    # The DND-54 claim (channels unpriced) and the honest total (channels priced).
+    parts_claim = nx.FIXED_PARTS_NO_CHANNEL + actuator_parts
+    delivered_claim = delivered(parts_claim)
+    parts = round(parts_claim + channel_parts, 2)
     d = delivered(parts)
     return dict(rows_in_bank=rows_in_bank,
                 fixed_no_channel_parts_usd=nx.FIXED_PARTS_NO_CHANNEL,
                 bank_motors=bank_motors, writers=writers,
                 actuator_parts_usd=round(actuator_parts, 2),
                 actuator_count=bank_motors + writers,
+                bank_ic_count=BANK_ICS_WORKING, bank_ic_unit_usd=BANK_IC_USD,
+                writer_chip_count=WRITER_CHIPS,
+                writer_chip_unit_usd=WRITER_CHIP_USD,
+                channel_parts_usd=channel_parts,
+                channel_parts_optimistic_usd=channel_parts_optimistic,
+                parts_claim_usd=round(parts_claim, 2),
+                delivered_claim_usd=delivered_claim,
                 parts_usd=round(parts, 2), delivered_usd=d,
                 ceiling_usd=cc.CEILING, clears=bool(d < cc.CEILING),
                 margin_usd=round(cc.CEILING - d, 2),
                 note="actuator count is 2 bank motors + %d writer solenoids; "
                      "the 80-motor head and its 80-channel driver block are "
-                     "removed. Sourced point-in-time prices." % writers)
+                     "removed, but the S5-R block's OWN %d bank H-bridge IC(s) "
+                     "and %d writer darlington chip(s) are priced here "
+                     "(DND-56; no double-count). Sourced point-in-time prices."
+                     % (writers, BANK_ICS_WORKING, WRITER_CHIPS))
 
 
 def decide(rows_in_bank: int = ROWS_IN_BANK) -> dict:

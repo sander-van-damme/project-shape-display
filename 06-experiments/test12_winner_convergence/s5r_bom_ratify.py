@@ -573,8 +573,13 @@ def reconcile_with_s5r_module() -> dict | None:
         return None
     b = s5r.bom(4)
     return dict(
-        s5r_parts=b["parts_usd"],
-        s5r_delivered=b["delivered_usd"],
+        # channels-unpriced claim (the DND-54 headline)
+        s5r_parts=b["parts_claim_usd"],
+        s5r_delivered=b["delivered_claim_usd"],
+        # honest working total = claim + the block's own priced channels
+        s5r_parts_with_channels=b["parts_usd"],
+        s5r_delivered_with_channels=b["delivered_usd"],
+        s5r_channel_parts=b["channel_parts_usd"],
         s5r_actuator_count=b["actuator_count"],
         s5r_fixed_no_channel=b["fixed_no_channel_parts_usd"],
         s5r_bank_motors=b["bank_motors"],
@@ -627,6 +632,10 @@ def selftest() -> None:
         assert abs(s5r["s5r_delivered"] - CLAIMED_S5R_DELIVERED) < 0.01, s5r
         assert abs(s5r["s5r_fixed_no_channel"] - CLAIMED_FIXED_NO_CHANNEL_PARTS) < 0.01, s5r
         assert abs(s5r["s5r_parts"] - CLAIMED_S5R_PARTS) < 0.01, s5r
+        # The model now prices the block's own channels exactly once (DND-56),
+        # so its honest total must equal the ratification's working scenario.
+        assert abs(s5r["s5r_delivered_with_channels"] - s["working_usd"]) < 0.01, s5r
+        assert abs(s5r["s5r_channel_parts"] - r["with_channels"]["channel_parts"]) < 0.01, s5r
     print("DND-56 S5-R BOM ratification selftest OK")
     print(f"  fixed_no_channel ${r['fixed_no_channel_parts']:.2f}  "
           f"S5-R claim ${r['derived_s5r_delivered']:.2f}  "

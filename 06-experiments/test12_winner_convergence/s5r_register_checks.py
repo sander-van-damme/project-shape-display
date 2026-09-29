@@ -81,9 +81,27 @@ class RegisterChecks(unittest.TestCase):
         b = s.bom(s.ROWS_IN_BANK)
         self.assertTrue(b["clears"])
         self.assertLess(b["delivered_usd"], 450.0)
-        # Reaches the <$400 ideal band, matching the DND-52 claim ($304.73 for
-        # the smaller W=8 variant; W=40 costs more but is still in-band-ish).
         self.assertLess(b["actuator_count"], 80)
+
+    def test_block_channels_priced_once_and_claim_reproduces(self):
+        # DND-56: the fixed no-channel base has the 80-motor line AND the
+        # 80-channel TB6612 block removed, so the S5-R block must price its OWN
+        # channels exactly once (no double-count). The $397.53 DND-54 claim must
+        # still reproduce as the channels-unpriced sub-field.
+        b = s.bom(s.ROWS_IN_BANK)
+        self.assertEqual(b["delivered_claim_usd"], 397.53)
+        self.assertEqual(b["parts_claim_usd"], 342.70)
+        self.assertAlmostEqual(b["channel_parts_usd"], 3.09, places=2)
+        # 2 bank H-bridge ICs + 5 darlington writer chips.
+        self.assertEqual(b["bank_ic_count"], 2)
+        self.assertEqual(b["writer_chip_count"], 5)
+        # Honest working total is the claim plus the block's own channels.
+        self.assertAlmostEqual(b["delivered_usd"],
+                               b["delivered_claim_usd"] + 3.09 * s.cc.UPLIFT,
+                               places=1)
+        self.assertEqual(b["delivered_usd"], 401.12)
+        self.assertEqual(b["margin_usd"], 98.88)
+        self.assertTrue(b["clears"])
 
     def test_endurance_is_reported_with_order_unknown_label(self):
         e = s.endurance(s.ROWS_IN_BANK)
