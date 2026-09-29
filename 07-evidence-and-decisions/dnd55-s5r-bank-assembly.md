@@ -170,7 +170,7 @@ tooth) instead of 0.60 mm; that is a DND-54 rack-level change, recorded here.
 | R-DND55-1 | Bar-torsion **eccentricity `e`** (tooth-flank contact offset) | assumption | **open** — dominant input; e = W/2 worst case; measured only by a coupon ([DND-27](/DND/issues/DND-27)). Steel rod makes it irrelevant |
 | R-DND55-2 | Bar torsion model (Saint-Venant bound, no FEA, no attachments) | calculation | open — a bound, not FEA |
 | R-DND55-3 | Reduced (8-column) CAD vs full 80-column torso | CAD | analytic uniform-pitch argument; not a 320-body render |
-| R-DND55-4 | Corrected rack stroke 1.00 mm changes the DND-54 per-stroke advance | CAD/calc | needs a one-line reconciliation in the register timing |
+| R-DND55-4 | Corrected rack stroke 1.00 mm changes the DND-54 per-stroke advance | CAD/calc | **closed ([DND-58](/DND/issues/DND-58))** — register reconciled to pitch 1.00 / tooth 0.50, `RACK_STROKE_MM = 1.00`; timing unchanged (angular pass) |
 | R-DND55-5 | As-printed friction, wear, creep (K2/K11 class) | measurement-only | open — unchanged by this closure |
 
 ## 8. Decision and next actions
@@ -179,7 +179,8 @@ tooth) instead of 0.60 mm; that is a DND-54 rack-level change, recorded here.
    ~67× under the gate). If the rod must be printed, use an Ø8 round bar and
    re-check `e`; **do not use the 3 × 2 placeholder section**.
 2. **Re-dimension the rack to pitch 1.00 mm / tooth 0.50 mm** and reconcile the
-   register's per-stroke advance (1.00 mm) — R-DND55-4.
+   register's per-stroke advance (1.00 mm) — R-DND55-4. **Done: [DND-58](/DND/issues/DND-58)**
+   (`RACK_STROKE_MM = 1.00`; timing unchanged because the pass is angular).
 3. **Update the DND-54 residual R-DND54-4:** comber/carriage envelopes and the
    pitch/Y lay-out are **closed** (CAD); the bar is **sharpened to a sourced-rod
    requirement**.

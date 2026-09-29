@@ -1,77 +1,74 @@
-# DND-55 — S5-R R=4 multi-row bank assembly: bar torsion + comber/carriage envelopes
+# DND-58 — S5-R register reconciliation: corrected 1.00 mm rack pitch + sourced steel drive rod
 
 ## What changed
 
-Closes residual **R-DND54-4**: the multi-row (R = 4) bank geometry that
-[DND-54] left as an assertion. Uses only the evidence classes [DND-27] permits —
-**CAD + CALCULATION; no print, no purchase, no measurement**.
+Applies the [DND-55] bank close-out corrections to the register definition
+(residual **R-DND55-4**). Evidence classes [DND-27] permits only: **CAD +
+CALCULATION; no print, no purchase, no measurement**.
 
-- `06-experiments/test12_winner_convergence/s5r_bank.py` — bank model: parametric bar
-  torsion, candidate sections, clearance stack-ups, envelope fit, CAD harness, decision.
-- `s5r_bank_checks.py` — 16 regression + honesty gates (CI).
-- `s5r_bank.scad` — R = 4 bank CAD: columns + racked bar + reset comber + writer-carriage
-  sweep envelope, with scoped interference queries.
-- `07-evidence-and-decisions/dnd55-s5r-bank-assembly.md` — the ADR.
-- `06-experiments/test12_winner_convergence/README.md`, `08-current-design/README.md` — folded in.
-- `tools/validate/analytic_printability.py` gains a bank-assembly branch;
-  `validate_geometry.py` and `render_winner_cad.py` render the bank parts;
-  `.github/workflows/ci.yml` runs the model checks, printability and CAD render.
+- `06-experiments/test12_winner_convergence/s5r_register.scad` — rack re-dimensioned to
+  **pitch 1.00 / tooth 0.50 mm**; drive bar rendered as a **round sourced steel rod
+  Ø6 mm** (replaces the printed 3 × 2 placeholder).
+- `s5r_register.py` — `RACK_TOOTH_PITCH_MM = 1.00`, `RACK_TOOTH_HEIGHT_MM = 0.50`,
+  `RACK_STROKE_MM = 1.00` (was keyed to the 0.45 mm tooth height); `BAR_D_MM = 6.0`,
+  `BAR_MATERIAL = "sourced steel rod"`; `timing()` reports `rack_stroke_mm` /
+  `crank_deg_per_level`; `bom()` adds the rod line and retains the earlier totals.
+- `s5r_register_checks.py` — 19 gates (adds DND-58 rack/rod/BOM gates + ADR gates).
+- `s5r_bom_ratify.py` — reconcile now reads the rod-aware register fields; `--selftest`
+  checks the +$3.00 rod delta.
+- `07-evidence-and-decisions/dnd58-s5r-register-reconcile.md` — the ADR;
+  `dnd54-s5r-register-latch.md` §11 amendment; `dnd55-s5r-bank-assembly.md` R-DND55-4
+  closed; `08-current-design/README.md`, test12 `README.md` folded in.
 
-> Branched from `main` (DND-54 already merged).
+> Branched from `main` (DND-54 / DND-55 / DND-56 present).
 
 ## The call
 
-Does the R = 4 bank close at the assembly level — bar torsion inside the 0.35 mm keeper
-gate, and the reset-comber / writer-carriage envelopes fitting — without a coupon?
+Do the DND-55 corrections (rack pitch, drive-bar section) reconcile cleanly at the
+register level — per-stroke advance, timing and BOM — without moving the 30 s verdict?
 
-## Result — the torsion number and the envelopes
+## Result
 
-**Bar torsion (CALCULATION).** Driven from both ends, resisting 320 ganged pawls. The
-reaction is modelled as an eccentric axial line (eccentricity `e` = an assumption; the
-coupon that would measure tooth contact is forbidden). Peak tip skew at mid-span:
+**Rack re-dimension (CALCULATION).** The DND-54 rack (0.60/0.45) left a 0.15 mm
+inter-tooth gap that fuses at a 0.4 mm nozzle. Re-dimensioned to **1.00/0.50** (gap
+0.50 mm). The per-stroke advance is re-derived from the **pitch**: `RACK_STROKE_MM =
+1.00` (was `RACK_TOOTH_HEIGHT_MM = 0.45`).
 
-| Bar section | J (mm⁴) | G (MPa) | e (mm) | skew (mm) | vs gate/2 = 0.175 |
-|---|---:|---:|---:|---:|:--:|
-| printed PLA 3 × 2 (**DND-54 placeholder**) | 4.64 | 556 | 1.5 | **4.96** | **FAIL ~28×** |
-| printed PLA 3 × 12 (on-edge) | 90.99 | 556 | 1.5 | 0.253 | FAIL (1.4×) |
-| printed PLA round Ø8 | 402.1 | 556 | 4.0 | 0.153 | PASS |
-| **sourced steel rod Ø5** | 61.4 | 76 923 | 2.5 | **0.0045** | PASS (~39×) |
-| **sourced steel rod Ø6** | 127.2 | 76 923 | 3.0 | **0.0026** | PASS (~67×) |
+**Timing unchanged.** The bank pass is *angular* — 72°/level — so the linear rack pitch
+does not enter the timing: **24.62 s** full map (< 30 s, +5.39 s), select 0.400 s, reset
+0.100 s per group.
 
-**Fix: a sourced Ø6 mm steel drive rod** (or an Ø8 printed round bar, re-checking `e`).
-The 3 × 2 placeholder bar is refuted by ~28×.
+**Drive bar (CALCULATION, inherited from DND-55).** Printed 3 × 2 placeholder skew
+**4.96 mm** vs gate/2 = **0.175 mm** (~28×). Adopted the **sourced steel rod Ø6 mm**
+(skew **0.0026 mm**, ~67× under the gate; Ø8 printed round bar is the fallback).
 
-**Assembly envelopes (CAD).** Real OpenSCAD renders six parts; **all five scoped
-interference queries are EMPTY** — `run_all_engaged`, `selected_dropped_pawl`,
-`comber_park`, `comber_trip`, `writer_carriage_sweep`. Carriage-to-column clearance is
-**0.40 mm worst case**; the comber tine rides a **3.73 mm** X-gap between column stacks;
-**R = 4 adds no pitch penalty** (0.0 mm).
-
-**Printability (CALCULATION).** PASS after one correction: the DND-54 rack
-(pitch 0.60 / tooth 0.45) leaves a **0.15 mm inter-tooth gap that fuses** at a 0.4 mm
-nozzle; re-dimensioned to **pitch 1.00 / tooth 0.50 mm** (gap 0.50 mm). Comber tine
-0.60 → 0.90 mm (1 → 2 lines).
+**BOM delta.** +1 steel rod Ø6 × 406.4 mm = **$3.00 parts → $3.48 delivered**. Honest
+working total **$401.12 → $404.60 delivered** (margin **$95.40**). Both earlier figures
+retained as `delivered_no_rod_usd` / `delivered_claim_usd`.
 
 ## Verdict
 
-R-DND54-4 **closed for the comber/carriage envelopes and the pitch/Y lay-out**, and
-**sharpened for the bar** (a sourced-rod requirement, not a printed part). Not a
-print-ready claim, not board contact.
+**R-DND55-4 closed.** R-DND54-4 remains closed for the bank envelopes/pitch and sharpened
+to a sourced-steel-rod requirement (not a printed part). Not a print-ready claim, not
+board contact.
 
 ## Assumptions / what passed / what is uncertain
 
-- **Passed:** 16 new checks, the geometry harness, the winner-CAD render, and the full
-  test12 suite (all green).
-- **Assumed:** the reaction eccentricity `e` (dominant input; steel makes it irrelevant),
-  Poisson 0.35, carriage/comber datums.
-- **Uncertain:** the bar model is a Saint-Venant bound, not FEA; the CAD is a reduced
-  8-column model (80-column length covered analytically); as-printed friction/wear/creep
-  remain measurement-only.
+- **Passed:** 19 register gates, 16 bank gates, 11 BOM-ratification gates, register
+  printability, `s5r_bank.py --cad` (6 positives + 5 empty interference queries), and the
+  full `validate_geometry.py` harness (real OpenSCAD + mesh) — all green.
+- **Assumed:** the reaction eccentricity `e` (DND-55; irrelevant for the steel rod); the
+  $3.00 rod allowance is a sourced-class figure, not a quote (purchase-gated under DND-27).
+- **Uncertain:** as-printed friction / gate sharpness / leaf creep remain measurement-only,
+  unchanged by this reconciliation.
 
 ## Most informative next test
 
-Reconcile the register's per-stroke advance to the corrected **1.00 mm rack pitch**
-(R-DND55-4), and cost/source the Ø6 mm steel rod in the bank BOM.
+Integrate the reconciled register + bank into the single `08-current-design` machine
+definition (rack, steel rod, comber and carriage as one assembly), since the register unit
+cell and the bank are now each CAD-closed but not yet joined.
 
 [DND-27]: /DND/issues/DND-27
 [DND-54]: /DND/issues/DND-54
+[DND-55]: /DND/issues/DND-55
+[DND-56]: /DND/issues/DND-56

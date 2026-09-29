@@ -85,6 +85,26 @@ d = 5–6 mm** (skew ≤ 0.005 mm, 39–67× under the gate) or an Ø8 printed r
 **rack re-dimensioned to pitch 1.00 / tooth 0.50 mm** (gap 0.50 mm). See
 [`dnd55-s5r-bank-assembly.md`](../../07-evidence-and-decisions/dnd55-s5r-bank-assembly.md).
 
+DND-58 register reconciliation of the DND-55 corrections (rack pitch + steel rod):
+
+```text
+cd 06-experiments/test12_winner_convergence
+python s5r_register.py && python s5r_register_checks.py       # register model (DND-58 gates)
+python s5r_bank.py && python s5r_bank_checks.py               # bank model
+python s5r_bom_ratify.py --selftest                           # BOM reconcile
+```
+
+**DND-58 headline (CAD + CALCULATION, no print):** the register now carries the
+corrected rack (**pitch 1.00 / tooth 0.50 mm**, `RACK_STROKE_MM = 1.00` — the
+DND-54 value was keyed to the 0.45 mm tooth height) and the **sourced steel drive
+rod d = 6 mm** (`BAR_D_MM`, rendered as a round rod). The full-map time is
+**unchanged at 24.62 s**: the bank pass is *angular* (72°/level), so the linear
+per-stroke advance does not enter the timing. The rod adds **$3.00 parts → $3.48
+delivered**, so the honest working BOM is **$404.60 delivered** (`margin $95.40`);
+the earlier $401.12 / $397.53 figures are retained as `delivered_no_rod_usd` /
+`delivered_claim_usd`. R-DND55-4 is **closed**. See the DND-54 ADR §11 amendment
+([`dnd54-s5r-register-latch.md`](../../07-evidence-and-decisions/dnd54-s5r-register-latch.md)).
+
 Sourcing detail: [`../test11_cost_printability_reliability/sourcing_notes.md`](../test11_cost_printability_reliability/sourcing_notes.md) §8.
 
 

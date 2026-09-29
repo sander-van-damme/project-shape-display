@@ -28,8 +28,34 @@ class RegisterChecks(unittest.TestCase):
         scad = (HERE / "s5r_register.scad").read_text()
         for token in ("PAWL_T = 0.90", "PAWL_LEN = 8.00", "KEEPER_T = 0.45",
                       "KEEPER_OVER_CENTRE = 0.06", "WALL = 0.90",
-                      "ROTOR_BORE_CLEAR = 0.40"):
+                      "ROTOR_BORE_CLEAR = 0.40", "RACK_TOOTH_PITCH = 1.00",
+                      "RACK_TOOTH_HEIGHT = 0.50", "BAR_D = 6.0"):
             self.assertIn(token, scad, f"{token} missing from s5r_register.scad")
+
+    def test_dnd58_rack_reconciles_to_corrected_pitch(self):
+        # DND-58: the DND-55 bank close-out re-dimensioned the rack to
+        # pitch 1.00 / tooth 0.50 (0.15 mm gap fuses at a 0.4 mm nozzle); the
+        # register's per-stroke advance must follow the PITCH (1.00 mm), not the
+        # old tooth height (0.45 mm).
+        self.assertEqual(s.RACK_TOOTH_PITCH_MM, 1.00)
+        self.assertEqual(s.RACK_TOOTH_HEIGHT_MM, 0.50)
+        self.assertEqual(s.RACK_STROKE_MM, 1.00)
+        # gap clears one extrusion line
+        self.assertGreaterEqual(s.RACK_TOOTH_PITCH_MM - s.RACK_TOOTH_HEIGHT_MM,
+                                s.MIN_FEATURE_MM)
+        # the timing pass is angular, so the pitch change does not move it
+        t = s.timing(s.ROWS_IN_BANK)
+        self.assertEqual(t["rack_stroke_mm"], 1.00)
+        self.assertAlmostEqual(t["full_map_s5r_s"], 24.615, places=3)
+
+    def test_dnd58_drive_bar_is_sourced_steel(self):
+        # The printed 3x2 placeholder is refuted (DND-55); the bar is a sourced
+        # steel rod d=6. The model must declare that section, not a printed one.
+        self.assertEqual(s.BAR_D_MM, 6.0)
+        self.assertIn("steel", s.BAR_MATERIAL)
+        b = s.bom(s.ROWS_IN_BANK)
+        self.assertEqual(b["steel_rod_count"], 1)
+        self.assertGreater(b["rod_parts_usd"], 0.0)
 
     def test_pawl_is_low_force_and_printable_two_lines(self):
         p = s.pawl_spring()
@@ -95,12 +121,19 @@ class RegisterChecks(unittest.TestCase):
         # 2 bank H-bridge ICs + 5 darlington writer chips.
         self.assertEqual(b["bank_ic_count"], 2)
         self.assertEqual(b["writer_chip_count"], 5)
-        # Honest working total is the claim plus the block's own channels.
-        self.assertAlmostEqual(b["delivered_usd"],
+        # The DND-56 ratification total (channels priced, rod unpriced) is kept
+        # as `delivered_no_rod_usd` so that figure still reproduces.
+        self.assertAlmostEqual(b["delivered_no_rod_usd"],
                                b["delivered_claim_usd"] + 3.09 * s.cc.UPLIFT,
                                places=1)
-        self.assertEqual(b["delivered_usd"], 401.12)
-        self.assertEqual(b["margin_usd"], 98.88)
+        self.assertEqual(b["delivered_no_rod_usd"], 401.12)
+        # DND-58 honest working total adds the 1 sourced steel drive rod.
+        self.assertEqual(b["steel_rod_count"], 1)
+        self.assertAlmostEqual(b["delivered_usd"],
+                               b["delivered_no_rod_usd"] + 3.00 * s.cc.UPLIFT,
+                               places=1)
+        self.assertEqual(b["delivered_usd"], 404.60)
+        self.assertEqual(b["margin_usd"], 95.40)
         self.assertTrue(b["clears"])
 
     def test_endurance_is_reported_with_order_unknown_label(self):
@@ -136,8 +169,18 @@ class RegisterChecks(unittest.TestCase):
         self.assertTrue(ADR.exists(), f"missing ADR {ADR}")
         text = ADR.read_text()
         for token in ("S5-R", "R = 4", "24.6", "397.53",
-                      "DND-54", "NOT a print", "PROMOTE"):
+                      "DND-54", "NOT a print", "PROMOTE",
+                      "404.60", "pitch 1.00", "steel rod", "DND-58"):
             self.assertIn(token, text, f"{token!r} missing from the ADR")
+
+    def test_dnd58_adr_exists_and_carries_the_reconciliation(self):
+        adr = REPO / "07-evidence-and-decisions" / "dnd58-s5r-register-reconcile.md"
+        self.assertTrue(adr.exists(), f"missing ADR {adr}")
+        text = adr.read_text()
+        for token in ("pitch 1.00", "0.50", "RACK_STROKE_MM", "steel rod",
+                      "404.60", "R-DND55-4", "closed", "NOT a print",
+                      "24.62"):
+            self.assertIn(token, text, f"{token!r} missing from the DND-58 ADR")
 
 
 if __name__ == "__main__":

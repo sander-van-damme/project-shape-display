@@ -91,9 +91,23 @@ KEEPER_OVER_CENTRE_MM = 0.06   # offset making the detent bistable
 KEEPER_GATE_STEP_MM = 0.35     # spacing of the 5 gate positions
 
 # Drive rack on the shared bar.
-RACK_TOOTH_PITCH_MM = 0.60
-RACK_TOOTH_HEIGHT_MM = 0.45
-RACK_STROKE_MM = RACK_TOOTH_HEIGHT_MM   # one forward stroke advances one tooth
+# DND-58 (DND-55 bank close-out): the DND-54 rack (pitch 0.60 / tooth 0.45)
+# left a 0.15 mm inter-tooth gap that fuses at a 0.4 mm nozzle (< 0.44 mm one
+# line). Re-dimensioned to pitch 1.00 / tooth 0.50 (gap 0.50 mm); the
+# per-stroke advance (RACK_STROKE_MM) therefore becomes 1.00 mm, not 0.60 mm.
+RACK_TOOTH_PITCH_MM = 1.00
+RACK_TOOTH_HEIGHT_MM = 0.50
+RACK_TOOTH_PITCH_DND54_MM = 0.60   # superseded (fused); kept for the record
+RACK_TOOTH_HEIGHT_DND54_MM = 0.45
+RACK_STROKE_MM = RACK_TOOTH_PITCH_MM   # one forward stroke advances one tooth
+                                       # (was RACK_TOOTH_HEIGHT_MM = 0.45; the
+                                       #  DND-58 correction is pitch-driven)
+
+# Shared drive bar section. DND-55/DND-58 replaced the printed 3x2 placeholder
+# (which failed bar torsion by ~28x) with a SOURCED steel rod d=6 mm.
+BAR_D_MM = 6.0                 # sourced steel drive rod diameter
+BAR_D_OPTION_MM = 8.0          # printed round PLA fallback (or sourced rod d=5)
+BAR_MATERIAL = "sourced steel rod"   # or "printed PLA round d=8"
 
 # FDM process (sourced limits, tools/fdm-limits/fdm_process_limits.py).
 MIN_FEATURE_MM = 0.44          # 1 extrusion line @ 0.4 mm nozzle
@@ -259,6 +273,12 @@ def timing(rows_in_bank: int) -> dict:
 
     The writer carriage must set every column in the group (COLS * R), so the
     number of station moves scales with R (this is the term DND-52 omitted).
+
+    DND-58 timing note: the pass is *angular* -- the crank turns LEVEL_ANGLE_DEG
+    (72 deg) per level regardless of the rack pitch. The rack re-dimension
+    (0.60 -> 1.00 mm pitch, RACK_STROKE_MM = 1.00 mm) changes the per-stroke
+    *linear* travel, not the crank angle, so the select/reset times are
+    UNCHANGED. It is carried in `rack_stroke_mm` for traceability.
     """
     groups = math.ceil(ROWS / rows_in_bank)
     cells_per_group = COLS * rows_in_bank
@@ -271,6 +291,8 @@ def timing(rows_in_bank: int) -> dict:
     return dict(rows_in_bank=rows_in_bank, groups=groups,
                 cells_per_group=cells_per_group, stations=stations,
                 writers=WRITERS,
+                rack_stroke_mm=RACK_STROKE_MM,
+                crank_deg_per_level=LEVEL_ANGLE_DEG,
                 writer_s_per_group=round(writer_s, 4),
                 select_pass_s=round(select_s, 4), reset_pass_s=round(reset_s, 4),
                 per_group_s=round(per_group, 4),
@@ -302,6 +324,10 @@ BANK_ICS_OPTIMISTIC = 1                 # both motors share one dual IC
 BANK_IC_USD = cc.TB6612_SOURCED         # $0.7955, LCSC C88224 (E1 source)
 WRITER_CHIP_USD = 0.30                  # ULN2803-class 8-ch darlington
 WRITER_CHIPS = (WRITERS + 7) // 8       # 5 chips for 40 writers
+# The shared drive bar is a SOURCED steel rod (DND-55/DND-58), not a printed
+# part. One 6 mm x 406.4 mm ground steel rod is a single commodity line; the
+# allowance is a stated sourced-class figure (rod stock ~$6/m retail, cut).
+STEEL_ROD_USD = 3.00                    # sourced-class allowance, 1 rod
 
 
 def bom(rows_in_bank: int) -> dict:
@@ -315,10 +341,15 @@ def bom(rows_in_bank: int) -> dict:
                           + WRITER_CHIPS * WRITER_CHIP_USD, 2)
     channel_parts_optimistic = round(BANK_ICS_OPTIMISTIC * BANK_IC_USD
                                      + WRITER_CHIPS * WRITER_CHIP_USD, 2)
-    # The DND-54 claim (channels unpriced) and the honest total (channels priced).
+    # Sourced drive rod (replaces the printed 3x2 placeholder; DND-58).
+    rod_parts = STEEL_ROD_USD
+    # The DND-54 claim (channels unpriced, rod unpriced).
     parts_claim = nx.FIXED_PARTS_NO_CHANNEL + actuator_parts
     delivered_claim = delivered(parts_claim)
-    parts = round(parts_claim + channel_parts, 2)
+    # DND-54 ratified claim (channels priced, rod unpriced) and honest total.
+    parts_no_rod = round(parts_claim + channel_parts, 2)
+    delivered_no_rod = delivered(parts_no_rod)
+    parts = round(parts_no_rod + rod_parts, 2)
     d = delivered(parts)
     return dict(rows_in_bank=rows_in_bank,
                 fixed_no_channel_parts_usd=nx.FIXED_PARTS_NO_CHANNEL,
@@ -330,8 +361,12 @@ def bom(rows_in_bank: int) -> dict:
                 writer_chip_unit_usd=WRITER_CHIP_USD,
                 channel_parts_usd=channel_parts,
                 channel_parts_optimistic_usd=channel_parts_optimistic,
+                steel_rod_count=1, steel_rod_unit_usd=STEEL_ROD_USD,
+                rod_parts_usd=round(rod_parts, 2),
                 parts_claim_usd=round(parts_claim, 2),
                 delivered_claim_usd=delivered_claim,
+                parts_no_rod_usd=parts_no_rod,
+                delivered_no_rod_usd=delivered_no_rod,
                 parts_usd=round(parts, 2), delivered_usd=d,
                 ceiling_usd=cc.CEILING, clears=bool(d < cc.CEILING),
                 margin_usd=round(cc.CEILING - d, 2),
@@ -339,7 +374,9 @@ def bom(rows_in_bank: int) -> dict:
                      "the 80-motor head and its 80-channel driver block are "
                      "removed, but the S5-R block's OWN %d bank H-bridge IC(s) "
                      "and %d writer darlington chip(s) are priced here "
-                     "(DND-56; no double-count). Sourced point-in-time prices."
+                     "(DND-56; no double-count). DND-58 adds the 1 sourced "
+                     "steel drive rod d=6 (priced here, not previously in the "
+                     "printed-placeholder lines). Sourced point-in-time prices."
                      % (writers, BANK_ICS_WORKING, WRITER_CHIPS))
 
 
