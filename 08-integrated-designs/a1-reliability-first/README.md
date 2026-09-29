@@ -237,9 +237,9 @@ CAD-validated **common-height read target**.
 | Shutter hinge z / flap tip radius | 45.8 mm / 2.03 mm | DND-115 CAD |
 | **Shadow of the read spot, hidden / visible** | **100% / 0%** | DND-115 calc |
 | **On/off return ratio** | **7.72×** (gate 2×) | DND-115 calc |
-| Shutter sweep — neighbour body clearance | **0.255 mm** | DND-115 calc |
+| Shutter sweep — neighbour body clearance | **0.280 mm** | DND-115 calc |
 | Shutter sweep — own column clearance | **3.41 mm** | DND-115 calc |
-| Absorber (flap) standoff Δz | 0.55 mm (DoF ±1 mm) | DND-115 calc |
+| Absorber (flap) standoff Δz | 0.55 mm (provenance only) | DND-115 calc / DND-119 |
 | **Single-cell resolution, as drawn** | **NO** — a down cell reads up | DND-113 |
 | **Single-cell resolution, with CH-A target** | **YES** — one fixed standoff | DND-114 |
 | **State actually read (up vs down)?** | **YES** — shutter gives a 7.7× on/off return | DND-115 |
@@ -272,12 +272,22 @@ frame-fixed** (`Δz = 0`); the flap is an **absorber** (matte black), so no
 state-dependent target z is reintroduced — only the *shadow* is state-dependent.
 Computed at CAD + calculation: the hidden state covers **100%** of the read spot,
 the visible state **0%**, giving a **7.72× on/off return ratio** (gate 2×). The
-swept flap clears the neighbour body by **0.255 mm** and the own column by
+swept flap clears the neighbour body by **0.280 mm** and the own column by
 **3.41 mm**. A **tolerance stack-up (worst-case + 200k-draw Monte Carlo)** shows
 the DND-114 **1.0 mm standoff is infeasible** for a 0.44 mm flap under printed
 placing tolerances, so DND-115 adopts a **1.8 mm standoff / 0.44 mm aperture**
 (spot 1.405 mm, still clearing the neighbour by 0.353 mm). Residuals are now
-assumption-class optical constants and measurement-only wear (DND-27). See
+assumption-class optical constants and measurement-only wear (DND-27).
+
+**DND-119 corrected the claim framing** (from the DND-118 audit) with no geometry
+change: the neighbour top is **not** off-beam but **weakly in-cone and
+state-invariant** (cone radius 1.286 mm vs 1.055 mm near-edge offset), so the
+crosstalk term is modelled and **gated** in `contrast_passes` — the
+crosstalk-corrected on/off ratio is **6.37×** (still > 2× gate). The vacuous
+"absorber within ±1 mm DoF" check is downgraded to **provenance only**, and the
+tolerance MC now samples an explicit reader/aperture placement tolerance so its
+aperture check can fail (worst +0.434 mm nominal / +0.325 mm at ±0.20 mm, still
+positive). See
 [`dnd115-a1-state-encoding-shutter.md`](../../07-evidence-and-decisions/dnd115-a1-state-encoding-shutter.md).
 
 

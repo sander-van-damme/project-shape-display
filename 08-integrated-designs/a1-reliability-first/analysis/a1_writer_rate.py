@@ -464,18 +464,23 @@ def read_resolution_bound():
             "and the 4.82-pitch down spot are eliminated.")
         ,
         residual=(
-            "DND-114/DND-115: the read/verify axis is resolved at CAD + "
+            "DND-114/DND-115/DND-119: the read/verify axis is resolved at CAD + "
             "calculation by (1) the CH-A common-height target and (2) the DND-115 "
             "state-encoding shutter (`shutter_read_contrast()`): a matte-dark flap "
             "on a shutter arm shares the frame-fixed latch hinge axis and covers "
             "the read spot in one latch state (100%) and clears it in the other "
-            "(0%), giving a ~10x on/off return ratio while the reflective TARGET "
-            "stays frame-fixed (DeltaZ = 0). Residuals: (1) the flag-read standoff "
-            "(1.0 mm) and aperture (0.60 mm) are assumption-class; (2) the flap "
-            "matte reflectance (0.05) and the flap/hinge wear across 6,400 "
-            "cycles are measurement-only (DND-27); (3) no print/measurement "
-            "(DND-27). The +/-0.264 mm registration number remains an up-state "
-            "provenance figure only.")
+            "(0%), giving a 7.72x on/off return ratio (6.37x once the "
+            "state-invariant in-cone neighbour term is included; both > 2x gate) "
+            "while the reflective TARGET stays frame-fixed (DeltaZ = 0). Residuals: "
+            "(1) the flag-read standoff (1.8 mm) and aperture (0.44 mm) are "
+            "assumption-class; (2) the flap matte reflectance (0.05) and the "
+            "flap/hinge wear across 6,400 cycles are measurement-only (DND-27); "
+            "(3) no print/measurement "
+            "(DND-27). DND-119 (from the DND-118 audit) corrects the framing: the "
+            "neighbour top is NOT off-beam (it is weakly in-cone, state-invariant, "
+            "modelled and gated), and the absorber 'within DoF' check is vacuous "
+            "(reported for provenance only). The +/-0.264 mm registration number "
+            "remains an up-state provenance figure only.")
     )
 
 
@@ -759,8 +764,8 @@ def shutter_read_contrast():
     r_vane = READ_TARGET_REFLECTANCE_UP      # 0.80
     r_flap = SHUT_FLAP_REFLECTANCE           # 0.05
     # Solid-angle proxies (Lambertian A/d^2) at each plane.
-    g_vane = flag_gap_mm                     # 1.00
-    g_flap = absorber_gap_mm                 # 0.80
+    g_vane = flag_gap_mm                     # 1.8 (DND-115 standoff)
+    g_flap = absorber_gap_mm                 # 1.25 (flat_bot to aperture)
     bright = (1.0 - visible_shadow) * r_vane / g_vane ** 2
     dark = (1.0 - hidden_shadow) * r_vane / g_vane ** 2 + \
         hidden_shadow * r_flap / g_flap ** 2
@@ -769,20 +774,77 @@ def shutter_read_contrast():
     # Neighbour margin and crosstalk in the CLEAR state. The neighbour body's
     # near edge is at x = PITCH - cell_top/2 = 3.28 mm; the swept flap reaches
     # x = 3.025 mm, so the flap itself clears by (3.28 - 3.025) mm. The READ beam
-    # spot half-width (0.568 mm) about x = 2.225 reaches only 2.793 mm, also
+    # spot half-width (0.7025 mm) about x = 2.225 reaches only 2.928 mm, also
     # short of 3.28 mm, so no part of the read spot touches the neighbour body
-    # (this is the DND-114 clearance, unchanged). The neighbour top is at most
-    # z = TRAVEL (40), i.e. >= 4 mm below the 44 mm aperture plane and off-beam.
+    # (this is the DND-114 clearance, unchanged).
+    #
+    # DND-119 CORRECTION (A6, from the DND-118 audit): the prior text claimed the
+    # neighbour top is ">= 4 mm below the aperture plane and OFF-BEAM". That is
+    # FALSE for a coaxial cone. The reader is a coaxial 15 deg aperture at z=44.8;
+    # at the neighbour-top plane (z=40, 4.8 mm below) the cone radius is
+    # 4.8*tan15 = 1.286 mm, and the neighbour near edge is only 1.055 mm from the
+    # read axis - INSIDE the cone by 0.231 mm. So a bright (up) neighbour top
+    # contributes a small, STATE-INVARIANT in-cone return. It is modelled here
+    # explicitly and carried into the gate below.
     neighbour_near_edge_mm = PITCH_MM - cell_top_mm / 2     # 3.28
     neighbour_clear_margin_mm = neighbour_near_edge_mm - sweep_x_max
     spot_clear_margin_mm = neighbour_near_edge_mm - (hinge_x + spot_mm / 2)
-    nb_gap_min_mm = SHUT_APERTURE_Z_MM - TRAVEL_MM          # 4.0 mm
-    # Fraction of the clear-state aperture solid angle subtended by the neighbour
-    # body vs the vane (both Lambertian A/d^2; the neighbour is off-axis, so this
-    # is a conservative upper bound on its contribution).
-    neighbour_region = (cell_top_mm ** 2) / nb_gap_min_mm ** 2
+    nb_gap_min_mm = SHUT_APERTURE_Z_MM - TRAVEL_MM          # 4.8 mm
+    cone_radius_at_nb_mm = nb_gap_min_mm * math.tan(
+        math.radians(half_angle_deg))                       # 1.286 mm
+    neighbour_near_edge_offset_mm = neighbour_near_edge_mm - hinge_x  # 1.055
+    neighbour_in_cone = bool(neighbour_near_edge_offset_mm < cone_radius_at_nb_mm)
+    # DND-119 (A5/A6): the physically-correct neighbour return is the part of the
+    # neighbour TOP FACE that falls inside the coaxial cone at the neighbour-top
+    # plane, not the whole face. The in-cone region is the CRESCENT between the
+    # near-edge offset x=x1 (1.055) and the cone edge x=R (1.286). Its exact 2D
+    # area is the circular-segment difference seg(x1) - seg(x2), where
+    # seg(x) = R^2 acos(x/R) - x sqrt(R^2 - x^2) is the area of the circle beyond
+    # x. This gives 0.231 mm^2 (4.46% of the cone), matching the DND-118 audit.
+    # (The earlier band-width x chord proxy double-counted and over-estimated.)
+    nb_band_x_mm = max(0.0, cone_radius_at_nb_mm - neighbour_near_edge_offset_mm)
+
+    def _seg_area(_R, _x):
+        if _x >= _R:
+            return 0.0
+        return _R ** 2 * math.acos(_x / _R) - _x * math.sqrt(_R ** 2 - _x ** 2)
+
+    neighbour_incident_area_mm2 = _seg_area(
+        cone_radius_at_nb_mm, neighbour_near_edge_offset_mm) - _seg_area(
+        cone_radius_at_nb_mm, cone_radius_at_nb_mm)
+    cone_area_mm2 = math.pi * cone_radius_at_nb_mm ** 2
+    neighbour_cone_fraction = (neighbour_incident_area_mm2 / cone_area_mm2
+                               if cone_area_mm2 > 0 else 0.0)
+    # Neighbour return = r_vane (bright top) * in-cone area / g_nb^2; vane return =
+    # r_vane * vane area / g_aper^2. The in-cone neighbour is state-INVARIANT.
+    neighbour_region = neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
     vane_region = (0.44 * 1.60) / g_vane ** 2               # vane area / g^2
-    crosstalk_ratio = neighbour_region / vane_region        # upper bound
+    crosstalk_ratio = neighbour_region / vane_region        # in-cone neighbour/vane
+    # The old, deliberately over-conservative body-area proxy (whole 3.6 mm face at
+    # the minimum neighbour gap, ignoring the cone); kept for provenance, NOT gated.
+    neighbour_face_area_ratio = ((cell_top_mm ** 2) / nb_gap_min_mm ** 2) / vane_region
+    # DND-119 (A6): the in-cone neighbour term is state-invariant, so it adds the
+    # SAME return to the bright and dark states. Physically the neighbour return is
+    # r_vane * in-cone area / g_nb^2 (bright up-face at the neighbour-top plane),
+    # normalised the same way as the vane term r_vane/g_vane^2. Model it explicitly
+    # and recompute the on/off ratio with the crosstalk included. (Matches the
+    # DND-118 audit: ~0.008 vs the ~0.247 vane term, on/off 7.72x -> 6.37x.)
+    crosstalk_term = r_vane * neighbour_incident_area_mm2 / nb_gap_min_mm ** 2
+    bright_with_crosstalk = bright + crosstalk_term
+    dark_with_crosstalk = dark + crosstalk_term
+    on_off_with_crosstalk = (bright_with_crosstalk / dark_with_crosstalk
+                             if dark_with_crosstalk > 0 else float("inf"))
+    neighbour_over_vane_term = crosstalk_term / bright
+    # DND-119 (A5): the neighbour crosstalk term is a MARGIN, not just a report.
+    # Gate it: the in-cone neighbour return must not dominate the signal. The
+    # gated criterion is crosstalk_ratio <= 1 (the neighbour solid-angle term is
+    # not larger than the vane term) AND the crosstalk-corrected on/off ratio
+    # still clears the gate. This is the same defect class DND-112 found in
+    # DND-111 (a number computed and then not carried into the verdict).
+    crosstalk_gated = bool(crosstalk_ratio <= 1.0)
+    crosstalk_residual_ok = bool(on_off_with_crosstalk >= 2.0)
+    # DND-119 (A7): how much smaller the absorber term is than the vane term.
+    absorber_over_vane_term = (r_flap / g_flap ** 2) / (r_vane / g_vane ** 2)
 
     # Ambient: synchronous (modulated-LED) detection rejects DC; the dark-state
     # margin over ambient is the same device-class assumption as DND-114.
@@ -819,9 +881,22 @@ def shutter_read_contrast():
         dof_mm=1.0,
         on_off_return_ratio=round(on_off_ratio, 2),
         on_off_gate=2.0,
+        on_off_return_ratio_with_crosstalk=round(on_off_with_crosstalk, 2),
         contrast_passes=bool(on_off_ratio >= 2.0
-                            and hidden_ok and visible_ok),
+                            and hidden_ok and visible_ok
+                            and crosstalk_gated and crosstalk_residual_ok),
         neighbour_crosstalk_ratio_upper_bound=round(crosstalk_ratio, 3),
+        neighbour_crosstalk_ratio_physical=round(crosstalk_ratio, 3),
+        neighbour_crosstalk_ratio_body_area_proxy=round(
+            neighbour_face_area_ratio, 3),
+        neighbour_crosstalk_gated=crosstalk_gated,
+        neighbour_crosstalk_term=round(crosstalk_term, 5),
+        neighbour_over_vane_term=round(neighbour_over_vane_term, 4),
+        neighbour_in_cone=neighbour_in_cone,
+        neighbour_incident_area_mm2=round(neighbour_incident_area_mm2, 4),
+        neighbour_cone_fraction=round(neighbour_cone_fraction, 4),
+        neighbour_cone_radius_mm=round(cone_radius_at_nb_mm, 3),
+        neighbour_near_edge_offset_mm=round(neighbour_near_edge_offset_mm, 3),
         neighbour_near_edge_mm=round(neighbour_near_edge_mm, 3),
         neighbour_flap_clearance_mm=round(neighbour_clear_margin_mm, 3),
         spot_clearance_mm=round(spot_clear_margin_mm, 3),
@@ -833,17 +908,31 @@ def shutter_read_contrast():
             f"{hidden_shadow*100:.1f}% of the read spot; in the VISIBLE state "
             f"(crank {SHUT_SWING_DEG:.0f} deg) it covers "
             f"{visible_shadow*100:.1f}%. The on/off return ratio is "
-            f"~{on_off_ratio:.0f}x (gate {2.0:.0f}x). The reflective TARGET stays "
-            f"frame-fixed (DeltaZ = {target_delta_z_mm:.3f} mm); only the "
-            f"ABSORBER's standoff varies, by {absorber_delta_z_mm:.2f} mm, inside "
-            f"the {1.0:.1f} mm DoF. The swept flap clears the neighbour body by "
-            f"{neighbour_clear_margin_mm:.3f} mm and the own column by "
+            f"~{on_off_ratio:.2f}x (gate {2.0:.0f}x); including the state-invariant "
+            f"in-cone neighbour term ({neighbour_incident_area_mm2:.3f} mm2 = "
+            f"{neighbour_cone_fraction*100:.1f}% of the cone; {crosstalk_term:.3f} "
+            f"vs the vane term {bright:.3f}) it is "
+            f"~{on_off_with_crosstalk:.2f}x, still above the gate. "
+            f"DND-119 (A5/DND-118): the neighbour crosstalk is now "
+            f"GATED, not merely reported - contrast_passes also requires "
+            f"crosstalk_ratio <= 1 (here {crosstalk_ratio:.2f}x) and the "
+            f"crosstalk-corrected on/off ratio >= 2 (here "
+            f"{on_off_with_crosstalk:.2f}x). The reflective TARGET stays "
+            f"frame-fixed (DeltaZ = {target_delta_z_mm:.3f} mm). DND-119 (A7): the "
+            f"flap is a dark ABSORBER (rho={r_flap:.2f}); its standoff DeltaZ "
+            f"({absorber_delta_z_mm:.2f} mm) is NOT counted as evidence - the "
+            f"absorber term is {1.0/absorber_over_vane_term:.1f}x smaller "
+            f"than the vane term, so 'absorber within DoF' certifies nothing and "
+            f"is reported for provenance only. DND-119 (A6): the neighbour top is "
+            f"NOT off-beam - the coaxial 15 deg cone radius at the neighbour-top "
+            f"plane is {cone_radius_at_nb_mm:.3f} mm vs the "
+            f"{neighbour_near_edge_offset_mm:.3f} mm near-edge offset, so a bright "
+            f"neighbour is weakly in-cone (~{crosstalk_ratio*100:.1f}% of the vane "
+            f"return) and state-invariant. The swept flap clears the neighbour body "
+            f"by {neighbour_clear_margin_mm:.3f} mm and the own column by "
             f"{sweep_z_min - TRAVEL_MM:.2f} mm. In the clear state the read spot "
             f"is entirely off the neighbour body (clearance "
-            f"{spot_clear_margin_mm:.3f} mm), and the neighbour top is "
-            f">= {nb_gap_min_mm:.0f} mm below the aperture plane and off-axis, so "
-            f"its solid-angle upper bound is "
-            f"{crosstalk_ratio:.2f}x of the vane (mostly off-axis). "
+            f"{spot_clear_margin_mm:.3f} mm). "
             f"Ambient is rejected by {1.0/READ_DC_REJECTION:.0f}x (assumption). "
             "The read/verify axis is closed at CAD + calculation; the remaining "
             "residuals are material/measurement-only (DND-27)."),
@@ -855,9 +944,18 @@ def shutter_tolerance_mc(n=200_000, seed=115):
 
     Program policy (DND-27) retires go/no-go risk with a worst-case AND a Monte
     Carlo stack-up, not a print. Sources (assumption-class, sourced FDM process
-    limits): frame/vane placement, flap print dimensions, hinge placement, and
-    the monolithic-frame pitch (neighbour position). Each marginal check is the
-    worst sampled value plus its fail rate.
+    limits): frame/vane placement, flap print dimensions, hinge placement,
+    reader/aperture-plane placement, and the monolithic-frame pitch (neighbour
+    position). Each marginal check is the worst sampled value plus its fail rate.
+
+    DND-119 CORRECTION (A9, from the DND-118 audit). The pre-DND-119 MC pinned
+    the aperture plane to the NOMINAL vane top
+    (`aper = (TRAVEL+3.0) + SHUT_APER_GAP`), so `aperture_clearance` could only
+    fail if the *vane* moved up and NEVER modelled a reader/aperture placement
+    error against the vane - the check was structurally tautological. This MC now
+    samples an explicit reader/aperture-plane placement tolerance `t_aper`
+    (default +/-0.10 mm, with a +/-0.20 mm hostile sensitivity) so the aperture
+    check CAN fail. `aperture_check_can_fail = True` records the fix.
 
     The key result: the DND-114 1.0 mm standoff CANNOT hold a 0.44 mm flap with
     printed placing tolerances (the aperture-clearance check fails multiple %),
@@ -881,8 +979,13 @@ def shutter_tolerance_mc(n=200_000, seed=115):
     # tolerance is tighter than the inter-cell pitch.
     t_hx, t_hinge_z, t_flap_r, t_T, t_W = 0.05, 0.20, 0.15, 0.10, 0.10
     t_neighbour, t_vane, t_gap = 0.10, 0.10, 0.10
+    # DND-119 (A9): the aperture plane is a SEPARATE placement (the reader/lens
+    # mount), so it must carry its own tolerance. Previously aper was pinned to the
+    # nominal vane top + gap, so aperture_clearance_mm could never fail
+    # (a tautology). Now the reader/aperture placement is sampled independently.
+    t_aper = 0.10
 
-    def _mc_one(neighbour_tol):
+    def _mc_one(neighbour_tol, aper_tol=t_aper):
         fails = {k: 0 for k in m}
         worst = {k: float("inf") for k in m}
         for _ in range(n):
@@ -896,7 +999,10 @@ def shutter_tolerance_mc(n=200_000, seed=115):
             g2 = gap_nom + rng.uniform(-t_gap, t_gap)
             fb = vt + g2
             ft = fb + tt
-            aper = (TRAVEL_MM + 3.0) + SHUT_APER_GAP_MM
+            # A9: the aperture plane is the reader placement, NOT pinned to the
+            # vane top. Sample it about its own nominal (vane top + standoff).
+            aper = (TRAVEL_MM + 3.0) + SHUT_APER_GAP_MM \
+                + rng.uniform(-aper_tol, aper_tol)
             checks = {
                 "neighbour_flap_clearance_mm": nbe - (hx + ww / 2.0),
                 "aperture_clearance_mm": aper - ft,
@@ -915,6 +1021,9 @@ def shutter_tolerance_mc(n=200_000, seed=115):
 
     worst, fail = _mc_one(t_neighbour)
     worst_pess, fail_pess = _mc_one(0.20)
+    # A9: an explicit worst-case reader/aperture placement check at +/-0.10 and
+    # +/-0.20 mm, so the aperture_clearance margin is a real (fail-able) check.
+    worst_aper, fail_aper = _mc_one(t_neighbour, 0.20)
     return dict(
         evidence="CALCULATION - worst-case + Monte Carlo stack-up (no print; DND-27)",
         n=n,
@@ -924,7 +1033,7 @@ def shutter_tolerance_mc(n=200_000, seed=115):
         tolerances_mm=dict(
             hinge_x=t_hx, hinge_z=t_hinge_z, flap_r=t_flap_r,
             flap_t=t_T, flap_w=t_W, pitch_neighbour=0.10, vane_top=t_vane,
-            gap=t_gap),
+            gap=t_gap, reader_aper_place=t_aper),
         worst_case_nominal=dict(
             neighbour_flap_clearance_mm=round(worst["neighbour_flap_clearance_mm"], 3),
             aperture_clearance_mm=round(worst["aperture_clearance_mm"], 3),
@@ -933,12 +1042,30 @@ def shutter_tolerance_mc(n=200_000, seed=115):
             own_clearance_mm=round(worst["own_clearance_mm"], 3),
             on_off_ratio=round(worst["on_off_ratio"], 2)),
         fail_rate_nominal={k: fail[k] for k in fail},
+        # A9: explicit reader/aperture-plane placement stack-up.
+        aperture_place=dict(
+            tolerance_mm=t_aper,
+            worst_case_aperture_clearance_mm=round(
+                worst_aper["aperture_clearance_mm"], 3),
+            fail_rate=fail_aper["aperture_clearance_mm"],
+            worst_case_neighbour_flap_clearance_mm=round(
+                worst_aper["neighbour_flap_clearance_mm"], 3)),
         worst_case_pessimistic=dict(
             neighbour_flap_clearance_mm=round(
                 worst_pess["neighbour_flap_clearance_mm"], 3),
             aperture_clearance_mm=round(worst_pess["aperture_clearance_mm"], 3),
             vane_gap_mm=round(worst_pess["vane_gap_mm"], 3)),
         fail_rate_pessimistic={k: fail_pess[k] for k in fail_pess},
+        # A9: the aperture check is no longer pinned to the nominal vane top, so it
+        # depends on an INDEPENDENT reader/aperture placement variable (t_aper > 0)
+        # and its worst sampled clearance is strictly below the pinned value, i.e.
+        # the check responds to placement error. It can be driven negative by a
+        # placement error >= the nominal clearance (0.81 mm); under the adopted
+        # +/-0.10/0.20 mm it stays positive, so the design survives.
+        aperture_check_can_fail=bool(t_aper > 0.0),
+        aperture_nominal_clearance_mm=round(
+            SHUT_APERTURE_Z_MM - (
+                SHUT_HINGE_Z_MM - SHUT_FLAP_R_MM + SHUT_T_MM / 2.0), 3),
         passes_nominal=bool(all(v == 0.0 for v in fail.values())),
         verdict=(
             f"At the adopted {SHUT_APER_GAP_MM:.1f} mm standoff (aperture "
@@ -948,7 +1075,15 @@ def shutter_tolerance_mc(n=200_000, seed=115):
             f"neighbour {worst['neighbour_flap_clearance_mm']:.3f} mm, aperture "
             f"{worst['aperture_clearance_mm']:.3f} mm, vane gap "
             f"{worst['vane_gap_mm']:.3f} mm, coverage "
-            f"{worst['coverage_mm']:.3f} mm. At a hostile +/-0.20 mm neighbour "
+            f"{worst['coverage_mm']:.3f} mm. DND-119 (A9): the aperture plane is "
+            f"modelled as an independent reader placement at +/-{t_aper:.2f} mm "
+            f"(it is no longer pinned to the nominal vane top, so the check can "
+            f"fail); worst aperture clearance across the combined stack-up is "
+            f"{worst_aper['aperture_clearance_mm']:.3f} mm at the hostile "
+            f"+/-0.20 mm reader-placement end (nominal +/-{t_aper:.2f} mm worst "
+            f"{worst['aperture_clearance_mm']:.3f} mm), still positive. At a "
+            f"hostile "
+            f"+/-0.20 mm neighbour "
             f"tolerance the neighbour margin alone can go slightly negative "
             f"({worst_pess['neighbour_flap_clearance_mm']:.3f} mm; fail rate "
             f"{fail_pess['neighbour_flap_clearance_mm']*100:.1f}%) - the binding "
@@ -1255,7 +1390,8 @@ OUTCOME = "a"
 
 OUTCOME_STATEMENT = (
     "OUTCOME (a) BOUNDED on the RATE axis; OUTCOME (a) CLOSED on the "
-    "READ/VERIFY axis at CAD + calculation (DND-114 + DND-115). The A1 writer "
+    "READ/VERIFY axis at CAD + calculation (DND-114 + DND-115; claim framing "
+    "corrected by DND-119 from the DND-118 audit). The A1 writer "
     "rate is analytically bounded from sourced component-class kinematics + "
     "placed CAD. The dominant limit is GANTRY TRAVERSE at the credible design "
     "point: at 1.0 m/s one head writes/reads 164.5 cells/s (credible band "
@@ -1268,9 +1404,18 @@ OUTCOME_STATEMENT = (
     "top-face read was state-dependent-standoff bound (R1/G2), DND-114 moved "
     "the target to a frame-fixed CH-A vane at ONE standoff (DeltaZ = 0), and "
     "DND-115 adds the state-encoding shutter that makes that fixed-standoff "
-    "return state-dependent: the flap covers 100% of the 1.136 mm spot in the "
-    "hidden state and 0% in the visible state, an on/off ratio ~10x while the "
-    "reflective TARGET stays frame-fixed. The remaining residuals are "
+    "return state-dependent: the flap covers 100% of the 1.405 mm spot in the "
+    "hidden state and 0% in the visible state, a 7.72x on/off ratio (6.37x "
+    "including the state-invariant in-cone neighbour term; both > 2x gate) "
+    "while the "
+    "reflective TARGET stays frame-fixed. DND-119 (A5/A6/A7/A9) corrects the "
+    "audit-found framing defects: the neighbour crosstalk term is now modelled "
+    "physically and GATED in contrast_passes (not merely reported); the "
+    "'neighbour off-beam' wording is replaced by the true 'weakly in-cone, "
+    "state-invariant'; the vacuous 'absorber within DoF' check is downgraded to "
+    "provenance; and the tolerance MC samples an explicit reader/aperture "
+    "placement tolerance so its aperture check can fail. The remaining residuals "
+    "are "
     "assumption-class optical constants and measurement-only wear (DND-27). "
     "A1's reliability advantage (readback + retry) is now supported on paper "
     "end to end - the difference between a 0-silent machine and a decorated "
