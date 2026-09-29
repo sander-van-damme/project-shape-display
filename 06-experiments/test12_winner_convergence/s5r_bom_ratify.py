@@ -8,6 +8,13 @@ line by line, so a discrepancy between the DND-54 claim and the data is visible
 rather than inherited. `--selftest` additionally reconciles against the committed
 `cost_closure.py` (E1-E6 basis) and, when present, the S5-R module itself.
 
+DND-65 amendment: `emit_bom_csv` now emits the **working** scenario (DND-54
+allowance units + the block's own channels + the DND-58 sourced steel drive rod)
+whose delivered total reconciles to the promoted model
+`s5r_register.bom(4)["delivered_usd"]` ($404.60); the steel-rod line is a
+purchased line and the optimistic-sourced figure is explicitly labelled as *not*
+the working scenario.
+
 Questions answered (all CALCULATION over sourced listings; no purchase, no print):
 
   Q1  What is the no-channel fixed base, and does it avoid double-counting the
@@ -23,6 +30,9 @@ Questions answered (all CALCULATION over sourced listings; no purchase, no print
       40 writer solenoids still need their own channels.)
   Q6  Break-even unit prices for the $500 ceiling and for the <$400 ideal band.
   Q7  If a traced part costs more than assumed, how much margin is consumed?
+  Q8  (DND-65) Does the emitted `s5r_bom_ratified.csv` reconcile to the promoted
+      model's `bom(4)["delivered_usd"]` ($404.60) with the DND-58 steel rod line
+      present and the three scenarios correctly labelled (working vs optimistic)?
 
 Verdicts are printed; `--selftest` asserts them so they cannot silently regress.
 
@@ -63,6 +73,13 @@ CLAIMED_ACTUATOR_PARTS = 124.00
 CLAIMED_S5R_PARTS = 342.70
 CLAIMED_S5R_DELIVERED = 397.53
 CLAIMED_MARGIN = 102.47
+
+# DND-58: the shared drive bar is a SOURCED 6 mm steel rod (replaces the printed
+# 3x2 placeholder). One 6 mm x 406.4 mm ground rod at a sourced-class allowance,
+# re-entered here by hand to match `s5r_register.STEEL_ROD_USD` ($3.00 parts).
+# `--selftest` reconciles this against the register model.
+CLAIMED_STEEL_ROD_UNIT = 3.00
+CLAIMED_STEEL_ROD_PARTS = 3.00
 
 MOTOR_MATCH = "PM motor (8 mm 18deg bipolar micro stepper)"
 DRIVER_MATCH = "Dual H-bridge channel (DRV8833PWPR bare IC or module)"
@@ -592,6 +609,35 @@ def reconcile_with_s5r_module() -> dict | None:
     )
 
 
+def reconcile_emitted_csv() -> dict:
+    """Q8 (DND-65): re-read the emitted CSV and assert its working TOTAL equals
+    the promoted model's `delivered_usd`, with the steel-rod line present and the
+    scenario labels correct. Independent of the emitter's in-memory arithmetic.
+    """
+    import csv as _csv
+
+    path = HERE / "s5r_bom_ratified.csv"
+    raw = path.read_text()
+    rows = list(_csv.DictReader(raw.splitlines()))
+    working = [r for r in rows
+               if r["item"].startswith("TOTAL (WORKING")]
+    rod_rows = [r for r in rows if "Steel drive rod" in r["item"]]
+    opt_lines = [r for r in rows if r["item"].startswith("scenario reference")]
+    return dict(
+        working_total_usd=float(working[0]["delivered_usd"]) if working else None,
+        working_parts_usd=float(working[0]["parts_usd"]) if working else None,
+        rod_present=bool(rod_rows),
+        rod_unit_usd=float(rod_rows[0]["unit_sourced_usd"]) if rod_rows else None,
+        rod_delivered_usd=float(rod_rows[0]["delivered_usd"]) if rod_rows else None,
+        scenario_reference_present=bool(opt_lines),
+        optimistic_mentioned=any("388.10" in (r["note"] or "")
+                                 or "387.18" in (r["note"] or "")
+                                 for r in opt_lines),
+        working_label_has_rod=bool(working and "steel rod" in working[0]["item"]),
+        csv_total_row_labelled_working=bool(working),
+    )
+
+
 def selftest() -> None:
     r = run()
     # Q1: the identity and the no-channel base.
@@ -645,6 +691,19 @@ def selftest() -> None:
         assert abs(s5r["s5r_rod_parts"] - 3.00) < 0.01, s5r
         assert abs(s5r["s5r_delivered_with_rod"]
                    - (s5r["s5r_delivered_with_channels"] + 3.00 * r["uplift"])) < 0.01, s5r
+        assert abs(CLAIMED_STEEL_ROD_UNIT - s5r["s5r_rod_parts"]) < 0.01, s5r
+
+    # Q8 (DND-65): the emitted CSV must reconcile to the promoted model.
+    csv_ = reconcile_emitted_csv()
+    assert csv_["csv_total_row_labelled_working"], csv_
+    assert csv_["rod_present"], csv_
+    assert csv_["working_label_has_rod"], csv_
+    assert csv_["scenario_reference_present"], csv_
+    if s5r is not None:
+        assert abs(csv_["working_total_usd"] - s5r["s5r_delivered_with_rod"]) < 0.01, csv_
+        assert abs(csv_["working_total_usd"] - 404.60) < 0.01, csv_
+        assert abs(csv_["working_parts_usd"] - s5r["s5r_parts_with_rod"]) < 0.01, csv_
+        assert abs(csv_["rod_delivered_usd"] - CLAIMED_STEEL_ROD_UNIT * r["uplift"]) < 0.01, csv_
     print("DND-56 S5-R BOM ratification selftest OK")
     print(f"  fixed_no_channel ${r['fixed_no_channel_parts']:.2f}  "
           f"S5-R claim ${r['derived_s5r_delivered']:.2f}  "
@@ -653,6 +712,8 @@ def selftest() -> None:
     if s5r is not None:
         print(f"  DND-58: +steel rod ${s5r['s5r_rod_parts']:.2f} parts -> "
               f"working +rod ${s5r['s5r_delivered_with_rod']:.2f} delivered")
+    print(f"  DND-65: emitted CSV working TOTAL ${csv_['working_total_usd']:.2f} "
+          f"== s5r_register.bom(4) delivered_usd; steel rod line present")
     print("  reconciled with committed cost_closure.py: all headlines agree")
     if s5r is not None:
         print("  reconciled with s5r_register.bom(4): all headlines agree")
@@ -664,14 +725,31 @@ def emit_bom_csv(path: str | None = None) -> str:
     """Write the ratified S5-R working-scenario BOM as a CSV artifact.
 
     One row per purchased line, labelled sourced/allowance, with qty, unit,
-    extended parts, and the delivered share (x1.16). The working scenario
-    (DND-54 allowances + the block's own channels) is the honest end-to-end BOM.
+    extended parts, and the delivered share (x1.16). The **working** scenario is
+    the honest end-to-end BOM: the DND-54 allowances ($12 motor / $2.50 writer),
+    the block's own priced channels, **and** the DND-58 sourced steel drive rod.
+    Its delivered total reconciles to the promoted model
+    `s5r_register.bom(rows_in_bank=4)["delivered_usd"]` ($404.60).
+
+    The optimistic-sourced case (motor $12.39 / writer $2.20, 1 shared bank IC)
+    is carried alongside as the labelled `OPTIMISTIC` scenario, so the $388.10
+    figure is never mislabelled as the working scenario again (DND-65).
     """
     import csv as _csv
 
     out = Path(path) if path else (HERE / "s5r_bom_ratified.csv")
     work = s5r_bom_with_channels()
     chan = work["channel_detail"]
+    # Optimistic-sourced scenario (motor $12.39 / writer $2.20, 1 shared bank IC)
+    # at the same qty and channels; carried so the CSV's three scenarios match the
+    # DND-56 ratification's Q6 output and the mislabel cannot recur.
+    opt = s5r_bom_with_channels(motor_unit=12.39, writer_unit=2.20,
+                                use_optimistic_bank_ic=True)
+    # The working scenario uses the DND-54 ALLOWANCE units ($12 motor / $2.50
+    # writer) with the block's OWN channels and the sourced steel rod -- exactly
+    # the inputs to `s5r_register.bom(4)`. `unit_expected_usd` is the allowance
+    # unit (the honest working basis); `unit_sourced_usd` is the live sourced
+    # figure carried for reference only (it feeds the OPTIMISTIC scenario).
     rows = [
         dict(item="Fixed no-channel base (E1-E6: rods, belts, shafts, fasteners, "
                    "power, loom, PCBs, lift/scanner motors, controller, registers)",
@@ -683,15 +761,17 @@ def emit_bom_csv(path: str | None = None) -> str:
              quantity=work["bank_motors"],
              unit_expected_usd=CLAIMED_MOTOR_ALLOWANCE,
              unit_sourced_usd=12.39,
-             evidence="ALLOWANCE->SOURCED-LIVE",
+             evidence="ALLOWANCE (working); SOURCED-LIVE $12.39 is the optimistic",
              note="cheapest torque-matched orderable 17HS4401S 42N.cm; "
-                  "17HS4023 EUR4.24 is under torque"),
+                  "17HS4023 EUR4.24 is under torque. Working total uses the $12.00 "
+                  "allowance (DND-54), not the $12.39 sourced copy"),
         dict(item="Writer solenoid (5 V push, >=1.2 N design target)",
              quantity=work["writers"],
              unit_expected_usd=CLAIMED_WRITER_ALLOWANCE,
              unit_sourced_usd=2.20,
-             evidence="ALLOWANCE->SOURCED-LIVE",
-             note="price supported; force (N) not published by any listing"),
+             evidence="ALLOWANCE (working); SOURCED-LIVE $2.20 is the optimistic",
+             note="price supported; force (N) not published by any listing. Working "
+                  "total uses the $2.50 allowance (DND-54)"),
         dict(item="Bank H-bridge channel (TB6612FNG dual, 1 IC/motor working)",
              quantity=chan["bank_ics_conservative"],
              unit_expected_usd=chan["bank_ic_unit"],
@@ -704,6 +784,13 @@ def emit_bom_csv(path: str | None = None) -> str:
              unit_sourced_usd=chan["writer_chip_unit"],
              evidence="ALLOWANCE",
              note="ON/OFF low-side switch, not an H-bridge"),
+        dict(item="Steel drive rod (sourced Ø6 mm ground rod, DND-58)",
+             quantity=1,
+             unit_expected_usd=CLAIMED_STEEL_ROD_UNIT,
+             unit_sourced_usd=CLAIMED_STEEL_ROD_UNIT,
+             evidence="SOURCED-class allowance",
+             note="replaces the printed 3x2 placeholder bar; 6 mm x 406.4 mm "
+                  "cut rod, ~$6/m retail"),
     ]
     with out.open("w", newline="") as fh:
         w = _csv.DictWriter(fh, fieldnames=[
@@ -712,13 +799,23 @@ def emit_bom_csv(path: str | None = None) -> str:
         w.writeheader()
         total_parts = 0.0
         for r in rows:
-            unit = r["unit_sourced_usd"]
+            # Working scenario extends at the ALLOWANCE unit (`unit_expected_usd`),
+            # which is the DND-54 working basis priced by the promoted model.
+            unit = r["unit_expected_usd"]
             ext = round(r["quantity"] * unit, 2)
             total_parts += ext
             w.writerow(dict(r, parts_usd=ext, delivered_usd=round(ext * UPLIFT, 2)))
         total_parts = round(total_parts, 2)
         total_delivered = round(total_parts * UPLIFT, 2)
-        w.writerow(dict(item="TOTAL (working scenario, sourced units)", quantity="",
+        # The working scenario total is what the promoted model returns. Assert so
+        # a future edit to this emitter cannot silently drift from the model.
+        assert abs(total_delivered - work["delivered_with_channels"]
+                   - CLAIMED_STEEL_ROD_UNIT * UPLIFT) < 0.01, (
+            f"emit_bom_csv total {total_delivered} does not reconcile to model "
+            f"working+rod "
+            f"{round(work['delivered_with_channels'] + CLAIMED_STEEL_ROD_UNIT * UPLIFT, 2)}")
+        w.writerow(dict(item="TOTAL (WORKING scenario: DND-54 allowances + own "
+                              "channels + sourced steel rod)", quantity="",
                         unit_expected_usd="",
                         unit_sourced_usd="",
                         parts_usd=total_parts,
@@ -726,6 +823,20 @@ def emit_bom_csv(path: str | None = None) -> str:
                         evidence="",
                         note=f"ceiling $500 (-${round(CEILING - total_delivered, 2)}); "
                              f"ideal band $400 (+${round(total_delivered - IDEAL_BAND, 2)})"))
+        w.writerow(dict(item="scenario reference (not additive)", quantity="",
+                        unit_expected_usd="", unit_sourced_usd="", parts_usd="",
+                        delivered_usd="", evidence="",
+                        note=f"WORKING (above) = ${total_delivered:.2f} delivered = "
+                             f"promoted model s5r_register.bom(4)['delivered_usd']; "
+                             f"this is the delivered headline. "
+                             f"OPTIMISTIC (1 shared bank IC, sourced motor $12.39 / "
+                             f"writer $2.20) = ${opt['delivered_with_channels']:.2f} "
+                             f"delivered, a reference, NOT the working scenario. "
+                             f"The pre-DND-65 CSV's $388.10 header was the sourced-unit "
+                             f"variant with 2 bank ICs and no steel rod; it is also "
+                             f"NOT the working scenario. Rod-unpriced working "
+                             f"intermediate = ${work['delivered_with_channels']:.2f} "
+                             f"(delivered_no_rod_usd)."))
     return str(out)
 
 

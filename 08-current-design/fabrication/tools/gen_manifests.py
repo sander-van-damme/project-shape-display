@@ -296,25 +296,92 @@ def assembly_manifest_md(rows: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def promoted_bom() -> dict | None:
+    """Load the promoted model's `bom(rows_in_bank=4)` (the single source of
+    truth for the delivered total). Returns None if the module is unavailable so
+    the manifest can label the table as unreconciled rather than guess."""
+    reg = (REPO / "06-experiments" / "test12_winner_convergence"
+           / "s5r_register.py")
+    if not reg.exists():
+        return None
+    sys.path.insert(0, str(reg.parent))
+    import s5r_register  # noqa: E402
+    return s5r_register.bom(rows_in_bank=4)
+
+
 def purchased_bom_md() -> list[str]:
+    """The purchased-BOM table, reconciled to the promoted model (DND-65).
+
+    The CSV (`s5r_bom_ratified.csv`, DND-56/DND-58) is the line detail; the
+    promoted model `s5r_register.bom(4)` is the delivered-total truth. The table
+    presents the WORKING scenario (allowance units + own channels + sourced steel
+    rod), whose total must equal the model's `delivered_usd` ($404.60). The
+    optimistic-sourced and rod-unpriced figures are carried as explicitly
+    labelled references so none can be mistaken for the delivered headline.
+    """
+    bom = promoted_bom()
+    delivered = bom["delivered_usd"] if bom else None
     lines = [
         "## Purchased BOM (ratified, sourced)",
         "",
-        "Reproduced from `06-experiments/test12_winner_convergence/"
-        "s5r_bom_ratified.csv` (DND-56). **No part is purchased by this "
-        "package** ([DND-27](https://github.com/sander-van-damme/"
-        "project-shape-display)); the listing is the board's sourcing reference.",
+        "Line detail reproduced from `06-experiments/test12_winner_convergence/"
+        "s5r_bom_ratified.csv` (DND-56/DND-58) and reconciled to the promoted "
+        "model `s5r_register.bom(rows_in_bank=4)` (DND-65). **No part is "
+        "purchased by this package** ([DND-27](https://github.com/sander-van-"
+        "damme/project-shape-display)); the listing is the board's sourcing "
+        "reference.",
         "",
-        "| Item | Qty | Unit $ (sourced) | Deliverable $ | Evidence |",
+        "**Scenario: WORKING** — the DND-54 allowance units ($12.00 bank motor / "
+        "$2.50 writer), the block's own priced channels, and the DND-58 sourced "
+        "steel drive rod. Units below are the working (allowance) units; the "
+        "`Deliverable $` column is that unit x qty x 1.16 (additive uplift).",
+        "",
+        f"**Working delivered total: ${delivered:.2f}** "
+        f"(= `s5r_register.bom(4)['delivered_usd']`)"
+        if delivered is not None else
+        "**Working delivered total: UNRECONCILED** (promoted model unavailable)",
+        "",
+        "| Item | Qty | Unit $ (working) | Deliverable $ | Evidence |",
         "|---|---:|---:|---:|---|",
     ]
     if BOM_CSV.exists():
         with BOM_CSV.open() as f:
             for row in csv.DictReader(f):
+                item = row["item"]
+                if item.startswith("TOTAL") or item.startswith("scenario reference"):
+                    continue
                 lines.append(
-                    f"| {row['item']} | {row['quantity']} | "
-                    f"{row['unit_sourced_usd']} | {row['delivered_usd']} | "
+                    f"| {item} | {row['quantity']} | "
+                    f"{row['unit_expected_usd']} | {row['delivered_usd']} | "
                     f"{row['evidence']} |")
+    if delivered is not None:
+        lines.append(
+            f"| **TOTAL (working: allowances + own channels + sourced steel "
+            f"rod)** |  |  | **{delivered:.2f}** | reconciled to promoted model |")
+    lines += [
+        "",
+        "**Other scenarios (references, not the delivered headline):**",
+        "",
+    ]
+    if bom is not None:
+        # The ratification's Q6 output (independent of this manifest): optimistic
+        # = 1 shared bank IC at sourced motor/writer prices. The pre-DND-65 CSV's
+        # $388.10 header was a related but distinct figure (2 bank ICs, sourced
+        # units, no rod) that was mislabelled as "working".
+        lines += [
+            "- **Optimistic sourced** (motor $12.39 / writer $2.20 / 1 shared "
+            "bank IC): **$387.18 delivered** (`s5r_bom_ratify.py` Q6). A "
+            "reference, **not** the working scenario.",
+            "- **Pre-DND-65 CSV header mislabel** ($388.10): the sourced-unit "
+            "variant with 2 bank ICs and no steel rod; it is **not** the working "
+            "scenario despite the old \"working\" label. Superseded by this "
+            "reconcile; see [DND-65](/DND/issues/DND-65).",
+            f"- **Working, rod-unpriced** (DND-56 intermediate): "
+            f"**${bom['delivered_no_rod_usd']:.2f}** "
+            f"(`delivered_no_rod_usd`).",
+            f"- **DND-54 claim, channels & rod unpriced**: "
+            f"**${bom['delivered_claim_usd']:.2f}** (`delivered_claim_usd`).",
+        ]
     lines += [
         "",
         "Source links for each line are in the ratified BOM note column and the "
