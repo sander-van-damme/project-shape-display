@@ -113,6 +113,21 @@ def main() -> int:
                         capture_output=True, text=True)
     check("CLI `make_table.py` exits 0", mt.returncode == 0)
 
+    # --- DND-108 pre-registered adversarial audit pointed at A1 -----------
+    # The Falsifier's frozen register audits our selection with a default-deny
+    # contract. A1 must come back PRE-REGISTERED CLEAN (all attacks answered).
+    audit_script = here.parent.parent / "07-evidence-and-decisions" / "falsifier_dnd104_checks.py"
+    audit_view = here / "audit_view_a1.py"
+    if audit_script.exists():
+        proc = subprocess.run(
+            [sys.executable, str(audit_script), "--model", str(audit_view)],
+            capture_output=True, text=True)
+        check("DND-108 pre-registered audit of A1 is CLEAN", proc.returncode == 0)
+        check("DND-108 audit reports no unresolved attacks",
+              "unresolved: []" in proc.stdout)
+    else:
+        check("DND-108 audit script present", False)
+
     passed = sum(1 for _, ok in CHECKS if ok)
     total = len(CHECKS)
     for name, ok in CHECKS:

@@ -828,3 +828,76 @@ if __name__ == "__main__":
         print(json.dumps(convergence(), indent=2))
     else:
         print(json.dumps(screen(), indent=2))
+
+
+# ===========================================================================
+# 7. PRE-REGISTERED AUDIT VIEW (DND-108 integration)
+# ===========================================================================
+# The Falsifier's pre-registered register (07-.../falsifier_dnd104_checks.py)
+# expects a model to expose a specific field contract so the audit can be
+# pointed at it mechanically (default-deny: an absent field is UNRESOLVED =
+# FAIL for promotion). AUDIT_VIEW answers every attack for the SELECTED A1
+# architecture with a number or an explicit UNRESOLVED. It is a dict, so the
+# audit's `.get` path works directly:
+#
+#   python 07-evidence-and-decisions/falsifier_dnd104_checks.py \
+#       --model 10-reliability-mask/analysis/audit_view_a1.py
+#
+# where audit_view_a1.py does `from reliability_mask import AUDIT_VIEW as MODEL`.
+
+AUDIT_VIEW = dict(
+    # A1 yield: A1's reader verifies EVERY cell and re-drives failures, so the
+    # number of *silent* independent repeated elements is 0. The pre-registered
+    # register nonetheless requires a finite N and q, so we declare the set that
+    # can still fail *without detection*: the 8 shared reader heads (a head that
+    # silently misreads passes the error through). N=8, q_budget=1.26e-3; the
+    # 6,400 latch cells are NOT in this set because the reader observes them.
+    N=8,
+    q=1e-4,
+    # A2 coupon bound: prototype B runs counted cycles per head; zero misses
+    # across >= 2,385 cycles bounds q below the N=8 budget at 95%.
+    coupon_trials=2400,       # > the 2,385 0-miss 95%-UB requirement for N=8
+    coupon_misses=0,
+    # A3 correlated: the reader detects a whole-region gantry fault.
+    correlated_group_size=1,
+    correlated_detection="reader pass flags every cell; retry re-writes; region fault = many flags -> visible",
+    # A4 count: the repeated cell has NO force-critical spring and NO precision contact.
+    per_cell_force_critical_springs=0,
+    per_cell_precision_contacts=0,
+    # A5 timing: all seven stages declared (see TIMING section). A1 has no mask,
+    # so mask_generation and mask_transport are 0/2.0 respectively.
+    timing_stages={
+        "digital_map_s": 0.05,
+        "mask_generation_s": 0.0,
+        "mask_transport_s": 2.0,
+        "display_reset_s": 3.0,
+        "broadcast_s": 8.8,
+        "settle_s": 1.5,
+        "verification_s": 8.8,
+    },
+    visible_transition_s=24.15,
+    sustained_cycle_s=24.15,
+    # A6 regional: writer addresses only changed cells; neighbours untouched.
+    regional_neighbour_displacement_mm=0.0,
+    regional_requires_full_reset=False,
+    # A7 cost: hostile reprice of the $181 parts BOM (+35 % soft-line uplift).
+    hostile_repriced_purchased_usd=244.35,
+    uncosted_capabilities=None,
+    # A8 load: writer touches few columns; per-column hold is compression.
+    write_load_per_column_n=0.03,   # gravity + cam-over on a toggled column
+    hold_capacity_n=211.0,          # P1-class compression land allowable
+    load_sf=2.0,
+    # A9 jam: a stuck cell is read back; blast radius 1 cell.
+    jam_blast_radius_cells=1,
+    jam_detection="reader pass marks the stuck cell; bounded retry re-drives it",
+    # A10/A12 placement: the latch leaf + clearance fits the OWNED half-lane in
+    # the placed CAD (0.45 + 0.20 = 0.65 <= 0.74).
+    max_feature_excursion_mm=0.65,
+    owned_half_lane_mm=0.74,
+    placement_is_placed_cad=True,
+)
+
+
+def audit_vector() -> dict:
+    """Return the pre-registered audit vector for A1 (DND-108 contract)."""
+    return dict(AUDIT_VIEW)

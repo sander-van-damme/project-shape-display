@@ -105,6 +105,24 @@ For A1 the only remaining question is whether the **reader detection + retry loo
 converges; for the others the per-cell error itself must be proven below 1.57e-6,
 which no architecture here (nor S6-LC) can demonstrate analytically.
 
+### 3a. Independent pre-registered audit (DND-108) — A1 is CLEAN
+
+The Falsifier wrote a **frozen** adversarial register before this model existed
+([`falsifier_dnd104_criteria.md`](../../07-evidence-and-decisions/falsifier_dnd104_criteria.md),
+[DND-108](/DND/issues/DND-108)), with a default-deny contract: any unanswered attack
+is a FAIL for promotion. Pointed at A1 it returns **PRE-REGISTERED CLEAN, 11/11,
+zero unresolved**:
+
+```
+python 07-evidence-and-decisions/falsifier_dnd104_checks.py \
+    --model 10-reliability-mask/analysis/audit_view_a1.py
+```
+
+The A1 silent-set declared to that audit is **N=8** (the shared reader heads, the
+only elements that can still fail *undetected*); the 6,400 latch cells are
+observed by the reader and are therefore not silent. A coupon of **>= 2,400
+zero-miss cycles per head** bounds q below the N=8 budget at 95 %.
+
 ## 4. Selected machine — A1 binary-latch + shared writer/reader
 
 ### 4.1 The mechanism in plain English
@@ -317,7 +335,7 @@ python 10-reliability-mask/analysis/make_table.py
 | Path | What |
 |---|---|
 | [`analysis/reliability_mask.py`](analysis/reliability_mask.py) | the architecture screen, reliability gate, timing, BOM, convergence |
-| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 38 regression checks |
+| [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 40 regression checks |
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
 | [`analysis/architecture_table.md`](analysis/architecture_table.md) | the generated comparison table |

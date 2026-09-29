@@ -12,7 +12,7 @@
 - **Does not touch** `08-current-design/` (S5-R provenance) or
   `09-low-cost-variant/` (S6-LC). A1 is a new, separate candidate root.
 - **Reproduce:** `python 10-reliability-mask/analysis/reliability_mask.py`
-  (`convergence` arg for the decision view), `..._checks.py` (38/38),
+  (`convergence` arg for the decision view), `..._checks.py` (40/40),
   `render_a1_cad.py`, `make_table.py`.
 
 ## 1. The problem this program addresses
