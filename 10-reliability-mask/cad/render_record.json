@@ -59,20 +59,22 @@
   "reader_head": {
     "scad": "10-reliability-mask/scad/a1_reader_head.scad",
     "stl": "10-reliability-mask/cad/stl/reader_head.stl",
-    "triangles": 312,
+    "triangles": 978,
     "watertight": true,
     "bbox_mm": [
-      13.76,
-      13.76,
+      24.508,
+      24.508,
       104.0
     ],
     "echo": [
       "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
       "ECHO: \"WORK_GAP=2 APERTURE=2 HALF_ANGLE=15\"",
-      "ECHO: \"SPOT_diameter=3.0718\"",
-      "ECHO: \"CORNER_REACH=2.17209 vs BODY/2=1.8\"",
+      "ECHO: \"SPOT_UP_diameter=3.0718\"",
+      "ECHO: \"SPOT_DOWN_diameter=24.5077 = 4.82436 pitches\"",
+      "ECHO: \"CORNER_HYP=2.54558 CORNER_REACH_corrected=4.08148\"",
+      "ECHO: \"NEIGHBOUR_NEAR_EDGE=3.28 SPOT_CONTAMINATES=false\"",
       "ECHO: \"spot fits top face at centre: true\"",
-      "ECHO: \"spot fits top face at corner: false\"",
+      "ECHO: \"down-state single-cell read resolvable: false\"",
       "ECHO: \"gap for centre fit: 2.98564\""
     ]
   },

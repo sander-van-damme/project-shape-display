@@ -99,10 +99,40 @@ def main() -> int:
           a["primary_design_point"]["dominant_limit"] in ("traverse", "actuation"))
     check("DND-111 single-cell read spot fits the 3.60 mm top face (centre)",
           rr["spot_fits_centre"] is True)
-    check("DND-111 single-cell read resolves with a registration tolerance",
-          rr["resolves_single_cell"] is True and rr["registration_tolerance_mm"] > 0)
+    # DND-113 correction (DND-112 R1/R4): the read is state-dependent-standoff
+    # bound, NOT registration bound. The up-state spot is 3.072 mm but the
+    # down-state spot is ~24.5 mm at the 42 mm gap, so a down cell cannot be
+    # read as single-cell by the as-drawn top-face reader.
+    check("DND-113 read is state-dependent-standoff bound, not registration",
+          rr["binding_read_limit"] == "state_dependent_standoff"
+          and rr["resolves_single_cell"] is False)
+    check("DND-113 down-state spot is ~24.5 mm = 4.82 pitches",
+          abs(rr["spot_down_state_mm"] - 24.51) < 0.1
+          and abs(rr["spot_down_state_pitches"] - 4.82) < 0.02)
+    check("DND-113 up-neighbour swamps the down pocket by ~441x",
+          abs(rr["standoff_ratio_neighbour_over_pocket"] - 441.0) < 5.0)
+    check("DND-113 corrected corner reach is ~4.08 mm (not 2.17)",
+          abs(rr["corner_reach_mm"] - 4.081) < 0.01)
+    check("DND-113 registration number +/-0.264 mm is retained as provenance",
+          abs(rr["registration_tolerance_mm"] - 0.264) < 0.01)
+    check("DND-113 no current A1 artifact reads a common-height target",
+          wr.common_height_read_target()["answer"].startswith("NO existing"))
+    zs = wr.z_stroke_trade_study()
+    check("DND-113 reader Z stroke per cell is rate-fatal (>1000 s)",
+          zs["per_cell_cycle_s"] > 1000.0)
+    check("DND-113 reader Z refocus per line is priced (~29.8 s)",
+          abs(zs["per_line_cycle_s"] - 29.8) < 0.5)
     check("DND-111 derived full cycle clears <30 s at 8 heads",
           fc["clears_30s"] is True and fc["full_cycle_s"] < 30.0)
+    # DND-113 (DND-112 T1): the aggressive stop-and-go row must use the correct
+    # trapezoid, giving 61.9 cells/s, not the V-shaped 89.6.
+    check("DND-113 stop-and-go trapezoid gives 61.9 cells/s at 100 m/s^2",
+          abs(a["bounds"]["stop_and_go"]["cells_s_aggressive"] - 61.9) < 0.5)
+    # DND-113 (DND-112 T3): the full cycle now includes the per-line ramp.
+    check("DND-113 8-head cycle includes per-line ramp (~1.0 s/pass)",
+          abs(fc["ramp_overhead_per_pass_s"] - 1.0) < 0.02)
+    check("DND-113 honest 8-head full cycle is 18.278 s (was 16.278 ideal)",
+          abs(fc["full_cycle_s"] - 18.278) < 0.01)
     check("DND-111 pessimistic full-sweep toggle still clears <30 s at 8 heads",
           wr.full_cycle_pessimistic_sweep()["min_heads_to_clear_30s"] is not None and
           wr.full_cycle_pessimistic_sweep()["sweep"][8]["clears_30s"] is True)

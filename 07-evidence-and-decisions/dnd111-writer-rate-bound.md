@@ -1,5 +1,14 @@
 # DND-111 — Analytic bound on the A1 writer/reader rate + single-cell read
 
+> **CORRECTED BY DND-113 (this ADR is superseded on the READ axis).** The DND-112
+> independent audit found that §3.3's single-cell read claim is wrong: the reader
+> reads the column top face, so the read gap is state-dependent (42 mm over a down
+> cell, not 2 mm), and §3.3's "registration ±0.264 mm" is **not** the binding read
+> limit. See [`dnd113-a1-read-mechanism.md`](dnd113-a1-read-mechanism.md). The
+> **rate** bound (§3.1–3.2) stands, with the DND-113 per-line ramp correction to
+> the full cycle (16.278 s ideal → **18.278 s** honest at 8 heads). Read §3.3,
+> §4 and §5 below as historical; they are superseded.
+
 - **Issue:** [DND-111](/DND/issues/DND-111) (CTO). Parent gate: [DND-110](/DND/issues/DND-110).
   Program: [DND-102](/DND/issues/DND-102).
 - **Architecture:** A1 binary-latch + shared writer/reader,
@@ -124,22 +133,30 @@ already flagged, now with a number.
 
 ## 4. Outcome
 
-**OUTCOME (a) BOUNDED.** The A1 writer/reader rate is analytically bounded from
-sourced component-class kinematics + placed CAD. The dominant limit is gantry
-traverse (with the latch snap binding only if the gantry is pushed to 1.5 m/s).
-The full map clears < 30 s including verification at 8 heads. Single-cell read
-resolution is bounded by a ±0.264 mm registration tolerance plus a large
-photometric margin.
+**OUTCOME (a) BOUNDED — on the RATE axis only (corrected by DND-113).**
+The A1 writer rate is analytically bounded from sourced component-class
+kinematics + placed CAD. The dominant limit is gantry traverse (with the latch
+snap binding only if the gantry is pushed to 1.5 m/s). The full map clears
+< 30 s including verification at 8 heads (**18.278 s** after the DND-113 per-line
+ramp correction; this ADR's 16.278 s omitted it).
 
-The residual is no longer an unconstrained placeholder. It is:
-1. **as-built gantry registration** (±0.26 mm over 406 mm) — the decisive
-   residual, a gantry/position-repeatability coupon question; and
-2. **as-printed latch snap force** at the writer contact — a tolerance coupon
-   question (the state itself is exact by hard stop).
+**The READ axis is NOT resolved.** DND-112 showed §3.3 is wrong: the reader's
+fixed height makes the interrogated gap state-dependent, and the ±0.264 mm
+registration number is an up-state-only figure, not the binding limit. The read
+residual is the **state-dependent standoff** (down-state spot 24.5 mm = 4.82
+pitches; up neighbours swamp the pocket ~441×). See
+[`dnd113-a1-read-mechanism.md`](dnd113-a1-read-mechanism.md).
 
-Both are coupon/measurement questions under DND-27's prohibition, but **neither
-is the decisive rate question**. The next CEO terminal call for the
-reader/retry architecture is therefore **SUCCESS-eligible on the rate axis**.
+The residuals are:
+1. **State-dependent read standoff** — the decisive read/verify problem; fix is a
+   common-height read target (proposed) or a priced per-line Z refocus.
+2. **As-built gantry registration** (±0.26 mm over 406 mm) — now a *secondary*
+   read concern once a common-height target exists.
+3. **As-printed latch snap force** at the writer contact — a tolerance question
+   (the state itself is exact by hard stop).
+
+**DND-110's "SUCCESS-eligible on the rate axis" does NOT extend to the
+read/verify axis until the read target is settled.**
 
 ## 5. What was changed
 
@@ -160,6 +177,10 @@ reader/retry architecture is therefore **SUCCESS-eligible on the rate axis**.
 
 ## 6. Residual uncertainty
 
+- **DND-113 correction:** the decisive read residual is the **state-dependent
+  standoff** (down cell read at ~42 mm, drowned by up neighbours ~441×), not
+  ±0.26 mm registration. See
+  [`dnd113-a1-read-mechanism.md`](dnd113-a1-read-mechanism.md).
 - The reflectance pair (0.80/0.15), aperture, LED power and ambient level are
   assumption/sourced-class, not measured.
 - The sourced component-class limits (X1C speed, NEMA17 speed) are

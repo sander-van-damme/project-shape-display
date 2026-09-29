@@ -277,6 +277,28 @@ jobs:
           python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
           python 10-reliability-mask/analysis/reliability_mask_checks.py
 
+      - name: "DND-113 read-mechanism correction (resolves the DND-112 read finding)"
+        # DND-113 accepts the DND-112 audit: the rate stays bounded, the
+        # single-cell read is re-stated as state-dependent-standoff bound (not
+        # registration), the corner-reach formula is fixed (4.081 mm), the
+        # stop-and-go trapezoid is fixed (61.9), the per-line ramp is priced into
+        # the full cycle (18.278 s), and a common-height read target is proposed.
+        # The DND-112 companion checker is now a HARD GATE: every attack asserts
+        # the resolved state, so --gate must exit 0. CALCULATION + CAD (DND-27).
+        run: |
+          python 10-reliability-mask/analysis/reliability_mask_checks.py
+          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
+
+      - name: "DND-112 independent audit of the DND-111 rate/read bound (report)"
+        # Kept as a printed report for provenance; the hard gate is the DND-113
+        # step above (--gate). Recomputes every DND-111 number independently of
+        # a1_writer_rate.py. After DND-113 all attacks assert the resolved state.
+        # CALCULATION + CAD only (DND-27).
+        run: |
+          python 07-evidence-and-decisions/falsifier_dnd112_checks.py
+          python 07-evidence-and-decisions/falsifier_dnd104_checks.py
+
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is

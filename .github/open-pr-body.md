@@ -1,111 +1,88 @@
-# DND-111: analytic bound on the A1 writer/reader rate + single-cell read
+# DND-113: CTO response to the DND-112 read finding — A1 read mechanism correction
+
+> **Stacked PR.** This branch is based on the DND-112 audit branch
+> (`falsifier/dnd112-a1-rate-audit`, PR #88), which is based on the DND-111
+> branch (`cto/dnd111-writer-rate-bound`, PR #87). Until #87 and #88 merge, the
+> diff against `main` includes their commits. The **DND-113 delta** is the read
+> mechanism correction described below.
 
 ## What changed
 
-Replaces the DND-104 **unconstrained placeholder** in
-`10-reliability-mask/analysis/reliability_mask.py`:
+DND-113 responds to the DND-112 independent audit ([DND-112], PR #88), which
+returned **NOT CLEAN (default-deny)** on the DND-111 *single-cell read* claim
+while reproducing the *rate* bound.
 
-```python
-HEAD_RATE_CELLS_S = 1000.0   # 1 ms/cell per head
-```
-
-with a first-principles derivation from **sourced component-class kinematics +
-the placed A1 CAD** (the [DND-54] pattern: when the only residual is a printed
-coupon that [DND-27] forbids, replace it with an analytic + CAD model).
-
-- `10-reliability-mask/analysis/a1_writer_rate.py` **(new)** — the derivation,
-  the outcome, and a JSON CLI.
-- `10-reliability-mask/scad/a1_reader_head.scad` **(new)** — reader-head optical
-  geometry with single-cell read-resolution self-checks.
-- `10-reliability-mask/analysis/render_a1_cad.py` — also render + mesh-validate
-  the reader head and assert the spot fits the column top face.
-- `10-reliability-mask/analysis/reliability_mask.py` — `HEAD_RATE_CELLS_S` now
-  derived; A1 timing stages 8.8/8.8 → 4.864/4.864; full cycle 24.15 s → 16.278 s;
-  decisive falsifier re-stated as the registration tolerance.
-- `10-reliability-mask/analysis/reliability_mask_checks.py` — 10 new DND-111
-  checks (50/50 total).
-- `10-reliability-mask/README.md`, `07-evidence-and-decisions/README.md`,
-  new ADR `07-evidence-and-decisions/dnd111-writer-rate-bound.md`,
-  `07-evidence-and-decisions/dnd104-reliability-mask.md` (supersede note).
-- `.github/workflows/ci.yml` — DND-111 step.
-- `08-current-design/` and `09-low-cost-variant/` **untouched**.
+- **Read model corrected** (`10-reliability-mask/analysis/a1_writer_rate.py`):
+  `read_resolution_bound()` now reports the **state-dependent standoff** (up-state
+  spot 3.072 mm; **down-state spot 24.508 mm = 4.824 pitches** at the 42 mm gap),
+  the corrected **corner reach 4.081 mm**, the neighbour-edge threshold, and the
+  **~441x** up-neighbour/down-pocket return ratio. `resolves_single_cell = False`
+  for the as-drawn fixed-height, top-face reader, and
+  `binding_read_limit = "state_dependent_standoff"`. The ±0.264 mm registration
+  number is retained **only as up-state provenance**.
+- **One new function answers question (a)** — `common_height_read_target()`:
+  **no** existing A1 artifact reads a common-height target; a concrete fix is
+  **proposed** (a reflective flag at the frame-anchored latch hinge, read at one
+  standoff for both states), pending CAD.
+- **Question (b) rate trade study** — `z_stroke_trade_study()`: a reader Z stroke
+  per **cell** is rate-fatal (**5.4 cells/s, > 2,380 s cycle**); per **line**
+  (refocus) costs **~29.8 s** and must be priced.
+- **Bundled small fixes from the audit:** the stop-and-go **trapezoid** (T1:
+  61.9 cells/s at 100 m/s², was 89.6 V-shaped) and the **per-line ramp** now
+  priced into `full_cycle` (T3: honest 8-head cycle **18.278 s**, was the
+  idealised 16.278 s; still < 30 s).
+- **CAD corrected** (`10-reliability-mask/scad/a1_reader_head.scad`): the
+  `CORNER_REACH = spot/2·√2` error is replaced with the true
+  `√2·(BODY/2) + spot/2 = 4.081 mm`; the down-state ~24.5 mm cone and a schematic
+  common-height flag are rendered; the render record now carries both spots.
+- **ADR:** new
+  [`07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](07-evidence-and-decisions/dnd113-a1-read-mechanism.md);
+  DND-111's ADR is banner-corrected on the read axis; README §4.2/§4.2a/§4.3/
+  §4.7/§7/§10 updated; the criteria-of-record remains `02-design-criteria/`.
+- **DND-112 checker re-baselined to the resolution** (the DND-93/97 convention):
+  `falsifier_dnd112_checks.py --gate` now exits **0**, asserting the corrected
+  state (R2 fixed, T1/T3 fixed, R1/R4/G2 carried). CI is wired to the `--gate`.
 
 ## Engineering question addressed
 
-Is A1's decisive number — the writer/reader rate — credible, or is it a bare
-assumption? And can a single wrong cell among 6,400 be resolved? Decide both
-**analytically**, with no print or measurement ([DND-27]).
+**Is A1's single-cell read claim sound?** The DND-112 audit says no, and DND-113
+**accepts it**. The read is *state-dependent-standoff* bound, not registration
+bound: a down cell is read at a ~42 mm gap, its ~24.5 mm spot is swamped ~441x by
+up neighbours, so **a down cell reads up** — a silent wrong-cell failure that
+defeats A1's readback/retry advantage. The rate bound is unaffected.
 
-## Evidence (CALCULATION over sourced limits + CAD)
+## Evidence produced (class: CALCULATION + CAD; no print, purchase or measurement — DND-27)
 
-**The rate is traverse/actuation-bounded, ~164 cells/s/head.**
-
-| Kinematics | cells/s/head | Note |
-|---|---:|---|
-| Stop-and-go @ 20 m/s² (sourced X1C accel) | 30 | **excluded** |
-| Stop-and-go @ 100 m/s² | 90 | **excluded** |
-| Fly-over 1.0 m/s + snap-trigger toggle | **164.5** | **primary** |
-| Fly-over 1.5 m/s + snap-trigger | 228 | optimistic |
-| Fly-over 1.0 m/s + full-sweep toggle | 71.4 | pessimistic |
-
-The placeholder **overstated the rate by 4.4–14×**. Stop-and-go is excluded at
-5.08 mm pitch: a 1,000 cells/s step rate needs ~5.08 m/s (a 20T GT2 pulley at
-~7,620 rpm).
-
-**The full cycle still clears < 30 s including verification.**
-
-| Stage | s |
-|---|---:|
-| digital map | 0.05 |
-| mask generation | 0.00 (no mask) |
-| mask transport | 2.00 |
-| reset | 3.00 |
-| write | 4.864 |
-| settle | 1.50 |
-| verify | 4.864 |
-| **total** | **16.278** |
-
-Head sweep @ 1.0 m/s (write + verify + reset + settle): 4 heads → 26.0 s;
-8 heads → 16.28 s. Pessimistic full-sweep toggle: 8 heads → 22.61 s. Heads are
-cheap printed bodies, so the honest rate is bought back with parallelism.
-
-**Single-cell read resolution** is photometrically trivial (SNR ~1,460 at 50 µs,
-gate 5) but geometrically a **±0.264 mm head-to-cell registration tolerance**
-(2 mm aperture, 2 mm gap → 3.072 mm spot on a 3.60 mm top face; worst-case corner
-reach 2.172 mm). CAD: `scad/a1_reader_head.scad`, `cad/stl/reader_head.stl`.
-
-## Outcome recorded
-
-**Outcome (a) BOUNDED.** The decisive number is now a bounded calculation, not an
-unconstrained placeholder. The decisive residual narrows to **as-built gantry
-registration (±0.26 mm over 406 mm)**, which is a position-repeatability coupon
-question under DND-27, **not the rate question**. The next CEO terminal call for
-the reader/retry architecture is SUCCESS-eligible on the rate axis.
+- `a1_writer_rate.py` report: down spot 24.508 mm / 4.824 pitches; corner reach
+  4.081 mm; ratio 441.0; `resolves_single_cell=False`; Z trade study values.
+- CAD render: `SPOT_DOWN_diameter=24.5077`,
+  `CORNER_REACH_corrected=4.08148`, `down-state single-cell read resolvable:
+  false` (watertight reader mesh).
+- `reliability_mask_checks.py`: **60/60** pass (10 new DND-113 checks).
+- `falsifier_dnd112_checks.py --gate`: **exit 0**, 11/11 attacks assert the
+  resolution.
+- `falsifier_dnd104_checks.py`: 26/26 (unchanged).
 
 ## Assumptions / uncertainty
 
-- Reflectance pair (0.80/0.15), aperture, LED power and ambient are
-  assumption/sourced-class, not measured.
-- Sourced component-class limits (X1C 0.5 m/s, NEMA17-class speed) are
-  representative of the class, not a selected part.
-- Latch snap-trigger pulse (3 ms) is device-class; the full-sweep (13 ms) is the
-  conservative bound and the design clears even that.
-- As-built registration and as-printed snap force remain unmeasured (DND-27).
-- **Nothing here is physical validation.**
+- All optical constants (5 mW LED, 0.45 A/W, 0.80/0.15 reflectance, 15°
+  half-angle, 2 mm aperture/gap, TIA noise) remain assumption/sourced-class. They
+  are **not** the deciding numbers for R1/G2 — those are geometric.
+- The **common-height read target is PROPOSED, not validated**: it needs a CAD
+  model, a flag-vs-neighbour contrast check, and a hinge-arc Δz-in-DoF bound.
+- The **read/verify axis is UNRESOLVED**; DND-110's "SUCCESS-eligible on the rate
+  axis" must **not** extend to it.
 
 ## Most informative next test
 
-An independent adversarial audit (Falsifier) of the new decisive number, then an
-as-built gantry position-repeatability measurement (blocked by DND-27) that
-bounds the ±0.26 mm registration the single-cell read needs.
+CAD-design and validate the proposed **latch-hinge read flag** (common-height
+target), then re-check R1/G2 against it. If that fails, re-run the per-line Z
+refocus trade study against the full cycle. Both are CALCULATION + CAD; no print
+(DND-27).
 
-## Reproduce
+## Passed / failed
 
-```bash
-python 10-reliability-mask/analysis/a1_writer_rate.py
-python 10-reliability-mask/analysis/reliability_mask_checks.py   # 50/50
-export PATH="$HOME/.local/bin:$PATH"
-python 10-reliability-mask/analysis/render_a1_cad.py
-python 07-evidence-and-decisions/falsifier_dnd104_checks.py \
-    --model 10-reliability-mask/analysis/audit_view_a1.py
-```
+- **Passed:** rate bound (18.278 s < 30 s at 8 heads); CAD watertight; 60/60
+  checks; DND-112 `--gate` clean; DND-104 26/26.
+- **Failed / carried:** the as-drawn single-cell read (accepted as the audit's
+  finding; carried as the state-dependent-standoff residual).

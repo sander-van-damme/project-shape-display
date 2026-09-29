@@ -147,14 +147,16 @@ ARCHITECTURES: list[dict] = [
         single_cell_failure="a latch that fails to toggle is read back and re-driven",
         serviceable=True,
         timing_s=dict(digital_map=0.05, mask_generation=0.0, transport=2.0,
-                      reset=3.0, lift=4.864, settle=1.5, verify=4.864),
+                      reset=3.0, lift=5.864, settle=1.5, verify=5.864),
         parts_usd=181.0,
         prototype_coupon="A: 1 cell flip+read; B: 5x5 writer/reader scan",
         decisive_falsifier=(
-            "gantry cannot hold +/-0.26 mm head-to-cell registration across "
-            "406 mm at a traverse speed that keeps the full cycle <30 s (the "
-            "single-cell read needs it); DND-111 showed the rate itself is "
-            "bounded, so registration is now the decisive falsifier"
+            "the reader cannot resolve a single cell at a common standoff: the "
+            "column-top target moves 40 mm with the state, so a down cell is "
+            "read at a 42 mm gap and drowned by up neighbours (DND-112 R1/G2). "
+            "The readback/retry advantage is unproven until a common-height "
+            "read target exists (proposed: a reflective flag at the "
+            "frame-anchored latch hinge)"
         ),
         docs="10-reliability-mask/README.md S A1",
         writer_head_rate_cells_s=164.5,   # DERIVED (DND-111), see 2b below
