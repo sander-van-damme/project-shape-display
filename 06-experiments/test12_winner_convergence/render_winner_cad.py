@@ -103,6 +103,25 @@ def main() -> int:
     record_path = HERE / "winner_cad_record.json"
     record_path.write_text(json.dumps(record, indent=2) + "\n")
     print(f"\nWinner CAD verdict: {record['verdict']} (record: {record_path.name})")
+
+    # 5. DND-54 S5-R register unit cell (CAD evidence for the dropout latch).
+    reg_scad = HERE / "s5r_register.scad"
+    if reg_scad.exists():
+        reg_out = outdir / "s5r_register"
+        reg_out.mkdir(parents=True, exist_ok=True)
+        for part in ("cell", "pawl", "keeper", "assembly"):
+            stl = reg_out / f"{part}.stl"
+            p = subprocess.run([osc, "-o", str(stl), "-D", f'part="{part}"',
+                                reg_scad.name],
+                               cwd=HERE, capture_output=True, text=True, timeout=600)
+            ok = p.returncode == 0 and stl.exists() and stl.stat().st_size > 0
+            dims = bbox_mm(stl) if ok else (0.0, 0.0, 0.0)
+            fits = ok and all(d <= BED_MM for d in dims) and all(d > 0 for d in dims)
+            print(f"[{'OK' if ok and fits else 'FAIL'}] s5r:{part:<10} "
+                  f"bbox={[round(d,2) for d in dims]} bed_fit={fits}")
+            if not ok or not fits:
+                record["verdict"] = "FAIL"
+
     return 0 if record["verdict"] == "PASS" else 1
 
 

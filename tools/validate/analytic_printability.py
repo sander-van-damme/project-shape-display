@@ -115,6 +115,102 @@ def _restricted(value: float, abs_floor: float, robust_target: float) -> str:
     return "FAIL"
 
 
+def check_register_cell(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-54 S5-R register unit cell.
+
+    Same sourced rules and same evidence class as `check_coupon`, applied to the
+    pawl / keeper / rack / wall features of the shared-drive register cell. It
+    reads the SCAD constants so it tracks the CAD source of truth rather than
+    duplicating values.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add(feature, value, limit, verdict, rule_key, note=""):
+        r = rl[rule_key]
+        if verdict == "auto":
+            verdict = _verdict(value, limit)
+        checks.append(Check(feature, round(value, 3), round(limit, 3), verdict,
+                            r.label, r.evidence, r.source, note))
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    # 1. pawl leaf thickness in the pitch direction.
+    add_wall("pawl leaf thickness (PAWL_T)", c["PAWL_T"],
+             "spring leaf across the pitch band; 1 line is the hard floor")
+
+    # 2. keeper leaf thickness.
+    add_wall("keeper leaf thickness (KEEPER_T)", c["KEEPER_T"],
+             "bistable over-centre leaf")
+
+    # 3. housing wall.
+    add_wall("housing wall (WALL)", c["WALL"], "structural cell wall")
+
+    # 4. free lateral gap between the pawl/keeper stack and the neighbour cell.
+    free_band = c["PITCH"] - 2.0 * c["ROTOR_RADIUS"]
+    stack = c["PAWL_T"] + c["KEEPER_T"] + c["KEEPER_OVER_CENTRE"]
+    v = lateral_clearance(free_band - stack, required_mm=0.20, spec=spec)
+    checks.append(Check(
+        feature="free lateral gap to neighbour cell (PITCH - 2R - stack), worst case",
+        value_mm=v.pessimistic_mm, limit_mm=0.20,
+        verdict="PASS" if v.ok else "FAIL",
+        rule="lateral running clearance", evidence=v.evidence, source=v.source,
+        note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; this is the "
+             "no-neighbour-cross-talk geometric gate"))
+
+    # 5. rotor bore clearance (printed journal fit).
+    if "ROTOR_BORE_CLEAR" in c:
+        v = lateral_clearance(c["ROTOR_BORE_CLEAR"], required_mm=0.20,
+                              spec=spec)
+        checks.append(Check(
+            feature="rotor bore free play (ROTOR_BORE_CLEAR), worst case",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error; the "
+                 "printed rotor must spin free in its bore"))
+
+    # 6. rack tooth height (a small printed tooth).
+    add("rack tooth height (RACK_TOOTH_HEIGHT)", c["RACK_TOOTH_HEIGHT"],
+        spec.min_feature_mm, "auto", "min_feature",
+        "tooth narrower than one line cannot print")
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer: real toolpath decisions (seam placement, thin-wall "
+            "detection, bridging params) are not modelled.",
+            "Not a printer: machine calibration, filament lot, moisture and "
+            "temperature effects are not modelled.",
+            "FDM dimensional accuracy is a generic assumption (+/-0.1 mm/face); "
+            "the actual X1C value is not measured here.",
+            "These checks retire geometry-vs-process risk only; they do not "
+            "validate function, fit, or mechanism behaviour.",
+        ],
+    }
+
+
 def check_coupon(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
     c = parse_scad_constants(coupon_path)
     rl = {r.key: r for r in rules(spec)}
@@ -251,7 +347,8 @@ def main() -> int:
         print(f"ERROR: {path} not found", file=sys.stderr)
         return 2
 
-    res = check_coupon(path)
+    res = (check_register_cell(path) if "s5r_register" in path.name
+           else check_coupon(path))
     print_table(res)
     if args.json:
         Path(args.json).write_text(json.dumps(res, indent=2) + "\n")

@@ -137,7 +137,7 @@ it is a heavier residual, not a lighter one.
 
 | id | Residual | Class | The one quantity that closes it |
 |---|---|---|---|
-| R-DND52-1 | Register selective dropout/re-engage at 5.08 mm | mechanism | a printed coupon (forbidden) or a CAD kinematic proof of the dropout latch |
+| R-DND52-1 | Register selective dropout/re-engage at 5.08 mm | mechanism | **closed-analytically by [DND-54](/DND/issues/DND-54)** (`s5r_register.py`, ADR `dnd54-s5r-register-latch.md`): the R=4 shared-drive register clears cell fit, neighbour cross-talk, writer force, bank force, time and cost; only as-printed μ/creep and the full multi-row bar assembly remain measurement/CAD-gated |
 | R-DND52-2 | Shared bank roll time (300 rpm assumed) and reflected inertia of 80 coupled rotors | calculation | a dynamic model of the coupled bank; feasible to add analytically |
 | R-DND52-3 | Printed-pancake torque at 5.08 mm | mechanism | magnetic FEA (external tooling permitted) |
 | R-DND52-4 | All K1/K2/K4/K6/K8/K9 residuals from the S5 register | inherited | unchanged by this pivot |

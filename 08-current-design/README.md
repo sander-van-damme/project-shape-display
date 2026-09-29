@@ -24,6 +24,18 @@ screen found **no analytically retirable fix on the incumbent 80-motor head**, b
 selective-dropout mechanism. See §8 item 8 and the
 [ADR](../07-evidence-and-decisions/dnd52-head-actuator-pivot.md).
 
+**S5-R update ([DND-54](/DND/issues/DND-54)):** the analytic + CAD dropout-latch model
+**closes the S5-R mechanism the way [DND-27](/DND/issues/DND-27) allows and promotes
+S5-R to a machine-definition candidate** — as a **4-row-deep shared bank** (the
+DND-52 option-1 was single-row and, counted honestly per row, could not meet 30 s).
+At R=4 with 40 writer solenoids and 2 bank motors: **$397.53 delivered, 24.62 s**,
+with all seven analytic gates passing (cell fit, zero neighbour cross-talk, writer
+force 18×, bank force 2.15×, latch inherits K1, time +5.4 s, cost −$102). See
+[§8 item 9](#8-next-actions) and the
+[ADR](../07-evidence-and-decisions/dnd54-s5r-register-latch.md). This is **CAD +
+CALCULATION only** — no print, no measurement; the as-printed μ/creep and the
+multi-row bar assembly remain named residuals.
+
 ---
 
 ## 1. Machine in one paragraph
@@ -199,7 +211,7 @@ is not proof they fit.
 | K4 | Regional update disturbs neighbour | calculation | **partially-closed** — 0.017 mm rail-bending *structural* sub-bound vs a 0.10 mm gate; J2 engine returns **INCONCLUSIVE** — stiction release and wear drift are measurement-only. ([DND-41](/DND/issues/DND-41)) |
 | K5 | Cost > $500 delivered | calculation | **not closed at $424.95 (DND-46)** — that headline needed four simultaneous best-case choices (E5 spares deleted + E6 bundled lines repriced). Defensible planning basis: **$482.95 delivered, $17.05 margin** (spares + E6 restored). Sourced-DRV8833 variant **$474.91**. At the expected $1.25 motor it is **$501.51, over the ceiling**. E6 is best-case repricing, not sourcing, and is labelled as such. Conditional on a motor ≤ **$1.86**. `test12/cost_closure.py`, `falsifier_checks.py` |
 | K6 | Time > 30 s at the realised step rate | calculation | **conditional (DND-46)** — 26.251 s at the design point; the **rate-independent floor is 18.65 s**. The closure is **conditional on a loaded engage/settle dwell AND a ≥268 pps (~804 rpm) loaded rate**; ~268 pps only *just* meets 30 s, and the pass assumes **`inspection_s = 0`** (at 3 s inspection the design point is 29.25 s — meets the hard cap, misses the 27 s target). The 45.07 s sweep corner is *not* rate-recoverable (its floor is 34.47 s). Verify the loaded dwell and scan accel, not a "measured rate". `test12/timing_closure.py`, `falsifier_checks.py` |
-| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open — the binding residual of K5; REFUTED at ≤$1.86 on sourced evidence ([DND-49](/DND/issues/DND-49)); no actuator-class/pivot retires it ([DND-52](/DND/issues/DND-52))** — the sub-$1.86 clearing path needs an untraced multipack with **no published step angle**; every *matched, orderable* part found is $8.20–$40 → **$1,088–$4,040 delivered**. The only traced matched part (MOONS 8PM020S1) is $40 → $4,040. The reduced-head lever (fewer motors) **fails the 30 s budget** (40 channels → ~104 s) **and fails cost on the order tier** (R=4 → $531.99; boundary $9.82/station vs the $11.20 tier). Unretired only by a purchase sample (forbidden under [DND-27](/DND/issues/DND-27)) **or the S5-R shared-register pivot**. `test12/k7_motor_trace.py`, `nx52_head_actuator.py` |
+| K7 | Purchased-actuator cost cliff (80 motors) | assumption | **open — the binding residual of K5; REFUTED at ≤$1.86 on sourced evidence ([DND-49](/DND/issues/DND-49)); no actuator-class/pivot retires it ([DND-52](/DND/issues/DND-52))** — the sub-$1.86 clearing path needs an untraced multipack with **no published step angle**; every *matched, orderable* part found is $8.20–$40 → **$1,088–$4,040 delivered**. The only traced matched part (MOONS 8PM020S1) is $40 → $4,040. The reduced-head lever (fewer motors) **fails the 30 s budget** (40 channels → ~104 s) **and fails cost on the order tier** (R=4 → $531.99; boundary $9.82/station vs the $11.20 tier). Unretired only by a purchase sample (forbidden under [DND-27](/DND/issues/DND-27)) **or the S5-R shared-register pivot**. **[DND-54](/DND/issues/DND-54) closes the S5-R dropout mechanism analytically** (R=4 bank, $397.53, 24.62 s, all gates pass) and promotes it. `test12/k7_motor_trace.py`, `nx52_head_actuator.py`, `s5r_register.py` |
 | K8 | Lateral holding (knocked miniature) | calculation | **open — worse than stated (DND-46)** — the DND-44 "1 N → 0.01 mm, limit ~9.4 N" hard-coded a **12 mm free length** with no geometry basis. The repo's own `unrelieved_upper_body_length_mm` is **40 mm** (80.2 − 40.2), where `L³` scaling gives **0.356 mm at 1 N** (3.5× the 0.10 mm neighbour gate) and a 0.10 mm-gate load of only **0.28 N**. The governing limit is set by the chosen free length and an unsourced guide-shear constant, not the mechanism. Gate: the **free-length / guide-capture geometry** (extension vs tier capture) plus printed guide-wall shear. `test12/cross_cutting_closure.py`, `falsifier_checks.py` |
 | K9 | Angular margin vs print tolerance | calculation | **closed-analytically (DND-45)** — Monte-Carlo of the sourced ±0.05 mm FDM tolerance: 5 levels keep margin positive (worst draw **1.72°**, mean 5.52°, 0 % fail bounded / **1.31 %** Gaussian); **6 levels fail 65.6 %**; **4 levels robust**. The K12 level-count tradeoff now carries a hard margin bound. `test12/K9_ANGULAR_MARGIN.md` |
 | K10 | Regional-update time untested end to end | calculation | **closed-analytically (DND-44)** — common platen ⇒ one full 41 mm stroke per update: 1 row ~**3.9 s**, 10 rows ~**6.3 s**, 80 rows ~**24.7 s**. `test12/cross_cutting_closure.py` |
@@ -274,6 +286,20 @@ depth, guide shear, creep, rotor tolerance). See the **Final readiness verdict**
    under [DND-27](/DND/issues/DND-27)). Next agent-reachable step: an **analytic / CAD
    kinematic model** of the register dropout latch (not a print) to decide whether
    S5-R can be machine-defined.
+9. **S5-R analytic + CAD dropout-latch model** — **done** ([DND-54](/DND/issues/DND-54),
+   `test12_winner_convergence/s5r_register.py` + `_checks.py` + `s5r_register.scad`,
+   ADR [`dnd54-s5r-register-latch.md`](../07-evidence-and-decisions/dnd54-s5r-register-latch.md)).
+   The **R=4 shared-drive bank register** (40 writers, 2 bank motors) **clears every
+   analytic gate**: cell fit, zero neighbour cross-talk (a dropped pawl carries no
+   rack force), writer force 18×, bank force 2.15×, latch dormant in service
+   (inherits K1), **24.62 s full map**, **$397.53 delivered**. Real CAD of the unit
+   cell renders and passes the sourced printability gate (one accepted RISK: the
+   0.45 mm keeper leaf is 1 extrusion line). **Verdict: promote S5-R to a
+   machine-definition candidate**; the remaining residuals (as-printed μ, gate/tip
+   sharpness, leaf creep, the multi-row bar assembly) are measurement/CAD-gated and
+   unmeasurable under [DND-27](/DND/issues/DND-27). Next discriminating (no-coupon)
+   test: a **multi-row (R=4) bar-assembly CAD** for torsion / reset-comber / writer
+   envelope.
 
 ---
 
