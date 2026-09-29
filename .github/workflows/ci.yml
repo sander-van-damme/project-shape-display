@@ -318,27 +318,26 @@ jobs:
         # return ratio while the reflective TARGET stays frame-fixed (DeltaZ=0).
         # The 1.0 mm DND-114 standoff is INFEASIBLE under the tolerance stack-up,
         # so the adopted standoff is 1.8 mm (aperture 0.44 mm); the shutter clears
-        # the neighbour body by 0.255 mm and the Monte Carlo stack-up passes.
+        # the neighbour body by 0.280 mm and the Monte Carlo stack-up passes.
         # The companion checker is a HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
         run: |
           python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
-      - name: "DND-118 independent falsifier audit of the DND-115 shutter (report)"
+      - name: "DND-118 independent falsifier audit of the DND-115 shutter (HARD GATE)"
         # The Falsifier's INDEPENDENT recomputation in
-        # 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py (imports no
-        # model code). It is INTENTIONALLY NOT CLEAN: A5/A6 show the ADR's
-        # "off-beam neighbour" wording is false (weakly in-cone; on/off 7.72x ->
-        # 6.37x, still > 2x gate) and the crosstalk number is not gated; A7 shows
-        # the "absorber in DoF" check is vacuous; A9 shows the MC's aperture check
-        # is tautological. The core geometry (A1-A4, A8, A10-A12) reproduces. This
-        # step therefore RUNS the checker as a printed report (no --gate) so main
-        # stays green while the correction is tracked; a CTO follow-up fixes A5/A6/
-        # A7/A9 wording, after which this can become a hard gate.
+        # 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py (imports the
+        # model only to probe the repaired claims; the geometry/arithmetic is
+        # recomputed in-file). DND-118 found A5/A6/A7/A9 claim-framing/method
+        # defects: the "off-beam neighbour" wording was false (weakly in-cone;
+        # on/off 7.72x -> 6.37x, still > 2x gate), the crosstalk number was
+        # reported but not gated, the "absorber in DoF" check was vacuous, and the
+        # MC aperture check was tautological. DND-119 corrected all four with NO
+        # geometry change, so this is now a HARD GATE: --gate must exit 0.
         # CALCULATION + CAD (DND-27); no print, no measurement.
         run: |
-          python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py
+          python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py --gate
 
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and

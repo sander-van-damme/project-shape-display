@@ -146,8 +146,15 @@ def main() -> int:
           and sc["contrast_passes"] is True)
     check("DND-115 reflective TARGET stays frame-fixed (DeltaZ = 0)",
           sc["target_delta_z_mm"] == 0.0)
-    check("DND-115 absorber standoff stays inside the +/-1 mm DoF",
-          sc["absorber_in_dof"] is True and sc["absorber_delta_z_mm"] <= 1.0)
+    check("DND-119 neighbour crosstalk is GATED, not only reported",
+          sc["neighbour_crosstalk_gated"] is True
+          and sc["neighbour_crosstalk_ratio_physical"] <= 1.0)
+    check("DND-119 crosstalk-corrected on/off ratio still clears 2x",
+          sc["on_off_return_ratio_with_crosstalk"] >= sc["on_off_gate"])
+    check("DND-119 absorber standoff is provenance-only (NOT evidence)",
+          sc["absorber_in_dof"] is True
+          and sc["absorber_delta_z_mm"] <= 1.0
+          and "NOT counted as evidence" in sc["verdict"])
     check("DND-115 shutter sweep clears the neighbour body",
           sc["clears_neighbour"] is True
           and sc["neighbour_flap_clearance_mm"] > 0.0)
@@ -163,6 +170,9 @@ def main() -> int:
           and all(v == 0.0 for v in mc["fail_rate_nominal"].values()))
     check("DND-115 adopts the 1.8 mm standoff (DND-114 1.0 mm infeasible)",
           mc["standoff_mm"] == 1.8 and mc["aperture_mm"] == 0.44)
+    check("DND-119 MC models an independent reader/aperture placement (A9)",
+          mc["tolerances_mm"]["reader_aper_place"] > 0.0
+          and mc["aperture_place"]["worst_case_aperture_clearance_mm"] > 0.0)
     zs = wr.z_stroke_trade_study()
     check("DND-113 reader Z stroke per cell is rate-fatal (>1000 s)",
           zs["per_cell_cycle_s"] > 1000.0)

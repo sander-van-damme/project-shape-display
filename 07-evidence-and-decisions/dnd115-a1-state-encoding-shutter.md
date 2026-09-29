@@ -3,6 +3,8 @@
 - **Issue:** [DND-115](/DND/issues/DND-115) (CTO). Parent gate: [DND-110](/DND/issues/DND-110)
   (CEO terminal decision). Corrected model: [DND-113](/DND/issues/DND-113). Adopted
   target: [DND-114](/DND/issues/DND-114). Program: [DND-102](/DND/issues/DND-102).
+  Audited by [DND-118](/DND/issues/DND-118); claim framing corrected by
+  [DND-119](/DND/issues/DND-119) (no geometry change).
 - **Trigger:** DND-114 §6 left one read-axis artifact undimensioned: the CH-A
   frame-fixed vane is a common-height target, but it is **state-invariant** — a
   plain post returns the same light in both latch states, so it cannot actually
@@ -21,7 +23,7 @@
   the hard CAD self-checks in [`render_a1_cad.py`](../08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py);
   the re-baselined [`falsifier_dnd114_checks.py`](falsifier_dnd114_checks.py)
   (standoff/aperture revision); the new [`falsifier_dnd115_checks.py`](falsifier_dnd115_checks.py)
-  (9 attacks, default-deny); the rendered watertight shutter mesh +
+  (12 attacks after DND-119, default-deny); the rendered watertight shutter mesh +
   [`render_record.json`](../08-integrated-designs/a1-reliability-first/cad/render_record.json); this ADR;
   and README §4.2a/§4.7/§6/§10.
 - **Outcome: the read/verify axis is CLOSED at CAD + calculation (outcome a).**
@@ -75,7 +77,7 @@ frame-fixed vane top** (`Δz = 0`); only the *shadow* is state-dependent.
 | Flap top clearance to aperture plane | 0.81 mm | CAD |
 | Reader standoff / aperture | **1.8 mm / 0.44 mm** | CAD (DND-115 revision) |
 | Read spot | 1.405 mm | `a + 2·g·tan15°` |
-| Swept flap neighbour clearance | **0.255 mm** | CAD envelope |
+| Swept flap neighbour clearance | **0.280 mm** | CAD envelope |
 | Swept flap own-column clearance | **3.41 mm** | CAD envelope |
 
 ## 3. The state-encoding contrast (CALCULATION)
@@ -89,13 +91,38 @@ XY footprint at each crank angle:
 | Shadow of the read spot — HIDDEN | **100%** | fully occluded |
 | Shadow of the read spot — VISIBLE | **0%** | fully clear |
 | On/off return ratio | **7.72×** | gate 2× — **PASS** |
+| On/off ratio incl. in-cone neighbour | **6.37×** | gate 2× — **PASS** (DND-119) |
 | Reflective target Δz | **0.000 mm** | frame-fixed — **PASS** |
-| Absorber standoff Δz | 0.55 mm | inside ±1 mm DoF — **PASS** |
-| Neighbour crosstalk (clear state) | off-beam; spot clears by 0.353 mm | **PASS** |
+| Absorber standoff Δz | 0.55 mm | **provenance only** (DND-119; term 7.7× below the vane term) |
+| Neighbour crosstalk (clear state) | **4.6%** of the vane return; **modelled and GATED** (ratio ≤ 1) | **PASS** (DND-119) |
 | Ambient | rejected ~1000× (modulated LED + sync detect) | assumption-class |
 
 The deciding numbers are **geometric** (shadow fraction, lane clearance), not
 SNR. The photometric ceiling remains assumption-class.
+
+**DND-119 correction (from the [DND-118](/DND/issues/DND-118) audit).** Four
+claim-framing/method defects are corrected here with **no geometry change**:
+
+- **A5 — crosstalk gated.** `shutter_read_contrast()` now carries the neighbour
+  term into `contrast_passes` via `neighbour_crosstalk_gated` (physical in-cone
+  ratio ≤ 1) and `on_off_return_ratio_with_crosstalk ≥ 2`. The number is a margin,
+  not a report.
+- **A6 — "off-beam" removed.** The neighbour top is **not** off-beam: at the
+  neighbour-top plane the coaxial 15° cone radius is **1.286 mm** vs the
+  **1.055 mm** near-edge offset, so the edge is in-cone by **0.231 mm**. The
+  in-cone part of the neighbour top is the **0.231 mm²** crescent (4.45% of the
+  cone); it contributes a small **state-invariant** return (~4.6% of the vane
+  term); the corrected on/off is **6.37×**, still > 2× gate.
+- **A7 — absorber DoF downgraded.** The "absorber Δz inside ±1 mm DoF" check is
+  **vacuous**: the target is the frame-fixed vane (Δz = 0), and the absorber term
+  is 7.7× below the vane term. It is reported for provenance only and **not**
+  counted as evidence.
+- **A9 — MC de-tautologised.** `shutter_tolerance_mc()` previously pinned the
+  aperture plane to the nominal vane top, so `aperture_clearance` could never
+  fail. It now samples an explicit reader/aperture-plane placement tolerance
+  (±0.10 mm; hostile ±0.20 mm) and the aperture check is fail-able. Worst sampled
+  aperture clearance is **+0.434 mm** nominal and **+0.325 mm** at ±0.20 mm —
+  still positive, so the design survives; the method now demonstrates it.
 
 ## 4. The DND-115 revision to the DND-114 standoff (IMPORTANT)
 
@@ -115,21 +142,26 @@ one fixed standoff) is unchanged; only the standoff distance moves.
 `shutter_tolerance_mc()` runs **200,000** draws over the printed/assembly
 tolerances (assumption-class, sourced FDM): hinge x ±0.05, hinge z ±0.20, flap
 radius ±0.15, flap thickness ±0.10, flap width ±0.10, vane top ±0.10, gap ±0.10,
-inter-cell pitch ±0.10 mm (and a hostile ±0.20 sensitivity).
+inter-cell pitch ±0.10 mm (and a hostile ±0.20 sensitivity). **DND-119 (A9):** the
+reader/aperture-plane placement is now an **independent** tolerance (±0.10 mm,
+hostile ±0.20 mm) instead of being pinned to the nominal vane top.
 
 | Check | Nominal worst margin | Fail rate (nominal) | Fail rate (±0.20 pitch) |
 |---|---:|---:|---:|
 | Neighbour flap clearance | **0.084 mm** | **0.000** | 0.036 % |
-| Aperture clearance | 0.516 mm | 0.000 | 0.000 |
+| Aperture clearance | **0.434 mm** | 0.000 | 0.000 |
 | Vane gap | 0.450 mm | 0.000 | 0.000 |
 | Coverage | 0.045 mm | 0.000 | 0.000 |
 | Own clearance | 3.351 mm | 0.000 | 0.000 |
-| On/off ratio | 5.46× | 0.000 | 0.000 |
+| On/off ratio | 4.48× | 0.000 | 0.000 |
 
 The binding term is the **inter-cell pitch tolerance** on the neighbour body; a
 single monolithic frame print retires it (nominal-tolerance fail rate is **0**
 across 200k draws). The worst-case neighbour clearance can go negative only
-under the hostile ±0.20 mm pitch assumption, at 0.036 %.
+under the hostile ±0.20 mm pitch assumption, at 0.036 %. **DND-119 (A9):** the
+aperture-clearance check is now fail-able (independent reader placement); worst
+sampled clearance is +0.434 mm nominal and +0.325 mm at ±0.20 mm reader
+placement, so the design survives and the pre-DND-119 tautology is retired.
 
 ## 6. R1/G2/R4 re-checked with the shutter present
 
@@ -164,7 +196,7 @@ reflective target z is unchanged.
 - `cad/render_record.json`: now carries the shutter mesh (watertight,
   1.55×1.60×2.75 mm) and the shutter echoes.
 - `07-evidence-and-decisions/falsifier_dnd115_checks.py`: **new** default-deny
-  auditor (9 attacks) that recomputes every shutter number independently.
+  auditor (12 attacks after DND-119) that recomputes every shutter number independently.
 - `07-evidence-and-decisions/falsifier_dnd114_checks.py`: standoff/aperture
   re-baselined to 1.8 mm / 0.44 mm.
 - `.github/workflows/ci.yml`: new **hard gate** running
@@ -194,11 +226,17 @@ Nothing here is a physical validation.
 frame-fixed vane removed the state-dependent standoff; DND-115's shutter makes
 that fixed-standoff return state-dependent: the hidden state covers 100% of the
 read spot, the visible state 0%, a **7.72× on/off return ratio** (gate 2×), with
-the reflective target still frame-fixed (`Δz = 0`) and the absorber Δz (0.55 mm)
-inside the ±1 mm DoF. The recommended, tolerance-robust configuration uses a
-**1.8 mm standoff / 0.44 mm aperture** (the DND-114 1.0 mm standoff is
-infeasible under the stack-up); the swept flap clears the neighbour body by
-0.255 mm and the own column by 3.41 mm, and the Monte Carlo stack-up passes at
-zero failures under realistic tolerances. The remaining residuals are
-assumption-class optical constants and measurement-only wear. The falsifier
-companion `falsifier_dnd115_checks.py --gate` exits 0.
+the reflective target still frame-fixed (`Δz = 0`). The recommended,
+tolerance-robust configuration uses a **1.8 mm standoff / 0.44 mm aperture** (the
+DND-114 1.0 mm standoff is infeasible under the stack-up); the swept flap clears
+the neighbour body by 0.280 mm and the own column by 3.41 mm, and the Monte Carlo
+stack-up passes at zero failures under realistic tolerances. **DND-119 corrected
+the claim framing** from the DND-118 audit with no geometry change: the neighbour
+crosstalk is now **modelled and gated** (physical in-cone ratio 0.068, corrected
+on/off **6.37×** > 2× gate), the false "off-beam" wording is removed (the
+neighbour is weakly in-cone, state-invariant), the vacuous "absorber in DoF"
+claim is downgraded to provenance, and the tolerance MC samples an independent
+reader/aperture placement so its aperture check can fail (still +0.44/+0.34 mm).
+The remaining residuals are assumption-class optical constants and
+measurement-only wear. The falsifier companions `falsifier_dnd115_checks.py
+--gate` and `falsifier_dnd115_a1_shutter_audit.py --gate` both exit 0.

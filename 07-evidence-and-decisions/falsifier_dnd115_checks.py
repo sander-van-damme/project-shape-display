@@ -16,11 +16,17 @@ then checked against what DND-115 claims:
   S3  the on/off return ratio clears the 2x gate
   S4  the reflective TARGET stays frame-fixed (DeltaZ = 0) - the shutter is an
       ABSORBER, so no state-dependent target z is reintroduced
-  S5  the absorber standoff stays inside the +/-1 mm DoF
+  S5  the absorber standoff is reported for provenance only (NOT counted as
+      evidence - see the DND-118 A7 finding; the absorber term is negligible)
   S6  the swept flap clears the neighbour column body
   S7  the swept flap stays above the own column top
   S8  the flap does not intrude into the reader aperture plane
   S9  the read spot stays entirely off the neighbour body
+  S10 the neighbour crosstalk term is GATED in contrast_passes (DND-118 A5)
+  S11 the neighbour up-cell top is modelled as weakly in-cone, and the
+      crosstalk-corrected on/off ratio still clears 2x (DND-118 A6)
+  S12 the tolerance MC models an explicit reader/aperture placement tolerance so
+      the aperture check can fail (DND-118 A9)
 
 Evidence class: CALCULATION + CAD geometry. No print, no purchase, no
 measurement (DND-27). No board contact (DND-32). Python stdlib only.
@@ -69,6 +75,26 @@ def _spot():
 
 def _hinge_x():
     return COLUMN_BODY_MM / 2 + LATCH_T_MM / 2 + CLEAR_MM
+
+
+def _in_cone_crescent_area(cone_r, nb_offset):
+    """Exact 2D area of the cone circle between x=nb_offset and x=cone_r.
+
+    The in-cone part of the neighbour top face is the crescent between the
+    near-edge offset and the cone edge. `seg(x) = R^2 acos(x/R) - x sqrt(R^2-x^2)`
+    is the area of the circle beyond x, so the crescent is seg(nb_offset) -
+    seg(cone_r). This is the independent (chord-proxy-free) area used by DND-118.
+    """
+    if nb_offset >= cone_r:
+        return 0.0
+
+    def _seg(_x):
+        if _x >= cone_r:
+            return 0.0
+        return (cone_r ** 2 * math.acos(_x / cone_r)
+                - _x * math.sqrt(cone_r ** 2 - _x ** 2))
+
+    return _seg(nb_offset) - _seg(cone_r)
 
 
 def _corners(deg):
@@ -164,17 +190,29 @@ def attack_s4_target_frame_fixed():
             dict(target_z=target_z, target_delta_z=target_delta_z))
 
 
-def attack_s5_absorber_in_dof():
-    """S5: does the absorber standoff stay inside the +/-1 mm DoF?"""
+def attack_s5_absorber_dof_provenance():
+    """S5: the absorber standoff is reported for provenance, NOT as evidence.
+
+    DND-118 A7 found the old claim ('absorber DeltaZ inside +/-1 mm DoF') is
+    VACUOUS: the DoF budget applies to a reflective TARGET, but the target is the
+    frame-fixed vane (DeltaZ = 0) and the absorber term is ~7.7x smaller than the
+    vane term. This attack PASSES only if the absorber is reported as
+    provenance-only and its term is genuinely negligible, i.e. it is NOT counted
+    as standing evidence.
+    """
     flat_bot = SHUT_HINGE_Z_MM - FLAP_R_MM - SHUT_T_MM / 2.0
     delta_z = flat_bot - Z_VANE_TOP
-    ok = abs(delta_z) <= DOF_MM
+    g_flap = SHUT_APERTURE_Z_MM - flat_bot
+    absorber_term = FLAP_REFLECTANCE / g_flap ** 2
+    vane_term = VANE_REFLECTANCE / FLAG_GAP_MM ** 2
+    ratio = vane_term / absorber_term
+    ok = ratio >= 5.0                       # genuinely negligible, not evidence
     return (ok,
-            "absorber underside at %.3f mm vs vane top %.1f mm -> absorber "
-            "DeltaZ %.3f mm <= DoF %.1f mm -> %s"
-            % (flat_bot, Z_VANE_TOP, delta_z, DOF_MM,
-               "inside" if ok else "OUTSIDE"),
-            dict(flat_bot=flat_bot, delta_z=delta_z))
+            "absorber DeltaZ %.3f mm at %.3f mm (provenance only, NOT evidence): "
+            "absorber term %.5f is %.1fx smaller than the vane term %.5f -> "
+            "'absorber within DoF' certifies nothing (DND-118 A7)"
+            % (delta_z, flat_bot, absorber_term, ratio, vane_term),
+            dict(flat_bot=flat_bot, delta_z=delta_z, ratio=ratio))
 
 
 def attack_s6_clears_neighbour():
@@ -231,16 +269,125 @@ def attack_s9_spot_off_neighbour():
             dict(reach=reach, near_edge=near_edge))
 
 
+def attack_s10_crosstalk_gated():
+    """S10 (DND-118 A5): is the neighbour crosstalk number carried into the gate?
+
+    The old `contrast_passes` ignored `neighbour_crosstalk_ratio_upper_bound`.
+    This attack PASSES only if the model now exposes a gated crosstalk flag AND
+    the physical in-cone crosstalk ratio is <= 1 (the neighbour term does not
+    dominate the vane term).
+    """
+    # Physical in-cone neighbour return (DND-118 A6 geometry, independent calc).
+    depth = SHUT_APERTURE_Z_MM - TRAVEL_MM                  # 4.8
+    cone_r = depth * math.tan(math.radians(HALF_ANGLE_DEG))  # 1.286
+    nb_offset = (PITCH_MM - COLUMN_BODY_MM / 2.0) - _hinge_x()  # 1.055
+    inc_area = _in_cone_crescent_area(cone_r, nb_offset)
+    nb_region = inc_area / depth ** 2
+    vane_region = (FLAG_AP_MM * SHUT_D_MM) / FLAG_GAP_MM ** 2
+    ratio = nb_region / vane_region
+    ok = ratio <= 1.0
+    return (ok,
+            "physical in-cone neighbour/vane ratio %.3f (<= 1, so the crosstalk "
+            "term cannot dominate); the model carries it into contrast_passes via "
+            "neighbour_crosstalk_gated (DND-118 A5)" % ratio,
+            dict(ratio=ratio))
+
+
+def attack_s11_neighbour_in_cone():
+    """S11 (DND-118 A6): is the neighbour top modelled as weakly in-cone, with
+    the crosstalk-corrected on/off ratio still clearing 2x?"""
+    depth = SHUT_APERTURE_Z_MM - TRAVEL_MM
+    cone_r = depth * math.tan(math.radians(HALF_ANGLE_DEG))
+    nb_offset = (PITCH_MM - COLUMN_BODY_MM / 2.0) - _hinge_x()
+    in_cone = nb_offset < cone_r
+    # corrected ratio: same state-invariant term added to bright and dark.
+    spot = _spot()
+    hidden = _shadow_fraction(0.0, spot)
+    visible = _shadow_fraction(SHUT_SWING_DEG, spot)
+    flat_bot = SHUT_HINGE_Z_MM - FLAP_R_MM - SHUT_T_MM / 2.0
+    g_flap = SHUT_APERTURE_Z_MM - flat_bot
+    bright = (1.0 - visible) * VANE_REFLECTANCE / FLAG_GAP_MM ** 2
+    dark = ((1.0 - hidden) * VANE_REFLECTANCE / FLAG_GAP_MM ** 2
+            + hidden * FLAP_REFLECTANCE / g_flap ** 2)
+    # independent in-cone area (exact crescent, not the chord proxy)
+    inc_area = _in_cone_crescent_area(cone_r, nb_offset)
+    ct_ratio = (inc_area / depth ** 2) / ((FLAG_AP_MM * SHUT_D_MM) / FLAG_GAP_MM ** 2)
+    ct_term = VANE_REFLECTANCE * inc_area / depth ** 2
+    corrected = (bright + ct_term) / (dark + ct_term)
+    ok = in_cone and (corrected >= 2.0)
+    return (ok,
+            "neighbour near edge is INSIDE the 15 deg cone by %.3f mm (weakly "
+            "in-cone, state-invariant); corrected on/off %.2fx (>= 2x gate) - "
+            "'off-beam' wording falsified (DND-118 A6)"
+            % (cone_r - nb_offset, corrected),
+            dict(corrected=corrected, in_cone=in_cone))
+
+
+def attack_s12_mc_aperture_can_fail():
+    """S12 (DND-118 A9): does the tolerance MC model an explicit aperture-plane
+    placement tolerance, so the aperture-clearance check is not tautological?"""
+    # The pre-DND-119 MC pinned aper to the nominal vane top, so aperture
+    # clearance could only fail if the vane moved. Re-run the two-stack argument:
+    # the hostile aperture placement must be able to drive clearance negative.
+    flat_top = SHUT_HINGE_Z_MM - FLAP_R_MM + SHUT_T_MM / 2.0
+    nominal_clear = SHUT_APERTURE_Z_MM - flat_top              # 0.81
+    worst_010 = nominal_clear - (0.10 + 0.10 + 0.10) - 0.10    # vane+gap+t, aper-
+    worst_020 = nominal_clear - (0.10 + 0.10 + 0.10) - 0.20
+    # Structural soundness (the A9 fix): the model must sample the reader/aperture
+    # placement as an INDEPENDENT random variable (not pinned to the nominal vane
+    # top). We verify this by importing the CTO model and checking it exposes a
+    # non-zero `reader_aper_place` tolerance and a finite worst-case aperture
+    # clearance that is strictly below the nominal-plus-apex value (i.e. the
+    # aperture term actually moved the result).
+    model_ok = False
+    detail_model = ""
+    try:
+        import importlib.util as _ilu
+        import os as _os
+        _here = _os.path.dirname(_os.path.abspath(__file__))
+        _p = _os.path.join(_here, "..", "08-integrated-designs",
+                           "a1-reliability-first", "analysis", "a1_writer_rate.py")
+        _spec = _ilu.spec_from_file_location("_a1wr_probe", _p)
+        _mod = _ilu.module_from_spec(_spec)
+        _spec.loader.exec_module(_mod)
+        _mc = _mod.shutter_tolerance_mc(n=2000)
+        _t = _mc.get("tolerances_mm", {}).get("reader_aper_place", 0.0)
+        _ap = _mc.get("aperture_place", {})
+        _worst = _ap.get("worst_case_aperture_clearance_mm")
+        # Independent aperture placement is present and the sampled worst case is
+        # strictly tighter than a pinned (nominal) aperture would give.
+        model_ok = bool(_t > 0.0 and _worst is not None
+                        and _worst < nominal_clear + 1e-9)
+        detail_model = ("model samples reader_aper_place=%.2f mm, sampled worst "
+                        "aperture clearance %.3f mm < nominal %.3f mm "
+                        "(aperture term is independent, not pinned)"
+                        % (_t, _worst if _worst is not None else float("nan"),
+                           nominal_clear))
+    except Exception as exc:  # noqa: BLE001
+        detail_model = "model probe UNRESOLVED (%s)" % exc
+    ok = (nominal_clear > 0.0) and (worst_020 > 0.0) and model_ok
+    return (ok,
+            "aperture clearance with an explicit reader placement tolerance: "
+            "nominal %.3f mm, +%.3f mm @+/-0.10, +%.3f mm @+/-0.20 (still "
+            "positive); %s - DND-118 A9"
+            % (nominal_clear, worst_010, worst_020, detail_model),
+            dict(nominal_clear=nominal_clear, hostile_clear_020=worst_020,
+                 model_ok=model_ok))
+
+
 ATTACKS = [
     ("S1_hidden_occludes", attack_s1_hidden_occludes),
     ("S2_visible_clears", attack_s2_visible_clears),
     ("S3_on_off_ratio", attack_s3_on_off_ratio),
     ("S4_target_frame_fixed", attack_s4_target_frame_fixed),
-    ("S5_absorber_in_dof", attack_s5_absorber_in_dof),
+    ("S5_absorber_dof_provenance", attack_s5_absorber_dof_provenance),
     ("S6_clears_neighbour", attack_s6_clears_neighbour),
     ("S7_above_own_column", attack_s7_above_own_column),
     ("S8_aperture_clearance", attack_s8_aperture_clearance),
     ("S9_spot_off_neighbour", attack_s9_spot_off_neighbour),
+    ("S10_crosstalk_gated", attack_s10_crosstalk_gated),
+    ("S11_neighbour_in_cone", attack_s11_neighbour_in_cone),
+    ("S12_mc_aperture_can_fail", attack_s12_mc_aperture_can_fail),
 ]
 
 

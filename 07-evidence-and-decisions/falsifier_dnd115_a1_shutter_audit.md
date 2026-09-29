@@ -26,19 +26,20 @@
 | A2 | visible-state full clearance (edge-on) | **PASS** | geometry |
 | A3 | on/off return ratio >= 2x | **PASS** (7.72x) | calculation |
 | A4 | reflective target frame-fixed (DeltaZ=0) | **PASS** | geometry |
-| A5 | neighbour crosstalk is gated, not just reported | **FAIL** | modelling |
-| A6 | neighbour up-cell top is truly "off-beam" | **FAIL** | modelling |
-| A7 | "absorber in +/-1 mm DoF" is meaningful | **FAIL** | claim framing |
+| A5 | neighbour crosstalk is gated, not just reported | **PASS** (repaired DND-119) | modelling |
+| A6 | neighbour up-cell top is truly "off-beam" | **PASS** (wording corrected DND-119) | modelling |
+| A7 | "absorber in +/-1 mm DoF" is meaningful | **PASS** (downgraded DND-119) | claim framing |
 | A8 | swept envelope clears neighbour/own/aperture | **PASS** | geometry |
-| A9 | tolerance stack-up structurally sound | **FAIL** (tautological aperture check) | method |
+| A9 | tolerance stack-up structurally sound | **PASS** (repaired DND-119) | method |
 | A10 | states survive linkage angular tolerance | **PASS** (robust to +/-20 deg) | geometry |
 | A11 | printability / min feature / watertight | **PASS** | CAD |
 | A12 | claim-5 (1.0 mm standoff infeasible) reproduces | **PASS** | calculation |
 
-**Verdict: NOT CLEAN.** The core decisive geometry reproduces independently, but four
-attacks fail. Three are **modelling/claim-framing defects** (A5/A6/A7) and one is a
-**method defect** (A9). None is a geometric collision. The consequence is a
-**downgrade of two sub-claims**, not a falsification of the mechanism.
+**Verdict: CLEAN after DND-119 correction.** The core decisive geometry
+reproduces independently. The four DND-118 findings (A5/A6/A7/A9) were
+**modelling/claim-framing/method defects**, none a geometric collision; all four
+are repaired in [DND-119](/DND/issues/DND-119) with **no geometry change** (see
+the correction note at the end of this register).
 
 ## What reproduces (the decisive numbers, independently recomputed)
 
@@ -186,3 +187,34 @@ measure actual on/off return ratio with the real printed flap and a real apertur
 1.8 mm; assert >= 2x. This is the cheapest experiment that can **falsify** the
 assumption-class reflectance/geometry combination. It requires a print and optical
 hardware — **a physical handoff, not agent-reachable** (DND-27).
+
+## DND-119 correction note (the four findings, repaired)
+
+[DND-119](/DND/issues/DND-119) is the CTO correction task this register recommended.
+It fixes the four DND-118 findings in the audited artifacts with **no geometry
+change** (the reflective target Δz stays 0; the CAD is untouched):
+
+- **A5 (crosstalk gated).** `shutter_read_contrast()` now models the neighbour
+  return **physically** (the in-cone crescent at the neighbour-top plane) and
+  carries it into `contrast_passes` through `neighbour_crosstalk_gated` (ratio ≤ 1)
+  and `on_off_return_ratio_with_crosstalk ≥ 2`. The old `2.589×` body-area proxy is
+  retained only as a labelled over-conservative provenance figure.
+- **A6 ("off-beam" removed).** The model verdict and ADR now state the neighbour
+  top is **weakly in-cone, state-invariant** (cone radius 1.286 mm vs 1.055 mm
+  near-edge offset → in by 0.231 mm; the in-cone crescent is **0.231 mm²** =
+  4.45% of the cone, ~4.6% of the vane term). The corrected on/off ratio is
+  **6.37×** (still > 2× gate). This matches the Falsifier's independent estimate.
+- **A7 (absorber DoF downgraded).** The absorber standoff is reported for
+  **provenance only** and explicitly **not counted as evidence** (its term is 7.7×
+  below the vane term); the real statements are "the target is frame-fixed" and
+  "the flap is a dark absorber".
+- **A9 (MC de-tautologised).** `shutter_tolerance_mc()` now samples an **explicit
+  reader/aperture-plane placement tolerance** (±0.10 mm; hostile ±0.20 mm), so
+  `aperture_clearance` can fail. Worst sampled clearance is +0.434 mm nominal and
+  +0.325 mm at ±0.20 mm — still positive. `aperture_check_can_fail = True`
+  records the fix.
+
+Both gates are green after the correction:
+`falsifier_dnd115_checks.py --gate` (12 attacks) and
+`falsifier_dnd115_a1_shutter_audit.py --gate` (12 attacks) exit 0. The register
+table above now reads all-PASS.
