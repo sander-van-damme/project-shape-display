@@ -88,10 +88,17 @@ def main() -> int:
     check("A2f FIX: G3 passes with a NEMA23-class motor (1.35x)",
           lift["passes"] and abs(lift["margin"] - 1.35) < 0.01,
           f"{lift['torque_needed_nm']} Nm vs {lift['motor_torque_nm']} Nm, {lift['margin']}x")
-    # Sensitivity: gravity+pawl only still failed the old motor.
-    tq_soft = _torque(s6.CELLS * s6.pawl_spring()["release_force_n"], lead)
-    check("A2g historical: even gravity+pawl-only global load broke the NEMA17",
-          tq_soft > old_motor, f"{tq_soft:.2f} Nm vs {old_motor} Nm")
+    # Historical sensitivity: at the OLD (wrong) 0.160 N/col release force the
+    # gravity+pawl-only global load broke the NEMA17. After DND-97/A2 the pawl is
+    # 8x softer (0.020 N), so this bound no longer holds -- which is exactly the
+    # coupling that let DND-93 keep the global broadcast.
+    tq_soft_old = _torque(s6.CELLS * 0.160, lead)
+    tq_soft_new = _torque(s6.CELLS * s6.pawl_spring()["release_force_n"], lead)
+    check("A2g historical: at the OLD 0.160 N/col the global load broke the NEMA17",
+          tq_soft_old > old_motor, f"{tq_soft_old:.2f} Nm vs {old_motor} Nm")
+    check("A2h FIX: at the corrected 0.020 N/col the load fits the NEMA17 "
+          "(coupling that keeps the global broadcast viable)",
+          tq_soft_new < old_motor, f"{tq_soft_new:.3f} Nm vs {old_motor} Nm")
 
     # --- Attack 1: cost headroom with honest allowances ----------------------
     print("[A1] Cost ladder honesty (allowances ADDED by DND-93)")
@@ -161,12 +168,17 @@ def main() -> int:
           k * pocket < 1.0, f"{k * pocket:.3f} N")
 
     # --- Corrected verdict ----------------------------------------------------
-    print("[V] Corrected gate result (DND-93)")
+    print("[V] Corrected gate result (DND-93 + DND-97)")
     dec = s6.decide()
     check("V1 G3 passes on the global board", dec["gates"]["G3_lift_axis_torque"])
-    check("V2 G6 delivered cost FAILS honestly", not dec["gates"]["G6_cost_under_250_delivered"],
+    check("V2 G6 delivered convention is over the line (honest)",
+          not dec["gates"]["G6_cost_under_250_delivered"],
           f"${b['delivered_usd']} vs $250")
-    check("V3 verdict is REJECT", dec["verdict"] == "REJECT")
+    check("V3 G5 mission gate (purchased parts) PASSES", dec["mission_gate_pass"],
+          f"${dec['parts_usd']}")
+    check("V4 all mission gates pass (G1-G5, G7)", dec["all_mission_gates_pass"])
+    check("V5 verdict reflects the mission gate + reliability measurement gate",
+          dec["verdict"] == "PROMOTE_TO_09_WITH_MEASUREMENT_GATE", dec["verdict"])
 
     # --- Evidence-class -------------------------------------------------------
     print("[A8] Evidence-class")

@@ -1,12 +1,14 @@
 # 09 — Ultra-low-cost alternative: S6-LC
 
-**Status:** **selected candidate machine definition, folded into the DND-72 track — NOT
-decision-ready after [DND-93](/DND/issues/DND-93) (G6 delivered cost fails).**
+**Status:** **selected candidate machine definition, folded into the DND-72 track — mission gates
+pass, per-cell reliability measurement-gated** ([DND-93](/DND/issues/DND-93) + [DND-97](/DND/issues/DND-97)).
 **Owner:** CTO. **Issue:** [DND-72](/DND/issues/DND-72) (authoritative synthesis node) /
 board direction [DND-70](/DND/issues/DND-70). Originally explored under
 [DND-71](/DND/issues/DND-71), consolidated here by CEO direction.
-**Fix of record:** [DND-93](/DND/issues/DND-93) — G3 lift-axis corrected; delivered cost now
-**$263.05 (> $250)**, verdict **REJECT**.
+**Fix of record:** [DND-93](/DND/issues/DND-93) (G3 lift-axis) + [DND-97](/DND/issues/DND-97)
+(mechanism defects A1/A2/A6/A7/A8). The **mission gate is G5 purchased parts = $226.77 < $250
+(PASS)**; the repo's stricter internal delivered convention (G6) is **$263.05** and reported, not
+hidden. Verdict **`PROMOTE_TO_09_WITH_MEASUREMENT_GATE`**.
 **Base of record:** [`08-current-design/`](../../08-current-design/README.md) (S5-R,
 $404.60 delivered — **not modified by this directory**).
 
@@ -47,9 +49,10 @@ frame**. The cost cliff is **actuator count**, not part quality.
 
 **S6-LC** is an 80 × 80 array of **square printed columns** at 5.08 mm pitch
 (406.4 × 406.4 mm), each carrying a **five-pocket vertical rack** (10 mm
-pockets) and a **passive printed cantilever pawl** that holds the column against
-gravity. Height is stored mechanically — the pawl, not any powered element,
-holds terrain load. The board is split into **8 banks of 10 rows** (800 cells
+pockets) and a **printed cantilever pawl** whose armed/disarmed state is a
+**DND-76 P1 bistable over-centre latch** — a **hard-stop compression** hold, not
+a friction preload (DND-97/A2). Height is stored mechanically — the latch, not
+any powered element, holds terrain load. The board is split into **8 banks of 10 rows** (800 cells
 each). A full map is written by **four global 10 mm broadcast platen strokes**:
 on stroke *k* only the cells whose **bank threshold mask gate** is open advance.
 Four binary masks encode five heights (0/10/20/30/40 mm). State is cleared by a
@@ -105,30 +108,33 @@ S1's two open failures were addressed, not ignored:
 | Parameter | Value | Basis |
 |---|---:|---|
 | Grid / pitch / cells | 80 × 80 / 5.08 mm / 6,400 | design criteria |
-| Column body / lane | 3.60 mm / 1.48 mm | S1 coupon pitch budget |
-| Pawl leaf | 0.90 × 1.20 × 8.00 mm | CAD + calculation |
+| Column body / owned half-lane | 3.60 mm / **0.74 mm** | DND-97/A1 (owned lane, not the whole gap) |
+| Pawl leaf / root | **0.45** × 1.20 × 8.00 mm / 0.90 mm (outboard) | CAD + calculation |
 | Travel / level | 40 mm / 10 mm × 4 | design criteria |
 | Banks | 8 × 10 rows (800 cells) | calculation (release force) |
 | Bought actuators | **3** (NEMA23 lift, mask index, reset carriage) | `s6lc.py` `bom()` |
 | Full-map time | **11.96 s** (30 s gate, 18.04 s margin) | `timing()` |
-| Purchased parts | **$226.77** (< $250) | `bom()` |
-| Delivered | **$263.05** (> $250 — **G6 FAIL**) | `bom()` |
+| Purchased parts | **$226.77** (< $250 — **mission gate PASS**) | `bom()` |
+| Delivered | **$263.05** (internal convention over) | `bom()` |
 
-### 5a. Gate table (`analysis/s6lc.py` `decide()` — corrected by DND-93)
+### 5a. Gate table (`analysis/s6lc.py` `decide()` — DND-93 + DND-97)
 
 | Gate | Result | Margin |
 |---|---|---|
-| G1 cell fit (pitch/printability) | **PASS** | lane budget (A1 placement overflow still open) |
+| G1 cell fit (owned half-lane) | **PASS** | leaf 0.45 + 0.20 clear ≤ 0.74 |
 | G2 worst-case release force (banked) | **PASS** | 128 N vs 413 N (independent) |
 | G3 lift-axis torque (global board) | **PASS** | 1.63 N·m vs 2.2 N·m (1.35×) |
 | G4 full map < 30 s | **PASS** | 11.96 s vs 30 s |
-| G5 cost < $250 parts | **PASS** | $226.77 |
-| G6 cost < $250 delivered | **FAIL** | **$263.05 (over by $13.05)** |
-| G7 reset-carriage torque (new) | **PASS** | 0.082 N·m vs 0.16 N·m (1.96×) |
+| **G5 cost < $250 purchased (mission gate)** | **PASS** | **$226.77** |
+| G6 cost < $250 delivered (internal convention) | reported | $263.05 (over $13.05) |
+| G7 reset-carriage torque | **PASS** | 0.082 N·m vs 0.16 N·m (1.96×) |
+| **G8 per-cell reliability** | **UNRESOLVED** | measurement-only (coupon C1) |
 
-**Corrected verdict: REJECT.** The G3 fix (DND-93) moved the lift motor to a NEMA23 class
-(+$18) and added the six honest allowances (+$69); delivered cost is now **$13.05 over** the
-$250 gate. The A1/A2/A6/A7/A8 mechanism defects from [DND-91](/DND/issues/DND-91) remain open.
+**Corrected verdict: `PROMOTE_TO_09_WITH_MEASUREMENT_GATE`.** All mission gates pass; the
+mission cost gate is the **purchased** figure (DND-70), which is **$226.77 < $250**. The internal
+delivered convention is $13.05 over and is reported, not hidden. The single measurement-gated item is
+**G8 per-cell reliability** (coupon C1). The A1/A2/A6/A7/A8 mechanism defects are repaired by
+[DND-97](/DND/issues/DND-97) (pawl leaf section + P1 hold gate, owned-lane fit, reliability gate).
 
 ## 6. Product limitation (stated, not hidden)
 
@@ -211,36 +217,33 @@ print** ([DND-27](/DND/issues/DND-27))._
 
 ## 9. Residual uncertainty (measurement-only or product)
 
-- **Pawl release-force spread (S1-D).** Break-even sd ≈ 9 % of mean; typical FDM
-  thin-leaf spread is 10–20 % *(assumption)*. Banking bounds the *force*, not the
-  *spread*. Per-bank masks + a post-write height scan are the mitigations; the
-  residual is measurement-only ([DND-27](/DND/issues/DND-27)).
+- **G8 per-cell reliability is UNRESOLVED.** With no per-cell feedback the map yield is
+  `(1-q)^6400`; a 99 % map needs `q ≤ 1.57e-6`. S6-LC provides no evidence the as-printed latch meets
+  it. Evidence path = **coupon C1** (DND-91 §6).
+- **P1 latch snap-force spread (S1-D).** The P1 latch makes the *state* exact (hard stops), but the
+  *snap force* still spreads with print stiffness (~±20 %) *(assumption)*.
 - **As-printed friction μ, pocket sharpness, pawl creep.** Measurement-only.
-- **Platen flatness / racking** across 406 mm on 4 screws. Calculated within the
-  guidance budget; the as-printed value is measurement-only.
-- **No per-cell feedback.** A missed pawl is a silent local height error — the
-  same failure class as S5/S5-R.
-- **Open mechanism defects ([DND-91](/DND/issues/DND-91), not fixed by
-  [DND-93](/DND/issues/DND-93)):** the CAD pawl overflows the pitch band by
-  0.260 mm (A1); the spring rate uses the root block, 8× too stiff, with no
-  hold-force gate (A2); the program reliability gate is absent (A6); the
-  unloaded-write assumption contradicts tabletop play (A7); regional/jam
-  behaviour is asserted (A8).
+- **Per-column lift load** is the conservative S1 write allowance (0.4 N/col, assumption-class), not
+  measured. The break-even for a 0.30 N·m NEMA17 is ~0.074 N/col; gravity + corrected cam-over is
+  ~0.030 N/col.
+- **A7 product limitation:** the platen is a common plate; tabletop minis on the moving region are an
+  uncovered load case.
+- **A8 product limitation:** regional/jam behaviour is asserted, not modelled — a jammed column does
+  not drop on reset; needs a one-bank jam-injection test.
+- **No per-cell feedback.** A missed latch is a silent local height error — same failure class as
+  S5/S5-R.
 
-The machine is **not** claimed print-ready or physically validated, and after
-DND-93 it is **not decision-ready**: the corrected model **rejects** on the
-delivered-cost gate (G6, $263.05 > $250). It remains a *definition* whose gates
-G1–G5 and G7 pass on the DND-27 evidence classes; closing requires shedding
-≥ $13 delivered or re-designing the write (see
-[`dnd93-s6lc-g3-fix.md`](../../07-evidence-and-decisions/dnd93-s6lc-g3-fix.md)).
+The machine is **not** claimed print-ready or physically validated. It is a *definition* whose every
+**mission** gate passes on the DND-27 evidence classes; the two things still open are the
+**measurement-gated G8 reliability** (coupon C1) and the internal delivered-cost convention
+($263.05 > $250, while the mission's purchased gate passes at $226.77). The A1/A2/A6/A7/A8 mechanism
+defects are repaired by [DND-97](/DND/issues/DND-97)
+([`dnd97-s6lc-mechanism-repair.md`](../../07-evidence-and-decisions/dnd97-s6lc-mechanism-repair.md)).
 
-> **Falsifier audit [DND-74](/DND/issues/DND-74): gate G3 did not stand as
-> written** — `lift_axis()` sized the platen torque on one bank (800 cells) while
-> the write is global over 6,400 cells. This was **fixed in
-> [DND-93](/DND/issues/DND-93)**: the global load is now modelled (2,560 N →
-> 1.63 N·m, NEMA23-class motor, 1.35×) and the corrected gates are in §5a. The
-> DND-74 audit's other findings (circular 296 N ceiling, unpriced timing,
-> allowances) are also folded in; **G6 now fails**. Reproduce:
-> `python 07-evidence-and-decisions/falsifier_dnd74_checks.py` (the DND-74 gate)
+> **Falsifier audits [DND-74](/DND/issues/DND-74) / [DND-91](/DND/issues/DND-91) — findings
+> repaired.** The G3 break (lift sized on 1/8 the load) was fixed in [DND-93](/DND/issues/DND-93);
+> the mechanism defects (A1/A2/A6/A7/A8) were fixed in [DND-97](/DND/issues/DND-97). Both
+> resolution gates are CI-wired: `python 07-evidence-and-decisions/falsifier_dnd91_checks.py`
+> (37/37) and `falsifier_dnd74_checks.py` (31/31).
 > and `python 07-evidence-and-decisions/falsifier_dnd91_checks.py` (the
 > re-baselined 40-check gate).

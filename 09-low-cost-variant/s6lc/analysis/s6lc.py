@@ -144,6 +144,8 @@ PLA_E_MPA = 1500.0                       # sourced modulus range 700-2500, midpo
 MU_PLA_MID = 0.35
 COLUMN_MASS_G = 1.0                      # printed 4.68 x 4.68 x 44 mm column (calc)
 PAWL_RELEASE_N_DESIGN = 0.234            # S1 study break-even; design under it
+COLUMN_SERVICE_LOAD_N = 3.27             # [DND-48] K1 bounding terrain load/column
+PLA_COMPRESS_MPA = 50.0                  # sourced-class PLA compressive strength
 
 
 # ---------------------------------------------------------------------------
@@ -155,48 +157,96 @@ def _cantilever_rate_n_per_mm(t: float, w: float, l: float,
     return 3.0 * e_mpa * i / l ** 3
 
 
-PAWL_T_MM = 0.90                         # 2 extrusion lines (robust)
+PAWL_T_MM = 0.90                         # ROOT block thickness (frame-anchored, outboard)
+# DND-97 (A2) fix: the bending LEAF is PAWL_T/2 = 0.45 mm (scad/s6lc_machine.scad),
+# not the 0.90 mm root block. Using the root section overstated k by 8x.
+PAWL_LEAF_T_MM = 0.45                    # LEAF thickness in the bending axis (enters lane)
 PAWL_W_MM = 1.20                         # width in Y
 PAWL_L_MM = 8.00                         # Z cantilever length (long -> soft)
 PAWL_DEFLECTION_MM = 0.25                # cam-over relief at a pocket
-# S1-sourced pitch lane: body 3.60 + lane 1.48 = 5.08 mm
-# (pawl 0.80 + clearance 0.20 + rail 0.48). Our pawl is up to ~1.48 mm thick
-# lane-compatible; the leaf itself is 0.90 mm, the rest is clearance. The
-# mask gate is stacked ABOVE the pawl in Z (S1 correction: side-by-side does
-# not fit).
+# DND-97 (A1) fix: the cell OWNS only half the inter-body gap (0.74 mm); the part
+# that enters the pitch band (the leaf, 0.45 mm) must fit THAT, not the whole 1.48.
 LANE_BLEED_MM = 0.20
 LANE_RAIL_MM = 0.48
+OWNED_LANE_MM = PITCH_MM / 2 - COLUMN_BODY_MM / 2       # 0.74 mm
+# DND-97 (A6): reliability gate constants.
+PER_CELL_ERROR_BUDGET = 1.570e-6         # q for a 99% map at 6,400 cells
 
 
 def pawl_spring() -> dict:
-    k = _cantilever_rate_n_per_mm(PAWL_T_MM, PAWL_W_MM, PAWL_L_MM)
+    """Pawl leaf spring (release) + the HOLD mechanism (DND-97 A2 fix).
+
+    The CAD leaf that bends is PAWL_LEAF_T_MM = 0.45 mm, not the 0.90 mm root
+    block (k scales as t^3 -> the old model overstated k by 8x). The corrected
+    leaf is soft enough to release, but (as the DND-91 A2 attack warned) far too
+    soft to HOLD the column by friction; the hold is therefore provided by the
+    DND-76 P1 bistable over-centre latch, whose armed state is bounded by two
+    printed hard stops and holds in COMPRESSION (not a bending preload).
+    """
+    k = _cantilever_rate_n_per_mm(PAWL_LEAF_T_MM, PAWL_W_MM, PAWL_L_MM)
+    release = k * PAWL_DEFLECTION_MM
+    # P1 latch hold: a compressed printed land (2-line), not the leaf.
+    latch_land_w_mm = 0.88
+    latch_land_l_mm = 2.40
+    latch_allow_n = latch_land_w_mm * latch_land_l_mm * PLA_COMPRESS_MPA / 0.5
     return dict(rate_n_per_mm=round(k, 4),
+                leaf_t_mm=PAWL_LEAF_T_MM,
+                root_t_mm=PAWL_T_MM,
                 deflection_mm=PAWL_DEFLECTION_MM,
-                release_force_n=round(k * PAWL_DEFLECTION_MM, 4))
+                release_force_n=round(release, 4),
+                latch_snap_force_n=0.61,          # DND-76 P1 (comb-set)
+                latch_hold_allow_n=round(latch_allow_n, 1),
+                hold_required_n=round(COLUMN_SERVICE_LOAD_N, 3),
+                holds=bool(latch_allow_n >= COLUMN_SERVICE_LOAD_N),
+                hold_mechanism="DND-76 P1 over-centre latch hard stop (compression)")
+
+
+def reliability() -> dict:
+    """DND-97 (A6): per-cell reliability gate G8.
+
+    A map is correct only if all 6,400 cells are correct. With per-cell error q
+    the map yield is (1-q)^6400. S6-LC has no per-cell feedback, so errors are
+    silent; the gate requires a stated per-cell error budget and its evidence
+    path. Break-even q for a 99% map is ~1.57e-6. Analytically UNRESOLVED
+    (measurement-only under DND-27).
+    """
+    q_break_even = 1 - 0.99 ** (1.0 / CELLS)
+    return dict(cells=CELLS,
+                map_yield_target=0.99,
+                per_cell_error_break_even=round(q_break_even, 9),
+                has_per_cell_feedback=False,
+                evidence_path="printed coupon C1: 100 engage/release cycles per "
+                              "cell, 4 cells x 3 coupons; measure miss rate",
+                satisfied_analytically=False)
 
 
 def column_fit() -> dict:
     """Pitch / printability geometry for the column + pawl + mask lane.
 
-    Uses the S1 coupon's closed pitch budget (body 3.60 + lane 1.48 = 5.08 mm),
-    which is the only side-by-side arrangement shown to fit at this pitch. The
-    mask gate bar is stacked ABOVE the pawl in Z, so the X budget holds only
-    the pawl lane; the gate does not consume the pitch band.
+    DND-97 (A1) fix: the cell OWNS only half the inter-body gap,
+    PITCH/2 - BODY/2 = 0.74 mm, not the whole 1.48 mm gap. The part that enters
+    the pitch band (the pawl LEAF, 0.45 mm) must fit the OWNED lane. The 0.90 mm
+    root block is anchored outboard in the frame and does not enter the band.
+    The mask gate bar is stacked ABOVE the pawl in Z, so the X budget holds only
+    the pawl lane.
     """
-    lane_free = PITCH_MM - COLUMN_BODY_MM                 # 1.48 mm
-    pawl_plus = PAWL_T_MM + 2 * LANE_BLEED_MM             # 1.30 mm
-    gate_plus = 0.80 + 2 * LANE_BLEED_MM                  # stacked in Z, not X
+    owned_lane = OWNED_LANE_MM                            # 0.74 mm
+    # The leaf + ONE running clearance must fit the owned lane (the clearance is
+    # this cell's own freedom, not wasted material on a neighbour's half).
+    leaf_plus = PAWL_LEAF_T_MM + LANE_BLEED_MM            # 0.45 + 0.20 = 0.65 mm
     x_gap = PITCH_MM - COLUMN_BODY_MM
-    fits = (PAWL_T_MM >= MIN_FEATURE_MM) and (pawl_plus <= lane_free) \
-        and (gate_plus <= lane_free) and (x_gap >= MIN_FEATURE_MM) \
+    fits = (PAWL_LEAF_T_MM >= MIN_FEATURE_MM) and (leaf_plus <= owned_lane) \
+        and (x_gap >= MIN_FEATURE_MM) \
         and (COLUMN_BODY_MM >= MIN_WALL_MM)
-    return dict(column_body_mm=COLUMN_BODY_MM, lane_free_mm=round(lane_free, 3),
-                x_gap_mm=round(x_gap, 3),
-                pawl_plus_bleed_mm=round(pawl_plus, 3),
-                gate_plus_bleed_mm=round(gate_plus, 3),
+    return dict(column_body_mm=COLUMN_BODY_MM,
+                owned_lane_mm=round(owned_lane, 3),
+                inter_body_gap_mm=round(x_gap, 3),
+                leaf_t_mm=PAWL_LEAF_T_MM,
+                leaf_plus_clearance_mm=round(leaf_plus, 3),
+                root_outboard=True,
                 gate_stacked_in_z=True,
                 column_wall_ok=bool(COLUMN_BODY_MM >= MIN_WALL_MM),
-                pawl_min_feature_ok=bool(PAWL_T_MM >= MIN_FEATURE_MM),
+                pawl_min_feature_ok=bool(PAWL_LEAF_T_MM >= MIN_FEATURE_MM),
                 fits=bool(fits))
 
 
@@ -481,6 +531,7 @@ def decide() -> dict:
     reset = reset_carriage_axis()
     tm = timing()
     b = bom()
+    rg = reliability()
     gates = {
         "G1_cell_fit": fit["fits"],
         "G2_worst_case_release_banked": rel["banked_ok"],
@@ -490,31 +541,58 @@ def decide() -> dict:
         "G6_cost_under_250_delivered": b["clears_delivered"],
         "G7_reset_carriage_torque": reset["passes"],
     }
+    # G8 reliability is measurement-only and cannot be asserted by calculation.
+    g8_ok = bool(rg["satisfied_analytically"])
+    # DND-97: the MISSION gates are G1-G5 + G7 (G5 IS the mission cost gate).
+    # G6 (delivered < $250) is the repo's stricter INTERNAL convention: report it
+    # but do not let it masquerade as a mission failure.
+    mission_gates = {k: v for k, v in gates.items()
+                     if k != "G6_cost_under_250_delivered"}
+    mission_ok = all(mission_gates.values())
+    # DND-97: make the MISSION gate explicit. DND-70's requirement is
+    # "under 250$ (excluding 3d printed parts)" = the PURCHASED-parts gate (G5),
+    # NOT the repo's stricter internal delivered convention (G6). Report both and
+    # key the mission verdict on G5.
     return dict(
         machine="S6-LC",
         evidence_class="CALCULATION over sourced FDM limits + sourced actuator "
                        "ratings; CAD geometry; no print, no purchase, no "
                        "measurement (DND-27)",
-        gates=gates, all_gates_pass=bool(all(gates.values())),
-        verdict="PROMOTE_TO_09" if all(gates.values()) else "REJECT",
+        gates=gates,
+        mission_gates=mission_gates,
+        g8_reliability_pass=g8_ok,
+        g8_reliability_status=("measurement-only, UNRESOLVED under DND-27 "
+                               "(no per-cell feedback; coupon C1 is the path)"),
+        mission_gate="G5 purchased parts < $250 (DND-70: 'under 250$ excluding "
+                     "3d printed parts')",
+        mission_gate_pass=bool(b["clears_parts"]),
+        delivered_convention_under_250=bool(b["clears_delivered"]),
+        delivered_usd=b["delivered_usd"],
+        parts_usd=b["purchased_parts_usd"],
+        all_mission_gates_pass=bool(mission_ok),
+        verdict=("PROMOTE_TO_09_WITH_MEASUREMENT_GATE"
+                 if mission_ok and b["clears_parts"]
+                 else "REJECT_MISSION_GATE"),
         residual_uncertainty=[
             "Mask preparation is OFF the visible 30 s budget: a genuinely "
             "unannounced map needs punched-card prep first (product statement).",
+            "G8 per-cell reliability is UNRESOLVED: no per-cell feedback, and "
+            "the 8x-corrected pawl spring (DND-97 A2) means the engage/hold "
+            "spread is not pinned analytically. Coupon C1 is the evidence path.",
             "Pawl release-force spread across 6,400 printed parts is the S1-D "
-            "risk; break-even sd ~9% of mean, typical FDM spread 10-20% "
-            "(assumption) -- per-bank masks bound the force, not the spread.",
-            "The platen is assumed unloaded while writing (miniatures off the "
-            "region being written), otherwise hold and lift compete.",
+            "risk; the P1 latch makes the STATE exact (hard stops), but the SNAP "
+            "force still spreads with print stiffness (~+/-20%, assumption).",
+            "A7: the platen is a COMMON plate; the recorded per-column lift load "
+            "is the conservative S1 allowance (0.4 N/col), not a measured value. "
+            "Tabletop minis on the moving region are an explicit load case the "
+            "model does not cover (product limitation).",
+            "A8: regional/jam behaviour is asserted, not modelled -- a jammed "
+            "column does not drop on reset and there is no per-cell feedback; "
+            "needs a one-bank jam-injection test.",
             "No per-cell feedback: a missed pawl is a silent local height error "
             "(same class as S5/S5-R).",
             "As-printed friction mu, pocket sharpness and pawl creep are "
             "measurement-only (un-retirable under DND-27).",
-            "The pawl spring is computed on the 0.90 mm root block, not the "
-            "0.45 mm CAD leaf (DND-91 A2, 8x); there is no hold-force gate. "
-            "This is a real open defect (tracked as a follow-up fix issue).",
-            "The CAD pawl overflows the 5.08 mm pitch band by 0.260 mm "
-            "(DND-91 A1); the G1 lane check is a geometry budget, not a "
-            "placement check. Real open defect (follow-up fix issue).",
         ],
     )
 
@@ -529,6 +607,7 @@ def screen() -> dict:
         pawl=pawl_spring(),
         release_force=release_force(),
         structural_release_limit=structural_release_limit_n(),
+        reliability=reliability(),
         lift_axis=lift_axis(),
         reset_carriage_axis=reset_carriage_axis(),
         timing=timing(),
