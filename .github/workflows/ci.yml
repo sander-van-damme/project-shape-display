@@ -325,6 +325,21 @@ jobs:
           python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
           python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
 
+      - name: "DND-118 independent falsifier audit of the DND-115 shutter (report)"
+        # The Falsifier's INDEPENDENT recomputation in
+        # 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py (imports no
+        # model code). It is INTENTIONALLY NOT CLEAN: A5/A6 show the ADR's
+        # "off-beam neighbour" wording is false (weakly in-cone; on/off 7.72x ->
+        # 6.37x, still > 2x gate) and the crosstalk number is not gated; A7 shows
+        # the "absorber in DoF" check is vacuous; A9 shows the MC's aperture check
+        # is tautological. The core geometry (A1-A4, A8, A10-A12) reproduces. This
+        # step therefore RUNS the checker as a printed report (no --gate) so main
+        # stays green while the correction is tracked; a CTO follow-up fixes A5/A6/
+        # A7/A9 wording, after which this can become a hard gate.
+        # CALCULATION + CAD (DND-27); no print, no measurement.
+        run: |
+          python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py
+
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is
