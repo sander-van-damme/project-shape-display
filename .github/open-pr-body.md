@@ -1,90 +1,97 @@
-# DND-72: ultra-low-cost S5-R variant (<$250 purchased) — infeasibility proof + break-even + CAD
+# DND-72: ultra-low-cost (<$250 purchased) — S6-LC selected + S5-R-trim infeasibility proof + CAD
 
-**Negative result delivered as required.** The promoted S5-R machine **cannot** be brought under a
-**$250 purchased** cost while every other mission requirement is unchanged. This PR proves it,
-produces the **sourced cost ladder**, the **requirement-preservation table**, and the **break-even
-number**, and adds the new subdirectory `09-low-cost-variant/`. `08-current-design/` is untouched.
+**Consolidated single track.** Two divergent ultra-low-cost workstreams (this DND-72 track and the
+DND-71 track) were reconciled under CEO consolidation direction. Output: **one BOM of record, one
+selected architecture**, in the new subdirectory `09-low-cost-variant/`. `08-current-design/`
+(S5-R, $404.60 delivered) is **untouched**.
 
-**Evidence class:** CALCULATION over the promoted S5-R model + sourced listings, plus CAD (real
-OpenSCAD). **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)). **No board
-contact** ([DND-32](/DND/issues/DND-32)).
+**Evidence class:** CALCULATION over the promoted S5-R model, the S1/S2 screen, sourced-class
+listings and sourced FDM process limits, plus CAD (real OpenSCAD). **No print, no purchase, no
+measurement** ([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
 
 ## Engineering question
 
-Can S5-R ($404.60 delivered / 24.615 s) be re-engineered below **$250 purchased** while keeping
+Can the S5-R product be delivered under **$250 purchased** (excl. 3D-printed parts) while keeping
 406.4 × 406.4 mm, 5.08 mm pitch, 6,400 cells, ≥ 40 mm travel, full-map < 30 s, regional updates and
 X1C-buildability?
 
-## Answer
+## Answer — two parts
 
-**No — the sub-$250 space is empty, not merely thin.** The binding term is not the actuators; it is
-the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners, controller,
-PCB/passives allowance, spares), which is **$218.70 parts → $253.69 delivered** and **by itself
-exceeds the $250 target by $3.69**. Headroom for any actuator is **negative (−$3.18 parts)**. Since
-the base is a floor, **no actuator count can reach $250**.
+**1. Trimming the S5-R architecture: NO.** The sub-$250 space is empty for this family. The binding
+term is the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners,
+controller, PCB/passives allowance, spares): **$218.70 parts → $253.69 delivered**, which alone
+exceeds the **$215.52 parts budget** ($250 / 1.16). Actuator headroom is **negative (−$3.18
+parts)**. A **570-point** sweep over (R = rows-in-bank, writers, bank motors) finds **zero**
+sub-$250 requirement-preserving points; the cheapest is **R6-W20-M2 at $345.90 delivered / 29.987 s**
+— a **$95.90** gap.
 
-An exhaustive sweep of the lever space (R = rows-in-bank 2…16, writers 8…80 step 4, bank motors
-1…2; **570 points**) finds **zero** sub-$250 configurations. The cheapest configuration that still
-**preserves every requirement** is **R6-W20-M2 (R=6, 20 writers, 2 bank motors)** at
-**$345.90 delivered / 29.987 s** — the architecture's break-even, **$95.90 above** the target.
+**2. Changing the architecture: YES — S6-LC.** The fixed base is a *consequence* of the 40-solenoid
+per-row writer bank and the 2-motor bank drive, not a law. The screened **S1 broadcast threshold
+ratchet** family removes them:
+
+| Quantity | S5-R | **S6-LC** | Class |
+|---|---:|---:|---|
+| Bought actuators | 42 | **3** | CAD + sourced |
+| Purchased parts | $348.79 | **$139.77** | CALCULATION + sourced |
+| Delivered (×1.16) | $404.60 | **$162.13** | CALCULATION |
+| Full-map reconfiguration | 24.615 s | **7.4 s** | CALCULATION |
+| Gates G1–G6 | — | **all pass** | CALCULATION |
+
+S6-LC: passive printed pawl memory (no per-cell/per-row bought actuator), per-bank threshold mask
+gate read from an **off-line punched card**, one lead-screw lift stepper, 8 banks × 10 rows bounding
+the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling). 50 mm travel
+(5 × 10 mm).
 
 ## What changed
 
-- **`09-low-cost-variant/s5r_ultra.py`** — analytic model. Imports the promoted S5-R model
-  (`s5r_register`, `nx52_head_actuator`, `timing_closure`, `cost_closure`) so it cannot drift.
-  Provides `fixed_base()`, `topologies()`, `budget_scan()`, `cheapest_requirement_preserving()`,
-  `relaxation_ladder()`, `decide()`.
-- **`09-low-cost-variant/s5r_ultra_checks.py`** — **19 CI-style assertions** pinning: base
-  $218.70/$253.69, no sub-$250 point, floor $345.90/R6-W20-M2 (<30 s, <$500), verdict
-  `INFEASIBLE_UNDER_UNCHANGED_REQUIREMENTS`, and the S5-R control ($404.60 / 24.615 s) unchanged.
-- **`09-low-cost-variant/scad/s5r_ultra_cell.scad`** — real OpenSCAD: the unchanged DND-59 unit cell
-  plus the R=6 bank cross-section of the chosen design point.
-- **`09-low-cost-variant/stl/{cell,pawl,keeper}.stl`** — watertight renders;
-  `tools/render_lowcost_cad.py` renders + mesh-validates and fails hard without OpenSCAD.
-- **`09-low-cost-variant/README.md`** — headline, ladder, requirement table.
-- **`07-evidence-and-decisions/dnd72-low-cost-variant.md`** — ADR: cost ladder, topology table,
-  requirement-preservation proof, break-even, failed ideas, falsifier.
-- **CI:** new `lowcost-variant` gate step (model + checks) and a `lowcost-cad-render` job (render +
-  printability).
-- **`tools/validate/analytic_printability.py`** — routes `s5r_ultra_cell` to the existing
-  register-cell checker (geometry is identical).
+- **`09-low-cost-variant/s6lc/`** — the **selected machine**: `analysis/s6lc.py` (geometry, force,
+  timing, BOM, gates), `analysis/s6lc_checks.py` (**29 checks**, all pass), `bom_s6lc.csv`,
+  `scad/s6lc_machine.scad` + rendered `cad/stl/*` (5 parts), `evidence/`.
+- **`09-low-cost-variant/s5r_ultra.py` / `s5r_ultra_checks.py`** — retained as the **negative
+  result**: fixed-base floor, 570-point sweep, break-even ($345.90), `INFEASIBLE_UNDER_UNCHANGED_
+  REQUIREMENTS` (**19 checks**, all pass).
+- **`07-evidence-and-decisions/dnd72-low-cost-synthesis.md`** — the reconciliation ADR: why the two
+  headlines are complementary, the selected machine, requirement-preservation table, residual
+  uncertainty.
+- **`09-low-cost-variant/README.md`** — rewritten to lead with S6-LC + the negative result.
+- **CI:** adds the **S6-LC gate** step alongside the existing DND-72 trim gate.
 
 ## Evidence produced
 
 | Check | Result |
 |---|---|
-| `09-low-cost-variant/s5r_ultra_checks.py` | **19 passed, 0 failed** |
-| `09-low-cost-variant/tools/render_lowcost_cad.py` | **ALL PARTS OK** — cell 5.08×5.08×14, pawl 0.9×0.7×8, keeper 0.9×1.1×4.5, all watertight |
-| `tools/validate/analytic_printability.py … s5r_ultra_cell.scad` | **VERDICT PASS** (no FAIL, no RISK) |
-| `tools/validate/readme_s5r_coherence.py` | **GATE PASS** (R1–R6) — S5-R headline untouched |
+| `09-low-cost-variant/s6lc/analysis/s6lc_checks.py` | **29/29 pass** — all six gates, `PROMOTE_TO_09` |
+| `09-low-cost-variant/s5r_ultra_checks.py` | **19/19 pass** — trim infeasibility |
+| `tools/validate/readme_s5r_coherence.py` | **GATE PASS** — S5-R headline untouched |
 
-Pinned constants: base **$218.70 → $253.69**; S5-R **$404.60 / 24.615 s**; floor **$345.90 /
-29.987 s**; gap **$95.90**.
+Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim floor **$345.90 /
+29.987 s**; S6-LC **$139.77 / $162.13 / 7.4 s**, 128.2 N banked release.
 
-## Requirement-preservation table (chosen point R6-W20-M2)
+## Requirement-preservation (selected machine S6-LC)
 
 | Requirement | Status | Class |
 |---|---|---|
 | 406.4 × 406.4 mm / 5.08 mm / 6,400 cells | preserved | CAD |
-| ≥ 40 mm travel | 41 mm platen stroke | CAD + calc |
-| full-map < 30 s | 29.987 s | CALCULATION |
-| regional updates | common platen ⇒ one stroke | CALCULATION |
-| X1C-buildable | watertight + printability PASS | CAD + sourced limits |
-| **purchased < $250** | **$345.90 — FAILS by $95.90** | CALCULATION + sourced |
+| ≥ 40 mm travel | 50 mm (5 × 10 mm) | CAD + calc |
+| full-map < 30 s | **7.4 s** (margin 22.6 s) | CALCULATION |
+| regional updates | per-bank mask + stroke + reset | CALCULATION |
+| X1C-buildable | 5 watertight parts + sourced FDM-limit table | CAD + sourced |
+| **purchased < $250** | **$139.77 parts / $162.13 delivered — PASS** | CALCULATION + sourced |
 
 ## Assumptions / limits
 
-- The fixed base is inherited as a sourced-plus-allowance bundle; the sweep holds it fixed and
-  varies only the actuator lever space. A **sourced, non-requirement-touching base reduction below
-  $215.52 parts** is the one named falsifier that would overturn the verdict — recorded for
-  [DND-74](/DND/issues/DND-74) to attack.
-- Timing is conditional on the promoted crank/settle assumptions, exactly as S5-R's is.
-- Measurement-only residue unchanged and un-retirable under [DND-27](/DND/issues/DND-27).
+- **Mask preparation is off the visible budget**: a genuinely unannounced arbitrary map needs
+  punched-card prep first (a stated product limitation; cards can be pre-written/reused). This is
+  the price of removing the writer bank.
+- **S1-D pawl release-force spread** across 6,400 printed parts is the live falsifier; banking
+  bounds the total force, not the per-part spread.
+- Platen assumed unloaded while writing; no per-cell feedback (same class as S5/S5-R).
+- As-printed friction µ, pocket sharpness, pawl creep are measurement-only and un-retirable under
+  [DND-27](/DND/issues/DND-27).
 
 ## Most informative next test
 
-A **sourced search for a cheaper fixed base at equal capability** (frame / lift / supply lines),
-which is the only avenue to <$250. Otherwise the honest disposition for the parent
-[DND-70](/DND/issues/DND-70) is that the <$250 target requires relaxing a requirement or a
-different architecture. On close, gated children [DND-73](/DND/issues/DND-73) /
-[DND-74](/DND/issues/DND-74) auto-wake.
+**Sourced ratification of the S6-LC BOM** ([DND-73](/DND/issues/DND-73)) and **adversarial audit**
+([DND-74](/DND/issues/DND-74)) against `09-low-cost-variant/s6lc/bom_s6lc.csv` — the single BOM of
+record — attacking the punched-card mask-write product statement and the S1-D pawl-spread
+falsifier, the two terms that can still kill S6-LC. On close, DND-73/DND-74 auto-wake.
