@@ -1,67 +1,80 @@
-# DND-64: reconcile 08-current-design README to the promoted S5-R machine
+# DND-65: reconcile the assembly-manifest purchased BOM to the promoted S5-R model
 
-Make `08-current-design/README.md` describe **one machine consistently — the promoted
-S5-R** — so a board reader opening the engineering source of truth meets the printable
-machine we are handing over, not the superseded incumbent S5.
+Make the board-facing assembly manifest carry the **same purchased BOM as the promoted
+model** ($404.60 delivered working, incl. the sourced steel drive rod), so a board member
+generating a shopping list from the print/build package cannot under-buy or see a total
+that contradicts the handoff headline.
 
-**Evidence class:** documentation reconcile over already-landed CAD / calculation /
+**Evidence class:** documentation/gate reconcile over already-landed CAD / calculation /
 sourced-listing work. **No print, no purchase, no measurement**
-([DND-27](/DND/issues/DND-27)). **No board contact**
-([DND-32](/DND/issues/DND-32)).
+([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
 
 ## Engineering question
 
-The fabrication package is S5-R and coherent (C1–C7 PASS on `main` `b1d6659`), and §6a
-points at it — but the top-level README was internally inconsistent: the header + §1 still
-described the incumbent S5 (**full-width 80-channel head of 80 bought PM steppers**), §2
-compared the incumbent-S5 cost ($482.95), and §7 was still the old **S5 K1–K12 register**
-with K7 as the binding residual. Which machine does the source of truth actually define?
+`08-current-design/fabrication/manifests/assembly_manifest.md` §"Purchased BOM" was generated
+verbatim from the **pre-DND-58 ratified CSV**
+(`06-experiments/test12_winner_convergence/s5r_bom_ratified.csv`), which produced two real
+inconsistencies:
 
-**Answer:** now unambiguously S5-R, from header → §1 → §2 → §5 → §6 → §7 → §9.
+1. **Total contradicted the handoff headline.** The table total was **$388.10 delivered**,
+   labelled *"TOTAL (working scenario, sourced units)"*. But the promoted model
+   `s5r_register.bom(rows_in_bank=4)` returns **`delivered_usd = $404.60`**. $388.10 is the
+   *optimistic sourced-unit* variant (2 bank ICs, motor $12.39 / writer $2.20, no rod),
+   mislabelled as "working".
+2. **Missing purchased line.** No **sourced Ø6 mm steel drive-rod** row, though assembly
+   step 3 requires the board to source one ([DND-58](/DND/issues/DND-58)).
+
+**Answer:** the manifest + CSV now reconcile line-by-line to the promoted model.
 
 ## What changed
 
-- **Header/status + §1** describe **S5-R**: shared-drive programmable rotary register,
-  R = 4 bank, **2 bank motors + 40 writer solenoids**, **24.615 s**, **$404.60 delivered**.
-  Incumbent S5 is labelled the superseded bought-motor fallback (K7 refuted, DND-49).
-- **§2** comparison table is S5-R; the incumbent-S5 comparison moves to a labelled **§2a**.
-- **§4/§5** key dimensions and purchased BOM are S5-R (`s5r_register.bom()`); the incumbent
-  S5 BOM/cost table moves to a labelled **§5a** (kept, not deleted).
-- **§6** makes the **fabrication package (§6a)** the visible "what to print" entry point;
-  the old S5 coupon/harness route becomes a labelled legacy **§6b**.
-- **§7** is now the **live S5-R residual register** (consolidated DND-59 R-DND54-* /
-  R-DND55-* with closed/bounded/measurement-only status). The **K1–K12 / R1–R8 register is
-  relocated to a labelled `Appendix A`** (not deleted).
-- **§8/§9** next-actions and final verdict are S5-R; the legacy S5 verdict is in Appendix A.
-- **New CI gate** `tools/validate/readme_s5r_coherence.py` (checks R1–R6) fails if the
-  README's promoted-machine headline (machine name, actuator count, full-map time,
-  delivered cost) contradicts the promoted model `s5r_register.py`, or if the incumbent S5
-  is presented as the current machine / live register. Wired into `ci.yml`
-  (`engineering-checks`) so this cannot drift again.
+- **`s5r_bom_ratify.py::emit_bom_csv`** now emits the **WORKING** scenario at the DND-54
+  allowance units ($12.00 motor / $2.50 writer) + the block's own priced channels + the
+  DND-58 sourced steel rod. Delivered total reconciles to the model's
+  `delivered_usd` (**$404.60**). Adds the **steel drive-rod line**; labels the optimistic
+  **$387.18** as a non-working reference and records the superseded **$388.10** header as a
+  mislabel. A `Q8` selftest re-reads the emitted CSV and asserts TOTAL == model
+  `delivered_usd`, rod present, and scenario labels correct.
+- **`gen_manifests.py::purchased_bom_md`** reads the promoted model `bom(4)` and presents
+  the working figures + **$404.60** total + explicitly labelled non-working scenarios
+  (optimistic $387.18, rod-unpriced $401.12, DND-54 claim $397.53).
+- **`manifests/assembly_manifest.md`** regenerated: steel-rod line, working total $404.60,
+  correct scenario labelling, DND-27 "purchases nothing" note kept.
+- **`fab_package_checks.py`: new gate C8** — fails if the manifest/CSV BOM total contradicts
+  the model's `delivered_usd`, if the steel-rod line is absent, or if **$388.10** is
+  headlined as the working scenario. Verified to **FAIL** (exit 1) on a synthetic drift
+  (rod line removed + total reverted to $388.10).
+- **`ci.yml`** `fab-package` job now documents/runs the **C1–C8** gate; the README coherence
+  gate **R1–R6** was already wired into `engineering-checks` ([DND-64](/DND/issues/DND-64)).
+- **READMEs** (`08-current-design/fabrication/README.md`, gate-count C1-C6 → C1-C8) and
+  `s5r_bom_ratify_checks.py` updated for the new working CSV.
 
 ## Evidence produced
 
 | Check | Result |
 |---|---|
-| `tools/validate/readme_s5r_coherence.py` | **GATE: PASS** (R1–R6) |
-| `08-current-design/fabrication/tools/fab_package_checks.py` | **GATE: PASS** (C1–C7) |
+| `06-experiments/test12_winner_convergence/s5r_bom_ratify.py --selftest` | **OK** (incl. new Q8 CSV reconcile: $404.60 == model) |
+| `06-experiments/test12_winner_convergence/s5r_bom_ratify_checks.py` | **OK** (11 tests) |
 | `06-experiments/test12_winner_convergence/s5r_register_checks.py` | **OK** (20 tests) |
-| `06-experiments/test12_winner_convergence/s5r_residuals_checks.py` | **OK** (12 tests) |
-| In-document anchors / local file links | all resolve |
+| `08-current-design/fabrication/tools/fab_package_checks.py` | **GATE: PASS** (C1–C8) |
+| `tools/validate/readme_s5r_coherence.py` | **GATE: PASS** (R1–R6) |
+| `tools/validate/analytic_printability.py` (`scad/s5r_parts.scad`) | **PASS** |
+| C8 synthetic drift (rod removed + total $388.10) | **GATE: FAIL** (exit 1) — as required |
 
-Promoted model constants pinned in the gate: actuators **42** (2 + 40), full map
-**24.615 s**, delivered **$404.60**.
+Promoted model constants pinned by C8: delivered **$404.60**, parts **$348.79**, steel rod
+**$3.00 parts / $3.48 delivered**.
 
 ## Assumptions / limits
 
-- This is a documentation change plus a CI check; it does not change any model constant,
-  geometry or BOM.
-- The README headline is checked against `s5r_register.py`; the gate reads the model's JSON
-  output, so it tracks the model exactly.
+- Documentation + CI-gate reconcile over landed CAD/calc/sourced work; it changes no model
+  constant, geometry, or sourced price. The manifest derives its total from
+  `s5r_register.bom(4)`, so it tracks the model exactly.
+- The "$388.10" and "$387.18" figures are related but distinct *optimistic* variants
+  (2 bank ICs sourced-unit vs 1 shared bank IC); both are labelled as **not** the working
+  scenario.
 - Residual uncertainty is unchanged and remains **measurement-only** ([DND-27](/DND/issues/DND-27)).
 
 ## Most informative next test
 
-None remaining for this issue. The README is coherent with the promoted machine and the
-package is slicer-ready; on close, [DND-57](/DND/issues/DND-57) auto-wakes the CEO for the
-terminal call.
+None remaining for this issue. On close, [DND-57](/DND/issues/DND-57) auto-wakes the CEO for
+the terminal S5-R call.
