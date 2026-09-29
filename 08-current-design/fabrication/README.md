@@ -22,15 +22,19 @@ fabrication/
     s5r_parts_common.scad   shared part constants (single source of truth)
     s5r_parts.scad          every distinct printed part (part= selector)
   stl/                      14 rendered, mesh-validated STLs (CAD witnesses)
+  images/                   board-viewable PNG renders (DND-69): 14 parts
+                            + assembled/exploded register views
   manifests/
     print_manifest.md/.csv/.json     per-part print manifest
     assembly_manifest.md/.csv        exploded assembly + fasteners + BOM
     render_record.json               the real-OpenSCAD render + mesh record
+    render_images_record.json        the PNG render record (DND-69)
   tools/
     part_set.py             the part list (drives everything below)
     render_fab_parts.py     render + mesh-validate the full set
+    render_images.py        render board-viewable PNGs (DND-69)
     gen_manifests.py        generate the print + assembly manifests
-    fab_package_checks.py   CI coherence gate (C1-C6)
+    fab_package_checks.py   CI coherence gate (C1-C8)
 ```
 
 ## 2. How to print and build (board route)
@@ -88,6 +92,15 @@ forward.
   `platen_module` is a 27 × 27 / 137.16 × 137.16 × 7 mm plate. `fab_package_checks.py`
   **C7 fails if any part is a reduced witness without a declared real envelope
   or a documented sub-tile route**, so this cannot silently regress.
+- **Purchased BOM reconciled to the promoted model (DND-65).** The assembly
+  manifest's purchased-BOM table carries the **working** figures and the
+  **$404.60 delivered** total (DND-54 allowance units + the block's own channels
+  + the DND-58 sourced steel drive rod), equal to
+  `s5r_register.bom(rows_in_bank=4)["delivered_usd"]`. The optimistic-sourced
+  $387.18 and the superseded $388.10 header are shown only as explicitly labelled
+  non-working references. `fab_package_checks.py` **C8 fails if the manifest BOM
+  total contradicts the promoted model, if the steel-rod line is absent, or if
+  $388.10 is headlined as working**, so this cannot silently regress.
 - **Sub-tile fallback route.** If a board's useful bed is under 137.16 mm, the
   cartridge prints as a 3 × 3 set of `cell_cartridge_tile` parts (9 × 9 cells =
   45.72 × 45.72 mm each; 9 tiles per cartridge, 81 per field) bolted on the
@@ -103,13 +116,30 @@ forward.
   reliability q (R1 class), and the real loaded NEMA17 torque-speed curve
   (K6 class). These are named, bounded, and cannot be retired analytically.
 
-## 6. Reproduce (software only)
+## 6. Renders (DND-69)
+
+Board-viewable PNGs of every part and the assembled register are in
+[`images/`](images/) — see the [image gallery](images/README.md) for the
+assembled/exploded register views and a table of every part render.
+
+- **Part renders:** one PNG per part (14) in `iso` / `front` / `top` views.
+- **Assembly renders:** an assembled 3 × 3 cell cluster (rotor + pawl + keeper +
+  detent on the rack strip + sourced steel rod) and an exploded view.
+- **Generator:** [`tools/render_images.py`](tools/render_images.py), rasterizing
+  the committed OpenSCAD STLs with a software renderer (the container has no GL
+  for OpenSCAD's own PNG backend — see the [gallery notes](images/README.md)).
+- **Evidence class: CAD render. NOT a print, NOT a measurement**
+  ([DND-27](/DND/issues/DND-27)).
+
+## 7. Reproduce (software only)
 
 ```sh
 export PATH="$HOME/.local/bin:$PATH"   # rootless OpenSCAD (tools/openscad-install)
 python 08-current-design/fabrication/tools/render_fab_parts.py
 python 08-current-design/fabrication/tools/gen_manifests.py
 python 08-current-design/fabrication/tools/fab_package_checks.py
+python 08-current-design/fabrication/tools/render_images.py   # PNG renders (pip numpy pillow)
+python 08-current-design/fabrication/tools/render_images.py --check
 python tools/validate/analytic_printability.py \
       08-current-design/fabrication/scad/s5r_parts.scad
 ```

@@ -164,6 +164,14 @@ jobs:
         # from the promoted model s5r_register.py, or if the superseded
         # incumbent S5 is presented as the current machine / live register.
         run: python tools/validate/readme_s5r_coherence.py
+      - name: DND-76 ultra-low-cost cell/mechanism primitives
+        # CALCULATION-only screen over the sourced FDM limits: the four
+        # primitives (friction-independent latch, printed mask comb, cell
+        # guidance, single-actuator reset) for the <$250 architecture. No
+        # print, no measurement (DND-27).
+        run: |
+          python 09-lowcost-alternative/primitives/primitives.py > /dev/null
+          python 09-lowcost-alternative/primitives/primitives_checks.py
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
@@ -186,6 +194,24 @@ jobs:
         run: |
           which openscad
           python 06-experiments/test11_falsification_library/check_fixture.py
+
+  lowcost-primitives-cad-render:
+    # DND-76: render the ultra-low-cost primitive CAD (cell, mask comb, reset
+    # bar) with a real OpenSCAD. A missing OpenSCAD is a hard failure here
+    # because the render is the point. This is CAD evidence, not a print.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Render the primitive CAD parts
+        run: python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py
 
   winner-cad-render:
     # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and
@@ -242,6 +268,16 @@ jobs:
             --json s5r-parts-printability-record.json \
             --fail-on-design-fail \
             08-current-design/fabrication/scad/s5r_parts.scad
+      - name: Install PNG render dependency (DND-69)
+        run: python -m pip install --quiet "numpy>=1.26" "pillow>=10"
+      - name: Regenerate + verify the board-viewable PNG renders (DND-69)
+        # Rasterizes the committed OpenSCAD STLs with a software renderer (the
+        # runner's OpenSCAD PNG backend needs a GL context; these renders do
+        # not). Regenerates into images/, then verifies every recorded image is
+        # present and a valid PNG. CAD render, not a print.
+        run: |
+          python 08-current-design/fabrication/tools/render_images.py
+          python 08-current-design/fabrication/tools/render_images.py --check
       - name: Upload fabrication-package records
         uses: actions/upload-artifact@v4
         with:
@@ -250,6 +286,7 @@ jobs:
             08-current-design/fabrication/manifests/*.json
             08-current-design/fabrication/manifests/*.csv
             08-current-design/fabrication/manifests/*.md
+            08-current-design/fabrication/images/*.png
             s5r-parts-printability-record.json
           if-no-files-found: warn
 

@@ -18,6 +18,11 @@ Asserts (all must pass for CI green):
   C7  No reduced witness blocks (DND-61): every part's committed STL bbox must
       match its declared real envelope; a part that is still a reduced witness
       must name a documented sub-tile print route, else the gate fails.
+  C8  Purchased-BOM coherence (DND-65): the assembly-manifest purchased-BOM
+      total must equal the promoted model's `s5r_register.bom(4)["delivered_usd"]`
+      ($404.60), the sourced steel drive-rod line must be present, and the
+      optimistic-sourced $388.10 figure must not be labelled as the working
+      scenario.
 
 Run: python 08-current-design/fabrication/tools/fab_package_checks.py
 A manifest is regenerated first (in-memory checks) so a stale committed file
@@ -39,6 +44,9 @@ PRINT_JSON = FAB / "manifests" / "print_manifest.json"
 ASM_MD = FAB / "manifests" / "assembly_manifest.md"
 REGISTER_PY = (REPO / "06-experiments" / "test12_winner_convergence"
                / "s5r_register.py")
+ASM_CSV = FAB / "manifests" / "assembly_manifest.csv"
+BOM_CSV = (REPO / "06-experiments" / "test12_winner_convergence"
+           / "s5r_bom_ratified.csv")
 
 sys.path.insert(0, str(HERE))
 from part_set import (PARTS, COLS, ROWS_FULL, CARTRIDGE_COLS,  # noqa: E402
@@ -60,6 +68,41 @@ def parse_scad_constants(path: Path) -> dict:
     for m in re.finditer(r"^\s*([A-Z][A-Z0-9_]*)\s*=\s*([0-9.]+)\s*;", text, re.M):
         out[m.group(1)] = float(m.group(2))
     return out
+
+
+def run_model_bom() -> dict:
+    """Load `s5r_register.bom(rows_in_bank=4)` from the promoted model.
+
+    Returns {} if the module cannot be imported (the gate then fails cleanly on
+    the missing `delivered_usd`).
+    """
+    sys.path.insert(0, str(REGISTER_PY.parent))
+    try:
+        import s5r_register  # type: ignore
+        return s5r_register.bom(rows_in_bank=4)
+    except Exception as exc:  # pragma: no cover - reported as a gate failure
+        print(f"  [warn] could not load promoted model: {exc}")
+        return {}
+
+
+def read_ratified_bom_totals() -> tuple[float, float, bool]:
+    """Read the ratified BOM CSV: (delivered_total, parts_total, rod_present).
+
+    The TOTAL row is the additive working-scenario total; the 'scenario
+    reference' annotation row is skipped.
+    """
+    import csv as _csv
+    total_delivered = 0.0
+    total_parts = 0.0
+    rod = False
+    with BOM_CSV.open() as f:
+        for row in _csv.DictReader(f):
+            if "Steel drive rod" in row["item"]:
+                rod = True
+            if row["item"].startswith("TOTAL"):
+                total_parts = float(row["parts_usd"])
+                total_delivered = float(row["delivered_usd"])
+    return total_delivered, total_parts, rod
 
 
 def parse_register_constants(path: Path) -> dict:
@@ -184,6 +227,50 @@ def main() -> int:
                   f"{p.key}: reduced witness names a documented sub-tile route")
         else:
             check(True, f"{p.key}: committed STL is the full-size part")
+
+    # --- C8 purchased-BOM coherence (DND-65) -----------------------------
+    # The assembly manifest's purchased-BOM table must carry the SAME purchased
+    # BOM as the promoted model: the working delivered total must equal
+    # `s5r_register.bom(4)["delivered_usd"]`, the sourced steel drive rod must be
+    # a line, and the optimistic-sourced $388.10 figure must be labelled as NOT
+    # the working scenario. This is the gate that stops the manifest from
+    # silently regressing to the pre-DND-65 CSV (total $388.10, no rod row).
+    print("\n[C8] purchased-BOM reconciled to the promoted model (DND-65)")
+    model_delivered = run_model_bom()["delivered_usd"]
+    check(model_delivered is not None,
+          f"promoted model bom(4).delivered_usd readable ({model_delivered})")
+    asm_md = ASM_MD.read_text() if ASM_MD.exists() else ""
+    check(bool(asm_md), "assembly_manifest.md exists")
+    # The manifest must present the working total at the model's figure.
+    want_total = f"{model_delivered:.2f}"
+    check(want_total in asm_md,
+          f"assembly manifest states working total ${want_total}")
+    # The optimistic-sourced $388.10 figure may only appear as an explicitly
+    # labelled non-working reference, never as the working headline.
+    optimistic_lines = [ln for ln in asm_md.splitlines() if "388.1" in ln]
+    for ln in optimistic_lines:
+        check("not" in ln.lower() and ("working" in ln.lower()),
+              "optimistic $388.10 line is labelled as NOT the working scenario: "
+              f"{ln.strip()[:80]}")
+    check(not any("TOTAL" in ln and "388.1" in ln for ln in asm_md.splitlines()),
+          "no TOTAL row carries the $388.10 figure")
+    # The steel drive-rod line must be present in the manifest table.
+    check("Steel drive rod" in asm_md,
+          "assembly manifest carries the sourced steel drive-rod line (DND-58)")
+    # The CSV line detail must agree with the model on the working total and rod.
+    if BOM_CSV.exists():
+        bom_total, bom_parts, rod = read_ratified_bom_totals()
+        check(rod, "ratified BOM CSV has the sourced steel drive-rod line")
+        check(abs(bom_total - model_delivered) < 0.01,
+              f"ratified BOM CSV total ${bom_total:.2f} == model "
+              f"delivered_usd ${model_delivered:.2f}")
+        model_parts = run_model_bom()["parts_usd"]
+        check(abs(bom_parts - model_parts) < 0.01,
+              f"ratified BOM CSV parts ${bom_parts:.2f} == model "
+              f"parts_usd ${model_parts:.2f}")
+    else:
+        check(False, f"ratified BOM CSV exists ({BOM_CSV})")
+    check(ASM_CSV.exists(), "assembly_manifest.csv exists")
 
     print("\n" + "=" * 72)
     if FAILS:
