@@ -1,62 +1,62 @@
-# DND-98: independently re-ratify the corrected S6-LC purchased BOM
+# DND-108: pre-register adversarial audit criteria for the DND-104 reliability-first candidates
 
-Closes [DND-98](/DND/issues/DND-98).
+Parent [DND-104](/DND/issues/DND-104). Refs [DND-103](/DND/issues/DND-103), [DND-27](/DND/issues/DND-27),
+[DND-32](/DND/issues/DND-32).
 
 ## What changed
 
-Adds the **independent re-ratification of the corrected (post-DND-93) S6-LC purchased BOM**, which
-supersedes the DND-73 ratification of the uncorrected BOM.
-
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py` — re-derives the 20 BOM lines **by hand**
-  (not imported from `bom()`), with evidence-class audit, DND-73→DND-93 delta, break-evens,
-  optimistic/working/high/hostile/lean scenarios, per-cell sensitivity and reliability scaling.
-  `--selftest` and `--emit-csv` included.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py` — CI gate, **68 checks**.
-- `09-low-cost-variant/s6lc/ratify/s6lc_bom_ratified.csv` — ratified purchased BOM.
-- `07-evidence-and-decisions/dnd98-s6lc-bom-reratification.md` — the ADR.
-- `.github/workflows/ci.yml` — wires the new gate; `07-evidence-and-decisions/README.md` and
-  `09-low-cost-variant/s6lc/README.md` — index/table updates.
+- `07-evidence-and-decisions/falsifier_dnd104_criteria.md` — the **frozen, pre-registered** attack
+  register (A1–A12 + gates) that any DND-104 reliability-first candidate must survive, written
+  **before** the CTO's `10-reliability-mask/` model exists. Each attack names the exact deciding
+  number, the cheapest test, the pass/fail threshold, and the consequence of pass/fail.
+- `07-evidence-and-decisions/falsifier_dnd104_checks.py` — CI gate (26 self-test checks) that pins
+  every counter-number so the prose cannot drift from arithmetic. Exposes
+  `audit(model)` / `--model <path>` so the same checklist is applied mechanically to
+  `10-reliability-mask/` the moment it lands. **Default-deny:** an unanswered attack is a FAIL.
+- `.github/workflows/ci.yml` — wires the new gate into `engineering-checks`.
+- `07-evidence-and-decisions/README.md` — evidence-index entry.
 
 ## Engineering question
 
-Does the corrected S6-LC purchased BOM still hold the board ceiling, and if not, which ceiling and
-which requirement must move? The issue requires an explicit statement of the **`<$250 purchased,
-excluding 3D-printed parts`** gate (DND-70/DND-72) under working and hostile pricing.
+Can the CTO's DND-104 convergence cherry-pick its gates? **No** — the gates are pre-registered here,
+so a candidate is scored against a fixed target written by the adversarial critic, not by its own
+author.
 
-## Evidence produced (sourced listings + CALCULATION; no print/purchase/measurement, DND-27)
+## Evidence produced (all CALCULATION / document audit — no print, purchase, or measurement)
 
-- Corrected headline **reproduces**: **$226.77 parts / $263.05 delivered (×1.16)**, reconciling with
-  `s6lc.bom()` and `bom_s6lc.csv`.
-- **`<$250 purchased` mission gate HOLDS: +$23.23.**
-- **`$250 delivered` repo convention FAILS: −$13.05** (both stated, neither hidden).
-- Growth since DND-73: **+$18.00** (NEMA17→NEMA23 lift re-price) + **+$69.00** six DND-91/A5
-  capability allowances = **+$87.00**.
-- Evidence class: 35 % traced / **65 % allowance** ($69.00 A5).
-- Break-even at $250 purchased: tightest line is the **lift motor** ($30 → cap $53.23, **1.77×**).
-- Scenarios (purchased): opt $199.79 / work $226.77 / high $245.61 / lean $187.26 all clear;
-  **hostile $300.58 breaches by $50.58**.
-- **No per-cell bought hardware** (3 motors; 3.543 cents/cell, 0.363 cents/cell headroom).
-- 99 %-map reliability needs **q ≤ 1.57e−6**; G7 remains measurement-gated (coupon C1).
+- **Reliability gate math:** `P(perfect map) = (1-q)^N`. At q = 0.01 % (1e-4), a 6,400-element map is
+  only **52.7 %**; a 99 %-map target requires q ≤ **1.570e-6** at N = 6,400.
+- **Coupon bounds:** zero-failure trials at 95 % = **29,956** (q=1e-4), **299,572** (q=1e-5),
+  **1,908,109** (q=1.570e-6). **A coupon can kill, but cannot crown:** 400 clean cycles bound q only
+  at **~7.5e-3**, ~4,800× looser than the board budget — so reliability credit requires an
+  error-detection/recovery path, not a lucky sample.
+- **Counting attack:** the per-cell precision/force-critical count must be **zero**; DND-103 forbids
+  force-critical springs and sub-mm precision contacts repeated per cell.
+- **Honest timing:** the seven-stage decomposition; S1/comb mask write is **2,560 s** serial,
+  **56 s** at 80 channels (fails 30 s), **8.96 s** at ~500 channels.
+- **Cost (DND-46 method):** hostile repricing + restoring unlisted capabilities; S6-LC's corrected
+  figure is **$226.77 parts / $263.05 delivered** (mission gate holds, delivered convention fails).
+- **Load/jam/regional:** write-time load must include a mini (0.05–0.3 N); jam blast radius must be
+  1 cell **and detectable**; regional neighbour displacement ≤ 0.10 mm.
+- **Pitch placement:** max feature excursion ≤ owned half-lane (0.74 mm at body 3.60), audited in
+  CAD, not budgeted (the DND-91/A1 failure re-stated as a hard gate).
+- **Decisive falsifier A11 + coupon C1:** a 4×4 true-pitch repeated-element reliability coupon
+  (measurements, thresholds, cycles, full-scale assumption, pass/fail consequences), a CTO/board
+  print handoff.
 
-## Assumptions
+## What passed / failed
 
-- EUR listing prices carried verbatim as USD (repo K7/DND-56 convention; conservative for a US buyer).
-- The lead-screw line ($24) is under-priced ~$4.76 vs its stable order tier; carried at the committed
-  figure and flagged rather than silently re-priced.
-- Lift-load model and G3 branch choice are the CTO's (DND-93); this PR ratifies the resulting BOM,
-  it does not re-open the mechanism.
+- Gate runs green: **26/26** self-test checks pass; `--model` audit correctly returns `FAIL` for an
+  incomplete/empty model (default-deny verified).
+- No candidate is judged yet — the CTO model does not exist. This PR pre-commits the tests.
 
-## Passed / failed / uncertain
+## Assumptions / what remains uncertain
 
-- **Passed:** `s6lc_checks` 40/40, `falsifier_dnd91_checks` 40/40, `falsifier_dnd74_checks` 28/28,
-  `s6lc_bom_reratify_checks` 68/68.
-- **Failed (recorded):** delivered cost convention ($263.05), hostile-pricing purchased ceiling.
-- **Uncertain:** A5 allowance realism; G7 reliability (measurement-only).
+- All numbers are calculation over the repo's own model (`test11_falsibility reliability.py`,
+  `test11_threshold_ratchet_s1`, S6-LC); none is measured.
+- Coupon C1 is a physical print that cannot run in the agent environment; it is routed to the CTO.
 
 ## Next test
 
-Printed coupon **C1** (4×4 unit-cell at true pitch + push-pull gauge) to resolve A1/A2/A6 and G7 —
-the cheapest experiment that can reject the remaining mechanism assumptions.
-
-Evidence class: **CALCULATION + sourced listings only.** No print, no purchase, no measurement
-(DND-27). No board contact (DND-32). `08-current-design/` untouched.
+Point `falsifier_dnd104_checks.py --model <path>` at the CTO's `10-reliability-mask/` model and
+require the full audit vector; physical coupon C1 is the CTO handoff.
