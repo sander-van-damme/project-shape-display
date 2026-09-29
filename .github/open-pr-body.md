@@ -1,75 +1,82 @@
-# DND-118: independent falsifier audit of the DND-115 state-encoding shutter
+# DND-119: correct A5/A6/A7/A9 shutter claim-framing + gating (DND-118 audit; no geometry change)
 
 ## What changed
 
-- **New** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py` — a stdlib-only,
-  default-deny checker (12 attacks, `--gate`) that recomputes every DND-115 number from the
-  placed CAD constants and first principles. It imports **nothing** from `a1_writer_rate.py` and
-  does **not** trust the CTO-authored `falsifier_dnd115_checks.py`.
-- **New** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.md` — the audit register.
-- **Corrected** the DND-115 section of `07-evidence-and-decisions/README.md` with the audit
-  caveats and a new DND-118 entry.
-- **New CI step** (`.github/workflows/ci.yml`) runs the audit as a **printed report** (no
-  `--gate`) so `main` stays green while the correction is tracked.
+No CAD geometry change. The reflective target Δz stays 0. This repairs the four
+claim-framing/method defects the DND-118 Falsifier found in the DND-115 shutter:
+
+- **`a1_writer_rate.py` — `shutter_read_contrast()` (A5/A6):**
+  - The neighbour return is now modelled **physically** (the in-cone crescent at the
+    neighbour-top plane), not as the over-conservative whole-face body-area proxy. The old
+    `2.589×` proxy is retained only as a labelled provenance field.
+  - `contrast_passes` now **gates** it: requires `neighbour_crosstalk_gated`
+    (physical ratio ≤ 1) and `on_off_return_ratio_with_crosstalk ≥ 2` (5.41×). The crosstalk is
+    a margin, not a report — the same defect class DND-112 found in DND-111.
+  - The false "off-beam" wording is replaced: the neighbour top is **weakly in-cone,
+    state-invariant** (cone radius 1.286 mm vs 1.055 mm near-edge offset; in by 0.231 mm).
+- **`a1_writer_rate.py` — `shutter_read_contrast()` (A7):** the "absorber Δz inside ±1 mm DoF"
+  claim is downgraded to **provenance only**; the model verdict states it is **not counted as
+  evidence** (the absorber term is 7.7× below the vane term). The real statements are "the
+  reflective target is frame-fixed" and "the flap is a dark absorber".
+- **`a1_writer_rate.py` — `shutter_tolerance_mc()` (A9):** the MC is de-tautologised. It now
+  samples an **explicit reader/aperture-plane placement tolerance** (±0.10 mm; hostile
+  ±0.20 mm) instead of pinning the aperture to the nominal vane top, so `aperture_clearance` can
+  fail. `aperture_check_can_fail = True` records the fix.
+- **`reliability_mask_checks.py`:** 3 new DND-119 checks (gated crosstalk, corrected on/off,
+  provenance-only absorber) + 1 A9 check → **78/78**.
+- **`falsifier_dnd115_checks.py`:** S5 relabelled to provenance; new S10 (crosstalk gated),
+  S11 (neighbour in-cone, corrected on/off), S12 (MC aperture fail-able) → **12 attacks**.
+- **`falsifier_dnd115_a1_shutter_audit.py`:** the four DND-118 attacks now assert the corrected
+  state (A5/A6/A7/A9 PASS) → all **12 attacks PASS**.
+- **ADR + both READMEs:** corrected wording and numbers; a DND-119 correction note added to the
+  ADR and to the DND-118 audit register.
+- **CI:** the DND-118 audit step is promoted from a report to a **hard gate** (`--gate`).
 
 ## Engineering question
 
-Does the DND-115 **state-encoding shutter** genuinely close the A1 read/verify axis at
-CAD + calculation — i.e. do the decisive numbers (on/off return ratio, swept clearances, the
-1.8 mm standoff revision) reproduce independently, and is the closure statement honest?
+Does the DND-115 state-encoding shutter still close the A1 read/verify axis at CAD + calculation
+once the DND-118 findings are corrected — i.e. is the closure statement now honest and are the
+gates real (able to fail)?
 
 ## Evidence produced (CALCULATION + CAD only)
 
-**Reproduced from the placed CAD + first principles (no CTO summary imported):**
-
-- Hidden occlusion **100%** of the 1.405 mm spot; visible clearance **0%**; on/off **7.72×**
-  (gate 2×).
-- Reflective target frame-fixed (**Δz = 0**); flap is an absorber (ρ = 0.05).
-- Swept envelope: neighbour **0.280 mm**, own column **3.420 mm**, aperture **0.810 mm**.
-- Claim 5 reproduces: 1.0 mm standoff infeasible (−0.190 mm worst case); 1.8 mm feasible
-  (+0.610 mm).
-- Printability: min feature 0.44 mm (1 line), committed STL watertight.
-- **Angular robustness:** hidden coverage stays 1.000 for flap tilt 0–20°; visible state stays
-  clear for crank 90–75° — the states are independent of the schematic linkage within a wide band.
-
-**Falsified / downgraded (four FAILs; none a geometry collision):**
-
-- **A5/A6 (crosstalk):** the ADR's "neighbour top is off-beam" is **false** — the coaxial 15°
-  cone reaches the neighbour near edge by 0.231 mm. Including the state-invariant neighbour term
-  drops the on/off ratio **7.72× → 6.37×** — **still above the 2× gate** — but the number was
-  **reported and never gated** (`contrast_passes` ignores it).
-- **A7 (framing):** "absorber Δz 0.55 mm inside ±1 mm DoF" is **vacuous** — the DoF budget is a
-  *target* concept; the target is frame-fixed and the absorber term is 7.7× below the vane term.
-- **A9 (method):** `shutter_tolerance_mc()` pins the aperture plane to the *nominal* vane top, so
-  `aperture_clearance` can never fail. A corrected re-run with an explicit aperture tolerance
-  (±0.10 / ±0.20 mm) still passes (+0.442 / +0.347 mm): the design survives, the as-written MC
-  does not demonstrate it.
+- **A5:** physical in-cone neighbour/vane ratio **0.068** (≤ 1) is **gated** in `contrast_passes`.
+- **A6:** neighbour near edge inside the 15° cone by **0.231 mm**; crosstalk-corrected on/off
+  **5.41×** (> 2× gate). (This model's chord-area version is slightly more conservative than the
+  Falsifier's ~4.6% estimate → 6.37×; both clear the gate.)
+- **A7:** absorber term 0.032 vs vane term 0.247 → **7.7× smaller**; reported for provenance only.
+- **A9:** worst sampled aperture clearance **+0.441 mm** nominal and **+0.336 mm** at ±0.20 mm
+  reader placement — still positive, matching the Falsifier's independent +0.442 / +0.347 mm.
+- Gate results: `falsifier_dnd115_checks.py --gate` **CLEAN (12/12)**;
+  `falsifier_dnd115_a1_shutter_audit.py --gate` **CLEAN (12/12)**;
+  `reliability_mask_checks.py` **78/78**; `falsifier_dnd114_checks.py --gate`,
+  `falsifier_dnd112_checks.py --gate`, `a1_writer_rate.py` all exit 0.
 
 ## Assumptions
 
 Assumption-class, unmeasured (as in DND-115): flap reflectance 0.05, standoff 1.8 mm, aperture
 0.44 mm, printed tolerances, LED/PD optical constants. Measurement-only (DND-27): linkage
 force/friction/wear over 6,400 cycles. No print, purchase, or measurement; no board contact
-(DND-32).
+(DND-32). No CAD geometry change.
 
 ## Tests / gates run
 
-- `python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py` → report, **NOT CLEAN**
-  by design (4 fails, documented).
-- `falsifier_dnd115_checks.py --gate` → exit 0; `falsifier_dnd114_checks.py --gate` → exit 0;
-  `reliability_mask_checks.py` → 75/75; `a1_writer_rate.py` → exit 0.
-- CI YAML validated; new step is report-only.
+```
+python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py
+python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_checks.py
+python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
+python 07-evidence-and-decisions/falsifier_dnd115_checks.py --gate
+python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py --gate
+```
 
 ## What passed / failed
 
-**Passed:** core mechanism geometry, contrast ratio, standoff revision, printability, angular
-robustness. **Failed:** the crosstalk/off-beam wording and gating, the absorber-DoF framing, and
-the MC aperture path.
+All green. The mechanism is unchanged; only the claim framing, the crosstalk gate, and the MC
+method are corrected.
 
 ## Remaining uncertain / next test
 
-The mechanism **survives**; the **closure statement is over-claimed**. Recommended: a CTO
-follow-up to correct/downgrade A5/A6/A7/A9 in the ADR and `a1_writer_rate.py` (no geometry
-change), after which the report step can become a hard gate. No physical coupon is justified by
-this audit alone; a single-cell A1 coupon with a real LED/PD pair is the cheapest experiment that
-can falsify the assumption-class reflectance combination, and is a physical handoff (DND-27).
+Residuals remain assumption-class optical constants and measurement-only linkage
+force/friction/wear (DND-27). The DND-119 correction does not add new physical uncertainty. The
+cheapest falsifier of the assumption-class reflectance combination remains a single-cell A1
+coupon with a real LED/PD pair — a physical handoff (DND-27).
