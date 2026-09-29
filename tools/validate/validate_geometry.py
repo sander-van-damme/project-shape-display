@@ -53,6 +53,8 @@ BED_MM = 256.0
 RENDER_TARGETS = [
     ("j2_isolation_rig", FAB / "j2_isolation_rig.scad", []),
     ("selector_fanout_coupon", SHARED / "selector_fanout_coupon.scad", []),
+    ("s5r_register_cell", REPO / "06-experiments" / "test12_winner_convergence"
+     / "s5r_register.scad", ['-D', 'part="cell"']),
 ]
 
 

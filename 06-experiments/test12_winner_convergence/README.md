@@ -46,6 +46,15 @@ cd 06-experiments/test12_winner_convergence
 python k7_motor_trace.py && python k7_motor_trace_checks.py   # K7 sourcing
 ```
 
+DND-54 S5-R shared-drive register (analytic + CAD dropout-latch model):
+
+```text
+cd 06-experiments/test12_winner_convergence
+python s5r_register.py && python s5r_register_checks.py       # register model
+openscad -o /tmp/s5r.stl s5r_register.scad                     # CAD render
+python ../../tools/validate/analytic_printability.py s5r_register.scad
+```
+
 Sourcing detail: [`../test11_cost_printability_reliability/sourcing_notes.md`](../test11_cost_printability_reliability/sourcing_notes.md) §8.
 
 

@@ -108,6 +108,16 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python nx52_head_actuator.py > /dev/null
           python nx52_head_actuator_checks.py
+      - name: Test12 DND-54 S5-R register analytic + CAD model
+        run: |
+          cd 06-experiments/test12_winner_convergence
+          python s5r_register.py > /dev/null
+          python s5r_register_checks.py
+      - name: DND-54 S5-R register-cell printability (sourced FDM limits)
+        run: |
+          python tools/validate/analytic_printability.py \
+            --json s5r-printability-record.json \
+            06-experiments/test12_winner_convergence/s5r_register.scad
       - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
         run: |
           cd 06-experiments/test12_winner_convergence
