@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """DND-76 regression checks pinning the primitives' headline numbers.
 
-Run:  python 09-lowcost-alternative/primitives/primitives_checks.py
+Run:  python 09-low-cost-variant/primitives/primitives_checks.py
 
 Exits non-zero if any headline drifts. All checks are CALCULATION/CAD-class
 assertions over the model in `primitives.py` (DND-27: no print, no measurement).
