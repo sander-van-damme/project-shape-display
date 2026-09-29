@@ -170,8 +170,8 @@ jobs:
         # guidance, single-actuator reset) for the <$250 architecture. No
         # print, no measurement (DND-27).
         run: |
-          python 09-lowcost-alternative/primitives/primitives.py > /dev/null
-          python 09-lowcost-alternative/primitives/primitives_checks.py
+          python 09-low-cost-variant/primitives/primitives.py > /dev/null
+          python 09-low-cost-variant/primitives/primitives_checks.py
       - name: "DND-72 ultra-low-cost (<$250) variant screen + negative-result gate"
         # Pins the DND-72 negative result: the S5-R fixed base alone ($253.69
         # delivered) exceeds the $250 target; no sub-$250 configuration exists
@@ -285,7 +285,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends openscad
           openscad --version
       - name: Render the primitive CAD parts
-        run: python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py
+        run: python 09-low-cost-variant/primitives/tools/render_primitives_cad.py
 
   winner-cad-render:
     # Renders the promoted winner (S5) coupon parts with a real OpenSCAD and

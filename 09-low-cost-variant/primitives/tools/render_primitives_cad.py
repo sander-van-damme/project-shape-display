@@ -17,7 +17,7 @@ excluded from the watertight gate (they overlap by design), exactly as the
 repo's other render tools treat a witness assembly.
 
 USAGE
-    python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py
+    python 09-low-cost-variant/primitives/tools/render_primitives_cad.py
 """
 from __future__ import annotations
 

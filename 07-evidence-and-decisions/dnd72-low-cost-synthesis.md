@@ -21,7 +21,7 @@ as contradictory:
 | Track | Subdir | Headline |
 |---|---|---|
 | DND-72 | `09-low-cost-variant/` | **INFEASIBLE** under unchanged requirements; break-even **$345.90 delivered** |
-| DND-71 | `09-lowcost-alternative/` (now folded to `09-low-cost-variant/s6lc/`) | **S6-LC** machine, **$162.13 delivered / 7.4 s** |
+| DND-71 | `09-low-cost-variant/s6lc/` (DND-71 `09-lowcost-alternative/` folded here) | **S6-LC** machine, **$162.13 delivered / 7.4 s** |
 
 They are **not contradictory** — they answer two different questions. This ADR fixes that.
 
