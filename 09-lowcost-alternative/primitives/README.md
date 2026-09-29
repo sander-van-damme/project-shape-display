@@ -41,6 +41,14 @@ python 09-lowcost-alternative/primitives/primitives_checks.py # 35 pinned assert
 python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py  # real CAD
 ```
 
+The render tool writes watertight STLs to `primitives/stl/` (the `column`, `pawl`,
+`latch`, `mask_comb_bar`, `reset_*` parts are mesh-gated; `cell` is a multi-body
+viewing assembly). The OpenSCAD files are parameterised by `-D part="<key>"`.
+Rendered headcounts (this environment, OpenSCAD 2021.01 + trimesh):
+`column` 302 tris / bbox 3.6×3.6×44, `pawl` 0.8×0.6×5, `latch` 0.9×0.7×5,
+`mask_comb_bar` 1.2×81.3×4 (16-cell segment), `reset_bar` 203.2×2×8 (4-bank
+segment) — **all watertight and inside the 256 mm X1C bed**.
+
 The checks run in CI (`engineering-checks` job); the CAD render runs in the
 `lowcost-primitives-cad-render` job, which **hard-fails if OpenSCAD is missing**
 so a skipped render can never be mistaken for validated CAD.
