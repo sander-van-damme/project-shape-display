@@ -782,14 +782,6 @@ def convergence() -> dict:
     )
 
 
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) > 1 and sys.argv[1] == "convergence":
-        print(json.dumps(convergence(), indent=2))
-    else:
-        print(json.dumps(screen(), indent=2))
-
-
 # ===========================================================================
 # 6. A1 PURCHASED BOM (sourced-class sketch; printed parts excluded per DND-70)
 # ===========================================================================
@@ -828,3 +820,11 @@ def a1_bom() -> dict:
                       "gates with a 2-axis gantry + writer + reader. No per-cell "
                       "and no per-row bought actuator. Printed frame, columns, "
                       "latch arms and cradle lands are excluded per DND-70."))
+
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "convergence":
+        print(json.dumps(convergence(), indent=2))
+    else:
+        print(json.dumps(screen(), indent=2))
