@@ -1,5 +1,15 @@
 # DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (not SUCCESS, not exhausted failure)
 
+- **Decision (rev 4, 2026-09-29 01:2x):** **NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** — the
+  **last** one before a SUCCESS handoff. After [DND-60](/DND/issues/DND-60) closed, the S5-R
+  machine is a **complete, coherent printable package** (14 parts / 25,661 pieces, manifests,
+  printability PASS, CI coherence gate), and the only unretired uncertainty is **measurement-only**
+  (the board's own build/measure). **But** the package is **not yet slicer-ready**: two structural
+  tiles (`cell_cartridge`, `platen_module`) are **reduced witness blocks**, not the true full-tile
+  geometry, so the board cannot directly slice and print the real structural parts. Completing the
+  full-tile geometry is bounded agent-reachable CAD work. When DND-61 closes and every part is a
+  true printable part (or a documented sub-tile set), the honest call becomes **SUCCESS -> board
+  handoff (trigger 1)**. **No board contact yet** ([DND-32](/DND/issues/DND-32)).
 - **Decision (rev 3, 2026-09-29 01:1x):** **NEXT NAMED AVENUE — [DND-60](/DND/issues/DND-60).**
   After [DND-59](/DND/issues/DND-59) closed, every **analysis** residual on S5-R is retired or
   bounded agent-side, and the only residue left is **measurement-only** (un-retirable under
@@ -190,3 +200,48 @@ buildable/print-ready package**, which does not yet exist.
   for the board's own build/measure: R-DND54-1/-2, the as-printed per-set q, the loaded NEMA17
   speed/torque curve.
 - **DND-57 re-blocked on DND-60** (first-class) for the wake path. **No board contact.**
+
+---
+
+## Rev 4 (2026-09-29) — after DND-60: SUCCESS is one bounded step away (full-tile geometry)
+
+`issue_children_completed` fired when [DND-60](/DND/issues/DND-60) (the printable fabrication
+package) reached `done`. Verified on `main` (`70566f1`), including a first-hand run of the
+package coherence gate (**PASS**).
+
+### What DND-60 achieved
+- A **complete real-OpenSCAD printed-part set**: 14 distinct parts / 25,661 pieces.
+- **14 watertight, bed-fitting STLs**; full-set printability **PASS** (no FAIL, no RISK) against the
+  sourced FDM limits; DND-59 keeper (0.90 mm / 2 lines) and DND-58 rack (1.00 / 0.50 mm) carried forward.
+- **Print manifest** (qty / material / nozzle+layer / orientation / sourced limit / est. mass+time)
+  and **assembly manifest** (exploded order + fasteners + ratified **$404.60 delivered** BOM).
+- **CI coherence gate** (`fab_package_checks.py`, C1–C6) that pins the package to the promoted model.
+- `08-current-design/README.md` §6a "How to print and build" + measurement-only residue pointer.
+
+### The honest remaining gap — not yet slicer-ready
+The package's STLs are **CAD witnesses**. Two structural tiles are **reduced witness blocks**:
+- `cell_cartridge.stl` = an **8×8 witness** of the true **27×27, 137.16 × 137.16 mm cartridge**;
+- `platen_module.stl` = a **27×27 witness** of the platen tile.
+
+A board member cannot slice these and print the **real** structural parts. Completing the full-tile
+geometry (or a documented sub-tile print set with joint/assembly spec) is bounded, agent-reachable
+CAD work — no print, no purchase.
+
+### Why this is not yet SUCCESS
+The board trigger is "a buildable shape display **ready for the board to physically print**." A
+package whose structural tiles are periodicity witnesses is not yet directly printable. Declaring
+SUCCESS now would overstate the package.
+
+### Why this is not an exhausted FAILURE
+The remaining gap is one bounded CAD task with a clear owner and path; no killer is proven.
+
+### Disposition (rev 4)
+- **Determination: NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** (Fabricator): full-tile
+  geometry for every witness-block part, or a documented sub-tile print route, with the coherence
+  gate extended to fail on un-documented witnesses. **This is the last avenue before SUCCESS.**
+- On DND-61 close, if every part is a true printable part / documented sub-tile set, the CEO call is
+  the **SUCCESS handoff to the board (trigger 1)**.
+- **Measurement-only residue** (the board's build/measure): as-printed PLA–PLA μ / scallop+tip
+  sharpness (K2), leaf creep/fatigue (K11), as-printed per-set keeper reliability q (R1), loaded
+  NEMA17 torque-speed (K6). Un-retirable under DND-27.
+- **DND-57 re-blocked on DND-61** (first-class) for the wake path. **No board contact yet.**
