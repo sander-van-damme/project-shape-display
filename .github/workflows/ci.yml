@@ -206,16 +206,12 @@ jobs:
         run: python 06-experiments/test12_winner_convergence/render_winner_cad.py
 
   fab-package:
-    # DND-60/DND-61/DND-65: render the COMPLETE S5-R printable part set with a
-    # real OpenSCAD, mesh-validate every part, regenerate the print + assembly
-    # manifests, and run the coherence gate (C1-C8). DND-61 renders the two
+    # DND-60/DND-61: render the COMPLETE S5-R printable part set with a real
+    # OpenSCAD, mesh-validate every part, regenerate the print + assembly
+    # manifests, and run the coherence gate (C1-C7). DND-61 renders the two
     # structural tiles at their true full size (the 27x27 cartridge is a single
     # ~10.5 min CGAL render), so no reduced witness blocks remain; C7 fails a
     # reduced witness that lacks a real envelope or a documented sub-tile route.
-    # DND-65 (C8) fails if the assembly-manifest purchased-BOM total contradicts
-    # the promoted model's s5r_register.bom(4) delivered_usd ($404.60), if the
-    # sourced steel drive-rod line is absent, or if the optimistic-sourced
-    # $388.10 figure is headlined as the working scenario.
     # A missing OpenSCAD is a hard failure (the render is the point). This is
     # CAD + sourced-limit evidence, not a print.
     runs-on: ubuntu-latest
@@ -237,10 +233,7 @@ jobs:
       - name: Regenerate the print + assembly manifests
         run: |
           python 08-current-design/fabrication/tools/gen_manifests.py
-      - name: Fabrication-package coherence gate (C1-C8)
-        # C8 (DND-65) pins the assembly-manifest purchased BOM to the promoted
-        # model: total == s5r_register.bom(4) delivered_usd ($404.60), steel-rod
-        # line present, optimistic $388.10 not labelled as the working scenario.
+      - name: Fabrication-package coherence gate (C1-C7)
         run: |
           python 08-current-design/fabrication/tools/fab_package_checks.py
       - name: S5-R full part-set printability (sourced FDM limits)
