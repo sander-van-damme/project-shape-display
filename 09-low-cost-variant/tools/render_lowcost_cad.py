@@ -111,7 +111,10 @@ def watertight(path: Path) -> tuple[bool, str]:
         import trimesh  # type: ignore
     except Exception:
         return True, "trimesh unavailable: geometry assumed (CI installs trimesh)"
-    m = trimesh.load(path, force="mesh")
+    try:
+        m = trimesh.load(path, force="mesh")
+    except Exception as exc:
+        return False, f"trimesh.load failed: {type(exc).__name__}: {exc}"
     # Repair the standard CGAL artifact first: OpenSCAD versions differ slightly
     # in how they emit triangles at a boolean seam (T-junctions / duplicate
     # vertices), which can make an otherwise-correct solid read non-watertight.
@@ -144,7 +147,12 @@ def render(openscad: str, part: str) -> Path:
     cmd = [openscad, "-o", str(out), "-D", f'part="{part}"', str(SCAD)]
     proc = subprocess.run(cmd, env=scad_env(), capture_output=True, text=True)
     if proc.returncode != 0 or not out.exists():
-        raise SystemExit(f"render failed for {part}:\n{proc.stderr[-2000:]}")
+        print(f"[FAIL] {part}: openscad rc={proc.returncode}")
+        print(proc.stdout[-2000:])
+        print(proc.stderr[-2000:], file=sys.stderr)
+        print(f"::error title=DND-72 CAD render {part} failed::"
+              f"openscad rc={proc.returncode}")
+        raise SystemExit(1)
     return out
 
 
@@ -200,4 +208,16 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except SystemExit:
+        raise
+    except Exception as exc:  # pragma: no cover - CI diagnosis path
+        import traceback
+        tb = traceback.format_exc()
+        print(tb, file=sys.stderr)
+        # emit as a GitHub annotation (newlines must be %0A-escaped)
+        esc = tb.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print(f"::error title=DND-72 CAD render crashed::"
+              f"{type(exc).__name__}: {exc}%0A{esc}")
+        raise SystemExit(1)
