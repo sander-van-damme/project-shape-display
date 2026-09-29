@@ -199,6 +199,23 @@ against its stable order tier; there is **no per-cell bought hardware** (3 motor
 cents/cell amortised); and the **99 %-map reliability goal needs per-cell error q ≤ 1.57e−6**, which
 remains measurement-gated (G7 unresolved, coupon C1).
 
+### Pre-registered adversarial audit criteria for DND-104 (DND-108, 2026-09)
+
+[`falsifier_dnd104_criteria.md`](falsifier_dnd104_criteria.md) is the **frozen, pre-registered**
+attack list for the reliability-first program [DND-104](/DND/issues/DND-104), written **before** the
+CTO's `10-reliability-mask/` model exists so convergence cannot cherry-pick gates. CI gate:
+[`falsifier_dnd104_checks.py`](falsifier_dnd104_checks.py) (26 self-test checks; `audit(model)` /
+`--model <path>` applies the same checklist to the CTO model when it lands). It re-bases the
+DND-91/DND-74 method onto the [DND-103](/DND/issues/DND-103) reliability-first criteria and pins:
+map-yield `(1-q)^N` (**52.7 %** at q=1e-4, N=6,400; the 99 %-map budget q ≤ **1.570e-6**), the
+coupon zero-failure trial counts (**29,956 / 299,572 / 1,908,109** at 95 %), the decisive
+**"a coupon can kill, but cannot crown"** bound (400 clean cycles bound q only at **~7.5e-3**, ~4,800×
+looser than the board budget), correlated-group detection, per-cell precision counters, the DND-103
+seven-stage timing decomposition, the DND-46 hostile-reprice cost ladder, load-during-write, jam
+containment, and pitch **placement** (not budget). **Default-deny:** an unanswered attack is a FAIL.
+The decisive falsifier is A11 (coupon C1, a 4×4 true-pitch reliability coupon) — a CTO/board print
+handoff; no board contact here.
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
