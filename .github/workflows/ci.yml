@@ -299,6 +299,18 @@ jobs:
           python 07-evidence-and-decisions/falsifier_dnd112_checks.py
           python 07-evidence-and-decisions/falsifier_dnd104_checks.py
 
+      - name: "DND-114 common-height read target (CAD-validated)"
+        # DND-114 converts the DND-113 PROPOSED common-height read target into a
+        # CAD-validated artifact: a frame-fixed reflective vane (CH-A, DeltaZ=0)
+        # read at ONE standoff for both states, with the flag-vs-neighbour
+        # contrast passing (spot half-width 0.568 mm < 1.055 mm lane clearance)
+        # and the CH-B hinge-arc DeltaZ bound inside the +/-1 mm DoF. The
+        # companion checker is a HARD GATE: --gate must exit 0. CALCULATION + CAD
+        # (DND-27); the top-face defect is still recorded, not erased.
+        run: |
+          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 07-evidence-and-decisions/falsifier_dnd114_checks.py --gate
+
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is

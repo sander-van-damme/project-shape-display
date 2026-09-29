@@ -32,6 +32,40 @@ CLEAR = 0.20;          // running clearance (assumption-class)
 STOP_LAND = 0.88;      // hard-stop land width (2 lines, compression)
 STOP_DEPTH = 1.20;     // land depth in Z
 
+// ---- DND-114 common-height read target (latch-hinge flag) ------------------
+// The as-drawn reader targets the column TOP FACE, which moves TRAVEL=40 mm with
+// the state: a down cell is read at ~42 mm with a ~24.5 mm spot (4.82 pitches),
+// swamped ~441x by up neighbours (DND-113 ADR). The fix is a target at ONE z for
+// both states. Two variants are modelled:
+//
+//   CH-A  frame-fixed reflective vane: a post on the frame cradle in the latch
+//         lane, top face at Z_FLAG_TOP -- z does NOT move with the column, so
+//         the target is common-height BY CONSTRUCTION (DeltaZ = 0).
+//   CH-B  arm-carried reflective flag: a small vane on the latch arm at radius
+//         FLAG_R from the hinge axis. Its mean z shifts by the hinge arc
+//         DeltaZ = FLAG_R * (sin(max) - sin(min)); the bound is DeltaZ <= DOF.
+//
+// Both sit in the LATCH LANE at x = HINGE_X (frame-fixed), clear of the column
+// body (own edge x=BODY/2=1.80) and the neighbour body (inner edge
+// x=PITCH-BODY/2=3.28). The lane is open in Y across the full pitch, so the
+// read spot may spread in Y; only the X half-width is bounded by the lane.
+HINGE_X       = BODY/2 + LATCH_T/2 + CLEAR;   // 2.225 mm, matches assembly
+FLAG_T        = 0.44;   // flag width in X (1 line @0.4 mm nozzle)
+FLAG_W        = 1.60;   // flag width in Y (fits lane; >= spot_Y)
+FLAG_H        = 0.80;   // flag post height in Z (frame-fixed vane)
+FLAG_R        = 1.20;   // CH-B: radius of the arm flag from the hinge axis
+Z_FLAG_TOP    = TRAVEL + 3.0;  // fixed target top face z (above the UP top)
+DOF_BUDGET    = 1.0;    // DND-112 pass: target within +/-1 mm
+SWING_DEG     = 30.0;   // assumption-class full latch toggle swing
+
+X_CLEAR_NB    = PITCH - BODY/2 - HINGE_X;     // 1.055 mm to neighbour body
+X_CLEAR_OWN   = HINGE_X - BODY/2;             // 0.425 mm to own body
+FLAG_FITS_X   = FLAG_T/2 <= X_CLEAR_NB;
+// CH-B hinge-arc DeltaZ: symmetric swing about the hinge axis.
+FLAG_DELTA_Z  = FLAG_R * 2 * sin(SWING_DEG/2);
+FLAG_IN_DOF   = FLAG_DELTA_Z <= DOF_BUDGET;
+R_FLAG_MAX    = DOF_BUDGET / (2*sin(SWING_DEG/2));  // max arm radius in DoF
+
 $fn = 24;
 
 module column() {
@@ -71,12 +105,49 @@ module cradle_land() {
     }
 }
 
+module ch_a_frame_vane() {
+    // DND-114 CH-A: frame-fixed reflective vane.
+    // A post on the frame cradle in the latch lane; its top face is the read
+    // target and is at a single fixed z (Z_FLAG_TOP) for BOTH column states,
+    // because the cradle is frame-anchored. DeltaZ = 0 by construction.
+    // Rendered in Mirror/Gold to read as the reflective target face.
+    translate([HINGE_X, 0, Z_FLAG_TOP - FLAG_H/2])
+        color("Gold")
+            cube([FLAG_T, FLAG_W, FLAG_H], center=true);
+    // reflective top face highlighted
+    translate([HINGE_X, 0, Z_FLAG_TOP + 0.01])
+        color("Khaki")
+            cube([FLAG_T, FLAG_W, 0.02], center=true);
+}
+
+module ch_b_arm_flag(swing = 0) {
+    // DND-114 CH-B: arm-carried reflective flag.
+    // A small vane on the latch arm at radius FLAG_R from the hinge axis; it
+    // rotates with the arm so the target tilt encodes state. Its mean z shifts
+    // by the hinge arc: DeltaZ = FLAG_R * (sin(max)-sin(min)). Modelled at the
+    // two toggle extremes (+/-SWING_DEG/2 about the hinge).
+    translate([HINGE_X, 0, TRAVEL/2])                 // hinge axis (frame-fixed)
+        rotate([swing, 0, 0])                          // swing about the hinge
+            translate([0, 0, FLAG_R])
+                color("DarkOrange")
+                    cube([FLAG_T, FLAG_W, FLAG_H], center=true);
+}
+
 // ---- assembly (viewing) ----------------------------------------------------
 module cell_assembly() {
     color("SteelBlue") column();
     translate([BODY/2 + LATCH_T/2 + CLEAR, 0, TRAVEL/2])
         color("Orange") latch_arm();
     translate([0, 0, -COL_LEN/2 - 1.5]) color("Gainsboro") cradle_land();
+    // DND-114: both candidate common-height targets (read at one standoff).
+    ch_a_frame_vane();
+    ch_b_arm_flag(+SWING_DEG/2);
+    ch_b_arm_flag(-SWING_DEG/2);
+}
+
+module common_height_target() {
+    // -D part="flag" renders CH-A (the frame-fixed vane) as a printable part.
+    ch_a_frame_vane();
 }
 
 module part_selector() {
@@ -85,6 +156,7 @@ module part_selector() {
     if (part == "column") column();
     else if (part == "latch") latch_arm();
     else if (part == "cradle") cradle_land();
+    else if (part == "flag") common_height_target();
     else cell_assembly();
 }
 
@@ -96,3 +168,12 @@ echo(str("LATCH_T+CLEAR=", LATCH_T + CLEAR, " <= OWNED_LANE=", OWNED_LANE));
 echo(str("latch fits owned lane: ", (LATCH_T + CLEAR) <= OWNED_LANE));
 echo(str("min feature check (latch): ", LATCH_T >= 0.44));
 echo(str("stop land (2 lines): ", STOP_LAND >= 0.88));
+// DND-114 common-height read target self-checks.
+echo(str("HINGE_X=", HINGE_X, " X_CLEAR_NB=", X_CLEAR_NB, " X_CLEAR_OWN=", X_CLEAR_OWN));
+echo(str("CH flag fits lane in X: ", FLAG_FITS_X, " (FLAG_T/2=", FLAG_T/2,
+         " <= X_CLEAR_NB=", X_CLEAR_NB, ")"));
+echo(str("CH-A target is frame-fixed: DeltaZ=0 at Z_FLAG_TOP=", Z_FLAG_TOP));
+echo(str("CH-B hinge-arc DeltaZ=", FLAG_DELTA_Z, " mm (DOF budget ",
+         DOF_BUDGET, " mm); in DoF: ", FLAG_IN_DOF));
+echo(str("CH-B max arm radius in DoF: R_FLAG_MAX=", R_FLAG_MAX, " mm"));
+echo(str("min feature check (flag): ", FLAG_T >= 0.44));

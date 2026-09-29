@@ -1,88 +1,98 @@
-# DND-113: CTO response to the DND-112 read finding — A1 read mechanism correction
-
-> **Stacked PR.** This branch is based on the DND-112 audit branch
-> (`falsifier/dnd112-a1-rate-audit`, PR #88), which is based on the DND-111
-> branch (`cto/dnd111-writer-rate-bound`, PR #87). Until #87 and #88 merge, the
-> diff against `main` includes their commits. The **DND-113 delta** is the read
-> mechanism correction described below.
+# DND-114: CAD-design + validate the A1 common-height read target (latch-hinge flag)
 
 ## What changed
 
-DND-113 responds to the DND-112 independent audit ([DND-112], PR #88), which
-returned **NOT CLEAN (default-deny)** on the DND-111 *single-cell read* claim
-while reproducing the *rate* bound.
+[DND-113](/DND/issues/DND-113) left the A1 **read/verify axis UNRESOLVED**: the
+as-drawn reader targets the **column top face**, which moves `TRAVEL = 40 mm`
+with the state, so a down cell is read at a ~42 mm gap with a ~24.5 mm spot
+(4.82 pitches) swamped ~441× by up neighbours — a **silent wrong-cell failure**
+that defeats A1's readback/retry reliability advantage. DND-114 turns the DND-113
+**PROPOSED** common-height target into a **CAD-validated artifact**.
 
-- **Read model corrected** (`10-reliability-mask/analysis/a1_writer_rate.py`):
-  `read_resolution_bound()` now reports the **state-dependent standoff** (up-state
-  spot 3.072 mm; **down-state spot 24.508 mm = 4.824 pitches** at the 42 mm gap),
-  the corrected **corner reach 4.081 mm**, the neighbour-edge threshold, and the
-  **~441x** up-neighbour/down-pocket return ratio. `resolves_single_cell = False`
-  for the as-drawn fixed-height, top-face reader, and
-  `binding_read_limit = "state_dependent_standoff"`. The ±0.264 mm registration
-  number is retained **only as up-state provenance**.
-- **One new function answers question (a)** — `common_height_read_target()`:
-  **no** existing A1 artifact reads a common-height target; a concrete fix is
-  **proposed** (a reflective flag at the frame-anchored latch hinge, read at one
-  standoff for both states), pending CAD.
-- **Question (b) rate trade study** — `z_stroke_trade_study()`: a reader Z stroke
-  per **cell** is rate-fatal (**5.4 cells/s, > 2,380 s cycle**); per **line**
-  (refocus) costs **~29.8 s** and must be priced.
-- **Bundled small fixes from the audit:** the stop-and-go **trapezoid** (T1:
-  61.9 cells/s at 100 m/s², was 89.6 V-shaped) and the **per-line ramp** now
-  priced into `full_cycle` (T3: honest 8-head cycle **18.278 s**, was the
-  idealised 16.278 s; still < 30 s).
-- **CAD corrected** (`10-reliability-mask/scad/a1_reader_head.scad`): the
-  `CORNER_REACH = spot/2·√2` error is replaced with the true
-  `√2·(BODY/2) + spot/2 = 4.081 mm`; the down-state ~24.5 mm cone and a schematic
-  common-height flag are rendered; the render record now carries both spots.
-- **ADR:** new
-  [`07-evidence-and-decisions/dnd113-a1-read-mechanism.md`](07-evidence-and-decisions/dnd113-a1-read-mechanism.md);
-  DND-111's ADR is banner-corrected on the read axis; README §4.2/§4.2a/§4.3/
-  §4.7/§7/§10 updated; the criteria-of-record remains `02-design-criteria/`.
-- **DND-112 checker re-baselined to the resolution** (the DND-93/97 convention):
-  `falsifier_dnd112_checks.py --gate` now exits **0**, asserting the corrected
-  state (R2 fixed, T1/T3 fixed, R1/R4/G2 carried). CI is wired to the `--gate`.
+- **Cell CAD** (`10-reliability-mask/scad/a1_binary_latch_cell.scad`): a
+  parameterised common-height flag. **CH-A (adopted)** — a frame-fixed reflective
+  vane on the frame cradle in the latch lane, top face at
+  `z = TRAVEL + 3 = 43 mm`; because the cradle is frame-anchored, the target z
+  does **not** move with the column, so **Δz = 0 by construction** for both
+  states. **CH-B (fallback)** — an arm-carried flag at radius `r` whose mean z
+  shifts by the hinge arc. New `part="flag"` printable selector and self-checks.
+- **Reader CAD** (`10-reliability-mask/scad/a1_reader_head.scad`): the flag is
+  read at **one fixed standoff** (1.0 mm, dedicated 0.60 mm aperture); the
+  schematic DND-113 flag is replaced by the real target + `flag_reader_head()`,
+  with flag-vs-neighbour self-checks.
+- **Model** (`10-reliability-mask/analysis/a1_writer_rate.py`):
+  `common_height_read_target()` now reports the **adopted** CH-A target (Δz=0)
+  and the CH-B bound; new `flag_read_contrast()` computes the fixed-standoff
+  geometry; `read_resolution_bound()` records both the as-drawn defect and
+  `resolves_single_cell_with_common_height_target = True`.
+- **Render** (`10-reliability-mask/analysis/render_a1_cad.py`): renders +
+  mesh-validates the `flag` part and **fails hard** if the common-height checks
+  do not pass.
+- **Docs:** new ADR
+  [`07-evidence-and-decisions/dnd114-a1-common-height-read-target.md`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/dnd114-a1-common-height-read-target.md);
+  README §4.2a / §4.7 / §7 / §9 / §10 and the evidence index updated from
+  "proposed" to "adopted + CAD-validated".
+- **Gate/CI:** new
+  [`falsifier_dnd114_checks.py`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/falsifier_dnd114_checks.py)
+  (7 attacks, `--gate` exits 0), CI-wired; the DND-113
+  `reliability_mask_checks.py` "no artifact" check is superseded by DND-114
+  checks (64/64 pass).
 
 ## Engineering question addressed
 
-**Is A1's single-cell read claim sound?** The DND-112 audit says no, and DND-113
-**accepts it**. The read is *state-dependent-standoff* bound, not registration
-bound: a down cell is read at a ~42 mm gap, its ~24.5 mm spot is swamped ~441x by
-up neighbours, so **a down cell reads up** — a silent wrong-cell failure that
-defeats A1's readback/retry advantage. The rate bound is unaffected.
+Can A1 read a **single cell at one fixed standoff for both states**, removing the
+state-dependent-standoff defect that DND-112/DND-113 identified?
 
-## Evidence produced (class: CALCULATION + CAD; no print, purchase or measurement — DND-27)
+## Evidence produced (CALCULATION + CAD — no print, no purchase, no measurement; DND-27)
 
-- `a1_writer_rate.py` report: down spot 24.508 mm / 4.824 pitches; corner reach
-  4.081 mm; ratio 441.0; `resolves_single_cell=False`; Z trade study values.
-- CAD render: `SPOT_DOWN_diameter=24.5077`,
-  `CORNER_REACH_corrected=4.08148`, `down-state single-cell read resolvable:
-  false` (watertight reader mesh).
-- `reliability_mask_checks.py`: **60/60** pass (10 new DND-113 checks).
-- `falsifier_dnd112_checks.py --gate`: **exit 0**, 11/11 attacks assert the
-  resolution.
-- `falsifier_dnd104_checks.py`: 26/26 (unchanged).
+| Item | Value | Check |
+|---|---:|---|
+| CH-A target | frame-fixed vane, top z = 43 mm | **Δz = 0.000 mm** |
+| CH-B hinge-arc Δz (r = 1.20 mm, 30° swing) | 0.621 mm | inside the ±1.0 mm DoF |
+| Max CH-B radius in DoF | 1.932 mm | `DoF / (2·sin15°)` |
+| Flag-read spot (a = 0.60 mm, g = 1.0 mm) | 1.136 mm | — |
+| Spot X half-width vs neighbour clearance | 0.568 vs 1.055 mm | **PASS**, margin 0.487 mm |
+| Spot vs flag Y width | 1.136 vs 1.60 mm | **PASS** |
+| R1/G2 re-check | fixed standoff | 42 mm gap / 24.5 mm spot / 441× ratio **eliminated** |
 
-## Assumptions / uncertainty
+- Watertight meshes rendered by **real OpenSCAD + trimesh validation**
+  (`flag.stl` 0.44 × 1.6 × 0.82 mm; reader head re-rendered).
+- `falsifier_dnd114_checks.py --gate` exits 0; the DND-112 gate and the
+  reliability-mask regression suite (64/64) still pass.
 
-- All optical constants (5 mW LED, 0.45 A/W, 0.80/0.15 reflectance, 15°
-  half-angle, 2 mm aperture/gap, TIA noise) remain assumption/sourced-class. They
-  are **not** the deciding numbers for R1/G2 — those are geometric.
-- The **common-height read target is PROPOSED, not validated**: it needs a CAD
-  model, a flag-vs-neighbour contrast check, and a hinge-arc Δz-in-DoF bound.
-- The **read/verify axis is UNRESOLVED**; DND-110's "SUCCESS-eligible on the rate
-  axis" must **not** extend to it.
+## Assumptions
+
+- Latch toggle swing 30° (assumption-class); flag-read aperture 0.60 mm and
+  standoff 1.0 mm (assumption-class); all optical/device constants unchanged
+  (assumption-class).
+
+## What passed / failed
+
+- **Passed:** CH-A Δz=0; CH-B Δz-in-DoF; flag fits the lane in X; flag spot
+  clears the neighbour body; flag spot fits the flag footprint; the as-drawn
+  top-face defect is still recorded (not erased).
+- **Failed:** the naive reuse of the 2.0 mm top-face aperture at the flag does
+  **not** clear the neighbour (2.54 mm spot > 2.11 mm lane) — hence the dedicated
+  0.60 mm flag-read aperture. This is captured in the CAD self-checks.
+
+## What remains uncertain
+
+- The **state-encoding shutter** geometry (how the latch arm's silhouette
+  modulates the CH-A vane) is identified but not yet dimensioned — a bounded CAD
+  detail, not a physics risk.
+- The flag standoff/aperture are assumption-class; no physical validation (DND-27).
+- The ±0.264 mm gantry registration is now a **secondary** concern, not the
+  binding read limit.
 
 ## Most informative next test
 
-CAD-design and validate the proposed **latch-hinge read flag** (common-height
-target), then re-check R1/G2 against it. If that fails, re-run the per-line Z
-refocus trade study against the full cycle. Both are CALCULATION + CAD; no print
-(DND-27).
+Dimension the **state-encoding shutter** in the cell CAD (arm silhouette vs the
+CH-A vane at the fixed standoff) and confirm the binary bright/dark contrast
+margin at 1.0 mm — still CALCULATION + CAD only (DND-27).
 
-## Passed / failed
+## Cross-references
 
-- **Passed:** rate bound (18.278 s < 30 s at 8 heads); CAD watertight; 60/60
-  checks; DND-112 `--gate` clean; DND-104 26/26.
-- **Failed / carried:** the as-drawn single-cell read (accepted as the audit's
-  finding; carried as the state-dependent-standoff residual).
+- Parent: [DND-113](/DND/issues/DND-113), PR #89 (read-mechanism correction).
+- Program: [DND-102](/DND/issues/DND-102); gate: [DND-110](/DND/issues/DND-110).
+- Evidence class: CALCULATION + CAD only; no print/purchase/measurement
+  ([DND-27](/DND/issues/DND-27)); no board contact ([DND-32](/DND/issues/DND-32)).

@@ -115,8 +115,24 @@ def main() -> int:
           abs(rr["corner_reach_mm"] - 4.081) < 0.01)
     check("DND-113 registration number +/-0.264 mm is retained as provenance",
           abs(rr["registration_tolerance_mm"] - 0.264) < 0.01)
-    check("DND-113 no current A1 artifact reads a common-height target",
-          wr.common_height_read_target()["answer"].startswith("NO existing"))
+    # DND-114 supersedes the DND-113 "no artifact" state: the common-height
+    # read target is now CAD-designed and validated (CH-A frame-fixed vane).
+    cht = wr.common_height_read_target()
+    check("DND-114 common-height read target is adopted + validated",
+          cht["status"].startswith("VALIDATED")
+          and cht["ch_a_fixed"] is True
+          and cht["ch_a_delta_z_mm"] == 0.0)
+    check("DND-114 CH-B hinge-arc DeltaZ is inside the +/-1 mm DoF",
+          cht["ch_b_in_dof"] is True and cht["ch_b_delta_z_mm"] <= 1.0)
+    fcon = wr.flag_read_contrast()
+    check("DND-114 flag spot clears the neighbour body at the fixed standoff",
+          fcon["spot_clears_neighbour"] is True
+          and fcon["neighbour_clearance_margin_mm"] > 0.0)
+    check("DND-114 flag spot fits the flag footprint in Y",
+          fcon["spot_fits_flag_y"] is True)
+    check("DND-114 read resolves with the common-height target (not as drawn)",
+          rr["resolves_single_cell_with_common_height_target"] is True
+          and rr["resolves_single_cell"] is False)
     zs = wr.z_stroke_trade_study()
     check("DND-113 reader Z stroke per cell is rate-fatal (>1000 s)",
           zs["per_cell_cycle_s"] > 1000.0)

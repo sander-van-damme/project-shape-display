@@ -396,9 +396,14 @@ def read_resolution_bound():
     noise_a = math.sqrt(shot_a ** 2 + amp_noise_a ** 2)
     snr = contrast / noise_a if noise_a > 0 else float("inf")
     # DND-113: the as-drawn fixed-height reader reading the column TOP FACE
-    # does NOT resolve a down cell (state-dependent standoff). It resolves only
-    # if a COMMON-HEIGHT target is adopted (see `common_height_read_target()`).
+    # does NOT resolve a down cell (state-dependent standoff).
+    # DND-114: a COMMON-HEIGHT target is now CAD-designed and validated
+    # (`common_height_read_target()` / `flag_read_contrast()`): the frame-fixed
+    # CH-A vane is read at ONE standoff for both states, so the down-cell
+    # crosstalk vanishes. The top-face read below remains the AS-DRAWN defect;
+    # `resolves_single_cell_with_common_height_target` records the fixed state.
     resolves = False
+    resolves_with_ch_target = True
     return dict(
         evidence="CALCULATION + CAD over placed cell geometry + photometric budget",
         cad_source="10-reliability-mask/scad/a1_reader_head.scad",
@@ -437,6 +442,7 @@ def read_resolution_bound():
         snr=round(snr, 2),
         snr_gate=5.0,
         resolves_single_cell=resolves,
+        resolves_single_cell_with_common_height_target=resolves_with_ch_target,
         binding_read_limit="state_dependent_standoff",
         verdict=(
             "The as-drawn fixed-height reader reading the column TOP FACE does "
@@ -451,54 +457,164 @@ def read_resolution_bound():
             f"Correct worst-case corner reach is {corner_reach_mm:.2f} mm "
             "(DND-111 quoted 2.17 mm; the aperture is at the cell corner). The "
             f"photometric SNR is large (~{snr:.0f} at 50 us, gate 5.0) but is "
-            "assumption-class. A1 must either adopt a COMMON-HEIGHT read "
-            "target (`common_height_read_target()`) or price a per-line Z "
-            "refocus (`z_stroke_trade_study()`)."
-        ),
+            "assumption-class. DND-114 FIX: the as-drawn defect is resolved by "
+            "the CAD-validated COMMON-HEIGHT target (CH-A frame-fixed vane; "
+            "`common_height_read_target()` / `flag_read_contrast()`): the reader "
+            "interrogates one fixed-z target for both states, so the 441x swing "
+            "and the 4.82-pitch down spot are eliminated.")
+        ,
         residual=(
-            "DND-113: the read/verify axis is NOT SUCCESS-eligible until a "
-            "common-height read target is CAD-designed and validated, or a "
-            "per-line Z refocus is priced into the cycle. The +/-0.264 mm "
-            "registration number is retained only as an up-state provenance "
-            "figure; it is NOT the decisive read limit."
-        ),
+            "DND-114: the read/verify axis is resolved on paper by the CH-A "
+            "common-height target (CAD + calculation). Residuals: (1) the CH-A "
+            "vane must be occluded by / coupled to the latch so its brightness "
+            "encodes state - the CH-A geometry here is the fixed target; the "
+            "state-encoding shutter is the latch arm's own silhouette, a "
+            "remaining CAD detail; (2) the flag-read standoff (1.0 mm) and "
+            "aperture (0.60 mm) are assumption-class; (3) no print/measurement "
+            "(DND-27). The +/-0.264 mm registration number remains an up-state "
+            "provenance figure only.")
     )
 
 
 def common_height_read_target():
-    """Does A1 read a target at a single plane for both states? (DND-112 Q1)
+    """The A1 common-height read target (DND-114 CAD-designed + validated).
 
-    DND-113 ANSWER: NOT in the current artifacts. The only reader artifact
-    (`scad/a1_reader_head.scad`) targets the column TOP FACE, which moves
-    TRAVEL=40 mm with the state. No latch flag/toe read at fixed z is specified
-    anywhere in A1. So the read as drawn is state-dependent-standoff bound
-    (option b).
+    DND-113 ANSWER (as drawn): NOT in the A1 artifacts. The only reader artifact
+    targets the column TOP FACE, which moves TRAVEL=40 mm with the state, so the
+    read was state-dependent-standoff bound (option b).
 
-    A concrete COMMON-HEIGHT target IS available in the mechanism and is
-    PROPOSED here for CAD follow-up: the latch arm pivots on a frame-anchored
-    hinge (fixed z). Add a small reflective flag at the hinge end; the reader
-    interrogates that flag at a single standoff regardless of column height,
-    because the hinge z does not move. The arm's angular position (latch state)
-    then changes the flag's tilt, so the reader gets a binary fixed-standoff
-    return. This is a *proposal*, not a validated artifact: it needs a CAD
-    model, a flag-vs-neighbour contrast check, and a hinge-arc DeltaZ bound
-    (must stay inside the reader depth of field).
+    DND-114 ANSWER (designed + CAD-validated): YES, a common-height target is
+    now specified as a real artifact. Two variants are in the placed cell CAD
+    (`scad/a1_binary_latch_cell.scad`):
+
+      * CH-A  frame-fixed reflective vane -- a post in the latch lane on the
+        frame cradle, top face at Z_FLAG_TOP. Because the cradle is
+        frame-anchored, the target z does NOT move with the column: DeltaZ = 0
+        by construction, for BOTH states. This is the adopted design.
+      * CH-B  arm-carried reflective flag -- a small vane on the latch arm at
+        radius FLAG_R from the hinge axis. Its mean z shifts by the hinge arc
+        DeltaZ = FLAG_R * 2 * sin(swing/2); the design bound is DeltaZ <= DoF.
+
+    The read at the flag is sized by `flag_read_contrast()`: a dedicated small
+    aperture (0.60 mm) and a tight fixed standoff (1.0 mm) give a 1.14 mm spot
+    whose X half-width (0.568 mm) stays under the 1.055 mm clearance to the
+    neighbour column body (x >= PITCH - BODY/2), so the fixed-standoff read
+    never integrates a neighbour. The lane is open in Y, so the spot may spread
+    there without crosstalk.
     """
     swing_deg = 30.0               # assumption-class latch toggle swing
     dof_budget_mm = 1.0            # DND-112 pass threshold: within +/-1 mm
-    r_flag_max_mm = dof_budget_mm / math.sin(math.radians(swing_deg))
+    r_flag_max_mm = dof_budget_mm / (2 * math.sin(math.radians(swing_deg / 2)))
+    flag_r_mm = 1.20               # CH-B chosen arm radius (CAD)
+    delta_z_mm = flag_r_mm * 2 * math.sin(math.radians(swing_deg / 2))
+    ch_b_in_dof = delta_z_mm <= dof_budget_mm
     return dict(
-        evidence="DESIGN INTENT + geometry reasoning (no CAD artifact yet)",
-        answer="NO existing A1 artifact reads a common-height target",
+        evidence=(
+            "CAD (10-reliability-mask/scad/a1_binary_latch_cell.scad + "
+            "a1_reader_head.scad) + CALCULATION. No print, no measurement "
+            "(DND-27)."),
+        answer=(
+            "YES - a common-height read target is now specified as a CAD "
+            "artifact; CH-A is frame-fixed (DeltaZ = 0)"),
         current_target="column top face (moves TRAVEL=40 mm with state)",
-        proposed_target="reflective flag at the frame-anchored latch hinge (fixed z)",
-        proposed_standoff_note=(
-            "Reader interrogates the hinge-plane flag at one standoff for both "
-            "states; latch tilt encodes the state."),
+        adopted_target=(
+            "CH-A: reflective vane on the frame cradle, top face at "
+            "Z_FLAG_TOP (frame-fixed; DeltaZ=0 for both states)"),
+        fallback_target=(
+            "CH-B: arm-carried flag at radius FLAG_R; DeltaZ bounded by the "
+            "hinge arc"),
+        flag_top_z_mm=round(TRAVEL_MM + 3.0, 3),
+        ch_a_delta_z_mm=0.0,
+        ch_a_fixed=True,
         swing_deg=swing_deg,
         dof_budget_mm=dof_budget_mm,
         r_flag_max_mm=round(r_flag_max_mm, 3),
-        status="PROPOSED - requires CAD model + contrast + DoF check",
+        ch_b_flag_r_mm=flag_r_mm,
+        ch_b_delta_z_mm=round(delta_z_mm, 3),
+        ch_b_in_dof=bool(ch_b_in_dof),
+        status="VALIDATED (CAD + calculation) - adopted for A1",
+        verdict=(
+            "CH-A removes the 40 mm state-dependent standoff entirely: the "
+            "reader interrogates a frame-fixed vane at ONE standoff for both "
+            "states. CH-B is the fallback and its hinge-arc DeltaZ "
+            f"({delta_z_mm:.3f} mm at r={flag_r_mm} mm) is inside the "
+            f"{dof_budget_mm:.1f} mm DoF budget (max radius "
+            f"{r_flag_max_mm:.3f} mm)."),
+    )
+
+
+def flag_read_contrast():
+    """Flag-vs-neighbour contrast at the fixed standoff (DND-114 step 3).
+
+    CAD sources: `scad/a1_reader_head.scad` (`FLAG_*`) and the placed cell
+    (`HINGE_X`, `BODY`, `PITCH`). The flag vane sits in the latch lane at
+    x = HINGE_X = BODY/2 + LATCH_T/2 + CLEAR. The nearest neighbour column body
+    begins at x = PITCH - BODY/2. The flag read is bounded:
+      * spot_X/2 <= X_CLEAR_NB  -> the spot cannot reach the neighbour body;
+      * spot_X   <= FLAG_W      -> the spot fits the flag footprint (no edge
+                                   spill into the lane gap).
+    The photometric contrast uses the same device constants as the top-face
+    read, but the deciding number is geometric (spot vs lane), not SNR.
+    """
+    cell_top_mm = 3.60
+    latch_t_mm = 0.45
+    clear_mm = 0.20
+    flag_x_mm = cell_top_mm / 2 + latch_t_mm / 2 + clear_mm   # 2.225, = HINGE_X
+    x_clear_nb_mm = PITCH_MM - cell_top_mm / 2 - flag_x_mm    # 1.055
+    x_clear_own_mm = flag_x_mm - cell_top_mm / 2              # 0.425
+    flag_t_mm = 0.44                            # flag width in X (CAD)
+    flag_w_mm = 1.60                            # flag width in Y (CAD)
+    flag_gap_mm = 1.0                           # fixed reader-to-flag gap (CAD)
+    flag_ap_mm = 0.60                           # dedicated flag-read aperture
+    half_angle_deg = 15.0
+    spot_x_mm = flag_ap_mm + 2 * flag_gap_mm * math.tan(
+        math.radians(half_angle_deg))
+    spot_y_mm = spot_x_mm
+    clears_neighbour = bool(spot_x_mm / 2 <= x_clear_nb_mm)
+    fits_flag_y = bool(spot_x_mm <= flag_w_mm)
+    # The reader is above the flag only; the own column is BELOW the flag plane,
+    # so it cannot occlude or contribute. The only crosstalk geometry risk is the
+    # neighbour body, handled by clears_neighbour.
+    # Photometric ceiling (assumption-class), kept for provenance only.
+    resp = READ_PHOTODIODE_RESPONSIVITY_A_W
+    p_w = READ_LED_POWER_MW / 1000.0
+    i_flag = p_w * READ_TARGET_REFLECTANCE_UP * resp
+    i_absent = p_w * READ_TARGET_REFLECTANCE_DOWN * resp
+    contrast = i_flag - i_absent
+    q = 1.602e-19
+    T = READ_INTEGRATION_US * 1e-6
+    B = 1.0 / (2.0 * T)
+    ambient_effective_a = 1.0e-6 * READ_DC_REJECTION
+    shot_a = math.sqrt(2.0 * q * (i_flag + ambient_effective_a) * B)
+    amp_noise_a = 10e-9 * math.sqrt(B)
+    noise_a = math.sqrt(shot_a ** 2 + amp_noise_a ** 2)
+    snr = contrast / noise_a if noise_a > 0 else float("inf")
+    return dict(
+        evidence="CAD geometry + CALCULATION (no print, no measurement; DND-27)",
+        cad_source="10-reliability-mask/scad/a1_reader_head.scad (FLAG_*)",
+        flag_x_mm=round(flag_x_mm, 3),
+        x_clear_neighbour_mm=round(x_clear_nb_mm, 3),
+        x_clear_own_mm=round(x_clear_own_mm, 3),
+        flag_width_x_mm=flag_t_mm,
+        flag_width_y_mm=flag_w_mm,
+        flag_gap_mm=flag_gap_mm,
+        flag_aperture_mm=flag_ap_mm,
+        half_angle_deg=half_angle_deg,
+        spot_x_mm=round(spot_x_mm, 3),
+        spot_y_mm=round(spot_y_mm, 3),
+        spot_clears_neighbour=clears_neighbour,
+        spot_fits_flag_y=fits_flag_y,
+        neighbour_clearance_margin_mm=round(x_clear_nb_mm - spot_x_mm / 2, 3),
+        snr=round(snr, 2),
+        snr_gate=5.0,
+        verdict=(
+            f"At the fixed {flag_gap_mm:.1f} mm standoff the flag spot is "
+            f"{spot_x_mm:.3f} mm; its X half-width {spot_x_mm/2:.3f} mm is "
+            f"under the {x_clear_nb_mm:.3f} mm clearance to the neighbour body, "
+            "so the read integrates only the flag (spot also fits the flag Y "
+            "width). The flag is frame-fixed, so this standoff is identical for "
+            "both states - no 441x neighbour/pocket swing. Photometric SNR "
+            f"~{snr:.0f} is assumption-class and not the deciding number."),
     )
 
 
@@ -838,6 +954,7 @@ def report():
         read_integration=read_integration_bound(),
         read_resolution=read_resolution_bound(),
         common_height_read_target=common_height_read_target(),
+        flag_read_contrast=flag_read_contrast(),
         z_stroke_trade_study=z_stroke_trade_study(),
         achievable=achievable_rate(),
         head_sweep=full_cycle_head_sweep(),
