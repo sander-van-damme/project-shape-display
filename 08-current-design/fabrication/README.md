@@ -22,13 +22,17 @@ fabrication/
     s5r_parts_common.scad   shared part constants (single source of truth)
     s5r_parts.scad          every distinct printed part (part= selector)
   stl/                      14 rendered, mesh-validated STLs (CAD witnesses)
+  images/                   board-viewable PNG renders (DND-69): 14 parts
+                            + assembled/exploded register views
   manifests/
     print_manifest.md/.csv/.json     per-part print manifest
     assembly_manifest.md/.csv        exploded assembly + fasteners + BOM
     render_record.json               the real-OpenSCAD render + mesh record
+    render_images_record.json        the PNG render record (DND-69)
   tools/
     part_set.py             the part list (drives everything below)
     render_fab_parts.py     render + mesh-validate the full set
+    render_images.py        render board-viewable PNGs (DND-69)
     gen_manifests.py        generate the print + assembly manifests
     fab_package_checks.py   CI coherence gate (C1-C8)
 ```
@@ -112,13 +116,30 @@ forward.
   reliability q (R1 class), and the real loaded NEMA17 torque-speed curve
   (K6 class). These are named, bounded, and cannot be retired analytically.
 
-## 6. Reproduce (software only)
+## 6. Renders (DND-69)
+
+Board-viewable PNGs of every part and the assembled register are in
+[`images/`](images/) — see the [image gallery](images/README.md) for the
+assembled/exploded register views and a table of every part render.
+
+- **Part renders:** one PNG per part (14) in `iso` / `front` / `top` views.
+- **Assembly renders:** an assembled 3 × 3 cell cluster (rotor + pawl + keeper +
+  detent on the rack strip + sourced steel rod) and an exploded view.
+- **Generator:** [`tools/render_images.py`](tools/render_images.py), rasterizing
+  the committed OpenSCAD STLs with a software renderer (the container has no GL
+  for OpenSCAD's own PNG backend — see the [gallery notes](images/README.md)).
+- **Evidence class: CAD render. NOT a print, NOT a measurement**
+  ([DND-27](/DND/issues/DND-27)).
+
+## 7. Reproduce (software only)
 
 ```sh
 export PATH="$HOME/.local/bin:$PATH"   # rootless OpenSCAD (tools/openscad-install)
 python 08-current-design/fabrication/tools/render_fab_parts.py
 python 08-current-design/fabrication/tools/gen_manifests.py
 python 08-current-design/fabrication/tools/fab_package_checks.py
+python 08-current-design/fabrication/tools/render_images.py   # PNG renders (pip numpy pillow)
+python 08-current-design/fabrication/tools/render_images.py --check
 python tools/validate/analytic_printability.py \
       08-current-design/fabrication/scad/s5r_parts.scad
 ```

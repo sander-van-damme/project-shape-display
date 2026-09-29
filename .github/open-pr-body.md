@@ -1,8 +1,9 @@
-# DND-72: ultra-low-cost (<$250 purchased) — S6-LC selected + S5-R-trim infeasibility proof + CAD
+# DND-72: ultra-low-cost (<$250 purchased) — S6-LC selected + S5-R-trim infeasibility proof + DND-75 divergence folded + CAD
 
-**Consolidated single track.** Two divergent ultra-low-cost workstreams (this DND-72 track and the
-DND-71 track) were reconciled under CEO consolidation direction. Output: **one BOM of record, one
-selected architecture**, in the new subdirectory `09-low-cost-variant/`. `08-current-design/`
+**Consolidated single track.** Three ultra-low-cost workstreams were reconciled under CEO
+consolidation direction: the DND-72 trim screen, the DND-71 S6-LC candidate, and the DND-75
+inventor divergence. Output: **one authoritative branch, one BOM of record, one selected
+architecture**, in the new subdirectory `09-low-cost-variant/`. `08-current-design/`
 (S5-R, $404.60 delivered) is **untouched**.
 
 **Evidence class:** CALCULATION over the promoted S5-R model, the S1/S2 screen, sourced-class
@@ -15,7 +16,7 @@ Can the S5-R product be delivered under **$250 purchased** (excl. 3D-printed par
 406.4 × 406.4 mm, 5.08 mm pitch, 6,400 cells, ≥ 40 mm travel, full-map < 30 s, regional updates and
 X1C-buildability?
 
-## Answer — two parts
+## Answer — three parts
 
 **1. Trimming the S5-R architecture: NO.** The sub-$250 space is empty for this family. The binding
 term is the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners,
@@ -42,6 +43,21 @@ gate read from an **off-line punched card**, one lead-screw lift stepper, 8 bank
 the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling). 50 mm travel
 (5 × 10 mm).
 
+**3. DND-75 divergence folded (alternatives, not replacements).** Three materially different
+machines that attack the *base lines themselves* clear both gates (<$250 and <30 s):
+
+| | A1 single-shaft cam | A2 hand-crank + punched tape | A3 S1-B banked broadcast |
+|---|---|---|---|
+| Bought motion actuators | 1 stepper | 0 (hand/spring) | 1 lift + 1 film-index |
+| Selection | cam-actuated writer comb | punched-tape read comb | punched-film threshold planes |
+| Parts / delivered | $58.30 / **$67.63** | $42.90 / **$49.76** | $98.29 / **$114.02** |
+| Full-map | 17.76 s | 26.86 s | 22.06 s |
+| Decisive failure mode | one motor must carry bank **and** lift | tape write is the product (off-line) | punched-film registration |
+
+Each is cheaper than S6-LC but carries a product-level caveat. S6-LC remains the selected machine
+because its only product caveat (off-line mask prep) is shared with A2/A3 while its mechanism is the
+most conventional.
+
 ## What changed
 
 - **`09-low-cost-variant/s6lc/`** — the **selected machine**: `analysis/s6lc.py` (geometry, force,
@@ -50,11 +66,18 @@ the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling
 - **`09-low-cost-variant/s5r_ultra.py` / `s5r_ultra_checks.py`** — retained as the **negative
   result**: fixed-base floor, 570-point sweep, break-even ($345.90), `INFEASIBLE_UNDER_UNCHANGED_
   REQUIREMENTS` (**19 checks**, all pass).
-- **`07-evidence-and-decisions/dnd72-low-cost-synthesis.md`** — the reconciliation ADR: why the two
-  headlines are complementary, the selected machine, requirement-preservation table, residual
-  uncertainty.
-- **`09-low-cost-variant/README.md`** — rewritten to lead with S6-LC + the negative result.
-- **CI:** adds the **S6-LC gate** step alongside the existing DND-72 trim gate.
+- **`09-low-cost-variant/divergent/`** — the **folded DND-75 divergence**: `analysis/divergent_lowcost.py`,
+  `analysis/divergent_lowcost_checks.py` (**18 checks**, all pass), `scad/a1_cam_cell.scad`,
+  `scad/a2a3_media_cell.scad`, `tools/run_divergent_checks.py` (runner exit 0 incl. analytic
+  printability).
+- **`tools/validate/analytic_printability.py`** — superset merged so both the trim cell and the
+  divergent cells route correctly (`check_media_cell` + `check_a1_cam_cell` + `s5r_ultra_cell`).
+- **`07-evidence-and-decisions/dnd72-low-cost-synthesis.md`** — the reconciliation ADR: why the
+  headlines are complementary, the selected machine, the DND-75 divergence table, requirement
+  preservation, residual uncertainty.
+- **`09-low-cost-variant/README.md`** — rewritten to lead with S6-LC + the negative result + divergent.
+- **CI:** adds the **S6-LC gate** and the **folded divergent-machines gate** alongside the DND-72
+  trim gate; the `lowcost-cad-render` job is made version-robust and crash-diagnosable.
 
 ## Evidence produced
 
@@ -62,10 +85,13 @@ the worst-case release force (1,025 N unbanked → 128 N banked vs 296 N ceiling
 |---|---|
 | `09-low-cost-variant/s6lc/analysis/s6lc_checks.py` | **29/29 pass** — all six gates, `PROMOTE_TO_09` |
 | `09-low-cost-variant/s5r_ultra_checks.py` | **19/19 pass** — trim infeasibility |
+| `09-low-cost-variant/divergent/tools/run_divergent_checks.py` | **runner exit 0** — 18/18 + printability |
 | `tools/validate/readme_s5r_coherence.py` | **GATE PASS** — S5-R headline untouched |
+| `09-low-cost-variant/tools/render_lowcost_cad.py` | **ALL PARTS OK** — 3 watertight, bed-fitting |
 
 Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim floor **$345.90 /
-29.987 s**; S6-LC **$139.77 / $162.13 / 7.4 s**, 128.2 N banked release.
+29.987 s**; S6-LC **$139.77 / $162.13 / 7.4 s**, 128.2 N banked release; divergent A1 **$67.63**,
+A2 **$49.76**, A3 **$114.02**.
 
 ## Requirement-preservation (selected machine S6-LC)
 
@@ -95,12 +121,12 @@ Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim flo
 record — attacking the punched-card mask-write product statement and the S1-D pawl-spread
 falsifier, the two terms that can still kill S6-LC. On close, DND-73/DND-74 auto-wake.
 
-## Known CI issue (pre-existing, not a regression)
+## Known CI issue (pre-existing, addressed on this branch)
 
-The `lowcost-cad-render` job is **red on this branch, including on the parent commit `c78442f`
-before the consolidation**. It is **reproducibly green locally** (`ALL PARTS OK`; fresh STLs
-byte-identical to the committed ones). The `engineering-checks` job carrying the **S6-LC gate
-passes**. Hypothesis: the `s5r_ultra_cell.scad` `cell()` tangent/coincident difference cuts leave a
-non-manifold shell on the CI's apt OpenSCAD/CGAL build. Diagnostic requires the CI log (needs repo
-auth this agent lacks); the fix pattern already used for `keeper()` (overlap the cuts) is the likely
-remedy. This does not gate the S6-LC selection. Tracked in the synthesis ADR.
+The `lowcost-cad-render` job was red on this branch **including on the parent commit `c78442f`
+before the consolidation**. It was **reproducibly green locally** (`ALL PARTS OK`; fresh STLs
+byte-identical to the committed ones); the cause was the `s5r_ultra_cell.scad` `cell()`
+tangent/coincident difference cuts leaving a non-manifold shell on the CI's apt OpenSCAD/CGAL
+build. This branch makes the render **version-robust** (overlapped cuts), **crash-diagnosable**
+(prints `proc.stderr[-2000:]`), and surfaces failures as GitHub annotations. The `engineering-checks`
+job carrying the **S6-LC + divergent gates passes** independently. Tracked in the synthesis ADR.
