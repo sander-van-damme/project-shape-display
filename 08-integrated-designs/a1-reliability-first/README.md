@@ -7,8 +7,17 @@
 > screened architectures are **not** promoted integrated designs — see
 > [`analysis/architecture_table.md`](analysis/architecture_table.md).
 
-**Status: new candidate architecture selected — `A1 binary-latch + shared
-writer/reader`.** This is the DND-104 program root. It works from the low-cost
+**Status: architecture PROMOTED, build MEASUREMENT-GATED — `A1 binary-latch
++ shared writer/reader`.** Gated promotion per the SHA-7 GATE decision
+([`sha7-a1-promotion-decision.md`](../../07-evidence-and-decisions/sha7-a1-promotion-decision.md)):
+timing 19.63 s sustained, BOM $181 IDEAL, write-path audit 22/22 CLEAN.
+The architecture is the reliability-first candidate of record; a
+full-machine build waits on **coupon A** (single cell at true pitch:
+toggle force + read contrast). R1–R4 stay open as measurement-only (DND-27);
+R5 is retired as an 8-head-minimum design rule and R6 half-retired
+(geometry analytic, elastic open as coupon B) per the
+[SHA-9 note](../../07-evidence-and-decisions/sha9-a1-gate-residuals-regional.md).
+This is the DND-104 program root. It works from the low-cost
 family in [`06-experiments/test14_low_cost_program/`](../../06-experiments/test14_low_cost_program/README.md), **not** from
 the mechanically dense S5-R in [`08-integrated-designs/s5r-shared-drive-register/`](../s5r-shared-drive-register/README.md)
 (untouched, provenance). `09-*/` (S6-LC) is also untouched — this is a *new*
@@ -437,15 +446,22 @@ on the **reliability gate that DND-103 made first-class**, and it is cheaper tha
 both. Under the program's stated priority ("reliability/buildability outrank the
 last few dollars"), that is the decisive advantage.
 
-**Promotion proposal:** promote **A1** as the reliability-first low-cost candidate
-at the next convergence gate. The **rate** is no longer an open condition —
+**Promotion record (SHA-7 GATE, executed by SHA-9):** **A1** is promoted as
+the reliability-first low-cost architecture of record at the convergence
+gate — the **architecture** carries PROMOTED status while the **build**
+is MEASUREMENT-GATED on coupon A (single-cell toggle force + read
+contrast), which DND-27 forbids settling analytically. The **rate** is no longer an open condition —
 DND-111 bounded it analytically (outcome a), corrected by DND-113 (18.278 s). The
 **read/verify axis is now CLOSED at CAD + calculation**: DND-114 gave a
 frame-fixed CH-A target (Δz = 0) and DND-115 added the state-encoding shutter
 (hidden covers 100% of the read spot, visible 0%, 7.72× on/off, target still
 frame-fixed), so the readback/retry advantage is no longer unproven on the
 mechanism. The latch toggle force remains a coupon/measurement residual (DND-27).
-This is an explicit proposal, not an automatic replacement (per DND-104 §5).
+This promotion is recorded, not an automatic replacement (per DND-104 §5):
+S5-R stays the slicer-ready build package of record and S6-LC keeps its
+own MEASUREMENT-GATED status. R5 is retired as an 8-head-minimum design
+rule and R6 half-retired (geometry analytic, elastic open as coupon B);
+see the [SHA-9 note](../../07-evidence-and-decisions/sha9-a1-gate-residuals-regional.md).
 
 ## 7. Failure modes, recorded honestly
 
@@ -493,6 +509,9 @@ python 08-integrated-designs/a1-reliability-first/analysis/reliability_mask_chec
 # (full JSON, incl. shutter_read_contrast() + shutter_tolerance_mc())
 python 08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py
 
+# SHA-9: R5/R6 residuals + tile-local regional-update evidence (13 checks)
+python 08-integrated-designs/a1-reliability-first/analysis/a1_regional_update.py --gate
+
 # DND-112 audit resolution gate (exits 0; CI-wired)
 python 07-evidence-and-decisions/falsifier_dnd112_checks.py --gate
 
@@ -516,6 +535,7 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
 |---|---|
 | [`analysis/reliability_mask.py`](analysis/reliability_mask.py) | the architecture screen, reliability gate, timing, BOM, convergence |
 | [`analysis/a1_writer_rate.py`](analysis/a1_writer_rate.py) | **DND-111 + DND-113 + DND-114** writer rate bound + read-mechanism correction + common-height target |
+| [`analysis/a1_regional_update.py`](analysis/a1_regional_update.py) | **SHA-9** R5/R6 residual attack + tile-local regional-update evidence (Q5 0.10 mm) |
 | [`analysis/reliability_mask_checks.py`](analysis/reliability_mask_checks.py) | 60 regression checks |
 | [`analysis/render_a1_cad.py`](analysis/render_a1_cad.py) | OpenSCAD render + mesh validation (cell parts + reader head + CH flag) |
 | [`analysis/make_table.py`](analysis/make_table.py) | emits the full per-architecture comparison table |
@@ -552,6 +572,14 @@ python 08-integrated-designs/a1-reliability-first/analysis/make_table.py
   (DND-27). The STATE is exact by hard stop; only the snap force is uncertain.
 - Hinge wear across 6,400 pivots — measurement-only (DND-27).
 - Column top land dimensions — CAD-provisional until a calibration coupon exists.
+- **Head count (SHA-7 R5) — RETIRED as a design rule (SHA-9).** Both actuation
+  corners need 8 heads minimum; 4 heads fail sustained (31.35 s). No build
+  with fewer than 8 heads.
+- **Regional disturbance (SHA-7 R6) — HALF-RETIRED (SHA-9).** Rigid-body /
+  geometry half is analytic (0.00 mm modelled vs Q5 0.10 mm proposal, all
+  clearances positive; 10×10 tile reveal 0.47 s). The elastic half
+  (loaded-neighbour motion, miniature tipping, wear drift) is coupon-B
+  measurement-only.
 
 A1 is **not** claimed print-ready or physically validated. Its **rate** is
 CALCULATION-bounded (DND-111 outcome a, corrected by DND-113), its **read/verify

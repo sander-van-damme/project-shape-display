@@ -32,7 +32,7 @@ Status and evidence class are read from the repository, not guessed. Vocabulary:
 |---|---|---|---|---|
 | S5-R | [`s5r-shared-drive-register/`](s5r-shared-drive-register/README.md) | shared-drive programmable rotary register: 2 bank motors + 40 writer solenoids write a 4-row-deep passive rotor bank; hard-stop height memory | **PROMOTED** (historical single-winner; remains the slicer-ready build package of record) | CAD + CALCULATION over sourced listings; measurement-only residue |
 | S6-LC | [`s6lc-low-cost/`](s6lc-low-cost/README.md) | low-cost broadcast / mask-gate machine: off-line punched-card per-bank mask selects cells; one lead-screw stepper; passive printed pawls hold height | **MEASUREMENT-GATED** (mission gates pass; per-cell reliability `G8` unresolved) | CAD + CALCULATION over sourced FDM/actuator data |
-| A1 | [`a1-reliability-first/`](a1-reliability-first/README.md) | binary-latch + shared writer/reader: 2-axis gantry writes a per-cell over-centre latch, a reader verifies and re-drives (zero silent-error cells) | **CANDIDATE** (selected reliability-first machine candidate; read/verify axis CAD-validated, rate bounded) | CAD + CALCULATION over sourced component classes |
+| A1 | [`a1-reliability-first/`](a1-reliability-first/README.md) | binary-latch + shared writer/reader: 2-axis gantry writes a per-cell over-centre latch, a reader verifies and re-drives (zero silent-error cells) | **PROMOTED (architecture) / MEASUREMENT-GATED (build)** — gated promotion per the SHA-7 GATE decision ([decision](../07-evidence-and-decisions/sha7-a1-promotion-decision.md)); full-machine build waits on coupon A (single cell: toggle force + read contrast) | CAD + CALCULATION over sourced component classes; R5 retired, R6 half-retired ([SHA-9](../07-evidence-and-decisions/sha9-a1-gate-residuals-regional.md)) |
 
 Notes on the statuses:
 
@@ -42,8 +42,16 @@ Notes on the statuses:
 - **S6-LC** is mission-gate-passing but carries an **unresolved per-cell reliability gate**; its
   status is `MEASUREMENT-GATED` (measurement being unavailable under DND-27, the gate is carried as
   an explicit residual).
-- **A1** is a **new candidate**, not a silent replacement. It is proposed for promotion at the next
-  convergence gate and is the only architecture in the reliability-first program with a
+- **A1** is the **gated-promoted reliability-first architecture**: the
+  architecture itself is **PROMOTED** per the SHA-7 GATE decision (timing
+  19.63 s sustained, BOM $181 IDEAL, write-path audit 22/22 CLEAN), while
+  the **build is MEASUREMENT-GATED on coupon A** (single cell at true
+  pitch: toggle force + read contrast), which DND-27 forbids settling
+  analytically. R1–R4 stay open as measurement-only; R5 is retired as an
+  8-head-minimum design rule and R6 is half-retired (geometry analytic,
+  elastic open as coupon B) per the
+  [SHA-9 note](../07-evidence-and-decisions/sha9-a1-gate-residuals-regional.md).
+  It is the only architecture in the reliability-first program with a
   structurally zero silent-error set (shared reader verifies every cell).
 - The six other screened reliability-first architectures (A2–A7) are **architecture-candidates /
   experiment screen material**, not promoted integrated designs; they are preserved in the A1
