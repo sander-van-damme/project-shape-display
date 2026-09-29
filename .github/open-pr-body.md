@@ -90,8 +90,17 @@ Pinned: S5-R **$404.60 / 24.615 s**; trim base **$218.70 → $253.69**; trim flo
   [DND-27](/DND/issues/DND-27).
 
 ## Most informative next test
-
 **Sourced ratification of the S6-LC BOM** ([DND-73](/DND/issues/DND-73)) and **adversarial audit**
 ([DND-74](/DND/issues/DND-74)) against `09-low-cost-variant/s6lc/bom_s6lc.csv` — the single BOM of
 record — attacking the punched-card mask-write product statement and the S1-D pawl-spread
 falsifier, the two terms that can still kill S6-LC. On close, DND-73/DND-74 auto-wake.
+
+## Known CI issue (pre-existing, not a regression)
+
+The `lowcost-cad-render` job is **red on this branch, including on the parent commit `c78442f`
+before the consolidation**. It is **reproducibly green locally** (`ALL PARTS OK`; fresh STLs
+byte-identical to the committed ones). The `engineering-checks` job carrying the **S6-LC gate
+passes**. Hypothesis: the `s5r_ultra_cell.scad` `cell()` tangent/coincident difference cuts leave a
+non-manifold shell on the CI's apt OpenSCAD/CGAL build. Diagnostic requires the CI log (needs repo
+auth this agent lacks); the fix pattern already used for `keeper()` (overlap the cuts) is the likely
+remedy. This does not gate the S6-LC selection. Tracked in the synthesis ADR.

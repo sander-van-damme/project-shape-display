@@ -109,3 +109,19 @@ Reproduce: `python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py` → **29/29
 4. The most informative next test is **sourced**: ratify each S6-LC BOM line against live listings,
    then adversarially attack the punched-card mask-write product statement and the S1-D pawl-spread
    falsifier, since those are the two terms that can still kill S6-LC.
+
+## 7. Known CI issue (pre-existing, not from this consolidation)
+
+The `lowcost-cad-render` job (`render_lowcost_cad.py` over `scad/s5r_ultra_cell.scad`) is **red on
+the branch, including on the parent commit `c78442f` before the consolidation**. It is
+**reproducibly green locally** (`ALL PARTS OK`: cell 5.08×5.08×14, pawl 0.9×0.7×8, keeper
+0.9×1.1×4.5, all watertight with OpenSCAD + trimesh 5.x) and the freshly rendered STLs are
+byte-identical to the committed ones. The `engineering-checks` step that carries the **S6-LC gate
+passes**, so this is not a regression: it is specific to the `s5r_ultra_cell.scad` `difference()`
+geometry under the CI's apt OpenSCAD build. Hypothesis: the `cell()` module's tangent/coincident
+difference cuts (`±PITCH/2`, `EPS`-bounded) leave a non-manifold shell on the older CI
+OpenSCAD/CGAL, which `trimesh` rejects. Next diagnostic (needs the CI log, which requires repo
+auth/board access this agent does not have): capture the `proc.stderr[-2000:]` the render script
+already prints and re-profile the `cell()` cuts to overlap (the same fix already applied to
+`keeper()` in this file). This note is the handoff; the trim-cell render does not gate the S6-LC
+selection.
