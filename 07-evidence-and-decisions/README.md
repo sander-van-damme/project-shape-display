@@ -38,6 +38,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | Test11 printable 5.08 mm coupon | — | ✓ | — | ✓ | ✓ | — | — |
 | Test12 winner convergence stack-up (S5) | — | ✓ | ✓ | ✓ | — | — | — |
 | Test13 Step-6 load/structure/power, spliced beam (DND-43) | — | ✓ | ✓ | — | — | — | — |
+| DND-74 S6-LC falsifier audit (lift sizing, cost headroom, mask write) | ✓ | ✓ | — | — | — | — | — |
 
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive
@@ -85,6 +86,35 @@ Three findings, all **calculation/sourced**, body review, no physical evidence:
    and the sourced $40 8 mm-motor finding stand.)
 3. **Reliability helper convention was inverted** (`zero_failure_trials` returned the ~58× weaker
     legacy formula). Fixed and pinned to the 1.91 M headline in this branch.
+
+### Falsifier adversarial audit of the S6-LC ultra-low-cost machine (DND-74, 2026-09)
+
+[`dnd74-s6lc-falsification.md`](dnd74-s6lc-falsification.md) adversarially audits the
+[CTO-selected ultra-low-cost machine S6-LC](../09-low-cost-variant/s6lc/README.md)
+([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)) on cost, requirement
+preservation and mechanism. Reproducible checks:
+[`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated).
+
+**Verdict: the architecture family survives, the machine is not decision-ready.** Seven
+attacks; three break real claims, four are bounded:
+
+1. **Lift-axis gate G3 is BROKEN.** `lift_axis()` computes the platen load on
+   `CELLS_PER_BANK` (800) while the mechanism writes the **whole 6,400-cell board** in one
+   global stroke. Corrected, the load is 2,560 N → **≥1.63 N·m** needed vs a 0.30 N·m
+   NEMA17 (0.41 N·m per screw on four screws) → **fails 5.4×**. This is the S6-LC analogue
+   of S5's K7 motor cliff.
+2. **Release-force ceiling is circular.** The "296 N ceiling" is S1's own banked output
+   (0.37 N × 800), not an independent structural limit; S6-LC compares its result to it.
+3. **Regional updates are not "bank-local".** One global platen means the other seven
+   banks must be masked "no-change" for every stroke — full-board mask work.
+4. **Cost survives but headroom collapses** from $87.87 to **$7.83** once six honest
+   allowance lines (+$69) are added.
+5. **Mask write is load-bearing**: off-line prep hides a 2,560 s serial punch (needs
+   ~427 ops/s to fit 30 s). A real product constraint, stated honestly but under-specified.
+6. **No per-cell feedback** ⇒ at 0.01 % per-cell error, P(all 6,400 correct) = **52.7 %**.
+
+The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write) and a
+re-run of the S6-LC gate, not a promotion.
 
 ### Falsifier review of the S5 promotion (DND-36)
 
