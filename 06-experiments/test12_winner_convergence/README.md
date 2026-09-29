@@ -55,6 +55,16 @@ openscad -o /tmp/s5r.stl s5r_register.scad                     # CAD render
 python ../../tools/validate/analytic_printability.py s5r_register.scad
 ```
 
+DND-56 independent ratification of the DND-54 S5-R delivered BOM:
+
+```text
+cd 06-experiments/test12_winner_convergence
+python s5r_bom_ratify.py             # report: claim reproduces, sourced trace
+python s5r_bom_ratify.py --selftest  # asserts every headline
+python s5r_bom_ratify.py --emit-csv  # writes s5r_bom_ratified.csv
+python s5r_bom_ratify_checks.py      # regression + honesty gates
+```
+
 Sourcing detail: [`../test11_cost_printability_reliability/sourcing_notes.md`](../test11_cost_printability_reliability/sourcing_notes.md) §8.
 
 

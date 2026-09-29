@@ -1,10 +1,26 @@
-# DND-54 — S5-R register analytic + CAD dropout-latch model (promote S5-R)
+# DND-56: Independently ratify the DND-54 S5-R delivered BOM ($397.53)
+
+Advances [DND-56](/DND/issues/DND-56), for [DND-54](/DND/issues/DND-54). The S5-R pivot was
+promoted on a **$397.53 delivered** figure computed from point-in-time actuator-class
+*allowances* ($12/motor, $2.50/writer) plus the no-channel E1–E6 base ($218.70) — the same
+class of untraced price that produced the S5 incumbent's K7 cost cliff. This PR re-derives the
+BOM from first principles and traces the two allowances to orderable listings.
+
+**Evidence class: CALCULATION over sourced listings and stated assumptions. No purchase, print
+or physical measurement** ([DND-27](/DND/issues/DND-27)).
 
 ## What changed
 
-Defines the **S5-R shared-drive programmable register** concretely and decides it
-using only the evidence classes [DND-27] permits — **CAD + CALCULATION; no print, no
-purchase, no measurement**.
+- `06-experiments/test12_winner_convergence/s5r_bom_ratify.py` — the independent ratification.
+  Does **not** import `s5r_register.bom()` for its own arithmetic; re-enters the E1–E6 fixed-line
+  prices by hand, re-derives the BOM, and `--selftest` reconciles against the committed
+  `cost_closure.py` (and `s5r_register.py` when present).
+- `s5r_bom_ratify_checks.py` — 11 regression + honesty gates (no-channel identity, claim
+  reproduction, additive uplift, sourced labelling, channel pricing, scenarios, break-evens).
+- `s5r_bom_ratified.csv` — the working-scenario purchased BOM, one labelled row per line.
+- `07-evidence-and-decisions/dnd54-s5r-bom-ratification.md` — the ratified note.
+- `06-experiments/test12_winner_convergence/README.md` — run section.
+- `.github/workflows/ci.yml` — runs the new module + checks in the stdlib-only job.
 
 - `06-experiments/test12_winner_convergence/s5r_register.py` — mechanism definition +
   static/kinematic model (cell fit, neighbour cross-talk, writer force, bank drive
@@ -19,13 +35,27 @@ purchase, no measurement**.
   `.github/workflows/ci.yml` runs the model checks, the printability table and the CAD
   render.
 
-## Engineering question addressed
+| Question | Result |
+|---|---|
+| Does $342.70 parts / **$397.53 delivered** reproduce? | **YES, exactly**; margin $102.47 |
+| No-channel base + driver identity? | **$218.70 + $63.64 = $282.34** — holds, **no double-count** |
+| Uplift convention? | additive **×1.16** (DND-41), not the DND-37 ×1.166 |
+| Are the $12 / $2.50 prices traced? | **Allowances**, sourced to **$12.39 / $2.20** (±$0.40) |
 
-Does S5-R's decisive quantity — **selective dropout / re-engage of a bank of rotors
-at 5.08 mm pitch** — close analytically, so that the program's only
-cost+time-viable pivot can be machine-defined without the coupon that DND-27 forbids?
+**One material finding:** the S5-R `bom()` prices the **actuator block's own channels at zero**.
+The 80-channel TB6612 block leaves *with* the 80 motors, but the 2 bank motors and 40 writer
+solenoids still need channels: 2 bank H-bridge ICs + 5 ULN2803-class writer switches = **$3.09
+parts**.
 
-## The DND-54 correction to DND-52
+| Scenario | Delivered | vs $500 | vs <$400 |
+|---|---:|---:|---:|
+| Optimistic (sourced units, 1 bank IC) | **$387.18** | −$112.82 | **−$12.82** |
+| Working (allowances + channels) | **$401.12** | −$98.88 | **+$1.12** |
+| High (premium NEMA17 + premium writer) | **$421.51** | −$78.49 | +$21.51 |
+| DND-54 claim (channels unpriced) | $397.53 | −$102.47 | −$2.47 |
+
+**Break-even for the $500 ceiling (working channel cost):** bank motor **$54.62/ea**, writer
+solenoid **$4.63/ea** — 4.5× and 1.85× the allowances. **No line dies on cost.**
 
 DND-52's option-1 timing replaced the whole 80-column step time with a token
 "20 stations × 0.3 s" and did not model a per-row cycle. Counted honestly, a
@@ -34,55 +64,11 @@ DND-52's option-1 timing replaced the whole 80-column step time with a token
 no pitch penalty** (row pitch is independent of the in-row column pitch), so one
 bank pass writes R rows at once.
 
-## Result — all seven analytic gates pass at R=4
-
-| Gate | Value | Limit | Margin |
-|---|---|---:|---:|
-| cell fit (worst case) | stack 1.55 mm | ≤ 2.08 mm | 0.53 mm |
-| neighbour cross-talk | 0 N (a dropped pawl carries no rack force) | — | gap 0.33 mm |
-| writer release force | 0.066 N | 1.20 N | 18× |
-| bank drive force | 46.6 N | 100 N (2 motors) | 2.15× |
-| latch vs service load | 0 N added | inherits K1 | unchanged |
-| full-map time | **24.62 s** | < 30 s | +5.39 s |
-| delivered cost | **$397.53** | ≤ $500 | −$102.47 |
-
-Cycle life is reported ("≥1e6, order unknown", DND-46 FDM basis) on the same terms
-as every other printed leaf.
-
-## Evidence produced
-
-- **CALCULATION** over sourced FDM limits (`tools/fdm-limits`) and sourced actuator
-  ratings; every figure labelled sourced/assumed/calculated/endurance.
-- **CAD**: `s5r_register.scad` renders with real OpenSCAD into four watertight STLs;
-  the sourced printability gate returns PASS/PASS/RISK/PASS/PASS/PASS — the single
-  RISK is the 0.45 mm keeper leaf (1 extrusion line), an **accepted** risk for a
-  lightly-loaded bistable latch, stated not hidden.
-- **Sensitivity** (break-even): crank 468 °/s, writer settle 0.084 s, fit tolerance
-  ±0.365 mm, single-motor bank margin 1.07× (→ use two motors).
-
-## Assumptions / what passed / what is uncertain
-
-- **Passed:** all seven gates; the DND-54 sensitivity table; 15 new checks green and
-  the existing test12 suite unchanged.
-- **Assumed:** crank 720 °/s and writer settle 0.05 s (the time gate is conditional
-  exactly as S5's K6 is conditional on its dwell); wheel/solenoid prices are
-  point-in-time.
-- **Uncertain (stated, not retired):** as-printed pawl/keeper friction μ, gate/tip
-  sharpness, leaf creep (K2/K11 class), and the full multi-row (R=4) bar assembly
-  (torsion, reset-comber and writer-carriage envelopes) — the last is the next
-  **no-coupon** CAD test.
-
-## Verdict
-
-**PROMOTE S5-R (R=4) to a machine-definition candidate** alongside the incumbent S5;
-S5 remains a nominal fallback only (refuted on the order-tier motor price). This is
-**not** a print-ready claim and **not** board contact — the board trigger is a
-buildable print-ready machine, which the measurement-gated residuals still block.
-
-## Most informative next test
-
-A **multi-row (R=4) bar-assembly CAD** — the only unit-cell-external geometry not
-yet modelled — checking bar torsion, the reset-comber envelope and the writer
-carriage envelope. Analytic/CAD only; no coupon.
-
-[DND-27]: /DND/issues/DND-27
+**RATIFIED WITH ONE MATERIAL FINDING.** The claim is correct and reproducible; the S5-R BOM is
+**not** double-counting the driver block; the two actuator allowances are credible against
+sourced listings. The honest end-to-end working total is **$401.12 delivered** — solidly under
+the $500 ceiling, but **$1.12 outside the ideal <$400 band**, so the DND-54 "inside the ideal
+band" phrasing should read "optimistic scenario; ~$1 over in the working scenario." Remaining
+cost residual is the writer solenoid's **force** (not published by any listing) and the absence
+of a 2-piece contract quote — both measurement/procurement-gated under
+[DND-27](/DND/issues/DND-27). No board contact ([DND-32](/DND/issues/DND-32)).

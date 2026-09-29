@@ -1,0 +1,7 @@
+item,quantity,unit_expected_usd,unit_sourced_usd,parts_usd,delivered_usd,evidence,note
+"Fixed no-channel base (E1-E6: rods, belts, shafts, fasteners, power, loom, PCBs, lift/scanner motors, controller, registers)",1,218.7,218.7,218.7,253.69,SOURCED-reduced,motor AND 80-channel TB6612 driver block removed
+"Bank motor (NEMA17-class >=0.30 N.m, 4-wire bipolar)",2,12.0,12.39,24.78,28.74,ALLOWANCE->SOURCED-LIVE,cheapest torque-matched orderable 17HS4401S 42N.cm; 17HS4023 EUR4.24 is under torque
+"Writer solenoid (5 V push, >=1.2 N design target)",40,2.5,2.2,88.0,102.08,ALLOWANCE->SOURCED-LIVE,price supported; force (N) not published by any listing
+"Bank H-bridge channel (TB6612FNG dual, 1 IC/motor working)",2,0.7955,0.7955,1.59,1.84,SOURCED (LCSC C88224),2 motors need 2 channels; may share 1 dual IC
+Writer switch (ULN2803-class 8-channel darlington),5,0.3,0.3,1.5,1.74,ALLOWANCE,"ON/OFF low-side switch, not an H-bridge"
+"TOTAL (working scenario, sourced units)",,,,334.57,388.1,,ceiling $500 (-$111.9); ideal band $400 (+$-11.9)
