@@ -1,49 +1,60 @@
-# DND-103: reliability-first design-criteria audit (buildability + repeated-mechanism gate)
+# DND-103: reliability-first design criteria (buildability + repeated-mechanism gate)
 
-Closes [DND-103](/DND/issues/DND-103). Parent program: [DND-102](/DND/issues/DND-102).
+Closes [DND-103](/DND/issues/DND-103). Addresses section 1 of [DND-102](/DND/issues/DND-102).
 
 ## What changed
 
-Doc-only update to `02-design-criteria/README.md` (no code, geometry, BOM or CAD touched):
+`02-design-criteria/README.md` — adds the reliability-first design-criteria revision. No existing
+mission requirement is weakened; the new content is additive and gates.
 
-- **Surface pitch does not constrain the internal mechanism** — the 5.08 mm figure is a *visible
-  surface resolution* requirement, **not** a per-cell mechanism-size budget. Internal selection /
-  memory / locking / programming machinery may live under several cells, beside the display, at
-  bank/module level, in a moving external mechanism, in a replaceable mask, in a tape/card/film, or
-  in a separate mask-generation subsystem.
-- **Repeated-mechanism reliability criteria** — explicit *strongly discouraged* list (one-extrusion-line
-  moving features; tiny printed springs whose exact force decides correctness; sub-mm precision
-  interactions repeated thousands of times; friction-sensitive retention where a hard stop is possible;
-  6,400-cell tight tolerances; silent unrecoverable single-cell failures) and *preferred* list (large
-  positive engagement; hard stops; compression-loaded structures; generous clearances; replaceable
-  modules; accessible wear parts; individually testable repeated parts; redundancy / recovery).
-- **Per-architecture reliability audit (required)** — repeated moving parts, precision contacts/cell,
-  compliant printed elements, wear interfaces, tolerance-sensitive interactions, correlated vs
-  single-cell failure modes, serviceability. Gate question: *what has to work correctly 6,400 times?*
-- **Provisional design rule** for minimum repeatable feature size — no invented precision around
-  printer tolerances (7 µm lidar ≠ part tolerance; X1C publishes no universal part tolerance).
-- **Mask subsystem + honest timing** — mask generator is inside the product boundary; timing must be
-  decomposed (digital / mask-gen / transport / reset / lift / settle / verify) and both
-  *visible-transition* and *sustained cycle* times reported.
-- **Prototype ladder requirement** — Prototype A single cell → B 5×5 array → C one bank → D multiple
-  banks → full machine.
-- **Reliability + prototype testability added as gates** in the concept-comparison list (items 10–11).
-- **Regional-update trade-off** — regional updates may be satisfied at bank/segment/mask-strip level
-  where simpler; the trade-off must be quantified and surfaced.
+- **Surface pitch does not constrain the internal mechanism.** 5.08 mm is *visible surface
+  resolution*, not a per-cell mechanism-size budget. Selection / memory / locking / programming
+  machinery may live under several cells, beside the display, at row/bank/module level, in a moving
+  external mechanism, a replaceable mask, a tape/card/film, or a separate mask-generation subsystem.
+  Program principle: *thousands of simple things + a few sophisticated shared mechanisms.*
+- **Repeated-mechanism reliability criteria** (new section): strongly-discouraged list
+  (single-extrusion-line moving features, exact-force tiny printed springs, sub-mm precision
+  interactions repeated thousands of times, friction-sensitive retention where a hard stop works,
+  tight tolerances across all 6,400 cells, silent microscopic failures with no recovery), preferred
+  list (large positive engagement, hard stops, compression-loaded structures, generous clearances,
+  print-variation tolerance, replaceable modules, accessible wear parts, individually testable
+  repeated parts, architecture-level redundancy/error recovery), the gate question **"what has to
+  work correctly 6,400 times?"**, and a required per-architecture reliability audit (repeated moving
+  parts, precision contacts/cell, compliant printed elements, wear interfaces, tolerance-sensitive
+  interactions, correlated vs single-cell failure modes, serviceability).
+- **Reliability and prototype-testability are now first-class gates** (comparison axes 10 and 11),
+  not tie-breakers.
+- **Provisional design rule** for minimum repeatable feature size — conservatively labelled
+  provisional until an actual X1C + PLA calibration coupon confirms it; no false precision from the
+  7 µm lidar sensor spec.
+- **Mask subsystem is part of the machine** — inside the product boundary for design, cost, timing
+  and test; mask-generation time is inside the map-change budget unless double buffering is
+  explicitly designed and the UX explained.
+- **Honest timing decomposition** — digital processing / physical mask generation / mask
+  transport-indexing / display reset / broadcast lift / settling-locking / verification, reporting
+  **visible-transition time** and **sustained arbitrary-map cycle time** separately.
+- **Prototype ladder requirement** — A single cell → B small full-pitch array → C one bank/module →
+  D multiple banks → full machine; a mechanism that cannot be meaningfully tested in a small cheap
+  coupon is scored down.
+- **Regional-update product trade-off note** — a full-board reset for every small reveal is a
+  product-level weakness.
 
-## Purpose
+## Engineering question
 
-Removes the failure mode where surface pitch silently becomes an internal mechanism budget, and makes
-reliability/buildability a first-class gate. Unblocks the [DND-104](/DND/issues/DND-104) reliability-first
-architecture program for convergence/selection.
+Can the design criteria force future architectures to optimize for real-world buildability and
+repeated-mechanism reliability rather than merely CAD/geometric fit and spreadsheet cost? The
+central decision: **the dense visible surface may stay at 5.08 mm pitch, but the precision machinery
+controlling it should be as large, shared, sparse, external, or modular as possible.**
 
-## Evidence discipline
+## Evidence class
 
-Documentation/engineering-policy change only. No print, no purchase, no measurement (DND-27). No
-sourced-fact, calculation, CAD or measured claims are introduced beyond the already-sourced X1C /
-miniature references.
+PRODUCT DECISION / DOCUMENTATION only. No CAD, print, purchase or measurement. No mission
+requirement is relaxed; the new criteria add gates.
 
-## Verification
+## Passed / failed / uncertain
 
-- Doc-only diff; no executable checks affected.
-- `engineering-checks` CI suite runs green on the push event for this branch.
+- **Passed:** all DND-103 required edits present and explicit; existing mission requirements
+  (~400×400 mm, 5.08 mm pitch, ~6,400 cells, ≥40 mm travel, <30 s full-map, <$500 purchased,
+  regional updates, prototype ladder) unchanged.
+- **Uncertain:** the numerical minimum repeatable feature size remains a *provisional* rule pending
+  an X1C + PLA calibration coupon — honestly labelled as such.
