@@ -127,6 +127,27 @@ claim-framing/method defects are corrected here with **no geometry change**:
   aperture clearance is **+0.434 mm** nominal and **+0.325 mm** at ±0.20 mm —
   still positive, so the design survives; the method now demonstrates it.
 
+**Residual modelling-convention caveat ([DND-122](/DND/issues/DND-122) / [DND-123](/DND/issues/DND-123) / [DND-124](/DND/issues/DND-124)).** The
+crosstalk term `rho·A_nb/g_nb²` is **area-scaled**, while the vane signal
+`rho·A_vane/g_vane²` is area-scaled against the **full vane face** (`A_vane =
+0.44·1.60 = 0.704 mm²`). The quoted neighbour/vane ratio is therefore mildly
+**convention-dependent** — it moves with the area reference chosen for the vane
+denominator:
+
+| Vane area in the denominator | neighbour/vane | gated on/off | note |
+|---|---:|---:|---|
+| full vane face `0.704 mm²` (**shipped**) | 4.6% | **5.95×** | main's own `vane_region`; defensible |
+| vane clipped to the read spot `0.608 mm²` | 5.35% | 5.75× | most physical (spot clips the vane) |
+| whole read spot `1.550 mm²` | 2.10% | 6.78× | **wrong** — the spot is 3.2× the 0.44 mm vane width; the patches do not both fill the spot |
+
+The shipped **4.6% / 5.95×** uses the full vane face and is retained. Every
+defensible convention leaves the on/off ratio **far above the 2× gate** (5.6–6.0×),
+so no gate outcome or design decision changes. It is recorded here as a
+**presentational / evidence-class residual**, not churned on an already-audited
+tree. The A13 attack pins the ADR's quoted percentage and gated ratio to the live
+model and to each other, so the headline numbers cannot drift silently; this note
+discloses their convention dependence.
+
 ## 4. The DND-115 revision to the DND-114 standoff (IMPORTANT)
 
 DND-114 assumed a **1.0 mm** fixed standoff with a 0.60 mm aperture. DND-115's
