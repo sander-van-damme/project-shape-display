@@ -266,6 +266,17 @@ jobs:
           python 10-reliability-mask/analysis/reliability_mask_checks.py
           python 10-reliability-mask/analysis/make_table.py
 
+      - name: "DND-111 analytic writer/reader rate bound"
+        # Replaces the DND-104 placeholder HEAD_RATE_CELLS_S = 1000.0 with a
+        # derivation from sourced component-class kinematics + the placed CAD:
+        # stop-and-go excluded, traverse/actuation-bounded ~164 cells/s/head at
+        # 1.0 m/s, single-cell read bounded by a registration tolerance.
+        # CALCULATION + CAD only (DND-27); asserts outcome (a) Bounded and that
+        # the derived full cycle clears <30 s at 8 heads including verification.
+        run: |
+          python 10-reliability-mask/analysis/a1_writer_rate.py > /dev/null
+          python 10-reliability-mask/analysis/reliability_mask_checks.py
+
   dnd104-cad-render:
     # DND-104: render the A1 binary-latch cell with a real OpenSCAD and
     # mesh-validate every part (watertight, bed-fitting). A missing OpenSCAD is

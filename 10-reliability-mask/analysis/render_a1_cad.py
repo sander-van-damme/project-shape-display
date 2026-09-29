@@ -23,6 +23,7 @@ import trimesh
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 SCAD = ROOT / "scad" / "a1_binary_latch_cell.scad"
+SCAD_READER = ROOT / "scad" / "a1_reader_head.scad"
 OUT = ROOT / "cad" / "stl"
 RECORD = ROOT / "cad" / "render_record.json"
 
@@ -76,6 +77,31 @@ def render(exe: str) -> dict:
 def main() -> int:
     exe = require_openscad()
     record = render(exe)
+    # DND-111: render + mesh-validate the shared reader-head / optical geometry.
+    # Its echoes are the single-cell read-resolution self-checks (spot fits the
+    # top face centre; corner reach and registration tolerance).
+    reader_stl = OUT / "reader_head.stl"
+    cmd = [exe, "-o", str(reader_stl), str(SCAD_READER)]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise SystemExit(f"OpenSCAD failed for reader head:\n{proc.stderr}")
+    rmesh = trimesh.load(reader_stl)
+    rbbox = rmesh.bounds[1] - rmesh.bounds[0]
+    record["reader_head"] = {
+        "scad": str(SCAD_READER.relative_to(ROOT.parent)),
+        "stl": str(reader_stl.relative_to(ROOT.parent)),
+        "triangles": int(len(rmesh.faces)),
+        "watertight": bool(rmesh.is_watertight),
+        "bbox_mm": [round(float(x), 3) for x in rbbox],
+        "echo": [ln for ln in proc.stderr.splitlines() if "ECHO" in ln],
+    }
+    if not rmesh.is_watertight:
+        raise SystemExit("FATAL: reader head mesh is not watertight")
+    # Assert the single-cell geometry fits (the decisive DND-111 check).
+    echoes = " ".join(record["reader_head"]["echo"])
+    if "spot fits top face at centre: true" not in echoes:
+        raise SystemExit(
+            "FATAL: reader spot does not fit the column top face at centre")
     record["evidence_class"] = (
         "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). "
         "NOT a print, NOT a measurement (DND-27)."
@@ -89,6 +115,9 @@ def main() -> int:
     for p, d in record["parts"].items():
         print(f"{p:8s} {d['triangles']:6d} tris  watertight={d['watertight']}  "
               f"bbox={d['bbox_mm']}  bed={d['fits_x1c_bed']}")
+    rh = record["reader_head"]
+    print(f"reader   {rh['triangles']:6d} tris  watertight={rh['watertight']}  "
+          f"bbox={rh['bbox_mm']}")
     print(f"\nrecord -> {RECORD.relative_to(ROOT.parent)}")
     return 0
 

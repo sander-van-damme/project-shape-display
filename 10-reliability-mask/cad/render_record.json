@@ -56,6 +56,26 @@
       ]
     }
   },
+  "reader_head": {
+    "scad": "10-reliability-mask/scad/a1_reader_head.scad",
+    "stl": "10-reliability-mask/cad/stl/reader_head.stl",
+    "triangles": 312,
+    "watertight": true,
+    "bbox_mm": [
+      13.76,
+      13.76,
+      104.0
+    ],
+    "echo": [
+      "ECHO: \"PITCH=5.08 BODY=3.6 OWNED_LANE=0.74\"",
+      "ECHO: \"WORK_GAP=2 APERTURE=2 HALF_ANGLE=15\"",
+      "ECHO: \"SPOT_diameter=3.0718\"",
+      "ECHO: \"CORNER_REACH=2.17209 vs BODY/2=1.8\"",
+      "ECHO: \"spot fits top face at centre: true\"",
+      "ECHO: \"spot fits top face at corner: false\"",
+      "ECHO: \"gap for centre fit: 2.98564\""
+    ]
+  },
   "evidence_class": "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). NOT a print, NOT a measurement (DND-27).",
   "provisional_rules": {
     "min_feature_mm": 0.44,
