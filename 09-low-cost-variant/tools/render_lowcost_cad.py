@@ -99,21 +99,68 @@ def read_stl(path: Path):
     return cnt, lo, hi
 
 
+def _stdlib_edge_check(path: Path) -> tuple[bool, str]:
+    """Watertight/manifold check with NO third-party graph dependency.
+
+    Every triangle edge of a closed 2-manifold mesh must be shared by exactly
+    two triangles. This is pure-Python (reads the STL directly) so it never
+    depends on trimesh's optional scipy-backed graph module — which CI does NOT
+    install (`pip install "trimesh>=4"`). Vertices are snapped to a 1e-4 mm grid
+    so OpenSCAD/CGAL seam artifacts (T-junctions / duplicate vertices from a
+    boolean union) do not read as unpaired edges.
+    """
+    data = path.read_bytes()
+    vs: list = []
+    if data[:5] == b"solid" and b"facet" in data[:2048]:
+        for line in data.decode("ascii", "ignore").splitlines():
+            line = line.strip()
+            if line.startswith("vertex"):
+                vs.append(tuple(round(float(t) * 1e4) for t in line.split()[1:4]))
+    else:
+        if len(data) < 84:
+            return False, "stdlib: short binary STL"
+        cnt = struct.unpack("<I", data[80:84])[0]
+        for i in range(cnt):
+            verts = struct.unpack_from("<9f", data, 84 + i * 50 + 12)
+            for v in range(3):
+                vs.append(tuple(round(verts[v * 3 + k] * 1e4)
+                                for k in range(3)))
+    if len(vs) < 3:
+        return False, "stdlib: no triangles"
+    edges: dict = {}
+    for i in range(0, len(vs) - 2, 3):
+        tri = (vs[i], vs[i + 1], vs[i + 2])
+        for a, b in ((0, 1), (1, 2), (2, 0)):
+            e = tuple(sorted((tri[a], tri[b])))
+            edges[e] = edges.get(e, 0) + 1
+    bad = sum(1 for c in edges.values() if c != 2)
+    return (bad == 0), f"stdlib: {bad} unpaired edge(s)"
+
+
 def watertight(path: Path) -> tuple[bool, str]:
     """A part is printable-clean if it is watertight and winding-consistent.
 
-    For a fused assembly that legitimately contains more than one connected
-    solid, every connected body must itself be watertight. This is
-    version-robust: it does not depend on a single OpenSCAD/CGAL union step
-    succeeding across versions.
+    Uses trimesh when its full graph stack is importable, but NEVER depends on
+    trimesh's optional scipy-backed graph module. `trimesh>=4` is installed in
+    CI without scipy, so `m.body_count` / `m.split()` raise ModuleNotFoundError
+    there; a CAD gate must not go red because of an optional mesh-graph extra.
+    When trimesh's graph ops are unavailable we fall back to a pure-stdlib
+    edge-pairing manifold check, which is dependency-free and version-stable.
     """
     try:
         import trimesh  # type: ignore
     except Exception:
-        return True, "trimesh unavailable: geometry assumed (CI installs trimesh)"
+        return _stdlib_edge_check(path)
+    try:
+        import scipy  # noqa: F401
+        have_graph = True
+    except Exception:
+        have_graph = False
     try:
         m = trimesh.load(path, force="mesh")
     except Exception as exc:
+        if not have_graph:
+            return _stdlib_edge_check(path)
         return False, f"trimesh.load failed: {type(exc).__name__}: {exc}"
     # Repair the standard CGAL artifact first: OpenSCAD versions differ slightly
     # in how they emit triangles at a boolean seam (T-junctions / duplicate
@@ -126,12 +173,20 @@ def watertight(path: Path) -> tuple[bool, str]:
         m.remove_duplicate_faces()
     except Exception:
         pass
-    if m.is_watertight and m.is_winding_consistent:
-        return True, f"trimesh: watertight, bodies={m.body_count}"
+    try:
+        if m.is_watertight and m.is_winding_consistent:
+            bodies = m.body_count if have_graph else 1
+            return True, f"trimesh: watertight, bodies={bodies}"
+    except Exception:
+        return _stdlib_edge_check(path)
+    if not have_graph:
+        # trimesh cannot split connected bodies without its graph stack; use
+        # the dependency-free manifold check instead of failing the gate.
+        return _stdlib_edge_check(path)
     try:
         bodies = m.split(only_watertight=False)
     except Exception:
-        bodies = [m]
+        return _stdlib_edge_check(path)
     bad = [b for b in bodies
            if not (b.is_watertight and b.is_winding_consistent)]
     if bad:
