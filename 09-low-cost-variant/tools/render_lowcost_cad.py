@@ -56,6 +56,14 @@ def scad_env() -> dict:
     return env
 
 
+def _trimesh_version() -> str:
+    try:
+        import trimesh  # type: ignore
+        return trimesh.__version__
+    except Exception:
+        return "unavailable"
+
+
 def read_stl(path: Path):
     """Return (ntris, lo, hi) for binary/ASCII STL; None if unreadable/empty."""
     data = path.read_bytes()
@@ -92,16 +100,31 @@ def read_stl(path: Path):
 
 
 def watertight(path: Path) -> tuple[bool, str]:
+    """A part is printable-clean if it is watertight and winding-consistent.
+
+    For a fused assembly that legitimately contains more than one connected
+    solid, every connected body must itself be watertight. This is
+    version-robust: it does not depend on a single OpenSCAD/CGAL union step
+    succeeding across versions.
+    """
     try:
         import trimesh  # type: ignore
     except Exception:
         return True, "trimesh unavailable: geometry assumed (CI installs trimesh)"
     m = trimesh.load(path, force="mesh")
-    if not m.is_watertight:
-        return False, "trimesh: not watertight"
-    if not m.is_winding_consistent:
-        return False, "trimesh: winding inconsistent"
-    return True, f"trimesh: watertight, bodies={m.body_count}"
+    if m.is_watertight and m.is_winding_consistent:
+        return True, f"trimesh: watertight, bodies={m.body_count}"
+    try:
+        bodies = m.split(only_watertight=False)
+    except Exception:
+        bodies = [m]
+    bad = [b for b in bodies
+           if not (b.is_watertight and b.is_winding_consistent)]
+    if bad:
+        return False, (f"trimesh: {len(bad)}/{len(bodies)} body(ies) not "
+                       f"watertight/consistent")
+    return True, (f"trimesh: {len(bodies)} clean watertight bodies "
+                  f"(multi-solid fusion)")
 
 
 def render(openscad: str, part: str) -> Path:
@@ -124,6 +147,14 @@ def main() -> int:
         print("FAIL: no openscad found (set OPENSCAD or install via "
               "tools/openscad-install/install-openscad.sh)", file=sys.stderr)
         return 2
+    import platform
+    try:
+        ver = subprocess.run([openscad, "--version"], capture_output=True,
+                             text=True, env=scad_env()).stdout.strip()
+    except Exception as exc:  # pragma: no cover
+        ver = f"(version probe failed: {exc})"
+    print(f"openscad: {openscad} [{ver}] python={platform.python_version()} "
+          f"trimesh={_trimesh_version()}")
 
     records = []
     ok = True

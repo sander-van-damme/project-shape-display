@@ -78,16 +78,20 @@ module pawl() {
 }
 
 module keeper() {
-    // keeper re-profiled into the ROW (Y) direction, beside the pawl (DND-59)
+    // keeper re-profiled into the ROW (Y) direction, beside the pawl (DND-59).
+    // Gate noses and the shoulder are given a small overlap into the leaf so the
+    // union is a single manifold on every OpenSCAD/CGAL version (coincident faces
+    // are version-sensitive and can leave a non-manifold shell).
+    KEEP_OVERLAP = 0.05;
     translate([0, PAWL_W + KEEPER_OVER_CENTRE, 0])
         cube([KEEPER_T, KEEPER_T, KEEPER_LEN]);
     for (k = [0:LEVELS - 1])
-        translate([0, PAWL_W + KEEPER_OVER_CENTRE + KEEPER_T,
+        translate([0, PAWL_W + KEEPER_OVER_CENTRE + KEEPER_T - KEEP_OVERLAP,
                    k * KEEPER_GATE_STEP])
-            cube([KEEPER_T, 0.20, 0.15]);
+            cube([KEEPER_T, 0.20 + KEEP_OVERLAP, 0.15]);
     // hard printed shoulder: pawl push-out taken in COMPRESSION
     translate([0, PAWL_W + KEEPER_OVER_CENTRE, -KEEPER_SHOULDER_X])
-        cube([KEEPER_T, KEEPER_SHOULDER_X, KEEPER_SHOULDER_X]);
+        cube([KEEPER_T, KEEPER_SHOULDER_X, KEEPER_SHOULDER_X + KEEP_OVERLAP]);
 }
 
 module drive_bar() {
