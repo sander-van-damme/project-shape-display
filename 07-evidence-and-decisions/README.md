@@ -183,6 +183,22 @@ mechanism defects. Details:
 [`falsifier_dnd91_checks.py`](falsifier_dnd91_checks.py) is re-baselined (40 checks) to assert the
 corrected state and keep the open attacks locked.
 
+### Corrected S6-LC purchased BOM, independently re-ratified (DND-98, 2026-09)
+
+[`dnd98-s6lc-bom-reratification.md`](dnd98-s6lc-bom-reratification.md) is the **independent
+re-ratification** of the corrected (post-DND-93) S6-LC purchased BOM — supersedes the DND-73
+ratification of the uncorrected BOM — CI-gated by
+`09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py` (68 checks) with the ratified artifact
+`s6lc_bom_ratified.csv`. **Verdict: the `<$250 purchased, excluding 3D-printed parts` mission gate
+HOLDS** ($226.77, margin **+$23.23**); the repo's stricter **$250 *delivered* convention FAILS**
+($263.05, −$13.05) — both stated, neither hidden. Findings: the +$87.00 growth is the NEMA17→NEMA23
+lift-motor re-price (+$18) and the six DND-91/A5 capability allowances (+$69); 65 % of the BOM is now
+allowance; the **hostile** pricing scenario breaches the purchased ceiling ($300.58, −$50.58); the
+cost cliff is the lift motor (break-even $53.23 = 1.77×); the lead-screw line is under-priced ~$4.76
+against its stable order tier; there is **no per-cell bought hardware** (3 motors total, 3.543
+cents/cell amortised); and the **99 %-map reliability goal needs per-cell error q ≤ 1.57e−6**, which
+remains measurement-gated (G7 unresolved, coupon C1).
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")

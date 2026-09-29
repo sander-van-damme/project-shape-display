@@ -207,6 +207,8 @@ print** ([DND-27](/DND/issues/DND-27))._
 | [`cad/`](cad/) | rendered STLs + CAD/printability records |
 | [`images/`](images/) | assembled + exploded machine PNG renders (DND-88) |
 | [`bom_s6lc.csv`](bom_s6lc.csv) | purchased BOM line table |
+| [`ratify/s6lc_bom_reratify.py`](ratify/s6lc_bom_reratify.py) | DND-98 independent re-ratification (scenarios, break-evens, gates) |
+| [`ratify/s6lc_bom_ratified.csv`](ratify/s6lc_bom_ratified.csv) | DND-98 ratified purchased BOM ($226.77 / $263.05) |
 | [`evidence/`](evidence/) | architecture + printable-path statements |
 
 ## 9. Residual uncertainty (measurement-only or product)

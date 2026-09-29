@@ -190,6 +190,17 @@ jobs:
         run: |
           python 09-low-cost-variant/s6lc/analysis/s6lc.py > /dev/null
           python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py
+      - name: "DND-98 S6-LC purchased-BOM re-ratification gate (post-DND-93)"
+        # Independently re-derives the CORRECTED (DND-93, DND-74 branch 1)
+        # S6-LC purchased BOM line by line and pins the ceiling verdict:
+        # $226.77 parts clears the $250 PURCHASED mission gate (+$23.23) while
+        # the x1.16 delivered convention fails ($263.05, -$13.05); the hostile
+        # scenario breaches the purchased ceiling ($300.58); there is no
+        # per-cell bought hardware; G7 reliability break-even is 1.57e-6.
+        # Fails if any headline drifts. Sourced listings + CALCULATION (DND-27).
+        run: |
+          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify.py --selftest
+          python 09-low-cost-variant/s6lc/ratify/s6lc_bom_reratify_checks.py
       - name: "DND-91/S6-LC Falsifier adversarial audit (re-baselined by DND-93)"
         # Hostile re-derivation of the SELECTED machine's headline. After the
         # DND-93 G3 fix this gate asserts the CORRECTED state and keeps the
