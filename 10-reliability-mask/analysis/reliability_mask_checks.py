@@ -100,6 +100,19 @@ def main() -> int:
     check("A1 parts under $250", a1["parts_usd"] < 250.0)
     check("A1 delivered reported", a1["delivered_usd"] > 0)
 
+    # --- CLI modes run cleanly (catches __main__ ordering / NameError) -----
+    import subprocess
+    here = Path(__file__).resolve().parent
+    model = here / "reliability_mask.py"
+    for args in ([], ["convergence"]):
+        proc = subprocess.run([sys.executable, str(model), *args],
+                              capture_output=True, text=True)
+        check(f"CLI `reliability_mask.py {' '.join(args)}` exits 0",
+              proc.returncode == 0)
+    mt = subprocess.run([sys.executable, str(here / "make_table.py")],
+                        capture_output=True, text=True)
+    check("CLI `make_table.py` exits 0", mt.returncode == 0)
+
     passed = sum(1 for _, ok in CHECKS if ok)
     total = len(CHECKS)
     for name, ok in CHECKS:
