@@ -217,6 +217,14 @@ jobs:
         # A2 hand-crank/tape, A3 S1-B banked broadcast; each clears <$250 and
         # <30 s. Runs the screen + 18 checks + analytic printability.
         run: python 09-low-cost-variant/divergent/tools/run_divergent_checks.py
+      - name: "DND-109 reliability-first cost/printability envelope gate"
+        # Sourced-class cost envelope + FDM-printability rules for the
+        # reliability-first (DND-104) mechanism classes. Pins the x1.16 delivered
+        # convention and $215.52 parts ceiling, the per-cell bought-hardware
+        # sensitivity (zero per-cell is mandatory), the flag integrity of the
+        # media/consumable rows, and the 99%-map per-cell error budget. Sourced
+        # listings + CALCULATION only (DND-27).
+        run: python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py
       - name: "DND-74 falsifier findings RESOLUTION gate (DND-93 + DND-97)"
         # Reproduces the DND-74 attack arithmetic as the historical record AND
         # asserts the fixes are in place (lift on 6400 cells, comb-tooth limit,

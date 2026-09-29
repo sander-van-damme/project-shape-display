@@ -59,6 +59,7 @@ configuration that still meets the mission's < 30 s full-map gate is **$345.90**
 | [`s6lc/`](s6lc/README.md) | **Selected machine S6-LC** — model, 29 checks, BOM (`bom_s6lc.csv`), real-OpenSCAD CAD + renders, evidence notes. |
 | [`divergent/`](divergent/README.md) | **DND-75 inventor divergence** — A1 single-shaft cam ($67.63), A2 hand-crank/tape ($49.76), A3 S1-B banked broadcast ($114.02); 18 checks + printability. Alternatives to S6-LC, folded in. |
 | [`primitives/`](primitives/README.md) | **DND-76 cell/mechanism primitives** (supporting, folded from the retired `09-lowcost-alternative/` root) — P1 bistable latch, P2 printed louvre comb, P3 pocket/guide, P4 single-actuator reset; 35 checks + real-OpenSCAD CAD. Inputs to the synthesis; no architecture promoted. |
+| [`reliability_sourcing/`](reliability_sourcing/cost_envelope_dnd104.md) | **DND-109 reliability-first cost/printability envelope** — sourced-class prices, 3 scenarios + per-cell sensitivity, media/consumable flags, PROVISIONAL vs sourced FDM rules, assembly/reliability scaling for the DND-104 mechanism classes. Gate: `cost_envelope_checks.py`. |
 | [`s5r_ultra.py`](s5r_ultra.py) | Negative-result proof: fixed-base floor, topology screen, exhaustive budget scan, relaxation ladder, verdict. Imports the promoted S5-R model so it cannot drift. |
 | [`s5r_ultra_checks.py`](s5r_ultra_checks.py) | 19 CI-style assertions pinning every negative-result headline number. |
 | [`scad/s5r_ultra_cell.scad`](scad/s5r_ultra_cell.scad) | The unit cell of the cheapest requirement-preserving S5-R trim point (R=6 bank cross-section + unchanged DND-59 cell). Real OpenSCAD. |
@@ -70,6 +71,7 @@ Run:
 ```bash
 python 09-low-cost-variant/s6lc/analysis/s6lc_checks.py       # 29/29 — selected machine
 python 09-low-cost-variant/s5r_ultra_checks.py               # 19/19 — negative result
+python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py  # DND-109 envelope gate
 python 09-low-cost-variant/tools/render_lowcost_cad.py
 python tools/validate/analytic_printability.py \
   09-low-cost-variant/scad/s5r_ultra_cell.scad
