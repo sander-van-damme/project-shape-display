@@ -120,11 +120,6 @@ jobs:
           cd 06-experiments/test12_winner_convergence
           python s5r_register.py > /dev/null
           python s5r_register_checks.py
-      - name: DND-54 S5-R register-cell printability (sourced FDM limits)
-        run: |
-          python tools/validate/analytic_printability.py \
-            --json s5r-printability-record.json \
-            06-experiments/test12_winner_convergence/s5r_register.scad
       - name: Test12 DND-56 S5-R delivered-BOM independent ratification
         run: |
           cd 06-experiments/test12_winner_convergence
@@ -148,8 +143,13 @@ jobs:
           python s5r_residuals.py > /dev/null
           python s5r_residuals_checks.py
       - name: DND-59 S5-R register printability (2-line keeper must PASS)
+        # Sole printability gate on s5r_register.scad: the removed DND-54 step
+        # ran this same file without --fail-on-design-fail (exit 0 even on a
+        # design FAIL), so it pinned nothing. This enforced gate fails the job
+        # on a design FAIL. Verdict is currently PASS.
         run: |
           python tools/validate/analytic_printability.py \
+            --fail-on-design-fail \
             --json s5r-register-printability-record.json \
             06-experiments/test12_winner_convergence/s5r_register.scad
       - name: Test12 DND-46 falsifier adversarial audit (attacks on K1/K5/K6/K8/K10/K11)
