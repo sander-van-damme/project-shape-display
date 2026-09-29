@@ -1,5 +1,11 @@
 # DND-104 — Reliability-first low-cost shape display + automatic mask system
 
+> **Superseded on the timing number by [DND-111](dnd111-writer-rate-bound.md).** The 1 ms/cell
+> (`HEAD_RATE_CELLS_S = 1000.0`) assumption and the resulting 24.15 s full-map time recorded below
+> are the DND-104 historical record. DND-111 replaced the rate with a sourced/CAD analytic bound
+> (164.5 cells/s/head; full map 16.278 s at 8 heads). This ADR is retained as provenance; read the
+> DND-111 ADR for the current numbers.
+
 - **Issue:** [DND-104](/DND/issues/DND-104) (CTO). Parent [DND-102](/DND/issues/DND-102).
 - **Criteria of record:** [`02-design-criteria/README.md`](../02-design-criteria/README.md)
   (strengthened by [DND-103](/DND/issues/DND-103), PR #83).

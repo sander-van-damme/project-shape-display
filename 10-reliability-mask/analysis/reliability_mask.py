@@ -147,15 +147,17 @@ ARCHITECTURES: list[dict] = [
         single_cell_failure="a latch that fails to toggle is read back and re-driven",
         serviceable=True,
         timing_s=dict(digital_map=0.05, mask_generation=0.0, transport=2.0,
-                      reset=3.0, lift=8.8, settle=1.5, verify=8.8),
+                      reset=3.0, lift=4.864, settle=1.5, verify=4.864),
         parts_usd=181.0,
         prototype_coupon="A: 1 cell flip+read; B: 5x5 writer/reader scan",
         decisive_falsifier=(
-            "writer head cannot both toggle AND read a latch within a ~2 mm "
-            "working gap at the required cell rate across 406 mm -> timing dies"
+            "gantry cannot hold +/-0.26 mm head-to-cell registration across "
+            "406 mm at a traverse speed that keeps the full cycle <30 s (the "
+            "single-cell read needs it); DND-111 showed the rate itself is "
+            "bounded, so registration is now the decisive falsifier"
         ),
         docs="10-reliability-mask/README.md S A1",
-        writer_head_rate_cells_s=1000.0,   # 1 ms/cell, 8 parallel heads -> 8000/s
+        writer_head_rate_cells_s=164.5,   # DERIVED (DND-111), see 2b below
         writer_heads=8,
     ),
     dict(
@@ -518,7 +520,18 @@ def screen() -> dict:
 # ===========================================================================
 # 2b. WRITER-BANDWIDTH MODEL (the A1 decisive number, computed not asserted)
 # ===========================================================================
-HEAD_RATE_CELLS_S = 1000.0     # 1 ms/cell per head (assumption: toggle+settle)
+# DND-111: the write/read rate is now DERIVED from sourced component-class
+# kinematics + the placed CAD by `a1_writer_rate.py`, replacing the old
+# unconstrained placeholder `HEAD_RATE_CELLS_S = 1000.0  # 1 ms/cell`. The
+# derived per-head rate is traverse-bounded (dominant limit at the credible
+# 1.0 m/s gantry design point), ~164 cells/s/head, a factor ~6 below the
+# placeholder. See `07-evidence-and-decisions/dnd111-writer-rate-bound.md`.
+import a1_writer_rate as _wr  # noqa: E402
+
+PLACEHOLDER_HEAD_RATE_CELLS_S = 1000.0   # historic placeholder (DND-104)
+_WRITER = _wr.achievable_rate()
+HEAD_RATE_CELLS_S = _WRITER["per_head_rate_cells_s"]   # DERIVED (DND-111)
+HEAD_RATE_RANGE_CELLS_S = _WRITER["rate_range_cells_s"]  # [pess, best]
 HEAD_HEADS = 8                 # 8 parallel heads on the gantry bar
 GALVO_OR_RAIL = 0.10           # s per lane move (150 mm traverse @ 1.5 m/s)
 
@@ -705,21 +718,37 @@ PROTOTYPE_LADDER = [
 
 
 def a1_bandwidth() -> dict:
-    """Compute A1's write + verify time from the head rate, not a magic number."""
-    write_all = writer_bandwidth(CELLS)                       # worst-case all-change
-    write_half = writer_bandwidth(CELLS // 2)
-    verify = writer_bandwidth(CELLS)                          # read pass
-    # Heavy/lane vs light/lane unchanged; the gantry still rasters 80 lanes.
-    lane_overhead = COLS * GALVO_OR_RAIL
+    """Compute A1's write + verify time from the DERIVED head rate (DND-111).
+
+    DND-111 replaced the old `cells / (heads * 1,000)` magic number with the
+    analytic bound in `a1_writer_rate.py`: the per-head rate is traverse-bounded
+    and the per-cell time is max(traverse, actuation_or_read) + settle. The
+    full-cycle stages are re-derived from that rate, not asserted.
+    """
+    fc = _wr.full_cycle(heads=HEAD_HEADS)
+    stages = fc["stages"]
     return dict(
         heads=HEAD_HEADS,
         rate_cells_per_head_s=HEAD_RATE_CELLS_S,
+        rate_range_cells_per_head_s=HEAD_RATE_RANGE_CELLS_S,
         effective_cells_s=HEAD_HEADS * HEAD_RATE_CELLS_S,
-        worst_case_write_all_s=round(write_all["seconds"] + lane_overhead, 4),
-        typical_write_half_s=round(write_half["seconds"] + lane_overhead, 4),
-        verify_pass_s=round(verify["seconds"] + lane_overhead, 4),
-        note="Assumption-class: 1 ms/cell per head for toggle-settle and for "
-             "read. Worst-case all-change write + verify + reset must clear 30 s.",
+        worst_case_write_all_s=stages["write"],
+        typical_write_half_s=round(stages["write"] / 2.0, 4),
+        verify_pass_s=stages["verify"],
+        reset_s=stages["reset"],
+        transport_s=stages["transport"],
+        digital_map_s=stages["digital_map"],
+        settle_s=stages["settle"],
+        mask_generation_s=stages["mask_generation"],
+        full_cycle_s=fc["full_cycle_s"],
+        clears_30s=fc["clears_30s"],
+        dominant_limit=_WRITER["primary_design_point"]["dominant_limit"],
+        evidence="DERIVED (DND-111): traverse-bounded per-head rate over "
+                 "sourced component-class kinematics + placed CAD. Replaces "
+                 "the DND-104 placeholder 1,000 cells/s.",
+        note="Per-cell time = max(traverse, actuation_or_read) + settle, from "
+             "a1_writer_rate.py. Worst-case all-change write + verify + reset "
+             "must clear 30 s; at 8 heads it clears with margin.",
     )
 
 
@@ -767,9 +796,13 @@ def convergence() -> dict:
         runner_up=runner_up["name"] if runner_up else None,
         runner_up_score=runner_up["reliability_score"] if runner_up else None,
         residual_uncertainty=[
-            "A1 readback is assumed optical/mechanical at ~1 ms/cell; if it "
-            "cannot resolve a single wrong cell among 6,400, the silent-error "
-            "advantage collapses (prototype B kills this).",
+            "Writer/reader rate is BOUNDED by DND-111 (traverse/actuation, "
+            "71-228 cells/s/head), not an assumption; the residual is the "
+            "as-built gantry registration that the single-cell read needs "
+            "(+/-0.26 mm).",
+            "Single-cell read resolution: DND-111 bounds it to a +/-0.26 mm "
+            "head-to-cell registration tolerance plus a photometric SNR ~1,460 "
+            "(gate 5); the as-built registration is unmeasured.",
             "Writer-head toggle force vs latch snap force is assumption-class; "
             "the over-centre latch makes the STATE exact but not the snap force.",
             "Gantry XY registration over 406 mm (thermal, belt stretch) is "
@@ -865,18 +898,19 @@ AUDIT_VIEW = dict(
     per_cell_force_critical_springs=0,
     per_cell_precision_contacts=0,
     # A5 timing: all seven stages declared (see TIMING section). A1 has no mask,
-    # so mask_generation and mask_transport are 0/2.0 respectively.
+    # so mask_generation is 0. Stage values are the DND-111 re-derived full
+    # cycle (traverse-bounded rate), not the old 1 ms/cell placeholder.
     timing_stages={
         "digital_map_s": 0.05,
         "mask_generation_s": 0.0,
         "mask_transport_s": 2.0,
         "display_reset_s": 3.0,
-        "broadcast_s": 8.8,
+        "broadcast_s": 4.864,
         "settle_s": 1.5,
-        "verification_s": 8.8,
+        "verification_s": 4.864,
     },
-    visible_transition_s=24.15,
-    sustained_cycle_s=24.15,
+    visible_transition_s=16.278,
+    sustained_cycle_s=16.278,
     # A6 regional: writer addresses only changed cells; neighbours untouched.
     regional_neighbour_displacement_mm=0.0,
     regional_requires_full_reset=False,

@@ -41,6 +41,7 @@ The **Evidence matrix** below is the compact status view. The **Architecture inv
 | DND-74 S6-LC falsifier audit (lift sizing, cost headroom, mask write) | ✓ | ✓ | — | — | — | — | — |
 | DND-104 reliability-first architecture screen (A1–A7; silent-error gate) | ✓ | ✓ | — | ✓ | — | — | — |
 | DND-104 A1 binary-latch + shared writer/reader (selected candidate) | ✓ | ✓ | — | ✓ | — | — | — |
+| DND-111 A1 writer/reader rate + single-cell read bound (analytic + CAD) | ✓ | ✓ | — | ✓ | — | — | — |
 
 **Test13 (DND-43) Step-6 structural/drive findings (calculated, not measured).** Adding the
 bolted-splice term to the platen/frame beam model changes the winner's structure and drive
@@ -217,6 +218,30 @@ seven-stage timing decomposition, the DND-46 hostile-reprice cost ladder, load-d
 containment, and pitch **placement** (not budget). **Default-deny:** an unanswered attack is a FAIL.
 The decisive falsifier is A11 (coupon C1, a 4×4 true-pitch reliability coupon) — a CTO/board print
 handoff; no board contact here.
+
+### A1 writer/reader rate + single-cell read, analytically bounded (DND-111, 2026-09)
+
+[DND-110](/DND/issues/DND-110) left A1's whole timing argument resting on the bare placeholder
+`HEAD_RATE_CELLS_S = 1000.0` (1 ms/cell) in [`10-reliability-mask/analysis/reliability_mask.py`](../10-reliability-mask/analysis/reliability_mask.py).
+[DND-111](/DND/issues/DND-111) replaces it with a sourced/CAD derivation
+([`10-reliability-mask/analysis/a1_writer_rate.py`](../10-reliability-mask/analysis/a1_writer_rate.py) +
+[`scad/a1_reader_head.scad`](../10-reliability-mask/scad/a1_reader_head.scad); ADR
+[`dnd111-writer-rate-bound.md`](dnd111-writer-rate-bound.md)):
+
+- **Stop-and-go is excluded** at 5.08 mm pitch: 30 cells/s at the sourced X1C acceleration
+  (20 m/s²), 90 cells/s even at an aggressive 100 m/s². A 1,000 cells/s step rate needs ~5.08 m/s.
+- **The rate is traverse/actuation-bounded**: max(traverse, actuation_or_read) + settle. At a
+  credible 1.0 m/s gantry the head does **164.5 cells/s** (band **71–228** across 0.5–1.5 m/s and
+  snap-trigger vs full-sweep). The placeholder overstated it by **4.4–14×**.
+- **The full cycle still clears < 30 s**: 16.278 s at 8 heads (write 4.864 + verify 4.864 + reset
+  3.0 + transport 2.0 + digital 0.05 + settle 1.5); 26.0 s even at 4 heads; and 22.61 s at 8 heads
+  with the conservative full-sweep toggle.
+- **Single-cell read resolution** is photometrically trivial (SNR ~1,460 at 50 µs, gate 5) but
+  geometrically reduces to a **±0.264 mm head-to-cell registration tolerance** (2 mm aperture at a
+  2 mm gap → 3.072 mm spot on a 3.60 mm top face; worst-case corner reach 2.172 mm).
+- **Outcome (a) BOUNDED.** The decisive residual is now as-built gantry registration (±0.26 mm),
+  not the rate. The next terminal call for the reader/retry architecture is SUCCESS-eligible on the
+  rate axis. No print/measurement (DND-27).
 
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 

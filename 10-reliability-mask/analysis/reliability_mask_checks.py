@@ -80,7 +80,34 @@ def main() -> int:
     check("A1 verify stage equals computed verify-pass time",
           abs(a1_t["stages"]["verify"]["seconds"] - bw["verify_pass_s"]) < 0.01)
     check("A1 head count and rate are stated",
-          bw["heads"] == 8 and bw["rate_cells_per_head_s"] == 1000.0)
+          bw["heads"] == 8 and bw["rate_cells_per_head_s"] > 0)
+
+    # --- DND-111: the writer/reader rate is DERIVED, not the placeholder ----
+    import a1_writer_rate as wr
+    a = wr.achievable_rate()
+    rr = wr.read_resolution_bound()
+    fc = wr.full_cycle(heads=8)
+    check("DND-111 derived per-head rate is ~164.5 cells/s",
+          abs(a["per_head_rate_cells_s"] - 164.5) < 0.5)
+    check("DND-111 placeholder 1,000 cells/s is NOT the model rate",
+          m.HEAD_RATE_CELLS_S != m.PLACEHOLDER_HEAD_RATE_CELLS_S)
+    check("DND-111 placeholder overstated the rate by >=4x",
+          m.PLACEHOLDER_HEAD_RATE_CELLS_S / a["per_head_rate_cells_s"] >= 4.0)
+    check("DND-111 stop-and-go is excluded (<100 cells/s at X1C accel)",
+          a["bounds"]["stop_and_go"]["cells_s_x1c"] < 100.0)
+    check("DND-111 dominant limit is traverse or actuation",
+          a["primary_design_point"]["dominant_limit"] in ("traverse", "actuation"))
+    check("DND-111 single-cell read spot fits the 3.60 mm top face (centre)",
+          rr["spot_fits_centre"] is True)
+    check("DND-111 single-cell read resolves with a registration tolerance",
+          rr["resolves_single_cell"] is True and rr["registration_tolerance_mm"] > 0)
+    check("DND-111 derived full cycle clears <30 s at 8 heads",
+          fc["clears_30s"] is True and fc["full_cycle_s"] < 30.0)
+    check("DND-111 pessimistic full-sweep toggle still clears <30 s at 8 heads",
+          wr.full_cycle_pessimistic_sweep()["min_heads_to_clear_30s"] is not None and
+          wr.full_cycle_pessimistic_sweep()["sweep"][8]["clears_30s"] is True)
+    check("DND-111 outcome is (a) Bounded",
+          wr.OUTCOME == "a" and "BOUNDED" in wr.OUTCOME_STATEMENT.upper())
 
     # --- reliability math --------------------------------------------------
     check("break-even q for 99% map is ~1.57e-6",
