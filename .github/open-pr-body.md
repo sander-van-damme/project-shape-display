@@ -1,38 +1,63 @@
-# DND-57 rev4: SUCCESS handoff one bounded step away — full-tile geometry (DND-61)
+# DND-61: full-tile S5-R structural tiles — remove reduced witness blocks
 
-`issue_children_completed` fired when [DND-60](/DND/issues/DND-60) closed. Verified on
-`main` `70566f1`; ran the package coherence gate (**PASS**).
+Recover and land the full-tile geometry that the dead Fabricator run produced
+but never committed, so the S5-R fabrication package is a slicer-ready print set
+for every structural part ([DND-61](/DND/issues/DND-61)).
 
-**Decision: NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** (Fabricator):
-complete the full-tile S5-R geometry so the package is slicer-ready. This is the
-**last** avenue before the SUCCESS handoff. Not SUCCESS yet, not exhausted failure.
-**No board contact** ([DND-32](/DND/issues/DND-32)).
+**Evidence class:** CAD (real OpenSCAD render + mesh validation) + sourced FDM
+process limits + calculation. **No print, no purchase, no measurement**
+([DND-27](/DND/issues/DND-27)).
 
-**Evidence class:** CEO decision record over CAD / CALCULATION / sourced work.
-No print, purchase or measurement ([DND-27](/DND/issues/DND-27)).
+## Engineering question
 
-## What DND-60 delivered
+Was the S5-R "printable package" actually printable for its two structural
+tiles, or did it still ship reduced witness blocks that the board cannot slice?
 
-- Complete real-OpenSCAD printed-part set: 14 parts / 25,661 pieces.
-- 14 watertight, bed-fitting STLs; full-set printability **PASS**; CI coherence
-  gate **PASS**; print + assembly manifests; ratified **$404.60 delivered** BOM.
-- `08-current-design/README.md` §6a "How to print and build".
+**Answer:** the committed `platen_module` was already full geometry (a
+documentation mislabel); `cell_cartridge` was a genuinely reduced 8×8 witness.
+This PR replaces the cartridge with the true 27×27 full-tile solid and adds a
+gate so the regression cannot return silently.
 
-## The honest remaining gap
+## What changed
 
-The package's STLs are **CAD witnesses**. Two structural tiles are **reduced
-witness blocks**:
-- `cell_cartridge.stl` = 8×8 witness of the true 27×27, 137.16 × 137.16 mm cartridge;
-- `platen_module.stl` = 27×27 witness of the platen tile.
+- `scad/s5r_parts.scad` — `cell_cartridge`/`platen_module` render at the full
+  `CARTRIDGE_COLS × CARTRIDGE_ROWS`; documented 9×9 / 45.72 mm sub-tile route
+  (`cell_cartridge_tile`) for a bed under 137.16 mm.
+- `stl/cell_cartridge.stl` — restored the true full-tile render: **11,726,140
+  bytes, 67,488 tris, bbox 137.16 × 137.16 × 14.0 mm, watertight,
+  winding-consistent**, matching `render_record.json`. (The other 13 STLs are
+  unchanged; the platen mesh is byte-identical to `main` in content.)
+- `tools/fab_package_checks.py` — new **C7** gate: fail if a committed STL bbox
+  ≠ its declared real envelope, or a reduced witness lacks a documented route.
+- `tools/gen_manifests.py` — mass/time from the real committed mesh volume
+  (trimesh signed volume), tagged `(mesh)`; sub-tile route section in the
+  assembly manifest.
+- `tools/part_set.py` — `witness_of` / `subtile_route` fields; true full-tile notes.
+- `tools/render_fab_parts.py`, `tools/validate/validate_geometry.py` — 30-min
+  render budget for the ~10.5 min full-tile CGAL render.
+- `.github/workflows/ci.yml` — `fab-package` gate C1–C7.
+- `README`s + `07-evidence-and-decisions/dnd61-full-tile-completion.md` —
+  document the completion and the measurement-only residual.
 
-The board cannot slice these and print the real structural parts. Completing the
-full-tile geometry (or a documented sub-tile print set) is bounded CAD work.
+## Evidence produced (local, on the recoverable render)
 
-## The call
+| check | result |
+|---|---|
+| `gen_manifests.py` | idempotent; manifests reflect full-tile mesh |
+| `fab_package_checks.py` | **GATE: PASS (C1–C7)** |
+| `analytic_printability.py --fail-on-design-fail` | **VERDICT PASS** |
+| `cell_cartridge.stl` trimesh | watertight, winding-consistent, 67,488 tris, 137.16 × 137.16 × 14.0 mm |
 
-- **Not SUCCESS:** a package with witness-block structural tiles is not yet
-  directly printable; declaring SUCCESS would overstate it.
-- **Not exhausted failure:** one bounded CAD avenue with a clear owner and path.
+## Assumptions / uncertainty
 
-On DND-61 close, if every part is a true printable part / documented sub-tile set,
-the CEO call is the **SUCCESS handoff to the board (trigger 1)**.
+- The full-tile render is a heavier CAD job (~10.5 min/part); CI `fab-package`
+  re-renders it from source with a 30-min budget.
+- Mass/print time remain solid-fill **upper bounds** (CAD, not a slicer run).
+- No physical part exists; the DND-27 measurement-only residue (as-printed μ,
+  leaf creep, per-set reliability, loaded torque-speed) is unchanged.
+
+## Most informative next test
+
+CI `fab-package` on this PR re-renders the full 27×27 cartridge from source and
+runs C1–C7 — it is the discriminating test that the recovery is reproducible,
+not just a copied artifact.
