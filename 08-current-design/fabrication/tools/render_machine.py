@@ -20,6 +20,12 @@ positions and rasterizes it:
     legible scale. The full 6,400 installed cells are NOT individually modelled --
     that is stated on every such image.
 
+It also renders an **exploded view of the complete assembly** (DND-68 board ask
+`3075ea65`): the same committed solids displaced along +Z by a documented
+explosion ladder (`EXPLODE_DZ`), top-to-bottom drive / register / cartridge field
+/ witness rack+rod / platen deck / frame rails / guide brackets. Only rigid
+translations of the same committed STLs -- no new geometry, no design change.
+
 EVIDENCE CLASS: CAD render of the committed OpenSCAD meshes. NOT a print and NOT
 a measurement ([DND-27]). An image is a visualisation of geometry; it validates
 nothing physical. No part has been printed and none will be.
@@ -129,11 +135,29 @@ def _register_cell(rotor, pawl, keeper, detent, ox, oy):
              ACCENT_COLORS["keeper"], ACCENT_COLORS["detent_leaf"]])
 
 
-def _machine_meshes(sub_block=True, rods=True, drives=True):
+# Explosion ladder in mm. Each functional group is displaced along +Z from its
+# real assembly height so the stack reads top-to-bottom. `exploded=False` gives
+# every group its true assembly offset (the assembled views).
+EXPLODE_DZ = {
+    "platen": -70.0,      # lift deck drops away from the cartridge field
+    "cartridge": 0.0,     # cartridge field stays as the reference plane
+    "register": 55.0,     # rotor/pawl/keeper/detent lift out of the cartridges
+    "rack_rod": -35.0,    # witness rack strip + sourced rod drop below the field
+    "rails": -120.0,      # perimeter lift-frame rails drop away
+    "drive": 15.0,        # bank housing + writer carriage lift slightly
+    "bracket": -95.0,     # corner guide brackets drop away
+}
+
+
+def _machine_meshes(sub_block=True, rods=True, drives=True, exploded=False):
     """Compose the whole S5-R machine from committed part STLs.
 
     Every solid is a committed STL placed at its real assembly offset; the only
     generated primitive is the sourced steel rod (a bare cylinder, not printed).
+    With ``exploded=True`` each functional group is additionally displaced along
+    +Z by ``EXPLODE_DZ`` (the stack order: drive / register / cartridge field /
+    rack+rod / platen / rails / brackets) so the assembly order is visible. No
+    geometry changes -- only rigid translation of the same committed solids.
     Returns (meshes, colors, meta).
     """
     cart = load_stl(STL_DIR / "cell_cartridge.stl")
@@ -141,18 +165,21 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
     rail = load_stl(STL_DIR / "lift_frame_rail.stl")
     rack = load_stl(STL_DIR / "rack_strip.stl")
 
+    dz = EXPLODE_DZ if exploded else {k: 0.0 for k in EXPLODE_DZ}
+
     meshes, colors = [], []
     centers = _field_centers()
     span = FIELD_CARTS * CARTRIDGE_W
 
     # --- platen lift deck (3x3 tiles) at the bottom of the stack -------------
     for (ox, oy) in centers:
-        meshes.append(translate(platen, (ox, oy, -(BAR_D + 1.0) - PLATEN_T)))
+        meshes.append(translate(platen, (ox, oy,
+                                         -(BAR_D + 1.0) - PLATEN_T + dz["platen"])))
         colors.append(PLATEN_COLOR)
 
     # --- cartridge field (3x3 true 137.16 mm tiles) --------------------------
     for (ox, oy) in centers:
-        meshes.append(translate(cart, (ox, oy, 0.0)))
+        meshes.append(translate(cart, (ox, oy, dz["cartridge"])))
         colors.append(CART_COLOR)
 
     # --- perimeter lift-frame rails (16): 2 per side, lap at cartridges ------
@@ -161,11 +188,11 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
         for t in (-1, 1):
             meshes.append(translate(rail, (s * (span / 2) - RAIL_LEN / 2,
                                            t * (span / 2) - FRAME_RAIL / 2,
-                                           0.0)))
+                                           dz["rails"])))
             colors.append(RAIL_COLOR)
             meshes.append(translate(rail_x, (t * (span / 2) - FRAME_RAIL / 2,
                                              -s * (span / 2) - RAIL_LEN / 2,
-                                             0.0)))
+                                             dz["rails"])))
             colors.append(RAIL_COLOR)
 
     # --- representative installed register sub-block (81 of 6,400 cells) -----
@@ -180,6 +207,7 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
                 ox = cx0 + (gx - (SUB_CELLS - 1) / 2) * PITCH
                 oy = cy0 + (gy - (SUB_CELLS - 1) / 2) * PITCH
                 m, c = _register_cell(rotor, pawl, keeper, detent, ox, oy)
+                m = [translate(t, (0.0, 0.0, dz["register"])) for t in m]
                 meshes += m
                 colors += c
 
@@ -189,11 +217,12 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
         for r in range(n_witness):
             ry = (r - (n_witness - 1) / 2) * (span / (n_witness + 1))
             meshes.append(translate(rack, (-span / 2, ry - RACK_STRIP_W / 2,
-                                           -(BAR_D + 1.0))))
+                                           -(BAR_D + 1.0) + dz["rack_rod"])))
             colors.append(ACCENT_COLORS["rack_strip"])
             rod = _cylinder(BAR_D / 2, span + 40.0, axis="x")
             meshes.append(translate(rod, (-(span + 40.0) / 2, ry + 3.0,
-                                          -(BAR_D + 1.0) - BAR_D / 2)))
+                                          -(BAR_D + 1.0) - BAR_D / 2
+                                          + dz["rack_rod"])))
             colors.append(ROD_COLOR)
 
     # --- purchased drive assemblies at the field edges ----------------------
@@ -202,15 +231,16 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
         carriage = load_stl(STL_DIR / "writer_carriage.stl")
         bracket = load_stl(STL_DIR / "guide_bracket.stl")
         meshes.append(translate(housing, (-span / 2 - 60.0, -20.0,
-                                          -(BAR_D + 1.0))))
+                                          -(BAR_D + 1.0) + dz["drive"])))
         colors.append(HOUSING_COLOR)
-        meshes.append(translate(carriage, (span / 2 + 22.0, 0.0, 0.0)))
+        meshes.append(translate(carriage, (span / 2 + 22.0, 0.0, dz["drive"])))
         colors.append(CARRIAGE_COLOR)
         for sx in (-1, 1):
             for sy in (-1, 1):
                 meshes.append(translate(bracket,
                                         (sx * (span / 2 - 20.0) - 8.0,
-                                         sy * (span / 2) - 1.5, -10.0)))
+                                         sy * (span / 2) - 1.5,
+                                         -10.0 + dz["bracket"])))
                 colors.append(BRACKET_COLOR)
 
     meta = {
@@ -219,6 +249,8 @@ def _machine_meshes(sub_block=True, rods=True, drives=True):
         "field_mm": [round(span, 2), round(span, 2)],
         "installed_cells_modelled": SUB_CELLS ** 2 if sub_block else 0,
         "installed_cells_full_field": 6400,
+        "exploded": exploded,
+        "explode_dz_mm": dz if exploded else None,
         "solid_count": len(meshes),
         "triangle_count": int(sum(len(m) for m in meshes)),
     }
@@ -231,34 +263,60 @@ MACHINE_VIEWS = [
     ("front", 6.0, -90.0),
 ]
 
+# the exploded whole-machine is shown iso + front (top adds little to a stack)
+MACHINE_EXPLODED_VIEWS = [
+    ("iso", 22.0, -55.0),
+    ("front", 4.0, -90.0),
+]
+
 SUBTITLE = (
     "3x3 cartridge field = {cols}x{cols} cell envelope ({w:.0f} x {w:.0f} mm); "
     "register installed in {sub} of {full} cells (representative 9x9 sub-block), "
     "shown on the platen + frame | CAD render, not a print"
 )
 
+EXPLODE_SUBTITLE = (
+    "EXPLODED whole-machine stack (same committed solids, rigid +Z offsets): "
+    "drive / installed 9x9 register ({sub} of {full} cells, representative) / "
+    "cartridge field {cols}x{cols} ({w:.0f} x {w:.0f} mm) / witness rack+rod / "
+    "platen lift deck / lift-frame rails / guide brackets | CAD render, not a print"
+)
 
-def build_machine_images(size, record):
-    meshes, colors, meta = _machine_meshes(sub_block=True)
+
+def build_machine_images(size, record, exploded=False):
+    meshes, colors, meta = _machine_meshes(sub_block=True, exploded=exploded)
     dims = bbox_size(np.concatenate(meshes, axis=0))
-    print(f"[info] machine: {meta['solid_count']} solids, "
+    tag = "exploded" if exploded else "assembled"
+    print(f"[info] machine ({tag}): {meta['solid_count']} solids, "
           f"{meta['triangle_count']} tris, bbox "
           f"{dims[0]:.1f} x {dims[1]:.1f} x {dims[2]:.1f} mm")
-    sub = SUBTITLE.format(cols=meta["field_cell_columns"],
+    template = EXPLODE_SUBTITLE if exploded else SUBTITLE
+    sub = template.format(cols=meta["field_cell_columns"],
                           w=meta["field_mm"][0],
                           sub=meta["installed_cells_modelled"],
                           full=meta["installed_cells_full_field"])
-    for vname, elev, azim in MACHINE_VIEWS:
+    views = MACHINE_EXPLODED_VIEWS if exploded else MACHINE_VIEWS
+    for vname, elev, azim in views:
         t0 = time.time()
+        # a wide exploded stack needs a looser aspect cap so it is not cropped
+        cap = 3.1 if exploded else 2.4
         arr = rasterize(meshes, colors=colors, size=size,
-                        elev=elev, azim=azim, fill=0.90, aspect_cap=2.4)
-        out = IMG_DIR / f"assembly_full_machine_{vname}.png"
-        px = annotate(arr, f"S5-R full machine assembled - {vname} view", sub, out)
+                        elev=elev, azim=azim, fill=0.90, aspect_cap=cap)
+        # assembled views keep the DND-88 filenames already on the branch;
+        # exploded views get an explicit `_exploded_` infix.
+        if exploded:
+            out = IMG_DIR / f"assembly_full_machine_exploded_{vname}.png"
+            title = f"S5-R full machine EXPLODED - {vname} view"
+        else:
+            out = IMG_DIR / f"assembly_full_machine_{vname}.png"
+            title = f"S5-R full machine assembled - {vname} view"
+        px = annotate(arr, title, sub, out)
         print(f"[ok] {out.relative_to(REPO)}  {px[0]}x{px[1]}  "
               f"({time.time() - t0:.1f}s)")
         record["images"].append({
-            "file": str(out.relative_to(FAB)), "kind": "machine_assembly",
-            "machine": "S5-R", "view": vname,
+            "file": str(out.relative_to(FAB)),
+            "kind": "machine_exploded" if exploded else "machine_assembly",
+            "machine": "S5-R", "view": vname, "exploded": exploded,
             "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,"
                            "guide_bracket,rack_strip,bank_drive_housing,"
                            "writer_carriage,rotor,drive_pawl,keeper,"
@@ -329,6 +387,11 @@ def check_images(json_path: Path) -> int:
             w, h = im.size
             if w < 200 or h < 200:
                 fails.append(f"{img['file']}: too small {w}x{h}")
+    # DND-92: the board-required exploded view of the complete assembly must be
+    # present, so it cannot silently regress out of the record/CI.
+    if not any(i.get("kind") == "machine_exploded"
+               for i in rec.get("images", [])):
+        fails.append("no exploded-view image of the complete assembly (DND-92)")
     for f in fails:
         print(f"[FAIL] {f}")
     total = len(rec.get("images", []))
@@ -360,7 +423,8 @@ def main() -> int:
         "not_a_print": True, "size_px": args.size, "images": [], "verdict": "PASS",
     }
     t0 = time.time()
-    build_machine_images(args.size, record)
+    build_machine_images(args.size, record, exploded=False)
+    build_machine_images(args.size, record, exploded=True)
     build_subblock_images(args.size, record)
     record["elapsed_s"] = round(time.time() - t0, 1)
     Path(args.json).parent.mkdir(parents=True, exist_ok=True)

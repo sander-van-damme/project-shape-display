@@ -17,6 +17,12 @@ rasterizes the committed S6-LC STLs into assembled views:
   * an installed representative cell region with `s6lc_cell` columns + pawls at
     true pitch, so the column/pawl register reads at a legible scale.
 
+It also renders an **exploded view of the complete assembly** (DND-68 board ask
+`3075ea65`): the same committed solids displaced along +Z by a documented
+explosion ladder (`EXPLODE_DZ`), top-to-bottom installed columns/pawls / bank
+field / gate + release comb / broadcast platen deck. Only rigid translations of
+the same committed STLs -- no new geometry, no design change.
+
 EVIDENCE CLASS: CAD render of the committed OpenSCAD meshes. NOT a print and NOT
 a measurement ([DND-27]). No part has been printed and none will be. This is a
 visualisation only.
@@ -74,13 +80,26 @@ ROD_COLOR2 = np.array([0.59, 0.60, 0.62], dtype=np.float64)
 # representative installed columns (documented on every image)
 SUB_COLS = 12
 
+# Explosion ladder in mm (+Z) for the complete-assembly exploded view (DND-68
+# board ask `3075ea65`). Only rigid translations of the same committed solids.
+EXPLODE_DZ = {
+    "platen": -60.0,      # broadcast deck drops away below the banks
+    "banks": 0.0,         # bank field stays as the reference plane
+    "cells": 40.0,        # installed columns lift out of the banks
+    "pawls": 25.0,        # pawls lift with/below the columns
+    "gate": -25.0,        # threshold gate drops away
+    "comb": -25.0,        # release comb drops away
+}
 
-def build_machine_images(size, record):
+
+def build_machine_images(size, record, exploded=False):
     bank = load_stl(STL_DIR / "s6lc_bank.stl")
     platen = load_stl(STL_DIR / "s6lc_platen.stl")
     gate = load_stl(STL_DIR / "s6lc_gate.stl")
     comb = load_stl(STL_DIR / "s6lc_comb.stl")
     cell = load_stl(STL_DIR / "s6lc_cell.stl")
+
+    dz = EXPLODE_DZ if exploded else {k: 0.0 for k in EXPLODE_DZ}
 
     meshes, colors = [], []
     # bank STL bbox: x 0..403 (80 cols), y 0..12 (3 representative rows), z 0..44.
@@ -88,14 +107,14 @@ def build_machine_images(size, record):
     field_h = BANKS * bank_pitch_y
     for b in range(BANKS):
         oy = b * bank_pitch_y - field_h / 2
-        meshes.append(translate(platen, (-FIELD / 2, oy, -2.0)))
+        meshes.append(translate(platen, (-FIELD / 2, oy, -2.0 + dz["platen"])))
         colors.append(PLATEN_COLOR)
-        meshes.append(translate(bank, (-FIELD / 2, oy, 0.0)))
+        meshes.append(translate(bank, (-FIELD / 2, oy, dz["banks"])))
         colors.append(COL_COLOR)
     # a gate + comb at the near edge of one bank (drive/reset witness)
-    meshes.append(translate(gate, (-FIELD / 2, -field_h / 2 - 3.0, 0.0)))
+    meshes.append(translate(gate, (-FIELD / 2, -field_h / 2 - 3.0, dz["gate"])))
     colors.append(GATE_COLOR)
-    meshes.append(translate(comb, (-FIELD / 2, field_h / 2 + 3.0, 0.0)))
+    meshes.append(translate(comb, (-FIELD / 2, field_h / 2 + 3.0, dz["comb"])))
     colors.append(COMB_COLOR)
     # installed representative columns (12 cols x 3 rows) on the front bank
     half = (SUB_COLS - 1) / 2
@@ -103,10 +122,11 @@ def build_machine_images(size, record):
         for gy in range(3):
             ox = (gx - half) * PITCH
             oy = -field_h / 2 + gy * PITCH
-            meshes.append(translate(cell, (ox, oy, 0.0)))
+            meshes.append(translate(cell, (ox, oy, dz["cells"])))
             colors.append(COL_COLOR)
             pawl = _pawl()
-            meshes.append(translate(pawl, (ox + BODY / 2 + 0.10, oy, 4.0)))
+            meshes.append(translate(pawl, (ox + BODY / 2 + 0.10, oy,
+                                           4.0 + dz["pawls"])))
             colors.append(PAWL_COLOR)
 
     meta = {
@@ -115,6 +135,8 @@ def build_machine_images(size, record):
         "field_mm": [round(FIELD, 2), round(field_h, 2)],
         "installed_columns_modelled": SUB_COLS * 3,
         "installed_columns_full_field": COLS * ROWS_BANK * BANKS,
+        "exploded": exploded,
+        "explode_dz_mm": dz if exploded else None,
         "solid_count": len(meshes),
         "triangle_count": int(sum(len(m) for m in meshes)),
     }
@@ -122,20 +144,35 @@ def build_machine_images(size, record):
            f"= {COLS * ROWS_BANK * BANKS} cells ({FIELD:.0f} x {field_h:.0f} mm); "
            f"each bank renders 3 of its 10 rows; {SUB_COLS * 3} columns installed "
            f"as a representative sub-block | CAD render, not a print")
-    print(f"[info] S6-LC: {meta['solid_count']} solids, "
+    if exploded:
+        sub = ("S6-LC EXPLODED complete assembly (same committed solids, rigid +Z "
+               + "offsets): installed columns/pawls / bank field ("
+               + f"{BANKS} banks x {COLS} cols, {COLS * ROWS_BANK * BANKS} cells, "
+               + f"{SUB_COLS * 3} cols installed as a representative sub-block) / "
+               + "gate + release comb / broadcast platen deck | CAD render, not a print")
+    tag = "exploded" if exploded else "assembled"
+    print(f"[info] S6-LC ({tag}): {meta['solid_count']} solids, "
           f"{meta['triangle_count']} tris")
-    for vname, elev, azim in (("iso", 22.0, -52.0), ("top", 84.0, -90.0),
-                              ("front", 5.0, -90.0)):
+    views = ((("iso", 20.0, -55.0), ("front", 4.0, -90.0)) if exploded
+             else (("iso", 22.0, -52.0), ("top", 84.0, -90.0), ("front", 5.0, -90.0)))
+    for vname, elev, azim in views:
         t0 = time.time()
+        cap = 3.2 if exploded else 2.2
         arr = rasterize(meshes, colors=colors, size=size,
-                        elev=elev, azim=azim, fill=0.92, aspect_cap=2.2)
-        out = IMG_DIR / f"s6lc_machine_assembled_{vname}.png"
-        px = annotate(arr, f"S6-LC machine assembled - {vname} view", sub, out)
+                        elev=elev, azim=azim, fill=0.92, aspect_cap=cap)
+        if exploded:
+            out = IMG_DIR / f"s6lc_machine_exploded_{vname}.png"
+            title = f"S6-LC complete assembly EXPLODED - {vname} view"
+        else:
+            out = IMG_DIR / f"s6lc_machine_assembled_{vname}.png"
+            title = f"S6-LC machine assembled - {vname} view"
+        px = annotate(arr, title, sub, out)
         print(f"[ok] {out.relative_to(ROOT)}  {px[0]}x{px[1]}  "
               f"({time.time() - t0:.1f}s)")
         record["images"].append({
-            "file": str(out.relative_to(S6LC)), "kind": "machine_assembly",
-            "machine": "S6-LC", "view": vname,
+            "file": str(out.relative_to(S6LC)),
+            "kind": "machine_exploded" if exploded else "machine_assembly",
+            "machine": "S6-LC", "view": vname, "exploded": exploded,
             "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,"
                            "s6lc_comb,s6lc_cell}.stl",
             "meta": meta,
@@ -177,6 +214,11 @@ def check_images(json_path: Path) -> int:
         with Image.open(p) as im:
             if min(im.size) < 200:
                 fails.append(f"{img['file']}: too small {im.size}")
+    # DND-92: the board-required exploded view of the complete assembly must be
+    # present, so it cannot silently regress out of the record/CI.
+    if not any(i.get("kind") == "machine_exploded"
+               for i in rec.get("images", [])):
+        fails.append("no exploded-view image of the complete assembly (DND-92)")
     for f in fails:
         print(f"[FAIL] {f}")
     if fails:
@@ -206,7 +248,8 @@ def main() -> int:
         "not_a_print": True, "size_px": args.size, "images": [], "verdict": "PASS",
     }
     t0 = time.time()
-    build_machine_images(args.size, record)
+    build_machine_images(args.size, record, exploded=False)
+    build_machine_images(args.size, record, exploded=True)
     record["elapsed_s"] = round(time.time() - t0, 1)
     Path(args.json).parent.mkdir(parents=True, exist_ok=True)
     Path(args.json).write_text(json.dumps(record, indent=2) + "\n")

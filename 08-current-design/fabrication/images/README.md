@@ -34,6 +34,24 @@ view shows the full machine volume. Placement mirrors
 [`../scad/s5r_parts_common.scad`](../scad/s5r_parts_common.scad); every solid is
 a committed part STL. **CAD render, not a print** ([DND-88](/DND/issues/DND-88))._
 
+### Full machine EXPLODED (complete assembly)
+
+The **complete S5-R assembly** exploded along a documented +Z ladder (same
+committed solids, rigid offsets only — no new geometry): drive bank + writer
+carriage / installed 9 × 9 register (**81 of the 6,400 cells**, representative,
+not the full field) / 3 × 3 cartridge field / witness rack strips + sourced rods /
+3 × 3 platen lift deck / perimeter lift-frame rails / corner guide brackets. The
+explosion reads top-to-bottom in the stack order.
+
+| Complete assembly exploded (iso) | Complete assembly exploded (front) |
+|---|---|
+| ![exploded iso](assembly_full_machine_exploded_iso.png) | ![exploded front](assembly_full_machine_exploded_front.png) |
+
+_Every group is shifted by an exact, recorded offset (`EXPLODE_DZ` in
+[`../tools/render_machine.py`](../tools/render_machine.py)); the solid set, colors
+and labels are otherwise identical to the assembled views. **CAD render of the
+committed meshes, not a print** ([DND-27](/DND/issues/DND-27))._
+
 ### Installed register sub-block (9 × 9 = 81 of 6,400 cells)
 
 A legible zoom of the installed per-cell register: 9 × 9 = **81 cells** at
@@ -100,7 +118,8 @@ python 08-current-design/fabrication/tools/render_machine.py --check # verify
 ```
 
 Each part image filename is `<part>_<view>.png` (`iso` / `front` / `top`); the
-machine images are `assembly_full_machine_<view>.png` and
+machine images are `assembly_full_machine_<view>.png`,
+`assembly_full_machine_exploded_<view>.png` and
 `assembly_register_9x9_<view>.png`. The machine-readable records are
 [`../manifests/render_images_record.json`](../manifests/render_images_record.json)
 and [`../manifests/render_machine_record.json`](../manifests/render_machine_record.json).

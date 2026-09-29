@@ -147,7 +147,7 @@ python printability_s6lc.py   # sourced FDM-limit table + record
 # CAD (real OpenSCAD; see tools/openscad-install/TOOLS)
 export PATH="$HOME/.local/bin:$PATH"
 python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
-python render_s6lc_images.py  # assembled machine PNGs (DND-88)
+python render_s6lc_images.py  # assembled + exploded machine PNGs (DND-88)
 ```
 
 ## 7a. Assembled machine renders (DND-88)
@@ -168,6 +168,21 @@ CAD render of the committed meshes. NOT a print, not a measurement**
 ([DND-27](/DND/issues/DND-27)); the record is
 [`cad/render_images_record.json`](cad/render_images_record.json).
 
+### Complete assembly — exploded view
+
+The **complete S6-LC assembly exploded** along a documented +Z ladder (same
+committed solids, rigid offsets only): installed columns + pawls / bank field /
+gate + release comb / broadcast platen deck.
+
+| Complete assembly exploded (iso) | Complete assembly exploded (front) |
+|---|---|
+| ![exploded iso](images/s6lc_machine_exploded_iso.png) | ![exploded front](images/s6lc_machine_exploded_front.png) |
+
+_Offsets are recorded in `EXPLODE_DZ` in
+[`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py); the solid set
+and labels are otherwise identical to the assembled views. **CAD render, not a
+print** ([DND-27](/DND/issues/DND-27))._
+
 ## 8. Files
 
 | Path | What |
@@ -176,10 +191,10 @@ CAD render of the committed meshes. NOT a print, not a measurement**
 | [`analysis/s6lc_checks.py`](analysis/s6lc_checks.py) | 29 regression checks |
 | [`analysis/printability_s6lc.py`](analysis/printability_s6lc.py) | sourced-FDM-limit table |
 | [`analysis/render_s6lc_cad.py`](analysis/render_s6lc_cad.py) | real-OpenSCAD render + mesh check |
-| [`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py) | assembled machine PNG renders (DND-88) |
+| [`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py) | assembled + exploded machine PNG renders (DND-88) |
 | [`scad/s6lc_machine.scad`](scad/s6lc_machine.scad) | the part set (real OpenSCAD) |
 | [`cad/`](cad/) | rendered STLs + CAD/printability records |
-| [`images/`](images/) | assembled machine PNG renders (DND-88) |
+| [`images/`](images/) | assembled + exploded machine PNG renders (DND-88) |
 | [`bom_s6lc.csv`](bom_s6lc.csv) | purchased BOM line table |
 | [`evidence/`](evidence/) | architecture + printable-path statements |
 

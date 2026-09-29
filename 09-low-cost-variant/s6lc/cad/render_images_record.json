@@ -10,6 +10,7 @@
       "kind": "machine_assembly",
       "machine": "S6-LC",
       "view": "iso",
+      "exploded": false,
       "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,s6lc_comb,s6lc_cell}.stl",
       "meta": {
         "banks": 8,
@@ -23,6 +24,8 @@
         ],
         "installed_columns_modelled": 36,
         "installed_columns_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
         "solid_count": 90,
         "triangle_count": 168136
       }
@@ -32,6 +35,7 @@
       "kind": "machine_assembly",
       "machine": "S6-LC",
       "view": "top",
+      "exploded": false,
       "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,s6lc_comb,s6lc_cell}.stl",
       "meta": {
         "banks": 8,
@@ -45,6 +49,8 @@
         ],
         "installed_columns_modelled": 36,
         "installed_columns_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
         "solid_count": 90,
         "triangle_count": 168136
       }
@@ -54,6 +60,7 @@
       "kind": "machine_assembly",
       "machine": "S6-LC",
       "view": "front",
+      "exploded": false,
       "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,s6lc_comb,s6lc_cell}.stl",
       "meta": {
         "banks": 8,
@@ -67,11 +74,77 @@
         ],
         "installed_columns_modelled": 36,
         "installed_columns_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
+        "solid_count": 90,
+        "triangle_count": 168136
+      }
+    },
+    {
+      "file": "images/s6lc_machine_exploded_iso.png",
+      "kind": "machine_exploded",
+      "machine": "S6-LC",
+      "view": "iso",
+      "exploded": true,
+      "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,s6lc_comb,s6lc_cell}.stl",
+      "meta": {
+        "banks": 8,
+        "rows_per_bank_modelled": 3,
+        "rows_per_bank_real": 10,
+        "cols": 80,
+        "pitch_mm": 5.08,
+        "field_mm": [
+          406.4,
+          406.4
+        ],
+        "installed_columns_modelled": 36,
+        "installed_columns_full_field": 6400,
+        "exploded": true,
+        "explode_dz_mm": {
+          "platen": -60.0,
+          "banks": 0.0,
+          "cells": 40.0,
+          "pawls": 25.0,
+          "gate": -25.0,
+          "comb": -25.0
+        },
+        "solid_count": 90,
+        "triangle_count": 168136
+      }
+    },
+    {
+      "file": "images/s6lc_machine_exploded_front.png",
+      "kind": "machine_exploded",
+      "machine": "S6-LC",
+      "view": "front",
+      "exploded": true,
+      "source_mesh": "cad/stl/{s6lc_bank,s6lc_platen,s6lc_gate,s6lc_comb,s6lc_cell}.stl",
+      "meta": {
+        "banks": 8,
+        "rows_per_bank_modelled": 3,
+        "rows_per_bank_real": 10,
+        "cols": 80,
+        "pitch_mm": 5.08,
+        "field_mm": [
+          406.4,
+          406.4
+        ],
+        "installed_columns_modelled": 36,
+        "installed_columns_full_field": 6400,
+        "exploded": true,
+        "explode_dz_mm": {
+          "platen": -60.0,
+          "banks": 0.0,
+          "cells": 40.0,
+          "pawls": 25.0,
+          "gate": -25.0,
+          "comb": -25.0
+        },
         "solid_count": 90,
         "triangle_count": 168136
       }
     }
   ],
   "verdict": "PASS",
-  "elapsed_s": 26.8
+  "elapsed_s": 54.5
 }
