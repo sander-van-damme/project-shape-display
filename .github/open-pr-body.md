@@ -1,98 +1,100 @@
-# DND-114: CAD-design + validate the A1 common-height read target (latch-hinge flag)
+# DND-117: restructure repo to `08-integrated-designs/` (retire `09-`/`10-`)
 
 ## What changed
 
-[DND-113](/DND/issues/DND-113) left the A1 **read/verify axis UNRESOLVED**: the
-as-drawn reader targets the **column top face**, which moves `TRAVEL = 40 mm`
-with the state, so a down cell is read at a ~42 mm gap with a ~24.5 mm spot
-(4.82 pitches) swamped ~441× by up neighbours — a **silent wrong-cell failure**
-that defeats A1's readback/retry reliability advantage. DND-114 turns the DND-113
-**PROPOSED** common-height target into a **CAD-validated artifact**.
-
-- **Cell CAD** (`08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad`): a
-  parameterised common-height flag. **CH-A (adopted)** — a frame-fixed reflective
-  vane on the frame cradle in the latch lane, top face at
-  `z = TRAVEL + 3 = 43 mm`; because the cradle is frame-anchored, the target z
-  does **not** move with the column, so **Δz = 0 by construction** for both
-  states. **CH-B (fallback)** — an arm-carried flag at radius `r` whose mean z
-  shifts by the hinge arc. New `part="flag"` printable selector and self-checks.
-- **Reader CAD** (`08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad`): the flag is
-  read at **one fixed standoff** (1.0 mm, dedicated 0.60 mm aperture); the
-  schematic DND-113 flag is replaced by the real target + `flag_reader_head()`,
-  with flag-vs-neighbour self-checks.
-- **Model** (`08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py`):
-  `common_height_read_target()` now reports the **adopted** CH-A target (Δz=0)
-  and the CH-B bound; new `flag_read_contrast()` computes the fixed-standoff
-  geometry; `read_resolution_bound()` records both the as-drawn defect and
-  `resolves_single_cell_with_common_height_target = True`.
-- **Render** (`08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py`): renders +
-  mesh-validates the `flag` part and **fails hard** if the common-height checks
-  do not pass.
-- **Docs:** new ADR
-  [`07-evidence-and-decisions/dnd114-a1-common-height-read-target.md`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/dnd114-a1-common-height-read-target.md);
-  README §4.2a / §4.7 / §7 / §9 / §10 and the evidence index updated from
-  "proposed" to "adopted + CAD-validated".
-- **Gate/CI:** new
-  [`falsifier_dnd114_checks.py`](https://github.com/sander-van-damme/project-shape-display/blob/main/07-evidence-and-decisions/falsifier_dnd114_checks.py)
-  (7 attacks, `--gate` exits 0), CI-wired; the DND-113
-  `reliability_mask_checks.py` "no artifact" check is superseded by DND-114
-  checks (64/64 pass).
+The numbered root flow now **terminates at 08**. `08-integrated-designs/` is the single
+container for complete machine architectures, and the old per-design top-level stages are retired.
+This is an **information-architecture migration** ([DND-116](/DND/issues/DND-116) parent); no
+engineering conclusion changed.
 
 ## Engineering question addressed
 
-Can A1 read a **single cell at one fixed standoff for both states**, removing the
-state-dependent-standoff defect that DND-112/DND-113 identified?
+How should the repository represent alternative machine architectures so that a new architecture
+does **not** create a new numbered engineering stage (`09-`, `10-`, `11-`, …)? Stage 08 must hold
+multiple integrated designs with distinct statuses, while incomplete exploration stays in the
+candidate/experiment stages.
 
-## Evidence produced (CALCULATION + CAD — no print, no purchase, no measurement; DND-27)
+## Moves (git-aware, history preserved)
 
-| Item | Value | Check |
-|---|---:|---|
-| CH-A target | frame-fixed vane, top z = 43 mm | **Δz = 0.000 mm** |
-| CH-B hinge-arc Δz (r = 1.20 mm, 30° swing) | 0.621 mm | inside the ±1.0 mm DoF |
-| Max CH-B radius in DoF | 1.932 mm | `DoF / (2·sin15°)` |
-| Flag-read spot (a = 0.60 mm, g = 1.0 mm) | 1.136 mm | — |
-| Spot X half-width vs neighbour clearance | 0.568 vs 1.055 mm | **PASS**, margin 0.487 mm |
-| Spot vs flag Y width | 1.136 vs 1.60 mm | **PASS** |
-| R1/G2 re-check | fixed standoff | 42 mm gap / 24.5 mm spot / 441× ratio **eliminated** |
+| Old | New |
+|---|---|
+| `08-current-design/` | `08-integrated-designs/s5r-shared-drive-register/` |
+| `10-reliability-mask/` | `08-integrated-designs/a1-reliability-first/` |
+| `09-low-cost-variant/s6lc/` | `08-integrated-designs/s6lc-low-cost/` |
+| `09-low-cost-variant/*` (S5-R-trim negative result, divergent machines, primitives, sourcing, reliability primitives/machines) | `06-experiments/test14_low_cost_program/` (exploratory provenance — **not** a promoted integrated design) |
 
-- Watertight meshes rendered by **real OpenSCAD + trimesh validation**
-  (`flag.stl` 0.44 × 1.6 × 0.82 mm; reader head re-rendered).
-- `falsifier_dnd114_checks.py --gate` exits 0; the DND-112 gate and the
-  reliability-mask regression suite (64/64) still pass.
+`09-low-cost-variant/README.md` and `divergent/README.md` link to the selected S6-LC and to
+`07-evidence-and-decisions`; the divergent A1/A2/A3 and the DND-106/DND-107 machines remain
+**architecture candidates / experiments**, not stage-08 designs.
+
+## New documentation
+
+- **`08-integrated-designs/README.md`** — stage entry point: what qualifies for stage 08 (integrated
+  machine architecture, **not** physical validation); multiple designs may coexist; status table read
+  from the repo; where new exploratory designs belong; and the explicit rule that future alternative
+  designs must **not** create new numbered root stages. Status vocabulary: CANDIDATE, PROMOTED,
+  SUPERSEDED, REJECTED, MEASUREMENT-GATED, ARCHIVED.
+- **`CONTRIBUTING.md`** — durable repository contribution rule: *new machine architectures do not
+  receive new numbered root directories*.
+- Per-design status/relocation notes in each design README.
+- Root `README.md`, `01-project-description`, `04-architecture-candidates`, `06-experiments`,
+  `07-evidence-and-decisions` updated so the flow ends `07 -> 08 integrated designs`.
+
+## Status assigned (read from the repository, not guessed)
+
+| Design | Primary idea | Status | Evidence class |
+|---|---|---|---|
+| S5-R | shared-drive programmable rotary register | **PROMOTED** (historical single-winner; slicer-ready package of record) | CAD + CALCULATION; measurement-only residue |
+| S6-LC | low-cost broadcast / mask-gate | **MEASUREMENT-GATED** (mission gates pass; per-cell reliability G8 unresolved) | CAD + CALCULATION |
+| A1 | binary-latch + shared writer/reader | **CANDIDATE** (selected reliability-first candidate) | CAD + CALCULATION |
+
+## Path fixes (no script left broken)
+
+- Depth-sensitive repo-root derivations updated for the +1-level moves: S5-R fabrication tools
+  (`FAB.parents[1] -> parents[2]`), A1 `reliability_mask(.checks)`, `test12/register_checks.py`.
+- `06-experiments/test14_low_cost_program`: `s5r_ultra(.checks)`, divergent tooling/analysis,
+  `s6lc/analysis/render_s6lc_images.py` sys.path.
+- `07-evidence-and-decisions/falsifier_dnd74_checks.py` and `falsifier_dnd91_checks.py` re-pointed
+  to `08-integrated-designs/s6lc-low-cost/`.
+- `.github/workflows/ci.yml`, `.github/open-pr-body.md`, `tools/validate/validate_geometry.py`,
+  `tools/validate/readme_s5r_coherence.py` updated.
+
+## Historical truth preserved
+
+ADR-002 (`convergence-decision-2026-09-b.md`) keeps its original wording ("promoted to
+`08-current-design/`") with a **relocation note**; the 07 README carries one consolidated relocation
+note for pre-DND-117 records. Links are repointed; wording is not rewritten.
+
+## Verification (commands + results)
+
+Evidence class: **CAD + CALCULATION** over sourced listings. No print/measurement
+([DND-27](/DND/issues/DND-27)).
+
+- `08-integrated-designs/s5r-shared-drive-register/fabrication/tools/fab_package_checks.py` → **GATE PASS (C1–C8)**
+- `tools/validate/readme_s5r_coherence.py` → **GATE PASS (R1–R6)**
+- `tools/validate/validate_geometry.py --no-render` → **HARNESS OK**
+- `render_images.py --check` → PASS (45 images); `render_machine.py --check` → PASS (8 images);
+  `gen_manifests.py` reproduces (14 parts, 25,661 pieces)
+- `a1-reliability-first/analysis/reliability_mask_checks.py` → **64/64**; `a1_writer_rate.py` → OK
+- `07-evidence-and-decisions/falsifier_dnd112_checks.py --gate` → **CLEAN**; `falsifier_dnd114_checks.py --gate` → **CLEAN**
+- `s6lc-low-cost/analysis/s6lc_checks.py` → **48/48**; `s6lc_bom_reratify_checks.py` → **68/68**
+- `test14_low_cost_program/s5r_ultra_checks.py` → **19/19**; divergent/primitives/reliability gates → PASS
+- `07/falsifier_dnd74_checks.py` → 31/31; `falsifier_dnd91_checks.py` → 37/37; `falsifier_dnd104_checks.py` → 26/26
+- 06 `test08`–`test13` and test12 `s5r_*`/`falsifier` checks → PASS
+- **All markdown relative links resolve (0 broken).**
+- Re-grep: no `*.py`/`*.sh`/`*.yml`/`*.scad` operationally references `08-current-design`,
+  `09-low-cost-variant` or `10-reliability-mask`; remaining occurrences are historical
+  comments/docstrings and intentional relocation notes.
 
 ## Assumptions
 
-- Latch toggle swing 30° (assumption-class); flag-read aperture 0.60 mm and
-  standoff 1.0 mm (assumption-class); all optical/device constants unchanged
-  (assumption-class).
+- The chosen semantic names (`s5r-shared-drive-register`, `s6lc-low-cost`, `a1-reliability-first`)
+  match the content's own architectural identities.
+- The low-cost program's negative results / divergence / primitives are experimental provenance, so
+  they belong in `06-experiments/` rather than stage 08.
 
-## What passed / failed
+## Remaining uncertainty / next
 
-- **Passed:** CH-A Δz=0; CH-B Δz-in-DoF; flag fits the lane in X; flag spot
-  clears the neighbour body; flag spot fits the flag footprint; the as-drawn
-  top-face defect is still recorded (not erased).
-- **Failed:** the naive reuse of the 2.0 mm top-face aperture at the flag does
-  **not** clear the neighbour (2.54 mm spot > 2.11 mm lane) — hence the dedicated
-  0.60 mm flag-read aperture. This is captured in the CAD self-checks.
-
-## What remains uncertain
-
-- The **state-encoding shutter** geometry (how the latch arm's silhouette
-  modulates the CH-A vane) is identified but not yet dimensioned — a bounded CAD
-  detail, not a physics risk.
-- The flag standoff/aperture are assumption-class; no physical validation (DND-27).
-- The ±0.264 mm gantry registration is now a **secondary** concern, not the
-  binding read limit.
-
-## Most informative next test
-
-Dimension the **state-encoding shutter** in the cell CAD (arm silhouette vs the
-CH-A vane at the fixed standoff) and confirm the binary bright/dark contrast
-margin at 1.0 mm — still CALCULATION + CAD only (DND-27).
-
-## Cross-references
-
-- Parent: [DND-113](/DND/issues/DND-113), PR #89 (read-mechanism correction).
-- Program: [DND-102](/DND/issues/DND-102); gate: [DND-110](/DND/issues/DND-110).
-- Evidence class: CALCULATION + CAD only; no print/purchase/measurement
-  ([DND-27](/DND/issues/DND-27)); no board contact ([DND-32](/DND/issues/DND-32)).
+- S6-LC keeps an unresolved per-cell reliability gate (measurement-only under DND-27); A1's
+  promotion remains a proposal for the next convergence gate. Neither is affected by this migration.
+- Most informative next test: none specific to this migration; the restructure is verified.
