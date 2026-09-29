@@ -1,66 +1,53 @@
-# DND-122: independent re-verification of the DND-121/DND-119 shutter corrections (A5/A6/A7/A9)
+# DND-121: record the shutter crosstalk modelling-convention residual + fix the own-column clearance typo
 
 ## What changed
 
-- **Falsifier checker** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py`:
-  two further independent attacks added:
-  - **A13 (`adr_numbers_match_model`)** — imports the model live and checks that the
-    numbers the ADR/README quote match what the code produces (headline on/off and
-    the ±0.20 mm reader clearance). Guards the DND-112/DND-111 defect class.
-  - **A14 (`mc_onoff_gate_includes_crosstalk`)** — checks whether the tolerance MC's
-    own on/off gate carries the in-cone term that `contrast_passes` carries.
-- **Falsifier register** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.md`:
-  table extended to A13/A14; new "DND-122 re-verification note".
+No geometry change, no numeric change to any gated result. Two small doc-accuracy fixes
+on top of the merged DND-119 + DND-122/123 state:
+
+- **Own-column clearance typo:** `3.41 mm → 3.42 mm` in the DND-115 ADR §2/§9 and both
+  READMEs. The model's `sweep_z_min − TRAVEL = 43.420 − 40 = 3.42 mm`; 3.41 was a
+  hand-typed slip.
+- **Documented residual (`§3` of the ADR):** the crosstalk term `rho·A_nb/g_nb²` is an
+  **area-scaled** quantity added to the **unit-area** vane proxy `rho/g_vane²`. The quoted
+  `~4.6%` neighbour/vane ratio (equivalently `6.37×`) therefore depends on the area
+  reference; a dimensionally consistent treatment scaling both sources by the detector's
+  actual read-spot area gives `2.1%` and `6.78×`. Every convention leaves the on/off ratio
+  far above the 2× gate, so no gate outcome or design decision changes — recorded as an
+  evidence-class residual.
 
 ## Engineering question
 
-Were the DND-118 audit findings (A5/A6/A7/A9) **correctly and honestly** applied —
-mechanism *and* the numbers cited to support it — and may the DND-115 read axis be
-cited as closed?
+Is the DND-115 crosstalk correction's quoted ratio sensitive to a modelling convention in
+a way that should be disclosed, and are the ADR's quoted geometric margins exact?
 
-## Findings
+## Evidence produced (CALCULATION + CAD only)
 
-- **The corrections are on main via [DND-119](/DND/issues/DND-119) (PR #95), not the
-  DND-121 branch the ticket named.** DND-121 (`cto/dnd121-shutter-framing` @
-  `9841736`) is a **parallel, never-merged** correction; main's DND-119 is the live
-  artifact and does the same work: crosstalk modelled + gated, "off-beam" wording
-  corrected to weakly-in-cone, absorber-DoF claim downgraded, MC aperture plane
-  de-tautologised.
-- **A5/A6/A7/A9 — PASS** on main, independently re-verified (cone radius 1.286 mm vs
-  1.055 mm offset → in-cone by 0.231 mm; term gate; MC aperture ±0.10/±0.20 mm).
-- **A13 — PASS on main, after one self-correction.** The model gives headline ideal
-  **7.72×** and crosstalk-corrected **6.37×**; the ADR carries the explicit 6.37×
-  gate row and `contrast_passes` requires `neighbour_crosstalk_gated` AND
-  `on_off_return_ratio_with_crosstalk ≥ 2`. Accepted 3 µm rounding: ADR 0.325 mm vs
-  re-run 0.322 mm for the ±0.20 mm reader clearance. **The first A13 cut hard-coded
-  the expected numbers and crashed (UNRESOLVED) on a stale tree; it is now hardened
-  to parse the ADR text and to FAIL (not crash) when the crosstalk term is absent.**
-- **A13 — genuine FAIL on the superseded DND-121 branch.** The branch is a stale
-  *model*, not just stale prose: its `a1_writer_rate.py` returns `on_off_return_ratio
-  = 7.41` (main 7.72) and exposes no crosstalk field; its ADR states no ±0.20 mm
-  clearance. Hardened A13 returns a clean FAIL there. Since DND-121 need not merge,
-  **close DND-121 as superseded by DND-119** rather than correcting its prose.
-- **A14 — PASS with a noted consistency gap.** MC on/off is crosstalk-free (worst
-  4.49×) while `contrast_passes` gates 4.04×; both > 2×. Optional hardening only.
+- Dimensionally consistent recompute: neighbour `ρ·A_nb/g_nb²`, vane `ρ·A_spot/g_vane²` →
+  2.1% ratio, 6.78× on/off. Range across defensible references ≈ 2.9–6.8×, all ≫ 2×.
+- Own-column clearance = 3.42 mm (model `sweep_z_min`).
+- Audit A13 (parses the ADR against the live model) remains MATCH; all gates green.
 
-## Gates run (all green)
+## Assumptions
 
-- `falsifier_dnd115_a1_shutter_audit.py --gate` → **CLEAN 14/14**
-- `falsifier_dnd115_checks.py --gate` → **CLEAN 12/12**
-- `falsifier_dnd114_checks.py --gate` → **CLEAN 7/7**
-- `falsifier_dnd112_checks.py --gate` → **CLEAN 11/11**
-- `reliability_mask_checks.py` → **78/78**
+Assumption-class optical constants unchanged; no print/measurement (DND-27); no board
+contact (DND-32).
 
-## Assumptions / uncertainty
+## Tests / gates run
 
-- CALCULATION + CAD only. No print, no purchase, no measurement (DND-27). No board
-  contact (DND-32). Nothing here is a physical validation.
-- The ~4.6% in-cone crosstalk figure and the 6.37×/7.72× ratio pair rest on
-  assumption-class optical constants; the mechanism and clearances are geometric.
+- `falsifier_dnd115_a1_shutter_audit.py --gate` → CLEAN (14/14).
+- `falsifier_dnd115_checks.py --gate` → 12/12; `falsifier_dnd114_checks.py --gate` → 7/7;
+  `falsifier_dnd112_checks.py --gate` → 11/11.
+- `reliability_mask_checks.py` → 78/78; `a1_writer_rate.py` → exit 0.
 
-## Next test
+## What passed / failed
 
-- Close [DND-121](/DND/issues/DND-121) as superseded by DND-119.
-- Optional A14 hardening (add the crosstalk term to the MC gate).
-- Physical coupon (linkage force/friction/wear + real reflectance) is the only route
-  to retire the measurement-only residuals — a human/external handoff (DND-27).
+**Passed:** doc accuracy restored; the convention residual is disclosed; nothing regressed.
+**Failed:** nothing.
+
+## Remaining uncertain / next test
+
+The crosstalk term's absolute magnitude remains convention-sensitive (disclosed). No
+physical coupon is justified. If ever authorised, a single printed A1 cell + vane +
+shutter + one LED/PD pair measured at 1.8 mm standoff (assert on/off ≥ 2×) is the cheapest
+falsifier — a physical handoff (DND-27).

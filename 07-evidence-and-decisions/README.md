@@ -352,7 +352,7 @@ does not.
   absorber (ρ ≈ 0.05), so no state-dependent target z is reintroduced.
 - **Standoff revision:** the adopted fixed standoff is **1.8 mm** with a **0.44 mm** aperture (the
   DND-114 1.0 mm window is infeasible for a 0.44 mm flap under printed tolerances). Swept flap clears
-  the neighbour body by **0.280 mm**, the own column by **3.41 mm**.
+  the neighbour body by **0.280 mm**, the own column by **3.42 mm**.
 - **Tolerance stack-up:** worst-case + a **200k-draw Monte Carlo** (`shutter_tolerance_mc()`): zero
   failures on every margin at realistic (±0.10 mm) frame pitch tolerance; the binding term is
   inter-cell pitch, retired by a single monolithic print. **Corrected by [DND-119](/DND/issues/DND-119):**

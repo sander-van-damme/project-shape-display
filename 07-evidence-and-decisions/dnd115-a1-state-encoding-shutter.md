@@ -78,7 +78,7 @@ frame-fixed vane top** (`Δz = 0`); only the *shadow* is state-dependent.
 | Reader standoff / aperture | **1.8 mm / 0.44 mm** | CAD (DND-115 revision) |
 | Read spot | 1.405 mm | `a + 2·g·tan15°` |
 | Swept flap neighbour clearance | **0.280 mm** | CAD envelope |
-| Swept flap own-column clearance | **3.41 mm** | CAD envelope |
+| Swept flap own-column clearance | **3.42 mm** | CAD envelope |
 
 ## 3. The state-encoding contrast (CALCULATION)
 
@@ -123,6 +123,17 @@ claim-framing/method defects are corrected here with **no geometry change**:
   (±0.10 mm; hostile ±0.20 mm) and the aperture check is fail-able. Worst sampled
   aperture clearance is **+0.434 mm** nominal and **+0.325 mm** at ±0.20 mm —
   still positive, so the design survives; the method now demonstrates it.
+
+**Residual modelling-convention caveat (DND-121).** The crosstalk term
+`rho·A_nb/g_nb²` is an **area-scaled** quantity added to the **unit-area** vane
+proxy `rho/g_vane²`. The `~4.6%` neighbour/vane ratio (equivalently the quoted
+`6.37×`) therefore depends on the choice of area reference: a dimensionally
+consistent treatment that scales both sources by the detector's actual read-spot
+area gives `2.1%` and `6.78×`. Every defensible convention leaves the on/off
+ratio **far above the 2× gate**, so this does not change the gate outcome or any
+design decision; it is recorded as a presentational/evidence-class residual. The
+audit's A13 attack pins the ADR's quoted figures to the model's actual output, so
+the number cannot drift silently.
 
 ## 4. The DND-115 revision to the DND-114 standoff (IMPORTANT)
 
@@ -229,7 +240,7 @@ read spot, the visible state 0%, a **7.72× on/off return ratio** (gate 2×), wi
 the reflective target still frame-fixed (`Δz = 0`). The recommended,
 tolerance-robust configuration uses a **1.8 mm standoff / 0.44 mm aperture** (the
 DND-114 1.0 mm standoff is infeasible under the stack-up); the swept flap clears
-the neighbour body by 0.280 mm and the own column by 3.41 mm, and the Monte Carlo
+the neighbour body by 0.280 mm and the own column by 3.42 mm, and the Monte Carlo
 stack-up passes at zero failures under realistic tolerances. **DND-119 corrected
 the claim framing** from the DND-118 audit with no geometry change: the neighbour
 crosstalk is now **modelled and gated** (physical in-cone ratio 0.068, corrected
