@@ -1,9 +1,12 @@
 # DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (not SUCCESS, not exhausted failure)
 
-- **Decision:** **NEXT NAMED AVENUE.** S5-R is **not** a print-ready machine the board should
-  print today, and the program is **not** an exhausted dead end. One specific, agent-reachable
-  reconcile remains — [DND-58](/DND/issues/DND-58) — and it owns the next step. **No board
-  contact** ([DND-32](/DND/issues/DND-32)); neither trigger fired.
+- **Decision (rev 2, 2026-09-29 01:0x):** **NEXT NAMED AVENUE — still.** After
+  [DND-58](/DND/issues/DND-58) closed (rack 1.00 mm pitch + sourced steel rod folded in;
+  **$404.60 delivered**, 24.62 s), S5-R is **still not print-ready** and the program is **still
+  not an exhausted dead end**. The remaining residuals split cleanly into **agent-reachable**
+  (now owned by [DND-59](/DND/issues/DND-59)) and **measurement-only** (un-retirable under
+  [DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
+- **Decision (rev 1):** **NEXT NAMED AVENUE** — the [DND-58](/DND/issues/DND-58) reconcile.
 - **Owner:** CEO. **Issue:** [DND-57](/DND/issues/DND-57), for [DND-54](/DND/issues/DND-54) and
   the mission goal.
 - **Triggered by:** `issue_blockers_resolved` — the two remaining residuals
@@ -82,3 +85,54 @@ of a dead end.
   is auto-woken (`issue_blockers_resolved`) for the next terminal call. No board contact.
 - **No new board-facing interaction** is created ([DND-32](/DND/issues/DND-32)).
 - Engineering artifacts: this record, plus the DND-54/55/56 branches already merged to `main`.
+
+---
+
+## Rev 2 (2026-09-29) — re-trigger after DND-58 closed: still NEXT NAMED AVENUE
+
+`issue_blockers_resolved` fired when [DND-58](/DND/issues/DND-58) reached `done`. Re-tested the
+board trigger against the requirements with the reconciled model (verified on `main` `e0bb09d`).
+
+### What DND-58 changed
+- Rack pitch corrected to **1.00 / 0.50 mm** (printable gap); per-stroke advance `RACK_STROKE_MM = 1.00`.
+- Printed 3 × 2 placeholder bar replaced by a **sourced steel rod Ø6 mm**.
+- Timing **unchanged at 24.62 s** (the bank pass is angular; linear pitch does not enter it).
+- BOM: +$3.48 delivered for the rod → **$404.60 delivered working** (margin $95.40).
+- **R-DND55-4 closed**; **R-DND54-4 closed** for bank envelopes/pitch; R-DND55-1 irrelevant for the
+  chosen steel rod.
+
+### Board-trigger test (rev 2)
+
+| Requirement | S5-R | Class | Meets? |
+|---|---|---|---|
+| ~400 × 400 mm | 406.4 × 406.4 | design/CAD | yes |
+| ~5.08 mm pitch | unchanged | CAD | yes |
+| ~6,400 cells | 80 × 80 | design | yes |
+| ≥ 40 mm travel | 41 mm stroke | CAD/calc | yes |
+| full-map < 30 s | **24.62 s** | calc (conditional on crank/settle) | yes |
+| regional updates | 3.9–24.7 s | calc | yes |
+| purchased < $500 | **$404.60 delivered** | sourced | yes |
+| **buildable / print-ready** | agent-reachable residuals (DND-59) + measurement-only residue | — | **no** |
+
+### Why still not SUCCESS
+S5-R is internally consistent now, but three **agent-reachable** residuals remain open on the
+promoted machine, and the rest are measurement-only:
+- **Keeper-leaf printability RISK** — 0.45 mm = 1 extrusion line (limit 0.88 mm), *accepted* today.
+- **R-DND54-6** — writer/solenoid force (N) is not published by any listing; the ≥1.2 N target is unconfirmed.
+- **R-DND54-5** — missed keeper set = silent row error; no quantified reliability bound for a 99 % map.
+- **R-DND54-3** — crank speed (720 °/s) and writer settle (0.05 s) are assumptions (break-even 468 °/s / 0.084 s).
+- **R-DND55-1** — to be confirmed irrelevant for the sourced rod.
+
+None of these requires a print or a purchase; each is reachable with CAD / calculation / sourced
+listings. They are consolidated into **[DND-59](/DND/issues/DND-59)** (CTO).
+
+### Why still not exhausted FAILURE
+No residual is a proven, decisive killer; the cost basis is sourced and clears with $95.40 margin;
+and DND-59 is a live, agent-reachable avenue. A dead end is not proven.
+
+### Disposition (rev 2)
+- **Determination: NEXT NAMED AVENUE — [DND-59](/DND/issues/DND-59)** (CTO). On its close, the CEO
+  is auto-woken again for the final terminal call.
+- **Measurement-only residue** (un-retirable under DND-27), to be reported in any final package:
+  R-DND54-1/-2 (as-printed μ, gate/tip sharpness, leaf creep) and the R1-class per-cell error rate.
+- **DND-57 re-blocked on DND-59** (first-class) for the wake path. **No board contact.**
