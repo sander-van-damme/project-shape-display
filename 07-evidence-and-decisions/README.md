@@ -89,32 +89,30 @@ Three findings, all **calculation/sourced**, body review, no physical evidence:
 
 ### Falsifier adversarial audit of the S6-LC ultra-low-cost machine (DND-74, 2026-09)
 
-[`dnd74-s6lc-falsification.md`](dnd74-s6lc-falsification.md) adversarially audits the
-[CTO-selected ultra-low-cost machine S6-LC](../09-low-cost-variant/s6lc/README.md)
-([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)) on cost, requirement
-preservation and mechanism. Reproducible checks:
-[`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated).
+[`dnd74-s6lc-falsification.md`](dnd74-s6lc-falsification.md) is the **complement to the
+DND-91 audit below**: it adds the one break DND-91 did not find — the lift-axis gate is
+sized on 1/8 the load — and converges with DND-91 on cost, ceiling, timing, reliability
+and regional behaviour. Reproducible checks:
+[`falsifier_dnd74_checks.py`](falsifier_dnd74_checks.py) (24 checks, CI-gated). Target:
+[`09-low-cost-variant/s6lc/`](../09-low-cost-variant/s6lc/README.md)
+([DND-72](/DND/issues/DND-72)/[DND-83](/DND/issues/DND-83)).
 
-**Verdict: the architecture family survives, the machine is not decision-ready.** Seven
-attacks; three break real claims, four are bounded:
+**Unique break — lift-axis gate G3.** `lift_axis()` computes the platen load on
+`CELLS_PER_BANK` (800) while the mechanism writes the **whole 6,400-cell board** in one
+global stroke. Corrected, the load is 2,560 N → **≥1.63 N·m** needed vs a 0.30 N·m NEMA17
+(0.41 N·m per screw on four screws) → **fails 5.4×**, even gravity+pawl only fails 2.2×.
+DND-91 audits the lift axis only under the unloaded-product assumption (its A7); this
+factor-8 input error is new.
 
-1. **Lift-axis gate G3 is BROKEN.** `lift_axis()` computes the platen load on
-   `CELLS_PER_BANK` (800) while the mechanism writes the **whole 6,400-cell board** in one
-   global stroke. Corrected, the load is 2,560 N → **≥1.63 N·m** needed vs a 0.30 N·m
-   NEMA17 (0.41 N·m per screw on four screws) → **fails 5.4×**. This is the S6-LC analogue
-   of S5's K7 motor cliff.
-2. **Release-force ceiling is circular.** The "296 N ceiling" is S1's own banked output
-   (0.37 N × 800), not an independent structural limit; S6-LC compares its result to it.
-3. **Regional updates are not "bank-local".** One global platen means the other seven
-   banks must be masked "no-change" for every stroke — full-board mask work.
-4. **Cost survives but headroom collapses** from $87.87 to **$7.83** once six honest
-   allowance lines (+$69) are added.
-5. **Mask write is load-bearing**: off-line prep hides a 2,560 s serial punch (needs
-   ~427 ops/s to fit 30 s). A real product constraint, stated honestly but under-specified.
-6. **No per-cell feedback** ⇒ at 0.01 % per-cell error, P(all 6,400 correct) = **52.7 %**.
+**Convergent with DND-91:** cost headroom collapses $87.87 → **$7.83** with +$69 honest
+allowances; the "296 N ceiling" is circular (DND-91 A3); the regional update is not
+bank-local (A8); the mask write is load-bearing (2,560 s serial punch; 30 s needs 427 ops/s);
+no per-cell feedback gives P(all 6,400 correct) = **52.7 %** at 0.01 % (A6); timing survives
+even with mask-index overhead (A4). This report **defers to DND-91 A1/A2 on pawl geometry
+and cell fit** (the SCAD leaf is 0.45 mm and overflows the pitch band).
 
-The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write) and a
-re-run of the S6-LC gate, not a promotion.
+The correct next step is a CTO fix to `lift_axis()` (or a genuinely banked write), combined
+with the DND-91 pawl/CAD fixes, then a re-run of the S6-LC gate.
 
 ### Falsifier review of the S5 promotion (DND-36)
 

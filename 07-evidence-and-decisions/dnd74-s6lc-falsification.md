@@ -1,4 +1,4 @@
-# Falsifier adversarial audit — DND-74: the S6-LC ultra-low-cost machine
+# Falsifier adversarial audit — DND-74: the S6-LC ultra-low-cost machine (complement to DND-91)
 
 - **Status:** Independent review (Falsifier). Adversarial, not consensus. A refutation
   is a success; failed ideas are recorded as evidence.
@@ -10,6 +10,19 @@
   [DND-72](/DND/issues/DND-72), consolidated by [DND-83](/DND/issues/DND-83).
 - **Issue:** [DND-74](/DND/issues/DND-74). Prior Falsifier audits:
   [DND-5](/DND/issues/DND-5), [DND-36](/DND/issues/DND-36), [DND-46](/DND/issues/DND-46).
+- **Relationship to the sibling audit [DND-91](/DND/issues/DND-91).** The sibling
+  [`dnd91-s6lc-falsification.md`](dnd91-s6lc-falsification.md) (PR #75, on `main`) audits the
+  *same* target and **supersedes** this report on the pawl geometry and cell fit: its **A1**
+  shows the SCAD pawl overflows the pitch band (`PAWL_T` 0.90 > owned 0.74 mm lane), and its
+  **A2** shows the SCAD leaf is `PAWL_T/2 = 0.45 mm`, so the true release is ~0.020 N, 8x
+  softer than the model's 0.160 N. This report therefore **defers to DND-91 on A1/A2** and does
+  **not** re-assert the 0.160 N figure as physics; where it uses the model's constants it is to
+  test the *model's internal consistency*, which is the point of the one new break below.
+- **Unique contribution of this report.** DND-91 audits the lift axis only under the
+  "platen-unloaded" product assumption (its A7). It does **not** find that `lift_axis()` is
+  sized on **one bank (800 cells)** while the write is **global over 6,400**. That factor-8
+  load error is **Attack 2 below** and is the decisive new finding. Attacks 1/3/4/6/7 are
+  stated as **convergent confirmations** of DND-91 A5/A3/A6/A4/A7, flagged as such.
 - **Evidence discipline:** every finding below is a **calculation on the repository's own
   declared constants**, or a **sourced-fact reading of repository files**. Nothing here
   is measured; nothing here is a physical test. No board contact is made or requested.
@@ -25,25 +38,30 @@ board spends a print on it.
 
 ## Headline
 
-**Seven attacks. Three break real claims, four are bounded.** The single decisive
-break is **Attack 2**: the lift-axis gate (`G3`) was computed on **one bank's worth of
-cells (800)** while the mechanism writes the **whole 6,400-cell board** in one platen
-stroke. Correcting that input fails G3 by ~5.4x (needs >=1.63 N·m vs a 0.30 N·m NEMA17)
-— the S5 "K7 motor cliff" analogue. Cost, timing and geometry survive; the
-release-force ceiling is circular (Attack 5); the mask-write and regional-update
-claims reach outside the visible budget in ways that must be stated as product
-limitations, not hidden (Attacks 3 and 3b).
+**Seven attacks. One is a new, decisive break; the rest are bounded or convergent with
+DND-91.** The decisive new break is **Attack 2**: the lift-axis gate (`G3`) was computed on
+**one bank's worth of cells (800)** while the mechanism writes the **whole 6,400-cell board**
+in one platen stroke. Correcting that input fails G3 by ~5.4x (needs >=1.63 N·m vs a 0.30 N·m
+NEMA17). DND-91 does not find this (it audits the lift axis only under the unloaded-product
+assumption, its A7). The remaining attacks here **converge with** DND-91 (marked *conv.*) or
+are bounded. Timing and geometry survive; the release-force ceiling is circular (Attack 5,
+*conv.* A3); the mask-write and regional-update claims reach outside the visible budget in
+ways that must be stated as product limitations, not hidden (Attacks 3 and 3b, the latter
+*conv.* A8).
+
+**Read this report with DND-91.** Where the two disagree, **DND-91 wins on pawl geometry and
+cell fit** (its A1/A2); this report wins on the lift-axis load input (its absence).
 
 | # | Attack | Claim under attack | Verdict | Deciding number |
 |---|---|---|---|---|
-| 1 | Cost ladder honesty | $139.77 parts / $162.13 delivered | **survived (bounded)** | +$69 honest allowances -> $242.17 delivered, $7.83 headroom |
-| 2 | Lift-axis sizing (G3) | 0.30 N·m motor, 1.47x margin | **BROKEN** | 6,400 cells x 0.4 N = 2,560 N -> >=1.63 N·m; 4 screws -> 0.41 N·m each > 0.30 |
-| 3 | Mask-write product statement | "off-line, 7.4 s visible" | **bounded-needs-measurement** | serial punch 2,560 s; 30 s prep needs 427 ops/s |
-| 3b | Regional updates | "bank-local replay" | **BROKEN (claim), mechanism bounded** | one global platen => 7 other banks must be masked "no-change" |
-| 4 | No per-cell feedback / reliability | implicit "all cells correct" | **bounded-needs-measurement** | p=1e-4 -> P(all 6,400 correct)=52.7% |
-| 5 | Release-force ceiling provenance | "128 N vs 296 N ceiling" | **BROKEN (provenance)** | 296 N is S1's own banked *output*, not an independent limit |
-| 6 | Timing completeness | 7.4 s full map | **survived (bounded)** | +4 mask-index moves -> 8.4-11.4 s, still <30 s |
-| 7 | Pawl load holding | "pawl holds column against gravity / terrain load" | **bounded-needs-measurement** | 0.5 N lateral cams toe out of a 0.8 mm pocket |
+| 1 | Cost ladder honesty *(conv. DND-91 A5)* | $139.77 parts / $162.13 delivered | **survived (bounded)** | +$69 honest allowances -> $242.17 delivered, $7.83 headroom |
+| 2 | **Lift-axis sizing (G3)** — *new* | 0.30 N·m motor, 1.47x margin | **BROKEN (new)** | 6,400 cells x 0.4 N = 2,560 N -> >=1.63 N·m; 4 screws -> 0.41 N·m each > 0.30 |
+| 3 | Mask-write product statement — *new angle* | "off-line, 7.4 s visible" | **bounded-needs-measurement** | serial punch 2,560 s; 30 s prep needs 427 ops/s |
+| 3b | Regional updates *(conv. DND-91 A8)* | "bank-local replay" | **BROKEN (claim), mechanism bounded** | one global platen => 7 other banks must be masked "no-change" |
+| 4 | No per-cell feedback / reliability *(conv. DND-91 A6)* | implicit "all cells correct" | **bounded-needs-measurement** | p=1e-4 -> P(all 6,400 correct)=52.7% |
+| 5 | Release-force ceiling *(conv. DND-91 A3)* | "128 N vs 296 N ceiling" | **BROKEN (provenance)** | 296 N is S1's own banked *output*, not an independent limit |
+| 6 | Timing completeness *(conv. DND-91 A4)* | 7.4 s full map | **survived (bounded)** | +4 mask-index moves -> 8.4-11.4 s, still <30 s |
+| 7 | Pawl load holding | "pawl holds column against gravity / terrain load" | **bounded-needs-measurement** | see DND-91 A1/A2; geometry itself is broken |
 
 ---
 
@@ -265,72 +283,77 @@ holds terrain load."
 
 **Attack.** The pawl is deliberately **soft** (low release force = low k) to keep the
 banked release force down. But a single cantilever's stiffness sets both the release
-force *and* the resistance to lateral cam-out. From the model's own constants
+force *and* the resistance to lateral cam-out. **This test uses the model's declared
+constants only for internal consistency; DND-91 A2 shows the real leaf is 0.45 mm (8x
+softer), which makes cam-out even easier.** From the model's own constants
 (k = 0.641 N/mm, pocket depth 0.8 mm):
 
-- A **0.51 N lateral** load fully cams the toe out of the pocket.
-- A 50 g miniature tilted 5 deg gives ~0.04 N lateral (8 % of cam-out) — fine in the
-  static case, but there is **no stated pocket-roof angle**. S1's own spec uses an **8
-  deg undercut** for one-way holding, which *creates* a cam-out component proportional
-  to the axial load; the S6-LC model never states the roof angle, so holding under load
-  is undefined.
+- A **0.51 N lateral** load fully cams the toe out of the pocket. With the DND-91 A2
+  correction (k ~= 0.08 N/mm) the cam-out threshold is ~0.06 N.
+- A 50 g miniature tilted 5 deg gives ~0.04 N lateral — with the corrected k that is a
+  large fraction of cam-out. There is also **no stated pocket-roof angle**; S1's own spec
+  uses an **8 deg undercut** for one-way holding which *creates* a cam-out component
+  proportional to the axial load. S6-LC never states the roof angle, so holding under
+  load is undefined.
 - Vertical load is carried by the pocket floor in compression, but the model gives no
   bearing stress or creep analysis for a 0.9 x 1.2 mm PLA toe under a sustained
   miniature load over hours.
 
 **Consequence.** Not an immediate kill — a near-flat pocket roof carries most axial load
-in compression — but the claim "pawl holds terrain load" is **unquantified**. It hinges
-on a pocket-roof angle and a bearing/creep budget that are not in the model.
+in compression — but the claim "pawl holds terrain load" is **unquantified**, and DND-91
+A2's softer leaf makes it worse. It hinges on a pocket-roof angle and a bearing/creep
+budget that are not in the model.
 
 **Minimal fix.** State the pocket-roof angle and add (a) a bearing-stress check on the
-toe/pocket shelf at the 5 N abuse load and (b) a creep note; hand a 10-copy coupon with
-spring gauge + 1 N x 1 h hold measurement to the CTO (no print allowed in this env).
+toe/pocket shelf at the 5 N abuse load and (b) a creep note; a 10-copy coupon with spring
+gauge + 1 N x 1 h hold measurement is the cheapest test (no print allowed in this env —
+see DND-91 §6).
 
 ---
 
 ## What survived, and what it means
 
-- **The architecture family is not dead.** Geometry (G1), timing (G4), and the raw cost
-  ceiling (G5/G6) genuinely pass on corrected arithmetic. The cost ladder is optimistic
-  but under the line even after +$69 of allowances.
-- **The machine is not decision-ready.** One program gate (G3) is falsified and one
-  (G2) rests on circular evidence. The "3 bought actuators / 7.4 s / $162.13 / all gates
-  pass" headline must not be quoted until the CTO either re-sizes the lift or banks the
-  write and re-runs the model.
-- **The honest cost of one print.** The cheapest test that would settle the residual
-  physics (pawl release-force spread, friction, pocket-roof holding, creep) is the S1
-  coupon: ~15 columns + 1 pawl + 1 gate, one 10 mm stroke, 10 pawl copies on a spring
-  gauge. That is a **human/external print run** (Bambu X1C, PLA); no print exists yet.
+- **Not even the "survivors" are safe.** This report alone would say geometry (G1) and
+  timing (G4) survive; **DND-91 A1/A2 shows G1 is broken** (pawl overflows the pitch band;
+  leaf section wrong by 8x). After both audits, S6-LC's *only* surviving headline is the
+  raw cost ceiling — and that is bounded with $7.83 headroom.
+- **The machine is not decision-ready.** Two program gates are falsified (G1 by DND-91 A1,
+  G3 by Attack 2 here) and G2 rests on circular evidence. The "3 bought actuators / 7.4 s /
+  $162.13 / all gates pass" headline must not be quoted.
+- **One print would settle the physics, but DND-27 forbids it.** The cheapest test (pawl
+  release-force spread, friction, pocket-roof holding, creep) is the S1-style unit-cell
+  coupon; DND-91 §6 scopes it. Until a print is permitted, those residuals stay qualitative.
 
 ## Evidence-class compliance
 
 | Claim in `s6lc/` | Evidence class claimed | Actual | Compliant? |
 |---|---|---|---|
-| Geometry / pitch / cell fit | CAD + calculation | calculation + CAD | yes |
-| Lift torque 1.47x margin | calculation | calculation, **on 1/8 the load** | **no (wrong input)** |
-| Banked release 128 N vs 296 N | calculation | calculation, circular ceiling | **no (provenance)** |
-| Full-map 7.4 s | calculation | calculation, missing mask-index | partial |
+| Geometry / pitch / cell fit | CAD + calculation | DND-91 A1: **CAD overflows the band** | **no (DND-91)** |
+| Pawl release 0.160 N | calculation | DND-91 A2: **8x too stiff (leaf 0.45 mm)** | **no (DND-91)** |
+| Lift torque 1.47x margin | calculation | calculation, **on 1/8 the load** | **no (Attack 2)** |
+| Banked release 128 N vs 296 N | calculation | calculation, circular ceiling | **no (Attack 5)** |
+| Full-map 7.4 s | calculation | calculation, missing mask-index | partial (Attack 6) |
 | Mask prep off-line | product statement | acknowledged limitation | yes (honest) |
-| Pawl holds load | calculation | unquantified (roof angle absent) | **no** |
+| Pawl holds load | calculation | unquantified (roof angle absent) | **no (Attack 7)** |
 | CAD mesh watertight | CAD | real OpenSCAD + trimesh | yes |
-| Bought-actuator count 3 | sourced-class | sourced-class, soft lines | partial |
+| Bought-actuator count 3 | sourced-class | sourced-class, soft lines | partial (Attack 1) |
 
 ## Next actions (owner)
 
-1. **CTO** — fix `lift_axis()` (Attack 2) and re-run `s6lc_checks.py`; update the BOM,
-   the README gate table, and the DND-72/83 record. This is the gate-breaking fix.
-2. **CTO** — add the honest allowance lines (Attack 1) and either relax the $50 margin
-   check or shed cost.
+1. **CTO** — fix `lift_axis()` (Attack 2, the new break): size for 6,400 cells, or genuinely
+   bank the write, and re-run `s6lc_checks.py`. Combine with the DND-91 A1/A2 pawl/CAD fixes.
+2. **CTO** — add the honest allowance lines (Attack 1) and either relax the $50 margin check
+   or shed cost.
 3. **CTO** — add the reset-carriage torque gate and an independent structural limit
    (Attack 5); add a mask-index timing term (Attack 6).
-4. **Falsifier (this issue)** — the CI gate `falsifier_dnd74_checks.py` locks these
-   findings so a silent re-quote cannot return.
-5. **Human/external (handoff, no print allowed here)** — print the S1 coupon and measure
-   pawl release-force spread and holding; owner = CTO to schedule with the board's print
-   run.
+4. **Falsifier (this issue)** — the CI gate `falsifier_dnd74_checks.py` locks the unique
+   lift-axis finding so a silent re-quote cannot return.
+5. **Print authority** — a unit-cell coupon (DND-91 §6) is the mandatory cheapest test; no
+   print is permitted in this environment ([DND-27](/DND/issues/DND-27)).
 
 ## Residual uncertainties (cannot be closed analytically; DND-27)
 
 - Pawl release-force spread across 6,400 parts (S1-D): only a coupon measures it.
 - As-printed pocket-roof angle, friction mu, creep: measurement-only.
 - Whether any hobby card puncher reaches ~427 ops/s (Attack 3): unverified.
+- Whether the corrected (DND-91 A2) soft pawl can hold load at all: measurement-only.
