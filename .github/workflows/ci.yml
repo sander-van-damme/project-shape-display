@@ -158,6 +158,12 @@ jobs:
           cd 06-experiments/test13_step6_load_structure_power
           python checks.py
           python model.py > /dev/null
+      - name: DND-64 promoted-machine README coherence gate
+        # Fails if 08-current-design/README.md's promoted-machine headline
+        # (machine name, actuator count, full-map time, delivered cost) drifts
+        # from the promoted model s5r_register.py, or if the superseded
+        # incumbent S5 is presented as the current machine / live register.
+        run: python tools/validate/readme_s5r_coherence.py
 
   j2-cad-render:
     # Renders the J2 isolation-rig fixture with a real OpenSCAD and probes the
