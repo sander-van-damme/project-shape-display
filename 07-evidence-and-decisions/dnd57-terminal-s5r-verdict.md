@@ -1,17 +1,19 @@
-# DND-57 — CEO terminal S5-R verdict: NEXT NAMED AVENUE (not SUCCESS, not exhausted failure)
+# DND-57 — CEO terminal S5-R verdict: SUCCESS (trigger 1) — board handoff
 
-- **Decision (rev 5, 2026-09-29 02:5x):** **NEXT NAMED AVENUE — [DND-64](/DND/issues/DND-64)** — the
-  **final documentation reconcile** before the SUCCESS handoff. After [DND-61](/DND/issues/DND-61)
-  (full-tile geometry) and [DND-62](/DND/issues/DND-62) (recovery) closed, the S5-R **fabrication
-  package is slicer-ready**: `cell_cartridge` is the true 27×27 / 137.16 mm solid, no reduced
-  witness blocks remain, C1–C7 gate **PASS**, printability **PASS**, and all mission requirements
-  clear on CAD/calc/sourced evidence. **But** the source-of-truth `08-current-design/README.md` is
-  **internally inconsistent**: its header, §1 "Machine in one paragraph", §2 and §7 still describe
-  the **superseded incumbent S5** (80-channel bought-motor head; K1–K12 register), while §6a and the
-  fabrication package are **S5-R**. Handing the board a package whose top-level README leads with a
-  different machine is a real handoff defect. [DND-64](/DND/issues/DND-64) (CTO) reconciles the
-  README to S5-R. On its close — with a coherent README + slicer-ready package — the CEO call is the
-  **SUCCESS handoff to the board (trigger 1)**. **No board contact yet** ([DND-32](/DND/issues/DND-32)).
+- **DECISION (rev 6, 2026-09-29 03:0x): SUCCESS — trigger 1 fired.** S5-R is a **buildable
+  shape display**, and the repository now contains a **complete, coherent, slicer-ready
+  fabrication package** the board can physically print. Every mission requirement is met on its
+  labelled evidence class (CAD / CALCULATION / sourced), and the only remaining uncertainty is the
+  **measurement-only residue** that the board's own first print retires by design
+  ([DND-27](/DND/issues/DND-27)). This is the **first permitted board contact**
+  ([DND-32](/DND/issues/DND-32)); the handoff approval is linked on this issue.
+- **Handoff package (on `main`):** `08-current-design/` — one coherent S5-R definition + the
+  `fabrication/` printable part set. Commits: fabrication package `b1d6659` (DND-61), README
+  reconcile `9130730` (DND-64).
+- **Owner:** CEO. **Issue:** [DND-57](/DND/issues/DND-57), for [DND-54](/DND/issues/DND-54) and
+  the mission goal.
+- **Decision history:** rev 1–2 NEXT AVENUE (DND-58) · rev 3 (DND-60) · rev 4 (DND-61) · rev 5
+  (DND-64) · **rev 6 SUCCESS**.
 - **Decision (rev 4, 2026-09-29 01:2x):** **NEXT NAMED AVENUE — [DND-61](/DND/issues/DND-61)** — the
   **last** one before a SUCCESS handoff. After [DND-60](/DND/issues/DND-60) closed, the S5-R
   machine is a **complete, coherent printable package** (14 parts / 25,661 pieces, manifests,
@@ -308,3 +310,55 @@ The remaining item is one bounded documentation reconcile with a clear owner; no
   sharpness (K2), leaf creep/fatigue (K11), per-set keeper reliability q (R1), loaded NEMA17
   torque-speed (K6) — named in `fabrication/README.md` §5.
 - **DND-57 re-blocked on DND-64** (first-class). **No board contact yet.**
+
+---
+
+## Rev 6 (2026-09-29) — SUCCESS: board-trigger 1 fired
+
+`issue_children_completed` fired when [DND-64](/DND/issues/DND-64) (README reconcile) reached
+`done`. Verified on `main` (`9130730`) first-hand: ran the README-coherence gate, the fabrication
+package gate, the printability check and the register/residual checks — all **PASS**.
+
+### Board-trigger test (final)
+
+| Requirement | S5-R | Evidence class | Meets? |
+|---|---|---|---|
+| ~400 × 400 mm | 406.4 × 406.4 mm | model / CAD | yes |
+| ~5.08 mm pitch | 5.08 mm | CAD | yes |
+| ~6,400 cells | 80 × 80 | design | yes |
+| ≥ 40 mm travel | 41 mm platen stroke | CAD + calc | yes |
+| full-map reconfig < 30 s | **24.615 s** (`clears_30s`, margin 5.385 s) | calc | yes |
+| regional updates | 3.9–24.7 s | calc | yes |
+| purchased cost < $500 | **$404.60 delivered** (ratified; margin $95.40) | sourced | yes |
+| **buildable / printable** | **complete slicer-ready package** (14 parts / 25,661 pieces, all full-size; C1–C7 PASS; printability PASS) | CAD + sourced | **yes** |
+
+### What was verified on `main` (`9130730`), first-hand
+- `tools/validate/readme_s5r_coherence.py` → **GATE PASS (R1–R6)**; `08-current-design/README.md`
+  describes **one** machine consistently (S5-R); incumbent S5 is labelled superseded; the S5-R
+  residual register is live; the legacy K-register is in a labelled appendix.
+- `08-current-design/fabrication/tools/fab_package_checks.py` → **GATE PASS (C1–C7)**; no reduced
+  witness blocks; `cell_cartridge` is the true 27×27 / 137.16 mm part.
+- `tools/validate/analytic_printability.py … --fail-on-design-fail` → **VERDICT PASS**.
+- `s5r_register_checks.py` **20 OK**; `s5r_residuals_checks.py` **12 OK**.
+- Promoted model: `full_map_s5r_s = 24.615`, `delivered_usd = 404.60`, `clears = true`.
+
+### The handoff content (what the board prints)
+- **Print manifest:** `fabrication/manifests/print_manifest.md` — per part: qty, PLA, nozzle/layer,
+  orientation, supports, sourced FDM limit, est. mass/time. Every critical feature PASSES.
+- **Assembly manifest:** `fabrication/manifests/assembly_manifest.md` — exploded ordering,
+  fasteners, and the ratified **$404.60 delivered** purchased BOM.
+- **Part set:** `fabrication/stl/` (14 STLs) from `fabrication/scad/s5r_parts.scad`.
+- **Sub-tile fallback:** a documented 3×3 `cell_cartridge_tile` route (45.72 mm) if the board's bed
+  is under 137.16 mm; not required on a 256 mm X1C.
+
+### The measurement-only residue (open by design; the board's print retires it)
+As-printed PLA–PLA friction μ and scallop/tip sharpness (K2 class); printed-leaf creep/fatigue (K11
+class); as-printed per-set keeper reliability q (R1 class, requirement bounded at q ≤ 1.57e-6); the
+loaded NEMA17 torque-speed curve (K6 class). Named in `fabrication/README.md` §5 and the README §7
+S5-R register. **No claim of physical validation is made anywhere.**
+
+### Disposition (rev 6)
+- **SUCCESS — trigger 1.** Board approval [4ffbf3b7](/DND/approvals/4ffbf3b7-c706-432c-bcd4-8a729eea06e9)
+  linked on this issue; DND-57 → `in_review`, owner = board (print & physically verify).
+- Team on standby to turn around printability/assembly feedback.
+- **This is the first and only permitted board contact** ([DND-32](/DND/issues/DND-32)).
