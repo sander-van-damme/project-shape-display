@@ -1,82 +1,100 @@
-# DND-104 child: reliability-first envelope (DND-109) + reliability-first machines (DND-107)
+# DND-104: reliability-first low-cost shape display + automatic mask system
 
-Child PR of [DND-104](/DND/issues/DND-104) (reliability-first low-cost shape display).
-Two agent deliverables share this branch:
+Closes [DND-104](/DND/issues/DND-104). Parent [DND-102](/DND/issues/DND-102).
+Children folded into this PR: [DND-107](/DND/issues/DND-107) (InventorBeta
+divergent machines), [DND-109](/DND/issues/DND-109) (CostManufacturing cost +
+printability envelope). [DND-106](/DND/issues/DND-106) (InventorAlpha primitives)
+and [DND-108](/DND/issues/DND-108) (Falsifier pre-registered criteria) land on
+their own branches/PRs.
 
-- **DND-109** (CostManufacturing): the sourced-class cost + FDM-printability **envelope** for the
-  mechanism classes the program is choosing among.
-- **DND-107** (InventorBeta): **three materially different reliability-first whole machines**
-  (2 non-mask + 1 mask) screened against the DND-103 reliability gate.
+## What changed
+
+A **new candidate architecture root `10-reliability-mask/`** plus supporting
+divergence and envelope material. `08-current-design/` (S5-R provenance) and the
+existing `09-low-cost-variant/` machine definitions are **untouched**.
+
+- `10-reliability-mask/README.md` — the selected machine definition: mechanism,
+  reliability audit, honest timing, BOM, prototype ladder, decisive falsifier.
+- `10-reliability-mask/analysis/reliability_mask.py` — divergence screen of
+  **seven** materially different architectures, the DND-103 reliability gate,
+  timing decomposition, BOM, and the convergence/selection record.
+- `10-reliability-mask/analysis/reliability_mask_checks.py` — **35/35** pinned
+  regression checks (wired into CI).
+- `10-reliability-mask/analysis/architecture_table.md` — the full per-architecture
+  comparison table (mechanism, actuators, repeated-cell complexity, mask method,
+  reset method, timing, BOM, printability, reliability risks, prototype path,
+  decisive falsifier).
+- `10-reliability-mask/scad/a1_binary_latch_cell.scad` + `cad/stl/*` +
+  `cad/render_record.json` — **real OpenSCAD** unit cell, mesh-validated
+  watertight.
+- `10-reliability-mask/bom_a1.csv` — purchased BOM.
+- `09-low-cost-variant/divergent/reliability_machines_beta.*` — InventorBeta
+  DND-107: three additional complete machines (B1 screw/nut memory, B2 pressure
+  blanket, B3 rotary drum mask) with their own 28 checks + CAD.
+- `09-low-cost-variant/reliability_sourcing/cost_envelope_dnd104.*` —
+  CostManufacturing DND-109: sourced-class cost + FDM-printability envelope.
+- `07-evidence-and-decisions/dnd104-reliability-mask.md` — the decision record;
+  evidence matrix updated.
+- `.github/workflows/ci.yml` — DND-104 checks + a `dnd104-cad-render` job.
 
 ## Engineering question
 
-After [DND-103](/DND/issues/DND-103) made reliability and buildability first-class gates: which
-complete machine minimizes **what must work correctly 6,400 times**, at <$250 purchased and
-<30 s full-map — and what does its bought hardware cost and print?
-
-## DND-107 — reliability-first machines (this change)
-
-Three complete machines, none a trim of S6-LC and none like each other. Each answers the ten
-functional jobs, has a sourced-class BOM, an honest 7-stage timing decomposition, the DND-103
-per-architecture reliability audit, and the cheapest no-print test that can kill it.
-
-| | **B1** shared-shaft screw memory | **B2** pressure blanket + hold | **B3** rotary drum mask |
-|---|---|---|---|
-| Mask? | **No** | **No** | Yes |
-| Repeat count of the decision element | 6,400 passive threads | 6,400 binary toggles | **80** row tracks |
-| Compliant per-cell elements | **0** | 6,400 (binary flip only) | 6,400 (hard-stop pawl) |
-| Delivered | $79.33 | **$72.85** | $86.29 |
-| Visible transition | **170.9 s (FAIL)** | **14.26 s (PASS)** | **22.46 s (PASS)** |
-| Verdict | **FAIL_AS_DRAWN** | **PASS** | **PASS** |
-
-- **B1 is a reported failure**, not hidden: `gang_sweep` and `lead_sweep` show the timing-feasible
-  and torque-feasible sets are **disjoint**, so a shared-shaft binary screw memory cannot meet 30 s
-  on a low-cost stepper class. A real negative result.
-- **B2** lifts all 6,400 columns with one common bladder (force margin **+3,520 N**) and holds with a
-  positive 2-state toggle on hard stops. Limit: regional update needs a zoned bladder; terrain is
-  binary 0/40 mm.
-- **B3** writes one drum track per **row** (80 tracks) instead of 6,400 keepers — an **80× reduction**
-  in repeated decisions — and a bad track fails a whole row **visibly**. Limit: drum write is the
-  product (45 s off-line, double-buffered).
-
-New files: `09-low-cost-variant/divergent/analysis/reliability_machines_beta.py` (+ checks),
-`reliability_machines_beta.md`, `scad/b2b3_reliability_cell.scad`,
-`tools/run_reliability_machines_checks.py`, plus a `check_reliability_cell` checker in
-`tools/validate/analytic_printability.py`.
-
-## DND-109 — cost + printability envelope (also in this branch)
-
-Adds the sourced-class cost/printability envelope, 44 bought lines with scenario bands, media
-classification, `PROVISIONAL vs sourced` printability rules, and the per-cell sensitivity result
-(**zero per-cell bought hardware is mandatory**): `09-low-cost-variant/reliability_sourcing/`.
+Which machine actually answers DND-103's gate — **"what has to work correctly
+6,400 times?"** — and can it still meet ~400×400 mm / 5.08 mm / 6,400 cells /
+≥40 mm travel / <30 s / <$250 purchased?
 
 ## Evidence produced
 
-- **CALCULATION + CAD only.** No part printed, purchased or measured
-  ([DND-27](/DND/issues/DND-27)).
-- Imported S5-R/S6-LC model so the baseline and cost convention cannot drift
-  ($263.05 delivered, 11.96 s; ×1.16 uplift).
-- **DND-107 gate:** 28/28 checks PASS; CAD printability of the B2/B3 repeated features **PASS**.
-- **DND-109 gate:** `cost_envelope_checks.py` all PASS.
+- **Divergence of seven architectures** (A1–A7), then selection: nothing pre-picked.
+- **Reliability gate result.** A1 (`binary-latch + shared writer/reader`) is the
+  **only** architecture with a **structurally zero silent-error set** and the only
+  one passing the tabletop-load gate (DND-91 A7). Every other architecture has
+  ≈6,400 silent elements. On the program model `(1−q)^6400`, at q=1e-4 that is
+  100 % vs 52.7 % map correctness.
+- **Selection:** A1 — two-state columns held by an over-centre latch between two
+  printed hard stops (zero compliant parts deciding correctness, zero precision
+  contacts/cell), a shared 2-axis gantry that writes only changed cells then
+  **reads every cell back** so a failed toggle is detected and re-driven.
+  **$181.00 parts / $209.96 delivered**, **24.15 s** worst case *including*
+  verification, **4 bought actuators**, no per-cell/no per-row bought actuator.
+- **Honest timing:** no physical mask ⇒ sustained cycle time **equals** visible
+  transition time. Write and verify terms are **computed** from head count × rate.
+- **CAD:** binary-latch unit cell rendered with real OpenSCAD, watertight, bed-fitting.
+- **Full comparison table** with a decisive falsifier recorded per architecture.
+
+## Assumptions
+
+- Writer/reader rate 1 ms/cell at 8 parallel heads (assumption-class; **prototype
+  B is the kill test**).
+- Gantry XY registration over 406 mm, hinge wear, and as-printed hard-stop
+  dimensions are unmeasured.
+- Sourced-class point-in-time prices (2026-09); no quotation obtained.
 
 ## What passed / failed
 
-- **Passed:** DND-107 checks (28/28); B2 and B3 clear cost + 30 s; B3 80× decision reduction;
-  B2 blanket margin; CAD printability. DND-109 envelope gate.
-- **Failed:** B1 as drawn (timing/torque disjoint) — recorded as a negative result. Regional reveal
-  is a stated limitation of B2; drum-write latency a stated limitation of B3.
+- **Passed:** 35/35 DND-104 checks; 28/28 InventorBeta checks; CostManufacturing
+  envelope gate; all pre-existing S5-R/S6-LC/falsifier gates (no regressions).
+- **Failed / rejected (recorded, not hidden):** A2 global interlock, A3 punched
+  film, A4 rewritable comb, A6 embossed tape (6,400 silent elements; A3 also
+  >30 s); A5 (bank-only readback, 6,392 silent); A7 (camshaft repeatability +
+  6,400 silent). InventorBeta's B1 shared driveshaft FAILS as drawn (timing- and
+  torque-feasible sets disjoint).
 
 ## What remains uncertain
 
-- B2 toggle hinge **fatigue life**; B3 drum-track **registration tolerance** — both measurement-only.
-- All force/torque/pressure/timing figures are assumption-class over a sourced model.
-- No full multi-row assembly interference check; only unit cells/witnesses.
+- The 1 ms/cell writer/reader rate and single-cell read resolution — the whole A1
+  reliability advantage rests on prototype B.
+- Gantry registration, hinge wear, printed hard-stop dimensions (measurement-only
+  under [DND-27](/DND/issues/DND-27)).
 
-## Reproduce
+## Most informative next test
 
-```bash
-python 09-low-cost-variant/divergent/tools/run_reliability_machines_checks.py
-python 09-low-cost-variant/reliability_sourcing/cost_envelope_checks.py
-```
+**Prototype A** (one cell: latch toggle + reader distinguish) then **Prototype B**
+(5×5 array: writer/reader scan + a deliberately stuck cell caught by retry) — the
+cheapest tests that bound the A1 falsifier.
 
-Closes [DND-109](/DND/issues/DND-109) and [DND-107](/DND/issues/DND-107).
+## Governance / evidence discipline
+
+CALCULATION over sourced FDM limits + sourced actuator ratings, plus CAD. **No
+print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)). No
+`08-current-design/` change. No board contact ([DND-32](/DND/issues/DND-32)).
