@@ -171,8 +171,12 @@ def main() -> int:
         wt, wtmsg = watertight(stl)
         good = n > 0 and fits and wt and all(s > 0 for s in size)
         ok = ok and good
-        print(f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
-              f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
+        line = (f"[{'PASS' if good else 'FAIL'}] {part}: tris={n} "
+                f"size={size}mm bed={fits} watertight={wt} ({wtmsg})")
+        print(line)
+        if not good:
+            # surface the exact reason as a GitHub annotation so CI is diagnosable
+            print(f"::error title=DND-72 CAD {part} failed::{line}")
         records.append(dict(part=part, tris=n, size_mm=size, fits_bed=bool(fits),
                             watertight=bool(wt), mesh_check=wtmsg, ok=bool(good)))
 
