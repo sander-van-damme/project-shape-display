@@ -108,7 +108,7 @@ which no architecture here (nor S6-LC) can demonstrate analytically.
 ### 3a. Independent pre-registered audit (DND-108) — A1 is CLEAN
 
 The Falsifier wrote a **frozen** adversarial register before this model existed
-([`falsifier_dnd104_criteria.md`](../../07-evidence-and-decisions/falsifier_dnd104_criteria.md),
+([`falsifier_dnd104_criteria.md`](../07-evidence-and-decisions/falsifier_dnd104_criteria.md),
 [DND-108](/DND/issues/DND-108)), with a default-deny contract: any unanswered attack
 is a FAIL for promotion. Pointed at A1 it returns **PRE-REGISTERED CLEAN, 11/11,
 zero unresolved**:
@@ -343,7 +343,7 @@ python 10-reliability-mask/analysis/make_table.py
 | [`cad/stl/`](cad/stl/) | watertight rendered parts (column, latch, cradle) |
 | [`cad/render_record.json`](cad/render_record.json) | mesh-validation record |
 | [`bom_a1.csv`](bom_a1.csv) | A1 purchased BOM |
-| [`../../07-evidence-and-decisions/dnd104-reliability-mask.md`](../../07-evidence-and-decisions/dnd104-reliability-mask.md) | the ADR / decision record |
+| [`../07-evidence-and-decisions/dnd104-reliability-mask.md`](../07-evidence-and-decisions/dnd104-reliability-mask.md) | the ADR / decision record |
 
 ## 10. Residual uncertainty (all measurement-only or product)
 
