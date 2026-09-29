@@ -1,9 +1,15 @@
 # DND-76 — divergent low-cost cell / mechanism primitives (<$250 purchased)
 
+> **Supporting material (folded, DND-94).** This is the former
+> `09-lowcost-alternative/primitives/` root, now folded into the authoritative
+> [`09-low-cost-variant/`](../README.md) low-cost root. It is **not** the
+> authoritative low-cost machine — that is [`../s6lc/`](../s6lc/README.md).
+> The primitives are inputs to the DND-71 synthesis; no architecture is promoted
+> here.
+
 **Question.** [DND-71](/DND/issues/DND-71) is developing the ultra-low-cost
 (<$250 purchased, printed parts free) shape display. Its candidate **S6-LC**
-(`09-lowcost-alternative/analysis/s6lc.py`, PR #70 on
-`feat/dnd71-lowcost-alternative`) is a banked broadcast ratchet descending from
+(`09-low-cost-variant/s6lc/analysis/s6lc.py`) is a banked broadcast ratchet descending from
 [Test11 S1](../../06-experiments/test11_threshold_ratchet_s1/): passive printed
 **pawl-in-rack** column memory (5 pockets, 10 mm steps, 0.234 N design release
 force), four **broadcast 10 mm platen strokes**, a **per-bank threshold mask**
@@ -36,9 +42,9 @@ folder does **not** qualify an architecture and does **not** touch
 ## Reproduce
 
 ```bash
-python 09-lowcost-alternative/primitives/primitives.py        # full screen (JSON)
-python 09-lowcost-alternative/primitives/primitives_checks.py # 35 pinned assertions
-python 09-lowcost-alternative/primitives/tools/render_primitives_cad.py  # real CAD
+python 09-low-cost-variant/primitives/primitives.py        # full screen (JSON)
+python 09-low-cost-variant/primitives/primitives_checks.py # 35 pinned assertions
+python 09-low-cost-variant/primitives/tools/render_primitives_cad.py  # real CAD
 ```
 
 The render tool writes watertight STLs to `primitives/stl/` (the `column`, `pawl`,
