@@ -1,84 +1,90 @@
-# DND-65: reconcile the assembly-manifest purchased BOM to the promoted S5-R model
+# DND-72: ultra-low-cost S5-R variant (<$250 purchased) — infeasibility proof + break-even + CAD
 
-Make the board-facing assembly manifest carry the **same purchased BOM as the promoted
-model** ($404.60 delivered working, incl. the sourced steel drive rod), so a board member
-generating a shopping list from the print/build package cannot under-buy or see a total
-that contradicts the handoff headline.
+**Negative result delivered as required.** The promoted S5-R machine **cannot** be brought under a
+**$250 purchased** cost while every other mission requirement is unchanged. This PR proves it,
+produces the **sourced cost ladder**, the **requirement-preservation table**, and the **break-even
+number**, and adds the new subdirectory `09-low-cost-variant/`. `08-current-design/` is untouched.
 
-**Evidence class:** documentation/gate reconcile over already-landed CAD / calculation /
-sourced-listing work. **No print, no purchase, no measurement**
-([DND-27](/DND/issues/DND-27)). **No board contact** ([DND-32](/DND/issues/DND-32)).
+**Evidence class:** CALCULATION over the promoted S5-R model + sourced listings, plus CAD (real
+OpenSCAD). **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)). **No board
+contact** ([DND-32](/DND/issues/DND-32)).
 
 ## Engineering question
 
-`08-current-design/fabrication/manifests/assembly_manifest.md` §"Purchased BOM" was generated
-verbatim from the **pre-DND-58 ratified CSV**
-(`06-experiments/test12_winner_convergence/s5r_bom_ratified.csv`), which produced two real
-inconsistencies:
+Can S5-R ($404.60 delivered / 24.615 s) be re-engineered below **$250 purchased** while keeping
+406.4 × 406.4 mm, 5.08 mm pitch, 6,400 cells, ≥ 40 mm travel, full-map < 30 s, regional updates and
+X1C-buildability?
 
-1. **Total contradicted the handoff headline.** The table total was **$388.10 delivered**,
-   labelled *"TOTAL (working scenario, sourced units)"*. But the promoted model
-   `s5r_register.bom(rows_in_bank=4)` returns **`delivered_usd = $404.60`**. $388.10 is the
-   *optimistic sourced-unit* variant (2 bank ICs, motor $12.39 / writer $2.20, no rod),
-   mislabelled as "working".
-2. **Missing purchased line.** No **sourced Ø6 mm steel drive-rod** row, though assembly
-   step 3 requires the board to source one ([DND-58](/DND/issues/DND-58)).
+## Answer
 
-**Answer:** the manifest + CSV now reconcile line-by-line to the promoted model.
+**No — the sub-$250 space is empty, not merely thin.** The binding term is not the actuators; it is
+the **fixed no-channel purchased base** (frame, lift/drive, supply, loom, fasteners, controller,
+PCB/passives allowance, spares), which is **$218.70 parts → $253.69 delivered** and **by itself
+exceeds the $250 target by $3.69**. Headroom for any actuator is **negative (−$3.18 parts)**. Since
+the base is a floor, **no actuator count can reach $250**.
+
+An exhaustive sweep of the lever space (R = rows-in-bank 2…16, writers 8…80 step 4, bank motors
+1…2; **570 points**) finds **zero** sub-$250 configurations. The cheapest configuration that still
+**preserves every requirement** is **R6-W20-M2 (R=6, 20 writers, 2 bank motors)** at
+**$345.90 delivered / 29.987 s** — the architecture's break-even, **$95.90 above** the target.
 
 ## What changed
 
-- **`s5r_bom_ratify.py::emit_bom_csv`** now emits the **WORKING** scenario at the DND-54
-  allowance units ($12.00 motor / $2.50 writer) + the block's own priced channels + the
-  DND-58 sourced steel rod. Delivered total reconciles to the model's
-  `delivered_usd` (**$404.60**). Adds the **steel drive-rod line**; labels the optimistic
-  **$387.18** as a non-working reference and records the superseded **$388.10** header as a
-  mislabel. A `Q8` selftest re-reads the emitted CSV and asserts TOTAL == model
-  `delivered_usd`, rod present, and scenario labels correct.
-- **`gen_manifests.py::purchased_bom_md`** reads the promoted model `bom(4)` and presents
-  the working figures + **$404.60** total + explicitly labelled non-working scenarios
-  (optimistic $387.18, rod-unpriced $401.12, DND-54 claim $397.53).
-- **`manifests/assembly_manifest.md`** regenerated: steel-rod line, working total $404.60,
-  correct scenario labelling, DND-27 "purchases nothing" note kept.
-- **`fab_package_checks.py`: new gate C8** — fails if the manifest/CSV BOM total contradicts
-  the model's `delivered_usd`, if the steel-rod line is absent, or if **$388.10** is
-  headlined as the working scenario. Verified to **FAIL** (exit 1) on a synthetic drift
-  (rod line removed + total reverted to $388.10).
-- **CI wiring needs no workflow-file change.** C8 lives in `fab_package_checks.py`, which the
-  existing `ci.yml` `fab-package` step already runs (`gen_manifests.py` → `fab_package_checks.py`);
-  the README coherence gate **R1–R6** (`tools/validate/readme_s5r_coherence.py`) is already
-  wired into `engineering-checks` ([DND-64](/DND/issues/DND-64)). So the new gate runs
-  unattended with no `.github/workflows/*` edit (which would have tripped GitHub's
-  maintainer-approval gate for a PR changing workflow files).
-- **READMEs** (`08-current-design/fabrication/README.md`, gate-count C1-C6 → C1-C8) and
-  `s5r_bom_ratify_checks.py` updated for the new working CSV.
+- **`09-low-cost-variant/s5r_ultra.py`** — analytic model. Imports the promoted S5-R model
+  (`s5r_register`, `nx52_head_actuator`, `timing_closure`, `cost_closure`) so it cannot drift.
+  Provides `fixed_base()`, `topologies()`, `budget_scan()`, `cheapest_requirement_preserving()`,
+  `relaxation_ladder()`, `decide()`.
+- **`09-low-cost-variant/s5r_ultra_checks.py`** — **19 CI-style assertions** pinning: base
+  $218.70/$253.69, no sub-$250 point, floor $345.90/R6-W20-M2 (<30 s, <$500), verdict
+  `INFEASIBLE_UNDER_UNCHANGED_REQUIREMENTS`, and the S5-R control ($404.60 / 24.615 s) unchanged.
+- **`09-low-cost-variant/scad/s5r_ultra_cell.scad`** — real OpenSCAD: the unchanged DND-59 unit cell
+  plus the R=6 bank cross-section of the chosen design point.
+- **`09-low-cost-variant/stl/{cell,pawl,keeper}.stl`** — watertight renders;
+  `tools/render_lowcost_cad.py` renders + mesh-validates and fails hard without OpenSCAD.
+- **`09-low-cost-variant/README.md`** — headline, ladder, requirement table.
+- **`07-evidence-and-decisions/dnd72-low-cost-variant.md`** — ADR: cost ladder, topology table,
+  requirement-preservation proof, break-even, failed ideas, falsifier.
+- **CI:** new `lowcost-variant` gate step (model + checks) and a `lowcost-cad-render` job (render +
+  printability).
+- **`tools/validate/analytic_printability.py`** — routes `s5r_ultra_cell` to the existing
+  register-cell checker (geometry is identical).
 
 ## Evidence produced
 
 | Check | Result |
 |---|---|
-| `06-experiments/test12_winner_convergence/s5r_bom_ratify.py --selftest` | **OK** (incl. new Q8 CSV reconcile: $404.60 == model) |
-| `06-experiments/test12_winner_convergence/s5r_bom_ratify_checks.py` | **OK** (11 tests) |
-| `06-experiments/test12_winner_convergence/s5r_register_checks.py` | **OK** (20 tests) |
-| `08-current-design/fabrication/tools/fab_package_checks.py` | **GATE: PASS** (C1–C8) |
-| `tools/validate/readme_s5r_coherence.py` | **GATE: PASS** (R1–R6) |
-| `tools/validate/analytic_printability.py` (`scad/s5r_parts.scad`) | **PASS** |
-| C8 synthetic drift (rod removed + total $388.10) | **GATE: FAIL** (exit 1) — as required |
+| `09-low-cost-variant/s5r_ultra_checks.py` | **19 passed, 0 failed** |
+| `09-low-cost-variant/tools/render_lowcost_cad.py` | **ALL PARTS OK** — cell 5.08×5.08×14, pawl 0.9×0.7×8, keeper 0.9×1.1×4.5, all watertight |
+| `tools/validate/analytic_printability.py … s5r_ultra_cell.scad` | **VERDICT PASS** (no FAIL, no RISK) |
+| `tools/validate/readme_s5r_coherence.py` | **GATE PASS** (R1–R6) — S5-R headline untouched |
 
-Promoted model constants pinned by C8: delivered **$404.60**, parts **$348.79**, steel rod
-**$3.00 parts / $3.48 delivered**.
+Pinned constants: base **$218.70 → $253.69**; S5-R **$404.60 / 24.615 s**; floor **$345.90 /
+29.987 s**; gap **$95.90**.
+
+## Requirement-preservation table (chosen point R6-W20-M2)
+
+| Requirement | Status | Class |
+|---|---|---|
+| 406.4 × 406.4 mm / 5.08 mm / 6,400 cells | preserved | CAD |
+| ≥ 40 mm travel | 41 mm platen stroke | CAD + calc |
+| full-map < 30 s | 29.987 s | CALCULATION |
+| regional updates | common platen ⇒ one stroke | CALCULATION |
+| X1C-buildable | watertight + printability PASS | CAD + sourced limits |
+| **purchased < $250** | **$345.90 — FAILS by $95.90** | CALCULATION + sourced |
 
 ## Assumptions / limits
 
-- Documentation + CI-gate reconcile over landed CAD/calc/sourced work; it changes no model
-  constant, geometry, or sourced price. The manifest derives its total from
-  `s5r_register.bom(4)`, so it tracks the model exactly.
-- The "$388.10" and "$387.18" figures are related but distinct *optimistic* variants
-  (2 bank ICs sourced-unit vs 1 shared bank IC); both are labelled as **not** the working
-  scenario.
-- Residual uncertainty is unchanged and remains **measurement-only** ([DND-27](/DND/issues/DND-27)).
+- The fixed base is inherited as a sourced-plus-allowance bundle; the sweep holds it fixed and
+  varies only the actuator lever space. A **sourced, non-requirement-touching base reduction below
+  $215.52 parts** is the one named falsifier that would overturn the verdict — recorded for
+  [DND-74](/DND/issues/DND-74) to attack.
+- Timing is conditional on the promoted crank/settle assumptions, exactly as S5-R's is.
+- Measurement-only residue unchanged and un-retirable under [DND-27](/DND/issues/DND-27).
 
 ## Most informative next test
 
-None remaining for this issue. On close, [DND-57](/DND/issues/DND-57) auto-wakes the CEO for
-the terminal S5-R call.
+A **sourced search for a cheaper fixed base at equal capability** (frame / lift / supply lines),
+which is the only avenue to <$250. Otherwise the honest disposition for the parent
+[DND-70](/DND/issues/DND-70) is that the <$250 target requires relaxing a requirement or a
+different architecture. On close, gated children [DND-73](/DND/issues/DND-73) /
+[DND-74](/DND/issues/DND-74) auto-wake.
