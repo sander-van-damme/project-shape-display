@@ -65,13 +65,28 @@ DEFAULT_COUPON = (
 def parse_scad_constants(path: Path) -> dict[str, float]:
     """Read `NAME = <number>;` assignments from an OpenSCAD file.
 
-    Only simple numeric constants are read (that is all the coupons use), so
-    the checker tracks the CAD source of truth instead of duplicating values.
+    Follows local `include <file.scad>` / `use <file.scad>` directives (resolved
+    relative to the including file), so a part file that splits its constants
+    into a shared include is read correctly. Only simple numeric constants are
+    read (that is all the coupons use), so the checker tracks the CAD source of
+    truth instead of duplicating values.
     """
-    text = path.read_text()
     consts: dict[str, float] = {}
-    for m in re.finditer(r"^\s*([A-Z][A-Z0-9_]*)\s*=\s*([0-9.]+)\s*;", text, re.M):
-        consts[m.group(1)] = float(m.group(2))
+    seen: set[Path] = set()
+
+    def _ingest(p: Path) -> None:
+        if p in seen or not p.exists():
+            return
+        seen.add(p)
+        text = p.read_text()
+        for m in re.finditer(r"^\s*#?\s*(include|use)\s*<([^>]+)>", text, re.M):
+            _ingest(p.parent / m.group(2).strip())
+        for m in re.finditer(r"^\s*([A-Z][A-Z0-9_]*)\s*=\s*([0-9.]+)\s*;",
+                             text, re.M):
+            consts[m.group(1)] = float(m.group(2))
+
+    _ingest(path)
+    text = path.read_text()
     # derived band if the file computes it
     m = re.search(r"^\s*BAND\s*=\s*PITCH\s*/\s*ROWS_PER_STATION\s*;", text, re.M)
     if m and "PITCH" in consts and "ROWS_PER_STATION" in consts:
@@ -320,9 +335,132 @@ def check_bank_assembly(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) ->
     }
 
 
+def check_fab_parts(coupon_path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
+    """Analytic printability for the DND-60 S5-R complete printable part set.
+
+    Applies the same sourced FDM rules to every critical printed feature declared
+    in `s5r_parts_common.scad`: the two-line leaf/wall members (pawl, keeper,
+    detent, comber tine, carriage wall, cartridge wall, rack strip web, frame
+    rail, platen rib, bracket wall, cam web), the rack tooth and its inter-tooth
+    gap, the rotor core, and the free lateral cell band. It reads the SCAD
+    constants so it tracks the CAD source of truth.
+    """
+    c = parse_scad_constants(coupon_path)
+    rl = {r.key: r for r in rules(spec)}
+    checks: list[Check] = []
+
+    def add(feature, value, limit, verdict, rule_key, note=""):
+        r = rl[rule_key]
+        if verdict == "auto":
+            verdict = _verdict(value, limit)
+        checks.append(Check(feature, round(value, 3), round(limit, 3), verdict,
+                            r.label, r.evidence, r.source, note))
+
+    def add_wall(feature, value, note=""):
+        r = rl["min_wall"]
+        v = _restricted(value, spec.min_feature_mm, spec.min_wall_mm)
+        checks.append(Check(feature, round(value, 3), round(spec.min_wall_mm, 3),
+                            v, r.label, r.evidence, r.source,
+                            note + " (hard floor = 1 line "
+                            f"{spec.min_feature_mm:.2f} mm)"))
+
+    # 1. two-line printed leaf / wall members.
+    add_wall("cell cartridge wall (WALL)", c["WALL"],
+             "structural cell wall across the pitch band")
+    add_wall("drive pawl thickness (PAWL_T)", c["PAWL_T"],
+             "load-bearing leaf across the pitch band")
+    add_wall("keeper leaf thickness (KEEPER_T)", c["KEEPER_T"],
+             "DND-59 re-profile to 2 lines + compression shoulder")
+    add_wall("reset comber tine (COMBER_TINE_T)", c["COMBER_TINE_T"],
+             "rake tine; 2 lines robust")
+    add_wall("writer carriage wall (CARRIAGE_WALL)", c["CARRIAGE_WALL"],
+             "carriage body printed wall")
+    add_wall("rack strip web (2.0)", 2.0, "printed rack base web")
+    add_wall("lift frame rail wall (FRAME_RAIL)", c["FRAME_RAIL"],
+             "module frame rail member")
+    add_wall("platen rib (PLATEN_RIB)", c["PLATEN_RIB"],
+             "platen stiffening rib (DND-43 flatness)")
+    add_wall("bracket wall (BRACKET_T)", c["BRACKET_T"],
+             "guide / lead-screw bracket wall")
+
+    # 2. rotor core (a small printed journal).
+    add_wall("rotor core diameter (2 x ROTOR_CORE_RADIUS)",
+             2.0 * c["ROTOR_CORE_RADIUS"], "printed rotor core journal")
+
+    # 3. rack tooth height (a small printed tooth) and the inter-tooth gap.
+    add("rack tooth height (RACK_TOOTH_HEIGHT)", c["RACK_TOOTH_HEIGHT"],
+        spec.min_feature_mm, "auto", "min_feature",
+        "a tooth narrower than one line cannot print")
+    gap = c["RACK_TOOTH_PITCH"] - c["RACK_TOOTH_HEIGHT"]
+    if gap > 0:
+        add("rack tooth gap (RACK_TOOTH_PITCH - tooth)", gap,
+            spec.min_feature_mm, "auto", "min_feature",
+            "inter-tooth void narrower than one line fuses the rack (DND-58)")
+    else:
+        add("rack tooth gap (RACK_TOOTH_PITCH - tooth)", gap,
+            spec.min_feature_mm, "FAIL", "min_feature", "teeth overlap")
+
+    # 4. free lateral band (pawl/pawl+keeper vs neighbour cell), worst case.
+    free_band = c["PITCH"] - 2.0 * c["ROTOR_RADIUS"]
+    for axis, stack in (("X (pitch)", c["PAWL_T"]),
+                        ("Y (row)", c["PAWL_W"] + c["KEEPER_T"])):
+        v = lateral_clearance(free_band - stack, required_mm=0.20, spec=spec)
+        checks.append(Check(
+            feature=f"free lateral gap to neighbour cell, {axis} (worst case)",
+            value_mm=v.pessimistic_mm, limit_mm=0.20,
+            verdict="PASS" if v.ok else "FAIL",
+            rule="lateral running clearance", evidence=v.evidence,
+            source=v.source,
+            note=f"nominal {v.nominal_mm} mm minus 2x0.1 mm print error"))
+
+    # 5. cartridge envelope fits the X1C bed (modularity gate). This is a
+    # maximum-length rule, not a minimum-feature rule, so its verdict is inverted
+    # relative to the min_feature checks.
+    cart_w = c["CARTRIDGE_COLS"] * c["PITCH"]
+    cart_d = c["CARTRIDGE_ROWS"] * c["ROW_PITCH"]
+    cart_max = max(cart_w, cart_d)
+    checks.append(Check(
+        feature="cartridge footprint (max of X/Y)", value_mm=round(cart_max, 3),
+        limit_mm=round(spec.bed_x_mm, 3),
+        verdict="PASS" if cart_max <= spec.bed_x_mm else "FAIL",
+        rule="build-volume fit (modular cartridge)",
+        evidence="sourced fact", source="[R2] X1C 256x256x256 mm build volume",
+        note="the 406.4 mm field is split into modular cartridges so every "
+             "printed part fits the X1C bed"))
+
+    fails = [x for x in checks if x.verdict == "FAIL"]
+    risks = [x for x in checks if x.verdict == "RISK"]
+    overall = "FAIL" if fails else ("RISK" if risks else "PASS")
+
+    return {
+        "coupon": coupon_path.name,
+        "evidence_class": "calculation",
+        "process": {
+            "printer": spec.printer, "material": spec.material,
+            "nozzle_mm": spec.nozzle_mm, "layer_mm": spec.layer_mm,
+            "perimeters": spec.perimeters,
+        },
+        "constants_read": {k: round(v, 3) for k, v in sorted(c.items())},
+        "checks": [asdict(x) for x in checks],
+        "verdict": overall,
+        "residual_uncertainty": [
+            "Not a slicer: real toolpath decisions (seam placement, thin-wall "
+            "detection, bridging params) are not modelled.",
+            "Not a printer: machine calibration, filament lot, moisture and "
+            "temperature effects are not modelled.",
+            "FDM dimensional accuracy is a generic assumption (+/-0.1 mm/face); "
+            "the actual X1C value is not measured here.",
+            "These checks retire geometry-vs-process risk only; they do not "
+            "validate function, fit, or mechanism behaviour.",
+        ],
+    }
+
+
 def _dispatch_checker(path: Path, spec: ProcessSpec = ProcessSpec()) -> dict:
     """Route a SCAD source to its feature-specific printability checker."""
     name = path.name
+    if "s5r_parts" in name:
+        return check_fab_parts(path, spec)
     if "s5r_bank" in name:
         return check_bank_assembly(path, spec)
     if "s5r_register" in name:

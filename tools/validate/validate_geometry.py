@@ -50,6 +50,7 @@ SHARED = REPO / "06-experiments" / "test11_shared_drive_gate_analysis"
 BED_MM = 256.0
 
 # --- fixtures to render: (label, scad file, extra -D args) --------------------
+FAB_SCAD = REPO / "08-current-design" / "fabrication" / "scad" / "s5r_parts.scad"
 RENDER_TARGETS = [
     ("j2_isolation_rig", FAB / "j2_isolation_rig.scad", []),
     ("selector_fanout_coupon", SHARED / "selector_fanout_coupon.scad", []),
@@ -61,6 +62,22 @@ RENDER_TARGETS = [
      / "s5r_bank.scad", ['-D', 'part="comber"']),
     ("s5r_bank_carriage", REPO / "06-experiments" / "test12_winner_convergence"
      / "s5r_bank.scad", ['-D', 'part="carriage"']),
+    # DND-60 complete printable part set (CAD witness blocks for the periodic
+    # parts; see 08-current-design/fabrication/README.md).
+    ("s5r_fab_cell_cartridge", FAB_SCAD, ['-D', 'part="cell_cartridge"']),
+    ("s5r_fab_rotor", FAB_SCAD, ['-D', 'part="rotor"']),
+    ("s5r_fab_drive_pawl", FAB_SCAD, ['-D', 'part="drive_pawl"']),
+    ("s5r_fab_keeper", FAB_SCAD, ['-D', 'part="keeper"']),
+    ("s5r_fab_detent_leaf", FAB_SCAD, ['-D', 'part="detent_leaf"']),
+    ("s5r_fab_rack_strip", FAB_SCAD, ['-D', 'part="rack_strip"']),
+    ("s5r_fab_bank_drive_housing", FAB_SCAD, ['-D', 'part="bank_drive_housing"']),
+    ("s5r_fab_reset_comber", FAB_SCAD, ['-D', 'part="reset_comber"']),
+    ("s5r_fab_writer_carriage", FAB_SCAD, ['-D', 'part="writer_carriage"']),
+    ("s5r_fab_platen_module", FAB_SCAD, ['-D', 'part="platen_module"']),
+    ("s5r_fab_lift_frame_rail", FAB_SCAD, ['-D', 'part="lift_frame_rail"']),
+    ("s5r_fab_guide_bracket", FAB_SCAD, ['-D', 'part="guide_bracket"']),
+    ("s5r_fab_solenoid_mount", FAB_SCAD, ['-D', 'part="solenoid_mount"']),
+    ("s5r_fab_comber_cam", FAB_SCAD, ['-D', 'part="comber_cam"']),
 ]
 
 

@@ -1,0 +1,11 @@
+step,stage,action,parts_consumed
+1,cartridge,Print 9 cell cartridges + 6400 rotors/pawls/keepers/detents. Do NOT assemble loose rotors into cells by hand at this stage.,9 cell_cartridge; 6400 rotor/pawl/keeper/detent_leaf
+2,cell_insert,Insert each rotor into its cell bore from +Z (the bore is 2R+0.20 = 3.20 mm; the rotor 3.00 mm spins free). The pawl and keeper drop into their side chambers; the pawl tip reaches the rack plane.,"6400 rotor, 6400 drive_pawl, 6400 keeper, 6400 detent_leaf"
+3,rack,Slide the sourced Ø6 steel rod through the cartridge rack channel; clip one rack strip per row onto the rod (pitch 1.00 / tooth 0.50). The engaged pawl tip bears on a tooth top.,sourced rod x1/row; rack_strip x BANK_ROWS per module
+4,module_frame,Bolt the 3x3 cartridge array onto the lift-frame rails; splice at <= ~150 mm support spacing (DND-43 flatness).,lift_frame_rail; M3 fastener allowance
+5,platen,Bolt the 9 platen modules under the cartridges; fit the guide rods + lead screws through the guide brackets.,platen_module x9; guide_bracket x8; M3
+6,bank_drive,Fit the 2 bank motors + pinion into the bank drive housing; couple both rod ends (drives the bar from both ends).,bank_drive_housing x1; NEMA17-class x2
+7,comber,Fit the reset comber + comber cam at each bank group's return end.,reset_comber x3; comber_cam x1
+8,writer,Fit the 40 writer solenoids into the writer carriage pockets (8 stations x 5); mount the solenoid pocket plate.,writer_carriage x1; solenoid_mount x1; solenoid x40
+9,wiring,Wire the 2 bank H-bridge channels + 5 writer darlington chips + limit sensors; runs to the controller.,wire/loom allowance
+10,tension,Set pawl pre-load so each engaged tip bears on its rack tooth; verify a full forward+reverse bank pass drops/relatches the field (the DND-59 dropout/re-engage function).,no purchased parts

@@ -199,6 +199,50 @@ jobs:
       - name: Render + mesh-validate the winner coupon parts
         run: python 06-experiments/test12_winner_convergence/render_winner_cad.py
 
+  fab-package:
+    # DND-60: render the COMPLETE S5-R printable part set with a real OpenSCAD,
+    # mesh-validate every part, regenerate the print + assembly manifests, and
+    # run the coherence gate. A missing OpenSCAD is a hard failure (the render is
+    # the point). This is CAD + sourced-limit evidence, not a print.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+      - name: Install mesh validation dependency
+        run: python -m pip install --quiet "trimesh>=4"
+      - name: Render the full S5-R printable part set
+        run: |
+          python 08-current-design/fabrication/tools/render_fab_parts.py
+      - name: Regenerate the print + assembly manifests
+        run: |
+          python 08-current-design/fabrication/tools/gen_manifests.py
+      - name: Fabrication-package coherence gate (C1-C6)
+        run: |
+          python 08-current-design/fabrication/tools/fab_package_checks.py
+      - name: S5-R full part-set printability (sourced FDM limits)
+        run: |
+          python tools/validate/analytic_printability.py \
+            --json s5r-parts-printability-record.json \
+            --fail-on-design-fail \
+            08-current-design/fabrication/scad/s5r_parts.scad
+      - name: Upload fabrication-package records
+        uses: actions/upload-artifact@v4
+        with:
+          name: fabrication-package-records
+          path: |
+            08-current-design/fabrication/manifests/*.json
+            08-current-design/fabrication/manifests/*.csv
+            08-current-design/fabrication/manifests/*.md
+            s5r-parts-printability-record.json
+          if-no-files-found: warn
+
   geometry-validation-harness:
     # The software-only replacement for a print test (DND-29): real OpenSCAD
     # render -> mesh validation -> sourced analytic printability gate.
