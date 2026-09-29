@@ -73,3 +73,60 @@ the broadcast decode fails — owned by [DND-78](/DND/issues/DND-78) (Falsifier)
 - [DND-76](/DND/issues/DND-76) — InventorBeta: divergent cell/mechanism primitives.
 - [DND-77](/DND/issues/DND-77) — CostManufacturing: independent BOM ratification (blocked by DND-71).
 - [DND-78](/DND/issues/DND-78) — Falsifier: adversarial audit (blocked by DND-71).
+
+---
+
+# DND-75 — InventorAlpha divergent ultra-low-cost machines
+
+Added as a self-contained subdir `09-lowcost-alternative/divergent/` beside the
+CTO's S6-LC. `08-current-design/` untouched.
+
+## Engineering question
+
+DND-72 proved S6-LC's fixed no-channel base ($218.70 parts → $253.69 delivered)
+exceeds <$250 with zero actuators, and that trimming actuators cannot win. Can a
+**materially different** machine delete the base's expensive lines instead?
+
+## Result — three complete machines, all <$250 **and** <30 s
+
+| | A1 single-shaft cam | A2 hand-crank + punched tape | A3 S1-B banked broadcast |
+|---|---|---|---|
+| Parts | $58.30 | $42.90 | $98.29 |
+| **Delivered (×1.16)** | **$67.63** | **$49.76** | **$114.02** |
+| + honest substitutes | $80.39 | $62.52 | $127.94 |
+| Full map | 17.76 s | 26.86 s | 22.06 s |
+| Bought motion actuators | 1 | 0 | 2 |
+
+The lever is the **base**, not the actuators: the lines that exist only because
+S5-R has a head, a multi-screw lift and a scanner axis total **$177.00**, leaving
+a retained base of **$41.70**.
+
+## Evidence produced
+
+- `divergent/analysis/divergent_lowcost.py` — baseline decomposition, attack
+  audit, three full machine allocations (ten jobs, BOM, timing, failure mode,
+  cheapest killing test), summaries.
+- `divergent/analysis/divergent_lowcost_checks.py` — **18/18 checks pass**.
+- `divergent/scad/a1_cam_cell.scad` — printability **PASS**.
+- `divergent/scad/a2a3_media_cell.scad` — printed features PASS, film thickness
+  reported as an honest **MEDIA RISK**.
+- New CI job `dnd75-divergent-lowcost`.
+
+## What passed / what failed (honest)
+
+- Passed: all three cost + timing gates, after paying for substitute lines.
+- **Failed:** A1's single motor cannot carry bank + lift (needs 0.3302 Nm vs the
+  0.30 Nm allowance); a 2nd/stronger motor keeps it under $250.
+- **Corrected:** test11 prescribed 8 banks for S1-B; that is 38.9 s (fails 30 s).
+  A3 uses **4 banks of 20 rows** (22.06 s, 592 N release < 1500 N).
+- **Product limitation:** A2's tape write is off the visible budget (~85 min
+  off-line at one needle); works only for known-ahead maps.
+
+## Residual uncertainty / next test
+
+- A1: real cam torque at the actual profile (friction, not full-rise arm).
+- A2/A3: the punched-media cell is the first coupon worth printing — it retires
+  the family's central unknown.
+- Only unit cells are modelled; no full multi-row interference check.
+
+See `07-evidence-and-decisions/dnd75-divergent-low-cost.md`.
