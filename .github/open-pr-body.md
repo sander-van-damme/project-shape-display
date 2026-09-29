@@ -1,100 +1,75 @@
-# DND-117: restructure repo to `08-integrated-designs/` (retire `09-`/`10-`)
+# DND-118: independent falsifier audit of the DND-115 state-encoding shutter
 
 ## What changed
 
-The numbered root flow now **terminates at 08**. `08-integrated-designs/` is the single
-container for complete machine architectures, and the old per-design top-level stages are retired.
-This is an **information-architecture migration** ([DND-116](/DND/issues/DND-116) parent); no
-engineering conclusion changed.
+- **New** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py` — a stdlib-only,
+  default-deny checker (12 attacks, `--gate`) that recomputes every DND-115 number from the
+  placed CAD constants and first principles. It imports **nothing** from `a1_writer_rate.py` and
+  does **not** trust the CTO-authored `falsifier_dnd115_checks.py`.
+- **New** `07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.md` — the audit register.
+- **Corrected** the DND-115 section of `07-evidence-and-decisions/README.md` with the audit
+  caveats and a new DND-118 entry.
+- **New CI step** (`.github/workflows/ci.yml`) runs the audit as a **printed report** (no
+  `--gate`) so `main` stays green while the correction is tracked.
 
-## Engineering question addressed
+## Engineering question
 
-How should the repository represent alternative machine architectures so that a new architecture
-does **not** create a new numbered engineering stage (`09-`, `10-`, `11-`, …)? Stage 08 must hold
-multiple integrated designs with distinct statuses, while incomplete exploration stays in the
-candidate/experiment stages.
+Does the DND-115 **state-encoding shutter** genuinely close the A1 read/verify axis at
+CAD + calculation — i.e. do the decisive numbers (on/off return ratio, swept clearances, the
+1.8 mm standoff revision) reproduce independently, and is the closure statement honest?
 
-## Moves (git-aware, history preserved)
+## Evidence produced (CALCULATION + CAD only)
 
-| Old | New |
-|---|---|
-| `08-current-design/` | `08-integrated-designs/s5r-shared-drive-register/` |
-| `10-reliability-mask/` | `08-integrated-designs/a1-reliability-first/` |
-| `09-low-cost-variant/s6lc/` | `08-integrated-designs/s6lc-low-cost/` |
-| `09-low-cost-variant/*` (S5-R-trim negative result, divergent machines, primitives, sourcing, reliability primitives/machines) | `06-experiments/test14_low_cost_program/` (exploratory provenance — **not** a promoted integrated design) |
+**Reproduced from the placed CAD + first principles (no CTO summary imported):**
 
-`09-low-cost-variant/README.md` and `divergent/README.md` link to the selected S6-LC and to
-`07-evidence-and-decisions`; the divergent A1/A2/A3 and the DND-106/DND-107 machines remain
-**architecture candidates / experiments**, not stage-08 designs.
+- Hidden occlusion **100%** of the 1.405 mm spot; visible clearance **0%**; on/off **7.72×**
+  (gate 2×).
+- Reflective target frame-fixed (**Δz = 0**); flap is an absorber (ρ = 0.05).
+- Swept envelope: neighbour **0.280 mm**, own column **3.420 mm**, aperture **0.810 mm**.
+- Claim 5 reproduces: 1.0 mm standoff infeasible (−0.190 mm worst case); 1.8 mm feasible
+  (+0.610 mm).
+- Printability: min feature 0.44 mm (1 line), committed STL watertight.
+- **Angular robustness:** hidden coverage stays 1.000 for flap tilt 0–20°; visible state stays
+  clear for crank 90–75° — the states are independent of the schematic linkage within a wide band.
 
-## New documentation
+**Falsified / downgraded (four FAILs; none a geometry collision):**
 
-- **`08-integrated-designs/README.md`** — stage entry point: what qualifies for stage 08 (integrated
-  machine architecture, **not** physical validation); multiple designs may coexist; status table read
-  from the repo; where new exploratory designs belong; and the explicit rule that future alternative
-  designs must **not** create new numbered root stages. Status vocabulary: CANDIDATE, PROMOTED,
-  SUPERSEDED, REJECTED, MEASUREMENT-GATED, ARCHIVED.
-- **`CONTRIBUTING.md`** — durable repository contribution rule: *new machine architectures do not
-  receive new numbered root directories*.
-- Per-design status/relocation notes in each design README.
-- Root `README.md`, `01-project-description`, `04-architecture-candidates`, `06-experiments`,
-  `07-evidence-and-decisions` updated so the flow ends `07 -> 08 integrated designs`.
-
-## Status assigned (read from the repository, not guessed)
-
-| Design | Primary idea | Status | Evidence class |
-|---|---|---|---|
-| S5-R | shared-drive programmable rotary register | **PROMOTED** (historical single-winner; slicer-ready package of record) | CAD + CALCULATION; measurement-only residue |
-| S6-LC | low-cost broadcast / mask-gate | **MEASUREMENT-GATED** (mission gates pass; per-cell reliability G8 unresolved) | CAD + CALCULATION |
-| A1 | binary-latch + shared writer/reader | **CANDIDATE** (selected reliability-first candidate) | CAD + CALCULATION |
-
-## Path fixes (no script left broken)
-
-- Depth-sensitive repo-root derivations updated for the +1-level moves: S5-R fabrication tools
-  (`FAB.parents[1] -> parents[2]`), A1 `reliability_mask(.checks)`, `test12/register_checks.py`.
-- `06-experiments/test14_low_cost_program`: `s5r_ultra(.checks)`, divergent tooling/analysis,
-  `s6lc/analysis/render_s6lc_images.py` sys.path.
-- `07-evidence-and-decisions/falsifier_dnd74_checks.py` and `falsifier_dnd91_checks.py` re-pointed
-  to `08-integrated-designs/s6lc-low-cost/`.
-- `.github/workflows/ci.yml`, `.github/open-pr-body.md`, `tools/validate/validate_geometry.py`,
-  `tools/validate/readme_s5r_coherence.py` updated.
-
-## Historical truth preserved
-
-ADR-002 (`convergence-decision-2026-09-b.md`) keeps its original wording ("promoted to
-`08-current-design/`") with a **relocation note**; the 07 README carries one consolidated relocation
-note for pre-DND-117 records. Links are repointed; wording is not rewritten.
-
-## Verification (commands + results)
-
-Evidence class: **CAD + CALCULATION** over sourced listings. No print/measurement
-([DND-27](/DND/issues/DND-27)).
-
-- `08-integrated-designs/s5r-shared-drive-register/fabrication/tools/fab_package_checks.py` → **GATE PASS (C1–C8)**
-- `tools/validate/readme_s5r_coherence.py` → **GATE PASS (R1–R6)**
-- `tools/validate/validate_geometry.py --no-render` → **HARNESS OK**
-- `render_images.py --check` → PASS (45 images); `render_machine.py --check` → PASS (8 images);
-  `gen_manifests.py` reproduces (14 parts, 25,661 pieces)
-- `a1-reliability-first/analysis/reliability_mask_checks.py` → **64/64**; `a1_writer_rate.py` → OK
-- `07-evidence-and-decisions/falsifier_dnd112_checks.py --gate` → **CLEAN**; `falsifier_dnd114_checks.py --gate` → **CLEAN**
-- `s6lc-low-cost/analysis/s6lc_checks.py` → **48/48**; `s6lc_bom_reratify_checks.py` → **68/68**
-- `test14_low_cost_program/s5r_ultra_checks.py` → **19/19**; divergent/primitives/reliability gates → PASS
-- `07/falsifier_dnd74_checks.py` → 31/31; `falsifier_dnd91_checks.py` → 37/37; `falsifier_dnd104_checks.py` → 26/26
-- 06 `test08`–`test13` and test12 `s5r_*`/`falsifier` checks → PASS
-- **All markdown relative links resolve (0 broken).**
-- Re-grep: no `*.py`/`*.sh`/`*.yml`/`*.scad` operationally references `08-current-design`,
-  `09-low-cost-variant` or `10-reliability-mask`; remaining occurrences are historical
-  comments/docstrings and intentional relocation notes.
+- **A5/A6 (crosstalk):** the ADR's "neighbour top is off-beam" is **false** — the coaxial 15°
+  cone reaches the neighbour near edge by 0.231 mm. Including the state-invariant neighbour term
+  drops the on/off ratio **7.72× → 6.37×** — **still above the 2× gate** — but the number was
+  **reported and never gated** (`contrast_passes` ignores it).
+- **A7 (framing):** "absorber Δz 0.55 mm inside ±1 mm DoF" is **vacuous** — the DoF budget is a
+  *target* concept; the target is frame-fixed and the absorber term is 7.7× below the vane term.
+- **A9 (method):** `shutter_tolerance_mc()` pins the aperture plane to the *nominal* vane top, so
+  `aperture_clearance` can never fail. A corrected re-run with an explicit aperture tolerance
+  (±0.10 / ±0.20 mm) still passes (+0.442 / +0.347 mm): the design survives, the as-written MC
+  does not demonstrate it.
 
 ## Assumptions
 
-- The chosen semantic names (`s5r-shared-drive-register`, `s6lc-low-cost`, `a1-reliability-first`)
-  match the content's own architectural identities.
-- The low-cost program's negative results / divergence / primitives are experimental provenance, so
-  they belong in `06-experiments/` rather than stage 08.
+Assumption-class, unmeasured (as in DND-115): flap reflectance 0.05, standoff 1.8 mm, aperture
+0.44 mm, printed tolerances, LED/PD optical constants. Measurement-only (DND-27): linkage
+force/friction/wear over 6,400 cycles. No print, purchase, or measurement; no board contact
+(DND-32).
 
-## Remaining uncertainty / next
+## Tests / gates run
 
-- S6-LC keeps an unresolved per-cell reliability gate (measurement-only under DND-27); A1's
-  promotion remains a proposal for the next convergence gate. Neither is affected by this migration.
-- Most informative next test: none specific to this migration; the restructure is verified.
+- `python 07-evidence-and-decisions/falsifier_dnd115_a1_shutter_audit.py` → report, **NOT CLEAN**
+  by design (4 fails, documented).
+- `falsifier_dnd115_checks.py --gate` → exit 0; `falsifier_dnd114_checks.py --gate` → exit 0;
+  `reliability_mask_checks.py` → 75/75; `a1_writer_rate.py` → exit 0.
+- CI YAML validated; new step is report-only.
+
+## What passed / failed
+
+**Passed:** core mechanism geometry, contrast ratio, standoff revision, printability, angular
+robustness. **Failed:** the crosstalk/off-beam wording and gating, the absorber-DoF framing, and
+the MC aperture path.
+
+## Remaining uncertain / next test
+
+The mechanism **survives**; the **closure statement is over-claimed**. Recommended: a CTO
+follow-up to correct/downgrade A5/A6/A7/A9 in the ADR and `a1_writer_rate.py` (no geometry
+change), after which the report step can become a hard gate. No physical coupon is justified by
+this audit alone; a single-cell A1 coupon with a real LED/PD pair is the cheapest experiment that
+can falsify the assumption-class reflectance combination, and is a physical handoff (DND-27).

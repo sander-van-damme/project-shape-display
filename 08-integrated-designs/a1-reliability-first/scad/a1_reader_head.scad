@@ -160,9 +160,12 @@ FLAG_T       = 0.44;                       // flag width in X
 FLAG_W       = 1.60;                       // flag width in Y
 FLAG_H       = 0.80;
 FLAG_Z_TOP   = TRAVEL + 3.0;               // fixed target top face z
-FLAG_GAP     = 1.0;                        // fixed reader-to-flag standoff
-FLAG_AP      = 0.60;                       // dedicated small flag-read aperture
-FLAG_SPOT_X  = FLAG_AP + 2*FLAG_GAP*tan(HALF_ANGLE);  // spot width in X
+// DND-115 REVISION: the shutter flap needs a tolerance-robust window between the
+// vane top and the reader aperture plane, so the fixed standoff is raised
+// 1.0 -> 1.8 mm and the aperture is set to 0.44 mm (1 line).
+FLAG_GAP     = 1.8;                        // fixed reader-to-flag standoff
+FLAG_AP      = 0.44;                       // dedicated small flag-read aperture
+FLAG_SPOT_X  = FLAG_AP + 2*FLAG_GAP*tan(HALF_ANGLE);  // spot width in X = 1.405
 FLAG_SPOT_Y  = FLAG_SPOT_X;                // same formula, Y is open
 X_CLEAR_NB   = PITCH - BODY/2 - FLAG_X;    // to the neighbour body
 FLAG_SPOT_CLEARS_NB = (FLAG_SPOT_X/2) <= X_CLEAR_NB;

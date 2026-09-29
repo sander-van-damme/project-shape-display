@@ -90,8 +90,8 @@ The flag reader therefore uses a **dedicated small aperture** (`0.60 mm`) and a
 |---|---:|---|
 | Flag footprint | 0.44 (X) × 1.60 (Y) mm | CAD |
 | Flag-read aperture | 0.60 mm | CAD |
-| Fixed standoff | 1.0 mm | CAD |
-| Spot at the flag | 1.136 mm | `a + 2·g·tan15°` |
+| Fixed standoff | 1.0 mm | CAD (revised to 1.8 mm by DND-115) |
+| Spot at the flag | 1.136 mm | `a + 2·g·tan15°` (revised to 1.405 mm by DND-115) |
 | Spot X half-width | 0.568 mm | vs 1.055 mm clearance |
 | **Clears neighbour body** | **PASS** | margin **0.487 mm** |
 | **Fits flag Y width** | **PASS** | 1.136 ≤ 1.60 mm |
@@ -112,24 +112,24 @@ deciding number** — the deciding numbers are geometric (spot vs lane).
 
 ## 5. What changed (all calculation + CAD; no print)
 
-- `10-reliability-mask/scad/a1_binary_latch_cell.scad`: added the parameterised
+- `08-integrated-designs/a1-reliability-first/scad/a1_binary_latch_cell.scad`: added the parameterised
   `ch_a_frame_vane()` and `ch_b_arm_flag()` modules, a `part="flag"` printable
   selector, a `common_height_target()` module, and the flag self-checks
   (`HINGE_X`, lane fit, Δz=0, hinge-arc bound, `R_FLAG_MAX`, min feature).
-- `10-reliability-mask/scad/a1_reader_head.scad`: replaced the DND-113 schematic
+- `08-integrated-designs/a1-reliability-first/scad/a1_reader_head.scad`: replaced the DND-113 schematic
   flag with the real CH-A vane + a `flag_reader_head()` at the fixed standoff,
   and added the flag-read self-checks (`FLAG_SPOT_X`, neighbour clearance,
   flag-Y fit).
-- `10-reliability-mask/analysis/a1_writer_rate.py`: `common_height_read_target()`
+- `08-integrated-designs/a1-reliability-first/analysis/a1_writer_rate.py`: `common_height_read_target()`
   now reports the **ADOPTED** CH-A target (Δz=0) and the CH-B bound; new
   `flag_read_contrast()` computes the fixed-standoff geometry; `read_resolution_bound()`
   reports both the as-drawn defect and
   `resolves_single_cell_with_common_height_target = True`.
-- `10-reliability-mask/analysis/render_a1_cad.py`: renders + mesh-validates the
+- `08-integrated-designs/a1-reliability-first/analysis/render_a1_cad.py`: renders + mesh-validates the
   `flag` part and **fails hard** if the common-height checks do not pass.
-- `10-reliability-mask/cad/render_record.json`: now carries the flag mesh
+- `08-integrated-designs/a1-reliability-first/cad/render_record.json`: now carries the flag mesh
   (watertight, 0.44×1.6×0.82 mm) and the flag-read echoes.
-- `10-reliability-mask/README.md` §4.2a + the decisive falsifier: updated from
+- `08-integrated-designs/a1-reliability-first/README.md` §4.2a + the decisive falsifier: updated from
   "proposed" to "adopted + CAD-validated", with the one remaining CAD detail
   called out.
 
@@ -141,11 +141,12 @@ deciding number** — the deciding numbers are geometric (spot vs lane).
   fixed-standoff spot (1.136 mm) and neighbour clearance (0.487 mm margin).
 - **Assumption-class, unmeasured:** the 30° latch swing, the 0.60 mm flag
   aperture, the 1.0 mm flag standoff, all optical/device constants.
-- **NEW residual (design detail, not yet CAD):** the **state-encoding shutter** —
-  the CH-A vane is the fixed target; the mechanism that makes its apparent
-  brightness depend on latch state (the arm's silhouette occluding the vane) is
-  identified but not yet dimensioned. This is a bounded, low-risk CAD detail: the
-  arm already passes through the lane at the hinge.
+- **RESOLVED by DND-115:** the **state-encoding shutter** is now dimensioned and
+  CAD-validated ([`dnd115-a1-state-encoding-shutter.md`](dnd115-a1-state-encoding-shutter.md)):
+  a matte-dark flap on the shared frame-fixed hinge axis covers 100% of the read
+  spot in one state and 0% in the other (7.72× on/off). DND-115 also revises this
+  ADR's 1.0 mm standoff / 0.60 mm aperture to 1.8 mm / 0.44 mm (the 1.0 mm window
+  is infeasible for the 0.44 mm flap under a tolerance stack-up).
 - **No print, no purchase, no measurement** ([DND-27](/DND/issues/DND-27)); no
   board contact ([DND-32](/DND/issues/DND-32)).
 
