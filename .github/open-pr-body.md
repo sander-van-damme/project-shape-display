@@ -1,52 +1,58 @@
-# DND-52: Actuator-class / drive-topology pivot — resolve K7 analytically
+# DND-56: Independently ratify the DND-54 S5-R delivered BOM ($397.53)
 
-Advances [DND-52](/DND/issues/DND-52). After [DND-49](/DND/issues/DND-49) refuted K7 on
-sourced evidence (no matched 8 mm 18° bipolar PM stepper ≤ $1.86 delivered), this holds the
-**S5 mechanism** and screens six head-actuator / drive-topology options against the $500
-delivered ceiling and the 30 s full-map cap.
+Advances [DND-56](/DND/issues/DND-56), for [DND-54](/DND/issues/DND-54). The S5-R pivot was
+promoted on a **$397.53 delivered** figure computed from point-in-time actuator-class
+*allowances* ($12/motor, $2.50/writer) plus the no-channel E1–E6 base ($218.70) — the same
+class of untraced price that produced the S5 incumbent's K7 cost cliff. This PR re-derives the
+BOM from first principles and traces the two allowances to orderable listings.
 
-**Evidence class: CALCULATION over sourced listings and stated assumptions. No purchase,
-print or physical measurement** ([DND-27](/DND/issues/DND-27)).
+**Evidence class: CALCULATION over sourced listings and stated assumptions. No purchase, print
+or physical measurement** ([DND-27](/DND/issues/DND-27)).
 
 ## What changed
 
-- `06-experiments/test12_winner_convergence/nx52_head_actuator.py` — the screen. Imports the
-  committed `timing_closure.py`, `cost_closure.py`, `k7_motor_trace.py` so nothing drifts;
-  charges each option from a no-channel base ($218.70) so a channel swap cannot double-count the
-  driver block ($63.64).
-- `nx52_head_actuator_checks.py` — 12 regression + honesty gates.
-- `07-evidence-and-decisions/dnd52-head-actuator-pivot.md` — the ADR / recommendation.
-- `08-current-design/README.md` — K7 rows in §7/§9 and the top banner updated.
-- `05-research-questions/README.md` — Q3 follow-up result.
-- `.github/workflows/ci.yml` — runs the new module + checks.
+- `06-experiments/test12_winner_convergence/s5r_bom_ratify.py` — the independent ratification.
+  Does **not** import `s5r_register.bom()` for its own arithmetic; re-enters the E1–E6 fixed-line
+  prices by hand, re-derives the BOM, and `--selftest` reconciles against the committed
+  `cost_closure.py` (and `s5r_register.py` when present).
+- `s5r_bom_ratify_checks.py` — 11 regression + honesty gates (no-channel identity, claim
+  reproduction, additive uplift, sourced labelling, channel pricing, scenarios, break-evens).
+- `s5r_bom_ratified.csv` — the working-scenario purchased BOM, one labelled row per line.
+- `07-evidence-and-decisions/dnd54-s5r-bom-ratification.md` — the ratified note.
+- `06-experiments/test12_winner_convergence/README.md` — run section.
+- `.github/workflows/ci.yml` — runs the new module + checks in the stdlib-only job.
 
 ## Result
 
-| Option | Actuators | Delivered | <$500 | Full map | <30 s | Verdict |
-|---|---:|---:|:--:|---:|:--:|---|
-| S5 incumbent | 80 | $1,366.87 | no | 26.25 s | yes | refuted ([DND-49](/DND/issues/DND-49)) |
-| **Shared rotary register (S5-R)** | 10 | **$304.73** | **yes** | 24.65 s | **yes** | **cost+time feasible, mechanism unproven** |
-| Wider head R=4 | 20 | $531.99 | no | 11.83 s | yes | refuted on the order-tier motor price |
-| Micro-servo head | 80 | $485.69 | yes | 30.17 s | no | rejected on pitch (12–23 mm body) |
-| Printed pancake stepper | 80 | $383.19 | yes | 26.25 s | yes | torque-unproven (needs magnetic FEA) |
-| Global lift + printed memory | 3 | $295.45 | yes | 56 s | no | killed earlier (S1 force / S2 mask write) |
+| Question | Result |
+|---|---|
+| Does $342.70 parts / **$397.53 delivered** reproduce? | **YES, exactly**; margin $102.47 |
+| No-channel base + driver identity? | **$218.70 + $63.64 = $282.34** — holds, **no double-count** |
+| Uplift convention? | additive **×1.16** (DND-41), not the DND-37 ×1.166 |
+| Are the $12 / $2.50 prices traced? | **Allowances**, sourced to **$12.39 / $2.20** (±$0.40) |
 
-**Two numeric results decide the direction:**
+**One material finding:** the S5-R `bom()` prices the **actuator block's own channels at zero**.
+The 80-channel TB6612 block leaves *with* the 80 motors, but the 2 bank motors and 40 writer
+solenoids still need channels: 2 bank H-bridge ICs + 5 ULN2803-class writer switches = **$3.09
+parts**.
 
-1. **The wider-head lever is refuted on cost, not just pitch.** R=4 clears only for a
-   per-station matched motor ≤ **$9.82**, between the two real tiers ($11.20 @100 / $8.20
-   @3,001+). At the order tier actually buyable (20–40 pcs) it is **$531.99, over** —
-   compounding the 30 s failure already recorded in [DND-49](/DND/issues/DND-49).
-2. **One serious survivor — S5-R**, a shared-drive one-time programmable rotary register:
-   2 index motors + 8 off-pitch writer solenoids → **$304.73 delivered (ideal <$400 band)**,
-   **24.65 s**, pitch unchanged. It removes the entire 80-bought-motor cliff — but its decisive
-   quantity is mechanical (selective dropout/re-engage of an 80-rotor bank at 5.08 mm pitch),
-   which the repo's CAD does not represent and [DND-27](/DND/issues/DND-27) forbids couponing.
+| Scenario | Delivered | vs $500 | vs <$400 |
+|---|---:|---:|---:|
+| Optimistic (sourced units, 1 bank IC) | **$387.18** | −$112.82 | **−$12.82** |
+| Working (allowances + channels) | **$401.12** | −$98.88 | **+$1.12** |
+| High (premium NEMA17 + premium writer) | **$421.51** | −$78.49 | +$21.51 |
+| DND-54 claim (channels unpriced) | $397.53 | −$102.47 | −$2.47 |
+
+**Break-even for the $500 ceiling (working channel cost):** bank motor **$54.62/ea**, writer
+solenoid **$4.63/ea** — 4.5× and 1.85× the allowances. **No line dies on cost.**
 
 ## Disposition
 
-Mission target **NOT DEMONSTRATED** as reachable and **not** a proven dead end: a cost+time
-viable pivot exists. Recommendation: adopt **S5-R** as the next machine-definition target
-(backed by an *analytic/CAD* dropout-latch model, not a print); keep S5 only as a nominal
-fallback; retire the wider-head lever; park the printed-pancake class pending an FEA.
-No board contact ([DND-32](/DND/issues/DND-32)); no print-metric acceptance ([DND-27](/DND/issues/DND-27)).
+**RATIFIED WITH ONE MATERIAL FINDING.** The claim is correct and reproducible; the S5-R BOM is
+**not** double-counting the driver block; the two actuator allowances are credible against
+sourced listings. The honest end-to-end working total is **$401.12 delivered** — solidly under
+the $500 ceiling, but **$1.12 outside the ideal <$400 band**, so the DND-54 "inside the ideal
+band" phrasing should read "optimistic scenario; ~$1 over in the working scenario." Remaining
+cost residual is the writer solenoid's **force** (not published by any listing) and the absence
+of a 2-piece contract quote — both measurement/procurement-gated under
+[DND-27](/DND/issues/DND-27). No board contact ([DND-32](/DND/issues/DND-32)).
