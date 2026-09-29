@@ -46,7 +46,7 @@ def main() -> int:
           spread["latch_removes_mu_from_state"] is True)
     check("P1 release ratio (S6-LC) is >2x across the sourced mu band",
           spread["release_ratio_hi_over_lo"] > 2.0,
-          f"{spread['release_ratio_hi_over_lo']}x")
+          f"{spread['release_ratio_hi_over_lo']}x (S6-LC pawl 0.234 N)")
     check("P1 snap force is sub-Newton (comb-settable)",
           snap["snap_force_n"] < 1.0, f"{snap['snap_force_n']} N")
 
@@ -125,10 +125,12 @@ def main() -> int:
     check("SYS adds 6,400 printed bistable links at $0 bought",
           cc["printed_bistable_links"] == P.CELLS)
     b = P.bom_delta()
-    check("SYS required bought delta is $0",
-          b["primitives_required_bought_delta_usd"] == 0.0)
+    check("SYS P4 removes S6-LC's $8 reset-carriage motor",
+          b["s6lc_reset_motor_removed_usd"] == 8.00 and
+          b["primitives_required_bought_delta_usd"] == -8.00)
     check("SYS clears $250 even at worst-case optional bought items",
-          b["clears_250_worst_case"],
+          b["clears_250_worst_case"] and
+          abs(b["primitives_machine_worst_case_parts_usd"] - 162.17) < 0.01,
           f"${b['primitives_machine_worst_case_parts_usd']}")
 
     # --- decision ----------------------------------------------------------

@@ -4,21 +4,26 @@ shape display (<$250 purchased, excl. printed parts).
 
 CONTEXT
 -------
-[DND-71] is the CTO's out-of-the-box <$250 architecture. Its leading candidate
-**S6-LC** (an evolution of the S1 banked broadcast ratchet - see
-`06-experiments/test11_threshold_ratchet_s1/`) is:
+[DND-71] is the CTO's out-of-the-box <$250 architecture. Its candidate
+**S6-LC** (`09-lowcost-alternative/analysis/s6lc.py`, PR #70 on
+`feat/dnd71-lowcost-alternative`) is a banked broadcast ratchet (see
+`06-experiments/test11_threshold_ratchet_s1/`):
 
-  * passive printed **pawl-in-rack** column memory (5 pockets, 10 mm steps),
-  * one **broadcast 10 mm platen stroke** (banked),
-  * a **per-bank threshold mask gate** (a punched/printed medium decides which
-    cells are armed for each stroke),
-  * a **banked release comb**,
-  * ~3 bought motors, ~$139.77 parts.
+  * passive printed **pawl-in-rack** column memory (5 pockets, 10 mm steps,
+    0.234 N design release force, 0.90 x 1.20 x 8.00 mm leaf),
+  * four **broadcast 10 mm platen strokes** (one common platen for all 8 banks),
+  * a **per-bank threshold mask** that is a **punched card prepared off the
+    visible 30 s budget**,
+  * a banked **release comb tripped by a travelling reset carriage**,
+  * **3 bought motors** (lift, mask index, reset carriage), **$139.77 parts /
+    $162.13 delivered**, **7.4 s** full map.
 
 The task asks for **cell-level and selection primitives** that could make such
 a machine cheaper or more reliable. This module invents four and then counts
 every component honestly. Each primitive is a concrete mechanism with geometry,
 a force/printability calculation, a cost delta and its decisive failure mode.
+The cost delta is measured against the real S6-LC BOM, so P4's removal of the
+bought reset-carriage motor is counted as a genuine $8 saving.
 
 EVIDENCE CLASS (DND-27)
 -----------------------
@@ -127,7 +132,9 @@ BISTABLE_LINK_T_MM = 0.90             # 2-line leaf (0.88 mm min wall) -> PASS
 BISTABLE_LINK_W_MM = 0.70
 BISTABLE_OVER_CENTRE_MM = 0.40        # throw past dead point (large -> tolerant)
 BISTABLE_SNAP_TRAVEL_MM = 0.50        # mask comb pushes the link this far
-S6LC_PAWL_K_DEFL_N = 0.14             # S5-R/S1 pawl class bending term
+S6LC_PAWL_K_DEFL_N = 0.234            # S6-LC pawl release (s6lc.py pawl_spring)
+S6LC_MASK = "punched card (off-line prepared)"   # s6lc.py mask medium
+S6LC_RESET = "travelling reset carriage (bought motor)"  # s6lc.py
 
 
 def bistable_snap() -> dict:
@@ -577,43 +584,45 @@ def component_counts() -> dict:
         printed_bistable_links=CELLS,       # one per cell (P1)
         note="P1 adds one printed over-centre link per cell (6,400 prints, "
              "$0 bought). P2 adds 32 printed comb bars and 0 motors. P4 adds "
-             "8 printed clutches and 0 motors. No primitive adds a bought "
-             "part, so the primitives machine stays at the S6-LC motor count.")
+             "8 printed clutches, 0 bought clutches, and REMOVES S6-LC's $8 "
+             "reset-carriage motor, so the primitives machine buys 2 of S6-LC's "
+             "3 motors (lift + mask index) and the writer may add one back.")
 
 
 def bom_delta() -> dict:
     """Bought-BOM deltas vs the S6-LC baseline (calculation).
 
-    Every primitive is 100 % printed, so the bought delta is driven only by
-    optional verify sensors and the writer mechanism. We count the honest
-    optional items and show the machine still clears <$250 even if fitted.
+    Three primitives (P1/P2/P3) are 100 % printed and add nothing bought. P4
+    REMOVES S6-LC's bought reset-carriage motor ($8.00 in s6lc.py::bom()) by
+    riding the platen's own actuator. The machine may then pay optional verify
+    sensors and a writer motor; we count those at worst case and show the total
+    still clears <$250.
     """
     optional_comb_home_sensors = COMB_PLANES * BANKS * 0.20   # ~$0.20 microswitch
     optional_writer_motor = 12.00           # if the writer needs its own motor
     optional_writer_index = 12.00
-    printed_only = dict(parts_delta_usd=0.0, motors_delta=0,
-                        note="all four primitives are printed; zero bought "
-                             "delta required")
+    reset_motor_removed = 8.00              # s6lc.py: reset carriage motor
+    worst = (S6LC_PARTS_USD - reset_motor_removed
+             + optional_comb_home_sensors + optional_writer_motor
+             + optional_writer_index)
     return dict(
         s6lc_parts_usd=S6LC_PARTS_USD,
-        primitives_required_bought_delta_usd=0.0,
+        s6lc_reset_motor_removed_usd=reset_motor_removed,
+        primitives_required_bought_delta_usd=round(-reset_motor_removed, 2),
         optional_comb_home_sensors_usd=round(optional_comb_home_sensors, 2),
         optional_writer_motor_usd=optional_writer_motor,
         optional_writer_index_motor_usd=optional_writer_index,
         optional_total_usd=round(optional_comb_home_sensors
                                  + optional_writer_motor
                                  + optional_writer_index, 2),
-        primitives_machine_worst_case_parts_usd=round(
-            S6LC_PARTS_USD + optional_comb_home_sensors
-            + optional_writer_motor + optional_writer_index, 2),
-        clears_250_worst_case=bool(
-            S6LC_PARTS_USD + optional_comb_home_sensors
-            + optional_writer_motor + optional_writer_index < 250.0),
-        note="the primitives are printed-only, so the required bought delta is "
-             "$0. Even if the writer gets its own motor+index and all 32 comb "
-             "home sensors are bought, the machine is still well under $250. "
-             "This is the cost answer: the cheap architecture's lever is "
-             "PRINTS, not bought selectors.")
+        primitives_machine_worst_case_parts_usd=round(worst, 2),
+        clears_250_worst_case=bool(worst < 250.0),
+        note="P1/P2/P3 are printed-only (bought delta $0); P4 removes S6-LC's "
+             "$8.00 reset-carriage motor, so the required delta is -$8.00. Even "
+             "if the writer gets its own motor+index and all 32 comb home "
+             "sensors are bought, the machine is $162.17 purchased - still "
+             "$87.83 under $250. The cheap architecture's lever is PRINTS, not "
+             "bought selectors.")
 
 
 def cheapest_rejection_tests() -> dict:

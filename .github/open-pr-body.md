@@ -10,26 +10,31 @@ purchase, no measurement** ([DND-27](/DND/issues/DND-27)). **No board contact**
 
 ## Engineering question
 
-[DND-71](/DND/issues/DND-71)'s candidate **S6-LC** (banked broadcast ratchet, per-bank threshold
-mask, pawl-in-rack memory, 3 motors, ~$139.77) has four named weak points. Can **cell-level /
+[DND-71](/DND/issues/DND-71)'s candidate **S6-LC** (`09-lowcost-alternative/analysis/s6lc.py`,
+PR #70 on `feat/dnd71-lowcost-alternative`; banked broadcast ratchet, **punched-card** per-bank
+threshold mask prepared off the visible budget, 0.234 N pawl-in-rack memory, 3 motors incl. a
+travelling reset carriage, ~$139.77 / 7.4 s) has four named weak points. Can **cell-level /
 selection primitives** make it cheaper or more reliable — counting every component, with no
 scaling hidden behind the words "selector" or "clutch"?
 
 ## Answer
 
-**Yes — four primitives, all 100 % printed, adding zero bought selectors, zero bought clutches and
-zero motors.** They turn tolerance-fragile *forces* into hard-stop *positions*, and the machine
-still clears every gate: **13.0 s** full map (< 30 s), **$170.17 purchased** at worst-case optional
-extras (< $250). The honest trade is a **correlated, silent error** if a whole comb or clutch
-fails (bounded by 4 home sensors per bank, never per-cell feedback).
+**Yes — four primitives, all 100 % printed. Three add nothing bought; P4 *removes* S6-LC's $8
+reset-carriage motor** by riding the platen, so the net bought delta is **−$8**. They turn
+tolerance-fragile *forces* into hard-stop *positions*, and the machine still clears every gate:
+**13.0 s** full map (< 30 s), **$162.17 purchased** at worst-case optional extras (< $250). The
+primitives spend 5.6 s of S6-LC's 22.6 s margin to buy an **in-budget mask write** (S6-LC's card
+prep is off-budget), a **friction-independent cell state**, and the **removal of a motor**. The
+honest trade is a **correlated, silent error** if a whole comb or clutch fails (bounded by 4 home
+sensors per bank, never per-cell feedback).
 
 ## What changed
 
 - **`09-lowcost-alternative/primitives/primitives.py`** — analytic model:
   - **P1** friction-independent **bistable over-centre latch** (attacks #1 release-force spread).
-    Hostile arithmetic: the S6-LC friction pawl's release force spans **0.79 → 1.78 N** (2.24×)
-    across the sourced PLA μ band at the DND-48 bounding 3.27 N load → implied spread **19.1 %**
-    vs the **9 %** break-even. The 0.90 mm (2-line) latch snap is **0.61 N** and stores state as a
+    Hostile arithmetic: with S6-LC's real pawl (`s6lc.py` = **0.234 N** design release), the
+    loaded release force spans **0.888 → 1.869 N** (2.11×) across the sourced PLA μ band at the
+    DND-48 bounding 3.27 N load → implied spread **17.8 %** vs the **9 %** break-even. The 0.90 mm (2-line) latch snap is **0.61 N** and stores state as a
     hard-stop position, so **μ leaves the stored state**.
   - **P2** **printed 4-plane louvre comb stack** as the mask medium (attacks #2). Screens five
     candidates and **rejects** paper punched cards, the single relative-shift comb (recorded as a
@@ -62,7 +67,7 @@ fails (bounded by 4 home sensors per bank, never per-cell feedback).
 | `primitives_checks.py` | **35 passed, 0 failed** |
 | `render_primitives_cad.py` | **exit 2 without OpenSCAD** by design; CI job renders with it |
 | System timing | **13.0 s** full map (margin 17.0 s, assumption-conditional) |
-| System cost | **$170.17** worst case purchased; required delta **$0** |
+| System cost | **$162.17** worst case purchased; required delta **−$8** (P4 removes the reset motor) |
 
 ## Assumptions
 

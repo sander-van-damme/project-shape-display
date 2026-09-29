@@ -1,21 +1,28 @@
 # DND-76 — divergent low-cost cell / mechanism primitives (<$250 purchased)
 
 **Question.** [DND-71](/DND/issues/DND-71) is developing the ultra-low-cost
-(<$250 purchased, printed parts free) shape display. Its leading candidate
-**S6-LC** — a banked broadcast ratchet descending from
-[Test11 S1](../../06-experiments/test11_threshold_ratchet_s1/) — uses passive
-printed **pawl-in-rack** column memory (5 pockets, 10 mm steps), one **broadcast
-10 mm platen stroke**, a **per-bank threshold mask gate**, and a **banked
-release comb**, with ~3 bought motors and ~$139.77 parts.
+(<$250 purchased, printed parts free) shape display. Its candidate **S6-LC**
+(`09-lowcost-alternative/analysis/s6lc.py`, PR #70 on
+`feat/dnd71-lowcost-alternative`) is a banked broadcast ratchet descending from
+[Test11 S1](../../06-experiments/test11_threshold_ratchet_s1/): passive printed
+**pawl-in-rack** column memory (5 pockets, 10 mm steps, 0.234 N design release
+force), four **broadcast 10 mm platen strokes**, a **per-bank threshold mask**
+that is a **punched card prepared off the visible budget**, and a banked
+**release comb tripped by a travelling reset carriage**. S6-LC reports
+**$139.77 parts / $162.13 delivered**, **7.4 s** full map, and **3 bought
+motors** (lift, mask index, reset carriage).
 
 This directory invents **four concrete cell-level / selection primitives** that
 attack S6-LC's four named weak points, counts every component honestly, and
 names the cheapest analytic falsifier for each.
 
-**One-line answer.** All four primitives are **100 % printed** — they add
-**zero bought selectors, zero bought clutches, and zero motors** — and they
-clear every analytic gate: 13.0 s full map (< 30 s), $170.17 purchased even at
-worst-case optional extras (< $250), and a friction-independent cell state.
+**One-line answer.** All four primitives are **100 % printed**. Three add
+nothing bought; **P4 removes S6-LC's $8 reset-carriage motor** by riding the
+platen. Net bought delta is **−$8**, and they clear every analytic gate:
+13.0 s full map (< 30 s), **$162.17** purchased even at worst-case optional
+extras (< $250), and a friction-independent cell state. The mask write, which
+S6-LC pushes **off the visible budget** via punched-card prep, is brought back
+**inside** the 30 s budget by P2's printed comb.
 The decisive trade is honest and local: each primitive replaces a
 *tolerance-fragile force* with a *hard-stop position*, at the cost of a
 **correlated, silent error** if a whole comb or clutch fails (bounded by 4 home
@@ -45,16 +52,20 @@ so a skipped render can never be mistaken for validated CAD.
 | **P1** | Friction-independent **bistable over-centre latch** | #1 release-force spread (S1-D, break-even sd ~9 %) | **$0** | snap can stall mid-throw if the comb force is under-sized against print-stiffness spread |
 | **P2** | **Printed 4-plane louvre comb stack** + one camshaft/bank | #2 mask medium | **$0** (32 printed bars, 0 motors) | a stuck comb arms/disarms a whole **80-cell band** (silent, correlated); 4 home sensors/bank detect whole-comb only |
 | **P3** | **Relieved pocket throat + V-guide** at 3.60 mm body / 1.48 mm lane | #3 guidance / pocket sharpness | **$0** | as-printed V-guide wear and throat fusing are measurement-only |
-| **P4** | **Single-actuator banked reset** (reset bar rides the platen) | #4 reset with one actuator | **$0** (8 printed one-way clutches, 0 motors) | a clutch that sticks engaged re-trips the combs on the up-stroke, corrupting the mask |
+| **P4** | **Single-actuator banked reset** (reset bar rides the platen) | #4 reset with one actuator | **−$8** (removes S6-LC's reset motor; 8 printed one-way clutches) | a clutch that sticks engaged re-trips the combs on the up-stroke, corrupting the mask |
 
 ## P1 — friction-independent bistable over-centre latch
 
 **Why S6-LC hurts here.** A plain pawl release force is
-`F = k·defl + μ·N`. On a loaded column the μ·N term is sized by the DND-48
-bounding service load (3.27 N/column). Across the *sourced* PLA–PLA μ band
-[0.20, 0.50] the release force **more than doubles** (0.79 → 1.78 N, ratio
-**2.24×**), which is an implied spread of **19.1 % of the mean** — over the
+`F = k·defl + μ·N`. `s6lc.py::pawl_spring()` gives S6-LC's design release force
+**0.234 N** (0.90 × 1.20 × 8.00 mm leaf, 0.25 mm deflection). On a loaded column
+this becomes `0.234 + μ·N`; the μ·N term is sized by the DND-48 bounding
+service load (3.27 N/column). Across the *sourced* PLA–PLA μ band [0.20, 0.50]
+the release force **more than doubles** (0.888 → 1.869 N, ratio **2.11×**),
+which is an implied spread of **17.8 % of the mean** — over the
 **9 %** break-even the S1-D screen already found (typical FDM spread 10–20 %).
+S6-LC's own model concedes this: "per-bank masks bound the *force*, not the
+*spread*."
 That is the whole reason S1 needed a banked release at all.
 
 **The primitive.** Store the armed/disarmed state as a **position bounded by two
@@ -91,6 +102,14 @@ force > comb force.
 | **Printed 4-plane louvre comb stack + camshaft** | **$0** | **SELECT** | fully printed; 0 extra motors |
 | Bought 80-channel line-punch head | $38 | REJECT | S5-R writer-cost territory; eats the whole budget |
 | Magnetic printed comb + hall latch | $0 | REJECT | printed magnets creep; needs bought magnets |
+
+**The concrete replacement for S6-LC's punched card.** S6-LC's mask is a
+**punched card prepared off the visible 30 s budget** — DND-76 flags exactly
+this ("how is the per-bank 80×4 gate actually set cheaply and reliably?"). The
+card is fine as a *medium* (it is cheap) but it is a **product-level weakness**:
+a genuinely unannounced map needs card prep first, and the card must register 80
+holes to ≥0.10 mm. The selected printed comb removes the off-line step: it is
+rewritten by the shared travelling writer in 4.0 s **inside** the budget.
 
 **The selected medium.** Four 1.20 mm (3-line, load-bearing) printed comb bars
 per bank, each with an open slot over every armed cell and a 1.32 mm (3-line)
@@ -138,8 +157,9 @@ As-printed V-guide wear and throat fusing remain **measurement-only**.
 
 ## P4 — single-actuator banked reset
 
-**Why S6-LC hurts here.** Resetting 8 banks normally wants a second carriage or
-8 actuators. **The primitive** avoids both:
+**Why S6-LC hurts here.** S6-LC **buys a reset-carriage motor** (`reset_motor_usd
+= 8.00` in `s6lc.py::bom()`) whose only job is to traverse the 8 banked release
+combs. **The primitive** removes even that motor:
 
 - A printed **reset bar rides the underside of the common platen** — an already
   moving part, so there is **no second carriage and no extra motor**.
@@ -150,6 +170,8 @@ As-printed V-guide wear and throat fusing remain **measurement-only**.
   **free-wheels on the up-stroke**, so the reset cannot fight the write.
 
 Reset time = 8 banks × (0.55 s platen stroke + 0.30 s index) = **6.8 s**
+(S6-LC budgets the same reset as 8 × 0.50 s = 4.0 s; P4's slower banked
+walk is the honest price of using the platen's own actuator).
 (calculation, assumption-class).
 
 **Decisive failure mode.** A clutch that **sticks engaged** on the up-stroke
@@ -208,17 +230,32 @@ per bank — only the mask write is serial. This is the same evidence class as
 S1's 25.20 s budget: an assumption-conditional calculation, **not a
 measurement**.
 
+**Comparison to S6-LC** (`s6lc.py::timing()` = **7.4 s** = 4 strokes
+(2.2 s) + 8 × 0.50 s banked reset):
+
+| Term | S6-LC | with primitives | Why it moved |
+|---|---:|---:|---|
+| Mask write | **0.0 s** (punched card, **off-budget**) | **4.0 s** (in-budget) | P2 brings the write back inside the 30 s budget |
+| Broadcast strokes | 2.2 s | 2.2 s | unchanged (common platen) |
+| Banked reset | 4.0 s | **6.8 s** | P4 rides the platen (0.55 s) + index (0.30 s) per bank instead of a dedicated $8 carriage |
+| **Total** | **7.4 s** | **13.0 s** | still **17.0 s under** the gate |
+
+So the primitives **spend 5.6 s of the 22.6 s margin** to buy: (a) an **in-budget
+mask write** (S6-LC's card prep is off-budget, a real product weakness), (b) a
+**friction-independent cell state**, and (c) the **removal of the reset
+carriage motor**. That is the honest trade.
+
 ## Evidence boundaries
 
 | Claim | Type | Status |
 |---|---|---|
-| Four primitives add $0 bought parts / 0 motors | CALCULATION | pinned by checks |
-| S6-LC friction pawl spread 19.1 % > 9 % gate | CALCULATION | from sourced μ band + DND-48 load |
+| Three primitives add $0; P4 removes an $8 motor | CALCULATION | pinned by checks |
+| S6-LC friction pawl spread 17.8 % > 9 % gate | CALCULATION | from sourced μ band + DND-48 load + s6lc.py 0.234 N pawl |
 | Latch snap 0.61 N, 2-line printable | CALCULATION + CAD | |
 | Comb web 1.32 mm, guide gap 0.20 mm worst case | CALCULATION + CAD | |
 | Lane throw 0.48 mm; floor margin 19× | CALCULATION | |
 | Full map 13.0 s | CALCULATION | assumption-conditional |
-| Worst-case machine $170.17 < $250 | CALCULATION | optional items priced |
+| Worst-case machine $162.17 < $250 | CALCULATION | optional items priced, $8 reset motor removed |
 | Bistable link actually flips at worst-case print spread | **assumption** | needs a coupon (forbidden under DND-27) |
 | Whole-comb failure severity | CALCULATION | correlated, silent |
 
@@ -230,7 +267,8 @@ measurement**.
   named. It is the only candidate that is both cheap and reliable enough.
 - **P3** — retain. It closes the pitch budget and puts the load in compression.
 - **P4** — retain. It resets 8 banks with the platen's own actuator.
-- **Failed ideas recorded as evidence:** paper punched cards; the single
+- **Failed ideas recorded as evidence:** paper punched card as an *in-budget*
+  re-writable medium (it is acceptable only in S6-LC's off-budget role); the single
   relative-shift comb; a bought 80-channel punch head; magnetic printed combs;
   a friction (detented slip-ring) reset clutch.
 - **No architecture is promoted** by this folder. The primitives are inputs to
