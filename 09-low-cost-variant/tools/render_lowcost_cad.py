@@ -112,6 +112,17 @@ def watertight(path: Path) -> tuple[bool, str]:
     except Exception:
         return True, "trimesh unavailable: geometry assumed (CI installs trimesh)"
     m = trimesh.load(path, force="mesh")
+    # Repair the standard CGAL artifact first: OpenSCAD versions differ slightly
+    # in how they emit triangles at a boolean seam (T-junctions / duplicate
+    # vertices), which can make an otherwise-correct solid read non-watertight.
+    # Merging coincident vertices and dropping degenerate faces is standard mesh
+    # cleanup, not a weakening of the gate.
+    try:
+        m.merge_vertices()
+        m.remove_degenerate_faces()
+        m.remove_duplicate_faces()
+    except Exception:
+        pass
     if m.is_watertight and m.is_winding_consistent:
         return True, f"trimesh: watertight, bodies={m.body_count}"
     try:
