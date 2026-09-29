@@ -1,0 +1,164 @@
+{
+  "evidence_class": "CAD",
+  "renderer": "software rasterizer (numpy+Pillow) over committed OpenSCAD STLs",
+  "openscad_png_backend": "unavailable in-container (no GL/X); STLs are real OpenSCAD output (render_fab_parts.py)",
+  "not_a_print": true,
+  "size_px": 800,
+  "images": [
+    {
+      "file": "images/assembly_full_machine_iso.png",
+      "kind": "machine_assembly",
+      "machine": "S5-R",
+      "view": "iso",
+      "exploded": false,
+      "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,guide_bracket,rack_strip,bank_drive_housing,writer_carriage,rotor,drive_pawl,keeper,detent_leaf}.stl",
+      "meta": {
+        "field_cartridges": 9,
+        "field_cell_columns": 81,
+        "field_mm": [
+          411.48,
+          411.48
+        ],
+        "installed_cells_modelled": 81,
+        "installed_cells_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
+        "solid_count": 362,
+        "triangle_count": 683454
+      }
+    },
+    {
+      "file": "images/assembly_full_machine_top.png",
+      "kind": "machine_assembly",
+      "machine": "S5-R",
+      "view": "top",
+      "exploded": false,
+      "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,guide_bracket,rack_strip,bank_drive_housing,writer_carriage,rotor,drive_pawl,keeper,detent_leaf}.stl",
+      "meta": {
+        "field_cartridges": 9,
+        "field_cell_columns": 81,
+        "field_mm": [
+          411.48,
+          411.48
+        ],
+        "installed_cells_modelled": 81,
+        "installed_cells_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
+        "solid_count": 362,
+        "triangle_count": 683454
+      }
+    },
+    {
+      "file": "images/assembly_full_machine_front.png",
+      "kind": "machine_assembly",
+      "machine": "S5-R",
+      "view": "front",
+      "exploded": false,
+      "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,guide_bracket,rack_strip,bank_drive_housing,writer_carriage,rotor,drive_pawl,keeper,detent_leaf}.stl",
+      "meta": {
+        "field_cartridges": 9,
+        "field_cell_columns": 81,
+        "field_mm": [
+          411.48,
+          411.48
+        ],
+        "installed_cells_modelled": 81,
+        "installed_cells_full_field": 6400,
+        "exploded": false,
+        "explode_dz_mm": null,
+        "solid_count": 362,
+        "triangle_count": 683454
+      }
+    },
+    {
+      "file": "images/assembly_full_machine_exploded_iso.png",
+      "kind": "machine_exploded",
+      "machine": "S5-R",
+      "view": "iso",
+      "exploded": true,
+      "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,guide_bracket,rack_strip,bank_drive_housing,writer_carriage,rotor,drive_pawl,keeper,detent_leaf}.stl",
+      "meta": {
+        "field_cartridges": 9,
+        "field_cell_columns": 81,
+        "field_mm": [
+          411.48,
+          411.48
+        ],
+        "installed_cells_modelled": 81,
+        "installed_cells_full_field": 6400,
+        "exploded": true,
+        "explode_dz_mm": {
+          "platen": -70.0,
+          "cartridge": 0.0,
+          "register": 55.0,
+          "rack_rod": -35.0,
+          "rails": -120.0,
+          "drive": 15.0,
+          "bracket": -95.0
+        },
+        "solid_count": 362,
+        "triangle_count": 683454
+      }
+    },
+    {
+      "file": "images/assembly_full_machine_exploded_front.png",
+      "kind": "machine_exploded",
+      "machine": "S5-R",
+      "view": "front",
+      "exploded": true,
+      "source_mesh": "stl/{cell_cartridge,platen_module,lift_frame_rail,guide_bracket,rack_strip,bank_drive_housing,writer_carriage,rotor,drive_pawl,keeper,detent_leaf}.stl",
+      "meta": {
+        "field_cartridges": 9,
+        "field_cell_columns": 81,
+        "field_mm": [
+          411.48,
+          411.48
+        ],
+        "installed_cells_modelled": 81,
+        "installed_cells_full_field": 6400,
+        "exploded": true,
+        "explode_dz_mm": {
+          "platen": -70.0,
+          "cartridge": 0.0,
+          "register": 55.0,
+          "rack_rod": -35.0,
+          "rails": -120.0,
+          "drive": 15.0,
+          "bracket": -95.0
+        },
+        "solid_count": 362,
+        "triangle_count": 683454
+      }
+    },
+    {
+      "file": "images/assembly_register_9x9_iso.png",
+      "kind": "register_subblock",
+      "machine": "S5-R",
+      "view": "iso",
+      "cells_shown": 81,
+      "cells_full_field": 6400,
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    },
+    {
+      "file": "images/assembly_register_9x9_top.png",
+      "kind": "register_subblock",
+      "machine": "S5-R",
+      "view": "top",
+      "cells_shown": 81,
+      "cells_full_field": 6400,
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    },
+    {
+      "file": "images/assembly_register_9x9_front.png",
+      "kind": "register_subblock",
+      "machine": "S5-R",
+      "view": "front",
+      "cells_shown": 81,
+      "cells_full_field": 6400,
+      "source_mesh": "stl/{rotor,drive_pawl,keeper,detent_leaf,rack_strip}.stl"
+    }
+  ],
+  "verdict": "PASS",
+  "elapsed_s": 267.9
+}

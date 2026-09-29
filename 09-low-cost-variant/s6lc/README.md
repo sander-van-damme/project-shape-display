@@ -158,7 +158,41 @@ python printability_s6lc.py   # sourced FDM-limit table + record
 # CAD (real OpenSCAD; see tools/openscad-install/TOOLS)
 export PATH="$HOME/.local/bin:$PATH"
 python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
+python render_s6lc_images.py  # assembled + exploded machine PNGs (DND-88)
 ```
+
+## 7a. Assembled machine renders (DND-88)
+
+Board-viewable PNGs of the **whole S6-LC machine assembled**, rasterized from
+the committed STLs in [`cad/stl/`](cad/stl/) by
+[`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py):
+
+| Assembled (iso) | Assembled (top) | Assembled (front) |
+|---|---|---|
+| ![iso](images/s6lc_machine_assembled_iso.png) | ![top](images/s6lc_machine_assembled_top.png) | ![front](images/s6lc_machine_assembled_front.png) |
+
+The field is composed from the committed bank witness repeated **8 ×** at bank
+pitch (**406.4 × 406.4 mm**, 80 × 80 = 6,400 cells); each bank renders **3 of its
+10 rows** at true 5.08 mm pitch, and **36 columns** are installed as a
+representative sub-block. The label on every image states this. **Evidence class:
+CAD render of the committed meshes. NOT a print, not a measurement**
+([DND-27](/DND/issues/DND-27)); the record is
+[`cad/render_images_record.json`](cad/render_images_record.json).
+
+### Complete assembly — exploded view
+
+The **complete S6-LC assembly exploded** along a documented +Z ladder (same
+committed solids, rigid offsets only): installed columns + pawls / bank field /
+gate + release comb / broadcast platen deck.
+
+| Complete assembly exploded (iso) | Complete assembly exploded (front) |
+|---|---|
+| ![exploded iso](images/s6lc_machine_exploded_iso.png) | ![exploded front](images/s6lc_machine_exploded_front.png) |
+
+_Offsets are recorded in `EXPLODE_DZ` in
+[`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py); the solid set
+and labels are otherwise identical to the assembled views. **CAD render, not a
+print** ([DND-27](/DND/issues/DND-27))._
 
 ## 8. Files
 
@@ -168,8 +202,10 @@ python render_s6lc_cad.py  # renders 5 parts, mesh-validates them
 | [`analysis/s6lc_checks.py`](analysis/s6lc_checks.py) | 40 regression checks |
 | [`analysis/printability_s6lc.py`](analysis/printability_s6lc.py) | sourced-FDM-limit table |
 | [`analysis/render_s6lc_cad.py`](analysis/render_s6lc_cad.py) | real-OpenSCAD render + mesh check |
+| [`analysis/render_s6lc_images.py`](analysis/render_s6lc_images.py) | assembled + exploded machine PNG renders (DND-88) |
 | [`scad/s6lc_machine.scad`](scad/s6lc_machine.scad) | the part set (real OpenSCAD) |
 | [`cad/`](cad/) | rendered STLs + CAD/printability records |
+| [`images/`](images/) | assembled + exploded machine PNG renders (DND-88) |
 | [`bom_s6lc.csv`](bom_s6lc.csv) | purchased BOM line table |
 | [`evidence/`](evidence/) | architecture + printable-path statements |
 

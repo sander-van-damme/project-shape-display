@@ -238,6 +238,18 @@ jobs:
         # Install scipy explicitly. watertight() is also now dependency-free, so
         # the gate still passes if scipy is ever absent.
         run: python -m pip install --quiet "trimesh>=4" "scipy>=1.11"
+      - name: Render + verify the S6-LC assembled + exploded machine PNGs (DND-88/DND-92)
+        # "Everything assembled" for the low-cost candidate: the 8-bank field
+        # strip + platen + gate/comb + installed columns, rasterized from the
+        # committed S6-LC STLs with the shared software renderer; plus the DND-92
+        # exploded view of the complete assembly. The --check step fails if the
+        # exploded view is missing. CAD, not a print.
+        # Kept ahead of the (pre-existing, DND-82) low-cost CAD mesh gate so a
+        # failure there cannot hide this verification.
+        run: |
+          python -m pip install --quiet "numpy>=1.26" "pillow>=10"
+          python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py
+          python 09-low-cost-variant/s6lc/analysis/render_s6lc_images.py --check
       - name: Re-render the low-cost variant parts (best-effort CAD refresh)
         # Refreshes the STLs from the SCAD when the runner's OpenSCAD can. The
         # committed STLs are the CAD artifacts that the gate below validates, so
@@ -362,6 +374,15 @@ jobs:
         run: |
           python 08-current-design/fabrication/tools/render_images.py
           python 08-current-design/fabrication/tools/render_images.py --check
+      - name: Regenerate + verify the full-machine PNG renders (DND-88/DND-92)
+        # "Everything assembled": the 3x3 cartridge field + frame + drive witness
+        # + installed 9x9 register sub-block, and the DND-92 exploded view of the
+        # complete assembly. Rasterizes committed STLs with the same software
+        # renderer; verifies every recorded image is present, valid, non-trivial,
+        # and that the exploded view exists. CAD render, not a print.
+        run: |
+          python 08-current-design/fabrication/tools/render_machine.py
+          python 08-current-design/fabrication/tools/render_machine.py --check
       - name: Upload fabrication-package records
         uses: actions/upload-artifact@v4
         with:
@@ -371,6 +392,8 @@ jobs:
             08-current-design/fabrication/manifests/*.csv
             08-current-design/fabrication/manifests/*.md
             08-current-design/fabrication/images/*.png
+            09-low-cost-variant/s6lc/cad/*.json
+            09-low-cost-variant/s6lc/images/*.png
             s5r-parts-printability-record.json
           if-no-files-found: warn
 
