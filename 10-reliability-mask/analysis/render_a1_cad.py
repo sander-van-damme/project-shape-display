@@ -27,7 +27,7 @@ SCAD_READER = ROOT / "scad" / "a1_reader_head.scad"
 OUT = ROOT / "cad" / "stl"
 RECORD = ROOT / "cad" / "render_record.json"
 
-PARTS = ["column", "latch", "cradle"]
+PARTS = ["column", "latch", "cradle", "flag"]
 
 # Provisional FDM rules (DND-102 criteria): 1 line @ 0.4 mm nozzle, 2-line wall.
 MIN_FEATURE_MM = 0.44
@@ -102,6 +102,20 @@ def main() -> int:
     if "spot fits top face at centre: true" not in echoes:
         raise SystemExit(
             "FATAL: reader spot does not fit the column top face at centre")
+    # DND-114: assert the common-height flag read is valid (CAD-validated).
+    if "flag spot clears neighbour body: true" not in echoes:
+        raise SystemExit(
+            "FATAL: common-height flag spot does not clear the neighbour body")
+    if "flag spot fits flag Y width: true" not in echoes:
+        raise SystemExit(
+            "FATAL: common-height flag spot does not fit the flag footprint")
+    # DND-114: assert the cell CAD common-height self-checks pass.
+    cell_echoes = " ".join(
+        ln for p in record["parts"].values() for ln in p["echo"])
+    if "CH-A target is frame-fixed: DeltaZ=0" not in cell_echoes:
+        raise SystemExit("FATAL: CH-A common-height target is not frame-fixed")
+    if "CH flag fits lane in X: true" not in cell_echoes:
+        raise SystemExit("FATAL: CH-A flag does not fit the latch lane")
     record["evidence_class"] = (
         "CAD geometry rendered by real OpenSCAD + mesh validation (trimesh). "
         "NOT a print, NOT a measurement (DND-27)."

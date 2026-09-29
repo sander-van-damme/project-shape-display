@@ -99,16 +99,34 @@ module neighbour_patch() {
 
 module common_height_flag() {
     // DND-113 PROPOSED fix: a reflective flag on the frame-anchored latch hinge,
-    // read at ONE standoff for both states. Rendered schematically at the hinge
-    // plane (fixed z), outboard of the cell, with the two tilt extremes.
-    translate([BODY/2 + OWNED_LANE/2, 0, TRAVEL/2])
-        color("DarkOrange")
-            rotate([0, 0, 0])
-                cube([0.6, 1.2, 0.8], center=true);
-    translate([BODY/2 + OWNED_LANE/2, 0, TRAVEL/2])
-        color("OrangeRed")
-            rotate([35, 0, 0])
-                cube([0.6, 1.2, 0.8], center=true);
+    // read at ONE standoff for both states.
+    // ---------------------------------------------------------------------
+    // DND-114 STATUS: this is now a VALIDATED-ARTIFACT read target, not a
+    // schematic. The flag is the CH-A frame-fixed vane from
+    // `a1_binary_latch_cell.scad`: a post in the latch lane with its top face
+    // at a single fixed z for both column states (DeltaZ = 0 by construction).
+    // The reader rides at a FIXED standoff above the flag plane; the neighbour
+    // columns sit at x >= PITCH - BODY/2, so only the X half-width of the spot
+    // can reach them. See the self-checks below.
+    translate([FLAG_X, 0, FLAG_Z_TOP - FLAG_H/2])
+        color("Gold") cube([FLAG_T, FLAG_W, FLAG_H], center=true);
+    translate([FLAG_X, 0, FLAG_Z_TOP + 0.01])
+        color("Khaki") cube([FLAG_T, FLAG_W, 0.02], center=true);
+}
+
+module flag_reader_head() {
+    // DND-114: the reader head fixed above the flag plane at ONE standoff.
+    // A dedicated SMALL aperture (FLAG_AP=0.60 mm) and tight standoff
+    // (FLAG_GAP=1.0 mm) keep the spot off the neighbour body; the spot may
+    // spread in Y because the lane is open across the full pitch.
+    translate([FLAG_X, 0, FLAG_Z_TOP + FLAG_GAP + 6])
+        color("Orange") cube([FLAG_AP + 4, FLAG_AP + 4, 12], center=true);
+    // cone from the aperture to the frame-fixed flag top face (green: fits)
+    translate([FLAG_X, 0, FLAG_Z_TOP + FLAG_GAP/2])
+        color("LimeGreen", 0.30)
+            cylinder(h = FLAG_GAP,
+                     d1 = FLAG_AP + 2*FLAG_GAP*tan(HALF_ANGLE),
+                     d2 = FLAG_AP, center=true);
 }
 
 module assembly() {
@@ -118,7 +136,9 @@ module assembly() {
         reader_head();
         down_state_cone();
     }
+    // DND-114: the common-height flag target read at its own fixed standoff.
     common_height_flag();
+    translate([0, 0, 0]) flag_reader_head();
 }
 
 assembly();
@@ -133,3 +153,23 @@ echo(str("NEIGHBOUR_NEAR_EDGE=", NEIGHBOUR_NEAR_EDGE, " SPOT_CONTAMINATES=", SPO
 echo(str("spot fits top face at centre: ", (SPOT_UP/2) <= BODY/2));
 echo(str("down-state single-cell read resolvable: ", SPOT_DOWN <= BODY));
 echo(str("gap for centre fit: ", (BODY - APERTURE)/(2*tan(HALF_ANGLE))));
+
+// ---- DND-114 common-height target read self-checks -------------------------
+FLAG_X       = BODY/2 + 0.45/2 + 0.20;     // HINGE_X, frame-fixed lane
+FLAG_T       = 0.44;                       // flag width in X
+FLAG_W       = 1.60;                       // flag width in Y
+FLAG_H       = 0.80;
+FLAG_Z_TOP   = TRAVEL + 3.0;               // fixed target top face z
+FLAG_GAP     = 1.0;                        // fixed reader-to-flag standoff
+FLAG_AP      = 0.60;                       // dedicated small flag-read aperture
+FLAG_SPOT_X  = FLAG_AP + 2*FLAG_GAP*tan(HALF_ANGLE);  // spot width in X
+FLAG_SPOT_Y  = FLAG_SPOT_X;                // same formula, Y is open
+X_CLEAR_NB   = PITCH - BODY/2 - FLAG_X;    // to the neighbour body
+FLAG_SPOT_CLEARS_NB = (FLAG_SPOT_X/2) <= X_CLEAR_NB;
+FLAG_SPOT_FITS_Y    = FLAG_SPOT_X <= FLAG_W;
+echo(str("FLAG_X=", FLAG_X, " Z_FLAG_TOP=", FLAG_Z_TOP,
+         " (frame-fixed; DeltaZ=0 for both states)"));
+echo(str("FLAG_GAP=", FLAG_GAP, " FLAG_AP=", FLAG_AP,
+         " FLAG_SPOT_X=", FLAG_SPOT_X, " X_CLEAR_NB=", X_CLEAR_NB));
+echo(str("flag spot clears neighbour body: ", FLAG_SPOT_CLEARS_NB));
+echo(str("flag spot fits flag Y width: ", FLAG_SPOT_FITS_Y));

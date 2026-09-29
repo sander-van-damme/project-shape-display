@@ -300,6 +300,29 @@ does not.
   target is CAD-designed and validated. No print/measurement (DND-27).
 
 
+### DND-114 — common-height read target (CAD-validated; resolves DND-113 §4)
+
+[DND-114](/DND/issues/DND-114) converts the DND-113 **proposal** into a CAD-validated artifact
+(ADR [`dnd114-a1-common-height-read-target.md`](dnd114-a1-common-height-read-target.md)):
+
+- **Adopted target (CH-A):** a **frame-fixed reflective vane** on the frame cradle in the latch lane,
+  top face at `z = TRAVEL + 3 = 43 mm`. Its z does **not** move with the column, so **Δz = 0 by
+  construction** for both states. The reader interrogates it at **one fixed standoff** (1.0 mm,
+  dedicated 0.60 mm aperture).
+- **Δz-in-DoF bound (CH-B fallback):** an arm-carried flag at radius `r` shifts by
+  `Δz = r·2·sin(swing/2)`. Max radius in the ±1 mm DoF is **1.932 mm**; at the chosen `r = 1.20 mm`
+  (30° swing) **Δz = 0.621 mm** — inside the budget.
+- **Flag-vs-neighbour contrast:** the flag sits at `x = 2.225 mm`; the neighbour body begins at
+  `x = 3.28 mm` (1.055 mm clearance). The flag-read spot is **1.136 mm**, half-width **0.568 mm**,
+  clearing the neighbour body by **0.487 mm** and fitting the 1.60 mm flag width. The lane is open in
+  Y.
+- **R1/G2 re-check:** the as-drawn 42 mm gap / 24.5 mm spot / ~441× neighbour/pocket swing are
+  **eliminated** by the fixed standoff (ratio → 1×). The as-drawn top-face defect is still recorded as
+  the historical defect, not erased.
+- **Gate:** the companion checker `falsifier_dnd114_checks.py --gate` exits 0 (7 attacks). Render +
+  mesh validation of the flag part is CI-wired. No print/measurement (DND-27).
+
+
 ### Robust S5 readiness register (DND-46 / DND-48, 2026-09)
 
 The [DND-44](/DND/issues/DND-44) closure headlines ("K1 ≤0.39 N, K5 $424.95, K8 1 N→0.01 mm")
