@@ -1,53 +1,11 @@
 #!/usr/bin/env python3
-"""Sourced FDM process limits for the Shape Display program's target printer.
-
-This module is the *analytic replacement for a print test*. Instead of printing
-a coupon and measuring whether a feature survived, we compare the CAD geometry
-against published FDM process limits and report PASS / FAIL / RISK with an
-explicit evidence class per rule.
-
-EVIDENCE CLASSES (per program policy, board directive DND-27)
--------------------------------------------------------------
-    sourced fact  - vendor datasheet / published design guide / standard.
-    assumption    - explicitly flagged engineering judgement.
-    calculation   - derived from the sourced facts + the declared process.
-
-Every number carries `evidence` and `source`. Nothing here is a measurement:
-this module never claims physical validation.
-
-TARGET PROCESS (declared in 06-experiments/test11_falsification_library/
-PRINTABILITY_REPORT.md and the SCAD headers)
-----------------------------------------------------------------------------
-    Printer        Bambu Lab X1C
-    Material       PLA
-    Nozzle         0.4 mm
-    Layer height   0.20 mm
-    Perimeters     3
-    Build volume   256 x 256 x 256 mm
-
-REFERENCES
-----------
-    [R1] Protolabs Network (Hubs), "How to design parts for FDM 3D printing".
-         https://www.hubs.com/knowledge-base/how-design-parts-fdm-3d-printing/
-         - overhangs printable to ~45 deg without support; above 45 requires
-           support (sourced fact).
-         - bridges under 5 mm print cleanly; longer bridges sag (sourced fact).
-         - vertical pins under 5 mm diameter print weak / may fail (sourced
-           fact).
-         - corners/edges have a radius equal to the nozzle diameter (sourced
-           fact).
-    [R2] Bambu Lab X1C product specification, build volume 256 x 256 x 256 mm.
-         https://bambulab.com/en/x1 (sourced fact).
-    [R3] Standard extrusion-width rule: a single extruded line at a 0.4 mm
-         nozzle is ~0.4-0.5 mm wide; a feature narrower than one line cannot be
-         printed reliably. Minimum self-supporting wall is therefore ~1x the
-         extrusion width; a robust, infill-free feature is >= 2x (0.8 mm) and a
-         load-bearing wall is conventionally >= 3x (1.2 mm) for a 0.4 mm nozzle
-         / 3 perimeters (sourced fact + engineering convention -> labelled).
-    [R4] FDM dimensional accuracy: typical +/-0.1 mm on a well-tuned printer,
-         worse on small holes (undersize). Vendors publish ~+/-0.1 mm for X1C-
-         class machines (assumption for the generic figure; see source note in
-         `fits`).
+"""FDM screening limits; calculation, not physical validation.
+R1: Protolabs/Hubs FDM guide (45° overhang, 5 mm bridge, small-pin caution):
+https://www.hubs.com/knowledge-base/how-design-parts-fdm-3d-printing/
+R2: X1C 256 mm build envelope: https://bambulab.com/en/x1
+R3: extrusion width 1.1× nozzle; walls 2–3 lines: engineering conventions.
+R4: ±0.1 mm per face: generic dimensional-accuracy assumption, not a vendor guarantee.
+Declared process: X1C, PLA, 0.4 mm nozzle, 0.20 mm layers, three perimeters.
 """
 
 from __future__ import annotations

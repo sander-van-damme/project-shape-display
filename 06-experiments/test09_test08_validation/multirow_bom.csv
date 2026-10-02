@@ -1,8 +1,0 @@
-fixed_category,allowance_usd,basis
-Scanner motor driver rails belt,65,engineering allowance
-Controller boards and loom,35,engineering allowance excluding local axis drivers included in local prices
-Power supplies and protection,35,engineering allowance must rerun after actual winding selection
-Global reset release and safety catch,30,engineering allowance mechanism unverified
-Inspection sensing,20,engineering allowance latency and coverage unverified
-Fasteners bearings and output guides,15,engineering allowance printed fanout
-Freight import and spares,20,engineering allowance not delivered quote
