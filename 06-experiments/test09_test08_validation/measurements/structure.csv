@@ -1,1 +1,0 @@
-run_id,geometry_revision,material_lot,load_kg,load_pattern,span_mm,screw_count,screw_lead_mm,lift_mm_s,torque_nm,rpm,flatness_change_mm,corner_skew_mm,minimum_unload_gap_mm,hold_duration_s,temperature_c,power_cut,descent_mm,cycles,failure,trace_path

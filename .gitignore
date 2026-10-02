@@ -1,7 +1,3 @@
-# Python
 __pycache__/
-*.pyc
-*.pyo
-
-# Generated experiment artifacts
-06-experiments/**/results/
+*.py[cod]
+06-experiments/**/output/

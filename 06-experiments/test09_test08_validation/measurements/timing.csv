@@ -1,1 +1,0 @@
-run_id,part_lot,condition,trace_path,rate_hz,command_s,engage_s,home_settle_s,write_settle_s,disengage_s,seat_s,scan_v_mm_s,scan_a_mm_s2,lift_v_mm_s,lift_a_mm_s2,reference_s,ready_s,inspection_s,recovery_s,home_steps,failures

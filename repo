@@ -1,0 +1,249 @@
+#!/usr/bin/env python3
+# AGENTS: do not read or edit this file. Use ./repo help.
+# Modify only when explicitly tasked with repository tooling.
+"""Small filesystem navigation tool; Python standard library only."""
+import argparse
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parent
+LOCATIONS = dict(zip(('D', 'M', 'P', 'A', 'Q', 'E', 'ADR', 'DES'), (
+    '03-engineering-knowledge/disciplines', '03-engineering-knowledge/mechanisms',
+    '03-engineering-knowledge/principles', '04-architecture-candidates',
+    '05-research-questions', '06-experiments', '07-evidence-and-decisions',
+    '08-integrated-designs')))
+NAME = re.compile(r'^(D|M|P|A|Q|E|ADR|DES)-(\d{3,})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$')
+IDENT = re.compile(r'^(?:D|M|P|A|Q|E|ADR|DES)-\d{3,}$')
+STATUSES = {'active', 'draft', 'open', 'resolved', 'complete', 'candidate', 'proposed', 'rejected', 'superseded'}
+HELP = '''Usage: ./repo COMMAND
+  help                           Show this guide
+  ls [FAMILY]                    List IDs, status and semantic names
+  find TEXT                      Search object names/content; one line per hit
+  get ID                         Print the object's path, not its contents
+  refs ID                        List objects whose builds-on includes ID
+  new FAMILY "semantic name" [--on ID ...]
+                                 Allocate ID; create file or E/DES workspace
+  finish E-ID                    Collapse checkpointed workspace to result file
+  check                          Check structure/references locally
+Families: D discipline, M mechanism, P principle, A architecture,
+          Q question, E experiment, ADR decision, DES integrated design.
+Edit the created document. Metadata: status and optional builds-on: [ID, ID].
+Evidence must distinguish assumptions/calculations/CAD from measurements.
+Before finish: distill the result; commit workspace files you want archived.
+finish refuses untracked/modified scaffolding; the result document may change.
+Git history archives deleted scaffolding. No CI or generated index is needed.'''
+
+
+def fail(message):
+    raise ValueError(message)
+
+
+def files():
+    for location in LOCATIONS.values():
+        yield from sorted((ROOT / location).rglob('*.md'))
+
+
+def metadata(path):
+    content = path.read_text(encoding='utf-8')
+    if not content.startswith('---\n'):
+        return {}, content
+    parts = content.split('---\n', 2)
+    if len(parts) != 3:
+        fail(f'Unclosed metadata: {path.relative_to(ROOT)}')
+    data = {}
+    for line in parts[1].splitlines():
+        if ':' not in line:
+            fail(f'Invalid metadata: {path.relative_to(ROOT)}')
+        key, value = line.split(':', 1)
+        if key in data:
+            fail(f'Duplicate metadata key: {path.relative_to(ROOT)}')
+        data[key] = value.strip()
+    return data, parts[2]
+
+
+def records():
+    result = []
+    for path in files():
+        match = NAME.fullmatch(path.name)
+        if match:
+            family, number, slug = match.groups()
+            data, body = metadata(path)
+            refs = data.get('builds-on', '[]')
+            if not re.fullmatch(r'\[(?:[A-Z]+-\d{3,}(?:,\s*[A-Z]+-\d{3,})*)?\]', refs):
+                fail(f'Invalid builds-on list: {path.relative_to(ROOT)}')
+            result.append((f'{family}-{number}', family, slug, path, data,
+                           re.findall(r'[A-Z]+-\d{3,}', refs), body))
+    return result
+
+
+def resolve(rows, ident):
+    found = [r for r in rows if r[0] == ident]
+    if len(found) != 1:
+        fail(f'Expected one object for {ident}; found {len(found)}')
+    return found[0]
+
+
+def check(rows):
+    errors = []
+    ids = [r[0] for r in rows]
+    for ident in sorted(set(ids)):
+        if ids.count(ident) > 1:
+            errors.append(f'Duplicate ID: {ident}')
+    for ident, family, slug, path, data, refs, body in rows:
+        base = ROOT / LOCATIONS[family]
+        package = base / path.stem
+        valid = path.parent == base if family not in ('E', 'DES') else (
+            path.parent == package or (family == 'E' and path.parent == base))
+        if not valid:
+            errors.append(f'Invalid location: {path.relative_to(ROOT)}')
+        if family == 'E' and path.parent == package and data.get('status') == 'complete':
+            errors.append(f'Collapse completed experiment: {ident}')
+        if set(data) - {'status', 'builds-on'}:
+            errors.append(f'Unexpected metadata: {ident}')
+        if data.get('status') and data['status'] not in STATUSES:
+            errors.append(f'Invalid status: {ident}')
+        for ref in refs:
+            if ref not in ids or ref == ident:
+                errors.append(f'Broken/self builds-on: {ident} -> {ref}')
+        if path.stat().st_size > 15360:
+            errors.append(f'Oversized atomic object: {ident}')
+    objects = {r[3] for r in rows}
+    graph = {r[0]: r[5] for r in rows}
+    done, visiting = set(), set()
+    def visit(ident):
+        if ident in visiting:
+            errors.append(f'Cyclic builds-on: {ident}')
+        elif ident not in done:
+            visiting.add(ident)
+            for ref in graph.get(ident, []):
+                visit(ref)
+            visiting.remove(ident)
+            done.add(ident)
+    for ident in graph:
+        visit(ident)
+    for family in ('E', 'DES'):
+        for package in (ROOT / LOCATIONS[family]).glob('*'):
+            if package.is_dir() and not (NAME.fullmatch(package.name + '.md') and package.name.startswith(family + '-') and (package / (package.name + '.md')).is_file()):
+                errors.append(f'Invalid/missing package document: {package.relative_to(ROOT)}')
+    for path in ROOT.rglob('*'):
+        rel = path.relative_to(ROOT)
+        if any(part in ('.git', '.agents', '.codex', '.aws', '__pycache__') for part in rel.parts):
+            continue
+        if path.is_file() and path.name.lower() in ('readme.md', 'contributing.md'):
+            errors.append(f'Unexpected navigation document: {rel}')
+        if path.is_file() and NAME.fullmatch(path.name) and path not in objects:
+            errors.append(f'Object outside canonical locations: {rel}')
+        if path.is_file() and path.suffix == '.md' and re.match(r'^(?:D|M|P|A|Q|E|ADR|DES)-', path.name) and not NAME.fullmatch(path.name):
+            errors.append(f'Malformed canonical filename: {rel}')
+        if path.name == 'AGENTS.md' and path.stat().st_size > 3000:
+            errors.append(f'Oversized instructions: {rel}')
+    expected = {p.split('/')[0] for p in LOCATIONS.values()} | {'01-project-description', '02-design-criteria'}
+    for name in sorted(expected):
+        if not (ROOT / name).is_dir():
+            errors.append(f'Missing lifecycle root: {name}')
+    for path in ROOT.iterdir():
+        if path.is_dir() and re.match(r'^\d', path.name) and path.name not in expected:
+            errors.append(f'Unexpected lifecycle root: {path.name}')
+    for error in errors:
+        print(error, file=sys.stderr)
+    if errors:
+        return 1
+    print(f'OK: {len(rows)} objects; structure and builds-on references valid')
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('command', nargs='?', default='help', choices=('help', 'ls', 'find', 'get', 'refs', 'new', 'finish', 'check'))
+    parser.add_argument('args', nargs='*')
+    parser.add_argument('--on', nargs='+', default=[])
+    options = parser.parse_args()
+    cmd, args = options.command, options.args
+    if cmd == 'help':
+        print(HELP)
+        return 0
+    if options.on and cmd != 'new':
+        fail('--on is only valid for new')
+    rows = records()
+    if cmd == 'check':
+        if args or options.on:
+            fail('check takes no arguments')
+        return check(rows)
+    if cmd == 'ls':
+        if len(args) > 1 or (args and args[0] not in LOCATIONS):
+            fail('ls takes at most one valid family')
+        for ident, family, slug, path, data, refs, body in rows:
+            if not args or family == args[0]:
+                print(f'{ident}  {data.get("status", "-")}  {slug}')
+    elif cmd == 'find':
+        if len(args) != 1:
+            fail('find requires one quoted search text')
+        for row in rows:
+            if args[0].casefold() in (row[2] + '\n' + row[6]).casefold():
+                print(f'{row[0]}  {row[3].relative_to(ROOT)}')
+    elif cmd in ('get', 'refs', 'finish'):
+        if len(args) != 1:
+            fail(f'{cmd} requires one ID')
+        row = resolve(rows, args[0])
+        if cmd == 'get':
+            print(row[3].relative_to(ROOT))
+        elif cmd == 'refs':
+            for other in rows:
+                if row[0] in other[5]:
+                    print(other[0])
+        else:
+            ident, family, slug, path, data, refs, body = row
+            if family != 'E' or path.parent == ROOT / LOCATIONS['E']:
+                fail('finish requires an experiment workspace')
+            # A checkpoint is required for every file being removed, including ignored output.
+            for artifact in path.parent.rglob('*'):
+                if not artifact.is_file() or artifact == path:
+                    continue
+                rel = str(artifact.relative_to(ROOT))
+                result = subprocess.run(['git', 'status', '--porcelain', '--ignored', '--', rel], cwd=ROOT, capture_output=True, text=True, check=True)
+                if result.stdout:
+                    fail(f'Uncheckpointed scaffolding: {rel}; commit or explicitly remove it first')
+            destination = path.parent.parent / path.name
+            if destination.exists():
+                fail(f'Destination exists: {destination.name}')
+            text = '---\nstatus: complete\n'
+            if refs:
+                text += 'builds-on: [' + ', '.join(refs) + ']\n'
+            destination.write_text(text + '---\n' + body, encoding='utf-8')
+            shutil.rmtree(path.parent)
+            print(destination.relative_to(ROOT))
+    elif cmd == 'new':
+        if len(args) != 2 or args[0] not in LOCATIONS:
+            fail('new requires FAMILY and a quoted semantic name')
+        family, title = args
+        slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+        if not slug:
+            fail('Name must contain letters or numbers')
+        for ref in options.on:
+            resolve(rows, ref)
+        number = max((int(r[0].split('-')[1]) for r in rows if r[1] == family), default=0) + 1
+        name = f'{family}-{number:03d}-{slug}'
+        base = ROOT / LOCATIONS[family]
+        if family in ('E', 'DES'):
+            base /= name
+        base.mkdir(parents=True, exist_ok=True)
+        path = base / (name + '.md')
+        status = 'open' if family == 'Q' else 'candidate' if family in ('A', 'DES') else 'active'
+        text = f'---\nstatus: {status}\n'
+        if options.on:
+            text += 'builds-on: [' + ', '.join(options.on) + ']\n'
+        with path.open('x', encoding='utf-8') as stream:
+            stream.write(text + '---\n\n')
+        print(path.relative_to(ROOT))
+    return 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (ValueError, OSError, subprocess.CalledProcessError) as error:
+        print(f'Error: {error}', file=sys.stderr)
+        sys.exit(1)

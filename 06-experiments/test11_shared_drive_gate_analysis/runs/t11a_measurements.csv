@@ -1,5 +1,0 @@
-run_id,part,nozzle_mm,layer_mm,filament_lot,slicer_project,operator,date,instrument_ids,M1_web_mm,M2_notch_mm,M3_pivot,M4_land_mm,M4_land_present,M5_clearance_mm,M6_bbox_x_mm,M6_bbox_y_mm,M6_bbox_z_mm,photos,notes
-A1,coupon_assembled,0.4,0.12,,,,,,,,,,,,,,,,,
-A2,coupon_finger,0.4,0.12,,,,,,,,,,,,,,,,,
-A3,coupon_bank,0.4,0.12,,,,,,,,,,,,,,,,,
-A4,coupon_assembled,0.2,0.08,,,,,,,,,,,,,,,,,

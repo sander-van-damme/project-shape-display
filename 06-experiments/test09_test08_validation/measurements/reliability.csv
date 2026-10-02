@@ -1,1 +1,0 @@
-run_id,head_id,module_id,channel,lot,condition,map_id,row_transaction_id,cell_operations,row_operations,failures,stuck_columns,silent_misindexes,coupling_failures,correlated_failures,injected_fault_class,injected_count,detected_count,false_alarms,detection_s,recovery_s,ready_asserted,trace_path

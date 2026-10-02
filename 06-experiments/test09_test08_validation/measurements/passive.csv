@@ -1,1 +1,0 @@
-run_id,sample_id,condition,tilt_deg,guide_offset_mm,dust_material,dust_mass_mg,cycles,mass_g,force_uncertainty_mn,breakaway_max_mn,sliding_max_mn,return_s,old_level,new_level,neighbors_pattern,height_error_mm,neighbor_shift_mm,load_n,load_duration_s,permanent_set_mm,usable_travel_mm,miniature_id,miniature_height_mm,failure,recovery_s,trace_path
