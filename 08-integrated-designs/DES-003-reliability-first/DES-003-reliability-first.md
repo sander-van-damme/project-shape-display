@@ -12,6 +12,8 @@ Cost: historical base estimate $181 purchased / $209.96 with ×1.16 delivery upl
 
 Source: `analysis/reliability_mask.py` models architecture comparisons; `a1_writer_rate.py` models writer/reader rates and optical geometry; `a1_regional_update.py` models local isolation; `a1_promotion_timing.py`, `a1_promotion_cost.py`, `a1_hardening.py` expose conservative sensitivities. `scad/` contains latch, reader and prototype coupons. `bom_a1.csv` holds the base BOM.
 
+Fit calibration: `analysis/a1_coupon_calibration.md` and `scad/a1_coupon_calibration.scad` provide the reproducible Q-009 coupon and blank measurement sheet.
+
 Reproduce: `python3 analysis/reliability_mask.py convergence`; `python3 analysis/reliability_mask_checks.py`. Render via `python3 analysis/render_a1_cad.py` with OpenSCAD and trimesh. Numeric analyses use Python standard library and the reusable FDM process limits.
 
 Evidence: CAD/calculation and explicit assumptions. Readback can expose failures only if reader classification works in practice. Latch toggle force, reflectance/lighting, gantry registration, wear and loaded-neighbour disturbance need coupon measurements. No physical validation or print-ready claim.

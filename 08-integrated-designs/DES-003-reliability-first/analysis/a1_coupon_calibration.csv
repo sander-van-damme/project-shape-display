@@ -1,0 +1,6 @@
+feature_id,interface,dimension,low_mm,nominal_mm,high_mm,observation,measured_mm,pass_fail,notes,evidence
+latch_socket,binary latch cell,radial clearance,0.10,0.20,0.30,"fit, bind, looseness",,,,CAD-derived nominal; physical result unresolved
+latch_lane,latch toe / owned lane,lane clearance,0.10,0.20,0.30,"interference, stop engagement",,,,CAD-derived nominal; physical result unresolved
+reader_flag,frame-fixed flag reader,reader standoff,1.60,1.80,2.00,single-cell contrast,,,,CAD-derived nominal; physical result unresolved
+registration,gantry registration,half-pitch offset,2.44,2.54,2.64,"seat, repeatability",,,,CAD-derived nominal; physical result unresolved
+slide,repeated-fit rail,running clearance,0.10,0.20,0.30,"insert force, bind, wear",,,,CAD-derived nominal; physical result unresolved
