@@ -1,14 +1,29 @@
 # E‑010: Analytical Regional Coupling Bound
 
 ## Goal
-Estimate peak displacement and maximum allowable coupling fraction for 5×5, 10×10, 20×20 regional updates using CAD‑derived stiffness values.
+Estimate a conservative screening displacement and maximum allowable coupling
+fraction for 5×5, 10×10, and 20×20 regional updates. This is an analytical
+sensitivity bound, not a geometry-resolved FEA result.
 
 ## Assumptions
-- Stiffness (`k`) in *N/mm* derived from CAD: **10, 32.7, 50**
+- Candidate stiffness (`k`) in *N/mm*: **10, 32.7, 50** (**inferred
+  sensitivity values**, not measured or actually derived by the present CAD)
 - Coupling fractions considered: **1 %, 5 %, 10 %**
-- Base total force for 5×5 is 1000 N. Force scales with area: `F = 1000 × (size/5)^2`.
+- Base total force for 5×5 is 1000 N (**unresolved/inferred sensitivity input**;
+  it is not established by the DES-003 CAD). Force scales with area:
+  `F = 1000 × (size/5)^2`.
 - Peak displacement `δ = (coupling × F) / k`.
 - Target maximum displacement: **0.01 mm**.
+
+## Geometry and boundary audit
+
+The only geometry reference is the DES-003 5×5 Coupon-B SCAD fixture
+(`scad/a1_coupon_b_5x5.scad`), a 40 mm square at 5.08 mm pitch. The 10×10
+and 20×20 cases are represented only by the area-scaling factor; they are not
+meshed or geometry-resolved here. Support compliance, actuator trajectory,
+contact/clearance, material properties, and worst boundary orientation are
+omitted from this screening model and remain **unresolved**. Consequently,
+the stiffness and force inputs must not be described as CAD-derived results.
 
 ## Results
 
@@ -45,22 +60,29 @@ Estimate peak displacement and maximum allowable coupling fraction for 5×5, 10�
 ## Maximum Coupling to Keep δ < 0.01 mm
 | Size | k (N/mm) | max coupling |
 |------|----------|---------------|
-|5     |10  |0.01 % |
-|5     |32.7|0.03 % |
-|5     |50  |0.05 % |
-|10    |10  |0.00 % |
-|10    |32.7|0.01 % |
-|10    |50  |0.01 % |
-|20    |10  |0.00 % |
-|20    |32.7|0.00 % |
-|20    |50  |0.00 % |
+|5     |10  |0.0100 % |
+|5     |32.7|0.0327 % |
+|5     |50  |0.0500 % |
+|10    |10  |0.0025 % |
+|10    |32.7|0.0082 % |
+|10    |50  |0.0125 % |
+|20    |10  |0.0006 % |
+|20    |32.7|0.0020 % |
+|20    |50  |0.0031 % |
 
-## Summary
-- For **5×5** updates, 1 % coupling exceeds the 0.01 mm displacement limit with the softest stiffness (10 N/mm). The softest usable stiffness at 1 % coupling is **32.7 N/mm**.
-- Larger updates (10×10, 20×20) amplify displacements by area. Even with a 1 % coupling, the required stiffness to stay below 0.01 mm is effectively infinite – i.e., we cannot satisfy the limit with any realistic stiffness for those sizes.
-- The analysis suggests restricting coupling to well below 1 % for larger regional updates or adopting much stiffer materials.
+## Summary and disposition
+- The calculation contradicts the earlier claim that 5×5 at 1% coupling is
+  viable: at 32.7 N/mm it predicts **0.3058 mm**, and at 50 N/mm it predicts
+  **0.2000 mm**, both above the 0.01 mm target.
+- The exact bounds are **0.0327%** (32.7 N/mm) and **0.0500%** (50 N/mm) for
+  5×5, not 1%. For 10×10 and 20×20 the allowable fractions are lower by 4×
+  and 16× respectively.
+- Therefore this screening bound does **not qualify DES-003**. It is an
+  adverse calculated sensitivity result, while the force, support compliance,
+  material properties, actuator trajectory, contact/clearance, and worst
+  boundary orientation remain unresolved. No physical validation is claimed.
 
 ## Next Steps
-- Verify the CAD‐derived stiffness values with a quick FEM test.
-- Explore alternative manufacturing methods to increase stiffness without significant cost.
-- Consider limiting regional updates to 5×5 or smaller when operating under the 0.01 mm displacement budget.
+- Freeze and run the E-009 Coupon-B sequence, or replace this screening bound
+  with a geometry/material/support-resolved FEA model before making a regional
+  qualification claim.

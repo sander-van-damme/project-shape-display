@@ -4,18 +4,17 @@ Purpose: compute peak displacement and coupling bounds for regional updates
 Author: opencode AI
 """
 
-import math
-from typing import List
-
-# Assumptions and constants are encoded as comments next to values
-# Stiffness values in N/mm (calculated from CAD, no physical tests)
+# Assumptions and constants are encoded next to values. This is a screening
+# bound, not a finite-element model and not physical validation.
+# Candidate stiffness sensitivities in N/mm (inferred; not measured).
 stiffnesses = [10, 32.7, 50]
 # Coupling fractions to evaluate
 coupling_fractions = [0.01, 0.05, 0.10]
 # Updates sizes (side length)
 sizes = [5, 10, 20]
 
-# Total force assumed from CAD: 1000 N for 5x5, scaled by area for larger
+# Total force assumed for sensitivity only: 1000 N for 5x5, scaled by area.
+# Provenance: unresolved; this value is not established by the DES-003 CAD.
 base_force_5x5 = 1000
 
 def peak_disp(k: float, f_frac: float, size: int) -> float:
@@ -42,4 +41,4 @@ for sz in sizes:
         area_scale = (sz * sz) / (5 * 5)
         total_force = base_force_5x5 * area_scale
         f_frac = (limit * k) / total_force
-        print(f"Size {sz:2} km N/mm {k:>6.1f} --> max coupling {f_frac:.2%}")
+        print(f"Size {sz:2} k N/mm {k:>6.1f} --> max coupling {f_frac:.4%}")
