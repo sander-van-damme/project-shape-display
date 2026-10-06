@@ -1,13 +1,13 @@
 line,qty,unit_usd,ext_usd,evidence,use
 X gantry stepper (NEMA17-class),1,14.00,14.00,sourced-class,gantry across 406.4 mm X
 Y/head-traverse stepper (NEMA17-class),1,14.00,14.00,sourced-class,head across Y lanes
-Writer toggle actuator (small stepper/servo),1,9.00,9.00,sourced-class,over-centre latch toggle force
+Writer toggle actuator (small stepper/servo),8,9.00,72.00,sourced-class,over-centre latch toggle force
 X guide rail pair + bushings (400 mm),1,22.00,22.00,sourced-class,gantry rigidity
 Y guide rail + bushings (400 mm),1,16.00,16.00,sourced-class,head traverse
 Timing belt + 2 pulleys (X),1,8.00,8.00,sourced-class,gantry drive
 Timing belt + 2 pulleys (Y),1,8.00,8.00,sourced-class,head drive
-Writer head body + toggle prong,1,6.00,6.00,allowance,"repeated head contact feature (printed body excluded, prong hardware)"
-Reader head (reflectance/photodiode row),1,12.00,12.00,sourced-class,state readback
+Writer head body + toggle prong,8,6.00,48.00,allowance,"repeated head contact feature (printed body excluded, prong hardware)"
+Reader head (reflectance/photodiode row),8,12.00,96.00,sourced-class,state readback
 Controller (RP2040/ESP32),1,5.00,5.00,sourced-live,RP2040 C2040
 Stepper driver modules (DRV8833-class),3,2.00,6.00,sourced-live,gantry + head + writer
 Power supply + protection (24 V 2 A),1,12.00,12.00,sourced-listing,smaller than S5's 35 VA

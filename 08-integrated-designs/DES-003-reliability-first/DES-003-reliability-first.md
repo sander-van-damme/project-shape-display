@@ -4,7 +4,7 @@ builds-on: [M-003, P-006, Q-006, E-002]
 ---
 Mechanism: binary hard-stop latch columns at 5.08 mm pitch. Parallel gantry writer heads toggle cells; a reader pass verifies state and permits retry. A frame-fixed reflective vane avoids state-dependent optical standoff. A latch-linked matte shutter encodes the state at that fixed target.
 
-Calculation: eight heads minimum at the assumed 1.0 m/s traverse; writer/read rate 71–228 cells/s/head. Nominal full cycle 18.278 s includes reset, traverse ramps, write, verification and settling. Four-head designs do not reliably clear 30 s. Regional updates isolate local tiles geometrically; elastic disturbance remains unmeasured.
+Calculation: eight heads minimum (8 writer/reader heads) at the assumed 1.0 m/s traverse; writer/read rate 71–228 cells/s/head. Nominal full cycle 18.278 s includes reset, traverse ramps, write, verification and settling. Four-head designs do not reliably clear 30 s. Regional updates isolate local tiles geometrically; elastic disturbance remains unmeasured.
 
 Optical design point: target z=43 mm; standoff 1.8 mm; spot 1.405 mm; neighbour clearance 0.353 mm. Assumed reflectances produce 7.72× on/off return. These are model outputs, not measured detection performance.
 
