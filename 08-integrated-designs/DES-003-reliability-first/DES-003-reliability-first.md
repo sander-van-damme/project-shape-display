@@ -8,7 +8,14 @@ Calculation: eight heads minimum (8 writer/reader heads) at the assumed 1.0 m/s 
 
 Optical design point: target z=43 mm; standoff 1.8 mm; spot 1.405 mm; neighbour clearance 0.353 mm. Assumed reflectances produce 7.72× on/off return. These are model outputs, not measured detection performance.
 
-Cost: historical base estimate $181 purchased / $209.96 with ×1.16 delivery uplift. The CSV and architecture screen retain provisional head/axis allowances; reconcile the eight-head implementation and complete purchased BOM before procurement. Binary height capability must be evaluated against the product's preferred terrain levels.
+Cost: historical base estimate $181 purchased / $209.96 with ×1.16 delivery uplift. The CSV and architecture screen retain provisional head/axis allowances; reconcile the eight-head implementation and complete purchased BOM before procurement. Binary height capability must be evaluated against the product's preferred terrain levels. A binary latch offers only two discrete height states:
+
+| Binary State | Height (mm) |
+|--------------|-------------|
+| Lowered (0)  | 0           |
+| Raised (1)   | 40          |
+
+The product requires five terrain levels (0, 10, 20, 30, 40 mm). The binary latch cannot encode the intermediate 10‑30 mm levels, so DES‑003 fails the terrain‑level gate. The design does not meet the requirement and must be rejected or modified to provide at least five-level capability.
 
 Source: `analysis/reliability_mask.py` models architecture comparisons; `a1_writer_rate.py` models writer/reader rates and optical geometry; `a1_regional_update.py` models local isolation; `a1_promotion_timing.py`, `a1_promotion_cost.py`, `a1_hardening.py` expose conservative sensitivities. `scad/` contains latch, reader and prototype coupons. `bom_a1.csv` holds the base BOM.
 
