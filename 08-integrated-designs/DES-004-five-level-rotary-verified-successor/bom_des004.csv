@@ -4,9 +4,9 @@ nominal,Existing DES-003 purchased BOM reused,1,370.00,370.00,inferred-reuse,No 
 nominal,Metal rotor axle pins,6400,0.020,128.00,estimate,Target bulk-cut/debur allowance; supplier quote and availability unresolved,6400 cells x 1 axle
 nominal,Nominal DES-004 purchased total,1,498.00,498.00,calculation,370.00 + 128.00,Calculated scenario total
 conservative,Existing DES-003 purchased BOM reused,1,370.00,370.00,inferred-reuse,Same retained purchased system as nominal,DES-003 bom_a1.csv
-conservative,Metal rotor axle pins,6400,0.050,320.00,estimate,Small-quantity cut/debur allowance; supplier quote and availability unresolved,6400 cells x 1 axle
+conservative,Metal rotor axle pins installed,6400,0.050,320.00,estimate,Small-quantity cut/debur allowance; supplier quote and availability unresolved,6400 cells x 1 axle
 conservative,Service writer actuator spare,1,9.00,9.00,sourced-allowance,Same class as DES-003 writer toggle actuator,DES-003 bom_a1.csv
 conservative,Service reader head spare,1,12.00,12.00,sourced-allowance,Same class as DES-003 reader head,DES-003 bom_a1.csv
 conservative,Service driver module spare,1,2.00,2.00,sourced-allowance,Same class as DES-003 DRV8833-class module,DES-003 bom_a1.csv
-conservative,Axle scrap/consumable allowance,320,0.050,16.00,estimate,5% of 6400 axle quantity at conservative unit basis,6400 x 5%
+conservative,Axle scrap/service stock,320,0.050,16.00,estimate,5% quantity allowance; order quantity is 6720 pins total, supplier quote and availability unresolved,6400 installed + 320 spare/scrap
 conservative,Conservative DES-004 purchased total,1,729.00,729.00,calculation,370.00 + 320.00 + 9.00 + 12.00 + 2.00 + 16.00,Calculated scenario total
