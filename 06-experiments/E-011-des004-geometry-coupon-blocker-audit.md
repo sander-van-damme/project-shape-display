@@ -1,8 +1,4 @@
 ---
-status: active
-builds-on: [DES-004, Q-009]
----
----
 status: complete
 builds-on: [DES-004, Q-009]
 ---
