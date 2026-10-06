@@ -315,13 +315,13 @@ def bom_margin() -> dict:
         hostile_fallback_parts_usd=hostile_fallback,
         hostile_fallback_band=band(hostile_fallback),
         hostile_fallback_delivered_usd=round(hostile_fallback * UPLIFT, 2),
-        distance_to_acceptable_ceiling_usd=round(200.0 - hostile_fallback, 2),
+        distance_to_acceptable_ceiling_usd=round(400.0 - hostile_fallback, 2),
         distance_to_unacceptable_usd=round(500.0 - hostile_fallback, 2),
         cheapest_lever="L3 dovetail tiles (-$10-14) + limit switches 5->3 "
                        "(-$2, stall-detect homing keeps re-home recovery): "
                        "~$12-16 down with zero-silent + 8-head rule intact. "
-                       "Band does not move (already IDEAL); the lever buys "
-                       "headroom against fallback execution, not a band change.")
+                       "The lever buys headroom but does not move the hostile "
+                       "fallback case out of the last-resort band.")
 
 
 # ---------------------------------------------------------------------------
@@ -372,12 +372,13 @@ def gate() -> int:
           and all("eliminate" in (lv["lever"] + lv["eliminates"]).lower()
                   for lv in r["levers"]))
     b = r["bom"]
-    check("base BOM IDEAL ($181.00)", b["purchased_parts_usd"] == 181.00
-          and b["band_purchased"] == "IDEAL")
-    check("hostile+fallback repricing stays ACCEPTABLE or better",
-          b["hostile_fallback_band"] in ("IDEAL", "ACCEPTABLE"))
-    check("distance to $500 ceiling stated and >$250",
-          b["distance_to_unacceptable_usd"] > 250)
+    check("base eight-head BOM ACCEPTABLE ($370.00)",
+          b["purchased_parts_usd"] == 370.00
+          and b["band_purchased"] == "ACCEPTABLE")
+    check("hostile+fallback repricing stays below unacceptable",
+          b["hostile_fallback_band"] == "LAST RESORT")
+    check("distance to $500 ceiling is positive and under $100",
+          0 < b["distance_to_unacceptable_usd"] < 100)
     check("cheapest lever keeps zero-silent + 8-head rule",
           "zero-silent" in b["cheapest_lever"] and "8-head" in b["cheapest_lever"])
     passed = sum(1 for _, ok in CHECKS if ok)

@@ -36,8 +36,11 @@ def main() -> int:
               for r in s["ranked_feasible_full"] + s["rejected_full"]))
 
     # --- the reliability gate is discriminating ---------------------------
-    a1 = next(r for r in s["ranked_feasible_full"] if r["name"].startswith("A1"))
-    check("A1 is the only all-gate-feasible architecture", len(s["ranked_feasible_full"]) == 1)
+    all_rows = s["ranked_feasible_full"] + s["rejected_full"]
+    a1 = next(r for r in all_rows if r["name"].startswith("A1"))
+    check("no screened architecture clears every product gate",
+          len(s["ranked_feasible_full"]) == 0)
+    check("A1 fails the five-level gate", a1["clears_levels"] is False)
     check("A1 has zero structurally silent elements",
           a1["reliability"]["silent_elements"] == 0)
     check("A1 has readback", a1["reliability"]["has_readback"] is True)
@@ -47,7 +50,7 @@ def main() -> int:
           a1["reliability"]["precision_contacts_per_cell"] == 0.0)
     check("A1 clears tabletop load", a1["clears_tabletop_load"] is True)
     check("A1 clears 30 s", a1["clears_30s"] is True)
-    check("A1 clears <$250 parts", a1["clears_parts"] is True)
+    check("A1 clears <=$400 acceptable-cost screen", a1["clears_parts"] is True)
 
     # --- every global-lift machine fails the tabletop-load gate (honest) --
     globals_ = [r for r in s["rejected_full"] if "global lift" in r["tabletop_load"]["mode"]]
@@ -204,7 +207,7 @@ def main() -> int:
           [x["stage"][0] for x in conv["prototype_ladder"][:4]] == ["A", "B", "C", "D"])
 
     # --- cost bands --------------------------------------------------------
-    check("A1 parts under $250", a1["parts_usd"] < 250.0)
+    check("A1 corrected eight-head parts total is $370", a1["parts_usd"] == 370.0)
     check("A1 delivered reported", a1["delivered_usd"] > 0)
 
     # --- CLI modes run cleanly (catches __main__ ordering / NameError) -----

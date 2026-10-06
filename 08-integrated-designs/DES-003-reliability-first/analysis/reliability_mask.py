@@ -19,8 +19,8 @@ LEVELS = 5                                # 0/10/20/30/40 mm
 LEVEL_MM = TRAVEL_MM / (LEVELS - 1)       # 10 mm
 ACTIVE_MM = COLS * PITCH_MM               # 406.4 mm
 TIME_GATE_S = 30.0
-PARTS_GATE_USD = 250.0                    # design calculation: purchased, excl. printed
-DELIVERED_GATE_USD = 250.0                # repo internal 1.16 convention
+PARTS_GATE_USD = 400.0                    # acceptable purchased-cost ceiling
+DELIVERED_GATE_USD = 500.0                # last-resort delivered-cost ceiling
 UPLIFT = 1.10 + 0.06                      # +10 % ship +6 % tax
 
 MIN_FEATURE_MM = 0.44                     # 1 extrusion line @ 0.4 mm nozzle
@@ -98,7 +98,7 @@ ARCHITECTURES: list[dict] = [
         one_liner=(
             "Each cell is a two-state column (0 / 40 mm) held by a large "
             "over-centre toggling latch between two printed hard stops. A "
-            "gantry carries ONE writer head and ONE reader head across the "
+            "gantry carries eight parallel writer/reader heads across the "
             "field; it flips only the latches it must, then reads the whole "
             "field back, so a miss is detected and re-driven, not silent."
         ),
@@ -110,7 +110,7 @@ ARCHITECTURES: list[dict] = [
         repeated_silent_elements=0,
         has_readback=True,
         recovery="scan-verify -> re-write the few failed cells (bounded retry)",
-        actuators_bought=4,
+        actuators_bought=10,
         mask_medium="none (map streamed directly to the writer head)",
         mask_write_inside_budget=True,
         correlated_failure="gantry/reader fault -> whole-region error, but detected",
@@ -118,7 +118,7 @@ ARCHITECTURES: list[dict] = [
         serviceable=True,
         timing_s=dict(digital_map=0.05, mask_generation=0.0, transport=2.0,
                       reset=3.0, lift=5.864, settle=1.5, verify=5.864),
-        parts_usd=181.0,
+        parts_usd=370.0,
         prototype_coupon="A: 1 cell flip+read; B: 5x5 writer/reader scan",
         decisive_falsifier=(
             "the reader cannot resolve a single cell at a common standoff: the "
@@ -461,6 +461,7 @@ def screen() -> dict:
             clears_parts=bool(parts < PARTS_GATE_USD),
             clears_delivered=bool(delivered < DELIVERED_GATE_USD),
             clears_30s=t["clears_30s"],
+            clears_levels=bool(a["column_states"] >= LEVELS),
             clears_tabletop_load=bool(tl["holds_under_tabletop_load"]),
             correlated_failure=a["correlated_failure"],
             single_cell_failure=a["single_cell_failure"],
@@ -469,10 +470,11 @@ def screen() -> dict:
             decisive_falsifier=a["decisive_falsifier"],
             docs=a["docs"],
         ))
-    # Rank: mission gate first (must clear 30 s AND <$250 parts AND tabletop
+    # Rank: product gate first (five levels, <30 s, <=$400 parts and tabletop
     # load), then reliability score (lower better), then cost.
     feasible = [r for r in rows
-                if r["clears_30s"] and r["clears_parts"] and r["clears_tabletop_load"]]
+                if r["clears_levels"] and r["clears_30s"]
+                and r["clears_parts"] and r["clears_tabletop_load"]]
     feasible.sort(key=lambda r: (r["reliability_score"], r["parts_usd"]))
     rejected = [r for r in rows if r not in feasible]
     return dict(
@@ -746,7 +748,8 @@ def convergence() -> dict:
             "writer addresses only changed cells; no full-board reset.",
             "Tabletop load is a covered load case: the writer works region-by-"
             "region, so placed miniatures elsewhere are untouched.",
-            "Clears the mission gates: purchased parts < $250, full-map < 30 s, "
+            "Fails the five-level workload as drawn despite clearing purchased "
+            "parts <= $400, full-map < 30 s, "
             ">=40 mm travel, 5.08 mm pitch, ~6,400 cells.",
         ],
         why_not_runners={
@@ -793,13 +796,13 @@ A1_BOM_LINES = [
     # (item, qty, unit_usd, evidence, use)
     ("X gantry stepper (NEMA17-class)", 1, 14.00, "sourced-class", "gantry across 406.4 mm X"),
     ("Y/head-traverse stepper (NEMA17-class)", 1, 14.00, "sourced-class", "head across Y lanes"),
-    ("Writer toggle actuator (small stepper/servo)", 1, 9.00, "sourced-class", "over-centre latch toggle force"),
+    ("Writer toggle actuator (small stepper/servo)", 8, 9.00, "sourced-class", "over-centre latch toggle force"),
     ("X guide rail pair + bushings (400 mm)", 1, 22.00, "sourced-class", "gantry rigidity"),
     ("Y guide rail + bushings (400 mm)", 1, 16.00, "sourced-class", "head traverse"),
     ("Timing belt + 2 pulleys (X)", 1, 8.00, "sourced-class", "gantry drive"),
     ("Timing belt + 2 pulleys (Y)", 1, 8.00, "sourced-class", "head drive"),
-    ("Writer head body + toggle prong", 1, 6.00, "allowance", "repeated head contact feature (printed body excluded, prong hardware)"),
-    ("Reader head (reflectance/photodiode row)", 1, 12.00, "sourced-class", "state readback"),
+    ("Writer head body + toggle prong", 8, 6.00, "allowance", "repeated head contact feature (printed body excluded, prong hardware)"),
+    ("Reader head (reflectance/photodiode row)", 8, 12.00, "sourced-class", "state readback"),
     ("Controller (RP2040/ESP32)", 1, 5.00, "sourced-live", "RP2040 C2040"),
     ("Stepper driver modules (DRV8833-class)", 3, 2.00, "sourced-live", "gantry + head + writer"),
     ("Power supply + protection (24 V 2 A)", 1, 12.00, "sourced-listing", "smaller than S5's 35 VA"),
@@ -819,7 +822,7 @@ def a1_bom() -> dict:
     return dict(lines=rows, purchased_parts_usd=parts, delivered_usd=delivered,
                 clears_parts=bool(parts < PARTS_GATE_USD),
                 clears_delivered=bool(delivered < DELIVERED_GATE_USD),
-                bought_actuators=4,
+                bought_actuators=10,
                 note=("A1 replaces S6-LC's 4-screw global platen + 8 bank mask "
                       "gates with a 2-axis gantry + writer + reader. No per-cell "
                       "and no per-row bought actuator. Printed frame, columns, "

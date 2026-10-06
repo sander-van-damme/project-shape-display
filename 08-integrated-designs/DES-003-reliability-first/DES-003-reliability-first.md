@@ -8,7 +8,9 @@ Calculation: eight heads minimum (8 writer/reader heads) at the assumed 1.0 m/s 
 
 Optical design point: target z=43 mm; standoff 1.8 mm; spot 1.405 mm; neighbour clearance 0.353 mm. Assumed reflectances produce 7.72× on/off return. These are model outputs, not measured detection performance.
 
-Cost: historical base estimate $181 purchased / $209.96 with ×1.16 delivery uplift. The CSV and architecture screen retain provisional head/axis allowances; reconcile the eight-head implementation and complete purchased BOM before procurement. Binary height capability must be evaluated against the product's preferred terrain levels.
+Cost: the corrected eight-head CSV totals $370 purchased / $429.20 with ×1.16 delivery uplift, before resolving actuator drivers, power sizing and the moving loom. This is therefore a lower-bound allowance, not a procurement-ready BOM. It is in the $200–400 acceptable purchased-cost band; delivered cost is in the $400–500 last-resort band.
+
+Capability: the placed latch has only two states, 0 and 40 mm, while the product analyses require five terrain levels at 0/10/20/30/40 mm. DES-003 therefore cannot satisfy the intended five-level map workload as drawn. Retain it only as a binary reliability/readback reference; a product baseline needs a qualified five-level mechanism.
 
 Source: `analysis/reliability_mask.py` models architecture comparisons; `a1_writer_rate.py` models writer/reader rates and optical geometry; `a1_regional_update.py` models local isolation; `a1_promotion_timing.py`, `a1_promotion_cost.py`, `a1_hardening.py` expose conservative sensitivities. `scad/` contains latch, reader and prototype coupons. `bom_a1.csv` holds the base BOM.
 
