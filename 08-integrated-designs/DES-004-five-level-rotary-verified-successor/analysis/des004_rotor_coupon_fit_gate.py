@@ -8,12 +8,13 @@ N = 5
 FIELD = N * PITCH
 FRAME = 40.0
 ROTOR_RADIUS = 1.50
-POCKET_RADIUS = 1.70
+POCKET_RADIUS = 2.20             # clears the integral vane swept envelope
 AXLE_DIAMETER = 1.00
 BORE_DIAMETER = 1.40
 VANE_THICKNESS = 0.45
 VANE_OFFSET = 1.70
 VANE_WIDTH = 1.20
+VANE_OFFSET_TOL = 0.05
 BODY = 3.60
 PIN_LENGTH = 10.0
 FRAME_THICKNESS = 3.0
@@ -35,6 +36,9 @@ TOL = {"pitch": 0.03, "rotor_radius": 0.05, "pocket_radius": 0.05,
 def check() -> dict[str, float | bool]:
     neighbour_edge_gap = PITCH - 2 * ROTOR_RADIUS
     vane_outer_edge = VANE_OFFSET + VANE_THICKNESS / 2
+    vane_corner_radius = ((VANE_OFFSET + VANE_OFFSET_TOL
+                           + (VANE_THICKNESS + TOL["vane_width"]) / 2) ** 2
+                          + ((VANE_WIDTH + TOL["vane_width"]) / 2) ** 2) ** 0.5
     neighbour_body_inner_edge = PITCH - BODY / 2
     vane_neighbour_gap = neighbour_body_inner_edge - vane_outer_edge
     stack = FRAME_THICKNESS + ROTOR_THICKNESS + 2 * RETAINER_THICKNESS
@@ -44,6 +48,9 @@ def check() -> dict[str, float | bool]:
         "frame_margin_each_side_mm": (FRAME - FIELD) / 2,
         "rotor_radial_clearance_mm": POCKET_RADIUS - ROTOR_RADIUS,
         "rotor_pocket_fits": POCKET_RADIUS >= ROTOR_RADIUS,
+        "vane_swept_corner_radius_mm": vane_corner_radius,
+        "vane_frame_clearance_mm": POCKET_RADIUS - vane_corner_radius,
+        "vane_clears_frame": POCKET_RADIUS >= vane_corner_radius,
         "axle_bore_diametral_clearance_mm": BORE_DIAMETER - AXLE_DIAMETER,
         "axle_bore_fits": BORE_DIAMETER >= AXLE_DIAMETER,
         "nearest_rotor_edge_gap_mm": neighbour_edge_gap,
@@ -61,6 +68,7 @@ def check() -> dict[str, float | bool]:
     }
     assert result["field_fits_frame"]
     assert result["rotor_pocket_fits"]
+    assert result["vane_clears_frame"]
     assert result["axle_bore_fits"]
     assert result["rotors_clear_neighbours"]
     assert result["vane_clears_neighbour_body"]
@@ -80,10 +88,17 @@ def worst_case() -> dict[str, float | bool]:
     axle = AXLE_DIAMETER + TOL["axle"]
     writer_t = WRITER_TONGUE_T + TOL["writer"]
     writer_w = WRITER_TONGUE_W + TOL["writer"]
+    vane_corner = ((VANE_OFFSET + VANE_OFFSET_TOL
+                    + (VANE_THICKNESS + TOL["vane_width"]) / 2) ** 2
+                   + ((VANE_WIDTH + TOL["vane_width"]) / 2) ** 2) ** 0.5
     return {
         "field_fits_frame": N * pitch <= FRAME - TOL["frame"],
         "frame_margin_each_side_mm": (FRAME - TOL["frame"] - N * pitch) / 2,
         "rotor_radial_clearance_mm": pocket_r - rotor_r,
+        "vane_frame_clearance_mm": (POCKET_RADIUS - TOL["pocket_radius"])
+                                    - vane_corner,
+        "vane_clears_frame": (POCKET_RADIUS - TOL["pocket_radius"])
+                              >= vane_corner,
         "axle_bore_diametral_clearance_mm": bore - axle,
         "nearest_rotor_edge_gap_mm": pitch - 2 * rotor_r,
         "vane_reader_width_margin_mm": READER_VANE_W - READER_APERTURE_W - 2*TOL["vane_width"],

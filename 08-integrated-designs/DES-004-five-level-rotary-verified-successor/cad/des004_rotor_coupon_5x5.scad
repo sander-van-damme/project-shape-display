@@ -11,7 +11,7 @@ FRAME = 40.0;
 FRAME_T = 3.0;
 ROTOR_R = 1.50;
 ROTOR_T = 3.0;
-POCKET_R = 1.70;                   // 0.40 mm diametral running allowance
+POCKET_R = 2.20;                   // clears the swept coded vane envelope
 AXLE_D = 1.00;                     // proposed coupon pin, not a procurement choice
 BORE_D = 1.40;                     // 0.40 mm diametral bore allowance
 VANE_T = 0.45;
@@ -47,8 +47,8 @@ module rotor() {
         cylinder(r = ROTOR_R, h = ROTOR_T, center = true);
         cylinder(d = BORE_D, h = ROTOR_T + 0.4, center = true);
     }
-    // Frame-fixed/readback vane envelope. It is deliberately simple: this
-    // coupon checks pitch, neighbour clearance, and axle/bore fit only.
+    // Integral coded vane. The frame pocket must clear its full outer corner,
+    // not only the 3.00 mm rotor body.
     translate([VANE_OFFSET, 0, 0])
         cube([VANE_T, VANE_W, ROTOR_T], center = true);
 }

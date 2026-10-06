@@ -29,15 +29,23 @@ Source CAD is `08-integrated-designs/DES-004-five-level-rotary-verified-successo
 
 ## Results
 
-The nominal script passes: 7.30 mm frame margin/side, 0.20 mm pocket radial
-clearance, 0.40 mm axle/bore diametral clearance, 2.08 mm nearest rotor-edge
-gap, 1.355 mm vane-to-neighbour-body gap, 2.00 mm pin-end margin, 0.40 mm
-writer side clearance, 0.40 mm writer width clearance, and 0.50 mm
-vane-to-reader-aperture width margin.
+The initial script passed the rotor-body checks but omitted vane-to-frame
+clearance. That omission is a geometry blocker: the original 1.70 mm pocket
+radius was smaller than the vane's 2.016 mm nominal outer corner radius.
 
-The independent worst-case screen passes the geometric assertions: 7.15 mm
-frame margin/side, 0.10 mm pocket radial clearance, 0.30 mm axle/bore
-diametral clearance, and 1.95 mm rotor-edge gap. These are assumed tolerance
+The repaired script uses a 2.20 mm pocket radius. It passes the nominal and
+assumed-tolerance vane-to-frame check with approximately 0.055 mm minimum
+radial margin, while retaining 0.70 mm nominal rotor radial clearance and
+0.68 mm nominal adjacent-pocket web. The other nominal checks remain passing:
+7.30 mm frame margin/side, 0.40 mm axle/bore diametral clearance, 2.08 mm
+nearest rotor-edge gap, 1.355 mm vane-to-neighbour-body gap, 2.00 mm pin-end
+margin, 0.40 mm writer side clearance, 0.40 mm writer width clearance, and
+0.50 mm vane-to-reader-aperture width margin.
+
+The independent worst-case screen passes the geometric assertions: 7.175 mm
+frame margin/side, 0.60 mm pocket radial clearance, approximately 0.055 mm
+vane-to-frame radial clearance, 0.30 mm axle/bore diametral clearance, and
+1.95 mm rotor-edge gap. These are assumed tolerance
 limits, not a reliable FDM clearance rule; the candidate pin must not be
 released until measured process spread and actual pin tolerance are known.
 
@@ -49,7 +57,8 @@ margin, or adjacent displacement.
 
 ## Fit-gate disposition
 
-Analytical envelope: **PASS with axle-clearance risk flag**. Physical fit
+Analytical envelope after repair: **PASS with vane-margin and axle-clearance
+risk flags**. Physical fit
 yield, registration, detent time, commanded/read error rate, return force,
 and adjacent displacement: **UNRESOLVED / no measurements**. Therefore the
 physical fit gate did not pass, and no physical 10,000-transition sequence
