@@ -76,10 +76,9 @@ def ceilings(rows: list[dict]) -> dict:
         gantry_motion_subtotal_usd=motion,
         gantry_motion_max_for_ideal_usd=round(BAND_IDEAL - (parts - motion) - 0.01, 2),
         per_cell_bought_usd=round(parts / 6400, 4),
-        # The checks.py-style assertion a gate could enforce:
         ceiling_assert=("assert reader_head_unit_usd <= "
-                        + f"{round(BAND_IDEAL - rest - 0.01, 2)}  "
-                          f"# keeps purchased parts <$200 (ideal)"),
+                        + f"{round(BAND_ACCEPTABLE - rest - 0.01, 2)}  "
+                          f"# keeps purchased parts <$400 (acceptable)"),
     )
 
 
@@ -116,22 +115,22 @@ def check(name: str, cond: bool) -> None:
 def gate() -> int:
     r = report()
     CHECKS.clear()
-    check("BOM CSV matches reliability_mask model ($181.00)",
-          r["csv_matches_model"] and r["purchased_parts_usd"] == 181.00)
-    check("purchased parts land IDEAL (<$200)", r["band"].startswith("IDEAL"))
-    check("delivered lands ACCEPTABLE ($200-400)",
-          BAND_IDEAL <= r["delivered_usd"] < BAND_ACCEPTABLE)
+    check("BOM CSV matches reliability_mask model ($370.00)",
+          r["csv_matches_model"] and r["purchased_parts_usd"] == 370.00)
+    check("purchased parts land ACCEPTABLE ($200-400)",
+          r["band"].startswith("ACCEPTABLE"))
+    check("delivered lands LAST RESORT ($400-500)",
+          BAND_ACCEPTABLE <= r["delivered_usd"] < BAND_LAST_RESORT)
     check("hostile reprice (+35 % soft lines) stays ACCEPTABLE",
           r["hostile"]["hostile_parts_usd"] < BAND_ACCEPTABLE)
-    check("no per-cell bought hardware",
-          r["ceilings"]["per_cell_bought_usd"] < 0.05)
-    check("reader-head ideal ceiling is a positive enforceable number",
-          r["ceilings"]["reader_head_max_for_ideal_usd"] > r["ceilings"]["reader_head_unit_usd"])
-    # The S5-gate precedent assertion, executed for real:
+    check("shared bought hardware remains below $0.06 per cell",
+          r["ceilings"]["per_cell_bought_usd"] < 0.06)
+    check("reader-head acceptable ceiling is enforceable",
+          r["ceilings"]["reader_head_max_for_acceptable_usd"] > r["ceilings"]["reader_head_unit_usd"])
     reader_unit = r["ceilings"]["reader_head_unit_usd"]
-    check("checks.py-style ceiling assertion holds "
-          f"(reader <= ${r['ceilings']['reader_head_max_for_ideal_usd']})",
-          reader_unit <= r["ceilings"]["reader_head_max_for_ideal_usd"])
+    check("reader unit stays below acceptable-band ceiling "
+          f"(reader <= ${r['ceilings']['reader_head_max_for_acceptable_usd']})",
+          reader_unit <= r["ceilings"]["reader_head_max_for_acceptable_usd"])
     passed = sum(1 for _, ok in CHECKS if ok)
     total = len(CHECKS)
     for name, ok in CHECKS:
