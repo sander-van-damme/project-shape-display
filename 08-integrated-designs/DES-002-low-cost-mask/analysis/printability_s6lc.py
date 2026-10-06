@@ -81,6 +81,9 @@ def main() -> int:
             "not fit the full width); tile seams are a printability/CAD "
             "question handled in the printable-path doc.",
         ])
+    # The CAD directory is optional in a source checkout.  Keep the documented
+    # command reproducible without requiring a manually-created output folder.
+    RECORD.parent.mkdir(parents=True, exist_ok=True)
     RECORD.write_text(json.dumps(record, indent=2) + "\n")
     print(f"record -> {RECORD.relative_to(SUB)}")
     return 1 if worst == "FAIL" else 0

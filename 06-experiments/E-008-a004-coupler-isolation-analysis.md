@@ -11,7 +11,7 @@ Determine if the `A-004` tile coupler architecture plausibly delivers the requir
 ## 1. Isolation Model (Analytical)
 
 ### Assumptions
-- **Service Load ($F_{service}$):** 3.27 N (sourced from `E-006`).
+- **Service Load ($F_{service}$):** 3.27 N (design-calculated input carried by `E-006`; not a physical measurement).
 - **Motion Gate ($\delta_{gate}$):** 0.10 mm (proposed in `Q-005`/`E-006`).
 - **Coupler Transfer Fraction ($\alpha_{coupler}$):** The fraction of the active region's disturbance transmitted through a *disengaged* coupler to a stationary neighbour.
 - **Baseline Coupling ($\alpha_{base}$):** 5% (0.05) as used in `E-006` sensitivity.
@@ -41,7 +41,7 @@ If $\alpha_{coupler} \le 0.5\%$, the required stiffness drops by 10x. This makes
   - Low bound: 64 $\times$ \$3 = \$192
   - High bound: 64 $\times$ \$6 = \$384
   - *Note: This represents a ~90% to 180% increase in purchased component cost over the `DES-003` baseline (~\$210).*
-- **Moving Interfaces:** 64 additional actuators/couplers. Each is a potential point of failure.
+- **Moving Interfaces:** 64 additional couplers. Each is a potential point of failure; whether they require separate actuators is architecture-dependent and unresolved.
 
 ### Reliability Analysis
 - **Jam Propagation:** In a shared power bus, a single coupler jamming in the "engaged" position or mechanically seizing could lock the entire drive shaft/belt. This converts a local tile failure into a system-wide outage.
@@ -94,6 +94,6 @@ The stiffness requirement formula $k = \frac{F_{service} \times \alpha \times \t
 
 ### Final Validation Verdict
 
-**VERIFIED**
+**ANALYTICALLY CONSISTENT, NOT VALIDATED**
 
-The rejection of the `A-004` architecture is supported by reproducible analytical evidence. The isolation benefit (if achievable) is outweighed by the critical reliability risk (single-point jam) and the significant cost penalty.
+The arithmetic and stated risk analysis are reproducible, but the isolation benefit and jam behavior remain unmeasured. The evidence supports retaining `A-004` as rejected/unresolved for baseline selection, not a verified hardware rejection. A coupler coupon is still required before assigning a measured reliability or isolation verdict.
