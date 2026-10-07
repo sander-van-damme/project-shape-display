@@ -1,11 +1,11 @@
 ---
 status: active
-builds-on: [DES-002, DES-003, DES-004, A-010, A-008]
+builds-on: [DES-002, DES-003, DES-004, A-010, A-008, E-022]
 ---
 
 # Purchased-component cost baseline for current candidates
 
-Date basis: 2026-10-06. Currency: USD. Scope is one current tabletop unit;
+Date basis: 2026-10-07. Currency: USD. Scope is one current tabletop unit;
 3D-printed parts, print material/time/failures, and assembly labor are
 excluded. Shipping, tax, and live availability are excluded unless explicitly
 stated. `sourced-class`, `allowance`, and `estimate` in the source BOMs are
@@ -104,6 +104,36 @@ from these calculations.
 
 ## ADR-006 complete mask-generator boundary screen
 
+E-022 supersedes the preliminary screen below for the complete
+mask-generator boundary. Retain the $370.00 DES-003 amount as an inherited
+shared-machine baseline, not as the mask-generator BOM. The complete-boundary
+increment is conditional on whether the inherited reader heads pass an
+optical-stack, cabling, and timing compatibility check:
+
+| Case | Low | Base | High | Reader treatment |
+|---|---:|---:|---:|---|
+| Reuse verified | $486.29 | $602.29 | $872.29 | DES-003 reader heads reused; fallback QRE1113/ADC/carrier omitted |
+| Fallback reader | $505.59 | $631.59 | $921.59 | Explicit QRE1113/ADC/carrier stack added only if reuse fails |
+
+These are purchased-component allowances and observed catalogue prices, not
+delivered supplier quotes. E-022 corrects the preliminary $921.99 high case:
+the controller is $4.59, not $5.00. The fallback stack must not be added to
+the reuse-verified case, because the inherited $370 baseline already carries
+the reader heads and controller infrastructure. No physical validation,
+procurement commitment, or complete-boundary performance claim follows.
+
+The unresolved terms remain the medium and five-plane price, clamp/fiducial
+fit, four actuator part and life, reader compatibility, reader carrier/PCB
+if needed, harness interface, and cleaning/media-life allowance.
+
+Next falsification/procurement screen: request a drawing-level quote for five
+cut/debur media planes, one clamp/fiducial set, and four writer actuators,
+while measuring the eight DES-003 reader heads against the E-018 coupon
+optical stack. Request material, thickness, aperture process, force/stroke,
+life, tolerances, MOQ, lead time, packaging, freight, and delivered price.
+Do not change the cost baseline or authorize purchase until that screen and
+compatibility check are complete.
+
 Date basis: 2026-10-07. This is a purchased-component planning screen for the
 minimum complete arbitrary-map boundary in ADR-006/E-017, not a supplier quote
 or hardware validation. The inherited DES-003 amount is **$370.00** (the sum
@@ -129,17 +159,22 @@ labour, freight, tax, and payment fees remain excluded.
 | Channel/media interface harness | Pololu 5615 3-pin JST-PH-style cable, Digi-Key 2183-5615-ND, [catalogue page](https://www.digikey.com/en/products/detail/pololu/5615/26887362) | 8 | 2.29 | 18.32 | sourced catalogue price, USD, observed 2026-10-07 | 118 in stock in the captured listing; connector family is an example, not a locked interface |
 | Cleaning and replacement allowance | Wipes/cleaning agent plus one damaged/rejected media event | 1 allowance | 10 / 30 / 75 | 10 / 30 / 75 | allowance; low/nominal/high assumption | Required service term; exact consumable and media-life test are unresolved |
 
-The sourced subset is $36.59. Adding the explicit allowances gives:
+The sourced subset is $36.59. The preliminary arithmetic below is retained
+only as historical traceability; use the E-022 table above as canonical. In
+particular, it double-counts the fallback reader stack when inherited heads
+are compatible and its high controller term is stale.
+
+The prior screen calculated:
 
 ```
 low       = 370.00 + 20 + 15 + 8 + 36 + 4.38 + 4.59 + 2.90 + 6.40 + 10 + 18.32 + 10 = $505.59
 nominal   = 370.00 + 60 + 35 + 20 + 60 + 4.38 + 4.59 + 2.90 + 6.40 + 20 + 18.32 + 30 = $631.59
-high      = 370.00 +150 + 80 + 50 +120 + 4.38 + 5.00 + 2.90 + 6.40 + 40 + 18.32 + 75 = $921.99
+high      = 370.00 +150 + 80 + 50 +120 + 4.38 + 5.00 + 2.90 + 6.40 + 40 + 18.32 + 75 = $921.99 (stale)
 ```
 
-The high controller value is rounded up from the observed $5 Pico H listing
-to cover selection uncertainty; it is still a sourced-class planning choice,
-not a quote. The range is conditional on reusing DES-003's gantry and on the
+The high controller value and fallback treatment above are superseded by
+E-022's observed $4.59 controller price and conditional reader accounting.
+The range remains conditional on reusing DES-003's gantry and on the
 four-channel architecture remaining mechanically viable. It does not prove
 that the QRE1113/ADC stack can classify apertures, that the writer can meet
 the 20.18 s analytical bound, or that media survives service cycles.

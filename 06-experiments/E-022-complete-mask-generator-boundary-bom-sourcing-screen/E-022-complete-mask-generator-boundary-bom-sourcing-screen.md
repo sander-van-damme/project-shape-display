@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [ADR-005, ADR-006, E-017, E-018, DES-003]
+builds-on: [E-017, E-018, DES-003]
 ---
 
 # E-022: complete mask-generator boundary BOM sourcing screen

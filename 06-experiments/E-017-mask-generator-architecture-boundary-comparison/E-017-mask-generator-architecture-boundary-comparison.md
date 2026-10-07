@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [Q-010, P-009, DES-002, DES-003, DES-004, A-010, ADR-005]
+builds-on: [Q-010, P-009, DES-002, DES-003, DES-004, A-010]
 ---
 
 # Analytical comparison: complete mask-generator boundary
