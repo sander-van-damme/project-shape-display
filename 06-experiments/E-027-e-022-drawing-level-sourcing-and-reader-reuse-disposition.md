@@ -138,6 +138,50 @@ If any reader gate fails, add the E-022 fallback allowance only after a
 separate fallback optical drawing. Do not add QRE1113, MCP3008, or a reader
 carrier to this reuse BOM by assumption.
 
+### Falsifiable eight-head measurement protocol
+
+This is the smallest physical screen that can convert the inherited-reader
+alternative from a $0 conditional allowance into an accepted BOM line. Run it
+on all eight DES-003 heads against one identified E-018 coupon; omit no head.
+
+1. **Freeze the setup.** Record head IDs, DES-003 mount and connector
+   revisions, E-018 coupon ID, plane material/finish/thickness, carrier and
+   clamp IDs, supply voltage/current, ambient light, detector gain, sample
+   rate, settling delay, calibration ID, and the fixed reject threshold. Mark
+   the reference datum and measure the as-built reader-to-coupon XY/Z
+   coordinates with metrology uncertainty.
+2. **Map geometry.** With each head independently installed, measure the
+   optical axis at the centre and four corners of the 3 x 3 mm reader window
+   for each relevant plane state. Record centre/corner residuals to the two
+   E-018 fiducials, lower-face standoff, focus/working distance, and any
+   collision or cable interference. Repeat after 10 clamp reseats per head;
+   preserve raw readings and reseat transforms, not only means.
+3. **Measure discrimination.** For every head, collect repeated readings of
+   the E-018 stack in exact states `0000`, `0001`, `0010`, `0100`, `1000`,
+   `1111`, and four single-plane complements, plus aperture-blocked and
+   intentionally mis-seated controls. Use at least 30 settled repeats per
+   state. Log raw signal, calibrated value, threshold, ambient, plane
+   identity, and pass/reject/ambiguous result.
+4. **Test the timing contract.** Run one complete four-plane readback after
+   each reseat and one 100-cycle sequence per head using the E-018 exact-state
+   comparison. Record pulse/sample/settle times, missing/ambiguous samples,
+   retries, and cross-plane or loaded-neighbour false state. Do not
+   substitute confidence for an exact state match.
+5. **Apply the falsifier.** Reader reuse fails if any head cannot achieve the
+   E-018 geometry target (transformed aperture residual >0.20 mm after a
+   reseat), any required state is wrong/ambiguous/missing, either control is
+   accepted as the expected state, any plane identity is confused, or the
+   measured timing plus verification/retry allowance exceeds the 30 s
+   analytical bound. A pass means only that all eight heads passed these
+   coupon-level gates for this setup; it does not establish life, yield, or
+   arbitrary full-scale compatibility.
+
+Retain raw per-head/state CSV, geometry/reseat table, calibration/threshold
+files, timing trace, setup metrology references, and a signed pass/fail
+summary keyed to all eight heads. If any falsifier fires, retain the
+fallback QRE1113/ADC/carrier allowance and revise its optical drawing before
+pricing it as a replacement; do not count both reader paths together.
+
 ## Cost reduction disposition and cheapest next falsifier
 
 The preferred reductions are component-removing: reuse DES-003 readers if
