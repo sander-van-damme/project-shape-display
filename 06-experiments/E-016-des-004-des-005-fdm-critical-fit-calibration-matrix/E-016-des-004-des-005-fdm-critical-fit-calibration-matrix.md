@@ -127,6 +127,39 @@ experiments E-013, E-019, and E-021; no E-016 structural error was emitted.
 Physical validation remains open: no coupons, dimensional measurements,
 engagement trials, loaded rotation, or reader trials exist.
 
+## Independent falsification review (LAB-99, 2026-10-07)
+
+Verdict: **analytical definition is supportable; analytical completion is not
+a physical acceptance.** Independent execution reproduced 42 planned rows,
+the CAD gate assertions, and a successful OpenSCAD frame export. These are
+calculation/CAD results only. They do not establish printed dimensions, fit,
+readability, load behavior, wear, or process capability.
+
+Concrete reproducibility defect: `fit_calibration_matrix.py --results` checks
+only that the CSV is non-empty, that the first row has the required columns,
+and that every supplied row has three boolean gates and three numeric margins.
+It does not require 42 rows, enforce the planned row identities or unique
+combinations, validate the declared attempt counts (5/30/150), or require
+process metadata, per-stop outcomes, loaded 3.27 N results, three clock
+positions, actual measured dimensions, or mean/minimum/maximum/range fields.
+A one-row CSV with invented or semantically mismatched values could therefore
+be reported as a provisional pass. This is a checker/schema defect, not a
+failure of the nominal CAD arithmetic.
+
+Acceptance boundary: LAB-98 may close the analytical definition only as a
+CAD/measurement protocol and baseline-preserving plan. It must not close
+Q-009 or promote DES-004/DES-005 defaults. Before any physical result is
+called a pass, the result format/checker must bind each planned row and record
+the stated physical gates, or an equivalent signed measurement record must be
+retained beside the CSV. Physical validation, including fit, loaded rotation,
+writer/read trials, process spread, and wear/creep, remains unresolved.
+
+Additional unresolved analytical assumptions are the unverified tolerance
+values and omission of print-specific effects such as elephant-foot, layer
+anisotropy, angular registration, frame flatness, and creep. The CAD script
+explicitly calls its +/- screen assumed; its passing result cannot be treated
+as a sourced process capability.
+
 ## Disposition and next action
 
 Analytical status: **defined; no physical result**. The baseline is unchanged
