@@ -75,8 +75,8 @@ depth are to be measured before physical testing.
 4. Attach the frame-fixed reader at the defined centre target and record
    unloaded fiducial and centre-window coordinates.
 5. For each cycle, command all four planes, wait the predeclared settle
-   interval, read both fiducials and all changed cells, then release/reseat
-   only when the protocol calls for it.
+   interval, read both fiducials and the complete 4 x 25-bit state, then
+   release/reseat only when the protocol calls for it.
 
 ## Adversarial maps and 1,000-cycle handoff
 
@@ -93,28 +93,38 @@ Use named 4 x 25-bit row-major maps with P0 as least-significant plane:
 | `cross_neighbour` | active edge beside loaded dummies |
 | `walking_one` | one-cell changes through all positions |
 
-Every named case must occur at least 20 times in the future 1,000-cycle run;
-include at least 100 reseat events and 100 loaded-neighbour cycles. A cycle is
-invalid if a writer acknowledgement, fiducial read, map readback, or neighbour
-position is missing. The minimum per-plane and summary fields are enumerated
-in `analysis/coupon_protocol.py`: cycle/map identity, plane, commanded and
-read-back 25-bit maps, channel timing/ack, fiducial XY errors, reader
-classification/confidence, reseat event, neighbour displacement, wear/damage
-code, retry count, and operator/environment identifiers. Blank values are
-invalid evidence.
+Each named case occurs exactly 125 times in the future 1,000-cycle run.
+Run cycles 10, 20, ... carry the reseat tag (exactly 100 total); run cycles
+11, 21, ... carry the loaded-neighbour tag (exactly 100 total). A
+cycle is invalid if a writer acknowledgement, complete four-plane readback,
+fiducial transform/residual, reader result, neighbour observation, or port /
+wear reference is missing. The minimum fields are enumerated in
+`analysis/coupon_protocol.py`, including complete commanded/read-back maps,
+maximum active-aperture residual, frozen reader calibration identity and
+ambiguous flag, per-neighbour observations, wear inspection, and as-built port
+measurement identities. A deliberately corrupted unchanged cell must be
+rejected by the complete-map comparison.
+
+Before cycling, freeze the reader calibration set, exact-state comparison,
+ambiguous/reject handling, wear inspection cadence/trend rule, and fixture
+measurement limits. Measure every port's insertion, alignment, and parked
+clearance with uncertainty; reject out-of-limit ports. These are physical
+preflight gates, not claims supplied by the nominal CAD.
 
 ## Gates and falsifiers
 
 These are provisional engineering gates, not sourced standards:
 
 * zero unexplained channel or cell misses in the accepted 1,000-cycle sample;
-* fiducial and active-cell XY error ≤0.20 mm after every reseat;
-* zero wrong reader classifications, with confidence threshold chosen before
-  testing;
-* no crack, tear, permanent set, blocked aperture, or increasing miss trend;
-* each loaded-neighbour displacement ≤0.20 mm per local write and no state
-  change; and
-* no tongue collision, plane swap, or engagement outside the labelled port.
+* maximum transformed active-aperture residual ≤0.20 mm after every reseat;
+* zero wrong or ambiguous reader classifications against the exact expected
+  four-plane state; confidence is supporting data only;
+* no crack, tear, permanent set, blocked aperture, or increasing miss trend at
+  the frozen inspection cadence;
+* each loaded-neighbour signed displacement ≤0.20 mm per local write and no
+  before/after state change; and
+* no tongue collision, plane swap, or engagement outside the labelled port,
+  with as-built measurements within the frozen limits.
 
 Any failed gate falsifies this coupon configuration for that boundary claim.
 A pass is evidence only for this coupon and sample, not product adoption,
@@ -130,7 +140,8 @@ openscad --export-format binstl -o /dev/null -D 'part="assembly"' 06-experiments
 
 The Python check verifies field span, aperture web, fiducial placement, port
 spacing, writer overlap and parked clearance, reader clearance and XY window
-alignment, adversarial-case coverage, and the 1,000-cycle allocation. OpenSCAD
+alignment, required log schema, exact 125-per-case allocation, and the
+1,000-cycle total. OpenSCAD
 only parses/exports parametric CAD; neither command simulates actuation,
 registration, discrimination, wear, or neighbour loading.
 
