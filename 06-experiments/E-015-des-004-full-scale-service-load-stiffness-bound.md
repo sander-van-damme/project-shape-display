@@ -52,8 +52,8 @@ For the solid round shaft, with `n` simultaneous rotor reactions:
 `T = n F_t r`; `J = pi d^4 / 32`; `theta = T L / (J G)`; and
 `delta_shaft = theta * 10 mm`.
 
-The executable `bound.py` evaluates both equations and asserts the reported
-gate values. Its result is:
+The executable `E-015-des-004-full-scale-service-load-stiffness-bound.py`
+evaluates both equations and asserts the reported gate values. Its result is:
 
 | Case | Calculated result | Gate |
 |---|---:|---|
@@ -74,7 +74,7 @@ condition therefore require explicit full-scale design evidence.
 The structural frame must carry the rail reactions into tabletop supports
 without relying on printed 3 mm coupon sheet stiffness. The actuator reaction
 must close locally through the rotor support/frame; it must not be carried by
-a 1 mm axle over the full 406.4 mm span. A 4 mm shaft passes this simplified
+a 1 mm axle over the full 406.4 mm span. An 8 mm shaft passes this simplified
 torsion bound but has no allowance here for bearing compliance, keyway stress
 concentration, bending from off-axis writer force, or assembly runout.
 
@@ -89,7 +89,7 @@ not closed by this calculation.
 From the repository root:
 
 ```text
-python3 06-experiments/E-015-des-004-full-scale-service-load-stiffness-bound/bound.py
+python3 06-experiments/E-015-des-004-full-scale-service-load-stiffness-bound.py
 ./repo check
 ```
 
