@@ -44,15 +44,18 @@ file shows all 25 representative sliders in state S2.
 | lower guide | 0.00..0.40 | 30.48 square; 4.50 x 4.90 guide pockets; captures slider laterally |
 | gate slider | 0.40..0.80 | 4.20 transverse x 4.60 travel envelope x 0.40; one 3.00 square aperture |
 | upper guide | 0.80..1.20 | 30.48 square; same guide pockets; prevents lift/skew |
-| five-stop plate | 1.20..2.00 | 30.48 square; 3.40 square follower openings and five shelves at 0.80 pitch |
+| five-stop plate | 1.20..2.00 | 30.48 square; 1.60 square follower bores and five indexed stop identities at 0.80 pitch |
 | follower / shoulder | 2.00..4.00 | Ø1.20 follower, Ø3.00 x 0.35 broad shoulder; representative only |
 
 The guide pocket gives 0.30 mm total longitudinal running clearance and 0.30
 mm transverse clearance relative to the slider. The five gate aperture
 centres are `x = -1.60, -0.80, 0, +0.80, +1.60 mm` from each cell centre;
 these are S0..S4. The aperture/follower nominal diametral difference is 1.80
-mm. The stop shelves are 0.60 mm wide in travel and separated by 0.20 mm
-nominal relief; the stop plate, not the slider, defines the settled Z state.
+mm. The repaired CAD uses a 1.60 mm square follower bore through the stop
+plate. The Ø1.20 follower passes it while the Ø3.00 shoulder bears on the
+surrounding stop-plate top land at z=2.00 mm. The five indexed x positions
+are the analytical stop identities; their 0.80 mm pitch and 3.20 mm travel
+are checked by the script.
 
 The writer interface is the common W0 channel. The representative tongue is
 4.00 x 1.00 x 0.80 mm, engages a 0.60 mm-deep slider tab, and has a 4.00 mm
@@ -96,7 +99,8 @@ writer tongue → slider tab → gate slider / guides only (state-setting force)
 
 The gate face is intentionally not a reaction surface: the Ø3.00 shoulder is
 above the stop plate and the Ø1.20 shank has 0.90 mm radial nominal clearance
-to the 3.00 aperture. The independent falsifier should inspect the section
+to the 3.00 gate aperture and 0.20 mm radial nominal clearance to the repaired
+1.60 stop bore. The independent falsifier should inspect the section
 for any contact at a gate face, guide lip, slider edge, or aperture corner
 under the declared load. Any such contact fails load separation even if the
 state still reaches.
@@ -119,8 +123,9 @@ openscad --export-format binstl -o /dev/null 06-experiments/E-033-e-032-a-010-in
 git diff --check
 ```
 
-The script calculates nominal state travel (3.20 mm), writer stroke (4.00
-mm), layer stack height (2.00 mm before follower), edge clearance, and the
+The script calculates nominal state travel (3.20 mm), writer stroke (3.60
+mm, including 0.20 mm approach/settle at each end), layer stack height (2.00
+mm before follower), edge clearance, and the
 following explicitly bounded analytical exercise: ±0.10 mm each for guide,
 gate, and stop placement gives ±0.30 mm residual budget; the nominal radial
 aperture/follower margin is 0.90 mm, leaving 0.60 mm calculated residual

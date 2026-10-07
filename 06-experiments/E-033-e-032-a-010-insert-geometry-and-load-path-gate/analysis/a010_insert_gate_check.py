@@ -24,6 +24,8 @@ POCKET = (4.50, 4.90)              # guide pocket, same axes as SLIDER
 RUNNING_CLEARANCE_TOTAL = POCKET[1] - SLIDER[1]
 APERTURE = 3.00
 FOLLOWER_DIAMETER = 1.20
+STOP_BORE = 1.60
+SHOULDER_DIAMETER = 3.00
 STATE_STEP = 0.80
 STATE_COUNT = 5
 STATE_TRAVEL = STATE_STEP * (STATE_COUNT - 1)
@@ -73,6 +75,8 @@ def main() -> None:
 
     Result("slider running clearance total", RUNNING_CLEARANCE_TOTAL, 0.20).check()
     Result("aperture/follower diametral margin", APERTURE - FOLLOWER_DIAMETER, 0.20).check()
+    Result("stop bore/follower diametral margin", STOP_BORE - FOLLOWER_DIAMETER, 0.20).check()
+    Result("shoulder/stop bearing diametral overlap", SHOULDER_DIAMETER - STOP_BORE, 0.20).check()
     Result("five-state travel", STATE_TRAVEL, 3.20).check()
     Result("writer engagement", WRITER_ENGAGEMENT, 0.20).check()
     Result("writer stroke", WRITER_STROKE, STATE_TRAVEL).check()
@@ -80,6 +84,12 @@ def main() -> None:
     Result("stop-face width", STOP_FACE, 0.40).check()
     assert all(b > a for _, a, b in LAYERS)
     assert LAYERS[-1][2] == 2.00
+
+    # Five indexed positions: analytical reach/return envelope only.
+    states = tuple((state - 2) * STATE_STEP for state in range(STATE_COUNT))
+    assert states == (-1.60, -0.80, 0.0, 0.80, 1.60)
+    assert states[-1] - states[0] == STATE_TRAVEL
+    assert all(abs(states[i + 1] - states[i]) == STATE_STEP for i in range(STATE_COUNT - 1))
 
     # A 3.0 mm square reader target remains within the active envelope and
     # never consumes a fiducial or datum land by nominal geometry.
@@ -101,6 +111,8 @@ def main() -> None:
     print(f"cells={N*N} pitch_mm={PITCH:.2f} state_travel_mm={STATE_TRAVEL:.2f}")
     print(f"stack_height_mm={LAYERS[-1][2]:.2f} placement_bound_mm={placement_bound:.2f}")
     print(f"residual_margin_mm={residual_margin:.2f} edge_clearance_mm={edge_clearance:.2f}")
+    print(f"stop_bore_mm={STOP_BORE:.2f} shoulder_bearing_overlap_mm={SHOULDER_DIAMETER - STOP_BORE:.2f}")
+    print(f"states_mm={','.join(f'{x:.2f}' for x in states)} return_envelope_mm={STATE_TRAVEL:.2f}")
 
 
 if __name__ == "__main__":
