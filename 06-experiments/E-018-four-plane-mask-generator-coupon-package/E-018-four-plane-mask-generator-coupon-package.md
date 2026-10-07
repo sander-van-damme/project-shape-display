@@ -133,10 +133,15 @@ registration, discrimination, wear, or neighbour loading.
 
 ## Disposition and unresolved assumptions
 
-Analytical status: **defined and checked; no physical result**. Unresolved
-assumptions are the rewritable medium construction, shutter force/stroke,
-reader technology and confidence metric, clamp preload, process spread, and
-whether 0.20 mm is achievable after reseat. These require physical evidence.
+Analytical status: **definition checks pass; interface gate failed in E-019;
+no physical result**. E-019's static CAD audit found a 3.0 mm gap between
+each declared writer tongue and its plane tab, despite the 1.0 mm insertion
+interface, plus an unresolved reader-target overlap/alignment conflict. The
+coupon is not fabrication-ready until those CAD/protocol conditions are
+repaired and asserted by the analytical check. Unresolved assumptions remain
+the rewritable medium construction, shutter force/stroke, reader technology
+and confidence metric, clamp preload, process spread, and whether 0.20 mm is
+achievable after reseat. These require physical evidence.
 
 Rollback is deleting this E-018 workspace and reverting its commit; DES-004,
 DES-005, E-017, and ADR-006 remain unchanged. Do not expand this experiment
