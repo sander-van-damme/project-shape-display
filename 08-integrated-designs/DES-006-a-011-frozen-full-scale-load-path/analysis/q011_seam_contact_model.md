@@ -2,12 +2,12 @@
 
 **Evidence class: calculated sensitivity model; not FEA and not physical validation.**
 
-This artifact tests whether the missing DES-005 seam, support seating, bearing,
+This artifact tests whether the missing DES-006 seam, support seating, bearing,
 and rotor/post hard-stop terms can be bounded from the frozen information. Run
 from the repository root:
 
 ```text
-python3 08-integrated-designs/DES-005-des-005-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py
+python3 08-integrated-designs/DES-006-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py
 ```
 
 ## Model and boundary conditions
@@ -32,7 +32,7 @@ shaft torsion screen, and the existing 0.09 mm credited alignment allowance.
 The 0.60 mm drawing-level stack is not silently substituted into the spring
 model. The model contains no preload, friction, contact area, fastener
 stiffness, printed-part modulus, bearing housing geometry, stop crush, or
-nonlinear gap/contact law because those inputs are not frozen in DES-005.
+nonlinear gap/contact law because those inputs are not frozen in DES-006.
 
 ## Reproduced result
 
@@ -47,7 +47,7 @@ The script reports:
 | 3.27 N rail + shaft baseline | 0.06897 mm | calculated sensitivity |
 | Service allowance before fixed stack | 0.03103 mm | calculated sensitivity |
 
-For sensitivity only (not claimed DES-005 values), assigning 10,000 N/mm to
+For sensitivity only (not claimed DES-006 values), assigning 10,000 N/mm to
 each of the four missing springs adds 0.04000 mm at 100 N. Assigning an
 extremely stiff 100,000 N/mm to each still adds 0.00400 mm, so the 100 N
 combined result remains above the gate even when omitted compliance tends to
@@ -73,7 +73,7 @@ unvalidated, not a pass margin.
 
 ## Disposition and cheapest falsification
 
-**Q-011 / DES-005 disposition: HOLD; reject integration against the `<0.10 mm`
+**Q-011 / DES-006 disposition: HOLD; reject integration against the `<0.10 mm`
 screen for the current frozen load path.** This is an analytical hold/reject,
 not a hardware result. No physical testing was performed.
 

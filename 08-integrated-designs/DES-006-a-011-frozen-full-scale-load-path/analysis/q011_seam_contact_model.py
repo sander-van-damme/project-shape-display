@@ -6,7 +6,7 @@ represented by an effective translational stiffness in N/mm.  The terms are
 in series at the cell datum, so their displacements add under the declared
 force.  This intentionally bounds *sensitivity*, not actual joint stiffness:
 no preload, contact area, housing geometry, or material data for these joints
-is frozen in DES-005.
+is frozen in DES-006.
 """
 from math import pi
 
@@ -65,7 +65,7 @@ def main() -> None:
     )
     service_structural = rail_mm(SERVICE_FORCE) + shaft_mm(SERVICE_TORQUE)
     allowable_service_no_stack = GATE - service_structural
-    print("DES-005/A-011 Q-011 seam/contact model (calculation only)")
+    print("DES-006/A-011 Q-011 seam/contact model (calculation only)")
     print(f"baseline_100N_structural_mm={baseline_structural:.5f}")
     print(f"allowable_missing_at_100N_mm={allowable_missing_at_100n:.5f}")
     print(f"allowable_equivalent_stiffness_at_100N_n_per_mm={allowable_stiffness_at_100n}")

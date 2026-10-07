@@ -3,7 +3,7 @@ status: candidate
 builds-on: [Q-011]
 ---
 
-# DES-005: A-011 frozen full-scale load path
+# DES-006: A-011 frozen full-scale load path
 
 ## Disposition
 
@@ -24,7 +24,7 @@ No hardware-performance claim follows.
 | shaft | 8.00 mm solid steel, `G=79,000 N/mm²`, coaxial with rotor axes | structural assumption |
 | shaft bearing stations | end bearings plus stations every 50.8 mm (8-pitch), 9 stations total | proposed drawing interface |
 | bearing radial clearance | 0.05 mm diametral maximum per station | tolerance assumption |
-| rotor/post contact | 3.00 mm nominal rotor body on 8.00 mm shaft; post reaction at 2.00 mm radius | DES-005-derived geometry / load assumption |
+| rotor/post contact | 3.00 mm nominal rotor body on 8.00 mm shaft; post reaction at 2.00 mm radius | DES-006-derived geometry / load assumption |
 | hard stop | post stop takes radial writer reaction; stop contact width 2.00 mm minimum | proposed contact interface |
 | cartridge/clamp seam | two 5x5 cartridges, seam at mid-span; four M4 clamps per cartridge, 20 mm clamp land | proposed interface; seam stiffness unresolved |
 | service contact | one cell, 3.27 N normal force over 3.00 x 3.00 mm area; worst direction normal to rail plane | inherited service-load assumption |
@@ -41,7 +41,7 @@ post, stop, bearing, clamp, or cartridge carries no bending.
 Run from the repository root:
 
 ```text
-python3 08-integrated-designs/DES-005-des-005-a-011-frozen-full-scale-load-path/analysis/q011_frozen_load_path.py
+python3 08-integrated-designs/DES-006-a-011-frozen-full-scale-load-path/analysis/q011_frozen_load_path.py
 ./repo check
 ```
 
@@ -69,7 +69,7 @@ conditional component results and this fail disposition.
 | cartridge-to-rail datum error | 0.20 mm | assumed assembly tolerance |
 | clamp seam opening / local tilt equivalent | 0.20 mm | unresolved; placeholder upper bound |
 | bearing radial clearance contribution | 0.05 mm | assumed tolerance |
-| rotor/post radial clearance contribution | 0.05 mm | assumed DES-005 fit allowance |
+| rotor/post radial clearance contribution | 0.05 mm | assumed DES-006 fit allowance |
 | rail support seating | 0.10 mm | unresolved assembly assumption |
 | subtotal | 0.60 mm | calculated assumed stack; not a measurement |
 

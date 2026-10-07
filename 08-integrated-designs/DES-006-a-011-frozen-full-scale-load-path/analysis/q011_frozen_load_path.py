@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce the DES-005/A-011 Q-011 analytical screening gate."""
+"""Reproduce the DES-006/A-011 Q-011 analytical screening gate."""
 from math import pi
 
 L = 406.4
@@ -28,7 +28,7 @@ def local_radial_mm(load_n=3.27, span=50.8):
 
 def main():
     service_torque = 3.27 * 2.0
-    print("DES-005/A-011 Q-011 frozen load-path screen (calculation only)")
+    print("DES-006/A-011 Q-011 frozen load-path screen (calculation only)")
     print(f"rail_3.27N_mm={rail_mm(3.27):.5f}")
     print(f"rail_100N_mm={rail_mm(100.0):.5f}")
     print(f"shaft_80x6.54Nmm_mm={shaft_mm(service_torque):.5f}")

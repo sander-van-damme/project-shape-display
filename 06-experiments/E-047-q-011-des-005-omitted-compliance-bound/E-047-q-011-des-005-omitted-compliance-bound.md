@@ -1,14 +1,14 @@
 ---
 status: active
-builds-on: [Q-011, DES-005]
+builds-on: [Q-011, DES-006]
 ---
 
-# E-011: DES-005/Q-011 omitted-compliance bound
+# E-047: DES-006/Q-011 omitted-compliance bound
 
 ## Question
 
 Can seam opening, support seating, bearing housing/play, and rotor/post
-hard-stop compliance be bounded from the frozen DES-005 geometry and load
+hard-stop compliance be bounded from the frozen DES-006 geometry and load
 inputs strongly enough to pass Q-011's `<0.10 mm` integration screen?
 
 ## Reproducible method
@@ -16,8 +16,8 @@ inputs strongly enough to pass Q-011's `<0.10 mm` integration screen?
 Run from the repository root:
 
 ```text
-python3 06-experiments/E-011-q011-des005-compliance-bound/q011_compliance_bound.py
-python3 08-integrated-designs/DES-005-des-005-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py
+python3 06-experiments/E-047-q-011-des-005-omitted-compliance-bound/q011_compliance_bound.py
+python3 08-integrated-designs/DES-006-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py
 ./repo check
 ```
 
@@ -52,11 +52,11 @@ stiffness.
 Even the limiting case `k_seam, k_support, k_bearing, k_stop -> infinity`
 remains at 0.12919 mm for the 100 N envelope. Illustrative 10,000 N/mm
 stiffnesses add 0.04000 mm; these values are sensitivity points only, not
-DES-005 properties.
+DES-006 properties.
 
 ## Disposition
 
-**Q-011/DES-005 remains HOLD / reject for integration against the `<0.10 mm`
+**Q-011/DES-006 remains HOLD / reject for integration against the `<0.10 mm`
 screen.** This is an analytical disposition, not hardware validation. The
 global 100 N screen is already over the gate before seam, support, bearing, or
 stop compliance is included. The four terms therefore remain unresolved for

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bound omitted DES-005 interface compliance without inventing stiffness.
+"""Bound omitted DES-006 interface compliance without inventing stiffness.
 
 Calculation only: the four omitted terms are nonnegative series springs. The
 script deliberately exposes the zero-compliance limit, which is enough to
@@ -45,7 +45,7 @@ def main() -> None:
     illustrative = {name: 10_000.0 for name in
                     ("seam", "support", "bearing", "rotor_stop")}
 
-    print("E-011 DES-005/Q-011 compliance bound (calculation only)")
+    print("E-047 DES-006/Q-011 compliance bound (calculation only)")
     print(f"rail_100N_mm={rail_mm(INCIDENTAL_FORCE):.5f}")
     print(f"shaft_service_torque_mm={shaft_mm():.5f}")
     print(f"zero_compliance_baseline_100N_mm={zero_compliance:.5f}")

@@ -7,7 +7,7 @@ builds-on: [P-007, P-010]
 
 ## Falsifier disposition
 
-**HOLD for integration.** The current DES-005/A-011 direction has no credible
+**HOLD for integration.** The current DES-006/A-011 direction has no credible
 full-scale service-load or stiffness envelope. The nominal E-015 result is a
 conditional screening calculation only; it is rejected as an integration or
 release gate. This is an analytical/CAD-evidence disposition, not hardware
@@ -18,7 +18,7 @@ validation.
 | Item | Evidence | Status |
 |---|---|---|
 | 406.4 mm span | 80 × 5.08 mm pitch in E-015/E-041 | CAD-derived arithmetic |
-| 25 × 25 mm rail, 8 mm shaft, 69/79 GPa materials | E-015 selected values | structural assumptions; absent from DES-005/A-011 geometry |
+| 25 × 25 mm rail, 8 mm shaft, 69/79 GPa materials | E-015 selected values | structural assumptions; absent from DES-006/A-011 geometry |
 | 100 N mid-span load and 0.10 mm motion limit | E-015 screen and Q-005/E-009 inherited criterion | assumptions/screening criteria, not product requirements |
 | 25 mm rail at 100/150/200 N | 0.062258/0.093386/0.124515 mm | calculated sensitivity; pass/pass/fail |
 | 20 mm rail at 100 N | 0.151996 mm | calculated sensitivity; fail |
@@ -68,10 +68,10 @@ full-scale actuation? Existing per-cell force and stiffness inputs remain
 assumptions until the load path is dimensioned and checked. E-015 and E-041
 are the supporting analytical records; neither closes Q-011.
 
-## DES-005 seam/contact bound (2026-10-07)
+## DES-006 seam/contact bound (2026-10-07)
 
 The reproducible sensitivity model in
-`08-integrated-designs/DES-005-des-005-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py`
+`08-integrated-designs/DES-006-a-011-frozen-full-scale-load-path/analysis/q011_seam_contact_model.py`
 represents seam opening, support seating, bearing housing compliance, and
 rotor/post hard-stop compliance as four series springs. It cannot assign a
 defensible stiffness to any term because the frozen design has no clamp
@@ -79,7 +79,7 @@ preload, contact area, housing section, bearing fit, stop material, or gap/slip
 law. More importantly, the retained 100 N rail-plus-shaft baseline is already
 `0.12919 mm`, before any omitted term, versus the `<0.10 mm` gate.
 
-Result: **HOLD / reject current DES-005 integration against the Q-011 screen**;
+Result: **HOLD / reject current DES-006 integration against the Q-011 screen**;
 no physical validation is claimed. The linked analysis report records each
 term as unresolved and gives the cheapest falsification: a loaded 5x5 seam
 coupon plus bearing/play and post/stop displacement measurements.
