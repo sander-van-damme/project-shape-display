@@ -30,3 +30,18 @@ Strengths are one state-bearing element per cell, passive load retention, direct
 Cheapest credible falsification: a final-pitch 5×5 loaded rotor/readback coupon with a frame-fixed reader target and proposed writer prong. Use 10,000 balanced transitions across all directed stops while applying the 3.27 N design service load; record missed stops, return force, read-code margin, neighbour displacement, and before/after clearances. This is a smoke/falsification gate, not life qualification: 1,000 transitions are too weak for the project map-yield target, and even 10,000 transitions cannot establish it. Before that test, CAD clearance and the timing/cost bounds above are the cheapest checks.
 
 Cost gate: conditional pass for continued candidate work, not procurement/production approval. See `cost-reconciliation.md` for the reproducible BOM, assumptions, alternatives, and printed-part exclusion. The nominal case is in the last-resort $400–500 band; the conservative case exceeds the project ceiling. The single most valuable remaining cost uncertainty is a delivered quote plus tolerance/availability confirmation for 6,400 axle pins, including spare/scrap stock. Bounded successor remains conditionally viable, but no detailed production CAD is justified until the independent timing, readback, load/isolation, fit, and BOM gates are closed. Do not claim hardware performance or merge to main. Evidence is analytical/CAD-derived/inferred from DES-003; no physical validation.
+
+## E-042 disposition
+
+E-042 is a completed independent analytical/CAD audit, not a physical result. It
+rejects the current E-028 physical handoff as specified: the 10,000-transition
+schedule does not exercise balanced directed pairs, and the coupon CAD does not
+define reproducible stop/return or load-path geometry. The nominal geometry
+screen remains a conditional calculated baseline; fit, friction, return force,
+read discrimination, wear, coupling, and timing remain unresolved. DES-004
+stays a candidate conditional baseline, not a rejected or promoted design.
+
+Next action: the E-028/LAB-107 Design Engineer must repair the schedule and
+fixture/CAD definition, then obtain a fresh independent review before
+fabrication, procurement, or hardware-performance claims. No physical
+validation is available.

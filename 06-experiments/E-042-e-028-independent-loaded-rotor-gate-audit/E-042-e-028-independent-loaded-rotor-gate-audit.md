@@ -1,6 +1,6 @@
 ---
-status: active
-builds-on: [E-028, DES-004, DES-005, ADR-007, E-016, E-014, E-012]
+status: complete
+builds-on: [E-028, E-029, E-030, DES-004, DES-005, ADR-007, E-016, E-014, E-012]
 ---
 
 # E-042: independent falsification of the E-028 loaded rotor/readback gate
@@ -90,6 +90,3 @@ checker output as validation. After the named owner repairs the schedule and
 fixture/CAD definition, rerun an independent review. Rollback is limited to
 rejecting the repaired coupon configuration; the candidate baseline remains
 unchanged.
-status: active
-builds-on: [E-028, DES-004, DES-005, ADR-007, E-016, E-014, E-012]
----
