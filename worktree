@@ -42,6 +42,7 @@ HELP = f"""Usage: ./worktree COMMAND
   ls                                List managed task worktrees
   get TASK                          Print exactly one managed worktree path for TASK
   close TASK                        Remove a clean task worktree already integrated into main
+  prune-stale                       Prune missing unlocked worktree metadata; retain branches
   check                             Check canonical checkout and managed worktree hygiene
 
 Canonical checkout: {ROOT}
@@ -193,6 +194,24 @@ def cmd_close(args):
     print(f"Closed {branch}")
 
 
+def cmd_prune_stale():
+    # Refuse ambiguous metadata rather than losing the only reference to work.
+    for row in worktrees():
+        if "prunable" not in row:
+            continue
+        path = Path(row["worktree"])
+        if path.exists() or path.is_symlink() or "locked" in row:
+            fail(f"Refusing ambiguous stale worktree: {path}")
+        branch = row.get("branch", "")
+        if not branch.startswith("refs/heads/"):
+            fail(f"Stale worktree has no preserving branch: {path}")
+        tip = run_git(["rev-parse", "--verify", branch], ROOT).stdout.strip()
+        if tip != row.get("HEAD"):
+            fail(f"Stale worktree HEAD differs from preserving branch: {path}")
+    # Use Git's normal expiry and lock handling, exactly as check's dry-run.
+    run_git(["worktree", "prune", "--verbose"], ROOT, capture=False)
+
+
 def cmd_check():
     errors = canonical_status_errors()
     registered = {Path(row["worktree"]).resolve(): row for row in managed_rows()}
@@ -226,7 +245,7 @@ def cmd_check():
 
 def main():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument("command", nargs="?", default="help", choices=("help", "new", "ls", "get", "close", "check"))
+    parser.add_argument("command", nargs="?", default="help", choices=("help", "new", "ls", "get", "close", "prune-stale", "check"))
     parser.add_argument("args", nargs="*")
     options = parser.parse_args()
     command, args = options.command, options.args
@@ -252,6 +271,10 @@ def main():
         if len(args) != 1:
             fail("close requires TASK")
         return cmd_close(args)
+    if command == "prune-stale":
+        if args:
+            fail("prune-stale takes no arguments")
+        return cmd_prune_stale()
     if command == "check":
         if args:
             fail("check takes no arguments")

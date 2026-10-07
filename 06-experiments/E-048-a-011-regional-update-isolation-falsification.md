@@ -75,21 +75,11 @@ The claim is consequently **not analytically passed**. A rejection is also
 not justified because no model predicts `d_peak > 0.10 mm`; the missing input
 is a bounded mechanical response, not a demonstrated failure.
 
-## Smallest decisive next test
+## Next discriminating evidence
 
-The next owner should run the E-018 5×5 coupon with the E-009 boundary
-condition: replace the rigid center/dummy isolation setup with a calibrated
-3.27 N loaded untouched neighbor, retain the frame-fixed datum and baseline
-subtraction, and instrument vertical and lateral neighbor displacement during
-the worst single local write and clamp/reseat event. Use the E-009 gate
-(`0.10 mm` peak and residual, including uncertainty), not E-018’s looser
-`0.20 mm` gate. If that 5×5 test passes, extend the same model and fixture
-boundary to 10×10 and 20×20; a 5×5 pass alone cannot close Q-005.
+Define a complete local-update mechanism and compute support/contact response under explicit actuator reactions, clamp preload, process bounds and shared deformation across 5×5, 10×10 and 20×20 regions. Start with bounded stiffness/coupling sensitivity; escalate to contact/FEA only where it can discriminate survivors. Nominal CAD clearance and the inherited regional latency do not bound disturbance.
 
-An alternative nonphysical route is a validated FEA/contact model containing
-the same support compliance, actuator trajectory/force, clamp preload,
-material/process tolerances, loaded contact, and all three region sizes. A
-nominal solid CAD clearance export is insufficient.
+If a surviving comparison depends on an unbounded contact parameter, propose targeted calibration with a loaded untouched neighbour and independent fixture reference, measuring vertical/lateral peak and residual motion with uncertainty. Choose article scale from the coupling mode; a 5×5 pass cannot establish larger-region isolation. Keep the historical 0.10 mm and 0.20 mm screens separate and justify any new gate against stage 02.
 
 ## Evidence classification
 

@@ -5,6 +5,8 @@ builds-on: [E-009, E-006, E-007, E-008, E-010, E-012, DES-003, DES-004, Q-005, Q
 
 # Falsifier review: E-009 Coupon-B regional-coupling gate
 
+Research priority is superseded by ADR-009. Retain this historical fixture rejection and its acceptance-contract lessons; its coupon follow-ups are conditional reuse criteria, not current work orders. A new mechanism requires computational screening before any decision-relevant calibration.
+
 ## Verdict
 
 **DES-004 as currently defined: REJECTED for this gate; hardware isolation

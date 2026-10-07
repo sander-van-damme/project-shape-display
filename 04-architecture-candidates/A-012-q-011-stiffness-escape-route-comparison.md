@@ -1,6 +1,6 @@
 ---
 status: candidate
-builds-on: [A-001, A-002, A-003, A-004, A-005, A-006, A-007, A-008, A-009, A-010, A-011, DES-006, Q-005, Q-010, Q-011, E-005, E-007, E-010, E-015, E-017, E-041, E-047, E-048, ADR-001, ADR-002, ADR-003, ADR-004, ADR-005, ADR-006, ADR-007, ADR-008]
+builds-on: [A-001, A-002, A-003, A-004, A-005, A-006, A-007, A-010, A-011, DES-006, Q-005, Q-010, Q-011, E-005, E-007, E-010, E-015, E-017, E-041, E-047, E-048, ADR-001, ADR-002, ADR-003, ADR-004, ADR-005, ADR-006, ADR-007, ADR-008]
 ---
 
 # A-012: Q-011 stiffness escape-route comparison
@@ -8,11 +8,7 @@ builds-on: [A-001, A-002, A-003, A-004, A-005, A-006, A-007, A-008, A-009, A-010
 ## Purpose and boundary
 
 This is an architecture screen for the **DES-006/Q-011 full-scale stiffness
-failure**, not a design release or a switch decision. The surviving arbitrary-map
-boundary remains A-011: reusable state medium, parallel writing, registration,
-readback and bounded retry. A route is useful only if it changes the service
-load path while retaining that boundary, regional updates, and the current
-<$500-ish purchased-cost intent. All numbers below are calculations or explicit
+failure**, not a design release or a switch decision. A-011 is a historical comparison boundary, not a required architecture. These routes explore load paths within that comparison; they do not cover the broader addressing and state-storage search. Enforce regional updates and the stage-02 purchased-cost ceiling (> $500 unacceptable). All numbers below are calculations or explicit
 assumptions; none is physical validation.
 
 ## Three materially different escape routes
@@ -34,15 +30,13 @@ more assembly/service locations.
 `16 x (400/(8 x 71)) = 11.27 s`. Even a favorable 0.50 s per-tile clamp/reseat
 allowance adds 8.0 s; adding the inherited 5.864 s full-field verification,
 0.50 s settling and 1.0 s retry allowance gives about **26.6 s before gantry
-index/reversal overhead**. A 1.50 s transport allowance per tile gives about
+index/reversal overhead**. A 1.50 s combined clamp/index allowance per tile (replacing the 0.50 s assumption) gives about
 42.6 s. Thus the route has no robust <30 s margin unless clamp/index is near
 zero or several tiles are serviced in parallel. It also multiplies precision
 datums and seams and makes a failed island unavailable. The stiffness advantage
 is plausible but unbounded until a tile frame and seam are modeled.
 
-**Disposition: kill as the full-display architecture.** Retain only as a
-regional-isolation test fixture or a future mode if measured tile reseat/index
-time is below 0.20 s and 20x20 loaded-seam displacement passes the Q-005 gate.
+**Disposition: reject the sequential 16-island schedule under the stated overhead bounds.** Reopen with a changed parallel schedule or justified lower overhead and a bounded loaded-seam model; the segmented-load-path principle is not rejected.
 
 ### R2 — deep distributed backplane/grid with local selector strips (best escape)
 
@@ -78,11 +72,9 @@ unchanged calculations, not evidence that the grid is stiff or quiet.
 increment; no 6,400 purchased axles and no 6,400 bought actuators are required.
 Printed ribs/panels increase print volume and assembly, but service can replace
 a panel rather than a buried full-width shaft. Main correlated risks are rail
-joint slip, grid flatness, and writer reaction coupling; they are fewer and
-more observable than 6,400 independent load stops.
+joint slip, grid flatness, and writer reaction coupling; their count may be lower than 6,400 independent load stops, but observability and common-cause consequences are unmodelled.
 
-**Disposition: retain as the only credible escape route for a small,
-architecture-level falsification.** It is not promoted and does not rescue
+**Disposition: retain for a computational load-path comparison.** It is not promoted and does not rescue
 DES-006 until local contact/seam compliance is bounded.
 
 ### R3 — grounded load-bearing cell cartridges with force-free selectors
@@ -112,36 +104,22 @@ validated per-cell allowance. Printed parts may avoid bought axles, but
 cartridge is attractive, replacing an inaccessible stop field is not.
 
 **Disposition: conditional research direction only.** It is physically
-different enough to test, but its repeated precision and service burden make it
-inferior to R2 unless a 5x5 coupon shows force-free selection with generous
-clearance and no load-induced neighbor motion.
+different enough to model, but its repeated precision and service burden leave it
+unranked against R2 until generated geometry and contact/load models bound force-free selection, clearance and neighbour motion.
 
 ## Compact trade table
 
 | Route | Q-011 load-path change | Arbitrary-map/full-map update | Regional isolation | Repeated burden / service | Cost and manufacturability screen | Disposition |
 |---|---|---|---|---|---|---|
-| R1 segmented islands | 16 local frames; no long shaft | ~26.6 s best-case before index overhead; robust margin absent | Potentially strong, but 16 seams | 16 frames/datums; island replacement good | High assembly/joint count; shared writer still needed | **Kill** |
-| R2 distributed grid | Bay-supported grid; local strip reactions; no continuous torsion shaft | Retains A-011 analytical 20.18 s / 0.72 s local accounting | Potentially improves perimeter coupling; unmeasured | Grid joints/panels, but no per-cell bought load parts | Best balance; printed/stock grid burden unresolved | **Retain for coupon** |
+| R1 segmented islands | 16 local frames; no long shaft | ~26.6 s best-case before index overhead; robust margin absent | Potentially strong, but 16 seams | 16 frames/datums; island replacement good | High assembly/joint count; shared writer still needed | **Reject stated schedule** |
+| R2 distributed grid | Bay-supported grid; local strip reactions; no continuous torsion shaft | Retains A-011 analytical 20.18 s / 0.72 s local accounting | Potentially improves perimeter coupling; unmeasured | Grid joints/panels, but no per-cell bought load parts | Printed/stock grid and joint burden unresolved | **Retain for modelling** |
 | R3 grounded cartridges | 6,400 local hard stops; selector force-free | Retains A-011 in principle; per-cell sequence unvalidated | Local by construction only if base is stiff | ~6,400 guides/stops; difficult field service | Bought cost may be low; yield/calibration risk high | **Conditional only** |
 
 ## Recommendation and dominant uncertainty
 
-Do **not** switch DES-006/A-011. Kill R1 for the product because its required
-tile transport/index budget consumes the arbitrary-map margin and adds seam
-faults. Keep R3 as a reserve research direction, not an integration candidate.
-Advance only R2 to one cheap falsification coupon: a 5x5 or 20x20 final-pitch
-grid panel with the proposed short selector strip, representative A-011 clamp,
-one loaded untouched neighbor, and a measured reaction fixture.
+No route is promoted. Compare R2 joint/support compliance and reaction direction against R3's local contact and assembly burden using generated load paths, tolerance bounds and explicit shared/spatial variation. Carry R1's rejected sequential schedule as a negative comparator; evaluate changed parallel scheduling only if it can recover complete-system margin.
 
-R2's dominant unresolved uncertainty is **joint/support compliance and load
-reaction direction**, not the ideal rail beam equation. The test must measure
-static and writer-induced vertical/lateral displacement at the loaded neighbor,
-panel seam opening, strip alignment, and reader/writer registration under the
-declared service load. A positive result would justify a full-span grid contact
-model; a failure above 0.10 mm peak or residual, or any selector load transfer,
-rejects R2 and leaves A-011/DES-006 on HOLD. This is the cheapest credible
-decision because it directly falsifies the claimed local-load-path advantage
-before 6,400-cell CAD or procurement.
+First bound supports, seam gaps/preload, local tilt and selector reaction over declared load cases; escalate informative survivors to contact/structural models. The ideal bay beam scaling alone cannot select R2. Include full-board supports, print/assembly effort, complete unload/write/verify/release timing and recovery. The inherited 0.10 mm displacement screen is provisional, not a stage-02 requirement. Print only if a specific unresolved contact parameter changes the comparison and cannot be bounded economically by computation; select article size from that parameter's spatial scale.
 
 ## Evidence boundary
 
@@ -151,4 +129,4 @@ torsion-span scaling are analytical bounds, not FEA or measurements. Existing
 E-041/E-047/E-048 results still govern: Q-011 and regional isolation remain
 unresolved, DES-006's combined idealized stack fails the 0.10 mm screen, and
 no route here claims reliability, printability, wear life, or affordability
-until the stated coupon and drawing-level cost checks exist.
+from these calculations. Ranking remains conditional on complete mechanisms, uncertainty bounds and drawing-level costs; hardware claims require physical qualification.

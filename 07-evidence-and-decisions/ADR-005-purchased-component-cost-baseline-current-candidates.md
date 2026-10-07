@@ -65,9 +65,7 @@ timing and reliability assumptions and is not accepted by this baseline.
 
 DES-004's sole new purchased class is 6,400 axle pins. The nominal $0.020/pin
 target gives $498 total; the conservative $0.050/pin plus 5% stock and service
-spares gives $729. E-013's dated catalogue observations are much higher than the target and do not establish a delivered bulk quote. The cheapest credible next sourcing route is a quote
-for bulk cut/debur pins, with pre-cut precision pins retained as the
-reliability fallback. Integral printed axles are excluded from the cost pass
+spares gives $729. E-013's dated catalogue observations are much higher than the target and do not establish a delivered bulk quote. Bulk cut/debur pins and pre-cut precision pins are possible future quote comparators if a concrete mechanism retains these axles. Integral printed axles are excluded from the cost pass
 because they trade purchase cost for unresolved wear, creep, fit, and
 replacement risk.
 
@@ -77,21 +75,9 @@ lower bound, not a cheaper architecture conclusion. Its main benefit is
 potentially simpler state/load separation and cartridge serviceability; its
 risks move to planar friction, registration, debris, and assembly yield.
 
-## Recommendation / next falsification task
+## Conditional sourcing threshold
 
-The next highest-value task is a dated delivered quote and drawing-level fit
-check for 6,720 DES-004 axle pins (6,400 installed plus 5% stock), including
-material/finish, diameter and cut-length tolerances, deburr/chamfer, MOQ,
-lead time, packaging, freight, and a sample quantity. The cost gate requires
-at most $0.02031 delivered per installed pin for the nominal $500 ceiling,
-or at most $0.01592 per delivered pin for the conservative 6,720-piece case
-after the $23 service-spare allowance. This is a sourcing/fit falsification
-task; it does not establish physical performance.
-
-Until that quote and fit check exist, retain DES-003 as the reliability-first
-cost baseline, keep DES-002 as the low-cost but reliability-limited estimate,
-and keep DES-004/A-010 conditional. No purchase or production approval follows
-from these calculations.
+If a new complete mechanism retains purchased axles, the historical screen allows at most $0.02031 delivered per installed pin for the nominal $500 ceiling, or $0.01592 per delivered pin for 6,720 pieces after the $23 service allowance. These are calculated thresholds, not quotes. First establish geometry, quantity and complete-system feasibility; request a fit-specific delivered quote only when it can change selection. No automatic sourcing task follows for the superseded designs.
 
 ## ADR-006 complete mask-generator boundary screen
 
@@ -117,13 +103,7 @@ The unresolved terms remain the medium and five-plane price, clamp/fiducial
 fit, four actuator part and life, reader compatibility, reader carrier/PCB
 if needed, harness interface, and cleaning/media-life allowance.
 
-Next falsification/procurement screen: request a drawing-level quote for five
-cut/debur media planes, one clamp/fiducial set, and four writer actuators,
-while measuring the eight DES-003 reader heads against the E-018 coupon
-optical stack. Request material, thickness, aperture process, force/stroke,
-life, tolerances, MOQ, lead time, packaging, freight, and delivered price.
-Do not change the cost baseline or authorize purchase until that screen and
-compatibility check are complete.
+The next useful cost evidence depends on defining the missing state-changing medium and complete actuator/reader implementation. Compare system quantities and allowance sensitivity computationally before choosing targeted compatibility calibration or drawing-specific sourcing.
 
 Date basis: 2026-10-07. This is a purchased-component planning screen for the
 minimum complete arbitrary-map boundary in ADR-006/E-017, not a supplier quote
@@ -150,25 +130,7 @@ labour, freight, tax, and payment fees remain excluded.
 | Channel/media interface harness | Pololu 5615 3-pin JST-PH-style cable, Digi-Key 2183-5615-ND, [catalogue page](https://www.digikey.com/en/products/detail/pololu/5615/26887362) | 8 | 2.29 | 18.32 | sourced catalogue price, USD, observed 2026-10-07 | 118 in stock in the captured listing; connector family is an example, not a locked interface |
 | Cleaning and replacement allowance | Wipes/cleaning agent plus one damaged/rejected media event | 1 allowance | 10 / 30 / 75 | 10 / 30 / 75 | allowance; low/nominal/high assumption | Required service term; exact consumable and media-life test are unresolved |
 
-The sourced subset is $36.59. The preliminary arithmetic below is retained
-only as historical traceability; use the E-044 table above as canonical. In
-particular, it double-counts the fallback reader stack when inherited heads
-are compatible and its high controller term is stale.
-
-The prior screen calculated:
-
-```
-low       = 370.00 + 20 + 15 + 8 + 36 + 4.38 + 4.59 + 2.90 + 6.40 + 10 + 18.32 + 10 = $505.59
-nominal   = 370.00 + 60 + 35 + 20 + 60 + 4.38 + 4.59 + 2.90 + 6.40 + 20 + 18.32 + 30 = $631.59
-high      = 370.00 +150 + 80 + 50 +120 + 4.38 + 5.00 + 2.90 + 6.40 + 40 + 18.32 + 75 = $921.99 (stale)
-```
-
-The high controller value and fallback treatment above are superseded by
-E-044's observed $4.59 controller price and conditional reader accounting.
-The range remains conditional on reusing DES-003's gantry and on the
-four-channel architecture remaining mechanically viable. It does not prove
-that the QRE1113/ADC stack can classify apertures, that the writer can meet
-the 20.18 s analytical bound, or that media survives service cycles.
+The sourced subset is $36.59 under the dated observations. E-044 is canonical for corrected controller price and conditional reader accounting; obsolete totals are retained in Git history. These values do not establish reader discrimination, writer timing or media life.
 
 ### Cost-reduction and sourcing-risk screen
 
@@ -189,8 +151,4 @@ debur/chamfer, lead time, and delivered cost.
 Explicitly unresolved: the exact medium and five-sheet price, four actuator
 part number and life, clamp/fiducial drawing and price, whether DES-003 reader
 heads can be reused without the eight QRE1113 sensors, PCB/carrier fabrication,
-and delivered availability after freight/tax. The cheapest next falsification
-is a quote request for five cut media planes, one clamp/fiducial set, and four
-writer actuators against a dimensioned coupon, plus a compatibility check of
-the existing DES-003 reader head. That action can collapse the $416.40
-allowance span before any architecture or procurement decision is changed.
+and delivered availability after freight/tax. Resolve a complete mechanism and sensitivity first; select a quote or physical compatibility test only if it can change its ranking. Do not spend on interfaces for an undefined medium.

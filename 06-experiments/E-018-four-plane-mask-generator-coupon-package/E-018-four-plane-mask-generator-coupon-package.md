@@ -25,7 +25,7 @@ independent binary plane carriers.
 |---|---:|---|
 | active cells | 5 x 5 | E-017 / ADR-006 boundary |
 | final pitch | 5.08 mm | inherited project reference |
-| active centre span | 25.40 mm | five centres at final pitch |
+| active centre span / footprint | 20.32 / 25.40 mm | four centre intervals / five cell widths |
 | frame outside | 40 x 40 x 3.00 mm | DES-004 envelope |
 | plane carrier | 34 x 34 x 0.80 mm | four independent planes |
 | plane separation | 1.20 mm | clearance between carriers |
@@ -177,10 +177,6 @@ Unresolved assumptions remain
 the rewritable medium construction, shutter force/stroke, reader technology
 and confidence metric, clamp preload, process spread, and whether 0.20 mm is
 achievable after reseat. These require physical evidence.
-
-Rollback is deleting this E-018 workspace and reverting its commit; DES-004,
-DES-004, E-017, and ADR-006 remain unchanged. Do not expand this experiment
-into procurement, physical testing, or product adoption.
 
 ## Consolidated fixture/protocol findings
 

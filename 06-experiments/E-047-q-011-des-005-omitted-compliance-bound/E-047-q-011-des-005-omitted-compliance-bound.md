@@ -74,6 +74,10 @@ To quantify the four individual terms for a revised load case, provide a
 contact or measurement model with: seam section, clamp preload/friction and
 load eccentricity; support land and seating gap/preload; bearing type, fit,
 housing section and radial play; and stop material, contact land, gap and
-crush/wear law. A loaded 5x5 seam coupon plus direct bearing/play and
-post/stop displacement measurements supplies these parameters, but no physical
-testing was performed for this experiment.
+crush/wear law. Use bounded contact models first for a revised mechanism; calibrate only parameters whose uncertainty changes its disposition. No physical testing was performed.
+
+## Retained measurement-design limitations
+
+The unexecuted full-span protocol at commit `544460c` identified that a seam-only 5×5 article cannot measure 406.4 mm global rail/support response. A future global test must preserve the full span and actual interfaces, use an independent frame reference, log direct cell motion and interface diagnostics separately, retain peak and unloaded residual without re-zeroing, and account for reference/load/thermal uncertainty and covariance. Reassemblies of one article are assembly-state samples, not independent hardware samples or production yield.
+
+That draft's proposed reclassification of 100 N as survivability-only is not adopted here: it cannot erase the historical screen failure. Reopening requires explicit load-case reasoning. Its 3 mm rotor body on an 8 mm shaft and two 5×5 cartridges on an 80-cell span require geometric reconciliation before modelling or fabrication. Diagnostic term sums must not double-count rigid-body motion; separate load tests do not establish simultaneous-load performance. These are protocol lessons, not measurements or a fabrication request.

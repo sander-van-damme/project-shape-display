@@ -83,9 +83,7 @@ boundary risks, not zero-valued terms. The 3.27 N value and all material,
 support, bearing, contact, and tolerance values above are assumptions or
 calculations; there are no physical measurements.
 
-Therefore Q-011 is not bounded for integration. The next decisive evidence is
-a CAD/FEA or equivalent contact model for the seam, supports, bearings, and
-post/stop with the stated tolerances. Physical testing remains a separate
+Therefore Q-011 is not bounded for integration. Reopening requires a changed load path or justified load-case revision, followed by a CAD/FEA or equivalent contact model with stated tolerances. Physical testing remains a separate
 future gate and is not implied by this artifact.
 
 ## Seam/contact model follow-up
@@ -100,6 +98,4 @@ positive stiffness assignment can make that combined case pass `<0.10 mm`.
 
 The four omitted terms remain **unresolved**, rather than zero. The model is a
 calculated sensitivity model, not FEA or physical validation. Q-011 remains
-**HOLD / reject for current integration**. The next cheapest falsification is
-the loaded 5x5 seam coupon and direct bearing/play and post/stop displacement
-measurements described in E-047.
+**HOLD / reject for current integration**. Further calibration cannot rescue this already-failed additive screen. Compare changed load paths computationally before proposing decision-relevant measurements; E-047 retains measurement interpretation limits.
