@@ -111,34 +111,58 @@ range: the stainless and clamp bands are estimates with unresolved fit, and
 the low actuator is not yet viable. Keep E-022 canonical until drawings and
 quotes replace these planning bands.
 
+Arithmetic correction: the base calculation includes the $30 service
+allowance and is therefore **$684.97**, not $654.97. The low calculation is
+correct because it uses the $10 low service allowance. The corrected base
+expression is `370 + 175 + 45 + 37.68 + 4.38 + 4.59 + 18.32 + 30`.
+
 ## Rejected reductions and decision
 
-* The $3.34 solenoid is not accepted solely on unit price: force, life,
-  stroke coupling, stock, and duty cycle are missing.
-* The servo is not accepted as a cheap substitute because it needs a new
-  four-channel PWM/power interface and introduces backlash/linkage parts.
-* PET/polyimide film is not accepted as the reusable baseline because tear,
-  creep, aperture-edge damage, and cleaning life are unresolved.
-* Removing readback or serializing the four writers is rejected: it removes
-  fault observability or violates the inherited arbitrary-map timing boundary.
-* A full cassette transport is not priced or added; local clamping remains
-  the bounded architecture assumption.
+The $3.34 solenoid, servo, PET/polyimide film, removal of readback, and
+serialized writing are rejected as current reductions: force/life/stock,
+added electronics and backlash, reusable-life risk, lost fault observability,
+or timing-boundary violation outweigh their apparent savings. A full cassette
+transport remains outside this local-clamp boundary.
 
-The preferred next screen is five identical 304 SS planes plus a standard
-dowel/laser-cut clamp set, quoted against the E-018 drawing, and one exact
-actuator sample of the Delta or Olimex family with a force-vs-stroke and
-cycle-life request. In parallel, the DES-003 owner should complete the
-reader overlay/timing checklist before any fallback-reader purchase is
-considered.
+## Drawing-level route disposition
+
+**304 SS plane and standard clamp route: GO to RFQ, HOLD for compatibility.**
+RFQ five identical planes plus one set against one controlled drawing. State:
+304 SS; 0.76 mm nominal (or quoted 0.80 mm), actual thickness; 40 x 40 x 3
+mm frame; 34 x 34 x 0.80 mm carrier; 25 3.00 x 3.00 mm apertures on 5.08
+mm pitch; Ø2.00 mm fiducials at (-15,-15)/(15,15) mm; 2 x 6 mm datum rail;
+32 x 2.5 mm clamp land; labelled 1 x 0.8 mm tabs on 2 mm stack pitch;
+deburred, flat, cleanable surface; two locating dowels; adjustable preload;
+and loaded-neighbour clearance. Require material/thickness, aperture and
+fiducial tolerances, flatness, edge condition, MOQ, lead time, packaging,
+and price. Acceptance remains conditional on E-018 envelope/no-collision
+inspection and ≤0.20 mm transformed-aperture/reseat residual; ±0.127 mm
+catalogue cut tolerance is not acceptance evidence.
+
+**One exact writer actuator route: HOLD pending exact-part quote/sample.**
+Request one Olimex PUSH-PULL-SOLENOID-5V sample and four-unit quote using
+Digi-Key 1188-PUSH-PULL-SOLENOID-5V-ND; if unavailable or lacking data, use
+one exact Delta DSML-0224-12 quote/sample. Require exact part, availability,
+force-versus-stroke, 5.00 mm stroke, voltage/resistance, cycle life, duty
+cycle, mounting/termination tolerances, and return or latching behavior.
+Accept only if the force reaches 1.00 mm tab engagement within the 4 x 1 x
+0.8 mm tongue and 0.20 mm parked-clearance envelopes, with existing-driver
+compatibility and an E-018 engagement/cycle sample plan. Catalogue prices
+($3.34 Olimex, $9.42 Delta family) remain non-committed observations.
+
+## Source trail and bounded disposition
+
+The linked SendCutSend, Digi-Key Olimex, and Delta pages are the reproducible
+public source trail; they provide no drawing-specific quote, force/life data,
+or fit-checked exact actuator. No authenticated RFQ channel was available.
+Disposition: planes/clamp **RFQ-go / physical-compatibility hold**; actuator
+**quote/sample hold**; reader reuse **E-018 compatibility hold**. Do not order
+parts or claim procurement commitment.
 
 ## Next falsification/procurement action and owner
 
 Next owner: **DES-003 mechanical/controls owner**, with Cost & Sourcing
-support. Send one drawing-level RFQ for five planes, one clamp/fiducial set,
-and four actuator samples or a manufacturer quote. Require material,
-thickness, aperture process, force/stroke, life, tolerances, MOQ, lead time,
-packaging, freight, and delivered price. Record all eight reader-head
-dimensions, optical stack, connector/pinout, sample/settle timing, and
-calibration margin against the E-018 checklist. This is the next falsifier;
-do not order parts, redesign CAD, or claim hardware compatibility from this
-document.
+support. Send the controlled plane/clamp RFQ and exact-actuator sample/quote
+request above; then record eight reader-head dimensions, optical stack,
+pinout, timing, and calibration margin against E-018. This is the next
+falsifier; do not order parts, redesign CAD, or claim compatibility.
