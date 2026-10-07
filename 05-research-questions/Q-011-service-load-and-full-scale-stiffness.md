@@ -80,6 +80,5 @@ law. More importantly, the retained 100 N rail-plus-shaft baseline is already
 `0.12919 mm`, before any omitted term, versus the `<0.10 mm` gate.
 
 Result: **HOLD / reject current DES-006 integration against the Q-011 screen**;
-no physical validation is claimed. The linked analysis report records each
-term as unresolved and gives the cheapest falsification: a loaded 5x5 seam
+no physical validation is claimed. E-047 records each term as unresolved and gives the cheapest falsification: a loaded 5x5 seam
 coupon plus bearing/play and post/stop displacement measurements.
