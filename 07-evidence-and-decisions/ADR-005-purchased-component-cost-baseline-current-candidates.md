@@ -48,7 +48,7 @@ the source files:
 - `08-integrated-designs/DES-002-low-cost-mask/bom_s6lc.csv`
 - `08-integrated-designs/DES-003-reliability-first/bom_a1.csv`
 - `08-integrated-designs/DES-004-five-level-rotary-verified-successor/bom_des004.csv`
-- `08-integrated-designs/DES-004-five-level-rotary-verified-successor/cost-reconciliation.md`
+- `06-experiments/E-013-des-004-axle-pin-sourcing-and-fit-screen.md`
 
 No independent 20x20-cell design quantity is defined in the current inputs;
 the tile column is therefore a transparent normalization, not a purchasing
@@ -72,9 +72,7 @@ timing and reliability assumptions and is not accepted by this baseline.
 
 DES-004's sole new purchased class is 6,400 axle pins. The nominal $0.020/pin
 target gives $498 total; the conservative $0.050/pin plus 5% stock and service
-spares gives $729. Catalog observations in the cost reconciliation are much
-higher than the target and do not establish the required diameter, length,
-fit, or availability. The cheapest credible next sourcing route is a quote
+spares gives $729. E-013's dated catalogue observations are much higher than the target and do not establish a delivered bulk quote. The cheapest credible next sourcing route is a quote
 for bulk cut/debur pins, with pre-cut precision pins retained as the
 reliability fallback. Integral printed axles are excluded from the cost pass
 because they trade purchase cost for unresolved wear, creep, fit, and

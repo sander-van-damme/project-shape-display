@@ -1,9 +1,9 @@
 ---
-status: hold
+status: complete
 builds-on: [E-009, Q-005, A-011, ADR-006, E-017, E-018, E-040, DES-005]
 ---
 
-# LAB-135: A-011 regional-update isolation falsification
+# E-048: A-011 regional-update isolation falsification
 
 ## Verdict
 
