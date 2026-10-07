@@ -51,7 +51,9 @@ and after reseat.
 
 The fixture supplies four independent channels P0..P3, indexed bottom to top.
 Each channel has a 4.00 x 1.00 x 0.80 mm tongue, 1.00 mm nominal insertion,
-and 2.00 mm centre pitch matching the plane stack. All four channels are enabled in one addressed
+and 2.00 mm centre pitch matching the plane stack. In the engaged CAD state,
+each tongue is registered to the full 1.00 mm tab thickness; in the parked
+state its nearest face is 0.20 mm outside the frame edge. All four channels are enabled in one addressed
 engagement; a channel can park without touching the other three. The command
 record is:
 
@@ -127,7 +129,8 @@ openscad --export-format binstl -o /dev/null -D 'part="assembly"' 06-experiments
 ```
 
 The Python check verifies field span, aperture web, fiducial placement, port
-spacing, adversarial-case coverage, and the 1,000-cycle allocation. OpenSCAD
+spacing, writer overlap and parked clearance, reader clearance and XY window
+alignment, adversarial-case coverage, and the 1,000-cycle allocation. OpenSCAD
 only parses/exports parametric CAD; neither command simulates actuation,
 registration, discrimination, wear, or neighbour loading.
 
@@ -138,9 +141,11 @@ physical result**. The writer tongue now shares a 1.00 mm Y overlap with its
 matching plane tab at every plane, while retaining the 4 x 1 x 0.8 mm tongue
 envelope. The reader body lower face is 2.00 mm above the upper carrier, and
 its 3 x 3 mm window is placed at that lower face over the selected centre
-aperture. `analysis/coupon_protocol.py --check` now asserts positive writer
-overlap at least 1.00 mm and positive reader clearance; these are CAD/
-coordinate checks, not physical engagement or read validation. Unresolved assumptions remain
+aperture. The writer also has an explicit 0.20 mm parked clearance outside
+the frame edge. `analysis/coupon_protocol.py --check` now asserts positive
+writer overlap, parked non-interference, reader clearance, and reader-window
+alignment; these are CAD/coordinate checks, not physical engagement or read
+validation. Unresolved assumptions remain
 the rewritable medium construction, shutter force/stroke, reader technology
 and confidence metric, clamp preload, process spread, and whether 0.20 mm is
 achievable after reseat. These require physical evidence.

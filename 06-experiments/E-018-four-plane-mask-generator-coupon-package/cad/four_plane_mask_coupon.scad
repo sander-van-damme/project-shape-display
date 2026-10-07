@@ -6,9 +6,12 @@ PLANE_X=34; PLANE_Y=34; PLANE_T=0.8; PLANE_GAP=1.2;
 APERTURE=3; FID_D=2; FID_OFFSET=15; DATUM_W=2; DATUM_L=6;
 PORT_W=4; PORT_T=1; PORT_H=0.8; PORT_X=-10.16;
 READER_STANDOFF=2; DUMMY_T=2;
-WRITER_INSERTION=1.0; READER_BODY_T=4;
+WRITER_INSERTION=1.0; WRITER_PARK_CLEARANCE=0.2;
+READER_BODY_T=4; READER_WINDOW_X=0; READER_WINDOW_Y=0; READER_WINDOW_DEPTH=0.4;
 function cell(i)=(i-(N-1)/2)*PITCH;
 function plane_z(p)=FRAME_T+0.5+p*(PLANE_T+PLANE_GAP);
+function tab_center_y()=-PLANE_Y/2-PORT_T/2;
+function writer_center_y(engaged=true)=engaged ? tab_center_y() : -FRAME_Y/2-PORT_T/2-WRITER_PARK_CLEARANCE;
 
 module fiducials() for (xy=[[-FID_OFFSET,-FID_OFFSET],[FID_OFFSET,FID_OFFSET]])
     translate([xy[0],xy[1],0]) cylinder(d=FID_D,h=FRAME_T+0.4,center=true);
@@ -29,15 +32,15 @@ module plane(p=0) {
     translate([PORT_X,-PLANE_Y/2-PORT_T/2,0])
         cube([PORT_W,PORT_T,PLANE_T],center=true);
 }
-module writer_interface() for (p=[0:3])
-        // Tongue has positive overlap with the matching plane tab.
-        translate([PORT_X,-PLANE_Y/2-PORT_T/2,plane_z(p)])
+module writer_interface(engaged=true) for (p=[0:3])
+        // Engaged tongue is registered to its matching tab for the declared 1 mm insertion.
+        translate([PORT_X,writer_center_y(engaged),plane_z(p)])
         cube([PORT_W,PORT_T,PORT_H],center=true);
 function top_plane_z()=plane_z(3)+PLANE_T/2;
 function reader_bottom_z()=top_plane_z()+READER_STANDOFF;
 module reader_target() translate([0,0,reader_bottom_z()+READER_BODY_T/2])
     // Lower face is above the upper carrier; window is at that face.
-    difference() { cube([8,8,READER_BODY_T],center=true); translate([0,0,-READER_BODY_T/2+0.2]) cube([APERTURE,APERTURE,0.4],center=true); }
+    difference() { cube([8,8,READER_BODY_T],center=true); translate([READER_WINDOW_X,READER_WINDOW_Y,-READER_BODY_T/2+READER_WINDOW_DEPTH/2]) cube([APERTURE,APERTURE,READER_WINDOW_DEPTH],center=true); }
 module dummy_neighbour(side="N") {
     if (side=="N") translate([0,FRAME_Y,DUMMY_T/2]) cube([FRAME_X,FRAME_Y,DUMMY_T],center=true);
     if (side=="S") translate([0,-FRAME_Y,DUMMY_T/2]) cube([FRAME_X,FRAME_Y,DUMMY_T],center=true);
