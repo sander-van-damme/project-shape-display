@@ -1,3 +1,8 @@
+Read `01-project-description/shape-display-mission.md` before choosing research work; its computational-invention mandate governs the program. Product constraints remain in 02.
+Generate and compare materially different mechanisms and complete architectures; use executable synthesis/optimization where useful. Existing designs are comparison references, not a prescribed search space. Novelty guides exploration; feasibility and product value govern selection.
+Prefer simulation before fabrication. Model relevant manufacturing variability, correlations and model uncertainty with sourced priors or explicitly labelled bounds; report sensitivity and evidence limits. Propose printing only for decision-relevant calibration, discrimination or physical qualification.
+Update canonical results instead of spawning repeated audit/correction documents. Preserve unique failures and reproducible source; retire obsolete directions and remove redundant prose. A review must identify new decision-relevant evidence.
+
 Keep context/output minimal; create only durable engineering knowledge, required product source, or genuinely reusable tools.
 Use `./repo help`, `ls`, `find`, `get`, and `refs`; do not inspect or modify its source unless explicitly tasked with repository tooling. Allocate IDs with `./repo new`.
 Use `./worktree help` for task-worktree lifecycle. Keep the canonical checkout on `main`; managed task worktrees live in the sibling `<repo>-worktrees` directory. Do not manually switch, reuse, or remove managed worktrees; use the helper unless explicitly tasked with repository tooling.

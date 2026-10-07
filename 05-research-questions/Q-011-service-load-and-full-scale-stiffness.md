@@ -7,7 +7,7 @@ builds-on: [P-007, P-010]
 
 ## Falsifier disposition
 
-**HOLD for integration.** The current DES-006/A-011 direction has no credible
+**HOLD for integration.** The historical DES-006/A-011 implementation has no credible
 full-scale service-load or stiffness envelope. The nominal E-015 result is a
 conditional screening calculation only; it is rejected as an integration or
 release gate. This is an analytical/CAD-evidence disposition, not hardware
@@ -18,7 +18,7 @@ validation.
 | Item | Evidence | Status |
 |---|---|---|
 | 406.4 mm span | 80 × 5.08 mm pitch in E-015/E-041 | CAD-derived arithmetic |
-| 25 × 25 mm rail, 8 mm shaft, 69/79 GPa materials | E-015 selected values | structural assumptions; absent from DES-006/A-011 geometry |
+| 25 × 25 mm rail, 8 mm shaft, 69/79 GPa materials | E-015 selected values | structural assumptions; DES-006 drawing-level model, no complete assembly |
 | 100 N mid-span load and 0.10 mm motion limit | E-015 screen and Q-005/E-009 inherited criterion | assumptions/screening criteria, not product requirements |
 | 25 mm rail at 100/150/200 N | 0.062258/0.093386/0.124515 mm | calculated sensitivity; pass/pass/fail |
 | 20 mm rail at 100 N | 0.151996 mm | calculated sensitivity; fail |
@@ -80,5 +80,4 @@ law. More importantly, the retained 100 N rail-plus-shaft baseline is already
 `0.12919 mm`, before any omitted term, versus the `<0.10 mm` gate.
 
 Result: **HOLD / reject current DES-006 integration against the Q-011 screen**;
-no physical validation is claimed. E-047 records each term as unresolved and gives the cheapest falsification: a loaded 5x5 seam
-coupon plus bearing/play and post/stop displacement measurements.
+no physical validation is claimed. E-047 records each omitted term as unresolved. Under ADR-009, compare alternative local/distributed load paths computationally and establish defensible play/load scenarios before selecting calibration or qualification tests. No particular coupon is the default next action.

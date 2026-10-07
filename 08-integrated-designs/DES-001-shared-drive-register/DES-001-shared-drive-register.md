@@ -1,7 +1,10 @@
 ---
-status: candidate
+status: superseded
 builds-on: [A-005, M-008, M-012, P-010, E-001, E-002]
 ---
+
+Research disposition: retained executable comparison reference under ADR-009. Its former baseline priority is superseded; no automatic coupon or integration task follows.
+
 Mechanism: 80×80 columns at 5.08 mm pitch; five passive rotary height stops, 40 mm travel. Common platen unloads columns. A four-row bank uses 40 writer solenoids and two motors to set dropout keepers on a shared rack. Hard stops carry terrain load without holding power.
 
 Design point: 406.4 mm square active area; 20 bank groups; Ø6 mm steel drive rod; rack pitch 1.00 mm, tooth 0.50 mm. Keeper leaf 0.90 mm; hard shoulder carries hold load.

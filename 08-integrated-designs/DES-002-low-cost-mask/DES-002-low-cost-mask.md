@@ -1,7 +1,10 @@
 ---
-status: candidate
+status: superseded
 builds-on: [A-001, M-004, M-014, P-006, E-002]
 ---
+
+Research disposition: retained executable comparison reference under ADR-009. Its former baseline priority is superseded; no automatic coupon or integration task follows.
+
 Mechanism: 80×80 five-level rack columns at 5.08 mm pitch. A passive mask selects engagement during global broadcast lift strokes. Reset is banked into eight groups of ten rows. Three purchased motor axes replace the register's solenoid bank.
 
 Calculation: 11.96 s visible display transition excludes physical mask generation/handling. Arbitrary-map sustained cycle remains unproven. Full-board lift loads 6,400 cells, requiring NEMA23-class lift sizing; banked reset bounds release load to 800 cells.

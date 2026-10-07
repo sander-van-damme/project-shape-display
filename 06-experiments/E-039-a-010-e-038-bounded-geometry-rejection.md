@@ -1,9 +1,9 @@
 ---
 status: complete
-builds-on: [E-038, E-035, E-033, A-010]
+builds-on: [E-035, E-033, A-010]
 ---
 
-# E-039: A-010 bounded-geometry rejection after E-038
+# E-039: A-010 bounded-geometry rejection
 
 ## Disposition
 
@@ -20,7 +20,7 @@ single bounded slider can both contain the declared square aperture and reach
 all five states while remaining in that pocket. This is a calculated
 geometric contradiction, not a tolerance or physical-fit result.
 
-## Direct E-038 defect evidence
+## Direct CAD defect evidence
 
 The rejection checker inspects the E-035 SCAD text and shared parameters:
 
@@ -41,7 +41,7 @@ load capacity.
 
 ## What is closed and what remains
 
-Closed for this bounded gate: the E-038 rejection is reproduced, the
+Closed for this bounded gate: the earlier audit rejection is reproduced, the
 interface contradiction is calculated, and the three requested defects are
 explicitly identified. Unresolved: any revised architecture with a larger
 guide/travel envelope or a different multi-aperture mechanism; tolerance,

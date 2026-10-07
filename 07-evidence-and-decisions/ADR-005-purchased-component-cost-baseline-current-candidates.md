@@ -1,9 +1,9 @@
 ---
 status: active
-builds-on: [DES-002, DES-003, DES-004, A-010, A-008, E-022]
+builds-on: [DES-002, DES-003, DES-004, A-010]
 ---
 
-# Purchased-component cost baseline for current candidates
+# Purchased-component cost comparison references
 
 Date basis: 2026-10-07. Currency: USD. Scope is one current tabletop unit;
 3D-printed parts, print material/time/failures, and assembly labor are
@@ -13,14 +13,7 @@ not supplier quotes.
 
 ## Decision
 
-Use DES-002 as the lowest documented purchased-component estimate, DES-003 as
-the reliability-first baseline, and DES-004 as a conditional five-level
-successor. Do not claim that the lowest number is the cheapest credible
-architecture: DES-002 has no per-cell readback and its arbitrary-map/update
-and mask risks remain open; DES-004's new axle quantity and price are
-unresolved. A-010 is only a lower-bound cost hypothesis until its cartridge
-hardware is specified. A-008's historical saving is not a candidate BOM and
-is not included in the ranking.
+Retain the following historical arithmetic as comparison inputs under ADR-009, not an active architecture ranking. No design is selected here. DES-002 omits a complete arbitrary-map generator/readback; DES-003 is binary-only; DES-004's five-stop mechanism and axle sourcing are unqualified; A-010 is retired. Recheck complete quantities, implementation costs and sourcing for any new candidate.
 
 ## Reproducible comparison
 
@@ -47,7 +40,7 @@ the source files:
 
 - `08-integrated-designs/DES-002-low-cost-mask/bom_s6lc.csv`
 - `08-integrated-designs/DES-003-reliability-first/bom_a1.csv`
-- `08-integrated-designs/DES-004-five-level-rotary-verified-successor/bom_des004.csv`
+- `08-integrated-designs/DES-004-five-level-rotary-reference/bom_des004.csv`
 - `06-experiments/E-013-des-004-axle-pin-sourcing-and-fit-screen.md`
 
 No independent 20x20-cell design quantity is defined in the current inputs;
@@ -59,7 +52,7 @@ recommendation.
 DES-002's largest documented lines are the NEMA23 lift ($30), lead-screw
 system ($24), reset carriage/frame hardware ($20), and axial thrust bearings
 ($18). Removing or simplifying the reset carriage could lower purchased cost,
-but A-008/ADR-003 records that global reset is unimplemented and can disturb
+but the retired global-reset variant/ADR-003 records that global reset is unimplemented and can disturb
 loaded terrain; it is not an accepted saving. Removing readback is a major
 DES-002 cost advantage, but it sacrifices fault observability and
 maintainability rather than being a free optimization.
@@ -102,7 +95,7 @@ from these calculations.
 
 ## ADR-006 complete mask-generator boundary screen
 
-E-022 supersedes the preliminary screen below for the complete
+E-044 supersedes the preliminary screen below for the complete
 mask-generator boundary. Retain the $370.00 DES-003 amount as an inherited
 shared-machine baseline, not as the mask-generator BOM. The complete-boundary
 increment is conditional on whether the inherited reader heads pass an
@@ -114,7 +107,7 @@ optical-stack, cabling, and timing compatibility check:
 | Fallback reader | $505.59 | $631.59 | $921.59 | Explicit QRE1113/ADC/carrier stack added only if reuse fails |
 
 These are purchased-component allowances and observed catalogue prices, not
-delivered supplier quotes. E-022 corrects the preliminary $921.99 high case:
+delivered supplier quotes. E-044 corrects the preliminary $921.99 high case:
 the controller is $4.59, not $5.00. The fallback stack must not be added to
 the reuse-verified case, because the inherited $370 baseline already carries
 the reader heads and controller infrastructure. No physical validation,
@@ -158,7 +151,7 @@ labour, freight, tax, and payment fees remain excluded.
 | Cleaning and replacement allowance | Wipes/cleaning agent plus one damaged/rejected media event | 1 allowance | 10 / 30 / 75 | 10 / 30 / 75 | allowance; low/nominal/high assumption | Required service term; exact consumable and media-life test are unresolved |
 
 The sourced subset is $36.59. The preliminary arithmetic below is retained
-only as historical traceability; use the E-022 table above as canonical. In
+only as historical traceability; use the E-044 table above as canonical. In
 particular, it double-counts the fallback reader stack when inherited heads
 are compatible and its high controller term is stale.
 
@@ -171,7 +164,7 @@ high      = 370.00 +150 + 80 + 50 +120 + 4.38 + 5.00 + 2.90 + 6.40 + 40 + 18.32 
 ```
 
 The high controller value and fallback treatment above are superseded by
-E-022's observed $4.59 controller price and conditional reader accounting.
+E-044's observed $4.59 controller price and conditional reader accounting.
 The range remains conditional on reusing DES-003's gantry and on the
 four-channel architecture remaining mechanically viable. It does not prove
 that the QRE1113/ADC stack can classify apertures, that the writer can meet

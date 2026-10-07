@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-028, E-029, E-030, DES-004, DES-005, ADR-007, E-016, E-014, E-012]
+builds-on: [E-028, DES-004, ADR-007, E-016, E-014, E-012]
 ---
 
 # E-042: independent falsification of the E-028 loaded rotor/readback gate
@@ -72,9 +72,6 @@ Run from repository root on 2026-10-07:
   E-016 calibration contract, not E-028 physical evidence.
 - OpenSCAD frame export: **PASS**, but the rendered `assembly()` still has no
   stop/return, writer, reader target, retainer, or load fixture assembly.
-- `./repo check`: **FAIL for pre-existing structural errors** E-031, E-032,
-  E-033, E-034, E-035, E-037, E-038, E-039, and E-041 being completed
-  workspaces. No E-042-specific error was emitted before this report existed.
 
 Evidence classes are intentionally separated: sourced claims are limited to
 repository inputs; calculated/CAD-derived claims are the checks above;
@@ -82,11 +79,14 @@ tolerance-derived claims use assumed +/- values; inferred claims are the gate
 dispositions from missing/absent definitions; physical measurement and
 hardware validation are **unresolved**.
 
-## Rollback and integration
+## Research disposition
 
-Retain this adverse report and any future failed coupon records. Do not alter
-DES-004/DES-005, promote the candidate, procure pins, or treat synthetic
-checker output as validation. After the named owner repairs the schedule and
-fixture/CAD definition, rerun an independent review. Rollback is limited to
-rejecting the repaired coupon configuration; the candidate baseline remains
-unchanged.
+Retain this adverse result and the audited source as negative engineering knowledge. ADR-009 supersedes the former assignment to repair and fabricate this coupon. Any future mechanism must earn investigation through a distinct computational comparison; the missing geometry and defective schedule remain unresolved.
+
+## Consolidated acceptance-contract corrections
+
+The earlier contract review corrected the writer denominator to 30 attempts ×5 stops ×2 directions ×2 articles = **600**, not 300. A qualifying record would also require 1,500 identified reader observations, exactly 10,000 actual state-changing `(cell, from_state, to_state)` records with declared initial states and balanced directed-pair coverage, and separately counted no-ops. These are proposed test counts, not collected data or statistical life qualification.
+
+The E-016 checker only checks its 42 calibration rows. It cannot validate E-028's loaded transitions, timing, 600 writer attempts or 1,500 reads. A dedicated acceptance contract must bind actual applied force and tolerance to calibrated raw traces; measure writer clearance in both axes at stated poses/datums; mathematically define reader margin and its calibration; identify loaded untouched neighbours, forces, directions, displacement datums and uncertainty; and reject missing/unscorable records. Geometric overlap, optical contrast and confidence are different quantities. Timing field completeness alone does not meet a performance limit.
+
+The 3.27 N load, 0.10 mm neighbour displacement and 0.20 mm writer/reader margins are historical screening assumptions. They are not product requirements or sourced standards. Under ADR-009 this audit is retained negative knowledge; it does not commission another repair or physical coupon.

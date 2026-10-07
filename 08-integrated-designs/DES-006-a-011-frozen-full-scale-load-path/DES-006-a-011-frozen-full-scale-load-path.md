@@ -1,5 +1,5 @@
 ---
-status: candidate
+status: rejected
 builds-on: [Q-011]
 ---
 
@@ -7,12 +7,7 @@ builds-on: [Q-011]
 
 ## Disposition
 
-**Analytical screening: conditional pass for the idealized load path; Q-011
-remains HOLD for integration.** The dimensions below are a drawing-level
-candidate, not measured hardware. The global rail and shaft equations pass the
-`<0.10 mm` screening limit under the declared service and actuation cases, but
-the tolerance/contact model has an unresolved seam and bearing-compliance term.
-No hardware-performance claim follows.
+**Rejected against its declared combined integration screen.** E-047 establishes 0.12919 mm for the rail-plus-shaft screen before omitted compliance, exceeding the assumed <0.10 mm limit; including the credited 0.09 mm stack gives 0.21919 mm. Individual component passes do not overturn this result. The 100 N case and displacement threshold are screening assumptions, not approved product requirements. Retain the model as negative comparison evidence under ADR-009; no physical validation is claimed.
 
 ## Frozen drawing definition (millimetres)
 

@@ -1,6 +1,6 @@
 ---
-status: active
-builds-on: [DES-005]
+status: superseded
+builds-on: [DES-004]
 ---
 
 # E-018: four-plane mask-generator coupon package
@@ -14,7 +14,7 @@ assembled, cycle, wear, reader, or writer measurements exist here. Analytical
 checks do not validate hardware.
 
 The executable source is `cad/four_plane_mask_coupon.scad`. It reuses the
-5.08 mm final pitch and 40 mm frame envelope from DES-005, but deliberately
+5.08 mm final pitch and 40 mm frame envelope from DES-004, but deliberately
 does not reuse its rotor mechanism: the rotor's detents and coded vanes would
 confound four-plane write yield and registration. This article isolates four
 independent binary plane carriers.
@@ -26,7 +26,7 @@ independent binary plane carriers.
 | active cells | 5 x 5 | E-017 / ADR-006 boundary |
 | final pitch | 5.08 mm | inherited project reference |
 | active centre span | 25.40 mm | five centres at final pitch |
-| frame outside | 40 x 40 x 3.00 mm | DES-005 envelope |
+| frame outside | 40 x 40 x 3.00 mm | DES-004 envelope |
 | plane carrier | 34 x 34 x 0.80 mm | four independent planes |
 | plane separation | 1.20 mm | clearance between carriers |
 | cell aperture | 3.00 x 3.00 mm | 2.08 mm pitch web; provisional |
@@ -179,5 +179,15 @@ and confidence metric, clamp preload, process spread, and whether 0.20 mm is
 achievable after reseat. These require physical evidence.
 
 Rollback is deleting this E-018 workspace and reverting its commit; DES-004,
-DES-005, E-017, and ADR-006 remain unchanged. Do not expand this experiment
+DES-004, E-017, and ADR-006 remain unchanged. Do not expand this experiment
 into procurement, physical testing, or product adoption.
+
+## Consolidated fixture/protocol findings
+
+This is a retained interface study, not an executable rewritable aperture mechanism or a fabrication-ready design. Its state-changing medium is undefined. Use it only when a new candidate needs this interface; ADR-009 ends automatic coupon preparation.
+
+The writer/tab Y overlap is 1.00 mm nominal. The upper carrier ends at z=9.9 mm; the reader body starts at 11.9 mm with its window on the lower face. These coordinate repairs give 2.00 mm nominal clearance, not force or optical performance. Prior OpenSCAD exports reported a non-manifold warning.
+
+The consolidated acceptance lessons are: compare the entire 4×25 post-write map (including deliberately corrupted unchanged cells); survey all 100 plane/aperture positions after a specified fiducial transform; freeze an independently calibrated reader threshold and explicit wrong/ambiguous/missing rejection; record each loaded neighbour's before/after state and signed displacement relative to a fixed datum; and declare wear/trend rules and as-built port limits with uncertainty before testing. The existing 0.85 threshold is a protocol assumption, not calibrated capability.
+
+The retained script checks a 31-field schema, eight cases ×125 cycles, 100 reseat tags and 100 neighbour tags. It checks synthetic record shape, not complete physical acceptance. Its modulo-10 event tags combined with eight cases do not exercise every case with each event type. Its residual schema does not enforce unique plane/row/column coverage or recompute the maximum from the entries. A passing `--check` therefore does not close the adversarial coverage or measurement-validation contract. Any reuse must repair these gaps and supply the actual mechanism before claiming a complete test protocol.

@@ -1,61 +1,13 @@
 ---
-status: candidate
-builds-on: [Q-010, P-009, DES-003, DES-004, A-010, E-017]
+status: superseded
+builds-on: [Q-010, P-009, DES-003, DES-004, E-017]
 ---
+# A-011: reusable parallel mask-generator reference
 
-# A-011: reusable parallel mask-generator boundary
+Architecture hypothesis: four binary threshold planes plus a bottom stop encode five heights. A parallel writer changes the planes during one addressed engagement; positive registration, clamp/transport, exact state verification, bounded retry and replaceable media complete the product boundary. E-018 defines a carrier/interface and protocol; it does not implement the rewritable aperture mechanism.
 
-The minimum complete arbitrary-map mask generator is a reusable, rewritable
-tile or cartridge with a parallel four-plane writer, positive fiducial/datum
-registration, local clamp or controlled transport, per-cell verification,
-bounded retry, and replaceable service media. A library of prepared masks,
-disposable sheets, cassettes, or a queue of buffered masks may be useful
-accessories, but none is a complete arbitrary-map generator by itself.
+Historical timing: `6400/(8×71)=11.27 s` writing, plus 0.05 processing +1.50 registration +5.864 verification +0.50 settling +1.00 retry gives 20.18 s. Four sequential plane passes at the same eight-head rate give about 45.07 s writing and 53.98 s total. All are assumed/calculated schedules, not measured performance. Local 5×5 predictions are 0.72/1.72 s depending on transport. Verification duration and hardware parallelism must be justified by an actual implementation.
 
-Operating principle: encode each five-level cell in four binary aperture
-planes, write all planes during one addressed engagement, clamp the tile to
-hard datums, read every changed state, and hold or quarantine the tile if
-verification fails. A-010's planar cartridge is one possible mechanical
-implementation; this architecture deliberately does not select its slider
-geometry.
+E-044 retains historical cost scenarios and their incomplete scaling/compatibility assumptions; E-046 retains reader/actuator limits. E-048 leaves loaded-neighbour isolation unresolved. Registration, real simultaneous state changes, force, readback, wear and correlation remain unqualified.
 
-Analytical screen: at the existing conservative 71 cells/s/head and eight
-head positions, full-field parallel write is 11.27 s. Adding 0.05 s map
-processing, 1.50 s transport/register, 5.864 s full-field verification,
-0.50 s settling, and 1.00 s retry allowance gives 20.18 s. A 5 x 5 local
-update is 0.72 s with local clamp, or 1.72 s if it pays the full transport
-allowance. These are inherited calculations and assumptions, not measured
-performance.
-
-Strengths: arbitrary maps remain on-demand; no per-update sheet waste; local
-updates avoid global reset; readback exposes silent wrong cells; reusable
-tiles permit service and inventory control.
-
-Failure modes: serialised plane writes miss the 30 s bound; fiducial error
-causes map skew; a partially seated tile can pass a naive reader; media wear
-or debris blocks apertures; one dead channel creates correlated wrong states;
-clamp motion disturbs loaded terrain; repeated retries can exceed the bound.
-
-Cheapest falsification: a final-pitch 5 x 5 four-plane coupon with two
-fiducials, one writer per plane, fixed reader, loaded neighbours, and 1,000
-adversarial write/verify cycles. Reject if any plane needs serial recovery,
-registration margin is lost after reseat, verification cannot distinguish a
-blocked aperture, or an adjacent loaded cell moves beyond the project
-regional-isolation criterion.
-
-Evidence boundary: analytical/CAD-derived only; no physical validation,
-supplier commitment, or production-readiness claim.
-
-## Current disposition
-
-**HOLD for integration.** E-043 retains A-011 as the leading arbitrary-map
-boundary candidate, and E-044/E-045 retain the sourcing, reader/actuator
-compatibility, and physical-acceptance gates. E-044 is a corrected,
-RFQ-ready planning screen; E-045 confirms its arithmetic and reuse/fallback
-separation but treats all catalogue availability as dated non-live
-observation. The next gate is the controlled E-018 coupon package:
-parallel four-plane engagement, reseat registration, exact readback with
-blocked/wrong-plane rejection, actuator/reader compatibility, and
-loaded-neighbour isolation. Until it passes, do not procure or integrate
-A-011; DES-003/DES-004 remain the current display baselines. A critical
-failure rejects A-011 for the 30 s mode.
+Under ADR-009 this is a comparison reference, not the selected leader or a required embodiment. Its reusable-state/shared-energy/verification principles may seed new architectures. Do not continue another coupon or sourcing loop without a concrete new mechanism and decision-relevant computational comparison. Four planes, eight heads and the inherited pitch-level writer interface are this hypothesis's assumptions, not universal constraints on invention.

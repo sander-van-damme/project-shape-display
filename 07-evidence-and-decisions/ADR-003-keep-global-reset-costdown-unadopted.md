@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: active
 builds-on: [ADR-002]
 ---
 Decision: Keep global reset only as an unimplemented cost-reduction hypothesis. Do not adopt it as a replacement for isolated regional updates.

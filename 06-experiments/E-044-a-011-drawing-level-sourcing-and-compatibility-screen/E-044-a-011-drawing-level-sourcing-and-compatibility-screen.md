@@ -1,6 +1,6 @@
 ---
-status: active
-builds-on: [E-022, E-023, E-040, E-018, DES-003, ADR-005, ADR-006]
+status: superseded
+builds-on: [E-046, E-018, DES-003, ADR-005]
 ---
 
 # E-044: A-011 drawing-level sourcing and compatibility screen
@@ -11,7 +11,7 @@ Date basis: 2026-10-07. Currency: USD. This is a quote-ready purchased-component
 
 The controlled interface is E-018: five reusable planes (four installed plus one service plane), a 40 x 40 x 3 mm frame, 34 x 34 x 0.80 mm plane carriers, 25 square 3.00 mm apertures on 5.08 mm pitch, two Ø2.00 mm fiducials at diagonal ±15 mm offsets, four labelled 1 x 0.80 mm writer tabs on 2.00 mm pitch, local positive datum/clamp, four writer ports, and a frame-fixed reader target nominally 2.00 mm above the upper carrier. These are CAD/interface requirements, not measurements.
 
-`Sourced` means a dated public catalogue or capability observation already recorded in E-022/E-023/E-040; it is not a quote or compatibility evidence. `Estimate` is a bounded planning allowance. `Assumption` is an inherited design or arithmetic premise. No exact supplier quote or physical measurement was available for this screen.
+`Sourced` means a dated public catalogue or capability observation already recorded in the retained historical source records; it is not a quote or compatibility evidence. `Estimate` is a bounded planning allowance. `Assumption` is an inherited design or arithmetic premise. No exact supplier quote or physical measurement was available for this screen.
 
 ## Quote-ready purchased BOM
 
@@ -20,7 +20,7 @@ The controlled interface is E-018: five reusable planes (four installed plus one
 | Reusable media planes | 5 | 4 / 12 / 30 each; 20 / 60 / 150 low/base/high | Estimate. Preferred route is deburred 304 SS; SendCutSend public capability observation: 0.76 mm nearest listed thickness, ±0.005 in cut tolerance, 2–4 business-day production ([source](https://sendcutsend.com/materials/stainless-steel/)); not a fit quote | Exact material/temper/finish and actual thickness; aperture, fiducial, datum, tab and flatness tolerances; burr/kerf or etch taper; cleanability and wear/life; MOQ, lead time, packaging and delivered price; E-018 overlay and ≤0.20 mm transformed/reseat residual |
 | Local clamp, hard datum, latch | 1 set | 15 / 35 / 80 | Estimate; standard dowels + deburred datum plate + adjustable latch preferred over cassette transport | Dimensioned part/process, preload, stop and service access; tolerance stack, flatness, loaded-neighbour clearance, and reseat record |
 | Fiducial/datum pins or shim stock | 1 set | 8 / 20 / 50 | Estimate; separate term prevents registration hardware omission | Exact pin/shim size, material, location and tolerance against E-018; no printed substitute assumed |
-| Four writer actuators | 4 | 9 / 15 / 30 each; 36 / 60 / 120 | Base term is DES-003 $9/head anchor, not a selected part. Sourced candidates: Olimex PUSH-PULL-SOLENOID-5V, Digi-Key 1188-PUSH-PULL-SOLENOID-5V-ND, $3.34 each, observed out of stock with estimated 2026-10-15 availability in a dated 2026-10-07 non-live catalogue observation; E-040 records that live availability was not verified. Delta DSML family $9.42 each, 12 V family observation; alternatives, not additive ([Olimex source](https://www.digikey.com/en/products/detail/olimex-ltd/PUSH-PULL-SOLENOID-5V/23330937)) | Exact part drawing, envelope/mount/termination, usable travel and hard-stop stack, force at 1.00 mm tab engagement, return/latch state, repeatability, duty/thermal/current, cycle life and availability; DRV8833 compatibility. Olimex is HOLD; Delta is REJECT for bounded existing-driver/no-added-parts path |
+| Four writer actuators | 4 | 9 / 15 / 30 each; 36 / 60 / 120 | Base term is DES-003 $9/head anchor, not a selected part. Sourced candidates: Olimex PUSH-PULL-SOLENOID-5V, Digi-Key 1188-PUSH-PULL-SOLENOID-5V-ND, $3.34 each, observed out of stock with estimated 2026-10-15 availability in a dated 2026-10-07 non-live catalogue observation; live availability was not verified. Delta DSML family $9.42 each, 12 V family observation; alternatives, not additive ([Olimex source](https://www.digikey.com/en/products/detail/olimex-ltd/PUSH-PULL-SOLENOID-5V/23330937)) | Exact part drawing, envelope/mount/termination, usable travel and hard-stop stack, force at 1.00 mm tab engagement, return/latch state, repeatability, duty/thermal/current, cycle life and availability; DRV8833 compatibility. Olimex is HOLD; Delta is REJECT for bounded existing-driver/no-added-parts path |
 | DRV8833CRTER driver IC | 2 | 2.19 each; 4.38 | Sourced Digi-Key 296-40079-1-ND, listing observed 2,930 in stock ([source](https://www.digikey.com/en/products/detail/texas-instruments/DRV8833CRTER/5039360)) | Four-channel wiring, coil current/inrush, flyback, PCB thermal margin and fault behavior; IC price does not include carrier |
 | Raspberry Pi Pico SC0915 controller | 1 | 4.59 | Sourced Digi-Key 2648-SC0915CT-ND, listing observed 43,224 in stock ([source](https://www.digikey.com/en/products/detail/raspberry-pi/SC0915/2648-SC0915CT-ND/13684020)) | I/O map, pulse/settle schedule, complete readback and bounded retry timing; carrier and firmware remain assumptions |
 | Example channel/media harness | 8 | 2.29 each; 18.32 | Sourced example Pololu 5615 / Digi-Key 2183-5615-ND, listing observed 118 in stock ([source](https://www.pololu.com/product/5615)); final loom is not locked | Connector/pinout, polarity, retention, cable OD/bend radius, strain relief and no-adapter overlay |
@@ -45,7 +45,7 @@ If any reuse gate fails, add only the separate fallback allowance: eight QRE1113
 
 ## Reproducible cost sensitivity
 
-The canonical planning bounds are inherited from E-022 and remain the most honest range because the lower actuator observation and stainless/clamp bands are not fit-accepted selections:
+The canonical planning bounds are inherited from E-044 and remain the most honest range because the lower actuator observation and stainless/clamp bands are not fit-accepted selections:
 
 | Scenario | Calculation | Purchased total |
 |---|---|---:|
@@ -68,8 +68,20 @@ Highest sensitivity is the unresolved media/clamp/actuator/service span ($366 fr
 | PET/polyimide or photo-etched thin media | Potentially cheaper/lighter; creep, buckle, tear, cleaning and writer-contact life add failure/assembly risk | Reject as first reusable baseline; experiment only |
 | Remove readback or serialize writing | Apparent electronics/timing saving, but loses fault observability or violates E-017 timing boundary | REJECT |
 
-## Gate conclusion and required next evidence
+## Research disposition
 
-**A-011 remains HOLD for integration and procurement.** The screen is RFQ-ready, not procurement-ready. Minimum next package is: (1) released E-018-controlled plane/clamp drawing with datums, material/finish, stops, inspection points and revision; (2) supplier response for five identical planes, one clamp/fiducial set and four identical actuators with setup, MOQ, lead time, packaging, freight and delivered price separated; (3) exact actuator force/stroke/return/life/current data; and (4) eight-head DES-003 reader overlay and timing/calibration record. Physical coupon evidence is still required after those analytical records.
+The old A-011 implementation is not selected under ADR-009. This consolidated cost screen preserves arithmetic, source identities and unresolved implementation terms for future comparisons. If a new embodiment justifies reopening this family, first establish full-board quantities, actual state-changing geometry, parallelism, reader/actuator interfaces and uncertainty. Detailed quotes or physical calibration follow only when they can change a decision. No supplier contact, purchase or physical validation occurred in this work.
 
-No external quote, purchase, CAD modification, or hardware validation was performed. Analytical agreement with E-018 does not prove performance.
+## Consolidated corrections and audit limits
+
+This is a retained historical planning comparison under ADR-009; it is not an active sourcing campaign. All catalogue prices, stock and lead times in this record are dated inherited observations, with no live availability verified. No supplier quote was obtained.
+
+The superseded alternative media/clamp/actuator screen calculated **$535.65 low and $684.97 base**. The earlier $654.97 base omitted a stated $30 service allowance. The corrected formula is `370+175+45+37.68+4.38+4.59+18.32+30=684.97`; the low formula is `370+75+20+13.36+4.38+4.59+18.32+30=535.65`. These scenarios do not replace the canonical reuse/fallback ranges above. Reproduce with `python3 tools/curated-experiment-checks/E-044/sourcing_arithmetic.py`.
+
+The inherited stainless cut tolerance ±0.127 mm leaves only 0.073 mm when numerically subtracted from 0.20 mm. This is not a complete error stack: datum error, transformation, burr, thickness/flatness, preload and reseating are additional contributors. A 0.76 mm catalogue sheet is not interchangeable with a 0.80 mm carrier. Catalogue capability cannot close the transformed/reseat gate.
+
+Olimex's recorded 5 V/6 ohm gives 0.833 A and 4.167 W per coil, or 3.333 A and 16.667 W for four continuously energized coils. These are steady-state Ohmic calculations, not inrush, thermal or force evidence. Force-versus-stroke, stop/linkage, return/power-loss state, duty, flyback, driver/carrier and life remain unspecified. Delta's 12 V variant fails only the bounded existing-driver path; an MG90D alternative would add PWM power, horn/linkage, backlash and assembly. Neither is a selected replacement.
+
+Unpriced implementation terms include driver PCB/carrier, actuator mounts/linkage/return hardware, final loom/adapters/strain relief and fallback optics/calibration. Excluded delivery/setup/MOQ/packaging, freight/tax/fees, printed burden and labour must be shown separately in a complete comparison. Do not call the inherited totals a complete procurement budget. Full-board scaling of the coupon-plane/clamp quantity and four writer channels to eight addressed head positions is also unclosed; five coupon-sized planes cannot silently count as a full 6,400-cell media inventory.
+
+Historical source identities for the conditional fallback: [QRE1113](https://www.digikey.com/en/products/detail/onsemi/QRE1113/2175990) and [MCP3008-I/SL](https://www.digikey.com/en/products/detail/microchip-technology/MCP3008-I-SL/319423). Exact-part drawings, source validity and quantities must be re-established if this family is reopened.

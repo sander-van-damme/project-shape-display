@@ -1,9 +1,11 @@
 ---
 status: complete
-builds-on: [E-031, A-010, A-011, E-018, E-028, E-029, E-030, DES-004, DES-005]
+builds-on: [ADR-006, A-010, A-011, E-018, E-028, E-042, DES-004]
 ---
 
-# E-032: E-031-G1 common A-010/A-011 5x5 cartridge coupon
+Research disposition: retained historical protocol/geometry evidence. ADR-009 supersedes its former next-task prescriptions. Reuse is conditional on a new decision-relevant mechanism/model; this record does not require fabrication or continued repair of the old family.
+
+# E-032: ADR-006-G1 common A-010/A-011 5x5 cartridge coupon
 
 ## Purpose and evidence boundary
 
@@ -40,9 +42,9 @@ from the source coupon records.
 
 | Interface item | Baseline value | Evidence class / note |
 |---|---:|---|
-| active array | 5 x 5 cells | E-031 contract |
+| active array | 5 x 5 cells | ADR-006 contract |
 | final pitch / centre span / active envelope | 5.08 / 20.32 / 25.40 | inherited project reference; envelope is five pitch bins |
-| frame outside / thickness | 40.00 x 40.00 / 3.00 | DES-005/E-018 CAD envelope |
+| frame outside / thickness | 40.00 x 40.00 / 3.00 | DES-004/E-018 CAD envelope |
 | fiducials F1/F2 | Ø2.00 holes at (-15,-15), (15,15) | E-018 CAD definition |
 | positive seating datum D+ | north rail witness, 2.00 x 6.00 | E-018 interface; exact fixture contact unresolved |
 | opposing clamp land | south land, 32.00 x 2.50 | E-018 interface; preload unresolved |
@@ -116,7 +118,7 @@ The checks are:
 4. **Isolation:** target peak and residual displacement of every named loaded
    or unloaded adjacent witness must each be `<= 0.10 mm`, relative to a fixed
    witness datum. This is stricter than E-018's earlier 0.20 mm neighbour
-   screen because E-031-G1 is the controlling contract.
+   screen because ADR-006-G1 is the controlling contract.
 5. **Load separation:** a section/FBD must show the A-010 follower load
    closing through shoulder/stop/frame surfaces, never through a gate face.
    The A-011 clamp/media load path must likewise be labelled; no force value

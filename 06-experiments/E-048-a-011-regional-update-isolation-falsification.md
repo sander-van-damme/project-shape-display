@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-009, Q-005, A-011, ADR-006, E-017, E-018, E-040, DES-005]
+builds-on: [E-009, Q-005, A-011, ADR-006, E-017, E-018, E-044, DES-004]
 ---
 
 # E-048: A-011 regional-update isolation falsification
@@ -68,7 +68,7 @@ python3 06-experiments/E-018-four-plane-mask-generator-coupon-package/analysis/c
    transport/write/verify accounting only. They do not establish that local
    clamping or four-plane engagement leaves the loaded terrain below the
    motion criterion.
-5. E-040 correctly keeps clamp, actuator force/stroke/life, and reader/media
+5. E-044 correctly keeps clamp, actuator force/stroke/life, and reader/media
    compatibility on hold; it therefore supplies no isolation evidence.
 
 The claim is consequently **not analytically passed**. A rejection is also
@@ -101,4 +101,3 @@ nominal solid CAD clearance export is insufficient.
 | E-018 protocol/checker output | calculated/schema and CAD coordinate checks | passed definition checks only |
 | clamp, support, material, force, trajectory, neighbor motion | unresolved | decisive missing evidence |
 | regional-isolation pass/fail | unresolved | HOLD |
-

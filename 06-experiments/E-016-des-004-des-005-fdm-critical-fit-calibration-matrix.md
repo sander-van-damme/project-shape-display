@@ -1,7 +1,9 @@
 ---
 status: complete
-builds-on: [Q-009, DES-004, DES-005, E-012]
+builds-on: [Q-009, DES-004, E-012]
 ---
+
+Research disposition: retained historical protocol/geometry evidence. ADR-009 supersedes its former next-task prescriptions. Reuse is conditional on a new decision-relevant mechanism/model; this record does not require fabrication or continued repair of the old family.
 
 # E-016: FDM critical-fit calibration matrix
 
@@ -106,8 +108,8 @@ From the repository root:
 
 ```sh
 python3 tools/fdm-critical-fit-calibration/fit_calibration_matrix.py --plan
-python3 08-integrated-designs/DES-004-five-level-rotary-verified-successor/analysis/des004_rotor_coupon_fit_gate.py
-openscad --export-format binstl -o /dev/null -D 'part="frame"' 08-integrated-designs/DES-004-five-level-rotary-verified-successor/cad/des004_rotor_coupon_5x5.scad
+python3 08-integrated-designs/DES-004-five-level-rotary-reference/analysis/des004_rotor_coupon_fit_gate.py
+openscad --export-format binstl -o /dev/null -D 'part="frame"' 08-integrated-designs/DES-004-five-level-rotary-reference/cad/des004_rotor_coupon_5x5.scad
 ```
 
 The first command prints the 42-row sweep and, with `--results measured.csv`,
@@ -141,7 +143,7 @@ the assumed worst-case screen leaves 0.0546 mm; nominal axle/bore clearance is
 0.40 mm and the assumed worst-case screen leaves 0.30 mm. These are
 CAD/tolerance calculations, not printed measurements. `./repo check` remains
 non-zero because the repository checker reports pre-existing collapsed
-experiments E-013, E-019, and E-021; no E-016 structural error was emitted.
+experiments E-013, E-018, and E-018; no E-016 structural error was emitted.
 Physical validation remains open: no coupons, dimensional measurements,
 engagement trials, loaded rotation, or reader trials exist.
 
@@ -166,7 +168,7 @@ failure of the nominal CAD arithmetic.
 
 Acceptance boundary: LAB-98 may close the analytical definition only as a
 CAD/measurement protocol and baseline-preserving plan. It must not close
-Q-009 or promote DES-004/DES-005 defaults. Before any physical result is
+Q-009 or promote DES-004 defaults. Before any physical result is
 called a pass, the result format/checker must bind each planned row and record
 the stated physical gates, or an equivalent signed measurement record must be
 retained beside the CSV. Physical validation, including fit, loaded rotation,
@@ -196,4 +198,4 @@ and not promoted. Next owner: the Design Engineer assigned to LAB-84 or a
 fabrication operator nominated by the project lead. Print the labelled matrix,
 populate the result CSV, then update Q-009 with measured rows and retain
 failed parts as evidence. Rollback is simply to retain the unchanged DES-004/
-DES-005 CAD defaults; no production or purchase commitment is made.
+DES-004 CAD defaults; no production or purchase commitment is made.

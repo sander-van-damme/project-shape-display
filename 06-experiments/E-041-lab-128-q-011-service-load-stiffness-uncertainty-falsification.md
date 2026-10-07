@@ -77,7 +77,7 @@ motion; they do not justify treating the nominal pass as hardware evidence.
 - **DES-004 / A-005:** conditionally plausible only as a concept. The 8 mm
   shaft and 25 mm rail are candidate requirements, not existing design facts.
   The 3.27 N rotor load path remains unproved, as independently noted in
-  E-029/E-030.
+  E-042.
 - **A-010 / A-011:** no bound. Existing evidence is architecture/CAD-level;
   post buckling, cartridge/clamp registration, seam compliance, and loaded
   neighbour displacement are unmodeled or unmeasured. ADR-008's rejection of

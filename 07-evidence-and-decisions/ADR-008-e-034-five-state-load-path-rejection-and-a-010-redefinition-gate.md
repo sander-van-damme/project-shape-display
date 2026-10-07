@@ -23,11 +23,6 @@ Writer, datum, service/removal, fabrication, force, wear, timing, isolation,
 reader, and E-032 measurement gates remain unresolved. No physical or
 procurement claim follows from this decision.
 
-# Required next gate
+# Reopening condition
 
-The A-010 mechanism owner must redefine the state architecture or explicitly
-bound the design to the represented S2 section, then provide a new modeled
-guide envelope, actuator path, indexed-stop geometry, and load-path proof.
-The redefinition must be independently rechecked before A-010/A-011 boundary
-integration resumes. Physical fabrication and E-032 coupon measurements stay
-separate follow-up gates.
+ADR-009 retires the current A-010 implementation. E-039 retains the bounded repair's geometry contradiction. A materially redefined mechanism must model every state, actual guide/actuator envelopes, indexed height stops and a continuous support path before a new comparison can be credible. No further repair, coupon or integration task follows automatically from this historical rejection.

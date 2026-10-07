@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-023, E-018, DES-003]
+builds-on: [E-018, DES-003]
 ---
 
 # E-046: E-018/DES-003 reader and actuator compatibility screen
@@ -33,7 +33,7 @@ drawing is present in the screened repository evidence.
 | XY overlay | Transform each DES-003 optical axis and mount datum into the E-018 frame. Evaluate centre, four field corners, and both fiducials. Acceptance is transformed active-aperture residual <=0.20 mm after reseat. No DES-003 XY datum exists. | **HOLD** | Dimensioned head/mount drawing, controlled E-018 datum overlay, 2-D transform, tolerance stack, residual table. |
 | Z working distance / collision | E-018 reader relation is 2.00 mm to the upper carrier; DES-003's 1.80 mm is to a different flag target. Nominal difference is `2.00 - 1.80 = 0.20 mm`, not a stack closure. Four 0.80 mm carriers plus three 1.20 mm gaps give `6.80 mm` carrier stack before frame/clamp tolerances. Writer tongues must clear in engaged and parked states. | **HOLD** | Section overlay including carrier flatness, clamp/reseat, head mount, optical working distance, all tongue states, and worst-case collision margins. |
 | Optical isolation / plane identity | E-018 requires four-plane identity and rejects wrong/ambiguous/missing reads. The DES-003 flag aperture, spot, and return model are for reflective flags; they do not establish contrast or occlusion through E-018's 2.00 mm port pitch, 1.20 mm plane gaps, or loaded N/E/S/W neighbours. | **HOLD** | Ray/occlusion drawing, actual emitter/detector field, mask optical assumptions, ambient/saturation bounds, and per-plane calibration record. |
-| Cable / pinout / envelope | E-022's inherited loom allowance does not identify connector, polarity, pinout, retention, cable OD, bend radius, exit, strain relief, or head-carrier envelope. No adapter, harness, PCB, or strain relief is added by assumption. | **HOLD** | Connector and mechanical cable drawing plus pin-to-controller table and head envelope overlay. |
+| Cable / pinout / envelope | E-044's inherited loom allowance does not identify connector, polarity, pinout, retention, cable OD, bend radius, exit, strain relief, or head-carrier envelope. No adapter, harness, PCB, or strain relief is added by assumption. | **HOLD** | Connector and mechanical cable drawing plus pin-to-controller table and head envelope overlay. |
 | Full readback timing / retry | E-018 requires all 100 plane/cell values, two fiducials, settle, reject handling, and bounded retry. Inherited DES-003 accounting is 20.18 s, leaving `30.00 - 20.18 = 9.82 s` analytical margin. This is not an E-018 timing trace and unspecified reader delay is outside it. | **HOLD** | Timestamped pulse/sample/settle schedule, 100-value compare, fiducials, reject/fault trace, and worst-case one-retry total <=30.00 s. |
 | Calibration / fault observability | E-018 contract is analytically **GO as an input**: calibration threshold 0.85, exact 4 x 25 comparison, and wrong/ambiguous/missing rejection are frozen. DES-003 calibration ID, saturation/ambient limits, stale-read behavior, and plane-specific fault codes are absent. | **HOLD for DES-003 implementation** | Calibration record and deterministic trace for wrong, ambiguous, missing, stale, and wrong-plane cases. |
 | Exact 5 V actuator envelope / force-driver | The only exact candidate named in available evidence is Olimex PUSH-PULL-SOLENOID-5V, Digi-Key 1188-PUSH-PULL-SOLENOID-5V-ND: catalogue observations 5.00 mm stroke, 5-6 V, 6 ohm. These do not define body/mount/plunger envelope, usable travel, stop, force, return, life, or tolerance. | **HOLD** | Exact mechanical drawing, 1:1 tab/stop overlay, force at 1.00 mm engagement, return/park state, life/repeatability, and driver current/duty/thermal evidence. |
@@ -101,5 +101,11 @@ Do not procure, add a sensor/ADC/harness/driver/spring/carrier, or claim
 reader reuse from nominal dimensions.
 
 Integration is limited to this result and its reproducible analysis script;
-E-018, E-023, and DES-003 are unchanged. Rollback is reverting this commit;
+E-018, E-046, and DES-003 are unchanged. Rollback is reverting this commit;
 the prior evidence remains available through Git history.
+
+## Retained eight-head calibration protocol
+
+If reader reuse becomes decision-relevant, freeze head/mount/connector revisions, coupon/plane/clamp identities, material/finish, supply, ambient light, gain/sample rate, settle delay and independent calibration/reject thresholds. Survey centre/corners in a common datum with uncertainty, after ten reseats per head. Test every head against the all-zero, all-one, four one-hot and four complementary plane codes, plus blocked and deliberately mis-seated controls, with at least 30 settled repeats per state. Record raw signals, plane identity, wrong/ambiguous/missing classifications and timing. Run complete 100-value comparisons after reseats and a 100-cycle sequence per head. Retain traces and geometry/calibration tables. These are historical proposed sample sizes; even a pass would not establish board yield or life.
+
+Under ADR-009, first establish a concrete mechanism and a computational comparison that justifies this calibration. The screen is retained for its compatibility limits, not an instruction to procure a reader or print a coupon now.

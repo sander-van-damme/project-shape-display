@@ -3,9 +3,13 @@ status: complete
 builds-on: [E-034, E-033, A-010, A-011]
 ---
 
-# E-035: repaired bounded A-010 five-state carriage load-path gate
+# E-035: rejected A-010 carriage repair source
 
-## Shared datum and concrete geometry
+## Disposition
+
+Rejected by E-039. The calculations below describe the attempted repair; their scalar PASS values do not establish actual five-state geometry or load continuity. E-039 retains the decisive CAD defects and the 6.20 mm required envelope versus the 4.90 mm pocket. Source is preserved as an auditable failed model, not an active repair task.
+
+## Attempted datum and geometry
 
 The repaired model uses `(x,y)` as the cartridge datum and `z` only as the
 load axis. State positions are `y = -1.60, -0.80, 0.00, 0.80, 1.60 mm`.

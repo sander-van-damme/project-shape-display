@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [DES-004, Q-009, E-011]
+builds-on: [DES-004, Q-009]
 ---
 
 # E-012: DES-004 5x5 rotor coupon fit gate
@@ -25,7 +25,7 @@ simulated.
 | Reader | 2.00 × 2.00 × 4.00 mm fixed head; 0.70 × 1.00 mm aperture; 1.80 mm standoff | aperture registration to be measured |
 | Load station | centre-cell service-load point, 3.27 N target | physical load application unresolved |
 
-Source CAD is `08-integrated-designs/DES-004-five-level-rotary-verified-successor/cad/des004_rotor_coupon_5x5.scad`.
+Source CAD is `08-integrated-designs/DES-004-five-level-rotary-reference/cad/des004_rotor_coupon_5x5.scad`.
 
 ## Results
 

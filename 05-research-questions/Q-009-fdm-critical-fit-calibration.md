@@ -1,10 +1,11 @@
 ---
 status: open
-builds-on: [M-004, M-012]
+builds-on: [M-003, M-005, M-012]
 ---
+# Q-009: manufacturing uncertainty and critical-fit calibration
 
-Which clearances and repeated feature sizes work reliably on the intended X1C/PLA process?
+Which dimensional, friction, material and assembly uncertainties change mechanism feasibility or architecture ranking on the stage 02 fabrication process?
 
-Executable coupon: [E-016 DES-004/DES-005 FDM critical-fit calibration matrix](../06-experiments/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix.md).
+Start with source-backed process priors or labelled bounds and test sensitivity, correlation and transferability. Rank missing parameters by their effect on decisions. Request a small actual-process calibration only when its information value warrants fabrication; update the reusable model and rerank affected candidates.
 
-Test replicated clearance/feature matrix at final pitch; record nozzle, layer, lot, orientation and compensation. Measure fit yield, friction, print-to-print spread, loaded wear and creep. Establish provisional design rules only within measured process conditions.
+E-016 and `tools/fdm-critical-fit-calibration/` retain a historical rotor/writer/reader calibration matrix and checker. They are possible future instruments, not measurements or a mandatory next task. Reuse requires a concrete mechanism and review of applicable loads, margin definitions and sampling. No general X1C/PLA accuracy, friction, creep or yield distribution is yet qualified by these records.

@@ -1,7 +1,9 @@
 ---
 status: complete
-builds-on: [E-032, E-031, A-010, A-011, E-018]
+builds-on: [E-032, ADR-006, A-010, A-011, E-018]
 ---
+
+Research disposition: retained historical protocol/geometry evidence. ADR-009 supersedes its former next-task prescriptions. Reuse is conditional on a new decision-relevant mechanism/model; this record does not require fabrication or continued repair of the old family.
 
 # E-033: A-010 insert geometry and load-path gate
 

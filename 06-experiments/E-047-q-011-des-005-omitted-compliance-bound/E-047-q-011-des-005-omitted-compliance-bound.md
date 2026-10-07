@@ -1,5 +1,5 @@
 ---
-status: active
+status: superseded
 builds-on: [Q-011, DES-006]
 ---
 

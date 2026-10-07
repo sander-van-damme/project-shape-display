@@ -1,8 +1,9 @@
 ---
-status: active
+status: superseded
 builds-on: [DES-003, E-002, E-005]
 ---
-Decision: Use the reliability-first shared writer/reader architecture as the analytical baseline. Retain its integrated source; gate a full-machine build on mechanism and sensing evidence.
-Basis: Modelled update fits <30 s with eight heads. Historical purchased BOM estimate is $181. Per-cell readback and retry address the silent-error problem structurally.
-Consequence: First establish latch force, read discrimination, repeatable registration, hinge life and loaded regional independence. Historical coupon limits: mean snap force ≤7.14 N; no snap >10 N; optical on/off ratio ≥2. These are proposed acceptance thresholds, not measurements.
-Residual risk: Readback is not proof of zero silent errors. Sensor faults, calibration drift, mechanical jams and exhausted retries remain possible. Historical cost excludes printed material and assembly. No source here physically qualifies the machine.
+Historical decision: retain the binary reliability-first shared writer/reader as an analytical reference. ADR-009 supersedes its selection as the research baseline.
+
+Durable lesson: per-cell readback and bounded retry address silent-error scaling only if sensing is independently reliable. Historical timing fits <30 s under eight-head assumptions; four heads do not. DES-003 implements only 0/40 mm, not five terrain levels. Its corrected purchased allowance is $370, replacing the earlier $181 estimate; neither is a quote.
+
+Force, fit, sensing, wear and loaded regional isolation remain unmeasured. The old 7.14 N mean snap-force, 10 N maximum and optical ratio ≥2 were proposed screening thresholds. Keep reproducible source and use it as a comparator; no automatic print or integration task follows.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic arithmetic checks for E-026; no hardware claims."""
+"""Deterministic arithmetic checks for E-044; no hardware claims."""
 
 from decimal import Decimal
 
@@ -17,5 +17,5 @@ assert Decimal("4") * Decimal("9.42") == Decimal("37.68")
 assert Decimal("30.00") - Decimal("20.18") == Decimal("9.82")
 assert Decimal("2.00") - Decimal("1.80") == Decimal("0.20")
 
-print("E-026 arithmetic: PASS")
+print("E-044 arithmetic: PASS")
 print("base=$684.97 low=$535.65 canonical_reuse=$486.29-$872.29 canonical_fallback=$505.59-$921.59")

@@ -1,7 +1,9 @@
 ---
-status: open
+status: superseded
 builds-on: [E-006, E-007, E-008, DES-003, Q-005]
 ---
+
+Research disposition: retained historical protocol/geometry evidence. ADR-009 supersedes its former next-task prescriptions. Reuse is conditional on a new decision-relevant mechanism/model; this record does not require fabrication or continued repair of the old family.
 
 # E-009: Coupon-B stiffness and regional-coupling protocol
 
@@ -178,37 +180,6 @@ records, setup sketch/photos, raw and reduced traces, stop/failure log, and a
 list of unresolved items. The present record authorizes no physical test and
 contains no measured result.
 
-## Coupon and boundary condition
-
-Use `08-integrated-designs/DES-003-reliability-first/scad/a1_coupon_b_5x5.scad`
-as the 5×5 CAD fixture. It is a 40 mm square tile with the existing A1 cells
-at 5.08 mm pitch. The centre cell is the untouched-neighbour station and
-receives the design-calculated 3.27 N service load plus the representative
-miniature mass. The surrounding cells are the update region. Do not infer
-stiffness from the 3.27 N load alone: stiffness is an output of the same
-load/displacement trace.
-
-For 10×10 and 20×20, retain the same cell pitch, load station, support
-interface, actuator motion, and measurement reference. Use a tiled or
-extended coupon fixture with the same local boundary detail; the larger cases
-are regional boundary sweeps, not a claim that the existing 40 mm CAD tile is
-large enough. Record the actual fixture extent and support condition.
-
-At each size, run the same sequence:
-
-1. Establish zero and record the loaded untouched neighbour without an update.
-2. Apply the normal DES-003 update trajectory to the selected region, with no
-   A-004 coupler or intentional isolation feature.
-3. Capture vertical and lateral displacement of the untouched station at a
-   rate sufficient to resolve the motion peak and after-settle residual.
-4. Repeat for both update directions and the worst boundary orientation found
-   in the first pass. Keep the fixture, load, trajectory, and reference frame
-   unchanged between sizes.
-
-The protocol is executable only when the measurement/logger setup, fixture
-support condition, trajectory, and load mass are recorded. If any is missing,
-the result is **unresolved**, not a pass.
-
 ## Variables and calculations
 
 For each run, report:
@@ -272,7 +243,4 @@ The existing E-006 model gives, at 5% assumed coupling, required stiffness of
 it gives 52.32, 117.72, and 248.52 N/mm. Therefore the present evidence is
 **NOT FALSIFIED, OPEN, and not qualified**. It is insufficient to promote
 DES-003: effective coupling, support stiffness, trajectory, and residual
-motion remain unresolved. The next concrete action is to freeze the fixture
-and logger definition above, then run the same coupon sequence when physical
-testing is authorized; alternatively, produce a validated FEA model covering
-the same boundary conditions.
+motion remain unresolved. Under ADR-009 this is retained historical evidence. Further work should establish the decision-relevant load cases and computational bounds before selecting any physical calibration.
