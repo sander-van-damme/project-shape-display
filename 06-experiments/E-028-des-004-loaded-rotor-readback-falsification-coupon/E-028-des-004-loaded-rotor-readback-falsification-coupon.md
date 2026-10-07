@@ -87,7 +87,8 @@ beside the signed result CSV using the `article_id` and attempt number.
    peak actuation force/torque if available, and command-to-stable-stop time.
 3. **Writer engagement.** At every stop and for both approach directions,
    make 30 writer insert/withdraw attempts on C3 and one adverse witness rotor.
-   Record engagement depth, contact, missed actuation, peak force, and timing.
+   Record article and stop identity, engagement depth, two-axis clearance,
+   contact, missed actuation, peak force, and timing for every attempt.
 4. **Loaded motion/isolation.** Apply 3.27 N at C3 with the force instrument
    active. Repeat the directed and reverse sequences in step 2 for 10
    sequences. Synchronize C3 displacement, each nearest untouched-neighbour
@@ -101,9 +102,11 @@ beside the signed result CSV using the `article_id` and attempt number.
    balanced directed schedule: for transition index `k`, address cell
    `(k mod 25)` and command `state = (k mod 5)`; on the next pass use
    `state = (4 - (k mod 5))`, with the schedule repeated until exactly
-   10,000 transitions are completed. Include a directed transition counter,
+   10,000 state-changing transitions are completed. Freeze the initial state
+   and exact schedule in the result record. Include previous settled state,
    command state, writer event, settled stop, reader code, retry count, and
-   timestamp for every transition. Apply 3.27 N at C3 for the first and last
+   timestamp for every commanded action; count no-op commands separately and
+   do not use them to inflate the transition total. Apply 3.27 N at C3 for the first and last
    100 transitions and for the loaded directed subset in step 4; do not
    pretend the load was applied to every cell unless the fixture records it.
 7. **Post-fit inspection.** Repeat step 1 with the same instruments and
@@ -124,8 +127,8 @@ evidence is a rejection/unresolved result, never a pass.
 |---|---|---:|---|---|
 | pre/post clearance | `actual_dimensions_mm`, `clearance_pre_mm`, `clearance_post_mm` and three-clock summaries | 3 positions before + 3 after per inspected interface | every measured diametral clearance >= 0.10 mm; post-minus-pre change <= 0.05 mm provisional screen | any missing clock, clearance below threshold, or unaccounted change |
 | five-stop motion/return | `stop_results`, `loaded_3p27N_result`, reached/returned flags, binding/contact | 10 complete directed sequences per witness rotor unloaded; 10 loaded C3 sequences; 5 witness rotors | 100% of commanded stops reached and returned, no binding or rotor/frame/neighbour contact | one missed stop, failed return, binding, contact, or absent force trace |
-| writer engagement | `writer_engagements`, depth/force/timing per attempt | 30 attempts at each of 5 stops x 2 approach directions x 2 articles | 300/300 attempts engage and withdraw without binding; clearance >= 0.20 mm in both axes | any miss, bind, uninstrumented attempt, or below-clearance result |
-| reader discrimination | `reader_reads`, raw code/confidence, `reader_margin_mm` | 30 reads per stop x 5 stops x 2 directions x 5 witness rotors = 1,500 | 1,500/1,500 correct codes; reader margin >= 0.20 mm at fixed standoff | wrong/missing code, margin below threshold, or manual-only read |
+| writer engagement | `writer_engagements`, depth/force/timing per attempt, measured two-axis clearance | 30 attempts at each of 5 stops x 2 approach directions x 2 articles = 600 | 600/600 attempts engage and withdraw without binding; each clearance axis >= 0.20 mm | any miss, bind, uninstrumented attempt, missing axis, or below-clearance result |
+| reader discrimination | `reader_reads`, raw code/confidence, declared reader calibration/threshold, `reader_margin_mm` with calculation/provenance | 30 reads per stop x 5 stops x 2 directions x 5 witness rotors = 1,500 | 1,500/1,500 correct codes; reader margin >= 0.20 mm at fixed standoff | wrong/missing code, undefined or below-threshold margin, or manual-only read |
 | neighbour isolation | `neighbour_displacement_peak_mm`, `neighbour_displacement_residual_mm` | every loaded directed transition in 10 C3 sequences plus 10 sequences at each edge/corner witness | peak and residual untouched-neighbour displacement <= 0.10 mm | any value > 0.10 mm, lost synchronization, or absent displacement trace |
 | timing | `t_command`, `t_writer_contact`, `t_stop_stable`, `t_reader_valid`, `t_return_stable` | every directed transition in steps 2, 4 and 6 | every event has monotonic timestamps and complete event chain; report p50/p95/max, no performance pass threshold until DES-004 timing is frozen | missing event, non-monotonic timestamps, clock mismatch, or inferred timing |
 | 10,000 smoke | `transition_index`, commanded/settled/read states, retry and error fields | exactly 10,000 transitions; no silent omissions | 10,000/10,000 records; zero missed stop, wrong read, unbounded retry, neighbour violation, or unclassified event | count mismatch, any unclassified failure, or missing raw log |
@@ -144,8 +147,11 @@ acceptance assumptions inherited from E-012/E-016/E-014, not sourced standards.
 The run outputs, if later created, will be physical measurements only when the
 listed instrument IDs and raw evidence exist. Timing, friction, return force,
 reader optical margin, writer force, process spread, creep, and neighbour
-coupling are unresolved until that run occurs. Analytical or synthetic checker
-tests cannot close any physical gate.
+coupling are unresolved until that run occurs. `reader_margin_mm` is not a
+pass field until its geometric/optical definition, calibration reference, and
+calculation are frozen. A force-instrument identity and trace are not
+sufficient without the recorded applied-force value and acceptance tolerance.
+Analytical or synthetic checker tests cannot close any physical gate.
 
 If any gate fails, retain the failed record and parts, mark the configuration
 rejected, and do not alter DES-004/DES-005. Rollback/integration is a document
