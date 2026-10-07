@@ -95,6 +95,67 @@ and writer-contact risks; they remain experiment candidates. Removing readback
 or serializing writing is rejected because it removes fault observability or
 violates the E-017 timing boundary.
 
+## Closure gate: exact status of the boundary
+
+This table is the reconciled disposition for E-022/E-023. “Closed” means
+closed as an analytical BOM/interface term only; it does not mean physically
+qualified or supplier-committed.
+
+| Term | Status | What is closed | What remains held or rejected |
+|---|---|---|---|
+| DES-003 inherited baseline | **Closed for calculation** | One $370.00 shared-machine term, counted once; it includes the inherited heads, controller, drivers, loom, and spares. | Delivered price and present availability are not established. |
+| E-018 geometry/protocol | **Closed as interface input** | The 40 x 40 x 3 mm frame, 34 x 34 x 0.80 mm carrier, 3 mm apertures on 5.08 mm pitch, fiducials, four writer tabs, 2 mm reader relation, exact 4 x 25 readback, and reject rule are the controlled coupon contract. | CAD release and hardware acceptance remain open; dimensions are not measurements. |
+| DRV8833, SC0915, and example harness | **Closed as catalogue observations** | Quantities and observed prices used in the arithmetic: 2 x $2.19, 1 x $4.59, 8 x $2.29. | Part-to-actuator wiring, PCB/carrier, thermal/current margin, final connector choice, availability, and delivered cost remain held. |
+| Reusable media: 5 planes | **HOLD: quote + sample** | Quantity is fixed at four installed plus one service plane; the E-018 feature list is quoteable. | Material/thickness/process, burr/flatness, aperture and datum tolerance, cleaning compatibility, wear/media life, MOQ, lead time, packaging, freight, and delivered price. |
+| Local clamp, datum, fiducials | **HOLD: quote + reseat sample** | One local-clamp set is the selected boundary assumption; full cassette/transport is not part of this BOM. | Drawing-level tolerance, preload, service access, loaded-neighbour isolation, and reseat repeatability. |
+| Four writer actuators | **HOLD: exact-part quote/sample** | Quantity four and existing-driver path are the comparison basis; $9/$15/$30 each remains an allowance. | Exact envelope, usable stroke/stop, force, return or latch, life, repeatability, duty/thermal margin, and availability. The $3.34 Olimex observation is not a closed BOM selection. |
+| DES-003 reader reuse | **HOLD: eight-head overlay** | Reuse is the preferred cost-reduction path and is not additive with the fallback rows. | XY/Z/optical isolation, cabling/pinout, timing, calibration, wrong/ambiguous/missing rejection, and physical coupon evidence. No $0 reader increment is accepted before these gates close. |
+| QRE1113/ADC/carrier fallback | **Contingency only** | Conditional range arithmetic is closed: add $19.30/$29.30/$49.30 to the reuse low/base/high cases if reuse fails. | Optical geometry, carrier/PCB, threshold margin, compatibility, availability, and delivered cost. Rejected as an additive reuse cost. |
+| Cleaning/replacement stock | **HOLD: allowance** | It is retained as a required service term at $10/$30/$75 low/base/high. | Cleaner, replacement event rate, media life, storage, and recurring delivered cost. |
+| Cost bounds | **Closed as planning bounds** | Reuse: **$486.29 / $602.29 / $872.29** low/base/high. Fallback: **$505.59 / $631.59 / $921.59**. | These are not quotes, do not include freight/tax/labour/3D prints, and cannot authorize purchase or integration. |
+| Delta 12 V actuator and MG90D servo alternatives | **REJECTED for bounded path** | Their apparent prices are retained only as source observations. | Delta adds a new supply/driver path; servo adds PWM power, linkage, backlash, and assembly. Reconsider only under a changed architecture boundary. |
+
+### Quote/sample and coupon handoff gate
+
+The next handoff is **quote-ready, not procurement-ready**. The smallest
+package that can be issued by the DES-003 mechanical/controls owner, with Cost
+& Sourcing normalizing the response, is:
+
+1. One controlled E-018 drawing revision containing the plane labels, datum
+   IDs, material/finish callouts, reader target, writer stop and parked
+   clearance, inspection datums, and revision/date.
+2. One quote request for five identical planes, one clamp/fiducial set, and
+   four identical exact actuators, with separate setup/tooling, MOQ, lead
+   time, packaging, freight, quote validity, and delivered-price lines.
+3. One actuator data/sample request covering force at 1 mm engagement,
+   usable travel and stop, return/power-loss state, duty/thermal limit, life,
+   repeatability, and existing DRV8833 compatibility.
+4. One eight-head DES-003 overlay record against the E-018 frame covering
+   XY, Z/collision, optical isolation/contrast, cabling, timing, calibration,
+   and deterministic fault rejection.
+5. One coupon record for reseat residual, loaded-neighbour displacement,
+   four-plane write/readback, and media wear/cleanability. This is the
+   physical gate; analytical agreement alone does not close it.
+
+Until items 1–4 exist, the handoff is only a prepared request. Until item 5
+and returned supplier data exist, A-011 remains **HOLD for integration** and
+the canonical bounds above remain unchanged. No RFQ has been sent, no sample
+has been ordered, and no supplier commitment or physical-validation claim is
+made by E-040.
+
+## Local verification record
+
+Run on 2026-10-07 from branch `cost/e022-e023-compatibility-closure`:
+
+- `./repo check` — exit 1; reports the repository's existing warnings for
+  oversized E-022/E-023 objects and completed E-031/E-032/E-033/E-034/E-035/
+  E-037/E-038/E-039/E-041/E-042 workspaces requiring collapse. No warning names
+  E-040.
+- `git diff --check` — pass.
+- Direct arithmetic recomputation — pass: reuse totals 486.29, 602.29,
+  872.29; fallback totals 505.59, 631.59, 921.59; fallback deltas 19.30,
+  29.30, 49.30.
+
 ## Bounded disposition and owner
 
 **RFQ-ready with holds.** The plane/clamp request is ready to send against the
