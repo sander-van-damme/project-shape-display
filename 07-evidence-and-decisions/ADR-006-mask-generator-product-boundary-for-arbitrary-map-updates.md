@@ -43,7 +43,10 @@ the $370 baseline is not itself the complete-boundary cost.
 The remaining cost risks are medium/media life, clamp and fiducial fit,
 actuator force/stroke/life, reader compatibility and carrier if needed,
 harness interface, and cleaning/service stock. E-040 reconciles the quote-ready
-package but does not turn allowances or catalogue observations into a quote.
+package; E-044 supplies the corrected drawing-level planning screen and E-045
+independently confirms its arithmetic and reuse/fallback separation. These
+records do not turn allowances or dated non-live catalogue observations into a
+quote.
 No cost pass, procurement commitment, or hardware validation follows from
 this analytical screen.
 
@@ -69,9 +72,11 @@ reader reuse, or prepared-mask buffering.
 
 ## Consequence and next owner/action
 
-Do not expand detailed CAD or procurement until the coupon owner measures
+The E-044/E-045 sourcing screen is complete but does not close the gate. Do
+not expand detailed CAD or procurement until the coupon owner measures
 parallel write yield, reseat registration, reader discrimination, media wear,
-and loaded-neighbour isolation. First run the E-022 falsification screen:
+and loaded-neighbour isolation. The next evidence package is the controlled
+E-018 coupon and exact-part/drawing-level closure identified by E-045:
 request a drawing-level quote for five cut/debur media planes, one
 clamp/fiducial set, and four writer actuators, and measure the eight DES-003
 reader heads against the E-018 coupon optical stack. Include material,

@@ -23,7 +23,9 @@ writer is 360.6 s before overhead. These are calculations/CAD-derived
 assumptions, not hardware performance.
 
 E-043 independently rechecked this boundary against E-040 and the latest
-E-022/E-023 closure evidence. It remains the leading candidate, but reader /
+E-022/E-023 closure evidence. E-044 then produced a corrected drawing-level
+planning screen, and E-045 independently confirmed its arithmetic and
+reuse/fallback separation. It remains the leading candidate, but reader /
 actuator compatibility, physical readback discrimination, loaded-neighbour
 isolation, media life, and delivered cost are unresolved. The complete
 purchased-component cost is not yet closed: start from the

@@ -48,11 +48,14 @@ supplier commitment, or production-readiness claim.
 
 ## Current disposition
 
-**HOLD for integration.** E-043 independently retains A-011 as the leading
-arbitrary-map boundary candidate, while E-040/E-022/E-023 leave sourcing,
-reader/actuator compatibility, and physical acceptance unresolved. The next
-gate is the controlled E-018 coupon package: parallel four-plane engagement,
-reseat registration, exact readback with blocked/wrong-plane rejection,
-actuator/reader compatibility, and loaded-neighbour isolation. Until it
-passes, do not procure or integrate A-011; DES-003/DES-004 remain the current
-display baselines. A critical failure rejects A-011 for the 30 s mode.
+**HOLD for integration.** E-043 retains A-011 as the leading arbitrary-map
+boundary candidate, and E-044/E-045 retain the sourcing, reader/actuator
+compatibility, and physical-acceptance gates. E-044 is a corrected,
+RFQ-ready planning screen; E-045 confirms its arithmetic and reuse/fallback
+separation but treats all catalogue availability as dated non-live
+observation. The next gate is the controlled E-018 coupon package:
+parallel four-plane engagement, reseat registration, exact readback with
+blocked/wrong-plane rejection, actuator/reader compatibility, and
+loaded-neighbour isolation. Until it passes, do not procure or integrate
+A-011; DES-003/DES-004 remain the current display baselines. A critical
+failure rejects A-011 for the 30 s mode.
