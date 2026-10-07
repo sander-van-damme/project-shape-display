@@ -48,6 +48,30 @@ The canonical E-022 totals remain **$486.29–$872.29** for reader reuse and
 fallback QRE1113/ADC/carrier rows are alternatives and are not additive to a
 reuse case.
 
+### Controlled RFQ payload and acceptance gates
+
+Send one controlled request with the plane and clamp portions quoted
+separately, including all setup/tooling charges. Specify five identical
+reusable planes plus one clamp/fiducial set against the E-018 nominal datum:
+40 x 40 x 3.00 mm frame, 34 x 34 x 0.80 mm carrier, twenty-five 3.00 x
+3.00 mm apertures on 5.08 mm pitch, two Ø2.00 mm fiducials at (-15,-15)
+and (15,15) mm, positive 2 x 6 mm datum rail, four labelled 1 x 0.80 mm
+writer tabs on 2.00 mm centre pitch, and reader target 2.00 mm above the
+upper carrier. Request deburred 304 stainless at nominal 0.76 mm or a
+supplier-recommended stock that preserves the envelope; require actual
+grade, temper, thickness, tolerance, aperture/fiducial/tab/datum positional
+tolerances, flatness, burr/edge condition, process/kerf or etch taper, MOQ,
+setup/tooling, lead time, flat protective packaging, unit/extended price,
+quote validity, freight/delivery basis, and drawing exceptions. Quote the
+clamp plate, two locating dowels, latch hardware, and any shim separately.
+
+Technical acceptance requires the mechanical owner to close the E-018
+envelope/no-collision overlay, clamp reseat residual ≤0.20 mm after 100
+reseats, and loaded-neighbour isolation. The published ±0.127 mm catalogue
+cut-tolerance observation is a process input, not acceptance evidence. The
+mechanical owner owns overlay/reseat gates; Cost & Sourcing owns quote
+completeness and price normalization.
+
 ## Exact actuator candidate and sample path
 
 The one exact candidate carried forward is Olimex
@@ -65,6 +89,18 @@ package, make a 1:1 E-018 tab/stop gauge, then record force-versus-stroke,
 return force/park behaviour, usable stroke at the hard stop, envelope,
 insertion coupling, pulse duty/current/thermal margin, and life/repeatability.
 No sample was ordered and no sample result exists.
+
+The actuator request is controlled to this exact candidate only: Olimex
+`PUSH-PULL-SOLENOID-5V`, Digi-Key `1188-PUSH-PULL-SOLENOID-5V-ND`, quantity
+one sample plus a four-unit price break. Require the exact manufacturer part
+number, not a family substitute. Acceptance requires documented force at the
+1.00 mm tab engagement, usable-stroke/stop stack, mounting envelope and
+parked clearance, return behaviour, coil current/driver thermal margin, and
+cycle-life/repeatability evidence. The controls/mechanical owner closes fit,
+force, return, and driver gates; Cost & Sourcing closes exact-part identity,
+availability, price, lead time, and evidence provenance. If any gate remains
+open, retain the existing $9/$15/$30 actuator allowance and do not replace it
+with the $3.34 observation.
 
 | Actuator gate | Status | Why it remains open |
 |---|---|---|
