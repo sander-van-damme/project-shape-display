@@ -124,6 +124,19 @@ the central per-cell verification and registration requirements. These findings
 do not invalidate the four-plane coupon boundary; they invalidate the current
 acceptance protocol until the bounded repairs are made.
 
+## Repair disposition (analytical/schema evidence)
+
+The bounded repair is recorded in the E-018 package. Its executable protocol
+now requires complete 4 x 25 post-write readback, a 100-entry per-plane active
+cell residual survey, frozen reader calibration threshold `0.85` with explicit
+wrong/ambiguous/missing reject semantics, and per-neighbour before/after state
+with signed displacement and datum identity. `cycle_plan()` freezes all eight
+adversarial cases at 125 cycles each and deterministically tags 100 reseats and
+100 loaded-neighbour events. The script's schema probe and allocation checks
+exercise these invariants without creating measurements. Physical execution,
+reader calibration evidence, and as-built fixture measurements remain
+unresolved; this disposition is not physical validation.
+
 ## Highest-value unresolved uncertainty and cheapest falsifier
 
 The highest-value uncertainty is physical four-plane write/read correctness
