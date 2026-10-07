@@ -96,8 +96,7 @@ future gate and is not implied by this artifact.
 ## Seam/contact model follow-up
 
 The parameterized equivalent-spring screen in
-`analysis/q011_seam_contact_model.py` and its report
-`analysis/q011_seam_contact_model.md` bounds the question that can be answered
+`analysis/q011_seam_contact_model.py`, with its durable result recorded in E-047, bounds the question that can be answered
 without inventing joint properties. It keeps the frozen rail and shaft
 equations and adds four nonnegative series compliance terms for seam, support,
 bearing, and rotor/post stop. The 100 N rail-plus-shaft baseline is already
@@ -108,4 +107,4 @@ The four omitted terms remain **unresolved**, rather than zero. The model is a
 calculated sensitivity model, not FEA or physical validation. Q-011 remains
 **HOLD / reject for current integration**. The next cheapest falsification is
 the loaded 5x5 seam coupon and direct bearing/play and post/stop displacement
-measurements described in the report.
+measurements described in E-047.
