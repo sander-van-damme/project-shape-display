@@ -155,6 +155,66 @@ Disposition: planes/clamp **RFQ-go / physical-compatibility hold**; actuator
 **quote/sample hold**; reader reuse **E-018 compatibility hold**. Do not order
 parts or claim procurement commitment.
 
+## LAB-131 reader/actuator compatibility closure
+
+This is the drawing-level screen for reuse of the existing DES-003 interfaces
+against the frozen E-018 coupon. The dispositions below are analytical and
+inherit no physical validation. A **GO** means the E-018 contract or a stated
+calculation is internally closed; it does not mean that DES-003 hardware has
+passed. **HOLD** means the interface is plausible but the minimum evidence is
+missing. **REJECT** is limited to the stated bounded path.
+
+### Reader gates
+
+| Gate | Controlled comparison and calculation | Disposition | Minimum missing evidence |
+|---|---|---|---|
+| XY target / field | E-018 centre target is a 3 x 3 mm window on the 5.08 mm field; acceptance is transformed aperture residual ≤0.20 mm after reseat. DES-003 beam centre and head/mount datum are not dimensioned in the available evidence. | **HOLD** | Dimensioned head-to-mount overlay in the E-018 frame datum, 2-D transform, tolerance stack, and residual table at centre/corner checks. |
+| Z stack | E-018 upper-carrier reader lower-face relation is 2.00 mm; DES-003 flag design point is 1.80 mm. `2.00 - 1.80 = 0.20 mm` is a valid nominal difference but references different target surfaces, so it is not an interchangeable stack. | **HOLD** | Section drawing including carrier flatness, clamp/reseat, head mount, working-distance tolerance, and writer/tab collision clearance for every selected plane. |
+| Plane identity / optical isolation | E-018 has four 0.80 mm carriers with three 1.20 mm gaps, so nominal carrier stack is `4 x 0.80 + 3 x 1.20 = 6.80 mm`; ports are on a 2.00 mm pitch and loaded N/E/S/W neighbours remain installed. DES-003’s 0.44 mm reflective-flag aperture/1.8 mm flag gap does not prove contrast or occlusion through this stack. | **HOLD** | Ray/occlusion overlay, emitter/detector field, material reflectance/ambient/saturation bounds, and per-plane calibration record. |
+| Cabling / pinout | E-022 only carries inherited loom/controller infrastructure. No DES-003 connector identity, polarity/pinout, retention, cable OD/bend radius, exit path, strain relief, or head-carrier envelope is recorded against E-018. | **HOLD** | Connector and cable drawing plus electrical pinout and mechanical overlay; no uncosted adapter, harness, PCB, or strain relief may be assumed. |
+| Timing | E-018 requires four-plane complete readback, fiducials, reject handling, and bounded retry. The inherited full-field DES-003 accounting leaves `30.00 - 20.18 = 9.82 s`, but that is a modelled planning margin, not a coupon timing result and does not include unspecified reader delay. | **HOLD** | Pulse/sample/settle schedule, eight-head sequencing, full 4 x 25 readback, fiducial/reject/retry trace, and worst-case total under 30 s. |
+| Calibration / fault observability | **GO at contract level:** E-018 freezes calibration threshold `0.85`, requires exact 4 x 25 state comparison, and defines wrong/ambiguous/missing as reject. **Not GO for DES-003 implementation:** its calibration ID, saturation/ambient limits, missing-signal codes, and plane-identity trace are absent. | **HOLD** | Calibration record and software trace showing deterministic accept/reject and fault code for every missing, ambiguous, wrong-plane, and stale-read case. |
+
+The E-018 geometry/protocol checks therefore receive **GO as frozen inputs**;
+all six DES-003 reader reuse gates remain **HOLD**. No reader-head reuse cost
+may be treated as closed until the listed overlay package exists. If a gate
+fails, use the separately costed E-022 fallback reader boundary; do not add a
+sensor, ADC, carrier, or harness implicitly to this experiment.
+
+### Actuator and existing-driver gates
+
+The frozen writer interface exposes a 4 x 1 x 0.8 mm tongue, 1.00 mm nominal
+tab insertion, 2.00 mm plane pitch, and 0.20 mm parked clearance outside the
+frame. Those are interface coordinates, not a required actuator stroke. The
+candidate 5.00/5.08 mm strokes therefore cannot be accepted without a defined
+hard stop and usable-travel stack.
+
+| Gate | Olimex PUSH-PULL-SOLENOID-5V | Delta DSML-0224-12 family observation | Disposition |
+|---|---|---|---|
+| Exact envelope, stroke, tab engagement, parked clearance | Exact body/mount/plunger drawing, usable travel, stop, return, and tolerance absent; catalogue 5.00 mm stroke is not proof of 1.00 mm engagement or 0.20 mm park. | Exact part/envelope absent; 5.08 mm family stroke is not a motion requirement. | **HOLD** both; require 1:1 E-018 tab/stop overlay and worst-case travel. |
+| Force, return/latch, life, repeatability | No force curve, return behaviour, cycle life, or position tolerance. | No exact-part force/latch/life/repeatability evidence. | **HOLD** both; require force-vs-stroke at contact, return/power-loss state, duty/life, and repeatability evidence. |
+| Existing DRV8833 path | `5 V / 6 ohm = 0.833 A` nominal coil-current arithmetic is only a candidate screen. Current limit, inrush, flyback, duty thermal margin, and fault behavior are not closed. | The observed 12 V variant crosses the existing DRV8833 low-voltage supply boundary and would require a new driver/power path. | Olimex **HOLD**; Delta **REJECT for bounded existing-driver/no-added-parts path**. |
+| Servo alternative | MG90D adds PWM, servo power, horn/linkage, backlash and stall-duty interfaces. | — | **REJECT for this reuse screen**; it is not a drop-in existing-driver actuator. |
+
+The actuator interface consequently has no GO selection. The cheapest next
+falsifier is a drawing-only 1:1 tab/stop and driver-current/thermal screen for
+one exact 5 V candidate; force, return, life, and hardware fit remain separate
+future evidence. No actuator, driver, power rail, return spring, or carrier is
+added to the E-023 boundary by this result.
+
+### Final LAB-131 disposition
+
+**REJECT compatibility acceptance; HOLD the reuse path.** E-018’s frozen
+envelope, interface coordinates, complete-readback schema, and reject rule are
+analytically GO as inputs. Existing DES-003 reader heads are not reusable yet
+because XY, Z, optical isolation, cabling, timing, calibration, and fault
+implementation are not drawing-closed. The Olimex actuator is a conditional
+next-screen candidate; Delta and the servo are rejected for the bounded
+existing-driver path. The next owner is the DES-003 mechanical/controls owner,
+with Cost & Sourcing support, to supply the overlay and exact-actuator evidence
+listed above. This screen authorizes no procurement, CAD change, or physical
+validation claim.
+
 ## Next falsification/procurement action and owner
 
 Next owner: **DES-003 mechanical/controls owner**, with Cost & Sourcing
