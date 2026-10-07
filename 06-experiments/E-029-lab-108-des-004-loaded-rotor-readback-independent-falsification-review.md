@@ -145,6 +145,3 @@ Until those corrections exist, do not fabricate, procure, promote DES-004 or
 DES-005, or call the E-028 package analytically ready. The next action is a
 document/CAD repair by that owner, followed by a fresh independent review;
 there is no physical-testing result to close this issue.
-status: active
-builds-on: [E-012]
----

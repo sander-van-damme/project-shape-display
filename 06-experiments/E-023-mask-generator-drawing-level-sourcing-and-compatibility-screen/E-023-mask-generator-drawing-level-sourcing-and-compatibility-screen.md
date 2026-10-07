@@ -1,9 +1,5 @@
 ---
 status: active
-builds-on: [DES-003]
----
----
-status: active
 builds-on: [E-022, E-018, DES-003]
 ---
 
