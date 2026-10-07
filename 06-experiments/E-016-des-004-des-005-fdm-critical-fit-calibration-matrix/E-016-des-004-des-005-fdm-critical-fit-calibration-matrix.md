@@ -111,8 +111,26 @@ openscad --export-format binstl -o /dev/null -D 'part="frame"' 08-integrated-des
 ```
 
 The first command prints the 42-row sweep and, with `--results measured.csv`,
-checks required result columns and hard gates. The latter two are CAD/geometry
-checks only. No command can claim a part was printed or physically validated.
+checks the complete result contract and hard gates. The latter two are
+CAD/geometry checks only. No command can claim a part was printed or
+physically validated.
+
+The result CSV must contain exactly the 42 planned identities (article, test,
+orientation, location, and all swept dimensions), with the planned attempt
+count on every row. It also requires non-empty process metadata (`process_id`,
+printer, nozzle and layer settings, filament lot, slicer profile hash, XY and
+elephant-foot compensation, and part ID). Physical evidence is explicit in
+`clock_positions_deg` (`0,120,240`), `stop_results`,
+`loaded_3p27N_result`, `writer_engagements`, `reader_reads`,
+`actual_dimensions_mm`, and mean/minimum/maximum/range summary fields. The
+checker accepts `not_applicable` only for a gate that does not apply to that
+article; `unresolved` or blank evidence is rejected, so it cannot be reported
+as a provisional pass. Summary range must equal maximum minus minimum and the
+mean must lie between them. The focused contract tests are run with:
+
+```sh
+python3 -m unittest discover -s 06-experiments/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix -p 'test_*.py'
+```
 
 ## Analytical execution record (LAB-98)
 
@@ -153,6 +171,17 @@ called a pass, the result format/checker must bind each planned row and record
 the stated physical gates, or an equivalent signed measurement record must be
 retained beside the CSV. Physical validation, including fit, loaded rotation,
 writer/read trials, process spread, and wear/creep, remains unresolved.
+
+## Checker hardening (LAB-100, 2026-10-07)
+
+The checker now enforces the 42-row identity set and planned attempts, rejects
+duplicates and mismatches, requires the declared process metadata and part
+identity, and requires explicit stop/load/clock-position/gate/measurement
+summary evidence. A missing field, blank, or `unresolved` value is a checker
+failure; `not_applicable` is retained only where the row's article makes a
+gate inapplicable. The deterministic test fixture is synthetic contract data
+only and is not a measurement result. Nominal CAD dimensions and `--plan`
+output are unchanged.
 
 Additional unresolved analytical assumptions are the unverified tolerance
 values and omission of print-specific effects such as elephant-foot, layer
