@@ -45,7 +45,7 @@ midspan beam and continuous solid shaft assumptions:
 Run:
 
 ```text
-python3 06-experiments/E-041-lab-128-q-011-service-load-stiffness-uncertainty-falsification/analysis/q011_uncertainty_check.py
+python3 tools/curated-experiment-checks/E-041/q011_uncertainty_check.py
 ```
 
 Expected decisive outputs are:

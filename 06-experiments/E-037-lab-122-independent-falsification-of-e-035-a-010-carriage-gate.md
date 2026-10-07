@@ -27,9 +27,9 @@ five state positions are generated from the same parameter set.
 ## Reproduction
 
 ```sh
-python3 06-experiments/E-035-a-010-bounded-five-state-carriage-load-path-gate/analysis/a010_carriage_gate_check.py
-PYTHONPATH=06-experiments/E-035-a-010-bounded-five-state-carriage-load-path-gate/analysis python3 06-experiments/E-035-a-010-bounded-five-state-carriage-load-path-gate/analysis/a010_carriage_independent_recheck.py
-openscad --export-format binstl -o /dev/null 06-experiments/E-035-a-010-bounded-five-state-carriage-load-path-gate/cad/a010_bounded_carriage.scad
+python3 tools/curated-experiment-checks/E-035/a010_carriage_gate_check.py
+PYTHONPATH=tools/curated-experiment-checks/E-035 python3 tools/curated-experiment-checks/E-035/a010_carriage_independent_recheck.py
+openscad --export-format binstl -o /dev/null tools/curated-experiment-checks/E-035/a010_bounded_carriage.scad
 ./repo check
 ```
 

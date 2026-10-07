@@ -7,9 +7,9 @@ It inspects the shared dimensions and the audited E-035 SCAD representation.
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).parents[2]
-CAD = ROOT / "E-035-a-010-bounded-five-state-carriage-load-path-gate/cad/a010_bounded_carriage.scad"
-PARAMS = ROOT / "E-035-a-010-bounded-five-state-carriage-load-path-gate/cad/a010_carriage_params.scad"
+ROOT = Path(__file__).parents[1]
+CAD = ROOT / "E-035/a010_bounded_carriage.scad"
+PARAMS = ROOT / "E-035/a010_carriage_params.scad"
 
 
 def value(source: str, name: str) -> float:

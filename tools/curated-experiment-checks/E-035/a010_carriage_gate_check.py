@@ -2,7 +2,7 @@
 """Independent analytical gate; parses the shared SCAD parameter file."""
 from pathlib import Path
 import re
-PARAMS = Path(__file__).parents[1] / "cad/a010_carriage_params.scad"
+PARAMS = Path(__file__).with_name("a010_carriage_params.scad")
 def p(name):
     m = re.search(rf"^\s*{name}\s*=\s*([0-9.]+)\s*;", PARAMS.read_text(), re.M)
     if not m: raise ValueError(f"missing shared parameter {name}")

@@ -53,8 +53,8 @@ fabrication performance. A-010 remains unintegrated.
 From the repository root:
 
 ```sh
-python3 06-experiments/E-039-a-010-e-038-bounded-geometry-rejection/analysis/a010_e038_rejection_check.py
-openscad --export-format binstl -o /dev/null 06-experiments/E-035-a-010-bounded-five-state-carriage-load-path-gate/cad/a010_bounded_carriage.scad
+python3 tools/curated-experiment-checks/E-039/a010_e038_rejection_check.py
+openscad --export-format binstl -o /dev/null tools/curated-experiment-checks/E-035/a010_bounded_carriage.scad
 ./repo check
 git diff --check
 ```

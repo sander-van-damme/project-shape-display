@@ -20,7 +20,7 @@ physical-performance validation.
 From the repository root:
 
 ```text
-python3 06-experiments/E-033-e-032-a-010-insert-geometry-and-load-path-gate/analysis/a010_insert_gate_check.py
+python3 tools/curated-experiment-checks/E-033/a010_insert_gate_check.py
 PASS nominal A-010 E-033 geometry checks
 cells=25 pitch_mm=5.08 state_travel_mm=3.20
 stack_height_mm=2.00 placement_bound_mm=0.30

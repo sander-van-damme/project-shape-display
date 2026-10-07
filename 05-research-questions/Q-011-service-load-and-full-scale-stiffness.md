@@ -39,7 +39,7 @@ rejects the represented A-010 five-state load-path claim.
 Run from the repository root:
 
 ```text
-python3 06-experiments/E-041-lab-128-q-011-service-load-stiffness-uncertainty-falsification/analysis/q011_uncertainty_check.py
+python3 tools/curated-experiment-checks/E-041/q011_uncertainty_check.py
 ./repo check
 ```
 

@@ -208,7 +208,7 @@ decision remains conditional on later evidence.
 From repository root:
 
 ```sh
-python3 06-experiments/E-032-e-031-g1-common-a-010-a-011-5x5-cartridge-coupon-package/analysis/common_coupon_check.py --check
+python3 tools/curated-experiment-checks/E-032/common_coupon_check.py --check
 ./repo check
 git diff --check
 ```

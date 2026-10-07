@@ -67,7 +67,7 @@ Commands run from the repository root:
 ```sh
 python3 06-experiments/E-018-four-plane-mask-generator-coupon-package/analysis/coupon_protocol.py --check
 openscad --export-format binstl -o /dev/null -D 'part="assembly"' 06-experiments/E-018-four-plane-mask-generator-coupon-package/cad/four_plane_mask_coupon.scad
-python3 06-experiments/E-046-e018-des003-reader-actuator-compatibility-screen/analysis/compatibility_screen.py
+python3 tools/curated-experiment-checks/E-046/compatibility_screen.py
 ./repo check
 ```
 

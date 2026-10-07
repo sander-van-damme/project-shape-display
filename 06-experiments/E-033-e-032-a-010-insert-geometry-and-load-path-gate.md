@@ -117,8 +117,8 @@ force capacity is calculated because those inputs are absent.
 Run from the repository root:
 
 ```sh
-python3 06-experiments/E-033-e-032-a-010-insert-geometry-and-load-path-gate/analysis/a010_insert_gate_check.py
-openscad --export-format binstl -o /dev/null 06-experiments/E-033-e-032-a-010-insert-geometry-and-load-path-gate/cad/a010_insert_gate.scad
+python3 tools/curated-experiment-checks/E-033/a010_insert_gate_check.py
+openscad --export-format binstl -o /dev/null tools/curated-experiment-checks/E-033/a010_insert_gate.scad
 ./repo check
 git diff --check
 ```
