@@ -1,11 +1,18 @@
 ---
-status: proposed
-builds-on: [Q-010, E-017, A-011, ADR-005, E-022]
+status: active
+builds-on: [Q-010, E-017, A-011, ADR-005, E-022, E-040]
 ---
 
 # ADR-006: minimum complete mask-generator boundary
 
 ## Decision
+
+**HOLD for integration; retain as the analytical product-boundary decision.**
+
+E-043 independently confirms that the reusable parallel four-plane boundary
+is the leading arbitrary-map candidate, but does not close its hardware,
+compatibility, cost, or observability gates. This is not a GO for integration,
+procurement, or production, and it is not a rejection of the boundary.
 
 Close Q-010's product-boundary uncertainty analytically: retain only a
 reusable rewritable mask medium with parallel four-plane writing, positive
@@ -35,8 +42,10 @@ the $370 baseline is not itself the complete-boundary cost.
 
 The remaining cost risks are medium/media life, clamp and fiducial fit,
 actuator force/stroke/life, reader compatibility and carrier if needed,
-harness interface, and cleaning/service stock. No cost pass, procurement
-commitment, or hardware validation follows from this analytical screen.
+harness interface, and cleaning/service stock. E-040 reconciles the quote-ready
+package but does not turn allowances or catalogue observations into a quote.
+No cost pass, procurement commitment, or hardware validation follows from
+this analytical screen.
 
 ## Rejected classes
 
@@ -45,6 +54,18 @@ map without a generator. A serial consumable writer fails the 30 s bound and
 adds recurring media, waste, feed, registration, and verification faults.
 Buffered masks reduce expected wait only for known future maps; they do not
 change worst-case arbitrary-map generation or eliminate inventory cost.
+
+## Required next gate
+
+The smallest next gate is one controlled E-018 5 x 5 coupon result, or
+equivalent evidence, that closes all of the following together: parallel
+four-plane engagement, reseat registration, exact 4 x 25 readback including
+blocked/wrong-plane rejection, actuator/reader compatibility, and loaded-
+neighbour isolation. Record as-built geometry, transformed residuals,
+calibration/rejection codes, actuator force/return/thermal evidence, and
+cycle/wear state. A failure of any critical item rejects A-011 for the 30 s
+arbitrary-map mode; it must not be repaired by serial writing, unverified
+reader reuse, or prepared-mask buffering.
 
 ## Consequence and next owner/action
 
@@ -56,8 +77,10 @@ clamp/fiducial set, and four writer actuators, and measure the eight DES-003
 reader heads against the E-018 coupon optical stack. Include material,
 thickness, aperture process, force/stroke, life, tolerances, MOQ, lead time,
 packaging, freight, and delivered price. Report physical measurements
-separately from this analytical acceptance. Until then A-011 is conditional
-and DES-003/DES-004 remain the display baselines.
+separately from this analytical acceptance. Until then A-011 remains a
+candidate on HOLD and DES-003/DES-004 remain the display baselines. The next
+owner is the DES-003 mechanical/controls owner, with Cost & Sourcing for the
+exact-part/drawing-level package.
 
 ## Rollback and verification
 

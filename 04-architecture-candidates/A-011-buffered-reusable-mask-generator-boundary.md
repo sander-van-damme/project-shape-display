@@ -45,3 +45,14 @@ regional-isolation criterion.
 
 Evidence boundary: analytical/CAD-derived only; no physical validation,
 supplier commitment, or production-readiness claim.
+
+## Current disposition
+
+**HOLD for integration.** E-043 independently retains A-011 as the leading
+arbitrary-map boundary candidate, while E-040/E-022/E-023 leave sourcing,
+reader/actuator compatibility, and physical acceptance unresolved. The next
+gate is the controlled E-018 coupon package: parallel four-plane engagement,
+reseat registration, exact readback with blocked/wrong-plane rejection,
+actuator/reader compatibility, and loaded-neighbour isolation. Until it
+passes, do not procure or integrate A-011; DES-003/DES-004 remain the current
+display baselines. A critical failure rejects A-011 for the 30 s mode.
