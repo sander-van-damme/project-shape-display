@@ -1,8 +1,4 @@
 ---
-status: active
-builds-on: [E-028, DES-004, DES-005, E-016, E-014, E-012]
----
----
 status: complete
 builds-on: [E-028, DES-004, DES-005, E-016, E-014, E-012]
 ---
