@@ -80,6 +80,32 @@ case rounded the controller inconsistently and did not clearly identify the
 reader-stack double-counting risk. This E-022 calculation uses the observed
 $4.59 controller price and gives the corrected high value of $921.59.
 
+## Boundary comparison and disposition
+
+The two credible purchased-component paths are alternatives for the reader
+subsystem; both retain the complete arbitrary-map boundary, four parallel
+writer channels, local registration, verification, and service stock.
+
+| Path | Purchased range | Cost/sourcing advantage | Compatibility and engineering risk | Disposition |
+|---|---:|---|---|---|
+| A-011 boundary with DES-003 reader reuse | **$486–$872** | Removes a new reader stack and its carrier; lowest unique-part count and assembly burden | Eight inherited heads must meet the E-018 optical, Z-stack, cabling, calibration, and timing gates; $0 reader increment is conditional | **Preferred path to falsify** |
+| A-011 boundary with QRE1113/ADC/carrier fallback | **$506–$922** | Public catalogue observations provide a concrete replacement path; adds only $19.30 / $29.30 / $49.30 to low/base/high reuse cases | 1 mm sensor geometry, carrier/PCB, optical contrast, and threshold margin are unresolved; new parts add calibration and service burden | **Credible contingency, not a saving** |
+
+The cost screen therefore **proceeds to drawing-level sourcing and
+compatibility falsification**, but does not authorize procurement or claim a
+production-ready low-cost implementation. The current boundary is credible
+as a purchased-component path only if the inherited-reader overlay passes and
+the media, clamp, and actuator allowances close to quotes. If reader reuse
+fails, retain the fallback range until its optical stack is demonstrated;
+do not replace it with optimistic bulk pricing.
+
+| Unresolved question | Next owner | Smallest closing action |
+|---|---|---|
+| Can DES-003 readers resolve the four-plane E-018 stack after reseat? | Reader/verification owner | Drawing overlay plus calibration/threshold and timing review for all eight heads |
+| What medium, thickness, aperture process, life, and delivered price meet the five-plane envelope? | Cost & Sourcing | RFQ for five cut/debur planes including tolerance, MOQ, lead time, packaging, freight, and replacement price |
+| Can four writer actuators meet force, stroke, return, life, and driver limits? | Mechanical/controls owner | Exact-part data package or sample-level force/return/stop screen, with DRV8833 current and thermal check |
+| Does the local clamp preserve datum repeatability and loaded-neighbour isolation? | Mechanical owner | Dimensioned clamp/fiducial RFQ and reseat tolerance stack against the E-018 gate |
+
 ## Reduction screen
 
 | Proposal | Cost effect | Engineering effect / disposition |
