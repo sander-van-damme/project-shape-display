@@ -222,3 +222,100 @@ support. Send the controlled plane/clamp RFQ and exact-actuator sample/quote
 request above; then record eight reader-head dimensions, optical stack,
 pinout, timing, and calibration margin against E-018. This is the next
 falsifier; do not order parts, redesign CAD, or claim compatibility.
+
+## E-023-OVL-001: LAB-133 drawing-level overlay closure
+
+Date basis: 2026-10-07. Analytical overlay disposition only: not CAD
+release, procurement, or physical validation. E-018 is the frozen interface
+authority; DES-003 dimensions are reused only where explicitly recorded.
+
+### Reader-head gates against E-018
+
+The eight-head reuse case remains **HOLD**. The E-018 frame, two Ø2.00 mm
+fiducials, and 2.00 x 6.00 mm north rail establish the coordinate frame; a
+reader head is not a datum. Each head needs a datum, optical-axis, connector,
+and tolerance overlay.
+
+| Gate | Drawing-level acceptance condition | Disposition and evidence class | Cheapest next falsifier |
+|---|---|---|---|
+| XY | Transform optical axis into E-018 frame; 3.00 x 3.00 mm windows at 5.08 mm pitch; transformed residual after reseat ≤0.20 mm. Check centre, four field corners, and both fiducials. | **HOLD; calculated requirement:** DES-003 head/mount XY is absent. | One dimensioned head/mount overlay with transform and residual table. |
+| Z / collision | E-018 reader lower face 2.00 mm above upper 0.80 mm carrier. Include flatness, clamp/reseat, mount, all 4 x 1 x 0.80 mm tongues, and 0.20 mm parked clearance. DES-003 1.80 mm flag gap is a different target. | **HOLD; calculated requirement:** `2.00 - 1.80 = 0.20 mm` is not a tolerance closure. | One section overlay with worst-case Z and engaged/parked collision planes. |
+| Optical field / plane identity | Show emitter/detector field at the E-018 target, mask surface/reflectance, adjacent 2.00 mm port planes, and loaded N/E/S/W neighbours; adjacent classification rejects. | **HOLD; inferred risk:** DES-003 0.44 mm aperture, 1.405 mm spot, and 7.72× modelled return ratio were for its flag geometry. | One ray/occlusion section using actual head and selected mask optical assumptions. |
+| Cabling | Connector, pinout, polarity, retention, cable OD/bend radius, exit, and strain relief fit without adapter, new PCB, or unpriced harness. | **HOLD; unresolved interface:** E-022 carries only inherited loom/controller allowance. | One connector/loom overlay and pin-to-controller table. |
+| Timing | Eight heads in parallel; complete 4 × 25 readback, fiducials, settle, reject, bounded retry ≤30.00 s. DES-003 planning margin is `30.00 - 20.18 = 9.82 s`, excluding unspecified reader delay. | **HOLD; calculated planning margin:** no E-018-specific timing trace. | Timestamped worst-case schedule including 100-cell compare and one retry. |
+| Calibration / faults | Freeze calibration ID and threshold 0.85; exact 4 × 25 comparison; wrong, ambiguous, missing, stale, and wrong-plane results reject with fault code. | **GO as E-018 contract input; HOLD for DES-003 implementation.** | Calibration record plus deterministic trace for each fault class. |
+
+If a reader gate fails, use E-022's explicit QRE1113/ADC/carrier fallback;
+those rows are not added to a reuse case.
+
+### Exact 5 V actuator and tab-stop overlay
+
+The one exact candidate is **Olimex PUSH-PULL-SOLENOID-5V, Digi-Key
+1188-PUSH-PULL-SOLENOID-5V-ND**. Catalogue observations are 5.00 mm nominal
+stroke, 5–6 V, and 6 Ω. Body/mount/plunger envelope, usable travel, return,
+life, and positional tolerance drawings are absent; exact identity is not
+fit or performance evidence.
+
+The E-018 overlay datum is tab x = -10.16 mm; four ports have 2.00 mm centre
+pitch; each tongue envelope is 4.00 x 1.00 x 0.80 mm; nominal tab insertion is
+1.00 mm; parked nearest face is 0.20 mm outside the 40 mm frame. Add rigid
+engaged and parked stops. The drawing checks are:
+
+```
+usable travel at tab = actuator travel - stop/link losses
+engaged travel >= 1.00 mm + worst-case tab/stop clearance
+parked position >= 0.20 mm outside frame + worst-case tolerance
+neighbour/adjacent-plane clearance > 0 in both states
+```
+
+Thus the 5.00 mm stroke is a **calculated candidate input**, not proof of
+1.00 mm engagement or parked position. Missing body/mount overlay leaves the
+candidate **HOLD**.
+
+Electrical screen from the voltage/resistance observation:
+
+```
+I_nominal = 5 V / 6 ohm = 0.833 A per coil
+P_nominal = 5 V x 0.833 A = 4.167 W per coil
+four-coil simultaneous upper arithmetic = 3.333 A, 16.667 W
+```
+
+These are steady-state Ohmic calculations, not measured inrush or thermal
+results. DRV8833 current limit, flyback, duty, PCB copper, and junction
+temperature are not evidenced; no duty/thermal model is present. The
+driver/current/thermal gate is **HOLD**, with no new driver, power rail, or
+thermal allowance silently added.
+
+Return and life are **HOLD**: no spring/power-loss state, force-versus-stroke,
+cycle-life rating, repeatability, or duty limit is recorded. Do not assume a
+return spring, latch, or replacement actuator. Required evidence is the exact
+mechanical drawing, force at 1.00 mm engagement, return/park behaviour,
+repeatability, duty/temperature screen, and life evidence against E-018's
+1,000-cycle handoff. Physical testing remains future work.
+
+### LAB-133 disposition and BOM consequence
+
+| Item / gate | Disposition | Basis |
+|---|---|---|
+| E-018 geometry/protocol/reject rule | **GO as frozen input** | E-018 checker and schema define the contract; not hardware validation. |
+| DES-003 reader reuse | **HOLD** | XY, Z/collision, optical isolation, cabling, timing, and implementation calibration evidence missing. |
+| Olimex exact 5 V actuator | **HOLD** | Identity and nominal electrical arithmetic exist; envelope/stop, force, return, life, repeatability, and thermal evidence do not. |
+| Delta DSML-0224-12 family | **REJECT for bounded path** | Observed 12 V route needs new supply/driver and lacks exact-part overlay. |
+| MG90D servo | **REJECT for bounded path** | Adds PWM, servo power, horn/linkage, backlash, and stall-duty interfaces; not DRV8833 drop-in. |
+| Complete DES-003/E-018 compatibility acceptance | **REJECT for now; retain HOLDs** | No unsupported reuse or unpriced adapter is closed. |
+
+Retain E-022's conditional reuse range **$486.29 / $602.29 / $872.29** only
+if readers and the four-actuator boundary close. Keep fallback-reader range
+**$505.59 / $631.59 / $921.59** if reader reuse fails. Do not add QRE1113,
+MCP3008, or reader-carrier rows to reuse, and do not count the inherited
+DES-003 $370 reader/controller/driver baseline twice. The `$13.36 = 4 x
+$3.34` Olimex arithmetic is a sourced catalogue observation only, not a viable
+BOM line until HOLD evidence closes. No adapter, return spring, replacement
+stock, new driver, or power rail is priced.
+
+Owner and handoff: **DES-003 mechanical/controls owner**, with Cost & Sourcing
+support. Cheapest reader falsifier: one-head dimensioned E-018
+XY/Z/optical/cable/timing/calibration overlay. Cheapest actuator falsifier:
+one exact Olimex 1:1 tab/stop drawing plus DRV8833 current/duty/thermal
+calculation. These actions may promote or reject HOLDs; they do not authorize
+procurement or CAD release.
