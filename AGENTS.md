@@ -7,3 +7,5 @@ Distinguish sourced facts, assumptions, calculations, simulations, CAD, and phys
 After experiments, distill conclusions and remove scaffolding with `./repo finish`; Git history is the archive. Keep source and irreplaceable evidence; remove reproducible output.
 No README, CONTRIBUTING, indexes, project-management documents, or engineering CI. Run `./repo check` and relevant engineering checks locally.
 Change AGENTS.md only for instructions important to essentially all future agents in its scope. Never add findings, current status, or temporary task rules.
+
+DON'T FORGET TO MERGE BRANCHES WHEN FINISHED
