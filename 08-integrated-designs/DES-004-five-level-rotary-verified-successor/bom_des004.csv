@@ -1,0 +1,12 @@
+scenario,row_type,line,qty,unit_usd,ext_usd,evidence,price_basis,source_or_note
+baseline,component,Existing DES-003 purchased BOM,1,370.00,370.00,sourced-allowance,DES-003 bom_a1.csv subtotal,08-integrated-designs/DES-003-reliability-first/bom_a1.csv
+nominal,component,Existing DES-003 purchased BOM reused,1,370.00,370.00,inferred-reuse,No new purchase for retained gantry motors guides electronics 8 writer/reader positions,DES-003 bom_a1.csv
+nominal,component,Metal rotor axle pins,6400,0.020,128.00,estimate,Target bulk-cut/debur allowance; supplier quote and availability unresolved,6400 cells x 1 axle
+nominal,subtotal,Nominal DES-004 purchased total,1,498.00,498.00,calculation,370.00 + 128.00,Calculated scenario total; exclude subtotal rows when summing components
+conservative,component,Existing DES-003 purchased BOM reused,1,370.00,370.00,inferred-reuse,Same retained purchased system as nominal,DES-003 bom_a1.csv
+conservative,component,Metal rotor axle pins installed,6400,0.050,320.00,estimate,Small-quantity cut/debur allowance; supplier quote and availability unresolved,6400 cells x 1 axle
+conservative,component,Service writer actuator spare,1,9.00,9.00,sourced-allowance,Same class as DES-003 writer toggle actuator,DES-003 bom_a1.csv
+conservative,component,Service reader head spare,1,12.00,12.00,sourced-allowance,Same class as DES-003 reader head,DES-003 bom_a1.csv
+conservative,component,Service driver module spare,1,2.00,2.00,sourced-allowance,Same class as DES-003 DRV8833-class module,DES-003 bom_a1.csv
+conservative,component,Axle scrap/service stock,320,0.050,16.00,estimate,5% quantity allowance; order quantity is 6720 pins total, supplier quote and availability unresolved,6400 installed + 320 spare/scrap
+conservative,subtotal,Conservative DES-004 purchased total,1,729.00,729.00,calculation,370.00 + 320.00 + 9.00 + 12.00 + 2.00 + 16.00,Calculated scenario total; exclude subtotal rows when summing components

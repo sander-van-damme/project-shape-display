@@ -1,0 +1,25 @@
+// Single source of truth for the repaired A-010 carriage datum, mm.
+state_pitch = 0.80;
+state_count = 5;
+follower_d = 1.20;
+gate_window = 3.00;
+stop_bore = 1.60;
+shoulder_d = 3.00;
+shoulder_t = 0.35;
+gate_z = 0.40;
+gate_t = 0.40;
+stop_z = 1.20;
+stop_t = 0.30;
+guide_x = 4.50;
+guide_y = 4.90;
+slider_x = 4.20;
+slider_y = 4.60;
+carriage_x = 4.00;
+carriage_y = 0.42;
+guide_z0 = 0.00;
+guide_z1 = 1.50;
+writer_approach = 0.20;
+tab_engagement = 0.60;
+frame = 40.00;
+cartridge = 30.48;
+state_y = [for (i=[0:state_count-1]) (i-(state_count-1)/2)*state_pitch];
