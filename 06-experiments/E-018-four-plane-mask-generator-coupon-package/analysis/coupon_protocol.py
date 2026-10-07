@@ -2,6 +2,8 @@
 import argparse
 
 PITCH=5.08; N=5; APERTURE=3.0; FRAME=40.0; FID_OFFSET=15.0
+PLANE_Y=34.0; PLANE_T=0.8; PLANE_GAP=1.2; FRAME_T=3.0
+PORT_T=1.0; WRITER_INSERTION=1.0; READER_STANDOFF=2.0; READER_BODY_T=4.0
 CASES=("all_zero","all_four","checkerboard","single_corner","single_centre",
        "plane_complements","cross_neighbour","walking_one")
 REQUIRED={"cycle_id","map_case","plane","commanded_25bit","readback_25bit",
@@ -13,9 +15,21 @@ def check():
     field_span=N*PITCH
     assert round(field_span,2)==25.4 and round(PITCH-APERTURE,2)==2.08
     assert round(FRAME-field_span,2)==14.6 and FID_OFFSET>field_span/2
+    tab_outer=-PLANE_Y/2-PORT_T
+    tab_inner=-PLANE_Y/2
+    tongue_outer=-PLANE_Y/2-PORT_T
+    tongue_inner=tongue_outer+PORT_T
+    writer_overlap=min(tab_inner,tongue_inner)-max(tab_outer,tongue_outer)
+    assert writer_overlap >= WRITER_INSERTION
+    assert writer_overlap > 0
+    upper_top=FRAME_T+3*(PLANE_T+PLANE_GAP)+PLANE_T
+    reader_bottom=upper_top+READER_STANDOFF
+    assert reader_bottom > upper_top
+    assert READER_BODY_T > 0 and READER_STANDOFF > 0
     assert len(CASES)==8 and 20*len(CASES)<=1000 and len(REQUIRED)==19
     print("E-018 analytical checks passed")
     print(f"field_span_mm={field_span:.2f} aperture_web_mm={PITCH-APERTURE:.2f}")
+    print(f"writer_overlap_mm={writer_overlap:.2f} reader_clearance_mm={reader_bottom-upper_top:.2f}")
     print(f"adversarial_cases={len(CASES)} minimum_cycles=1000 required_fields={len(REQUIRED)}")
 
 if __name__=="__main__":

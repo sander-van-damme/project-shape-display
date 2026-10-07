@@ -6,6 +6,7 @@ PLANE_X=34; PLANE_Y=34; PLANE_T=0.8; PLANE_GAP=1.2;
 APERTURE=3; FID_D=2; FID_OFFSET=15; DATUM_W=2; DATUM_L=6;
 PORT_W=4; PORT_T=1; PORT_H=0.8; PORT_X=-10.16;
 READER_STANDOFF=2; DUMMY_T=2;
+WRITER_INSERTION=1.0; READER_BODY_T=4;
 function cell(i)=(i-(N-1)/2)*PITCH;
 function plane_z(p)=FRAME_T+0.5+p*(PLANE_T+PLANE_GAP);
 
@@ -29,10 +30,14 @@ module plane(p=0) {
         cube([PORT_W,PORT_T,PLANE_T],center=true);
 }
 module writer_interface() for (p=[0:3])
-        translate([PORT_X,-FRAME_Y/2-PORT_T/2,plane_z(p)])
+        // Tongue has positive overlap with the matching plane tab.
+        translate([PORT_X,-PLANE_Y/2-PORT_T/2,plane_z(p)])
         cube([PORT_W,PORT_T,PORT_H],center=true);
-module reader_target() translate([0,0,FRAME_T+4*PLANE_T+3*PLANE_GAP+READER_STANDOFF])
-    difference() { cube([8,8,4],center=true); translate([0,0,-2+READER_STANDOFF]) cube([APERTURE,APERTURE,0.4],center=true); }
+function top_plane_z()=plane_z(3)+PLANE_T/2;
+function reader_bottom_z()=top_plane_z()+READER_STANDOFF;
+module reader_target() translate([0,0,reader_bottom_z()+READER_BODY_T/2])
+    // Lower face is above the upper carrier; window is at that face.
+    difference() { cube([8,8,READER_BODY_T],center=true); translate([0,0,-READER_BODY_T/2+0.2]) cube([APERTURE,APERTURE,0.4],center=true); }
 module dummy_neighbour(side="N") {
     if (side=="N") translate([0,FRAME_Y,DUMMY_T/2]) cube([FRAME_X,FRAME_Y,DUMMY_T],center=true);
     if (side=="S") translate([0,-FRAME_Y,DUMMY_T/2]) cube([FRAME_X,FRAME_Y,DUMMY_T],center=true);

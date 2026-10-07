@@ -1,8 +1,5 @@
 ---
-status: active
----
----
-status: active
+status: complete
 builds-on: [E-018]
 ---
 
@@ -19,48 +16,41 @@ hardware-performance claim is made.
 
 Source: `06-experiments/E-018-four-plane-mask-generator-coupon-package/cad/four_plane_mask_coupon.scad`.
 
-The plane tab occupies, in Y,
+The repaired plane tab occupies, in Y,
 
 ```
-plane tab:       -PLANE_Y/2 - PORT_T/2 +/- PORT_T/2 = [-17.9, -16.9] mm
-writer tongue:   -FRAME_Y/2 - PORT_T/2 +/- PORT_T/2 = [-21.0, -20.0] mm
+plane tab:       -PLANE_Y/2 - PORT_T/2 +/- PORT_T/2 = [-18.0, -17.0] mm
+writer tongue:   -PLANE_Y/2 - PORT_T/2 +/- PORT_T/2 = [-18.0, -17.0] mm
 ```
 
-Therefore the tab and its matching writer tongue have a **3.0 mm air gap**;
-their solids do not touch. The E-018 interface instead declares 1.00 mm
-nominal insertion. This is a direct geometry contradiction, not tolerance
-uncertainty. The four channels consequently cannot engage the four carriers
-in the exported assembly, so the parallel-write and plane-isolation gates
-cannot be exercised by this coupon as currently defined.
+Therefore the tab and its matching writer tongue have **1.00 mm positive
+overlap** in Y, matching the declared nominal insertion. This is a coordinate
+repair; it does not claim a physical force/stroke margin.
 
-There is a second static stack conflict. `plane_z(3)` places the upper plane
+The repaired stack uses `plane_z(3)` to place the upper plane
 at centre z = 9.5 mm, with its 0.8 mm thickness ending at z = 9.9 mm.
-`reader_target()` places its 4 mm body from z = 9.8 to 13.8 mm, overlapping
-the upper plane by 0.1 mm. Its subtractive 3 x 3 x 0.4 mm window is centred at
-the reader body's local z = 0, i.e. world z = 11.8 mm, so it is not a window
-at the top-plane surface. This makes the stated 2.00 mm reader standoff
-ambiguous and, as modelled, mechanically intersecting rather than a verified
-readout interface.
+`reader_target()` now places its 4 mm body from z = 11.9 to 15.9 mm, giving
+2.00 mm clearance above the carrier. Its subtractive 3 x 3 x 0.4 mm window is
+at the lower face, centred over the frame/plane centre aperture.
 
-The existing checks pass because `analysis/coupon_protocol.py --check`
-checks field span, web, fiducial placement, case count, and required log
-fields; it does not check writer-to-tab overlap or reader-plane clearance.
-OpenSCAD export also completes with a non-manifold warning, so export success
-is not a substitute for these interface checks.
+`analysis/coupon_protocol.py --check` now checks field span, web, fiducial
+placement, writer overlap, reader clearance, case count, and required log
+fields. OpenSCAD export completes with a pre-existing non-manifold warning;
+export success remains supplementary to the coordinate assertions.
 
 ## Verdict and smallest corrective requirement
 
-**Gate failure: reject E-018 as an executable writer/readout coupon until
-geometry is repaired.** Preserve the four-plane boundary claim as conditional;
-this finding does not falsify the architecture itself.
+**Original gate failure repaired analytically.** The CAD now places each writer
+tongue over its matching tab with 1.00 mm positive overlap, and places the
+reader body 2.00 mm above the upper carrier with its 3 x 3 mm window at the
+lower face over the centre aperture. The protocol check asserts both
+relationships and passes. Preserve the four-plane boundary claim as
+conditional: this static repair does not establish physical engagement,
+reader discrimination, or architecture performance.
 
-The smallest correction is to revise the CAD and protocol together so that
-each writer tongue has a documented positive overlap/insertion with its tab
-(at least the declared 1.00 mm, with a non-interfering parked state), and to
-define a reader datum/surface with positive clearance from the upper carrier
-and a window actually aligned to the selected aperture. Add deterministic
-assertions for those conditions to the E-018 analytical check, then rerun the
-CAD export and check before any physical coupon is fabricated.
+The corrective CAD/protocol revision is complete. Physical engagement,
+non-interference under actuation, reader alignment margin, and reader
+classification remain future tests before fabrication approval.
 
 ## Remaining bounded risks
 

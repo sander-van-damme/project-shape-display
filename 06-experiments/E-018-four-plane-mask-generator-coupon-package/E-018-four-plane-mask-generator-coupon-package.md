@@ -133,12 +133,14 @@ registration, discrimination, wear, or neighbour loading.
 
 ## Disposition and unresolved assumptions
 
-Analytical status: **definition checks pass; interface gate failed in E-019;
-no physical result**. E-019's static CAD audit found a 3.0 mm gap between
-each declared writer tongue and its plane tab, despite the 1.0 mm insertion
-interface, plus an unresolved reader-target overlap/alignment conflict. The
-coupon is not fabrication-ready until those CAD/protocol conditions are
-repaired and asserted by the analytical check. Unresolved assumptions remain
+Analytical status: **interface geometry repaired; definition checks pass; no
+physical result**. The writer tongue now shares a 1.00 mm Y overlap with its
+matching plane tab at every plane, while retaining the 4 x 1 x 0.8 mm tongue
+envelope. The reader body lower face is 2.00 mm above the upper carrier, and
+its 3 x 3 mm window is placed at that lower face over the selected centre
+aperture. `analysis/coupon_protocol.py --check` now asserts positive writer
+overlap at least 1.00 mm and positive reader clearance; these are CAD/
+coordinate checks, not physical engagement or read validation. Unresolved assumptions remain
 the rewritable medium construction, shutter force/stroke, reader technology
 and confidence metric, clamp preload, process spread, and whether 0.20 mm is
 achievable after reseat. These require physical evidence.
