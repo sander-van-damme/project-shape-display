@@ -137,3 +137,72 @@ between the reuse low/high cases before any CAD or purchase decision.
 Source observations are linked above; all other prices are explicitly
 allowances or inherited calculations. Analytical acceptance in E-017/E-018
 does not establish hardware performance.
+
+## LAB-134 cost and sourcing refresh
+
+Date basis: 2026-10-07. E-043 independently rechecked the E-022 boundary,
+timing arithmetic, and cost arithmetic. No supplier quote, procurement record,
+physical measurement, actuator force/life result, or reader-performance result
+was added. This refresh therefore preserves E-022 as the canonical purchased-
+component baseline and does not promote A-011 to integration or procurement.
+
+### Canonical BOM and reproducible floor
+
+The inherited DES-003 shared-machine term remains **$370.00**. It is not a
+mask-generator-only cost and is counted once. The incremental boundary BOM is
+the five-plane reusable medium, local clamp/datum/fiducials, four writer
+actuators, two DRV8833 ICs, one SC0915 controller, eight example interface
+cables, and cleaning/replacement stock. The fallback reader rows are an
+alternative path, not additive to inherited-reader reuse.
+
+| Scenario | Reproducible calculation | Purchased total | Price classification |
+|---|---|---:|---|
+| Inherited-reader reuse / low | `370 + 20 + 15 + 8 + 36 + 4.38 + 4.59 + 18.32 + 10` | **$486.29** | Allowances plus catalogue observations; reuse gates open |
+| Inherited-reader reuse / base | `370 + 60 + 35 + 20 + 60 + 4.38 + 4.59 + 18.32 + 30` | **$602.29** | Same; canonical planning midpoint, not a quote |
+| Inherited-reader reuse / high | `370 + 150 + 80 + 50 + 120 + 4.38 + 4.59 + 18.32 + 75` | **$872.29** | Same; unresolved media/actuator/clamp span remains |
+| Fallback reader / low | `486.29 + 6.40 + 2.90 + 10` | **$505.59** | Alternative QRE1113/ADC/carrier path |
+| Fallback reader / base | `602.29 + 6.40 + 2.90 + 20` | **$631.59** | Alternative path; no reader reuse assumed |
+| Fallback reader / high | `872.29 + 6.40 + 2.90 + 40` | **$921.59** | Alternative path; corrected controller arithmetic |
+
+The observed catalogue subset is **$36.59** (`2 x $2.19` DRV8833,
+`1 x $4.59` SC0915, `1 x $2.90` MCP3008, `8 x $0.80` QRE1113, and
+`8 x $2.29` example cables). The QRE1113 and MCP3008 values are excluded from
+the reuse totals; they are only fallback-reader terms. Digi-Key/Pololu listing
+prices and captured stock figures in this document are catalogue observations,
+not live availability guarantees, delivered prices, or compatibility evidence.
+All media, clamp, actuator, reader-carrier, and service values remain
+allowances. Freight, tax, labour, payment fees, and 3D-printed parts remain
+excluded.
+
+### LAB-134 disposition
+
+**Product boundary: GO analytically / HOLD for integration.** A reusable,
+rewritable four-plane medium with parallel writing, registration, verification,
+bounded retry, and service stock remains the minimum complete arbitrary-map
+boundary. Prepared-mask, cassette-only, buffered, and serial alternatives are
+REJECTED as substitutes: they either cannot create an unseen map or violate
+the inherited timing boundary.
+
+**Purchased BOM: HOLD; RFQ-ready, not procurement-ready.** The reuse range is
+the preferred cost path only if all eight reader overlays/gates and the exact
+four-actuator interface close. The fallback range is a contingency, not a
+saving, and must not be added to the reuse case. No cost pass is granted from
+catalogue observations or optimistic bulk pricing.
+
+The preferred reductions remain removal/simplification of purchased terms:
+reuse the inherited reader heads after the E-018 overlay and retain local
+clamping rather than adding cassette transport. These reduce unique parts and
+assembly, but increase dependence on optical margin, datum repeatability,
+debris control, and service access. Removing readback or serializing the
+writer would reduce apparent cost while sacrificing fault observability or
+breaking timing, so both remain rejected. Thin etched/polymer media and the
+$3.34 Olimex actuator observation remain experiment/quote candidates only;
+their wear, fit, force, return, life, stop, thermal, and availability evidence
+is not closed.
+
+Next owner: **DES-003 mechanical/controls owner**, with Cost & Sourcing.
+Return one controlled RFQ/data package for five media planes, one
+clamp/fiducial set, and four exact actuators, plus the eight-head E-018
+overlay/timing/calibration record. Until that package exists, retain the
+canonical ranges above, keep A-011 as candidate/HOLD, and do not purchase or
+integrate.
