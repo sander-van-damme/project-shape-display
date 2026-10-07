@@ -6,10 +6,14 @@ builds-on: [E-033]
 
 ## Verdict
 
-**REPAIRED nominal package passes the requested CAD/prose gate.** The gate
-cut is through the 0.40 mm slider, the Ø1.20 follower passes a 1.60 mm stop
-bore, and the Ø3.00 shoulder bears on the stop-plate top land at z=2.00 mm.
-This is CAD/calculation evidence only, not physical-performance validation.
+**FAIL for the claimed five-state/load-path gate; PASS only for the narrow
+S2 section shown by the repaired CAD.** The gate cut is through the 0.40 mm
+slider, the Ø1.20 follower passes the centered 1.60 mm stop bore, and the
+Ø3.00 shoulder bears on the stop-plate top land at z=2.00 mm. However, the
+CAD/prose package does not show a compatible load path for S0/S1/S3/S4:
+the follower and stop bore are centered while the slider aperture is claimed
+to move by up to ±1.60 mm. This is CAD/calculation evidence only, not
+physical-performance validation.
 
 ## Reproduction
 
@@ -26,7 +30,7 @@ openscad --export-format binstl -o /dev/null .../cad/a010_insert_gate.scad
 exit 0; valid 3D object
 
 ./repo check
-OK: 103 objects; structure and builds-on references valid
+OK: 104 objects; structure and builds-on references valid
 ```
 
 No physical testing or measurement was performed. The first result is
@@ -67,23 +71,44 @@ structure check.
    overlaps the surrounding top land. The gate slider is below the upper guide
    and is not in this vertical reaction chain.
 
-3. **Five-state reach/return envelope: PASS analytically; CAD representation
-   is nominal.** The checker enumerates `-1.60, -0.80, 0, +0.80, +1.60 mm`,
-   verifies 0.80 mm indexing and 3.20 mm return span, and the SCAD repeats the
-   repaired bore at every cell. This does not establish friction, stop wear,
-   or actuator capability.
+3. **Five-state reach/return envelope: FAIL as a CAD/load-path claim.** The
+   checker enumerates `-1.60, -0.80, 0, +0.80, +1.60 mm`, but this is only
+   arithmetic. The SCAD renders every slider at `state=2`, has one centered
+   stop bore per cell, and contains no five-stop geometry or lateral follower
+   motion. For a fixed follower in the 3.00 mm square aperture, the maximum
+   full-clearance centre offset is `3.00/2 - 1.20/2 = 0.90 mm`; S0/S4 claim
+   `1.60 mm`, a calculated `0.70 mm` shortfall. The follower therefore
+   contacts the gate face/corner before those states can pass. This is a
+   geometry contradiction, not a friction or actuator uncertainty.
 
 4. **Writer and datum claims are not falsifiable from this SCAD.** No W0
    channel, tongue, 0.60 mm tab engagement, parking location, 0.20 mm parked
    clearance, D+ rail, south clamp, or removal/lift envelope is modeled. The
    Python script checks their declared scalar inputs only.
 
+## Independent gate verdicts
+
+| Gate | Verdict | Evidence boundary / rejection reason |
+|---|---|---|
+| Through aperture at represented S2 | PASS | SCAD subtraction is 3.00 x 3.00 x 0.44 mm through the 0.40 mm slider; CAD-derived. |
+| Fixed follower clearance through all five claimed states | **FAIL** | Calculated 0.70 mm extreme-state shortfall; S0/S4 are not represented in SCAD. |
+| Five indexed stop identities and return | **FAIL** | Script enumerates positions only; SCAD has one centered stop bore per cell and no five-stop geometry. |
+| S2 shoulder-to-stop load bypass | PASS, nominal only | Centered Ø3.00 shoulder over the z=2.00 top land is shown; no force, tilt, compliance, or contact-stress calculation. |
+| Writer, W0, datum, service/removal envelope | **UNRESOLVED** | Scalar assertions exist, but the SCAD contains none of these interfaces or the stated 2.60 mm lift path. |
+| Fabrication, wear, timing, isolation, reader performance | **UNRESOLVED** | No physical measurements or process/force inputs; outside analytical closure. |
+
+The prior broad PASS disposition is rejected. Integration must not cite E-034
+as closing A-010 state reach/load separation until the state architecture is
+redefined and rechecked. If the intended mechanism unloads and laterally
+repositions the post, that is a new mechanism definition requiring a modeled
+guide envelope, actuator path, and revised load-path proof.
+
 ## Disposition and remaining gates
 
-The repaired package is accepted for nominal CAD/calculation falsification:
-through aperture PASS; follower clearance PASS; shoulder/stop load bypass PASS;
-five-state reach/return envelope PASS analytically. Remaining physical gates
-are unresolved: fabrication/flatness, slider friction and writer force,
-shoulder contact stress and compliance, lateral disturbance, debris/wear,
-reader event chain, timing, and the E-032 measured reseat/isolation/1,000-record
-tests. No physical validation or procurement claim is made.
+The repaired package is rejected for the claimed five-state integration gate.
+Only the represented S2 through-aperture and centered shoulder/stop bypass
+pass nominally. Remaining gates are unresolved: fabrication/flatness, slider
+friction and writer force, shoulder contact stress and compliance, lateral
+disturbance, debris/wear, reader event chain, timing, and the E-032 measured
+reseat/isolation/1,000-record tests. No physical validation or procurement
+claim is made.
