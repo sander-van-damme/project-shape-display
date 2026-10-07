@@ -1,5 +1,6 @@
 Keep context/output minimal; create only durable engineering knowledge, required product source, or genuinely reusable tools.
 Use `./repo help`, `ls`, `find`, `get`, and `refs`; do not inspect or modify its source unless explicitly tasked with repository tooling. Allocate IDs with `./repo new`.
+Use `./worktree help` for task-worktree lifecycle. Keep the canonical checkout on `main`; managed task worktrees live in the sibling `<repo>-worktrees` directory. Do not manually switch, reuse, or remove managed worktrees; use the helper unless explicitly tasked with repository tooling.
 
 The 01–08 roots are lifecycle stages; do not add numbered roots. Knowledge lives under 03; candidates in 04, questions in 05, experiments in 06, decisions in 07, integrated product source in 08.
 Keep objects atomic with semantic ID-bearing filenames. Metadata: only `status` and optional `builds-on: [ID, ID]`; point backward to material inputs, never maintain reverse links.

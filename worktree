@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+"""Conservative Git worktree helper; Python standard library only."""
+import argparse
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+
+def run_git(args, cwd, *, capture=True, check=True):
+    return subprocess.run(
+        ["git", *args],
+        cwd=cwd,
+        text=True,
+        capture_output=capture,
+        check=check,
+    )
+
+
+def fail(message):
+    raise ValueError(message)
+
+
+def git_common_root(start):
+    result = run_git(["rev-parse", "--path-format=absolute", "--git-common-dir"], start)
+    common = Path(result.stdout.strip())
+    if not common.is_absolute():
+        common = (start / common).resolve()
+    common = common.resolve()
+    if common.name != ".git":
+        fail(f"Expected shared Git directory named .git; got {common}")
+    return common.parent
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = git_common_root(SCRIPT_DIR)
+WORKTREE_ROOT = ROOT.parent / f"{ROOT.name}-worktrees"
+
+HELP = f"""Usage: ./worktree COMMAND
+  help                              Show this guide
+  new TASK \"short name\"           Create task branch/worktree from latest origin/main
+  ls                                List managed task worktrees
+  get TASK                          Print exactly one managed worktree path for TASK
+  close TASK                        Remove a clean task worktree already integrated into main
+  check                             Check canonical checkout and managed worktree hygiene
+
+Canonical checkout: {ROOT}
+Managed worktrees:  {WORKTREE_ROOT}
+
+Branches created by this tool use task/<task>-<slug>. close never merges, resets,
+stashes, cleans, or deletes remote branches. It refuses dirty or unintegrated work.
+"""
+
+
+def normalize_task(value):
+    value = value.strip()
+    normalized = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-.")
+    if not normalized:
+        fail("TASK must contain letters or numbers")
+    if normalized in {"main", "master"}:
+        fail("TASK must not be a protected branch name")
+    return normalized
+
+
+def slugify(value):
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    if not slug:
+        fail("Short name must contain letters or numbers")
+    return slug
+
+
+def worktrees():
+    result = run_git(["worktree", "list", "--porcelain"], ROOT)
+    rows = []
+    current = {}
+    for line in result.stdout.splitlines() + [""]:
+        if not line:
+            if current:
+                rows.append(current)
+                current = {}
+            continue
+        key, _, value = line.partition(" ")
+        if key in {"worktree", "HEAD", "branch"}:
+            current[key] = value
+        else:
+            current[key] = True if not value else value
+    return rows
+
+
+def managed_rows():
+    parent = WORKTREE_ROOT.resolve()
+    rows = []
+    for row in worktrees():
+        path = Path(row["worktree"]).resolve()
+        if path.parent == parent:
+            rows.append(row)
+    return rows
+
+
+def resolve_task(task):
+    key = normalize_task(task).casefold()
+    matches = []
+    for row in managed_rows():
+        path = Path(row["worktree"])
+        branch = row.get("branch", "")
+        short_branch = branch.removeprefix("refs/heads/")
+        suffix = short_branch.removeprefix("task/")
+        names = {path.name.casefold(), suffix.casefold()}
+        if any(name == key or name.startswith(key + "-") for name in names):
+            matches.append(row)
+    if len(matches) != 1:
+        fail(f"Expected exactly one managed worktree for {task}; found {len(matches)}")
+    return matches[0]
+
+
+def canonical_status_errors():
+    errors = []
+    branch = run_git(["branch", "--show-current"], ROOT).stdout.strip()
+    if branch != "main":
+        errors.append(f"Canonical checkout is on {branch or 'detached HEAD'}, expected main")
+    status = run_git(["status", "--porcelain", "--untracked-files=all"], ROOT).stdout
+    if status:
+        errors.append("Canonical checkout has staged, modified, or untracked files")
+    return errors
+
+
+def cmd_new(args):
+    task = normalize_task(args[0])
+    slug = slugify(args[1])
+    name = f"{task}-{slug}"
+    branch = f"task/{name}"
+    path = WORKTREE_ROOT / name
+
+    if path.exists():
+        fail(f"Worktree path already exists: {path}")
+    branch_exists = run_git(["show-ref", "--verify", "--quiet", f"refs/heads/{branch}"], ROOT, check=False)
+    if branch_exists.returncode == 0:
+        fail(f"Local branch already exists: {branch}")
+
+    WORKTREE_ROOT.mkdir(parents=True, exist_ok=True)
+    run_git(["fetch", "--prune", "origin", "main"], ROOT)
+    run_git(["rev-parse", "--verify", "origin/main"], ROOT)
+    remote_exists = run_git(["ls-remote", "--exit-code", "--heads", "origin", branch], ROOT, check=False)
+    if remote_exists.returncode == 0:
+        fail(f"Remote branch already exists: origin/{branch}")
+
+    run_git(["branch", "--no-track", branch, "origin/main"], ROOT)
+    try:
+        run_git(["worktree", "add", str(path), branch], ROOT)
+    except Exception:
+        run_git(["branch", "-D", branch], ROOT, check=False)
+        raise
+    print(path)
+
+
+def cmd_ls():
+    rows = managed_rows()
+    if not rows:
+        return
+    for row in rows:
+        path = row["worktree"]
+        branch = row.get("branch", "(detached)").removeprefix("refs/heads/")
+        print(f"{branch}  {path}")
+
+
+def cmd_get(args):
+    print(resolve_task(args[0])["worktree"])
+
+
+def cmd_close(args):
+    row = resolve_task(args[0])
+    path = Path(row["worktree"]).resolve()
+    branch_ref = row.get("branch")
+    if not branch_ref or not branch_ref.startswith("refs/heads/task/"):
+        fail(f"Refusing to close non-task branch worktree: {branch_ref or 'detached HEAD'}")
+    branch = branch_ref.removeprefix("refs/heads/")
+    if Path.cwd().resolve() == path:
+        fail("Refusing to remove the current working directory; run close from the canonical checkout")
+    expected_name = branch.removeprefix("task/")
+    if path.parent != WORKTREE_ROOT.resolve() or path.name != expected_name:
+        fail(f"Worktree path/branch mismatch: {path} vs {branch}")
+
+    status = run_git(["status", "--porcelain", "--untracked-files=all"], path).stdout
+    if status:
+        fail(f"Worktree is dirty: {path}")
+
+    integrated = run_git(["merge-base", "--is-ancestor", branch, "main"], ROOT, check=False)
+    if integrated.returncode != 0:
+        fail(f"Branch is not fully contained in main: {branch}")
+
+    run_git(["worktree", "remove", str(path)], ROOT)
+    run_git(["branch", "-d", branch], ROOT)
+    print(f"Closed {branch}")
+
+
+def cmd_check():
+    errors = canonical_status_errors()
+    registered = {Path(row["worktree"]).resolve(): row for row in managed_rows()}
+
+    if WORKTREE_ROOT.exists():
+        for child in sorted(WORKTREE_ROOT.iterdir()):
+            if child.resolve() not in registered:
+                errors.append(f"Unregistered path under worktree root: {child}")
+
+    for path, row in sorted(registered.items(), key=lambda item: str(item[0])):
+        branch_ref = row.get("branch")
+        if not branch_ref or not branch_ref.startswith("refs/heads/task/"):
+            errors.append(f"Managed worktree is not on a task branch: {path}")
+            continue
+        branch = branch_ref.removeprefix("refs/heads/")
+        if path.name != branch.removeprefix("task/"):
+            errors.append(f"Worktree path/branch mismatch: {path} vs {branch}")
+
+    prune = run_git(["worktree", "prune", "--dry-run", "--verbose"], ROOT)
+    if prune.stdout.strip() or prune.stderr.strip():
+        details = (prune.stdout + prune.stderr).strip().replace("\n", "; ")
+        errors.append(f"Stale worktree metadata: {details}")
+
+    for error in errors:
+        print(error, file=sys.stderr)
+    if errors:
+        return 1
+    print(f"OK: canonical main clean; {len(registered)} managed worktree(s) consistent")
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("command", nargs="?", default="help", choices=("help", "new", "ls", "get", "close", "check"))
+    parser.add_argument("args", nargs="*")
+    options = parser.parse_args()
+    command, args = options.command, options.args
+
+    if command == "help":
+        if args:
+            fail("help takes no arguments")
+        print(HELP, end="")
+        return 0
+    if command == "new":
+        if len(args) != 2:
+            fail('new requires TASK and a quoted "short name"')
+        return cmd_new(args)
+    if command == "ls":
+        if args:
+            fail("ls takes no arguments")
+        return cmd_ls()
+    if command == "get":
+        if len(args) != 1:
+            fail("get requires TASK")
+        return cmd_get(args)
+    if command == "close":
+        if len(args) != 1:
+            fail("close requires TASK")
+        return cmd_close(args)
+    if command == "check":
+        if args:
+            fail("check takes no arguments")
+        return cmd_check()
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except (ValueError, OSError, subprocess.CalledProcessError) as error:
+        print(f"Error: {error}", file=sys.stderr)
+        sys.exit(1)
