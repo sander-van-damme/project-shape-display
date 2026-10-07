@@ -24,7 +24,7 @@ and boundary locations. The independent sweeps are:
 | Reader target offset | 0.00, -0.20, +0.20 mm | 3 witness rows, 150 reads each |
 
 The plan therefore contains 42 rows. The executable plan and result contract
-are in `06-experiments/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix/`.
+are in `tools/fdm-critical-fit-calibration/`.
 Every physical result must identify printer/nozzle/layer/filament lot,
 slicer profile hash, XY and elephant-foot compensation, orientation and part
 ID. Dimensions are measured at three clock positions after 30 minutes at room

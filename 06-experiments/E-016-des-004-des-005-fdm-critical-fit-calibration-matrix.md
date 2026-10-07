@@ -105,7 +105,7 @@ smoke/falsification test.
 From the repository root:
 
 ```sh
-python3 06-experiments/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix/fit_calibration_matrix.py --plan
+python3 tools/fdm-critical-fit-calibration/fit_calibration_matrix.py --plan
 python3 08-integrated-designs/DES-004-five-level-rotary-verified-successor/analysis/des004_rotor_coupon_fit_gate.py
 openscad --export-format binstl -o /dev/null -D 'part="frame"' 08-integrated-designs/DES-004-five-level-rotary-verified-successor/cad/des004_rotor_coupon_5x5.scad
 ```
@@ -129,7 +129,7 @@ as a provisional pass. Summary range must equal maximum minus minimum and the
 mean must lie between them. The focused contract tests are run with:
 
 ```sh
-python3 -m unittest discover -s 06-experiments/E-016-des-004-des-005-fdm-critical-fit-calibration-matrix -p 'test_*.py'
+python3 -m unittest discover -s tools/fdm-critical-fit-calibration -p 'test_*.py'
 ```
 
 ## Analytical execution record (LAB-98)
