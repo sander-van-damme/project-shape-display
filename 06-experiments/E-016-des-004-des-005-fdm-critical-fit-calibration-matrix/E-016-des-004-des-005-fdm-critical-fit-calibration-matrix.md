@@ -55,8 +55,11 @@ For each of the 3 pocket levels and 3 bore levels, print one centre and one
 boundary rotor position. Apply the 3 writer levels to separate writer samples
 and the 3 reader offsets to the fixed reader target. This is 9 rotor/bore
 combinations × 2 locations × 2 orientations, with writer and reader witnesses
-shared across combinations. No 3^4 Cartesian explosion is needed: interfaces
-are calibrated independently, then selected rows are assembled once.
+shared across combinations: 36 rotor rows + 3 writer rows + 3 reader rows = 42
+planned rows. The executable `--plan` output labels each row with article,
+test type, orientation, location, swept values, and attempt count. No 3^4
+Cartesian explosion is needed: interfaces are calibrated independently, then
+selected rows are assembled once.
 
 Record nozzle diameter, layer height, line width, wall/top/bottom counts,
 temperatures, speed, flow and XY compensation, elephant-foot compensation,
@@ -86,6 +89,8 @@ binding; no rotor/frame or vane/neighbour contact; zero failed writer
 engagements in 30 attempts; zero wrong reader states in 150 reads; measured
 post-fit diametral clearance ≥0.10 mm at every inspected location; writer
 clearance ≥0.20 mm in both axes; and reader aperture/target margin ≥0.20 mm.
+The result checker requires `reader_margin_mm` and applies that last gate; a
+row with no reader measurement is unresolved, not an analytical pass.
 These are provisional engineering gates, not sourced standards.
 
 Reject a row if any hard gate fails, any feature is outside the CAD envelope,
@@ -105,9 +110,22 @@ python3 08-integrated-designs/DES-004-five-level-rotary-verified-successor/analy
 openscad --export-format binstl -o /dev/null -D 'part="frame"' 08-integrated-designs/DES-004-five-level-rotary-verified-successor/cad/des004_rotor_coupon_5x5.scad
 ```
 
-The first command prints the sweep and, with `--results measured.csv`, checks
-required result columns and hard gates. The latter two are CAD/geometry checks
-only. No command can claim a part was printed or physically validated.
+The first command prints the 42-row sweep and, with `--results measured.csv`,
+checks required result columns and hard gates. The latter two are CAD/geometry
+checks only. No command can claim a part was printed or physically validated.
+
+## Analytical execution record (LAB-98)
+
+Calculated from the script and CAD gate on 2026-10-07: the plan enumerates 42
+rows (36 rotor fit rows, 3 writer rows, 3 reader rows). The independent CAD
+screen passes its assertions: nominal vane/frame clearance is 0.1046 mm and
+the assumed worst-case screen leaves 0.0546 mm; nominal axle/bore clearance is
+0.40 mm and the assumed worst-case screen leaves 0.30 mm. These are
+CAD/tolerance calculations, not printed measurements. `./repo check` remains
+non-zero because the repository checker reports pre-existing collapsed
+experiments E-013, E-019, and E-021; no E-016 structural error was emitted.
+Physical validation remains open: no coupons, dimensional measurements,
+engagement trials, loaded rotation, or reader trials exist.
 
 ## Disposition and next action
 
