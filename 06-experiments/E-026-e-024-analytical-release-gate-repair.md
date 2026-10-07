@@ -80,7 +80,8 @@ universal mechanical rejection. The E-022 actuator allowance remains
 
 ## Reproducibility and unresolved evidence
 
-Run `python3 check_e026_release_gate.py` in this directory. It checks the
+Run `python3 06-experiments/E-026-release-gate-check.py` from the repository
+root. It checks the
 corrected totals, both E-022 range endpoints, catalogue arithmetic, and the
 nominal timing/standoff calculations. The script contains only the stated
 inputs and does not model sensor performance, force, life, or hardware fit.
