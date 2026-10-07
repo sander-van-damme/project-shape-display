@@ -1,42 +1,50 @@
-// Bounded A-010: gate selects a state; a guided vertical carriage follows it.
+// Repaired A-010: x/y are the shared indexing datum; z is load axis.
 // Geometry evidence only; all dimensions are mm.
 $fn = 48;
-pitch=5.08; field=30.48; follower_d=1.20; gate_window=3.00;
-stop_bore=1.60; shoulder_d=3.00;
-states=[0,0.80,1.60,2.40,3.20];
+include <a010_carriage_params.scad>;
+field = cartridge;
+travel = state_y[len(state_y)-1] - state_y[0];
 
-module plate(z,t,c="lightgray") { color(c) translate([-field/2,-field/2,z]) cube([field,field,t]); }
-module lower_guide() {
-  difference() { plate(0,0.40,"silver");
-    for (x=[-2:2]) for (y=[-2:2]) translate([x*pitch-2.25,y*pitch-2.45,-.01]) cube([4.50,4.90,.42]); }
+module frame_plate(z,t,c="lightgray") {
+  color(c) translate([-field/2,-field/2,z]) cube([field,field,t]);
 }
-module upper_guide() {
-  difference() { plate(.80,.40,"silver");
-    for (x=[-2:2]) for (y=[-2:2]) translate([x*pitch-2.25,y*pitch-2.45,.79]) cube([4.50,4.90,.42]); }
+module guide_channel() {
+  color("silver") {
+    translate([-guide_x/2-0.40,-2.45,guide_z0]) cube([0.40,guide_y,guide_z1-guide_z0]);
+    translate([ guide_x/2,  -2.45,guide_z0]) cube([0.40,guide_y,guide_z1-guide_z0]);
+  }
 }
-module gate_slider() {
-  // S2 is shown; five apertures are vertically indexed at .80 pitch.
-  difference() { color("orange") translate([-2.30,-field/2,.40]) cube([4.60,field,.40]);
-    translate([0,0,1.99]) cube([gate_window,gate_window,.44],center=true); }
+module gate_slider(y) {
+  difference() {
+    color("orange") translate([-slider_x/2,-field/2,gate_z]) cube([slider_x,field,gate_t]);
+    translate([0,y,gate_z-0.01]) cube([gate_window,gate_window,gate_t+0.02],center=true);
+  }
 }
 module indexed_stop_plate() {
-  // Five dedicated vertical stop identities; the selected shoulder lands on one.
-  difference() { plate(1.20,.80,"lightblue");
-    for (z=states) translate([0,0,1.19+z]) cube([stop_bore,stop_bore,.82],center=true); }
+  difference() {
+    frame_plate(stop_z,stop_t,"lightblue");
+    for (y=state_y) translate([0,y,stop_z-0.01]) cube([stop_bore,stop_bore,stop_t+0.02],center=true);
+  }
 }
-module carriage_and_follower(z=1.60) {
-  color("green") translate([-2,-2,.78+z]) cube([4,4,.42]);
-  color("purple") translate([0,0,1.20+z]) cylinder(d=follower_d,h=2.00);
-  color("purple") translate([0,0,2.00+z]) cylinder(d=shoulder_d,h=.35);
+module carriage_and_load_path(y, alpha=1.0) {
+  color([0,1,0,alpha]) translate([-carriage_x/2,y-carriage_y/2,gate_z+gate_t])
+    cube([carriage_x,carriage_y,stop_z-(gate_z+gate_t)]);
+  color([0.55,0,0.75,alpha]) translate([0,y,gate_z+gate_t])
+    cylinder(d=follower_d,h=stop_z-(gate_z+gate_t)+0.02);
+  color([0.55,0,0.75,alpha]) translate([0,y,stop_z+stop_t])
+    cylinder(d=shoulder_d,h=shoulder_t);
 }
-module actuator_path() {
-  // Bidirectional writer tongue path: 3.20 indexed travel + .20 approach.
-  color("red") translate([-.50,-2,.40]) cube([1,4,.80]);
-  color("red") translate([-.70,-2,.30]) cube([1.40,.60,1.00]);
+module writer_path() {
+  color("red") translate([-0.30,state_y[0]-writer_approach,gate_z+gate_t])
+    cube([0.60,travel+2*writer_approach,0.20]);
+  color("red") translate([-0.30,state_y[0]-writer_approach,gate_z])
+    cube([0.60,tab_engagement,gate_t]);
 }
-lower_guide(); gate_slider(); upper_guide(); indexed_stop_plate();
-// Transparent overlays expose the follower/shoulder envelope for every state;
-// the opaque S2 instance above is the nominal section used for the load path.
-for (z=states) color([0,1,0,0.18]) carriage_and_follower(z);
-carriage_and_follower(1.60); actuator_path();
-for (z=states) color("black") translate([-5.8,0,2.0+z]) cube([.5,.08,.08]);
+guide_channel();
+frame_plate(0,0.20,"gray");
+indexed_stop_plate();
+gate_slider(state_y[2]);
+carriage_and_load_path(state_y[2]);
+for (i=[0:state_count-1]) if (i != 2) carriage_and_load_path(state_y[i],0.18);
+writer_path();
+for (y=state_y) color("black") translate([-3.0,y,0.02]) cube([0.20,0.08,0.08]);
