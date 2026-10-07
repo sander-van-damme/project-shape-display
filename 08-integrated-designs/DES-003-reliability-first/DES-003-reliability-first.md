@@ -13,6 +13,11 @@ Cost: the corrected eight-head CSV totals $370 purchased / $429.20 with ×1.16 d
 Capability: the placed latch has only two states, 0 and 40 mm, while the product analyses require five terrain levels at 0/10/20/30/40 mm. DES-003 therefore cannot satisfy the intended five-level map workload as drawn. Retain it only as a binary reliability/readback reference; a product baseline needs a qualified five-level mechanism.
 Audit corrections: nominal latch-lane margin is +0.09 mm but the stated worst-case tolerance stack is -0.11 mm, so fit is unresolved rather than validated. The 7.14 N snap-force value is a maximum mean (`10 N / 1.4`), not a minimum. The 406.4 mm full field does not fit the 256 mm X1C bed; only the 210 mm modular rail segments do. Several features are at the assumed print floor and the 1 mm printed hinge pin fails the sourced 5 mm pin rule.
 
+Historical gate record: the earlier base estimate was $181 purchased / $209.96
+delivered. The binary latch has only 0 mm and 40 mm states and therefore fails
+the required five-level terrain gate; it is retained only as a binary
+reliability/readback reference.
+
 Source: `analysis/reliability_mask.py` models architecture comparisons; `a1_writer_rate.py` models writer/reader rates and optical geometry; `a1_regional_update.py` models local isolation; `a1_promotion_timing.py`, `a1_promotion_cost.py`, `a1_hardening.py` expose conservative sensitivities. `scad/` contains latch, reader and prototype coupons. `bom_a1.csv` holds the base BOM.
 
 Fit calibration: `analysis/a1_coupon_calibration.md` and `scad/a1_coupon_calibration.scad` provide the reproducible Q-009 coupon and blank measurement sheet.
