@@ -78,3 +78,12 @@ complete channel needs actual price and loaded-motion evidence; a shared-energy
 selector needs an explicit capture/release/support-proof critical path within
 E-051's dwell gate. Stop layout of these catalog-servo embodiments; their
 rejection does not generalize to all suppliers or shared actuation.
+
+E-051's finite-contact extension excludes its 160-head half-weight-margin
+profile with the E-052 1.22-mm pawl stroke when lateral acceleration is
+≤50 m/s² and the stroke must occur at rest. At 20 m/s², that stroke alone
+raises map time to 32.241 s. Required acceleration exceeds 55.295 m/s² before
+grip/unload/proof; this is a bounded scenario, not measured actuator capability.
+Unloaded operation remains conditional. Next realize an affordable explicit
+selector/support-transfer sequence; overlapping stroke with travel requires
+a changed mechanism and cannot inherit the stop-at-contact timing pass.

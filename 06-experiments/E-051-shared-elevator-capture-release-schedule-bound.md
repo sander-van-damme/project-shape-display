@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-050, Q-012, A-013]
+builds-on: [E-050, Q-012, A-013, E-052]
 ---
 
 # Shared-elevator capture/release schedule and load bounds
@@ -162,3 +162,58 @@ that can supply the asymmetric force profile. No fabrication is justified.
 Reopen the failed 75%-weight-margin scenario only with changed motion/contact
 scheduling or justified different bounds. Broader mechanism discovery remains
 open; this result selects no product architecture.
+
+## Finite pawl travel narrows the contact-time survivor
+
+Input main `58fc835`; reproduce with
+`python3 tools/curated-experiment-checks/E-051/contact_travel.py`.
+Use E-052's 1.22-mm middle-bound withdrawal witness as an explicit embodiment,
+not a universal lower bound on pawl travel. At each of the nine all-pairs sweep
+stops at least one column requires withdrawal or reinsertion. For this screen,
+that lateral stroke begins and ends at rest while the elevator is stopped.
+Different channels may operate in parallel; count only one stroke per stop,
+even when both acquisition and deposition occur. Omit grip, 0.47-mm unload,
+seating, support proof, control latency and retries. This is deliberately an
+optimistic contact bound, not a complete mechanism or BOM.
+
+Lateral acceleration is independent of vertical acceleration: test explicit
+5/20/50/100 m/s² scenarios, with 400 mm/s speed cap. These are uncertainty
+bounds, not sourced motor capability or manufacturing priors. All strokes are
+triangular, with minimum time `2 sqrt(stroke/acceleration)`. Re-solve the event
+graph at each resulting dwell; the nine-stop sweep remains optimal within the
+inherited graph. The entire row shares the bound; no independent-cell yield
+or probability is inferred.
+
+| Lateral acceleration | One stroke | Fast unloaded map | Half-weight-margin map |
+|---|---:|---:|---:|
+| 5 m/s² | 31.241 ms | 29.463 s | 37.865 s |
+| 20 m/s² | 15.620 ms | 23.839 s | 32.241 s |
+| 50 m/s² | 9.879 ms | 21.773 s | 30.175 s |
+| 100 m/s² | 6.986 ms | 20.731 s | 29.133 s |
+
+For the half-weight-margin case, strict <30 s requires lateral acceleration
+>55.295 m/s² even with every other contact operation instantaneous. At
+20 m/s², the allowed stroke is <0.4413 mm rather than 1.22 mm. At 100 m/s²,
+only 2.409 ms/event remains for all omitted operations. These are necessary
+conditions, not feasible drive specifications. The unloaded 5 m/s² case has
+only 1.492 ms/event left; a nominal pass is not acceptance.
+
+Decision: exclude the combination of this stroke, stop-at-contact sequence,
+160 heads, half-weight vertical profile and lateral acceleration ≤50 m/s².
+Retain unloaded and faster-lateral cases only as conditional comparators.
+Changed-cell miniature retention is not a stage-02 requirement. Reopen the
+excluded combination only with shorter robust travel, evidenced faster drive,
+more parallel elevators, or a different support-transfer sequence that overlaps
+stroke with travel. A fly-through cam, prewithdrawal while independently
+supported, or offset gripper changes the mechanism and needs geometry and
+continuous-support validation; it cannot inherit this timing table. The
+result strengthens the reason to investigate an explicit shared-energy
+selector rather than further optimize nominal pawl dimensions. No print.
+
+Self-review: independently integrate acceleration phases to recover stroke
+and zero terminal speed; check the unlimited-speed triangular bound, replay
+capture-before-release, and reconcile graph timing with `T0+360*dwell`.
+All eight deterministic cases pass these numerical checks. Closed forms need
+no mesh convergence. Contact elasticity, backlash, wear and actual drive
+force–speed remain unmodelled; they cannot improve the stated rest-to-rest
+bound under its limits. No physical or independent review is claimed.
