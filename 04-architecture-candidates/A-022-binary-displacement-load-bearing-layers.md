@@ -1,0 +1,51 @@
+---
+status: candidate
+builds-on: [M-013]
+---
+
+# Binary displacement layers with positive load stops
+
+**Bounded; retain as a distinct structural-memory comparator.** Descriptors:
+layer/row/column coupling dogs; binary telescopic-extension memory; three shared
+layer drives; serial positive shoulders carrying top load; three guided linear
+stages per surface element. Binary arithmetic is followed by explicit local
+motion and locking paths.
+
+Three nested stages give displacements 10/20/40 mm. At each layer, a shared
+bidirectional rack rail couples through a locally addressed dog to one stage;
+the stage extends/retracts until it reaches a positive shoulder and engages a
+catch. To change a bit, acquire its carriage, lift/unload the catch, retract
+it, move, reseat/proof the opposite shoulder and disengage. Other layers remain
+caught and travel as a rigid payload when a lower layer moves. Crossed magnetic
+flags supply commands; they do not carry structural force. Telescoping input
+links or moving drive rails must follow lower-layer offsets: a fixed planar
+rail cannot reach every carriage state. That unresolved geometry is an explicit
+completeness gate, not omitted hardware.
+
+Outputs 0/10/20/30/40 use five of eight codes. Clearing old-only bits then
+setting new-only bits reaches every ordered pair in the abstract 25-transition
+check without exceeding endpoint heights. Some transitions descend first
+(30→40 passes zero); only changed columns move. Intermediate unsupported states
+are forbidden: the active layer drive holds load while its catch is open;
+all other shoulders remain engaged. Unsupported gaps or neighboring slider
+contact reject a realization even if the bit sequence passes.
+
+Three 6,400-site shoulders/catches/dogs and guides repeat: 19,200 load-bearing
+stage interfaces before selection. A 10-N load passes through *each* layer;
+it is not divided by three. 40-mm stroke layer needs 40 mm telescoping travel
+plus overlap. Three nested 0.4-mm walls use 2.4 mm of opposing wall thickness
+before gaps and core, a demanding 5.08-mm packaging allocation. Separate stacked
+layers avoid nesting but increase depth, alignment and moving rail burden.
+At $250 reserve each complete bought layer-site gets at most $0.0130; foil/
+magnet/driver purchases can exhaust this despite free printed shoulders.
+
+Underside absolute tail marks verify final sum; per-layer flags and endstop
+sensing disambiguate wrong code and wrong latch. Proof unload each changed
+layer before disengaging its drive. Retry under held drive once; persistent
+failure isolates the module and inserts service support before cartridge repair.
+Regional motion is local in the abstract; shared rails must remain clear of
+all unselected carriage states. A six-pass clear/set schedule at three layers
+charges travel, addressing and proof; cost/time cannot be inferred from three
+bits alone. Next useful work is a single-layer offset-invariant drive/contact
+path shared with its lower-stage travel. Reject a fixed-plane coupling that
+loses contact as lower bits change. No detailed optimization or printing yet.
