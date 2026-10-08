@@ -3,27 +3,45 @@ status: complete
 builds-on: [E-050, Q-012, A-013]
 ---
 
-# Shared-elevator capture/release: exact abstract schedule bound
+# Shared-elevator capture/release schedule and load bounds
 
-## Decision
+Reject the 80-head zero-offset stop-at-contact elevator within E-050's fast
+motion bounds: even instantaneous contacts require 33.350 s. Retain 160 heads
+conditionally: unloaded fast motion allows <32.73 ms/event; asymmetric motion
+with an ideal half-weight normal-force margin allows <9.395 ms/event.
+Complete channel cost, geometry and support-proof timing remain gates. No
+product selection or fabrication follows. Continuous capture, offset grippers,
+multiple elevators and independent heads need separate models.
 
-Reject the **80-channel, zero-offset, stop-at-contact shared elevator** under E-050's fast motion bounds: even instantaneous contacts require 33.350 s for a legal arbitrary-map workload. Keep 160 channels only as an unresolved embodiment: fast motion permits less than **32.73 ms total serial dwell per event stop**, before retries or additional discrepancy. Central motion fails with zero dwell. The loaded-surface extension below tightens the 160-head dwell ceiling to <15.97 ms at the ideal gravity acceleration limit for unsecured miniatures; a half-gravity symmetric profile fails even at zero dwell. This narrows Q-012; it does not reject continuous-motion capture, independently offset/sliding grippers, multiple elevators, or independent linear heads. Those mechanisms require new contact and timing models.
+## Mechanism and exact search
 
-Input revision `f43fb78`. Evidence is exact finite state-space optimization of an idealized mechanism, not CAD, sourced actuator capability, manufacturing yield or physical measurements. No print is justified.
+Input `f43fb78`; run `python3 tools/curated-experiment-checks/E-051/elevator_bound.py`.
+One elevator carries 80/160 independently selectable rigid grippers at equal
+vertical offset. Capture at old height precedes local pawl release; the column
+follows the elevator until its target, where support transfers to its pawl.
+Unchanged columns remain latched. Grip/pawl selection, retraction clearance,
+support-proof readback and fault recovery are assumed, not implemented.
 
-## Mechanism and search boundary
+Five assumed heights are 0/10/20/30/40 mm. Each station contains every unequal
+ordered pair, four copies per 80-cell row. Every other workload is a subset.
+Stations start/end at zero; contacts occur at rest, with same-height operations
+parallel. Dijkstra states encode height, visited heights and completed pairs;
+capture at first old-height visit and release at first subsequent target visit
+establish an optimistic reachability model. Jumps are allowed. Initial capture
+incurs event dwell; terminal return after all work is complete incurs none.
+All 15 motion/dwell combinations choose the eight-segment sweep
+`0→10→20→30→40→30→20→10→0`, with nine event stops. Search settles 607–1,999
+states/case. Early capture may cause targeted-column excursions; delayed
+capture below avoids them. Isolation and continuous support are assumptions.
 
-One vertical elevator carries 80 or 160 individually selectable rigid grippers at equal vertical offset. A gripper captures a column at its old height; the local grounded pawl releases only after load transfer. The attached column follows elevator height until its target, where its pawl takes the load and the gripper releases. Unchanged columns stay supported. Grippers must retract clear of undocked tails; individual grip and pawl selection, support-proof readback, reset and recovery remain unimplemented hardware, not free resolved components. The model grants perfect isolation and support transfer to produce an optimistic screen before detailed geometry.
-
-Five assumed states: 0/10/20/30/40 mm, inherited from A-013 rather than a product requirement. Each station contains all 20 unequal old/new pairs (four copies per 80-cell row); this is a valid workload, not a claimed worst-case geometry or load. Identical pair multiplicity changes forces but not ideal timing. Every other five-state workload is a subset and can follow this schedule. Each station begins and ends at zero before horizontal indexing. Contacts occur at rest; all operations at the same height run in parallel. Pawl unloading microtravel and finite overtravel are omitted, as are elasticity, jerk, contact collision, bank registration and common-drive force limitations. These omissions favor survival.
-
-`tools/curated-experiment-checks/E-051/elevator_bound.py` uses Python's standard library. Dijkstra states encode current height, previously visited heights and completed ordered pairs. Capture occurs on the first old-height visit and release on the first subsequent target-height visit; with ideal independent zero-offset grippers, early capture does not restrict elevator reach or another cell. Each graph edge is a rest-to-rest move to any other state, allowing jumps rather than prescribing a monotone sweep. Edge cost is triangular/trapezoidal motion time plus event dwell. Return home after already completing all work needs no contact dwell. Initial capture does. No random seed or probabilistic prior; the finite search settles 607–1,999 states per case.
-
-All 15 motion/dwell combinations select `0→10→20→30→40→30→20→10→0`: eight motion segments and nine contact stops. Upward transitions are acquired/released on ascent; downward transitions may be captured during ascent and released on descent. A column can temporarily rise above both its initial and final state; only targeted columns do so in the abstract model. Miniature interaction and collision among changed columns are unmodelled, so no playability claim follows.
-
-## Complete-map bound and sensitivity
-
-Thirty cases: three E-050 speed/acceleration scenarios × five dwell bounds × two lane counts. Fast/central/slow speed = 400/200/80 mm/s; acceleration = 20,000/5,000/1,000 mm/s². Shared per-map overhead = 2/4/8 s. Index minimum = 0.025/0.05/0.10 s, increased when rest-to-rest travel of one/two row pitches (5.08/10.16 mm) requires more. Full time = overhead + station count × (optimal elevator schedule + index). There are 80 or 40 stations. One index per station retains E-050's return-registration allocation; omitting the final fast 80-head index saves only 0.0319 s and does not alter rejection.
+Fast/central/slow speed = 400/200/80 mm/s, symmetric acceleration =
+20,000/5,000/1,000 mm/s², map overhead = 2/4/8 s. Index time is the maximum
+of 0.025/0.05/0.10 s and rest-to-rest travel of 5.08/10.16 mm for 80/160 heads.
+Full time = overhead + station count × (schedule + index), with 80/40 stations.
+One index per station retains return-registration allocation; dropping the last
+fast 80-head index saves only 0.0319 s. Dwell is the total serial critical path
+of acquisition, unloading, selection, relatching, proof and release at each
+stop, not E-050's once-per-station allowance.
 
 | Scenario | Heads | Zero dwell | 10 ms/stop | 20 ms/stop | 40 ms/stop | 80 ms/stop |
 |---|---:|---:|---:|---:|---:|---:|
@@ -34,70 +52,113 @@ Thirty cases: three E-050 speed/acceleration scenarios × five dwell bounds × t
 | Slow | 80 | 150.604 | 157.804 | 165.004 | 179.404 | 208.204 |
 | Slow | 160 | 81.880 | 85.480 | 89.080 | 96.280 | 110.680 |
 
-Seconds; strict requirement <30. Only three of 30 cases survive. Dwell values are explicit epistemic bounds, not measured distributions; they include the serial critical path of acquisition, unloading, selection, relatching, support verification and release at a stop. They are not E-050's once-per-station contact allowance. All retries are omitted here, including central/slow E-050 allowances, strengthening the rejection as an optimistic bound. Fast 160-head time is `18.216 + 360*dwell` seconds. The zero-contact motion-only penalty against independent rack channels is 8 s per full board at 80 heads, before comparing different contact budgets.
+Seconds, strict <30 requirement; three of 30 cases survive. Fast 160-head
+T=18.216+360*dwell seconds. Fast 80-head zero-contact timing costs 8 s more
+than independent rack channels, before differing contact budgets. All bounds
+omit retries, unloading microtravel, overtravel, jerk, elasticity, collision,
+registration and shared-drive limitations. These omissions favor survival.
+Dwell and motion are epistemic scenarios, not supplier data or distributions.
+Common-drive error affects every station. E-050 fit bounds remain unresolved.
+At $250 shared reserve and zero bought cell parts, the $500 cap permits
+$1.5625 per complete 160-head selector/gripper channel. Shared motor,
+transmission and sensing must fit the reserve or reduce that allowance.
 
-Uncertainty in common drive acceleration affects every station together; treating channel errors independently cannot average it away. E-050's dimensional/error bounds still apply, but are not evaluated by this contact-free schedule. No calibrated friction, fatigue, wear, reader false-acceptance or yield model exists. The 160-channel budget remains at most $1.5625 per complete selector/gripper channel with $250 shared reserve and zero bought cell parts; the shared elevator motor, force transmission and sensing must fit that reserve or reduce the allowance. Sharing one motor does not establish this cost. Simultaneous lifting and stiffness must be sized by active loads, not one-cell force.
+Self-review checks zero motion, independent 0→40→0 single-pair timing,
+individual capture-before-release replay and the hand-computed eight-segment
+fast sweep. Exhaustive Dijkstra supplies global optimality only within this
+abstract graph. No geometry, yield or hardware validation is claimed.
 
-## Verification and next discriminator
+## Capture policy and symmetric loaded-surface limits
 
-Run `python3 tools/curated-experiment-checks/E-051/elevator_bound.py`. Checks cover zero motion, independent single-pair 0→40→0 motion, and replay of each cell's acquisition-before-release order (support continuity is assumed, not tested). A hand-computed eight-segment trajectory matches the fast zero-dwell optimum; global optimality is supplied by exhaustive Dijkstra search, not by that hand calculation. Exact finite enumeration needs no time-step convergence study. This is self-review; there is no independent hardware/contact validation.
+Input `3e4b033`; run `python3 tools/curated-experiment-checks/E-051/capture_load.py`.
+All 64 capture assignments on the sweep were enumerated. Release at first
+subsequent target weakly minimizes mass; later release only adds occupied
+segments. Delaying downward cells until descent gives attached counts
+`[4,6,6,4,4,6,6,4]` per 20 pairs versus early capture's
+`[4,7,9,10,10,9,7,4]`. Enumeration establishes componentwise minimum;
+independent boundary-crossing counts, contact-order and signed-displacement
+checks agree. At 160 heads peak attachment falls 80→48; absolute column
+travel falls 4.8→3.2 m/station, or 192→128 m/board. Delayed capture avoids
+excursions outside each old/target interval without changing stops. Use it
+for further realization; stop capture-policy enumeration.
 
-Stop detailing the rejected 80-head stop-at-contact embodiment under these bounds. For 160 heads, require a complete affordable gripper/release implementation with actual contact geometry and a credible <32.73-ms event critical path before further schedule tuning. Continuous-motion capture or changed gripper offsets can reopen this result only with an explicit mechanism that escapes the at-rest event graph. Independent heads remain separately conditional under E-050. Retain broader mechanism discovery; this result does not select a product architecture.
+Moving-column mass including payload is an uncalibrated 5/20/50-g scenario.
+At 20 m/s², mixed-map column-only peak force n*m*(g+a) falls from
+11.92/47.70/119.24 N to 7.15/28.62/71.54 N. Uniform 0→40 maps attach all
+160 heads and demand 23.85/95.39/238.48 N instead. Add elevator/gripper/link
+mass, friction, seating, drive losses, deflection and faults before sizing.
+No power, thermal or stiffness adequacy follows.
 
-## Capture load and loaded-surface acceleration extension
+Unsecured miniature normal force is N=m*(g+a_z). Symmetric ±20 m/s² loses
+contact during downward acceleration/upward braking. This concerns changed
+cells; stage 02 protects unchanged regions and does not require retaining
+miniatures on changed cells. Limiting symmetric vertical acceleration to g,
+while keeping fast index/speed/overhead, gives 24.250 s at 160 heads and
+<15.97 ms/event, but zero normal force during part of motion. A symmetric
+0.5g scenario gives 32.714 s and rejects. The asymmetric extension narrows
+that rejection; neither model establishes tipping or miniature interaction.
 
-Input `3e4b033`; exact enumeration and Newtonian calculations, not physical evidence.
-`python3 tools/curated-experiment-checks/E-051/capture_load.py` enumerates all
-64 capture assignments on the fixed optimal sweep. Release at the first subsequent
-target visit weakly minimizes attached mass; later release only adds occupied
-segments. Delaying downward-bound cells until the descending visit gives per-segment
-attached counts `[4,6,6,4,4,6,6,4]` per 20 distinct transitions, versus early
-capture's `[4,7,9,10,10,9,7,4]`. Enumeration verifies componentwise minimum,
-not just a weighted objective. Independent checks count pairs crossing each height
-boundary, verify every old/target contact and conserve signed displacement.
+## Direction-dependent acceleration changes the loaded-surface screen
 
-For 160 heads (eight copies of each pair), peak attachment falls 80→48 and
-summed absolute column travel falls 4.8→3.2 m per station; across 40 stations,
-192→128 m. Delayed capture eliminates excursions outside each cell's old/target
-interval and keeps the same nine event stops. It does not validate isolation,
-contact transfer or miniature collisions spanning multiple columns. No changed
-architecture or faster schedule is claimed.
+Input `1c53219`; reproduce with
+`python3 tools/curated-experiment-checks/E-051/asymmetric_motion.py`.
+This is parameter/schedule refinement of the same mechanism, not architecture
+discovery. Modify the loaded-surface rejection: a downward acceleration limit
+alone does not require limiting upward acceleration to the same magnitude.
+Keep the 80-head rejection and the complete-channel cost/contact gates.
 
-Illustrative moving mass per column including carried payload is bounded at
-5/20/50 g, **uncalibrated scenarios**, not PLA process priors or product load
-specifications. At the original 20 m/s² acceleration, ideal peak column-only
-force magnitude `n*m*(g+a)` decreases from 11.92/47.70/119.24 N to
-7.15/28.62/71.54 N. Add elevator, grippers and link mass, friction, seating force,
-deflection, drive efficiency and fault loads before sizing anything. Arbitrary
-maps are not bounded by the diverse workload's 48-column peak: a uniform
-0→40-mm change attaches all 160 columns, requiring 23.85/95.39/238.48 N under
-the same original acceleration assumptions. That case is checked explicitly.
-Capture timing saves load for mixed maps; it cannot shrink full-map drive sizing
-to the all-pairs peak. No motor, power, thermal or stiffness adequacy follows.
+Let upward acceleration magnitude be A=20,000 mm/s² and downward magnitude
+B=(1−r)9,810 mm/s². The explicit scenario r is the minimum normal force as a
+fraction of miniature weight; it is not a product requirement or a calibrated
+contact margin. Both ascent braking and descent acceleration use B. Ascent
+acceleration and descent braking use A. Speed is bounded by 400 mm/s.
+For distance d, peak speed is
+`min(v, sqrt(2d/(1/A+1/B)))`. Time is
+`peak/A + peak/B + (d−peak²/(2A)−peak²/(2B))/peak`, with zero distance handled
+separately. Swapping acceleration and braking leaves rest-to-rest time
+unchanged. Therefore the existing exact graph can use the algebraically
+equivalent symmetric acceleration `2/(1/A+1/B)` without changing its states.
+This equivalence is only for time: force uses the actual directional profile.
 
-For an unsecured miniature resting on a column, vertical normal force is
-`N=m*(g+a_z)`. The original symmetric ±20-m/s² acceleration demands negative
-normal force during downward acceleration (also during upward braking), so
-contact cannot be maintained without retention. This is a necessary mechanics
-condition, not a newly imposed requirement to retain miniatures on changed cells;
-stage 02 explicitly protects *unchanged* regions. If changed cells must carry
-unsecured miniatures, the original fast scenario is inapplicable.
+Enforce this profile on all elevator motion, including empty segments; do not
+claim a global optimum over occupancy-adaptive profiles. The inherited fast
+horizontal index and 2-s overhead remain unchanged. Enumerate four margins,
+three workloads (all ordered pairs, uniform up and uniform down), four dwell
+bounds (0/10/20/40 ms), and two head counts: 96 deterministic cases. Every
+all-pairs optimum remains the eight-segment sweep with nine event stops.
 
-Re-solving the exact graph with vertical acceleration limited to g=9.81 m/s²
-keeps the same sweep. Keeping fast horizontal indexing, 400-mm/s speed and
-2-s overhead gives **24.250 s** before contacts: total event dwell must be
-**<15.97 ms**, not 32.73 ms. At g the normal force is zero for part of the
-motion, so this is an optimistic limiting case without contact margin. A
-0.5g symmetric bound (explicit assumed margin, not a qualification rule) gives
-**32.714 s**, rejecting this embodiment even with instantaneous contacts.
-Asymmetric acceleration/braking could change these results and is outside this
-symmetric-profile model; it requires a new executable schedule. No friction,
-tipping, jerk, manufacturing distribution or failure probability is inferred.
+| Minimum N/(mg) | 80-head all-pairs, zero dwell | 160-head all-pairs, zero dwell | 160-head event dwell ceiling | 160-head uniform up/down, zero dwell |
+|---|---:|---:|---:|---:|
+| 0 | 39.830 s | 21.456 s | <23.734 ms | 14.247 s |
+| 0.25 | 43.576 s | 23.329 s | <18.531 ms | 14.791 s |
+| 0.50 | 50.154 s | 26.618 s | <9.395 ms | 15.878 s |
+| 0.75 | 65.786 s | 34.434 s | none | 19.140 s |
 
-Decision: use delayed capture for any further realization of this sweep, and
-size drive loads against uniform as well as mixed maps. Keep 160 heads
-conditional for unloaded changed cells; do not advertise its fast timing for
-unsecured carried miniatures. For a symmetric loaded-surface implementation,
-require the tighter contact budget and an explicit acceleration/contact margin.
-Stop load-policy enumeration here; geometry, support-proof timing and complete
-channel cost remain the next discriminators. No fabrication is justified.
+Ceilings are rounded displays of `(30−T0)/360`; use unrounded executable
+values for strict acceptance. At r=0.5, 10 ms/event gives 30.218 s and rejects.
+Uniform maps are faster but attach all heads, so do not size force from mixed
+maps. Upward acceleration still reaches 20 m/s², giving maximum ideal normal
+force 3.039 times weight; the force, supply and stiffness constraints have not
+been relaxed. Empty elevator mass, friction, motor force–speed, power, jerk,
+contact microtravel, readback errors, retries, tipping and cross-cell miniature
+support remain unresolved. Instant acceleration changes imply an idealized
+profile, not a qualified miniature-retention result. r=0 has no contact margin.
+
+Self-review integrates each constant-acceleration phase separately to verify
+signed displacement and final zero speed, checks acceleration and normal-force
+bounds, and recovers the symmetric formula. Test distances include zero,
+0.001/10/40/1000 mm and the exact triangular/trapezoidal crossover, in both
+directions. The exact event search validates capture-before-release for every
+transition; this assumes support transfer rather than validating geometry.
+Closed forms require no numerical mesh/time-step convergence. There is no
+independent physical validation, probability distribution or manufacturing-yield
+claim. Common acceleration limits affect all stations, not independent cells.
+
+Decision: retain a conditional asymmetric 160-head loaded-surface comparator;
+the former half-gravity rejection applies only to symmetric profiles. Do not
+continue timing refinement without an affordable complete gripper/release
+channel and support-proof event path within this budget, plus a common drive
+that can supply the asymmetric force profile. No fabrication is justified.
+Reopen the failed 75%-weight-margin scenario only with changed motion/contact
+scheduling or justified different bounds. Broader mechanism discovery remains
+open; this result selects no product architecture.

@@ -17,7 +17,7 @@ E-051's load extension reduces mixed-map peak attachment with delayed capture,
 but uniform maps still attach all heads. Its symmetric fast profile exceeds
 gravity: unsecured miniatures on changed cells cannot retain contact. Limiting
 vertical acceleration to g tightens the 160-head dwell ceiling to <15.97 ms
-with zero normal-force margin; at 0.5g even zero dwell fails. These are conditional
+with zero normal-force margin; at 0.5g even zero dwell fails for symmetric motion. These are conditional
 loaded-surface bounds, not a new requirement on changed cells. Carry this scope,
 full-row moving mass and support-proof timing into the geometry/cost comparison.
 
@@ -60,3 +60,14 @@ peak). These are correlated bounded scenarios, not measured guide friction;
 force–speed, efficiency and actual supply allocation in the complete-channel
 BOM. More parallel heads do not eliminate full-map lift energy. Retain the
 channel-cost gate and stop local pawl refinement; no print release follows.
+
+
+E-051's asymmetric extension narrows that loaded-surface rejection: retaining
+20 m/s² upward acceleration while limiting downward acceleration to 0.5g
+preserves an ideal half-weight normal force and gives 26.618 s at 160 heads
+before contacts. Total event dwell must be <9.395 ms; 10 ms already fails.
+Uniform up/down maps take 15.878 s but still attach all heads. This is an
+ideal common-profile calculation, not actuator or miniature qualification;
+upward force peaks remain unchanged. Carry this conditional comparator into
+the complete channel/drive comparison, and stop schedule refinement until
+cost and the support-proof contact critical path have evidence. No print.
