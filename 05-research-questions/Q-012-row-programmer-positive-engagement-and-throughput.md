@@ -34,4 +34,18 @@ E-054 side-cheek rails escape the rear-guide obstruction. Equal 0.4-mm walls/she
 
 E-055 finds no opposing-shelf angular stop and rejects same-section lengthening to the tested middle-bound 5–15-degree stops within pitch. E-056 shows that a seated vertical load can nevertheless balance on the lower shelves. Uniform tooth pressure gives conditional absolute H/F≤0.105, falling to 0.055 with 0.10-mm bearing-edge loss; arbitrary edge pressure has zero guaranteed margin. E-057 resolves the inset-pad screen: retaining 0.40-mm overlap gives only 0.02-mm pitch margin before bearing-edge loss. A pawl-fixed pad reaches 0.12-mm margin at 0.10-mm edge loss only by reducing overlap to an unqualified 0.20 mm. Stop pad refinement; retain keyed/staggered guidance with unloaded capture/return/retention for investigation after the channel-cost gate. Reject missing continuous support or unaffordable channels before detailed FEA.
 
-E-058’s joint envelope adds 240 independent heads as a conditional central-motion comparator (24.497 s with one full-station retry). At $250 shared reserve and the $500 cap, its complete-channel ceiling is $1.0417 with no cell purchases, or $0.5083 at $0.02/cell. Fast 80-head timing permits only two full-station retries. These inherited schedule/budget bounds are not a BOM or bank-load demonstration. First cost an implemented channel against the joint envelope; then resume keyed/staggered guidance if it survives. Otherwise change the addressing/energy-sharing principle.
+E-050 now enumerates all 1–80 complete row banks with 0/1/8 total full-station
+retries, exact rational price ceilings and aligned/adversarial 5×5 allocations.
+The 240-head central case takes 24.4974 s with one retry and permits at most
+nine retries. Its exact channel ceilings at $250 reserve/$500 cap are $25/24
+with free cell hardware and $61/120 at $0.02/cell. Fast 80-head timing permits
+only two full-station retries. The 240-head central one-retry regional
+allocation is 6.0924–6.8286 s, subject to dispatch/return fitting the fixed
+overhead. At fixed reserve and cell spend, a channel above the smallest
+passing bank's ceiling rejects every tested larger bank. For $250 reserve,
+purchased cell cost ≥$5/128 leaves no positive channel budget under $500.
+Continue only to a complete channel and load-dependent bank schedule within
+these bounds; stop nominal pawl refinement. Reopen with changed schedule,
+reserve, purchased-cell allocation or sourced channel evidence. This is a
+conditional system envelope, not a supplier BOM, hardware feasibility or print
+release; keyed/staggered support remains unresolved after the cost gate.
