@@ -30,4 +30,4 @@ gripper or release drive and does not inherit E-050 strength or timing passes.
 Carry the actual withdrawal/unload operations into head synthesis and costing;
 stop refining the bare section grid. Wider staggered supports remain an escape.
 
-E-053 rejects the middle-bound rear guide; E-054 tests side-cheek support as an escape. It clears in 3D but fails the 10-N/8-MPa thin-shelf bound even with continuous wall sizing. Stop this simple shelf refinement. Reopening needs a different grounded load path or justified changed bounds; tight-error clearance alone does not establish loaded support transfer. Shift the next discriminator toward a complete affordable channel or a different memory principle.
+E-054 side-cheek rails escape the rear-guide obstruction. Equal 0.4-mm walls/shelves fail the assumed 10-N/8-MPa strip-bending screen, but decoupling shelf thickness to 0.8 mm retains the same 4.89 × 5.00-mm middle-bound footprint and avoids that rejection. Retain this conditional geometry; next resolve side-wall grounding, plate/contact behavior, loaded rotation and complete channel cost. Do not promote it or print from clearance alone.

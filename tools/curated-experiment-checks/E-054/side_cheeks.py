@@ -12,7 +12,8 @@ def hit(a, b):
     return all(min(a[2*i+1], b[2*i+1]) > max(a[2*i], b[2*i])+1e-9 for i in range(3))
 
 
-def geometry(e, b, q, wall):
+def geometry(e, b, q, wall, shelf=None):
+    shelf = wall if shelf is None else shelf
     c=.1
     # Minimum E-052 section; tiny positive margin avoids boundary-only witness.
     o=.4+e+.02; r=max(.8,o+e+c)+.02; L=.8
@@ -32,10 +33,10 @@ def geometry(e, b, q, wall):
     solids=[]
     for sign in (-1,1):
         yl,yh=sorted((sign*inner,sign*(outer+wall)))
-        solids.extend([(left,right,yl,yh,zlo-wall,zlo),
-                       (left,right,yl,yh,zhi,zhi+wall)])
+        solids.extend([(left,right,yl,yh,zlo-shelf,zlo),
+                       (left,right,yl,yh,zhi,zhi+shelf)])
         yl,yh=sorted((sign*outer,sign*(outer+wall)))
-        solids.append((left,right,yl,yh,zlo-wall,zhi+wall))
+        solids.append((left,right,yl,yh,zlo-shelf,zhi+shelf))
     # All shifts are extrema of affine boxes. Swept box exact for x-only
     # translation. Vertical rack union deliberately includes web and all teeth.
     checks=0
@@ -56,13 +57,13 @@ def geometry(e, b, q, wall):
         assert min(right,start+dp+s+L)-max(left,start+dp+s) >= L-1e-9
     assert abs(width-(b+4*e+4*c+2*q+2*wall))<1e-9
     return {'failures':[], 'width_x':section['width'], 'width_y':round(width,4),
-            'rack_width':b,'bearing_width_each':q,'wall':wall,
+            'rack_width':b,'bearing_width_each':q,'wall':wall,'shelf':shelf,
             'stroke':round(stroke,4),'lift':section['lift'],
             'track_length':round(right-left,4),'slot_vertical_play':round(e+2*c,4),
             'box_checks':checks,
             # Best possible force split and full 0.8-mm longitudinal width.
             # Contact is at least c from the outer-wall cantilever root.
-            'shelf_stress_lower_bound_10N_MPa':round(3*10*c/(L*wall**2),4)}
+            'shelf_stress_lower_bound_10N_MPa':round(3*10*c/(L*shelf**2),4)}
 
 
 def run():
@@ -81,6 +82,9 @@ def run():
     assert geometry(.35,1.6,.4,.6)['failures']==['y_pitch']
     assert geometry(.371,1.6,.4,.4)['failures']==['y_pitch']
     assert not geometry(.369,1.6,.4,.4)['failures']
+    out['decoupled_middle']=geometry(.35,1.6,.4,.4,.8)
+    assert not out['decoupled_middle']['failures']
+    assert out['decoupled_middle']['shelf_stress_lower_bound_10N_MPa']<8
     return out
 
 if __name__=='__main__': print(json.dumps(run(),indent=2))

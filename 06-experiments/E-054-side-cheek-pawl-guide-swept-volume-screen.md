@@ -3,17 +3,18 @@ status: complete
 builds-on: [E-052, E-053, A-013]
 ---
 
-# Side-cheek pawl guides: clearance escape, thin-shelf rejection
+# Side-cheek pawl guides: clearance escape and generator correction
 
 ## Decision
 
-Side-cheek rails escape E-053's rear-guide obstruction, but **reject this simple
-cantilever-shelf embodiment at the middle placement bound, 10 N and the inherited
-8 MPa screening limit**. Its only enumerated clearance survivor uses 0.4-mm walls;
-even an optimistic static lower bound is 23.44 MPa. Retain the tight-bound,
-0.8-mm-wall geometry only as an unqualified comparator. Do not print or promote
-A-013. Reopen with a materially different shelf load path, smaller substantiated
-error/load, or supported material/creep limits; do not refine the same grid.
+Side-cheek rails escape E-053's rear-guide obstruction. Reject **equal-thickness
+0.4-mm wall/shelf geometry** at middle placement error, 10 N and the inherited
+8 MPa strip-bending screen. Crucially, that rejection does not cover side-cheek
+guides: separating vertical shelf thickness from lateral wall width produces
+a 0.8-mm-shelf witness at the same 4.89 × 5.00-mm footprint. Retain this changed
+parameterization for structural/contact evaluation, not printing or promotion.
+The thin outer wall, ground attachment and loaded pawl rotation remain unproven.
+Stop treating equal wall/shelf thickness as a physical constraint.
 
 Input main `908fde3`. Evidence is generated axis-aligned solid/swept-volume
 geometry and analytical necessary conditions, not assembled CAD, contact FEA,
@@ -71,19 +72,31 @@ For these minima, e≤0.37 is necessary; off-grid e=0.369/0.371 holdouts pass/fa
 Width changes four millimetres per millimetre of error bound. At e=0.35 even
 continuous optimization permits s≤0.44 with b≥1.6 and q≥0.4.
 
-For a deliberately favorable shelf bound, split F equally across two lower
+For a deliberately favorable independent-cantilever-strip model, split F equally across two lower
 shelves, spread force over the full pawl length L=0.8, and place all contact at
 the outermost admissible edge. Clearance keeps that edge at least c=0.1 from
-the cantilever root. Rectangular beam bending then requires
+the cantilever root. With longitudinal load spreading restricted to L, rectangular beam bending requires
 `stress ≥ 3 F c / (L s²)` MPa (N/mm²). Real distributed contact has a larger
 lever arm; upper-shelf reaction, shorter pads and stress concentrations worsen
 it. At F=10 N, s=0.4 gives 23.44 MPa; even s=0.44 gives 19.37 MPa. Meeting the
 assumed 8 MPa limit requires s≥0.685 mm, giving Y≥5.569 mm. Thus the middle
-failure is continuous within the declared minima, not just a sparse grid miss.
+failure is continuous for the equal-thickness encoding, not just a sparse grid miss.
 At tight error, s=0.8 gives Y=5.00 and lower-bound stress 5.86 MPa; this only
 avoids rejection. Loads 1/10/100 N and 8 MPa are E-050 sensitivity assumptions,
 not product requirements or sourced PLA allowables. Beam stress is a reduced
-necessary-condition model; a different support topology invalidates this bound.
+strip-model screen: plate action can spread load beyond L, so this is not a
+rigorous lower bound for every 3D elastic shelf. Contact/plate analysis is needed
+before rejecting the physical guide on stress alone.
+
+**Generator challenge:** shelf thickness occupies z; outer-wall thickness occupies
+y. There is no reason to tie them. A final holdout keeps b=1.6, q=0.4, wall=0.4
+but sets shelf=0.8 mm. It passes the same middle-error box checks with unchanged
+footprint and 5.86-MPa favorable strip-model stress at 10 N. This is not a strength
+pass: the upper/lower shelves transfer force and moment into a 0.4-mm side wall
+whose attachment and deformation remain unmodeled. It demonstrates that the
+first generator would falsely retire this packaging family. There are 81 original
+candidates plus this one changed-encoding holdout; no broad mechanism search is
+claimed. Increasing z thickness adds volume/depth without solving retention.
 
 The unpreloaded slot has 0.35/0.55-mm total vertical play in tight/middle cases.
 Its actual seated and tilted poses could invalidate the inherited tooth/pawl
@@ -105,6 +118,7 @@ threshold, bearing extrema, box-contact limiting cases and inherited E-052
 transitions. Exact affine boxes require no mesh/time-step convergence. The
 stress inequality uses force balance and a minimum moment arm, not a calibrated
 surrogate; it omits creep and anisotropy and cannot qualify a surviving shelf.
-The next useful discriminator is a complete channel with a different grounded
-support/load path and credible cost, or another memory principle. The present
-thin-wall geometry offers no reason for fabrication or further timing work.
+The next useful discriminator is a loaded contact/plate and ground-attachment
+model of the decoupled shelf, together with complete channel cost. Retire the
+equal-thickness generator restriction. This remains bounded geometry evidence;
+there is no reason for fabrication or further timing optimization yet.
