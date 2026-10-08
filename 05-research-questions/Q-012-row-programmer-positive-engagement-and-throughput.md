@@ -31,3 +31,5 @@ Carry the actual withdrawal/unload operations into head synthesis and costing;
 stop refining the bare section grid. Wider staggered supports remain an escape.
 
 E-054 side-cheek rails escape the rear-guide obstruction. Equal 0.4-mm walls/shelves fail the assumed 10-N/8-MPa strip-bending screen, but decoupling shelf thickness to 0.8 mm retains the same 4.89 × 5.00-mm middle-bound footprint and avoids that rejection. Retain this conditional geometry; next resolve side-wall grounding, plate/contact behavior, loaded rotation and complete channel cost. Do not promote it or print from clearance alone.
+
+E-055 shows the E-054 wing diagonal (2.154 mm) is smaller than both slot heights (2.35/2.55 mm): opposing shelves cannot geometrically stop pitch rotation. Resolve angular restraint and retained contact poses before shelf/attachment FEA. This is a kinematic missing-restraint result, not proof of spontaneous tipping or rejection of the family. Simple same-section bearing lengthening to the tested 5–15-degree middle-bound stops exceeds pitch; compare explicit keyed or staggered guidance and retain the channel-cost gate.
