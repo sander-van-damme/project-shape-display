@@ -43,3 +43,11 @@ The floating-beam chamber-side coincidence embodiment now has a conditional
 kinematic window (E-061); swept packaging, shared-rail force/deflection and
 bidirectional closure remain unresolved. The lock hybrid remains unexplored.
 Neither is accepted hardware. No print or purchase.
+
+E-062 rejects end-supported full-width rails for the tested 2-mm-wide,
+4…12-mm-deep bounded-stiffness sections. Distributed moving support is required:
+the illustrative 2×8-mm rail at 1500 MPa permits at most eight cells/span with
+0.1-N/shoe preload and a 0.1-mm bending allocation, before shear/contact/frame
+compliance. Support stations must translate with the rails; fixed grounding is
+not a solution. Continue only with explicit support and crossed-rail geometry;
+no cartridge fit or stiffness qualification follows from this necessary bound.
