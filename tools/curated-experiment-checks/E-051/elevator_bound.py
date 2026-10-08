@@ -60,17 +60,11 @@ def validate(path, pairs):
     # Independently replay individual cells, not search bitmasks.
     for old, new in pairs:
         status = 'latched'
-        support = 'pawl'
         for height in path:
             if status == 'latched' and height == LEVELS[old]:
-                support = 'pawl+grip'
-                support = 'grip'
                 status = 'held'
             elif status == 'held' and height == LEVELS[new]:
-                support = 'pawl+grip'
-                support = 'pawl'
                 status = 'done'
-            assert support
         assert status == 'done'
 
 
@@ -92,8 +86,8 @@ def main():
                 records.append(dict(scenario=scenario, heads=heads,
                                     event_dwell_s=event, full_map_s=seconds,
                                     passes=seconds < 30, **result))
-    # Every level except possibly one must recur to cover both directions of
-    # every pair: >=9 visits. At zero dwell, independent adjacent-step bound.
+    # Compare the optimum to a separately computed feasible eight-edge sweep.
+    # This hand trajectory is not an independent proof of global optimality.
     fast = solve(PAIRS, 400, 20000, 0)
     assert abs(fast['seconds'] - 8 * move(10, 400, 20000)) < 1e-12
     assert len(fast['path_mm']) == 9
