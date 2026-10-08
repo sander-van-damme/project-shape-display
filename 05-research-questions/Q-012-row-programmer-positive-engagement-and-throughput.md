@@ -49,3 +49,14 @@ these bounds; stop nominal pawl refinement. Reopen with changed schedule,
 reserve, purchased-cell allocation or sourced channel evidence. This is a
 conditional system envelope, not a supplier BOM, hardware feasibility or print
 release; keyed/staggered support remains unresolved after the cost gate.
+
+E-058 adds a shared-power gate to that channel comparison. At 240 heads,
+central motion, 20 g moving mass/lane and 50 W lift allocation at 50%
+efficiency, sustained 0/1/10 N additional resistance gives optimistic
+arbitrary-map bounds of 23.8774/28.5665/120.7265 s without retries. The 1-N
+case already requires reshaping the synchronized nominal profile (124.44-W
+peak). These are correlated bounded scenarios, not measured guide friction;
+10-N static support is not automatically a moving-load requirement. Require
+force–speed, efficiency and actual supply allocation in the complete-channel
+BOM. More parallel heads do not eliminate full-map lift energy. Retain the
+channel-cost gate and stop local pawl refinement; no print release follows.
