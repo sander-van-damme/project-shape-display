@@ -41,10 +41,9 @@ there are no physical measurements, qualified CAD or calibrated FDM priors.
 | A-022 structural bitplanes | Three full-load stages/site | 25 state transitions reachable; moving-layer drive access unresolved | **Bounded reserve**, solve offset-invariant coupling before claiming machine |
 | A-023 sparse sheet | 81–324 jacks rather than 6,400 pins | Good smooth-hill interpolation; walls/steps/locality lost | **Counterfactual bounded; incompatible with current product**, no requirement change |
 
-A-015/016/017 share elevator mechanics but change selection/state/wiring;
-A-019 reuses capture timing with friction memory. A-020 recombines magnetic
-selection with pressure; A-021/022 change structural memory. A-023 changes the
-product degrees of freedom. Parameter populations are not new architectures.
+A-015/016/017 share mechanics but change selection; A-019 changes frictional
+memory; A-020 changes energy delivery; A-021/022 change structural memory.
+A-023 changes product degrees of freedom. Parameter cases are not architectures.
 
 ## Shared loads, cost and support-transfer schedule
 
@@ -108,10 +107,9 @@ qualified contact. Ideal dielectric field spans up to 50 MV/m, with no accepted
 breakdown margin. Shared contamination/batch film thickness can degrade every
 site together. Passive half-voltage friction would remain one-quarter nominal,
 not zero; the candidate charges active isolation/retention hardware instead.
-[Rauf and Follmer](https://arxiv.org/abs/2412.16803) demonstrate rapid release
-in carefully driven electroadhesive clutches and explain why ideal electrostatic
-dynamics alone are inadequate. Their timing is not transferred to dirty printed
-pin guides. Low-force command plus mechanical collet is the next mutation.
+[Rauf and Follmer](https://arxiv.org/abs/2412.16803) demonstrate fast driven
+clutches but show why ideal electrostatic dynamics are inadequate. Their
+laboratory timing is not transferred to this pin field.
 
 **Magnetic coincidence:** ideal normalized full/half fields 2/1, relative
 field error e=0.05/0.15/0.25 and threshold spread d=0.05/0.15/0.30 require
@@ -178,12 +176,8 @@ qualification; RMS values are only for this reconstruction method.
 | 25.4 mm | 289–324 | 0.125–0.129 | 4.47–6.93 | 2.83–4.90 | 21.30–21.49 |
 | 50.8 mm | 81–100 | 0.449–0.504 | 4.47–10.68 | 4.12–7.55 | 27.25–28.28 |
 
-Global RMS hides lost walls: maximum error reaches 40 mm. Coarse grids lose
-narrow walls/pits and create slopes under miniature bases; changed-node influence
-extends two node intervals per axis before elastic nonlocality. A-023 states
-D&D stability, fog-of-war, cost and repair implications. Smooth terrain is a
-credible separate product opportunity, not authorization to replace independent
-columns. No actuator-rate, sag or lifetime claim comes from interpolation.
+Global RMS hides lost walls (40-mm maximum error). A-023 discusses miniature
+stability, regional spread, fog-of-war, cost and repair; requirements stay fixed.
 
 ## Uncertainty, verification and stopping rule
 
