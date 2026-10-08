@@ -115,3 +115,5 @@ the independent-head contact allowance and shared-elevator event dwell must
 include their actuation, seating and support proof. No actuator speed or timing
 pass is inferred. Reopen the wide-error embodiment only with changed packaging
 or evidence supporting smaller bounds; preserve alternative architecture search.
+
+E-053 resolves the fixed same-plane rear-guide branch: the middle witness has −0.42 mm rear-tail allowance beyond the tooth sweep, and even the optimized zero-span guide needs 5.25 mm. Stop this embodiment at the middle bound; retain the section result and pursue changed 3D support packaging or substantiated tighter error.
