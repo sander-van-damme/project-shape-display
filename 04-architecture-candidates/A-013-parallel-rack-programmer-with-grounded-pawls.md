@@ -22,3 +22,10 @@ E-054 side-cheek rails escape the rear-guide obstruction. Equal 0.4-mm walls/she
 E-055 finds no opposing-shelf pitch stop; E-056 nevertheless establishes conditional seated vertical-load equilibrium on the lower shelves. Arbitrary edge pressure has zero guaranteed pitch margin, so neither clearance nor static equilibrium proves reliable support. E-057 rejects robust inset-pad support at inherited overlap; retain the slot as a comparator and keyed/staggered guidance as the geometric alternative with explicit unloaded capture, return and retention. Q-012 retains the complete channel-cost and support-sequence gates before FEA or printing.
 
 E-050’s joint timing/cost extension admits a conditional 240-head central-motion comparator, but only $1.0417 per complete channel at a $250 shared reserve and $500 cap before cell purchases. The next gate is complete-channel costing and bank-load-dependent motion, ahead of further pawl refinement. Increasing head count is not a demonstrated system rescue.
+
+E-059 rejects the sourced FS0307/FS90 servo-per-head procurement route:
+80 positioning actuators alone cost $748/$632 at observed public prices,
+above the entire $500 cap. This excludes these priced embodiments, not all
+independent drives. Stop their layout work; reopen with a complete cheaper
+channel or changed addressing/schedule. Shared-energy selection remains a
+separate mechanism question with E-051's support-proof dwell gate.

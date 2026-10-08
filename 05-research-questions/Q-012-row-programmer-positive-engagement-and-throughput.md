@@ -71,3 +71,10 @@ ideal common-profile calculation, not actuator or miniature qualification;
 upward force peaks remain unchanged. Carry this conditional comparator into
 the complete channel/drive comparison, and stop schedule refinement until
 cost and the support-proof contact critical path have evidence. No print.
+
+E-059 excludes the sourced FS0307/FS90 servo-per-head route before gripper
+and release design: 80 positioning servos alone exceed $500. A cheaper
+complete channel needs actual price and loaded-motion evidence; a shared-energy
+selector needs an explicit capture/release/support-proof critical path within
+E-051's dwell gate. Stop layout of these catalog-servo embodiments; their
+rejection does not generalize to all suppliers or shared actuation.
