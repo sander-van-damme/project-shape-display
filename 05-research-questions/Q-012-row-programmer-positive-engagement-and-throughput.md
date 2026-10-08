@@ -79,11 +79,13 @@ selector needs an explicit capture/release/support-proof critical path within
 E-051's dwell gate. Stop layout of these catalog-servo embodiments; their
 rejection does not generalize to all suppliers or shared actuation.
 
-E-051's finite-contact extension excludes its 160-head half-weight-margin
-profile with the E-052 1.22-mm pawl stroke when lateral acceleration is
-≤50 m/s² and the stroke must occur at rest. At 20 m/s², that stroke alone
-raises map time to 32.241 s. Required acceleration exceeds 55.295 m/s² before
-grip/unload/proof; this is a bounded scenario, not measured actuator capability.
-Unloaded operation remains conditional. Next realize an affordable explicit
-selector/support-transfer sequence; overlapping stroke with travel requires
-a changed mechanism and cannot inherit the stop-at-contact timing pass.
+E-051's serial-contact extension includes E-052's 1.22-mm pawl stroke and
+0.47-mm unload. It excludes both tested 160-head half-weight-margin serial
+paths even with instantaneous pawls: an optimistic one-vertical-leg-per-stop
+relaxation already takes 32.179 s. Unloaded seat-cycle motion takes 30.820 s
+at 20 m/s² lateral acceleration; at 50 m/s² it takes 28.753 s but leaves only
+3.463 ms/event for omitted grip/proof/settling/recovery. These are stipulated
+motion bounds, not drive capability or qualified geometry. Stop serial dwell
+refinement. Next realize an affordable selector/support-transfer mechanism;
+merging microtravel with transit or independent gripper support must replay
+actual geometry and coordinates and cannot inherit the old timing pass.

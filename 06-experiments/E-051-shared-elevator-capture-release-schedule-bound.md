@@ -8,7 +8,9 @@ builds-on: [E-050, Q-012, A-013, E-052]
 Reject the 80-head zero-offset stop-at-contact elevator within E-050's fast
 motion bounds: even instantaneous contacts require 33.350 s. Retain 160 heads
 conditionally: unloaded fast motion allows <32.73 ms/event; asymmetric motion
-with an ideal half-weight normal-force margin allows <9.395 ms/event.
+with an ideal half-weight normal-force margin allows <9.3943272 ms/event.
+Including E-052 unload/reseat excludes the two serial half-weight paths below
+even with instantaneous pawls; unloaded paths remain conditional.
 Complete channel cost, geometry and support-proof timing remain gates. No
 product selection or fabrication follows. Continuous capture, offset grippers,
 multiple elevators and independent heads need separate models.
@@ -98,122 +100,141 @@ while keeping fast index/speed/overhead, gives 24.250 s at 160 heads and
 0.5g scenario gives 32.714 s and rejects. The asymmetric extension narrows
 that rejection; neither model establishes tipping or miniature interaction.
 
-## Direction-dependent acceleration changes the loaded-surface screen
+## Direction-dependent loaded-surface motion
 
-Input `1c53219`; reproduce with
-`python3 tools/curated-experiment-checks/E-051/asymmetric_motion.py`.
-This is parameter/schedule refinement of the same mechanism, not architecture
-discovery. Modify the loaded-surface rejection: a downward acceleration limit
-alone does not require limiting upward acceleration to the same magnitude.
-Keep the 80-head rejection and the complete-channel cost/contact gates.
+Input `1c53219`; run `asymmetric_motion.py` in the same source directory.
+Upward acceleration A=20,000 mm/s² and downward magnitude
+B=(1−r)9,810 mm/s² preserve ideal normal force N≥rmg. The margin r is an
+explicit scenario, not a product requirement. Ascent braking and descent
+acceleration use B; opposite phases use A. For distance d and speed v=400,
+peak speed is `min(v,sqrt(2d/(1/A+1/B)))`. Time is
+`peak/A+peak/B+(d−peak²/(2A)−peak²/(2B))/peak` (zero distance handled separately).
+Swapping acceleration/braking preserves time, so the exact graph uses
+`a_eff=2/(1/A+1/B)`. Forces still require the directional profile.
+Enforce this profile even on empty segments; occupancy-adaptive profiles are
+outside scope. Enumerate four margins, all-pairs/uniform-up/uniform-down,
+0/10/20/40-ms dwell and 80/160 heads: 96 deterministic cases. All all-pairs
+optima retain the eight-segment sweep.
 
-Let upward acceleration magnitude be A=20,000 mm/s² and downward magnitude
-B=(1−r)9,810 mm/s². The explicit scenario r is the minimum normal force as a
-fraction of miniature weight; it is not a product requirement or a calibrated
-contact margin. Both ascent braking and descent acceleration use B. Ascent
-acceleration and descent braking use A. Speed is bounded by 400 mm/s.
-For distance d, peak speed is
-`min(v, sqrt(2d/(1/A+1/B)))`. Time is
-`peak/A + peak/B + (d−peak²/(2A)−peak²/(2B))/peak`, with zero distance handled
-separately. Swapping acceleration and braking leaves rest-to-rest time
-unchanged. Therefore the existing exact graph can use the algebraically
-equivalent symmetric acceleration `2/(1/A+1/B)` without changing its states.
-This equivalence is only for time: force uses the actual directional profile.
-
-Enforce this profile on all elevator motion, including empty segments; do not
-claim a global optimum over occupancy-adaptive profiles. The inherited fast
-horizontal index and 2-s overhead remain unchanged. Enumerate four margins,
-three workloads (all ordered pairs, uniform up and uniform down), four dwell
-bounds (0/10/20/40 ms), and two head counts: 96 deterministic cases. Every
-all-pairs optimum remains the eight-segment sweep with nine event stops.
-
-| Minimum N/(mg) | 80-head all-pairs, zero dwell | 160-head all-pairs, zero dwell | 160-head event dwell ceiling | 160-head uniform up/down, zero dwell |
+| Minimum N/(mg) | 80-head all-pairs, zero dwell | 160-head all-pairs, zero dwell | 160-head dwell ceiling | 160-head uniform up/down, zero dwell |
 |---|---:|---:|---:|---:|
 | 0 | 39.830 s | 21.456 s | <23.734 ms | 14.247 s |
 | 0.25 | 43.576 s | 23.329 s | <18.531 ms | 14.791 s |
-| 0.50 | 50.154 s | 26.618 s | <9.395 ms | 15.878 s |
+| 0.50 | 50.154 s | 26.618 s | <9.3943272 ms | 15.878 s |
 | 0.75 | 65.786 s | 34.434 s | none | 19.140 s |
 
-Ceilings are rounded displays of `(30−T0)/360`; use unrounded executable
-values for strict acceptance. At r=0.5, 10 ms/event gives 30.218 s and rejects.
-Uniform maps are faster but attach all heads, so do not size force from mixed
-maps. Upward acceleration still reaches 20 m/s², giving maximum ideal normal
-force 3.039 times weight; the force, supply and stiffness constraints have not
-been relaxed. Empty elevator mass, friction, motor force–speed, power, jerk,
-contact microtravel, readback errors, retries, tipping and cross-cell miniature
-support remain unresolved. Instant acceleration changes imply an idealized
-profile, not a qualified miniature-retention result. r=0 has no contact margin.
+Use unrounded `(30−T0)/360` for strict acceptance. Half-weight 10-ms dwell
+already gives 30.218 s. Asymmetry rescues the symmetric half-gravity
+zero-dwell rejection only; r=0.75 still fails. Uniform maps attach all heads.
+Upward force peaks remain 3.039 times weight; no tipping, force–speed, power,
+jerk, miniature interaction or hardware qualification follows. r=0 has no
+contact margin. Common-drive bounds are not independent-cell probabilities.
+Self-review integrates signed acceleration phases, displacement, final speed
+and normal-force bounds; distances 0/.001/10/40/1000 mm and exact
+triangular/trapezoidal crossover recover the symmetric formula in both
+directions. Graph replay verifies ordering, not support geometry. Closed
+forms need no discretization study. Stop motion-profile refinement without
+a complete affordable channel and contact path; serial microtravel below
+removes the apparent half-weight survivor for the stated sequences.
 
-Self-review integrates each constant-acceleration phase separately to verify
-signed displacement and final zero speed, checks acceleration and normal-force
-bounds, and recovers the symmetric formula. Test distances include zero,
-0.001/10/40/1000 mm and the exact triangular/trapezoidal crossover, in both
-directions. The exact event search validates capture-before-release for every
-transition; this assumes support transfer rather than validating geometry.
-Closed forms require no numerical mesh/time-step convergence. There is no
-independent physical validation, probability distribution or manufacturing-yield
-claim. Common acceleration limits affect all stations, not independent cells.
+## Lateral-only contact bound
 
-Decision: retain a conditional asymmetric 160-head loaded-surface comparator;
-the former half-gravity rejection applies only to symmetric profiles. Do not
-continue timing refinement without an affordable complete gripper/release
-channel and support-proof event path within this budget, plus a common drive
-that can supply the asymmetric force profile. No fabrication is justified.
-Reopen the failed 75%-weight-margin scenario only with changed motion/contact
-scheduling or justified different bounds. Broader mechanism discovery remains
-open; this result selects no product architecture.
+Input `58fc835`; `contact_travel.py` retains the earlier rest-to-rest lateral
+screen for E-052's 1.22-mm stroke. At 5/20/50/100 m/s² and 400 mm/s, strokes
+take 31.241/15.620/9.879/6.986 ms. Charging one per stop gives unloaded maps
+of 29.463/23.839/21.773/20.731 s and half-weight maps of
+37.865/32.241/30.175/29.133 s. Re-solving the abstract event graph retains the
+nine-stop sweep. Half-weight motion needs >55.295 m/s² lateral acceleration
+before unload/reseat or any other contact cost; at 20 m/s² its allowable
+stroke is <0.4413 mm. These necessary conditions are superseded by the serial
+paths below, not feasible drive specifications. Independent phase integration,
+capture-order replay and `T0+360*dwell` reconciliation remain executable.
 
-## Finite pawl travel narrows the contact-time survivor
+## Serial unload and reseat critical paths
 
-Input main `58fc835`; reproduce with
-`python3 tools/curated-experiment-checks/E-051/contact_travel.py`.
-Use E-052's 1.22-mm middle-bound withdrawal witness as an explicit embodiment,
-not a universal lower bound on pawl travel. At each of the nine all-pairs sweep
-stops at least one column requires withdrawal or reinsertion. For this screen,
-that lateral stroke begins and ends at rest while the elevator is stopped.
-Different channels may operate in parallel; count only one stroke per stop,
-even when both acquisition and deposition occur. Omit grip, 0.47-mm unload,
-seating, support proof, control latency and retries. This is deliberately an
-optimistic contact bound, not a complete mechanism or BOM.
+Input `714e9e2` already contains the lateral-only screen above; this extension
+uses the same `contact_travel.py` and E-052 witness (`h=0.47 mm`, `s=1.22 mm`).
+Evidence is analytical motion accounting, not contact simulation or hardware
+performance. Stop this bounded investigation here: added vertical travel
+excludes the half-weight-margin profile for the two explicit sequences below,
+even with instantaneous lateral actuation. Faster lateral actuation alone
+cannot rescue them. Unloaded motion remains conditional on sequence and drive.
 
-Lateral acceleration is independent of vertical acceleration: test explicit
-5/20/50/100 m/s² scenarios, with 400 mm/s speed cap. These are uncertainty
-bounds, not sourced motor capability or manufacturing priors. All strokes are
-triangular, with minimum time `2 sqrt(stroke/acceleration)`. Re-solve the event
-graph at each resulting dwell; the nine-stop sweep remains optimal within the
-inherited graph. The entire row shares the bound; no independent-cell yield
-or probability is inferred.
+Keep the nine-stop delayed-capture sweep, 160 heads, 40 stations, 400-mm/s
+speed cap, fast index and 2-s overhead. Eight stops capture columns, eight
+stops deposit them, and seven do both. Every moving microleg starts/ends at
+rest. Let `U=move(h,400,a_eff)` and `L=move(s,400,a_lateral)`; upward/downward
+vertical limits give `a_eff=2/(1/A+1/B)`. U is 9.695 ms for A=B=20 m/s² and
+15.448 ms for A=20, B=4.905 m/s². Distinct pawls can insert/withdraw in parallel;
+operations on the shared elevator cannot use contradictory vertical phases.
+Assume instantaneous gripper acquisition/release and ideal independent pawl
+commands. Neither is an implemented selector.
 
-| Lateral acceleration | One stroke | Fast unloaded map | Half-weight-margin map |
-|---|---:|---:|---:|
-| 5 m/s² | 31.241 ms | 29.463 s | 37.865 s |
-| 20 m/s² | 15.620 ms | 23.839 s | 32.241 s |
-| 50 m/s² | 9.879 ms | 21.773 s | 30.175 s |
-| 100 m/s² | 6.986 ms | 20.731 s | 29.133 s |
+Two explicit serial paths expose the previously omitted operations:
 
-For the half-weight-margin case, strict <30 s requires lateral acceleration
->55.295 m/s² even with every other contact operation instantaneous. At
-20 m/s², the allowed stroke is <0.4413 mm rather than 1.22 mm. At 100 m/s²,
-only 2.409 ms/event remains for all omitted operations. These are necessary
-conditions, not feasible drive specifications. The unloaded 5 m/s² case has
-only 1.492 ms/event left; a nominal pass is not acceptance.
+- **Seat cycle:** arrive at seated height z with incoming columns held and
+  their pawls withdrawn; grip outgoing columns; lift h; insert incoming pawls
+  while withdrawing outgoing pawls; lower h; release incoming grippers.
+  Start/end each event at z. Charge `2U+L` at all nine stops, including the
+  initial/final return microlegs. Inter-stop distances remain 10 mm.
+- **Clearance cycle:** arrive at z+h; insert incoming pawls; lower h; release
+  incoming grippers and grip outgoing columns; lift h; withdraw outgoing
+  pawls. Depart at z+h. Initial capture and final deposition each cost U+L;
+  the seven mixed stops each cost 2(U+L). All eight inter-stop moves remain
+  10 mm; the initial lift and final lowering close the board-height path.
 
-Decision: exclude the combination of this stroke, stop-at-contact sequence,
-160 heads, half-weight vertical profile and lateral acceleration ≤50 m/s².
-Retain unloaded and faster-lateral cases only as conditional comparators.
-Changed-cell miniature retention is not a stage-02 requirement. Reopen the
-excluded combination only with shorter robust travel, evidenced faster drive,
-more parallel elevators, or a different support-transfer sequence that overlaps
-stroke with travel. A fly-through cam, prewithdrawal while independently
-supported, or offset gripper changes the mechanism and needs geometry and
-continuous-support validation; it cannot inherit this timing table. The
-result strengthens the reason to investigate an explicit shared-energy
-selector rather than further optimize nominal pawl dimensions. No print.
+Thus full-map times are `T0+40*(18U+9L)` and `T0+40*16*(U+L)` respectively.
+The generous one-branch relaxation `T0+360*(U+L)` bounds both from below:
+it lets capture and deposition branches overlap and discards their other
+vertical legs. It is **not a realizable complete sequence** or a global optimum
+across altered trajectories. Do not add microtravel to a macro profile that
+already includes it; these paths define exactly where the extra legs occur.
+The earlier event-graph optimum is not a proof that either detailed sequence
+is globally optimal. No new graph search is claimed.
 
-Self-review: independently integrate acceleration phases to recover stroke
-and zero terminal speed; check the unlimited-speed triangular bound, replay
-capture-before-release, and reconcile graph timing with `T0+360*dwell`.
-All eight deterministic cases pass these numerical checks. Closed forms need
-no mesh convergence. Contact elasticity, backlash, wear and actual drive
-force–speed remain unmodelled; they cannot improve the stated rest-to-rest
-bound under its limits. No physical or independent review is claimed.
+| Lateral acceleration | Unloaded seat cycle | Unloaded clearance cycle | Half-weight seat cycle | Half-weight clearance cycle |
+|---|---:|---:|---:|---:|
+| 5 m/s² | 36.443 s | 44.415 s | 48.987 s | 56.499 s |
+| 20 m/s² | 30.820 s | 34.418 s | 43.364 s | 46.502 s |
+| 50 m/s² | 28.753 s | 30.744 s | 41.297 s | 42.828 s |
+| 100 m/s² | 27.712 s | 28.892 s | 40.255 s | 40.976 s |
+
+The half-weight relaxation reaches **32.179 s even as L→0**: U alone exceeds
+its 9.394327-ms event allowance. Under that relaxation, extra vertical travel
+would have to fall below approximately 0.174 mm even with instantaneous pawls,
+versus this embodiment's 0.47 mm (and E-052's 0.45-mm middle-bound minimum).
+For unloaded motion, strict <30 s requires lateral acceleration >27.412 m/s²
+for the seat cycle or >64.220 m/s² for the clearance cycle before all omitted
+costs. At 50 m/s² the seat cycle leaves only 3.463 ms per event on average
+for grip, proof, settling, control and retries; at 100 m/s² the clearance cycle
+leaves 3.078 ms. A residual average is an aggregate budget, not permission for
+every contact to exceed a common-drive deadline. Neither case is accepted.
+
+Sensitivity is explicit: triangular microtravel scales as sqrt(distance /
+acceleration). Adding 1 ms to U/L costs 0.720/0.360 s per board for the
+seat cycle, or 0.640/0.640 s for the clearance cycle.
+These are shared-drive epistemic bounds, not independent cell distributions.
+The h/s witness retains E-052's geometric error-envelope limitations; it does
+not account for backlash, friction, deformation, roughness, wear or settling.
+Increasing distances or reducing acceleration worsens these bounds; credible
+shorter strokes or different sequencing requires changed evidence. No yield,
+reliability, dynamics qualification or new manufacturing prior is inferred.
+
+Retain the overlap escape conditions: merge unloading/approach into inter-level
+motion, use offset/local grippers with independent support, prewithdraw while
+independently held, or use a fly-through cam/multiple elevators. Such changes
+must replay actual approach/departure coordinates, contact order, all held
+columns, support continuity, unchanged-cell isolation and full-board time.
+A shared elevator's microexcursion also moves every attached column; the
+seat cycle no longer inherits the earlier no-excursion capture-policy result.
+Geometry and a complete affordable selector remain prerequisites to promoting
+these paths. No print or procurement. Stop nominal dwell refinement; reopen
+only with a concrete changed support-transfer mechanism or evidenced drive.
+
+Self-review: replay verifies event counts, all eight inter-stop distances,
+initial/final height closure and agreement with the two closed-form totals;
+independent constant-acceleration integration verifies both signs of each
+vertical microleg. Sixteen explicit path cases and eight relaxed cases run
+deterministically alongside the retained lateral-only checks. Closed forms
+need no mesh/time-step study. This checks arithmetic and stipulated ordering,
+not actual gripper/guide contact geometry or independent engineering review.
