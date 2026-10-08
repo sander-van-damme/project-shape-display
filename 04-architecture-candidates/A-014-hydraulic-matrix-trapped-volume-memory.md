@@ -39,4 +39,7 @@ never opens on a half-select. A normally closed chamber valve opened only by
 two mechanical inputs could escape; it requires a real force/isolation/reset
 mechanism and still repeats 6,400 qualified valves. Positive mechanical locks
 could remove dwell compliance/leakage but add release and support-transfer work.
-These alternatives remain unexplored, not accepted. No print or purchase.
+The floating-beam chamber-side coincidence embodiment now has a conditional
+kinematic window (E-061); swept packaging, shared-rail force/deflection and
+bidirectional closure remain unresolved. The lock hybrid remains unexplored.
+Neither is accepted hardware. No print or purchase.
