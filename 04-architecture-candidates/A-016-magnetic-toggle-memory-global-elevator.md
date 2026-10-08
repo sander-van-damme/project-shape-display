@@ -52,9 +52,22 @@ A false flag read can unlock an unintended pin: use a mechanical normally
 closed release dog and check unchanged heights after each shared cam event.
 Field/common-read faults require module isolation, not repeated pulsing.
 
-Continue with a bounded crossed-flux field/threshold and complete strip-cost
-model, comparing flux-guided magnetic flags against a simple mechanical
-coincidence flag. Reject this coincident-field embodiment if selected/half-
-selected intervals overlap; do not reject magnetic memory generally. No
-long-term magnet force, miniature support, manufacturing yield or lifetime
-claim follows from the abstract toggle sequence.
+The E-065 air-core cost/assembly mutation explicitly closes conductor loops
+and evaluates arbitrary column masks over 80×80 sites. Seven of nine nominal
+geometries retain a scalar threshold window; only three 2-mm-return cases
+survive tight ±0.05-mm registration / ±5% current / ±5% threshold scenarios.
+All cases fail the middle/wide scenarios. At 0.8-mm row standoff, the best tight
+window is 0.1864–0.2106 mT/A; this is not finite-flag switching evidence.
+Stop failed air-core cases under those bounds. The original local flux returns
+remain unresolved: with 15% intended-field and threshold errors, a conservative
+circuit must limit total parasitic projection to <6.125% of one intended field
+contribution. A generated guided circuit or measured tighter spread can reopen
+that gate; higher current alone cannot repair overlapping intervals.
+
+The direct two-array circuit requires 320 reversible lines/160 dual H bridges;
+no complete affordable strip BOM exists. Retain the tight air-core and guided
+routes conditionally, but complete the pressure/electroadhesive discriminators
+before further magnetic detail. Later work must couple actual finite-flag
+torque, detent, layer isolation and strip cost; compare a simple mechanical
+coincidence flag. No long-term magnet force, miniature support, manufacturing
+yield or lifetime claim follows from the abstract toggle sequence.
