@@ -20,3 +20,12 @@ vertical acceleration to g tightens the 160-head dwell ceiling to <15.97 ms
 with zero normal-force margin; at 0.5g even zero dwell fails. These are conditional
 loaded-surface bounds, not a new requirement on changed cells. Carry this scope,
 full-row moving mass and support-proof timing into the geometry/cost comparison.
+
+E-052 supplies a conditional translating-pawl swept section: at a 0.35-mm
+relative placement bound, an interior witness needs 4.89-mm width, 1.22-mm
+withdrawal and 0.47-mm unload. A continuous packing bound rejects the 0.60-mm
+case for web≥1.6/pawl length≥0.8 mm, even though the coarser grid also missed
+the feasible middle case. This does not implement the guide, return/retention,
+gripper or release drive and does not inherit E-050 strength or timing passes.
+Carry the actual withdrawal/unload operations into head synthesis and costing;
+stop refining the bare section grid. Wider staggered supports remain an escape.
