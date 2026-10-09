@@ -71,3 +71,13 @@ before further magnetic detail. Later work must couple actual finite-flag
 torque, detent, layer isolation and strip cost; compare a simple mechanical
 coincidence flag. No long-term magnet force, miniature support, manufacturing
 yield or lifetime claim follows from the abstract toggle sequence.
+
+E-074 opens a distinct guided-reluctance/soft-armature mutation with a finite
+assumed double-well detent. Of 48 bounded gap/stiffness/current/leakage cases,
+31 retain quasistatic command windows but only 20 retain the lossless single-
+pulse window. This is an ideal gap/energy screen, not a field or detent model
+for the original permanent-magnet flag. A soft pole's force is quadratic in
+current: reversing current does not reset it. Continue with explicit opposed-
+pole reset versus signed magnetic torque and mechanical coincidence; count
+reset hardware, repeated half-select dynamics and cam routing. No static-window
+survivor is accepted as a complete selector.
