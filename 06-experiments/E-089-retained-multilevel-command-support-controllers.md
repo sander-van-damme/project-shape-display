@@ -110,8 +110,10 @@ that column's **old** height. Columns initially at different heights are
 acquired at different elevator coordinates; every acquired hook consequently
 has zero offset. Ground support unloads only after pickup. At a height above
 all selected old/target values, program the now unloaded stepped rotors.
-Descend, depositing each column when its new stop is reached; retract its hook
-before the deck continues. Unchanged hooks stay out of the deck path throughout.
+Descend, depositing each column when its new stop is reached. Release must
+permit the deck to continue: a captured hook needs disengagement, while an open
+unilateral lift contact can separate without retracting its lip. Unchanged
+hooks stay out of the deck path throughout.
 This avoids E-081's forbidden simultaneous unequal-height rigid reset by
 changing the acquisition geometry, not by assigning new offsets mid-grip.
 
