@@ -24,7 +24,11 @@ scenarios**, not X1C distributions or a manufacturing-yield estimate.
 The pin rises along z through the two shutters. A dog moves x by d, carrying a
 lower ramp wing with underside `z=z0+m*q-m*x`, where q is dog displacement and
 m is rise/run. Its upper cam-contact boss can remain E-077's narrow section;
-the lower wing must sweep without colliding with neighboring wings. A pin's
+the lower wing must sweep without colliding with neighboring wings. Model each
+wing as a wedge beneath a flat top skin spanning its whole length. Adjacent
+wings share that skin's z level and y lane; vertical nesting is excluded.
+Thus x overlap also overlaps the common top skin, rather than merely projecting
+disjoint sloping surfaces onto x. The guide-width reserve is additional. A pin's
 upper corner contacts the slope; pin width is not a distributed contact area.
 The wing is required to cover the **entire pin footprint**, with 0.10-mm end
 land, for every q from 0 to d. This is a specific full-travel embodiment.
@@ -80,10 +84,12 @@ remain absent; the values are optimistic force examples.
 
 With ramp friction mu, guide friction mu_g and additional horizontal drag
 0.01 N, resolving the contact normal and sliding tangent gives
-`H/P=(m-mu)/(1+mu*m)-mu_g`. P is vertical pin force. Separate guide shoes conservatively carry the ramp
+`H/P=(m-mu)/(1+mu*m)-mu_g`. P is vertical pin force. Separate guide shoes
+conservatively carry the ramp
 and detent-plunger reactions without cancellation; the plunger adds
 `mu_g*F_plunger` to the horizontal resistance. A guide permitting reaction
-cancellation would require a different contact model. If this gain is nonpositive, pushing harder cannot
+cancellation would require a different contact model. If this gain is
+nonpositive, pushing harder cannot
 produce forward quasistatic motion in this model. For m={0.5,1.0,1.5},
 mu={0.1,0.3,0.5}, mu_g={0.1,0.3}, **3/18** cases have no positive gain.
 The remaining cases are force bounds, not geometric or dynamic survivors.
@@ -132,7 +138,9 @@ Self-review independently resolves vector contact forces, checks frictionless
 work conservation (`P*m=H`), exercises frictional stalls, enumerates ramp/body
 corners and arbitrary adjacent commands, and evaluates the detent profile on
 100/200/400 pre-apex samples. In the force-dominated case stroke error halves
-with each refinement; the end-stroke-dominated case agrees exactly. A 1,001-point whole-stroke
-check also covers residual post-apex drag for both guide-friction bounds. No external
+with each refinement; the end-stroke-dominated case agrees exactly. A 1,001-point
+whole-stroke
+check also covers residual post-apex drag for both guide-friction bounds.
+No external
 validation is claimed. Corner pressure, 3D guide/retention packing, wear,
 stiffness, snap impact, readback and fault recovery still bound the evidence.

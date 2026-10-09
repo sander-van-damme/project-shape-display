@@ -14,7 +14,8 @@ def ramp_geometry(d, w, e, land=.1, guide=.4):
     left = -d-w/2-3.5*e-land
     right = w/2+3.5*e+land
     cover = []
-    # Finite translating polygon x projection at both stroke endpoints.
+    # Wedge has a flat top skin; neighbors share its z level and y lane.
+    # Its finite x projection is necessary packing, not a 3D clearance pass.
     for q, db, dp, dw, dl, dr in product((0., d), *[(-e, e)]*5):
         pin = (dp-(w+dw)/2, dp+(w+dw)/2)
         ramp = (q+db+left+dl, q+db+right+dr)
