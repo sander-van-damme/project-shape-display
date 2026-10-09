@@ -182,6 +182,8 @@ def bounds(f,e):
     wall=Box(right,right+f.wall+e,-.6,.6,.2,2.4)
     neighbor=boss(P-e,width=W+e)
     neighbor_gap=neighbor.x0-wall.x1
+    assert math.isclose(min(insert),(f.gap-D-W)/2-3.5*e,abs_tol=1e-10)
+    assert math.isclose(neighbor_gap,P-D-f.gap-f.wall-10*e,abs_tol=1e-10)
     witness=overlap(wall,neighbor)
     # Whole swept x envelope; staggered same-lane distance is 2P.
     half=f.gap/2+e+f.wall+e+stop+e+e
@@ -197,6 +199,9 @@ def bounds(f,e):
                 neighbor_mm=neighbor_gap,neighbor_collision_mm3=witness,
                 staggered_fork_mm=same_lane_gap,raised_mm=raised_clearance,
                 row_mm=axial_gap,
+                gap_lower_limit_mm=D+W+7*e,
+                gap_upper_limit_mm=P-D-f.wall-10*e,
+                error_ceiling_any_gap_mm=(P-2*D-W-f.wall)/17,
                 geometric_reserve=min(min(insert),neighbor_gap,same_lane_gap,raised_clearance,axial_gap)>0)
 
 

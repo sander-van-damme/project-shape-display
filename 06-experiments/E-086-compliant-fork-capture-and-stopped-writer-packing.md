@@ -88,6 +88,13 @@ or maintained. Orientation, tilt, wear and guide bending remain additional
 errors. Stop wider-box development of these sections; tighter calibrated errors
 or changed boss/withdrawal topology would be reopening evidence.
 
+This conflict also has a continuous bound: positive insertion requires
+`g>d+W+7e`, while neighbor clearance requires `g<P−d−w−10e`.
+Thus any gap with w≥0.6 mm requires **e<0.07529 mm** at P=5.08 mm under this
+stop/error contract. At e=0.10, the two constraints require g>2.70 and g<2.28 mm.
+An internal pitch greater than 5.50 mm could remove this particular conflict;
+it needs a changed internal layout, not permission to coarsen the top surface.
+
 ## Flexure force, capture and recoil
 
 Screen two rectangular clamped-guided beams, with length L along z, x thickness
