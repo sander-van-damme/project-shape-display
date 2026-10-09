@@ -80,11 +80,13 @@ pole reset versus signed magnetic torque and mechanical coincidence; count
 reset hardware, repeated half-select dynamics and cam routing. No static-window
 survivor is accepted as a complete selector.
 
-E-075 now supplies repeated-pulse counterexamples for the unstopped finite
-detent, including a signed 60-degree magnetic torque surrogate. Two separated
-half-select pulses can complete a stroke below the single-step threshold.
-Seating/restitution changes the result; ideal inelastic stops are only bounded
-model cases, not qualified isolation. Prioritize positive mechanical coincidence
-and explicit seated-flag contact geometry before more field/current tuning.
-Signed torque reverses with field polarity; soft attraction requires opposed
-force paths. Neither reduced model establishes packed cam routing or strip cost.
+E-075 supplies repeated-pulse counterexamples for the finite detent, including
+signed 60-degree dipole torque. E-080 replaces instantaneous restitution with
+a finite tangent-normal stop and passive compression damping; neither a stiff
+stop nor an assumed inelastic seat establishes pulse-history isolation. Its
+independent impact bound makes restitution depend on incoming speed. Retain
+this route only for bounded contact/scheduling and field-geometry investigation;
+no packed cam selector is accepted. Signed torque resets with polarity reversal;
+soft attraction requires opposed force paths. The mechanical comparator's
+full-travel and short-trip ramps have E-078/E-079 packing/seating limitations,
+so neither route presently earns selector replacement or fabrication.
