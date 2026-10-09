@@ -85,3 +85,14 @@ E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals under its
 assumed motion limits, before six complete contact events and other overhead.
 E-068/E-069's added transfer/proof motion must enter that budget. No complete
 cost or timing advantage over the rack/mask comparators has been established.
+
+E-071 tests the next restraint alternatives. A positive datum with a sliding
+preload shoe removes nominal translation play but introduces friction feedback
+from the offset fork. Even favorable full-length reactions require mu<0.151/0.377
+for 1.6/4-mm guides; beyond those scenario bounds no preload maintains seated
+upward sliding. The 12/20-mm guides admit ideal reaction solutions at mu≤0.6,
+with 1.476/0.607-N minimum preload for W≤1 N and |H|≤0.2 N. These are marginal
+necessary conditions, not specified springs or manufactured position control.
+A separate rear guide lane needs 7.10 mm and fails pitch. Retain only longer
+local datum or vertically relocated shared-frame packing for a bounded finite
+restraint/tilt test; no full-system survival or print request follows.
