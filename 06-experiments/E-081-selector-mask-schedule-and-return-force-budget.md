@@ -76,7 +76,9 @@ The cyclic full map sets `target=c mod H`, `old=(target+1) mod H` in each of
 steps, explicit workloads rather than new product quantization requirements.
 All cells change. Each row contains every state for H≤80.
 
-Count each nonempty row in each acquisition/deposition mask once, granting
+The counts below are **selected-row visits**, not complete transient-mask writes
+(E-083 accounts for old/new differences and final clear). Count each nonempty
+row in each acquisition/deposition mask once, granting
 ideal parallel programming of two arrays or one reusable mask with persistent
 outputs. Serial independent array writers double W. Reset requires a descending
 acquisition, H−1 old-height deposit masks, an ascending acquisition and H−1

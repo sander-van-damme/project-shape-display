@@ -9,8 +9,8 @@ builds-on: [E-077, E-079, E-081, M-011]
 accepted selector.** A finite pin/socket section fits the ±0.10-mm box, but its
 force window depends strongly on common sliding drag. The specified serial
 stop-and-go controller fails the five/21-height adverse workloads. Stop further
-single-row width tuning; next compare banked addressing and mask scheduling at
-system level before designing its detents, rails or actuators.
+single-row width tuning. E-083 completes the banked addressing/mask comparison;
+ADR-014 retains only conditional reserves with explicit reopening gates.
 
 Input main `3a4688e`. Reproduce:
 `python3 tools/curated-experiment-checks/E-082/row_clutch.py`.
@@ -171,10 +171,10 @@ The positive drive removes passive snap-completion dependence, but it does not
 remove endpoint retention, high-density fits, common drag or serial scan time.
 Keep only a conditional low-drag joint comparator; reject treating the tested
 serial implementation as a five/21-height whole-board solution. No printing.
-Next discriminate whether banked command hardware and sparse/differential mask
-writing can meet timing **and** complete channel/part allowances. If not, close
-this campaign's implementations with explicit reopening conditions instead of
-further aperture/spring sweeps. Magnetic comparisons remain governed by E-080's
+E-083 resolves the banked/differential-mask comparison: numerical time survivors
+need many complete drives within very small residual allowances. ADR-014 closes
+the campaign with conditional reserves and explicit reopening inputs, rather
+than further aperture/spring sweeps. Magnetic comparisons remain governed by E-080's
 signed-pulse and finite-field gates; this joint supplies no magnetic validation.
 
 Self-review, not independent validation: all 216 generated sections reconstruct

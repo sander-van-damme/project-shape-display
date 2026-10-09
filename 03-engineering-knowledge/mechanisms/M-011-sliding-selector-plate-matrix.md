@@ -11,5 +11,7 @@ Orthogonal row/column motion can form coincidence selection.
 
 **Key risks:** Accumulated friction, plate deflection, combinatorial transactions and clearance.
 
-**Cheapest discriminating experiment:** A 5×5 orthogonal selector matrix plus common lift, including checkerboard and
-single-cell patterns.
+**Next useful discrimination:** Execute selection, retention, energy transfer and reset
+through finite geometry and full-map scheduling before proposing fabrication.
+E-076–083 bound shutter and row-clutch embodiments; physical calibration needs
+a surviving complete package and a parameter that can change selection.

@@ -72,37 +72,26 @@ routes conditionally. Couple actual finite-flag torque, detent, layer isolation
 and strip cost; compare a simple mechanical coincidence flag. No long-term magnet force, miniature support, manufacturing
 yield or lifetime claim follows from the abstract toggle sequence.
 
-E-074 opens a distinct guided-reluctance/soft-armature mutation with a finite
-assumed double-well detent. Of 48 bounded gap/stiffness/current/leakage cases,
-31 retain quasistatic command windows but only 20 retain the lossless single-
-pulse window. This is an ideal gap/energy screen, not a field or detent model
-for the original permanent-magnet flag. A soft pole's force is quadratic in
-current: reversing current does not reset it. Continue with explicit opposed-
-pole reset versus signed magnetic torque and mechanical coincidence; count
-reset hardware, repeated half-select dynamics and cam routing. No static-window
-survivor is accepted as a complete selector.
+E-074–080 couple finite switching energy, repeated pulses and compliant seat
+contact. Static/single-pulse windows do not establish isolation; fixed signed
+histories cross the detent. A soft-attraction mutation needs opposed reset
+paths because force is quadratic in current. The mechanical comparator's
+full-travel and short-trip ramps have packing/seating limitations. ADR-014
+concludes this comparison without a selector winner: keep magnetic routes as
+conditional reserves requiring a finite field/retention/cam package plus a
+bounded signed scheduler or positive blocker; stop arbitrary threshold/damping
+tuning. No fabrication follows.
 
-E-075 supplies repeated-pulse counterexamples for the finite detent, including
-signed 60-degree dipole torque. E-080 replaces instantaneous restitution with
-a finite tangent-normal stop and passive compression damping; neither a stiff
-stop nor an assumed inelastic seat establishes pulse-history isolation. Its
-independent impact bound makes restitution depend on incoming speed. Retain
-this route only for bounded contact/scheduling and field-geometry investigation;
-no packed cam selector is accepted. Signed torque resets with polarity reversal;
-soft attraction requires opposed force paths. The mechanical comparator's
-full-travel and short-trip ramps have E-078/E-079 packing/seating limitations,
-so neither route presently earns selector replacement or fabrication.
-
-E-081 enforces one common elevator coordinate and fixed offsets of engaged
-collets. Reset now requires zero deposition and reacquisition: five/21-height
-cyclic full maps need 800/3,360 row writes with parallel arrays or a reused
-command mask, twice that for serial array programming. Reset-free signed
-displacement groups reduce those cyclic cases to 320 writes, but maps containing
-all signed displacements restore 800/3,360. Both need finite support transfer;
-command reuse alone cannot remove persistent output states. At a hypothetical
-6-s non-row allocation the adverse cases allow <30/<7.143 ms per row. E-079's
-fixed writer consumes 29.926/125.688 s at 100 m/s² before overhead. Slipping
-reset is a changed clamp mechanism with 128 m aggregate relative slip for the
-five-height map, not an implicit property of a rigid gripper. Retain direct
-positive-completion addressing and physical magnetic storage as implementation
-gates; no full-map performance or fabrication acceptance follows.
+E-081 supplies explicit zero-deposit/regrip and direct signed-displacement
+controllers for rigid collets. E-083 counts actual transient-mask differences
+and final clear: favorable cyclic direct maps need 240 row transactions, while
+five/21-height all-displacement maps need 880/3,440. With a hypothetical 6-s
+non-row reserve the latter allows <6.977 ms per complete unbanked row transaction.
+Command reuse still requires persistent grip/pawl outputs and support proof.
+E-082/083's positive mechanical row-clutch comparator trades serial time for
+many independently driven banks; its representative 16-bank numerical survivor
+needs 1,280 data drives and <$0.184 mean complete channel allowance with $250
+elsewhere. Neither magnetic dimensionless switching time nor mechanical scalar
+force bounds qualify that full machine. More affordable shared-energy addressing
+with explicit selection/reset is the next architectural opportunity; no bank,
+reader, physical mask preparation or repeated interface is free.
