@@ -17,14 +17,18 @@ the stage extends/retracts until it reaches a positive shoulder and engages a
 catch. To change a bit, acquire its carriage, lift/unload the catch, retract
 it, move, reseat/proof the opposite shoulder and disengage. Other layers remain
 caught and travel as a rigid payload when a lower layer moves. Crossed magnetic
-flags supply commands; they do not carry structural force. Telescoping input
-links or moving drive rails must follow lower-layer offsets: a fixed planar
-rail cannot reach every carriage state. That unresolved geometry is an explicit
-completeness gate, not omitted hardware.
+flags supply commands; they do not carry structural force. E-067 identifies an
+alternative to following lower-layer offsets: clear all
+bits on changed columns bottom-up, then set target bits top-down. Every active
+layer then has zero lower binary displacement. A fixed-reference drive still
+needs stroke travel, retractable coupling and bypass of unselected carriages;
+co-moving/offset-following drives remain alternatives if that geometry fails.
 
 Outputs 0/10/20/30/40 use five of eight codes. Clearing old-only bits then
-setting new-only bits reaches every ordered pair in the abstract 25-transition
-check without exceeding endpoint heights. Some transitions descend first
+setting new-only bits reaches every endpoint arithmetically but fails fixed-
+reference access for some pairs (E-067). Normalizing changed columns preserves
+reach while adding contact cycles; 10→30 becomes 10→0→20→30. Some transitions
+descend first
 (30→40 passes zero); only changed columns move. Intermediate unsupported states
 are forbidden: the active layer drive holds load while its catch is open;
 all other shoulders remain engaged. Unsupported gaps or neighboring slider
@@ -46,6 +50,11 @@ failure isolates the module and inserts service support before cartridge repair.
 Regional motion is local in the abstract; shared rails must remain clear of
 all unselected carriage states. A six-pass clear/set schedule at three layers
 charges travel, addressing and proof; cost/time cannot be inferred from three
-bits alone. Next useful work is a single-layer offset-invariant drive/contact
-path shared with its lower-stage travel. Reject a fixed-plane coupling that
-loses contact as lower bits change. No detailed optimization or printing yet.
+bits alone. Next useful work is generated drive/dog/catch swept geometry for
+the E-067
+normalized protocol: positive support during transfer, retracted bypass for
+every unchanged offset, and upper-stage motion with lower-stage travel. E-067
+charges 5.1314 s for serial loaded plus unloaded rail traversals under its
+assumed motion limits, before six complete contact events and other overhead.
+No detailed optimization, physical qualification or printing follows from the
+logical access witness.
