@@ -151,8 +151,7 @@ proof behavior, then all three stacked layers and neighboring guides. First
 compare rigid large-clearance and floating-dog transfer; stop an implementation
 on missing positive support or unavoidable collision. Reopen a middle-bound
 section only by changing its packing assumptions/topology, not refining the
-same grid. LAB-190 remains a healthy campaign; this result completes its first
-bounded bypass investigation, not its geometry or full-machine gate.
+same grid. The bypass result does not pass the complete geometry or machine gate.
 
 Self-review: exact-box limiting/touching/translation checks; independent
 continuous packing inequality; x-separation proof covering unsampled offsets;
