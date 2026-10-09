@@ -5,7 +5,7 @@ builds-on: [P-008]
 
 # Magnetic toggle memory with mechanical shared lifting
 
-**Bounded; priority survivor for selector-field investigation.** Descriptors:
+**Bounded; no accepted finite selector or full-map schedule.** Descriptors:
 coincident row/column magnetic pulses; bistable magnetic flag memory; shared
 mechanical elevator; ground pawl load path; prismatic columns and rotating
 flags; two flags/collets and a pawl per site. This is not an XY magnetic writer:
@@ -90,3 +90,17 @@ no packed cam selector is accepted. Signed torque resets with polarity reversal;
 soft attraction requires opposed force paths. The mechanical comparator's
 full-travel and short-trip ramps have E-078/E-079 packing/seating limitations,
 so neither route presently earns selector replacement or fabrication.
+
+E-081 counts destination-dependent programming in the reset-and-rise sequence:
+five/21 target heights in every row require 480/1,760 row writes even with
+ideal parallel arrays or one reused event mask, versus twice those counts for
+serial independent arrays. With a hypothetical 6-s non-row allocation this
+leaves <50/<13.636 ms per row for programming, withdrawal and readback. One
+reused array needs independent persistent grip/pawl output states or an explicit
+phased hold mechanism; clearing a command cannot erase column support. This
+is an abstract controller check, not proof of that mechanism. E-079's fixed
+8.746-mm mechanical writer fails the five-height workload at 20 m/s² and the
+21-height workload at 100 m/s², before overhead. Magnetic pulse isolation still
+needs a physical timescale and bounded schedule. Continue only with changed
+storage/addressing geometry that escapes these burdens; no guessed contact
+parameter sweep or simple scan-count claim establishes selection.
