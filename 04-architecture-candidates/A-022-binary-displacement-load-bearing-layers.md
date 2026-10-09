@@ -1,11 +1,11 @@
 ---
-status: candidate
+status: rejected
 builds-on: [M-013]
 ---
 
 # Binary displacement layers with positive load stops
 
-**Bounded; retain as a distinct structural-memory comparator.** Descriptors:
+**Tested captured-T implementation rejected; retain structural memory as a distinct comparison principle.** Descriptors:
 layer/row/column coupling dogs; binary telescopic-extension memory; three shared
 layer drives; serial positive shoulders carrying top load; three guided linear
 stages per surface element. Binary arithmetic is followed by explicit local
@@ -83,28 +83,28 @@ their extra constraints, friction and repeated interfaces.
 
 E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals under its
 assumed motion limits, before six complete contact events and other overhead.
-E-068/E-069's added transfer/proof motion must enter that budget. No complete
-cost or timing advantage over the rack/mask comparators has been established.
+No complete cost or timing advantage over rack/mask comparators is established.
 
-E-071 tests the next restraint alternatives. A positive datum with a sliding
-preload shoe removes nominal translation play but introduces friction feedback
-from the offset fork. Even favorable full-length reactions require mu<0.151/0.377
-for 1.6/4-mm guides; beyond those scenario bounds no preload maintains seated
-upward sliding. The 12/20-mm guides admit ideal reaction solutions at mu≤0.6,
-with 1.476/0.607-N minimum preload for W≤1 N and |H|≤0.2 N. These are marginal
-necessary conditions, not specified springs or manufactured position control.
-A separate rear guide lane needs 7.10 mm and fails pitch. Retain only longer
-local datum or vertically relocated shared-frame packing for a bounded finite
-restraint/tilt test; no full-system survival or print request follows.
+E-071 rejects short preload guides by friction feedback; separate rear guide
+lanes need 7.10 mm. E-072 rejects longer 12/20-mm local datums: ±0.025-mm
+pad mismatch tilts the travel axis into the fork even with ideal bias.
 
-E-072 rejects the 12/20-mm local datum retrofit under a partition of the same
-0.15-mm error budget. Opposite pad errors ±0.025 mm plus −0.125-mm rail bias
-leave the carriage clear of its guide but tilt its travel axis; at 40-mm stroke
-the dog bore intersects the fork. Ideal preload cannot remove this mismatch.
-A finite paired-leaf skeleton fits only after release slots reduce leaf width
-to 0.40 mm; its preload depends on nonlinear/prestrain assumptions and is not
-qualified. Stop local-pad refinement. The last bounded geometry test is a
-vertically displaced stationary frame with a through-slot for the dog/bore,
-including retained guidance through all stroke/lower-offset states. If no
-supported finite witness survives, conclude the campaign with scoped rejection;
-do not infer a machine pass from isolated centered paths.
+E-073 changes to stationary stations straddling the complete dog sweep, split
+flanges and a co-moving forward-lane latch carrier. Connected centered geometry
+clears at 5.00 × 4.95 mm; upper-stage carriage length is 95.10 mm and three
+separated swept envelopes total 285.05 mm before connectors. Clearance-only
+restraint still permits fork collision. Ideal fixed datums avoid pad-error
+extrapolation, but the generated section bends: at assumed E=4,000 MPa and
+H=0.2 N, a favorable fixed-fixed beam predicts 0.0793-mm wall deflection against
+0.050-mm remaining bypass clearance. The upper-stage model threshold is H=0.126 N
+at that modulus; lower modulus or finite support compliance reduces margin.
+These are bounded calculations, not measured PLA behavior or universal failure.
+
+**Campaign disposition:** no supported complete-machine survivor from the tested
+access/guide implementations. Stop local-guide, preload-only and stationary-slot
+refinement, stacked qualification and printing. Preserve the isolated scheduling/
+contact results without adding them into a machine pass. Reopening requires a
+materially changed packed reaction/section topology or evidence supporting a
+complete combined force/error budget below the E-073 boundary. The binary-memory
+principle is not rejected by one captured-T embodiment; no bought-cost, hardware
+reliability or full-update claim is made.
