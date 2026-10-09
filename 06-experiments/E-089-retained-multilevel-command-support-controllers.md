@@ -207,14 +207,11 @@ survivors. Lateral clearance, slot/reader size error, detent force, friction, PL
 orientation, accumulated wear and dynamic overshoot have not been checked.
 No probability is inferred from the surviving scenario count.
 
-**Next discriminator:** generate the alpha=0.5 single-slot cursor's retained
-positions, positive row-setting interface, sign gate, global return inhibit and retractable trip,
-then connect it to a finite support-transfer sequence. Check every setting,
-trigger, reset and withdrawal transition with adjacent cells and bounded
-correlated errors. Stop on a consequential contact/force contradiction; do not
-protect it by refining nominal tolerances. Keep alpha=1 as a travel/margin
-comparison and the selective deck as the materially different load-path
-reference. Neither warrants printing before those computational gates.
+**Evidence boundary:** the slot screen does not generate retained detents,
+positive setting, sign/return inhibition or support-transfer parts. Width errors,
+finite plate ends, independently blocked probes and loaded withdrawal can change
+the choice of alpha and topology. The selective deck remains the different
+load-path reference; this abstract result does not justify printing.
 
 Self-review, not external validation: all **729 three-cell old/new maps** at
 three levels pass three abstract controllers plus the alternative return
