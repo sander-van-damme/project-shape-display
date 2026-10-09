@@ -50,11 +50,18 @@ failure isolates the module and inserts service support before cartridge repair.
 Regional motion is local in the abstract; shared rails must remain clear of
 all unselected carriage states. A six-pass clear/set schedule at three layers
 charges travel, addressing and proof; cost/time cannot be inferred from three
-bits alone. Next useful work is generated drive/dog/catch swept geometry for
-the E-067
-normalized protocol: positive support during transfer, retracted bypass for
-every unchanged offset, and upper-stage motion with lower-stage travel. E-067
-charges 5.1314 s for serial loaded plus unloaded rail traversals under its
-assumed motion limits, before six complete contact events and other overhead.
+bits alone. E-068 generates a finite retractable dog/fork section: 15 tight-bound cases
+clear the shared rail, including arbitrary parked lower-stage offsets. Its
+continuous minimum pitch is 2.6+8e mm, rejecting this section at middle/wide
+relative-error bounds (5.40/7.40 mm). This is exterior access geometry, not a
+three-layer machine or supported handoff. A rigid rail acquiring unequal dogs
+also needs differential latch unload travel: upper-layer tight bounds require
+0.60 mm across opposite regional errors, versus 0.30 mm within a coherent
+region. Common batch/registration bias cancels from that difference.
+Next generate a positive-support latch transfer with sufficient overtravel or
+a floating dog, including deposition/proof, then neighboring and stacked-layer
+geometry. E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals
+under its assumed motion limits, before six complete contact events and other
+overhead. E-068's added transfer motion must enter that budget.
 No detailed optimization, physical qualification or printing follows from the
 logical access witness.
