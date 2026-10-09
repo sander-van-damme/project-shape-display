@@ -40,16 +40,19 @@ accessible mechanical service catch before power removal or replacement.
 Unverified adhesion is not a safe fallback. Common dielectric contamination,
 charge decay, residual adhesion and scanner bias can defeat many sites.
 
-E-063's ideal 40-mm² friction model gives 0.00105–1.99 N over bounded gaps,
-films and voltage. Only 12/36 cases reach a 0.05-N release-link scenario; one
-reaches 1 N, none 10 N. Therefore retain **low-force selection**, not direct
-10-N electrostatic service hold. The moving grip still must carry actual
-transient load: replace it with a mechanically wedged collet if the force
-bound fails, retaining the electrode only as its command clutch. That mutation
-adds a collet/reset interface and must be costed; it is not a free rescue.
-With $250 shared reserve, $500 leaves $0.0391/site for *both* channels and all
-bought local material. No sourced HV-array BOM establishes this. Next question:
-can the two command clutches switch an unloaded positive collet/pawl within
-that budget and pitch, including discharge and proof? Stop before CAD/printing
-until that route exists. Electronics/foil assembly is outside demonstrated PLA
-fabrication, although the frame and guides remain printed.
+E-063's ideal force bound retains only a low-force command role; direct
+10-N electrostatic service support fails the tested area/voltage envelope.
+E-066 then rejects the tested full-field HV507 circuit: 200 packages cost
+$3,217.50 before any other parts against the $500 machine ceiling. In its
+3,888 bounded pad cases, only four preclosed/active/tight cases survive, all at
+500 V, beyond that driver's 300-V rating. None survives at 200/265 V or under
+middle/wide bounds. This is a prescribed rigid-pad/contact-corner calculation,
+not a general failure of conforming electroadhesive films.
+
+Stop detailed layout and fabrication for that embodiment. The principle remains
+a reserve, reopened only by changed contact/command geometry AND a complete
+lower-cost addressing path. A conformal-film sensitivity restores modeled
+265-V shear but cannot rescue the priced circuit. Reusable channels, passive
+addressing or a custom circuit must establish isolation, reset, affordable
+hardware and full-map/regional scheduling rather than inherit the active-array
+claims. E-066 preserves source, numerical checks and support-proof limitations.
