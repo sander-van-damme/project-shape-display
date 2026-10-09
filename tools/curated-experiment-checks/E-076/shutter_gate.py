@@ -19,6 +19,7 @@ def geometry():
     counts={}
     for e in (0.05,0.1,0.2):
         survivors=[]
+        rejected=[]
         for w,a,d in product((0.6,0.8,1.0),(1.2,1.6,2.0),(1.0,1.5,2.0)):
             m=margins(w,a,d,e)
             # Interval endpoint test on actual 1-D rectangle containment and
@@ -33,7 +34,9 @@ def geometry():
             if min(m)>1e-9:
                 assert all(blocked) and all(neighbor)
                 survivors.append((w,a,d,tuple(round(x,4) for x in m)))
-        counts[e]=survivors
+            else:
+                rejected.append({"geometry":(w,a,d),"fails":[name for name,v in zip(("open_clearance","closed_overlap","neighbor_aperture"),m) if v<=1e-9]})
+        counts[e]={"survivors":survivors,"rejected":rejected}
     return counts
 
 def handoffs():
