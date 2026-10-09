@@ -96,3 +96,15 @@ necessary conditions, not specified springs or manufactured position control.
 A separate rear guide lane needs 7.10 mm and fails pitch. Retain only longer
 local datum or vertically relocated shared-frame packing for a bounded finite
 restraint/tilt test; no full-system survival or print request follows.
+
+E-072 rejects the 12/20-mm local datum retrofit under a partition of the same
+0.15-mm error budget. Opposite pad errors ±0.025 mm plus −0.125-mm rail bias
+leave the carriage clear of its guide but tilt its travel axis; at 40-mm stroke
+the dog bore intersects the fork. Ideal preload cannot remove this mismatch.
+A finite paired-leaf skeleton fits only after release slots reduce leaf width
+to 0.40 mm; its preload depends on nonlinear/prestrain assumptions and is not
+qualified. Stop local-pad refinement. The last bounded geometry test is a
+vertically displaced stationary frame with a through-slot for the dog/bore,
+including retained guidance through all stroke/lower-offset states. If no
+supported finite witness survives, conclude the campaign with scoped rejection;
+do not infer a machine pass from isolated centered paths.
