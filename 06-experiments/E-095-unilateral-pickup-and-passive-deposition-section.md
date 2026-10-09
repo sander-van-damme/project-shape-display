@@ -30,7 +30,8 @@ between independent solids. A finite deck finger spans x=3.1…4.3 and is 0.9 mm
 thick. The next column starts at x=5.08. The column foot rests on a ground
 contact in a separate x=0…1.2 lane. The side housing is cut back from the ground-stop
 lane below foot height; an upper cap joins the foot and side housing. The pickup
-face sits above the foot so arm/clear does not cut through the loaded stop. Lip guidance, the positive arm/clear setter,
+face sits above the foot so arm/clear does not cut through the loaded stop.
+Lip guidance, the positive arm/clear setter,
 retention and housing voids are ungenerated; root overlap alone is not a joint.
 
 Competing bounds assign each column, finger and neighbor datum ±e, with
@@ -38,7 +39,9 @@ lip-end, finger-edge and body-edge errors ±0.1 mm. Datum errors may be coherent
 across a print/bank; the Cartesian corners also allow differential errors.
 No probabilities or independence are inferred. Vertical lip datum is 1.0±0.2 mm
 above the foot; old/new stop-height errors are separately ±0.2 mm and may
-align. Lip thickness uses 0.9 mm. These are deliberately labelled hypotheses;
+align. Even same-index reprogramming allows different seating errors here,
+a conservative repeatability scenario rather than independent tooth geometry.
+Lip thickness uses 0.9 mm. These are deliberately labelled hypotheses;
 roughness, layer effects, angular error, flexure, wear and creep are not covered
 by a claimed manufacturing distribution.
 
@@ -63,14 +66,17 @@ comparing changed geometry and actual process evidence.
 Let e_z be finger top height, δ the lip-to-foot vertical datum and s the current
 grounded stop height. A selected column in gravity has foot coordinate
 `z=max(s,e_z−δ)`. At least one of its finite foot/stop or lip/finger contacts is
-closed; neither interpenetrates. A nonnegative static load split exists. This
-is a quasistatic existence result, not dynamic force, stiffness or impact proof.
+closed; neither interpenetrates. A nonnegative vertical load split exists,
+**granting an ideal prismatic guide to react the eccentric pickup moment**.
+Actual guide forces, stiffness and moment capacity are unproved. This is a
+constrained quasistatic result, not full static, dynamic or impact qualification.
 An inactive lip has no horizontal intersection with the deck for the retained
 bounds, so the unchanged column remains on its old stop throughout the sweep.
 
 Start at e_z=−2 mm, arm selected lips while the deck is clear, rise to +45 mm,
 then descend to −2 and clear: **94 mm total deck travel**, before additional
-contact/proof excursions. This replaces the ideal 90-mm path for this subsection. Pickup occurs separately at each old height.
+contact/proof excursions. This replaces the ideal 90-mm path for this subsection.
+Pickup occurs separately at each old height.
 At the top, the foot is at least **3.6 mm above both old and target stops** under
 the declared vertical errors. **Changing stop height there is a granted boundary
 condition, not a generated setter**; a real rotor/structural-stop sweep could

@@ -1,5 +1,6 @@
 """Finite planar pickup subsection, mm; quasistatic gravity, rigid bodies.
 Ground stop heights are granted boundary conditions, NOT generated setters.
+Ideal prismatic guides react moments; their load capacity is not established.
 Deterministic epistemic corners, no manufacturing probabilities or hardware pass.
 """
 import itertools as it
@@ -75,7 +76,8 @@ def check_scene(old,target,neighbor,delta,subdivisions=8):
             assert area(body,finger)==0 and area(cap,finger)==0
             assert area(idle,finger)==0 and area(idle_lip,finger)==0
             # Continuous load support: existence of a nonnegative unit-gravity
-            # equilibrium at a real finite contact, NOT a force/strength model.
+            # vertical equilibrium at a real contact, with IDEAL guide moment reactions.
+            # This does not establish guide force, strength or full equilibrium.
             on_ground=math.isclose(z,stop,abs_tol=1e-10)
             on_deck=math.isclose(z+delta,e,abs_tol=1e-10)
             assert on_ground or on_deck
