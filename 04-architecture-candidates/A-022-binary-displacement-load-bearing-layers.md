@@ -63,11 +63,25 @@ nominal overtravel minima 0.40/0.60/0.80 mm, including its explicit fit erosion
 and unload margin. A free floating dog with one hard stop preserves the same
 mismatch. Deposition proof needs additional fork clearance; failed proof must
 retain all bank dogs, and a failed upper seat may descend 0.65 mm on the held
-rail. A false acceptance can remove its only support. The simplest disjoint
-dog/latch lanes need 5.95 mm and fail pitch. Next generate an interleaved
-packing with real connecting bodies/guides and stacked swept volumes; isolated
-sections do not establish a three-layer machine. E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals
-under its assumed motion limits, before six complete contact events and other
-overhead. E-068's added transfer motion must enter that budget.
-No detailed optimization, physical qualification or printing follows from the
-logical access witness.
+rail. A false acceptance can remove its only support.
+
+E-070 connects the dog bore, latch shelves, backbone and mount in three guide
+profiles. A closed sleeve blocks the shelves; an open C guide permits escape.
+A captured T guide fits a prescribed straight path only at tight bounds and
+0.2-mm residual lip engagement: 5.00 × 4.95 mm including relative-error reserves.
+Its actual lateral free play invalidates that path assumption. A permitted
+0.19-mm carriage offset plus a −0.15-mm common rail datum shift makes the bore
+walls collide with the fork. Allowing nominal guide play raises the necessary
+width to at least 5.40 mm, before tilt or overlap loss. Longer guides do not
+remove translation play. **Reject this clearance-only interleaved guide under
+these bounds; neither isolated contact paths nor centered assembled geometry
+passes the machine gate.** Reopening needs changed datum restraint/packing or
+process evidence, not finer sampling of the same profile. No stacked geometry,
+strength, hardware qualification or fabrication follows. Shared/external guides
+and positively biased datum mechanisms remain unproved escapes and must count
+their extra constraints, friction and repeated interfaces.
+
+E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals under its
+assumed motion limits, before six complete contact events and other overhead.
+E-068/E-069's added transfer/proof motion must enter that budget. No complete
+cost or timing advantage over the rack/mask comparators has been established.
