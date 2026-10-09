@@ -87,6 +87,71 @@ energy during a shutter sweep. Parking the cam is a required mechanical phase,
 not merely a software delay. Pin ramp angle, reset-comb travel, detent barrier,
 key contact geometry and finite y/z collision sweeps remain the next gate.
 
+## Return-force window: shared stiffness does not guarantee jam isolation
+
+Continuation from main `cae1edf`; reproduce with
+`python3 tools/curated-experiment-checks/E-077/return_load.py`.
+A separate deterministic linear-elastic calculation tests the necessary force
+window for the captive pullback. Assume a solid rectangular return beam,
+10 mm wide × 4 mm deep, simply supported at spans 406.4/80/40/20 mm; an
+8-mm-long axial pin neck with worst-case 0.7-mm square section; modulus
+1,000/3,000 MPa and effective allowable stress 5/10/20 MPa. These are competing
+**epistemic scenarios**, not sourced PLA properties or X1C distributions.
+The allowable must ultimately include orientation, notch, creep and fatigue
+reductions; it is not a tensile-test strength. Slots and captive-head bearing
+can only weaken this idealized solid section.
+
+Assume all 80 pins require 0.05 N each for normal return: total 4 N. A single
+jammed pin may receive the entire common drive force. A force limiter must
+therefore satisfy `4 N < F_limit < min(F_deflection,F_pin,F_beam)`; normal
+friction and limiter variation cannot be averaged over pins. Use the jam at
+midspan, with key position referenced to the supported drive datum. With
+`I=b h³/12`, beam displacement is `F L³/(48 E I)`, axial pin elongation is
+`F l/(E a²)`, and beam maximum stress is `3 F L/(2 b h²)`. These follow from
+integrating the central-load bending moment and axial strain. Reserve 0.05 mm
+for key/support displacement in addition to the earlier loss/error/clearance
+allowances, leaving 0.50 mm for beam plus pin elasticity. Support locations
+must follow the writer through its return stroke; stationary lateral guides
+alone do not supply this vertical reaction.
+
+| Support span | E (MPa) | Effective allowable (MPa) | Maximum limiter force (N) | Window above 4 N |
+|---|---:|---:|---:|---|
+| 406.4 mm | 1,000–3,000 | 5–20 | 0.019–0.057 | None |
+| 80 mm | 1,000 | 5–20 | 2.311 | None |
+| 80 mm | 3,000 | 10 | 4.900 | 0.900 N |
+| 40 mm | 1,000 | 5 | 2.450 | None |
+| 40 mm | 1,000 | 10 | 4.900 | 0.900 N |
+| 40 mm | 1,000 | 20 | 9.800 | 5.800 N |
+
+Reject the end-supported full-width **specified section**, even at the high
+modulus bound: its allowed deflection is reached below the force needed to
+return the row. This rejects that embodiment, not thicker/metal/segmented
+return structures. The rejection uses the small 0.50-mm displacement threshold;
+large post-failure deflections from linear theory are not physical predictions.
+At 40-mm support spacing the pin neck, not beam stiffness, sets the displayed
+upper limits. With 10-MPa effective allowable, a nominal 4.45-N limiter would
+need its entire tolerance, dynamic overshoot and extra friction to fit within
+±0.45 N. Doubling normal return drag to 0.10 N/pin eliminates that scenario's
+window. Reducing supports to 20 mm does not improve its pin-strength limit.
+At 5 MPa there is no 4-N window at any tested span. Segmented force limitation
+could reduce the normal force lower bound, but introduces additional drive/key
+interfaces; it is a changed mechanism requiring a new load-path accounting.
+
+This is a necessary screen, not sufficient interlock qualification: beam shear,
+torsion, pocket/head bending, support compliance beyond the reserved allowance,
+key location, fracture and impact are unmodelled. Their added compliance reduces
+the window; survivor numbers are optimistic limits. The local 40-mm witness is
+retained only for finite geometry and contact analysis. No probability, yield
+or jam-safe hardware claim follows. The common beam distortion is correlated
+across the row and is never divided by 80.
+
+Self-review independently integrates the unit-load bending energy at 20/40/80
+midpoint elements (error falls fourfold each refinement), checks cubic span
+and inverse-cubic depth scaling, and exercises both open/closed force windows
+and the doubled-drag failure. Next geometry must include the **supported return
+beam, head/neck and force-limited drive**, in addition to ramp, retention and key.
+Do not progress a freely spanning thin return plate into CAD as a safe interlock.
+
 ## Comparison with seated magnetic memory and strip consequence
 
 An E-075 inelastic seat is not equivalent to a positive obstruction. A single
