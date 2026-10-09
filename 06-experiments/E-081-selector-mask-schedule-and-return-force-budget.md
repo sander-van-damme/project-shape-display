@@ -1,214 +1,238 @@
 ---
 status: complete
-builds-on: [E-077, E-079, E-080, A-016]
+builds-on: [E-077, E-079, E-080, A-016, E-051]
 ---
 
-# Destination masks dominate the retained-selector scan budget
+# Rigid-elevator reset, displacement masks and selector return budget
 
-**One or two scans do not complete an arbitrary-height map.** For the explicit
-reset-to-zero/rise-and-deposit controller, a full 80×80 map with H destination
-heights in every row needs **80(1+H) row writes**, even granting simultaneous
-two-array programming or a temporally reused command array. Five heights need
-480 writes; 21 need 1,760. Under E-079's chosen 8.746-mm writer stroke, five
-heights exceed 30 s at 20 m/s² before any other work. At 100 m/s², 21 heights
-still need 65.836 s. These reject the specified schedules/drive scenarios,
-not all mechanical coincidence or finer-height architectures.
+**Mixed starting heights cannot be reset simultaneously by a rigid shared
+elevator.** Explicit release at zero and reacquisition increases the tested
+five/21-height workloads to **800/3,360 row writes**. A reset-free displacement
+controller reduces the cyclic examples to 320 writes, but an adversarial map
+with every signed displacement restores 800/3,360. Retain that controller as a
+useful workload-dependent alternative; neither controller rescues the tested
+E-079 writer for arbitrary 21-height maps.
 
-Input main `37b7e62`. Reproduce with
+Input `beaefef`; reproduce with
 `python3 tools/curated-experiment-checks/E-081/mask_schedule.py`.
-Deterministic standard-library state replay and closed-form timing; no seed,
-measurements, sourced process priors, geometry simulation or hardware claims.
-This is complete command-operation accounting around an **idealized** output
-machine, not a completed machine design. Reset/lock/grip geometry remains open.
+Deterministic standard-library kinematic replay and analytical bounds; no random
+seed, process distributions, measurements, CAD or qualified mechanism. This
+canonical revision replaces the original ideal reset assignment with one
+shared elevator coordinate and a fixed offset for each engaged collet. Its
+original 480/1,760-write counts remain only the synchronous-reset comparator,
+which requires an additional differential/slipping mechanism. Earlier writer
+rejections remain conservative, but the old controller was not executable
+with rigid collets.
 
-## Controller and command-memory alternatives
+## Kinematic obstruction and two explicit controllers
 
-Retain A-016's long-tail grippers, shared elevator, ground pawls, and reset
-changed columns to zero before rising to requested heights. Each changed cell
-is first gripped and verified, then its pawl opens. At each occupied target
-height: insert the relevant pawls, prove support, then release those grippers.
-Unchanged cells keep their ground pawls and never acquire elevator grip.
-The model checks support after each logical transition and exact final heights;
-it does not solve unloaded pawl insertion, grip strength, motion microtravel,
-elastic disturbance or finite contact continuity. Height indices represent any
-chosen levels spanning 0–40 mm. Five/9/21 evenly spaced levels correspond to
-10/5/2-mm increments; these are workloads, **not new quantization requirements**.
+A gripped column has height `z_i=e+d_i`: elevator coordinate e plus the offset
+d_i fixed at acquisition. Therefore two gripped columns preserve their height
+difference. Starting at 10 and 40 mm, a common −40-mm move predicts −30 and
+0 mm, not two zero heights. A hard stop blocks motion or forces slip; adding
+longer tails does not remove this constraint.
 
-Generate target height `column mod H` and old height `(target+1) mod H` in every
-row. Every cell changes and every row contains H targets for H≤80. The first
-mask selects all changed cells; each subsequent mask selects cells depositing
-at one destination. Every cell occurs exactly twice, so there are 12,800
-selected-site commands. Row writes are counted only for nonempty rows; a row
-can write arbitrary columns together. Hence full population occupancy costs
-80(1+min(H,80)), although this saturation says nothing about added elevator
-stops when different rows use different height sets. This count is exact for
-this encoding, not an information-theoretic bound on all encodings.
+Both controllers use independently retained grip and ground-pawl states.
+Acquire grip and prove support before opening the pawl; close and prove the
+pawl before releasing grip. Every unchanged cell remains grounded and ungripped.
+A command bit may be reused through phased cams only if these output states
+persist independently. One passive two-state output cannot represent the
+required (pawl closed, grip open), (closed, closed), (open, closed) states.
+Clearing a command must not release support. Ideal state observation here is
+not a reader model. Unload/reseat microtravel and finite contact geometry remain
+unimplemented; E-051 shows why those can consume a deadline.
 
-Compare three implementations without equating their hardware:
+**Release-at-zero reset:** acquire only changed cells with positive old height.
+Descend, stopping at `e=−old_height`; seat that group at zero and release its
+grips. Cells initially at zero remain grounded. Once all reset cells are
+supported at zero, regrip only cells with positive target height, withdraw
+those pawls, and rise to their destination groups. Zero-target cells stay
+finished. Return the empty elevator to its initial coordinate. Each move
+preserves collet offsets and every logical transfer has support. Macro travel
+is `2 max(max_changed_old,max_changed_target)`, at most 80 mm for 40-mm travel.
+This does not include required unloading clearance or finite tail engagement.
 
-- **Two independent persistent command arrays:** separately command grip and
-  pawl actuation. Serial writers cost twice the row count. Ideal dual writers
-  can program matching masks concurrently, but the cams still sequence grip
-  acquisition before pawl withdrawal, and pawl proof before grip release.
-- **One transient mask reused through phased cams:** write each event mask,
-  operate grip/pawl phases in the required order, and clear the command before
-  its next use. Grip and pawl **physical states must persist independently**
-  of clearing/rewriting the command. A reset comb and parked cams alone do not
-  demonstrate that output storage. Additional downstream retention may replace,
-  rather than simply eliminate, the second command array.
-- **Direct one-bit output without persistent actuators:** rejected as a complete
-  controller. The support path needs (pawl closed, grip open), (closed, closed)
-  and (open, closed); a passive two-state mapping of one bit cannot represent all
-  three. A shared cam phase or other state can supply the third condition, but
-  its physical hold/transfer mechanism must then be counted. This does not
-  reject all one-array or phased-cam architectures.
+**Direct displacement:** compute `delta=target−old`. At e=0 acquire only the
+negative-delta group. Descend through its distinct deltas, seating/releasing
+cells at their targets, then return empty to zero. Acquire the positive group,
+rise through its deltas, deposit and return empty. Unchanged cells never join.
+Each changed column stays between its old and requested height in this ideal
+model. Macro travel is `2(max(0,max_delta)−min(0,min_delta))`, at most 160 mm.
+This trades elevator travel for fewer resets, transfers and often masks. It
+is a scheduling change within A-016's long-tail shared-elevator family, not a
+new physical selector and not E-051's equal-offset capture-at-old-height model.
+No global scheduling optimality is claimed.
 
-A transient array's event clear/reset is additional work, not a free row write.
-Persistent dual flags can instead set initially and selectively reset at each
-destination. No scan overlap with moving columns is credited: programming cams
-are parked. Overlap, look-ahead buffering or extra writer banks changes this
-schedule and needs its own storage/isolation accounting.
+Long-tail reach must now cover the actual relative elevator/column envelope,
+including ungripped columns during empty returns. A provisional 80-mm track
+alone is not a sweep/packing proof. A slipping or differential gripper is a
+third physical alternative, discussed below, not silently included in either
+rigid-collet replay.
 
-## Whole and local time boundaries
+## Workloads and exact command counts
 
-Let W be counted row writes, t the **all-inclusive** row service, B the total
-remaining time and R additional retried rows. Then `T=B+(W+R)t <30 s`.
-Row service includes actual address changes, pin/pulse actuation, withdrawal,
-registration and row readback; B includes elevator/reset travel, all global
-cam/clear/support-proof phases, settling and any non-row recovery. Use B=6 s
-only as an explicit allocation scenario, not a demonstrated motion/reader time.
-If those operations exceed six seconds, the row budget shrinks accordingly.
-Do not add a row operation again in B.
+The cyclic full map sets `target=c mod H`, `old=(target+1) mod H` in each of
+80 rows; H evenly spaced states span 0–40 mm. Five/9/21 states mean 10/5/2-mm
+steps, explicit workloads rather than new product quantization requirements.
+All cells change. Each row contains every state for H≤80.
 
-| Full-map workload | W, ideal parallel/reused | All-inclusive row budget with B=6 s | Serial dual budget |
+Count each nonempty row in each acquisition/deposition mask once, granting
+ideal parallel programming of two arrays or one reusable mask with persistent
+outputs. Serial independent array writers double W. Reset requires a descending
+acquisition, H−1 old-height deposit masks, an ascending acquisition and H−1
+target deposit masks: **W=160H**. The direct cyclic controller has only two
+signed displacement values (−one step and +40 mm): four masks, **W=320**.
+
+The all-displacements challenge fills each row by repeating `(old,target)` pairs
+`(h,0)` and `(0,h)` for h=1…H−1. It fits 80 columns for the tested H≤21 and
+forces every signed displacement. Both controllers then require **W=160H**;
+this is a realizable unfavorable workload, not a claim that all possible maps
+have this count. The direct route still halves transfers for cells that would
+otherwise need an intermediate reset. Exact sparse row counting is executable.
+
+| Workload | Reset W | Direct W | All-inclusive row budget, reset / direct, with B=6 s |
 |---|---:|---:|---:|
-| Two heights in every row | 240 | <100.000 ms | <50.000 ms |
-| Five heights in every row | 480 | <50.000 ms | <25.000 ms |
-| Nine heights in every row | 800 | <30.000 ms | <15.000 ms |
-| 21 heights in every row | 1,760 | <13.636 ms | <6.818 ms |
-| Uniform change to one height | 160 | <150.000 ms | <75.000 ms |
+| Two-height cyclic | 320 | 320 | <75 / <75 ms |
+| Five-height cyclic | 800 | 320 | <30 / <75 ms |
+| Nine-height cyclic | 1,440 | 320 | <16.667 / <75 ms |
+| 21-height cyclic | 3,360 | 320 | <7.143 / <75 ms |
+| Five-height all-displacements | 800 | 800 | <30 / <30 ms |
+| 21-height all-displacements | 3,360 | 3,360 | <7.143 / <7.143 ms |
+| Uniform zero→one positive height | 160 | 160 | <150 / <150 ms |
 
-A 5×5 changed patch costs 10/25/30/30 row writes for the generated
-2/5/9/21-height examples; the latter two contain only five distinct targets.
-Zero changed cells need zero writes. Full-width shutter movement and shared
-cam reaction can still disturb adjacent terrain despite ideal logical isolation.
-These local operation counts do not establish a local-time or disturbance pass.
+`T=B+(W+R)t <30 s`: t includes address changes, pin/pulse actuation, withdrawal,
+registration and row readback; R counts extra retried rows. B includes elevator
+travel, all global cam/clear/support-proof phases, settling and non-row recovery.
+B=6 s is only an allocation scenario, not demonstrated performance. Do not add
+elevator time twice. No overlap with elevator movement is credited. A transient
+array's clear/reset takes additional time; two persistent arrays can selectively
+set/reset but still sequence support acquisition and deposition.
 
-The mechanical timing witness uses E-079's middle-error, a=0.4 mm, k=0.8 N/mm,
-c=0.10 mm, guide-friction=0.1 section. It has only 0.0225 mm geometric reserve,
-0.00296 N slow-seating margin, and a **chosen sufficient** writer travel of
-8.74554 mm before free approach through shutters. It is not the minimum stroke
-of all mechanisms. Assume a fixed stroke that travels this distance and returns
-to rest every row. At symmetric acceleration a, infinite speed and no dwell,
-two legs take `4 sqrt(D/a)` with D in metres. This is an optimistic lower time
-for that stroke/acceleration policy, not for every potentially adaptive drive.
+A 5×5 initially flat changed patch costs 10/25/30/30 row writes for the generated
+2/5/9/21-state examples under either controller; only up to five target values
+are present. No changed cells means zero writes/motion. Counts do not prove
+physical regional isolation: shared reactions/deflections still matter.
 
-| Acceleration (m/s²) | Five-height writer time alone | 21-height writer time alone |
+## Fixed writer and common-return constraints
+
+E-079's middle-error witness has d=1.89 mm, a=0.4 mm, k=0.8 N/mm,
+c=0.10 mm and guide friction=0.1. It retains only 0.0225-mm geometric reserve
+and 0.00296-N slow-seating margin. Its **chosen sufficient** writer stroke is
+8.74554 mm, before free approach through shutters; it is not a universal
+minimum. Two rest-to-rest legs with symmetric acceleration a, infinite speed
+and no dwell require `4 sqrt(D/a)`, D in metres.
+
+| Acceleration | 800-write writer time alone | 3,360-write writer time alone |
 |---|---:|---:|
-| 5 | 80.299 s | 294.429 s |
-| 20 | 40.149 s | 147.215 s |
-| 100 | 17.955 s | 65.836 s |
+| 5 m/s² | 133.831 s | 562.092 s |
+| 20 m/s² | 66.916 s | 281.046 s |
+| 100 m/s² | 29.926 s | 125.688 s |
 
-With B=6 s and no other row work, five heights need a>55.971 m/s²; 21 need
->752.505 m/s². These are mathematical deadlines, **not proposed motor ratings**.
-The latter would require about 2.57 m/s peak stroke speed. Finite speed limits,
-jerk, free approach, shutter movement, indexing, readback, reset and settling
-all worsen the deadline. Serial dual programming doubles these times; true
-parallel hardware has to be counted. At 100 m/s², five heights leave only
-12.593 ms/row beyond writer motion if B really fits six seconds.
+With B=6 s, five/21-height reset (or all-displacement) deadlines require
+**a>155.476 / >2,742.601 m/s²** even with no other row work. These are mathematical
+necessary conditions, not proposed motor ratings. At 100 m/s² the cyclic
+direct controller uses 11.970 s writer time, leaving conditional room for other
+operations; the adversarial maps remove that benefit. The executable output
+also adds actual replayed macro elevator moves at assumed 400 mm/s and 20 m/s²,
+with zero contact dwell, separately from B. Five-height reset and direct all-displacement maps then cost
+30.286 and 30.526 s respectively, rejecting both even before other overhead.
+These are unqualified drive bounds;
+20 m/s² can lose contact with unsecured miniatures on changed cells (E-051).
 
-## Return force couples the speed gate to a common jam
+E-077's supported return member, 0.7-mm-square neck and assumed 10-MPa allowable
+cap the ideal pull limiter at 4.9 N, versus assumed 4-N normal 80-pin drag.
+E-079's push reaction reaches 70.764 N. Combining these separate hypothetical
+witnesses requires distinct push/pull limits or paths; one 4.9-N limiter cannot
+drive that push. Their assembly and dynamic jam protection have not been proved.
 
-E-077's supported return member, 0.7-mm-square neck and assumed 10-MPa
-effective allowable cap the ideal limiter force at 4.9 N; assumed normal
-80-pin return drag is 4 N. E-079's push reaction at the chosen travel reaches
-70.764 N. Combining these **separate hypothetical witnesses** requires distinct
-push and force-limited pull paths or mode-dependent force limitation. A single
-4.9-N limiter cannot drive that blocked push. The combination has not been
-packed or qualified.
+For equivalent moving mass m, grant return acceleration `A=(4.9−4)/m` and
+active reverse braking `B=(4.9+4)/m`. The ideal return time is
+`sqrt(2D(1/A+1/B))`; downward gravity adds 9.81 to A and subtracts it from B.
+No speed cap, transmission inertia beyond m, limiter tolerance or impact is
+included. Return-only times discard the entire push and every other operation:
 
-For moving equivalent mass m, balanced-axis return acceleration is at most
-`A=(4.9−4)/m`; generously allow active reverse braking at `B=(4.9+4)/m`.
-The fastest rest-to-rest return has `t=sqrt(2D(1/A+1/B))`. This is more favorable
-than incorrectly assuming the same net force for acceleration and braking.
-For a vertically downward return, add g=9.81 to A and subtract g from B.
-The source evaluates both gravity cases. There is no speed cap, compliance,
-limiter tolerance, impact overshoot or transmission inertia beyond m; actual
-jam protection under those dynamics is unproved. Effective mass and friction
-are scenarios, not part weighings or calibrated distributions.
-
-Return-only times discard the entire push stroke and every other operation:
-
-| Equivalent moving mass | Five heights, balanced / gravity-assisted | 21 heights, balanced / gravity-assisted |
+| Mass | 800 writes, balanced / gravity-assisted | 3,360 writes, balanced / gravity-assisted |
 |---|---:|---:|
-| 5 g | 4.965 / 4.849 s | 18.206 / 17.778 s |
-| 20 g | 9.930 / 9.099 s | 36.411 / 33.362 s |
-| 50 g | 15.701 / 12.995 s | 57.571 / 47.648 s |
-| 100 g | 22.205 / 16.283 s | 81.417 / 59.704 s |
+| 5 g | 8.275 / 8.081 s | 34.756 / 33.940 s |
+| 20 g | 16.550 / 15.164 s | 69.512 / 63.691 s |
+| 50 g | 26.169 / 21.658 s | 109.908 / 90.965 s |
+| 100 g | 37.008 / 27.138 s | 155.433 / 113.981 s |
 
-For the tested masses of 20–100 g, 21 heights fail on return alone even with favorable gravity.
-This is a conditional rejection of the combined stroke/force/mass scenario,
-not proof of an actual writer's mass, speed or universal mechanical limit.
+All tested masses now fail the 21-height reset/adversarial deadline on return
+alone, even with favorable gravity. This rejects only the combined stroke,
+force, mass and schedule scenarios. The mass, friction and allowable are bounds,
+not weighed components or calibrated process distributions.
 
-## Inventory, uncertainty and detection
+## Slipping-reset alternative and complete-system burden
 
-One command array repeats 6,400 memories; two repeat 12,800. The shutter route
-adds 12,800/25,600 aperture sites and, with a moving row writer, 80/160 captive
-pins and spring pockets. Row indexing, supported return beams, keys, reset
-combs, detents and cam paths remain real interfaces. Fixed writers instead
-repeat the pins and springs at every cell. The magnetic route needs
-160/320 reversible row/column lines plus local magnets/returns/detents, and
-retains E-080's pulse-history gate. The moving row's pins are a hardware-count
-advantage, not proof that registration and writer return fit the row deadline.
+A slipping collet could let each changed column stop at the zero datum while
+the elevator continues downward. For common reset depth D, relative slip at
+site i is `D−old_i`. This changes the physical mechanism: static holding must
+support upward load, downward slip must not overload the zero stop, and the
+collet must re-establish lift without missed engagement. No such clamp is
+implemented. Friction, stick-slip, wear and common preload drift cannot be
+replaced by a perfect clutch assumption.
 
-At an assumed $250 budget for **all other bought hardware**, $500 leaves
-$0.0390625 per cell for one purchased item, or $0.01953125 each for two. With
-$400 consumed elsewhere these become $0.015625/$0.0078125. Those allowances
-include no supplier claim. No route has a complete priced BOM, print/assembly
-time, lifetime or qualified repair procedure, so there is no credible cost or
-reliability Pareto winner. A reusable mask does not make output latches, guides,
-collets, pawls and repair access disappear.
+For the cyclic five/21-height full maps, aggregate reset slip is **128.00 /
+130.72 m per update**. At hypothetical constant sliding force 0.1/0.5/1 N per
+site, dissipated work is 12.8/64/128 J for five heights. Near the end, as many
+as 6,400 sites transmit stop load or approach breakaway: a conservative
+640/3,200/6,400-N shared-load envelope. Exact kinetics and which sites are
+still sliding alter this profile; no real-force or thermal estimate follows.
+Allowing slip thus removes some address operations by adding a repeated
+force-critical wear interface and ground-stop burden. Do not credit the old
+synchronous-reset count to rigid grips.
 
-At least acquisition and deposition support observations occur per changed
-cell: 12,800 opportunities on a fully changed board, before flag/address reads.
-If each has bounded unsafe false-accept probability p, the union bound is
-`P(any unsafe acceptance) ≤ min(1,12800p)` without independence. This is not a
-failure estimate: p is unknown, and common reader bias can defeat both
-observations. A retry is justified only for a detected, recoverable fault;
-false acceptance consumes no retry budget and still jeopardizes support.
-Every extra 1 ms per row adds 0.480/1.760 s for five/21 heights. One retried
-80-row group adds 80t; a complete replay doubles W and still does not cure bias.
+One command array still repeats 6,400 memories; two repeat 12,800. The shutter
+route adds 12,800/25,600 aperture sites plus 80/160 travelling captive writer
+pins/spring pockets; fixed writers repeat those pins at every cell. Indexing,
+return beams, keys, reset combs, detents and cam routes remain. Magnetic arrays
+need 160/320 reversible lines plus magnets/returns/detents and retain E-080's
+pulse-history gate. Reusing a command array does not delete physical grip/pawl
+retention, guides or service access.
 
-All force, dimensional, timing and mass inputs are competing epistemic bounds.
-Worst shared friction/limiter/registration shifts apply to the whole row and
-are never divided by 80 or 6,400. E-079's correlated-error limitations and
-E-080's uncalibrated contact law still apply. No sampled yield or failure-rate
-claim follows from this enumeration.
+With an assumed $250 for all other bought hardware, the $500 cap leaves
+$0.0390625 per cell for one bought item or $0.01953125 each for two; at $400
+elsewhere, $0.015625/$0.0078125. These are residual allowances, not supplier
+prices. Neither route has a complete affordable BOM, print/assembly burden,
+lifetime or qualified repair procedure; no cost/reliability winner follows.
 
-## Decision and verification boundary
+Direct displacement has 12,800 support observations for 6,400 changed cells.
+The cyclic reset requires 20,480/24,480 at five/21 levels, before flag/address
+reads, because reset/regrip adds transfers. Given an actual per-observation
+unsafe false-accept bound p, `P(any unsafe acceptance)≤min(1,Np)` without
+independence. p is unknown; common reader bias can defeat repeated observations.
+Retries help only detected, recoverable faults. One extra ms per row costs
+0.800/3.360 s for the reset/adversarial maps, versus 0.320 s for cyclic direct;
+one 80-row group retry costs 80t. Whole replay doubles W and does not cure bias.
 
-Stop using E-077's one/two-scan budget to discuss completion of arbitrary maps.
-Reject the E-079 fixed-stroke policy at the listed failing speed/workload bounds;
-retain only its explicitly conditional low-height timing cases. Do not further
-tune that ramp's widths or claim one reused command array has eliminated output
-retention. Magnetic cooldown/pulse/readback schedules must fit the same event
-budgets, but E-080's dimensionless times cannot be converted to milliseconds
-without a physical inertia/stiffness/field package. Neither route is accepted
-for fabrication or machine selection.
+## Decision and evidence limits
 
-The next useful gate is a **changed addressing/storage implementation** that
-escapes at least one demonstrated burden: row-local reusable command storage,
-a directly driven positive-completion selector, or bounded physical magnetic
-storage/scheduling. Require finite state retention/reset and an explicit place
-for output support, then compare this same workload; another guessed damping
-sweep or nominal width adjustment cannot resolve the campaign.
+Reject simultaneous rigid reset and stop interpreting the original bookkeeping
+as a physically executable controller. Retain explicit zero-deposit/regrip and
+direct displacement as kinematic comparators, with sparse and adversarial maps.
+Do not optimize the old narrow ramp again: its force/return burden remains even
+when a favorable workload compresses masks. Magnetic pulse schedules face the
+same operation budgets but still lack a physical timescale and finite package.
+No route earns fabrication, hardware selection or reliability acceptance.
 
-Self-review: all 81 old/new maps for two cells over three heights preserve
-ideal support and unchanged cells; injected omitted pawl seating raises an
-unsupported-cell assertion. Generated full-board counts independently match
-80(1+min(H,80)) and 12,800 selected commands, including saturation at 80/81
-levels; zero-change and local workloads exercise sparse row counting. Motion
-checks integrate triangular phases, recover symmetric/asymmetric limiting cases
-and the finite-speed formula. Closed forms require no time-step convergence.
-This verifies bookkeeping and the abstract controller, not contacts, reader
-performance, a physical force limiter or independent external validation.
+Next discriminate a **directly driven, positive-completion command selector**
+with finite retention/reset and grip/pawl support transfer against this budget.
+Row-local reusable hardware remains possible, but must count repeated bank
+travel and is related to A-013/E-051 rather than a new architecture discovery.
+Reopen slipping reset only with an explicit clamp/stop force path that bounds
+aggregate wear/load and lift re-engagement. These are implementation gates,
+not a request for another arbitrary damping/tolerance sweep.
+
+Self-review (not external validation): exhaust all 81 two-cell old/new maps
+at three heights for both controllers; check fixed offsets, continuous logical
+support, unchanged cells, no below-zero motion and final targets. Direct paths
+also preserve each cell's old/target interval. Between stops motion is monotone
+and affine, so endpoint height checks bound the whole segment. Injected absent
+pawl support fails. Independent path formulas and the two-height-difference
+counterexample challenge the former reset. Full-board cyclic/all-displacement,
+zero-change, uniform and local counts are checked, plus original saturation
+cases at 80/81 levels. Motion checks integrate acceleration phases and recover
+symmetric/asymmetric and finite-speed limits. Closed forms need no timestep
+study. Model checks do not validate collet geometry, pawl insertion clearance,
+reader behavior, force limiters or actual manufactured performance.

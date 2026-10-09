@@ -21,9 +21,11 @@ force. Detents keep flags stable without current. Separate set/reset commands
 and verified flag state are required, not an address-bit-only decoder.
 
 Elevator collets clamp long tails at arbitrary initial heights, unload pawls,
-reset changed columns to zero in a down sweep and lift them to requested teeth
-in an up sweep. Reinsert ground pawls, proof support, release collets and
-reset flags. Unchanged cells never engage release dogs. Ground frame/pawls
+optionally deposit changed columns at zero in old-height groups during a down
+sweep, reacquire them there, then lift to target groups. Rigid collets cannot
+reset unequal starting heights simultaneously. A reset-free alternative groups
+cells by signed target-minus-old displacement (E-081). Reinsert ground pawls,
+prove support, release collets and reset flags. Unchanged cells never engage release dogs. Ground frame/pawls
 support miniatures; elevator motor provides both motion directions. Tail track
 must cover roughly 80 mm relative travel plus collet length. A nominal 2-mm
 flag in a staggered layer leaves guide space, but no swept packaging proof
@@ -91,16 +93,16 @@ soft attraction requires opposed force paths. The mechanical comparator's
 full-travel and short-trip ramps have E-078/E-079 packing/seating limitations,
 so neither route presently earns selector replacement or fabrication.
 
-E-081 counts destination-dependent programming in the reset-and-rise sequence:
-five/21 target heights in every row require 480/1,760 row writes even with
-ideal parallel arrays or one reused event mask, versus twice those counts for
-serial independent arrays. With a hypothetical 6-s non-row allocation this
-leaves <50/<13.636 ms per row for programming, withdrawal and readback. One
-reused array needs independent persistent grip/pawl output states or an explicit
-phased hold mechanism; clearing a command cannot erase column support. This
-is an abstract controller check, not proof of that mechanism. E-079's fixed
-8.746-mm mechanical writer fails the five-height workload at 20 m/s² and the
-21-height workload at 100 m/s², before overhead. Magnetic pulse isolation still
-needs a physical timescale and bounded schedule. Continue only with changed
-storage/addressing geometry that escapes these burdens; no guessed contact
-parameter sweep or simple scan-count claim establishes selection.
+E-081 enforces one common elevator coordinate and fixed offsets of engaged
+collets. Reset now requires zero deposition and reacquisition: five/21-height
+cyclic full maps need 800/3,360 row writes with parallel arrays or a reused
+command mask, twice that for serial array programming. Reset-free signed
+displacement groups reduce those cyclic cases to 320 writes, but maps containing
+all signed displacements restore 800/3,360. Both need finite support transfer;
+command reuse alone cannot remove persistent output states. At a hypothetical
+6-s non-row allocation the adverse cases allow <30/<7.143 ms per row. E-079's
+fixed writer consumes 29.926/125.688 s at 100 m/s² before overhead. Slipping
+reset is a changed clamp mechanism with 128 m aggregate relative slip for the
+five-height map, not an implicit property of a rigid gripper. Retain direct
+positive-completion addressing and physical magnetic storage as implementation
+gates; no full-map performance or fabrication acceptance follows.
