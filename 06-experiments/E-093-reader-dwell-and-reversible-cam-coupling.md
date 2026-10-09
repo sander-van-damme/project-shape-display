@@ -79,8 +79,10 @@ A reader-borne drive pin cannot directly move a grounded dog across the signed
 80-mm reader travel. Generate a bridge attached to that dog, with a vertical
 slot spanning −41…41 mm. A square 0.6±0.1-mm drive pin, ±0.2-mm vertical datum
 and ±0.1-mm slot-end placement have **0.35-mm minimum end clearance** across
-r=−40…40. The 82-mm slot is a separate planar lane; its rail thickness, out-of-plane
-stiffness, 6,400-fold material, mounting and 3D packing are not established.
+r=−40…40. The 82-mm slot is checked against four finite walls in a 4×84-mm planar
+section. That is a clearance construction; load-sized rail thickness,
+out-of-plane stiffness, 6,400-fold material, mounting and 3D packing are not
+established.
 
 Use lateral slot width 1.3±0.1 mm, pin width 0.6±0.1 and bridge-to-dog datum
 ±0.2. With no maintained preload, lateral error can reach **±0.65 mm**. The

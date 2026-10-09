@@ -100,6 +100,15 @@ def slotted_bridge():
         lo, hi = -41+enderr, 41-enderr
         a, b = r+datum-pin/2, r+datum+pin/2
         assert lo <= a <= b <= hi
+        # Four finite walls, including end lands; compare exact interval result
+        # to polygon contact over all declared width corners.
+        for width in (1.2, 1.4):
+            walls = [trip.rectangle(-2, -width/2, -42, 42),
+                     trip.rectangle(width/2, 2, -42, 42),
+                     trip.rectangle(-width/2, width/2, -42, lo),
+                     trip.rectangle(-width/2, width/2, hi, 42)]
+            pin_poly = trip.rectangle(-pin/2, pin/2, a, b)
+            assert not any(trip.overlap(pin_poly, wall) for wall in walls)
         z_reserve = min(z_reserve, a-lo, hi-b)
         vertical_checks += 1
     # Width/key/error same box as command lock. Driving on either flank allows
