@@ -58,9 +58,15 @@ three-layer machine or supported handoff. A rigid rail acquiring unequal dogs
 also needs differential latch unload travel: upper-layer tight bounds require
 0.60 mm across opposite regional errors, versus 0.30 mm within a coherent
 region. Common batch/registration bias cancels from that difference.
-Next generate a positive-support latch transfer with sufficient overtravel or
-a floating dog, including deposition/proof, then neighboring and stacked-layer
-geometry. E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals
+E-069 retains an isolated rigid-dog/latch contact path with split-region
+nominal overtravel minima 0.40/0.60/0.80 mm, including its explicit fit erosion
+and unload margin. A free floating dog with one hard stop preserves the same
+mismatch. Deposition proof needs additional fork clearance; failed proof must
+retain all bank dogs, and a failed upper seat may descend 0.65 mm on the held
+rail. A false acceptance can remove its only support. The simplest disjoint
+dog/latch lanes need 5.95 mm and fail pitch. Next generate an interleaved
+packing with real connecting bodies/guides and stacked swept volumes; isolated
+sections do not establish a three-layer machine. E-067 charges 5.1314 s for serial loaded plus unloaded rail traversals
 under its assumed motion limits, before six complete contact events and other
 overhead. E-068's added transfer motion must enter that budget.
 No detailed optimization, physical qualification or printing follows from the
