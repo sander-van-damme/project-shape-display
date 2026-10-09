@@ -66,10 +66,8 @@ that gate; higher current alone cannot repair overlapping intervals.
 
 The direct two-array circuit requires 320 reversible lines/160 dual H bridges;
 no complete affordable strip BOM exists. Retain the tight air-core and guided
-routes conditionally, but complete the pressure/electroadhesive discriminators
-before further magnetic detail. Later work must couple actual finite-flag
-torque, detent, layer isolation and strip cost; compare a simple mechanical
-coincidence flag. No long-term magnet force, miniature support, manufacturing
+routes conditionally. Couple actual finite-flag torque, detent, layer isolation
+and strip cost; compare a simple mechanical coincidence flag. No long-term magnet force, miniature support, manufacturing
 yield or lifetime claim follows from the abstract toggle sequence.
 
 E-074 opens a distinct guided-reluctance/soft-armature mutation with a finite
@@ -81,3 +79,12 @@ current: reversing current does not reset it. Continue with explicit opposed-
 pole reset versus signed magnetic torque and mechanical coincidence; count
 reset hardware, repeated half-select dynamics and cam routing. No static-window
 survivor is accepted as a complete selector.
+
+E-075 now supplies repeated-pulse counterexamples for the unstopped finite
+detent, including a signed 60-degree magnetic torque surrogate. Two separated
+half-select pulses can complete a stroke below the single-step threshold.
+Seating/restitution changes the result; ideal inelastic stops are only bounded
+model cases, not qualified isolation. Prioritize positive mechanical coincidence
+and explicit seated-flag contact geometry before more field/current tuning.
+Signed torque reverses with field polarity; soft attraction requires opposed
+force paths. Neither reduced model establishes packed cam routing or strip cost.
