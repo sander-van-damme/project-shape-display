@@ -190,6 +190,11 @@ def checks():
             assert math.isclose(row['channel_ceiling_usd']*row['channels']+250,500)
         assert L['observation_floors']['retained']==25600
     assert ledger('local',8)['observation_floors']['retained']==850
+    # Separately count the lengths of every H=9 adverse stopped motion leg.
+    e_time=18*move(2.2)+2*move(5)+7*move(2.8)+7*move(7.2)+2*move(40)
+    r_time=16*move(5)+2*move(40)
+    assert math.isclose(ledger('full',4)['retained_motion_s'],e_time+r_time+38*move(5.08))
+    assert math.isclose(ledger('full',4)['deck_motion_s'],18*move(5)+76*move(5.08))
     return dict(alignment_cases=alignments,gate='no complete machine accepted')
 
 

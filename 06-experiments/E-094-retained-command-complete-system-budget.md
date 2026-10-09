@@ -113,7 +113,7 @@ is made; E-059's dated servo exclusions are not re-priced here.
 
 ## Sensitivity and conditional Pareto limits
 
-96 combinations cross word/stop-setting slots .05/.2/.5/.9 s, transfer slots
+48 combinations cross word/stop-setting slots .05/.2/.5/.9 s, transfer slots
 .05/.2/.5 s, overhead 2/6 s and zero/one retries. Hook slots remain .1 s. Examples
 at 2-s overhead and one retry give minimum passing **tested** bank counts:
 
@@ -135,7 +135,8 @@ These are conditional offers, not feasible machines: low-priced memory can
 exchange money for time against deck; cheap direct heads can dominate a deck
 on these two axes. Reliability, print/assembly and volume cannot be filled with
 invented comparable numbers to manufacture a whole-product Pareto winner.
-Finite mechanical failures exclude every offer from an accepted machine set.
+Unresolved or failed mechanical interfaces exclude every offer from an accepted
+machine set.
 
 At B=8, across all 76 patch positions, central local times range
 **8.163–10.393 s retained**, **5.902–7.388 binary**, **7.181–9.041 deck** and
@@ -201,7 +202,7 @@ direct-head control; do not repeat the old rotor coupon or default to printing.
 
 Self-review checks the 199.6/160-mm paths, 1,520 binary writes, 18 support groups,
 380 independent bank/patch alignment counts, zero-work limit, motion crossover,
-strict-threshold neighbors and budget recomposition. Source controls reproduce
+strict-threshold neighbors, an independent motion-leg sum and budget recomposition. Source controls reproduce
 E-083's H=21 B=16 **27.40965 s** and E-050's **29.34998/23.87740 s** references.
 The new allocation does not silently overwrite them. This finite accounting has
 no time-step or mesh convergence claim. No purchase, fabrication or deeper
