@@ -95,6 +95,8 @@ limits is a sourced process allowable.
 Eighteen exceed angular travel and sixteen violate the chosen minimum section.
 No survivor exists. Large linear predictions beyond the stress limit mean the
 elastic model crosses its allowed envelope; they are not actual post-yield loads.
+Cases beyond 30° fail the hard-stop gate first; their continued elastic-rod
+numbers are counterfactual, since shoulder contact bypasses series compliance.
 
 | d / L / e, mm | Required force | Predicted peak | Shear | Stored energy |
 |---|---:|---:|---:|---:|
