@@ -62,8 +62,31 @@ heights and four axial cam phases; two phases still collide. Selected finite
 bearing/follower/ground-neck envelopes clear, but slender follower forks fail
 stability/axial-loss bounds and the original beam risers intersect 3-mm shafts.
 Upper ground posts are restraint-sensitive under the correct sparse column
-load. Continue with stiff followers, a grounded frame and retained beam; then
-resolve loaded shaft phase/reset. Stop free-post and diameter sweeps. Valve synthesis
-remains dependent on a selector survivor; neither partial envelope clearance
-nor a scalar stiffness bound is a machine. About 1,600 cams/3,200 bearing
-interfaces precede boundary support, valves and readback in this routing.
+load. E-103's narrower guide portal clears its tested neck crossings, but the
+retained sphere-ended beam intersects the solid shoe floor in nominal
+half-selection. Capsule floors escape square-corner packing but retain that
+actual rod/floor collision. Cam plus shoe return gaps also consume isolation.
+Park this assembled route before shaft-phase/valve refinement; reopening needs
+changed contact/return and a complete load path. Neither a thicker follower nor
+another radius sweep establishes a machine. About 1,600 cams/3,200 bearing
+interfaces precede boundaries, valves and readback.
+
+The next distinct addressing comparison is a moving row bank of **80 reusable
+short-stroke chamber-valve heads**. Spatial row registration replaces row-rail
+coincidence; independent head open/close states select columns. A common
+reversible hydraulic supply provides the 40-mm positioning work. Closed
+fixed-base chamber valves retain volume; each target closes and is read back
+before heads retract and the bank indexes. This removes floating beams and
+long support shafts but retains 6,400 chamber valves, piston seals, fluid
+plumbing and unqualified volume memory. It is a hypothesis, not completed head
+geometry or a timing/cost survivor. Count head acquisition, independent closure,
+reader false acceptance, indexing, controlled lowering and recovery. Unlike
+A-013, each channel need not individually drive the column through 40 mm;
+short valve stroke alone does not establish cheap actuators.
+
+With an assumed $250 shared reserve, 80 channels can receive at most $3.125
+each under the $500 ceiling only at zero bought cell cost. One row scan has
+less than 375 ms/row before other overhead. E-103 records the comparison with
+segmented ramps, A-013 direct heads and known positive-shutter failures. Keep
+this as the next computational discriminator; no print, purchase, seal or
+hardware acceptance follows.
