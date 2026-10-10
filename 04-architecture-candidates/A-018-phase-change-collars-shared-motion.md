@@ -109,12 +109,22 @@ the assumed strength is qualified. The .15-mm duct-closure scenario raises
 0.5-s transfer force to 15.207 N at assumed 1 Pa·s. At least 12,800 flexible
 boundaries repeat across the board; lower heat alone establishes no winner.
 
-Next generate the finite sealed strut boundaries, reservoir return and jaw
-packing against a simple mechanical-jaw comparator. Include differential-area
-and phase-volume accommodation (E-111 example needs .1533 mm extra reservoir
-travel), positive service support, fabrication/assembly and repair. E-111's
-fluid-domain sweep is not membrane geometry qualification. Stop this embodiment
-if those fail; transient thermal analysis follows only an informative survivor.
-Do not credit a zero-slope command-only variant as distinct from A-017. No print;
-strength/creep, thermal isolation, addressing and full-machine schedule remain
-unqualified. Reduced tail diameter alone remains no low-energy escape.
+E-112 replaces the cap-only boundary with a finite circular rolling fold. Its
+liquid displacement area is π(a²+b²)/2; material on that prescribed fold also
+changes circumference. At 5-MPa assumed solid stress and .05-mm error, a .5-mm
+jaw stroke requires .805-mm reservoir travel with ±5% volume allowance and
+3.924 mm³ liquid. It fits the tested 1-mm dry-rack side bay but overruns the
+2-mm version by .365 mm; hoop excursion reaches 53.6%. The 1-MPa counterpart
+requires 12.462 mm³, exceeding E-111's reduced dead-volume estimate. None of
+E-112's .15-mm-error cases passes its specific side-bay/fold geometry cuts.
+These are prescribed surfaces, not pressure-stable or material-qualified seals.
+
+Next discriminate guided, pressure-stable containment/return and a credible
+repeated fabrication process against the mechanical jaw; no thermal tuning or
+printing until that gate has an informative survivor. The free rolling film
+still lacks backing geometry, compatible seals and a return/preload mechanism.
+A thin FDM membrane, qualified hoop life and affordability are not assumed.
+Stop this embodiment if those obligations fail; changing placement/topology can
+reopen the scoped geometry exclusions. Strength/creep, thermal isolation,
+addressing and full-machine schedule remain unqualified. Reduced tail diameter
+alone remains no low-energy escape, and a command-only thermal latch is A-017.
