@@ -130,9 +130,32 @@ section, .008….012-Pa·s fluid and loss/pressure bounds: best binary coarse ca
 31.183 s; ideal capped coarse 30.448 s at diagnostic .5-mm accuracy. A nominal
 winner also fails 79/1 at 30.113 s. A 1-mm diagnostic case nearly survives both
 workloads at 30.036 s, so no family-wide or accuracy-requirement rejection follows.
-Stop passage tuning and dependent dry-head return/frame work for now. Compare
-two independently supplied dry-head banks against a wet docking bank that reuses
-metering in 80 heads. The former doubles complete head count; the latter adds
-wet acquisition, chamber-check opening and docking-volume transients. Neither
-has finite selection/return/sealing or a priced BOM. E-107 records scope,
-reopening conditions and budgets; no print or purchase.
+Stop single-bank passage tuning. E-108 compares wet docking against two zoned
+80-head banks. Reused wet restrictions retain the same >31-s timing examples;
+even ideal independent metering leaves only 14.717 ms/row beyond inherited
+acquisition/read allocations. Nonlinear gas/wall/dead-volume exchange and
+selective chamber-check opening remain unresolved. Park that wet embodiment;
+reopen with a complete changed pressure-volume/time/cost sequence.
+
+Two banks alone do not guarantee motion: a new 79-easy/1-hard payload witness
+starves the hard channel at the shared pump cap. Limiting each pressure phase
+to 40 open channels avoids that modeled failure. With independent 8-L/min
+supplies, E-107's fixed restriction and stated load/fluid/error bounds, E-108
+bounds arbitrary-map scheduling at **23.387 s**, including conservative recovery.
+The 79/1 event example takes 20.957 s; 2,272 local patch/start cases take
+2.593…5.355 s. This is a reduced-model conditional window, not hardware or
+regional disturbance qualification. Additional common drag can still prevent
+unloaded lowering. Both banks together retain .804-L swept volume and require
+133.3-W ideal peak hydraulic power at the assumed .5-MPa differential.
+
+Retain this changed arrangement for finite three-state head/cartridge return
+and grounding, with the chunked schedule and <161.288-ms extra per-row margin
+as inputs. It repeats 6,400 chamber seats, bypass seats, piston seals and stem
+glands, plus 160 complete head channels. At $250 shared plus $.01 bought/cell,
+head allowance is ≤$1.1625; no sourced complete channel meets it yet. Establish
+finite closure under both pressure signs, stem-volume exchange and a credible
+bought-channel path before elaborating board reliability. E-105 is only partial
+one-poppet geometry and cannot be inherited as this machine. Stop if the next
+gate yields only nominal geometry or imagined affordable parts; no printing or
+purchase. E-108 retains the unique starvation and docking failures, bounds and
+reopening conditions.
