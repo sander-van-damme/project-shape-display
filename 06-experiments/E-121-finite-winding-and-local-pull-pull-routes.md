@@ -156,7 +156,10 @@ axial rigidity EA=20/200/2000 N and free-length error ±.5 mm are competing
 uncertainty scenarios. The linear taut estimate is `ΔP=−EA ΔL/L`; negative
 predictions mean slack, not compressive cable force. At EA=2000 N, nominal P=4.5 N,
 +.5 mm excess length gives **−5.057965 N → slack**, invalidating transmission
-and support. The same error can be a common batch/cutting bias across a board.
+and support. An independent finite-extension check computes the nominal free
+length as `L/(1+4.5/2000)`; adding .5 mm exceeds the entire taut path length,
+without relying on negative linear tension. The same error can be a common
+batch/cutting bias across a board.
 To retain worst-case traction from P=4.5 N at EA=2000 N allows only **+.018491 mm**
 free-length drift, before additional load redistribution, seating, creep or wear.
 No such accuracy or retention is established. An ideal externally prescribed

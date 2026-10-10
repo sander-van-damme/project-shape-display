@@ -217,7 +217,7 @@ def layered_witness():
         assert isclose(rs[0][0],x) and isclose(rs[0][1],y)
     # Antagonistic split-spool variant retains this lifting branch and adds a
     # return member. Retaining the offending subcurve cannot remove its contact.
-    # Also expose free-payout mismatch: helix slope moves exit toward upper bend.
+    # Verify corrected taut payout: helix slope moves exit toward upper bend.
     l0=poly_length(winding_route(0,3)[0]); l40=poly_length(winding_route(40,3)[0])
     r=40/(4*pi); a=.6/(2*pi); metric=sqrt(r*r+a*a)
     for h in (0.,13.7,40.):
@@ -370,8 +370,8 @@ def winding_scad(path):
     r=40/(4*pi)
     lines=['// Failed E-120 four-plane route at h=0, lower site translated to XY origin.',
            '$fn=64;', 'module rod(a,b,r){hull(){translate(a)sphere(r);translate(b)sphere(r);}}']
-    # Finite drum cores, rim envelopes and axle cylinders. Both actual solid
-    # cores and their enclosing rims intersect the riser witness.
+    # Finite core and axle cylinders. The actual solid core suffices for
+    # rejection; rims and groove-wall detail are not generated after failure.
     for x,z in [(0.,-27.),(PITCH,-22.)]:
         lines.append(f'color("gray") translate([{x},0,{z+.325}]) cylinder(r={r-D/2},h=2.45,center=true);')
         lines.append(f'color("silver") translate([{x},0,{z}]) cylinder(r=.6,h=4.4,center=true);')

@@ -36,7 +36,7 @@ retained drums, serviced by reusable rotary heads. Generated ideal two-edge rout
 show that dedicated tendons are not excluded solely by member count, while their
 740–881-m route length and 12,800 ends make perimeter storage unattractive as the
 lead. A local two-turn drum seed has four disk-only planes versus sixteen for the
-one-turn seed, but still needs finite return, lock and access. It receives bounded
+one-turn seed, but still needed finite return, lock and access. That justified E-121
 exploration, not architecture selection. Direct rack heads remain the simple
 comparator, with E-099's complete-channel affordability gap intact.
 
@@ -64,8 +64,8 @@ before detailed locking, pricing or timing. No entire tensile principle is exclu
 materially changed conditional capture/reset topology, or complete accessible
 private/transported drive escaping its demonstrated collisions with credible
 channel/travel burden. A smaller error box, another fork gap or equal-friction
-sweep is insufficient. Reopen these tension embodiments only with generated rerouting that escapes
-the core collision, or load-reacting preload control/positive engagement covering
+sweep is insufficient. Reopen these tension embodiments only with generated
+rerouting that escapes the core collision, or load-reacting preload control/positive engagement covering
 length, compliance, creep and assembly errors through the full stroke, including
 finite cord/termination capacity. A prescribed preload or narrower unsupported
 error box is insufficient.
