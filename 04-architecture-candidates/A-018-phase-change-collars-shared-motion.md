@@ -87,7 +87,16 @@ for d, g, tau in [(3, .1, .5), (1, .1, .5), (3, .15, .25)]:
     print(length, volume, 6400*volume*.5/30)
 ```
 
-Next discriminator: finite retained key/shear geometry that survives molten
-translation and containment, with effective strength/creep bounds. Resolve
-that load path before detailed heat simulations. Reduced diameter alone is
-not a low-energy escape. No full-machine scheduling or physical pass follows.
+Finite-key follow-up E-110 generates annular and sector keys with exact
+phase-volume and frozen-path collision checks. Positive keys remove reliance
+on adhesion but introduce material transport: a 5.2-mm-long illustrative keyed
+collar holds 13.283–13.635 mm³; fully wetted grooves can carry 28.149 mm³ out of
+the heated zone during 40-mm translation. Perfect drainage is the competing
+unverified bound. Geometric clearance does not prove liquid containment.
+
+Next discriminate a finite drain/return and separated sealing path against an
+encapsulated short-stroke thermal lock on a retracting support jaw. Do not
+advance an open keyed through-collar directly to thermal optimization or
+credit reduced sectors without their walls/seals. Effective strength, creep,
+thermal performance and complete scheduling remain unqualified. Reduced
+diameter alone is not a low-energy escape.
