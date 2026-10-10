@@ -103,3 +103,15 @@ $.0140625/cell for **all** purchases; head and cell maxima cannot both be spent.
 E-104 retains the inverse budgets, shared/local sensitivity, local alignments,
 pressure/power and recovery limits. No priced BOM, print, purchase, seal or
 hardware acceptance follows.
+
+E-105 generates a finite dry-stem valve/interface subset. A short tail makes the
+head enter its gland; a longer tail and three actuator lanes clear the tested
+subset, with .339…2.750-mm input strokes. Return springs, grounded guides and
+actual actuators remain absent. This route adds 6,400 stem seals. Port flow can
+support high speed conditionally, but unloaded lowering and fine-gap metering
+are sensitive to net bias/drag, pressure and fluid model. A specified two-speed
+controller takes 30.032 s at the illustrative .2-mm accuracy/2-ms response,
+versus 28.808 s at .5 mm; neither accuracy is a product requirement. This rejects
+that fine-control allocation, not the family. Compare binary full-open heads
+with charged shared coarse/fine pressure phases before refining analog lift or
+claiming a complete finite head. No seal, cost or hardware pass follows.
