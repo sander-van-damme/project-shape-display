@@ -1,25 +1,26 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-132, input main b790ab9.
-North star: Affordable complete machines for ~6,400 supported terrain columns; no selected architecture.
-Mode: LEARN → EXPLORE. Both reusable friction-head embodiments stopped; change the state-retention axis.
+Updated: 2026-10-10 UTC; evidence: E-133, input main 023e0e9.
+North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
+Mode: LEARN → PROBE a changed structural topology; stop free-series snap refinement.
 
 Portfolio / uncertainty:
-- E-132 solid screw: static self-locking survives, but core inertia alone gives 203-mm unconstrained coast at 100 mm/s, 1 N, μk=.02; finite engagement ends first.
-- E-132 counterbalanced pads: ±5.6-N residual exceeds 3.2-N kinetic drag; either direction can accelerate after input loss.
-- New transverse-pin/offset-eye access clears an isolated pair; actual third-row stem collision prevents dense replication. Capture actuation/readback remain unbuilt.
-- E-131 continuous sliding is conditional retention, not a machine; wedges fail travel/packing and kinetic corners.
-- A-007 permanent screws remain rejected; hollow/rotating-nut heads would be changed embodiments, not automatically next priority.
-- A-021/E-063 planar scissors fail reaction/repetition; nonplanar structural memory is a search lead, not a selected solution.
-- A-025/E-129 no-back release, E-130 pocket exchange, E-125 capture and E-127/128 docking failures remain controls.
+- E-133 nonplanar radial crowns: shallow 100-stage stack has negative internal exchange stiffness even with a perfect top clamp; 1-N loaded reach falls to 36.607 mm.
+- Crown dimensional/material scenarios change thresholds by orders of magnitude; no calibrated yield or shell constitutive transfer.
+- Kresling two-length trusses have endpoint reach (18 stages best sampled), but loaded barriers, twist control and contact are unresolved.
+- Smooth tape phase fronts do not supply intermediate wells. Patterned front pinning remains a geometry question, not an assigned energy barrier.
+- Solid-stop E-132 control preserves abstract support sequencing; its dense capture/routing failure is still active.
+- E-126 chains/E-131 bands already separate assembled stiffness from input arrest; do not rename them as new memory.
+- A-021 planar stacks, A-022 captured-T guides and E-132 friction heads remain stopped embodiments, not rejected universal principles.
 
 Recent varied attempts / novelty:
-- Machine-leveling wedges, constant-effort supports and stage-lift bands opened continuous-support comparisons (E-131).
-- E-132 moved friction retention to reusable heads: useful repetition change, no new physical principle.
-- Dynamic loaded-flank balance exposes inertia/light-load sensitivity missed by static hold.
-- This finite comparison is complete; no new literature-diversity count or whole-landscape saturation claim.
+- Braille shells, twist-buckled deployables and space-boom phase fronts supplied distinct structural hypotheses (E-133).
+- Sequential-hysteron literature motivated constrained internal-mode analysis; a clamped top does not constrain all stages.
+- Folding-zipper recombination returned E-126/E-131's known arrest problem: no new principle credited.
+- No whole-landscape saturation claim; this bounded screen is complete.
 
-Next discriminator: structural state retention via nonplanar multistable shells/distributed elastic structures, against discrete solid-stop control.
-Search then bound loaded energy barriers, collapse path, state reach, manufacturing bias and dense routing; distinguish from A-021 planar stacks.
-Stop on unsupported snap/load transfer, singular force, insufficient state reach or unchanged-output disturbance. No unspecified latch.
-No printing/purchases/full-machine optimization justified. Canonical evidence is in 01–08; Paperclip owns task state.
+Next discriminator: finite pair of structural units and grounded conversion shoe, with integral compression seats and a spatially confined reversible front.
+Test actual support transfer and loaded barrier against smooth tape and discrete-stop controls, including unchanged neighboring material and dense routing.
+Stop on unrestrained feed, unsupported transfer, collisions or repeated-constraint burden; no free latch or assigned sinusoidal barrier.
+Reopen free crowns only with internal-mode control and loaded reach; Kresling only with a finite supported transition.
+No printing, purchasing or full-machine optimization justified. 01–08/Paperclip remain authoritative.
