@@ -87,53 +87,36 @@ for d, g, tau in [(3, .1, .5), (1, .1, .5), (3, .15, .25)]:
     print(length, volume, 6400*volume*.5/30)
 ```
 
-Finite-key follow-up E-110 generates annular and sector keys with exact
-phase-volume and frozen-path collision checks. Positive keys remove reliance
-on adhesion but introduce material transport: a 5.2-mm-long illustrative keyed
-collar holds 13.283–13.635 mm³; fully wetted grooves can carry 28.149 mm³ out of
-the heated zone during 40-mm translation. Perfect drainage is the competing
-unverified bound. Geometric clearance does not prove liquid containment.
+## Current disposition after finite containment search
 
-E-111 closes geometric inventory for a two-ended bath with seals on smooth
-lands: the 40-mm stroke requires an 85.6-mm chamber and roughly 120 mm³ liquid
-for the E-110 holdout. Heating that whole bath needs an assumed 384 kJ/board
-(.5 J/mm³), before structural heating/losses. Deprioritize this embodiment;
-a finite local drain/return could reopen it, but perfect drainage is unverified.
+**Studied embodiments parked; thermal-support campaign technically concluded
+(ADR-019).** The physical family remains bounded, not disproven. No informative
+complete containment/material-cycle survivor warrants thermal tuning or printing.
 
-The changed short-stroke alternative uses a dry sloped rack shoulder, grounded
-jaw guide and sealed thermal structural strut carrying the jaw's outward load.
-Two opposed variable-volume chambers return liquid internally. At 10 N/30°,
-1-MPa effective whole-strut allowable and .05-mm coherent error, its bounded
-inventory is 8.860 mm³ with 50% added dead volume. Neither that allowance nor
-the assumed strength is qualified. The .15-mm duct-closure scenario raises
-0.5-s transfer force to 15.207 N at assumed 1 Pa·s. At least 12,800 flexible
-boundaries repeat across the board; lower heat alone establishes no winner.
+E-110's finite keys give positive support but add molten transport and frozen
+obstruction. Its holdout contains 13.283–13.635 mm³ and fully filled translating
+grooves could export 28.149 mm³ over 40 mm. E-111's sealed full-track bath closes
+geometric inventory at roughly 120 mm³ and 85.6-mm length; a drain/return escape
+remains unqualified. These are conditional geometric bounds, not measurements.
 
-E-112 replaces the cap-only boundary with a finite circular rolling fold. Its
-liquid displacement area is π(a²+b²)/2; material on that prescribed fold also
-changes circumference. At 5-MPa assumed solid stress and .05-mm error, a .5-mm
-jaw stroke requires .805-mm reservoir travel with ±5% volume allowance and
-3.924 mm³ liquid. It fits the tested 1-mm dry-rack side bay but overruns the
-2-mm version by .365 mm; hoop excursion reaches 53.6%. The 1-MPa counterpart
-requires 12.462 mm³, exceeding E-111's reduced dead-volume estimate. None of
-E-112's .15-mm-error cases passes its specific side-bay/fold geometry cuts.
-These are prescribed surfaces, not pressure-stable or material-qualified seals.
+E-111–113's dry-jaw thermal strut removes the long wet pin but introduces two
+moving boundaries per site. Generated supported rolling/sliding packages with
+roof ports and return at .05-mm error span 4.128/4.596 mm against a 1.89-mm side
+bay, holding 6.598/6.671 mm³. Freeze sequence, creep, compatible seals and the
+12,800-boundary process remain unresolved; cap-only volumes were optimistic.
 
-E-113 generates conventional backing by moving liquid above the U, and compares
-sliding piston seals. With finite roof ports, return spring and .05-mm error,
-rolling/sliding packages span 4.128/4.596 mm against a 1.89-mm side bay; even
-bare bodies overrun it. Their inventories are 6.598/6.671 mm³. Melting under
-service load drives the reservoir to its stop; positive-pressure return also
-fails some viscosity/duct bounds. Liquid accommodation cannot relieve a chamber
-after its duct freezes. Neither route has sourced miniature film/seal life,
-whole-strut creep or an affordable repeated process for 12,800 boundaries.
+E-114 tests a genuinely different fixed open capillary accumulator. Nonwetting
+bores can return liquid under positive pressure while narrower jaw gaps resist
+escape: its nominal clean-interface pressure margin is 621 Pa, with 5.621 mm³
+charge. A .05-mm scenario reduces that margin to 4.4 Pa at the tested motion
+load; slower motion can rescue that pressure case. Crucially, the finite stem
+can carry liquid past its fixed hot lip into a cold guide. Static wetting angles
+and aggregate reservoir capacity do not close the repeated material cycle.
+This preserves a conditional capillary opportunity, not a machine survivor.
 
-**Park these short-stroke side-bay embodiments.** No thermal tuning or printing.
-Reopen with changed placement/return and a compatible repeated process, or new
-components that alter the bounds; ideal seals and smaller radii are insufficient.
-A dry grounded crossbolt remains the simpler comparator, not a qualified machine.
-A-018 remains a bounded physical family; no informative containment survivor
-currently warrants its dependent thermal/full-machine analysis. The next gate
-is a materially different complete escape from the recorded inventory/process
-failures, or campaign closure. Reduced tail diameter alone remains no low-energy
-escape, and a command-only thermal latch is A-017.
+Reopen only with changed complete return/retention/isolation geometry or
+credible interface evidence and an affordable repeated process. Do not infer
+perfect drainage, liquid-volume closure through frozen paths, or durability
+from analytical acceptance. A dry positive crossbolt remains the simpler
+unqualified comparator. Next portfolio allocation is passive positive support
+with shared selection/reset; earlier addressing and timing failures still apply.
