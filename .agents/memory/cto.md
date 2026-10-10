@@ -1,19 +1,24 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; baseline: E-124 / main (reconcile newer evidence at next heartbeat).
-North star: Invent and discriminate diverse, affordable end-to-end ways to select, move, retain and verify ~6,400 terrain columns. No selected architecture.
-Mode: RECONCILE, then choose EXPLORE / SCREEN / PROBE / LEARN from live Paperclip state. This seed does not supersede active tasks.
-Current thesis: Early broad synthesis + cheap full-scale screening should precede sustained optimization of any one machine; finite tests remain welcome when decisive.
+Updated: 2026-10-10 UTC; evidence: E-126, input main 723b71a.
+North star: Diverse affordable complete machines for ~6,400 supported terrain columns; no selected architecture.
+Mode: LEARN → PROBE. Common-datum drive access may remove varying-height acquisition without a costly acquired-foot clamp.
 
-Portfolio to compare (not a ranking):
-- Direct reusable heads [A-013,E-123,E-124]: acquisition explored; powered retention, lowering, ground lock, guides and whole-channel economics open.
-- Shared actuation + local selection [A-016,A-020]: half-select, motion/lock transfer, array scaling and reliable isolation open.
-- Fluid/structural/passive height memory [A-014,A-022,ADR-018]: substantial embodiment failures; only changed mechanisms deserve reopening.
-- New combinations: seek untested ways to combine selection + memory + load support; avoid merely adding repeated parts.
+Portfolio / uncertainty:
+- A-025 fixed-datum rack/pinion: next finite probe; docking phase, gear/shaft packaging, loaded arrest and selector economics unresolved.
+- A-024 counted solid stacks: new storage topology; E-126 rejects four-stroke loose-particle feed at tested rates, not continuous feed.
+- Linked/zip-chain control: continuous feed but ≥128k links before joints/storage; no reason for detailed chain optimization yet.
+- A-013/E-125: compact retained jaw rejected; sparse head also fails tested loaded capture. Do not resume dimensional sweeps without changed mechanism.
+- A-016/A-020 shared actuation and A-014 fluid memory remain comparisons, with earlier selector/transfer/containment failures preserved.
 
-Exploration coverage: prior portfolio in 03/04/07; no calibrated novelty streak under this *new* workflow.
-Recent distinct novelty probes: none logged yet. Zero-novelty varied attempts in a row: unknown (do not infer from prior experiment count).
-Underexplored axes: function merging; changed mechanical multiplexing; cross-disciplinary analogies; addressing without per-cell purchased interfaces.
-Next decision: reconcile active campaign and recent E-124, then choose the most informative diverse exploration or finite power/lock probe. Keep one coherent campaign across modes.
-Switch trigger: novelty from a genuinely new search axis -> explore/combine; ~4-5 varied no-novelty attempts -> screen/recombine another axis; decisive failure/survivor -> learn and update portfolio.
-Maintenance: replace obsolete lines, keep <45 lines / ~3 KB; evidence and task details stay in 01-08 / Paperclip.
+Recent varied attempts / novelty:
+- Bulk-feeding analogy → counted compression stack at a fixed service plane (A-024).
+- Deployable structural-chain analogy → linked-feed comparison; no miniature capability inherited from industrial sources.
+- Invert moving interface → stationary pinion shaft, moving rack (A-025); topology recombination, not new gear physics.
+- These three moves yielded useful new topologies; no saturation claim. Earlier streak unknown.
+
+Next discriminator: finite A-025 rack/pinion + arbitrary-angle docking + positive load-arrest transfer at 5.08-mm tops; allow staggered internals.
+Compare against continuous pocketed feed only if it offers a concrete simpler support transfer; avoid perfecting the pinion by inertia.
+Stop/switch: a finite collision, phase-lock impossibility or unaffordable repeated interfaces → change coupling/axis; clearance alone does not earn full-machine costing.
+E-126 timing is an optimistic motion screen: 160 shared-direction heads give 19.07 s with an unallocated 6-s reserve, not an admitted schedule.
+No printing/purchases justified. Canonical evidence is in 01–08; task ownership/status belongs in Paperclip.
