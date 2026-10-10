@@ -94,9 +94,27 @@ collar holds 13.283–13.635 mm³; fully wetted grooves can carry 28.149 mm³ ou
 the heated zone during 40-mm translation. Perfect drainage is the competing
 unverified bound. Geometric clearance does not prove liquid containment.
 
-Next discriminate a finite drain/return and separated sealing path against an
-encapsulated short-stroke thermal lock on a retracting support jaw. Do not
-advance an open keyed through-collar directly to thermal optimization or
-credit reduced sectors without their walls/seals. Effective strength, creep,
-thermal performance and complete scheduling remain unqualified. Reduced
-diameter alone is not a low-energy escape.
+E-111 closes geometric inventory for a two-ended bath with seals on smooth
+lands: the 40-mm stroke requires an 85.6-mm chamber and roughly 120 mm³ liquid
+for the E-110 holdout. Heating that whole bath needs an assumed 384 kJ/board
+(.5 J/mm³), before structural heating/losses. Deprioritize this embodiment;
+a finite local drain/return could reopen it, but perfect drainage is unverified.
+
+The changed short-stroke alternative uses a dry sloped rack shoulder, grounded
+jaw guide and sealed thermal structural strut carrying the jaw's outward load.
+Two opposed variable-volume chambers return liquid internally. At 10 N/30°,
+1-MPa effective whole-strut allowable and .05-mm coherent error, its bounded
+inventory is 8.860 mm³ with 50% added dead volume. Neither that allowance nor
+the assumed strength is qualified. The .15-mm duct-closure scenario raises
+0.5-s transfer force to 15.207 N at assumed 1 Pa·s. At least 12,800 flexible
+boundaries repeat across the board; lower heat alone establishes no winner.
+
+Next generate the finite sealed strut boundaries, reservoir return and jaw
+packing against a simple mechanical-jaw comparator. Include differential-area
+and phase-volume accommodation (E-111 example needs .1533 mm extra reservoir
+travel), positive service support, fabrication/assembly and repair. E-111's
+fluid-domain sweep is not membrane geometry qualification. Stop this embodiment
+if those fail; transient thermal analysis follows only an informative survivor.
+Do not credit a zero-slope command-only variant as distinct from A-017. No print;
+strength/creep, thermal isolation, addressing and full-machine schedule remain
+unqualified. Reduced tail diameter alone remains no low-energy escape.
