@@ -148,14 +148,19 @@ regional disturbance qualification. Additional common drag can still prevent
 unloaded lowering. Both banks together retain .804-L swept volume and require
 133.3-W ideal peak hydraulic power at the assumed .5-MPa differential.
 
-Retain this changed arrangement for finite three-state head/cartridge return
-and grounding, with the chunked schedule and <161.288-ms extra per-row margin
-as inputs. It repeats 6,400 chamber seats, bypass seats, piston seals and stem
-glands, plus 160 complete head channels. At $250 shared plus $.01 bought/cell,
-head allowance is ≤$1.1625; no sourced complete channel meets it yet. Establish
-finite closure under both pressure signs, stem-volume exchange and a credible
-bought-channel path before elaborating board reliability. E-105 is only partial
-one-poppet geometry and cannot be inherited as this machine. Stop if the next
-gate yields only nominal geometry or imagined affordable parts; no printing or
-purchase. E-108 retains the unique starvation and docking failures, bounds and
-reopening conditions.
+E-109 ends this bounded dry-bank continuation. A finite two-poppet circuit
+subset supplies closed/restricted/full-open contact sequencing, but the selected
+resident spring cannot hold an unselected valve closed over the inherited
+pressure-history box. Its sourced 160-servo route costs $761.60 before other
+purchases. This embodiment repeats 12,800 stem glands, not the prior 6,400
+minimum. Finite-volume integration verifies net stem sweep; transient flow
+partition remains unresolved. Nominal servo closure exceeds the assumed 2-ms
+response. No complete finite machine survives.
+
+ADR-018 parks the tested hydraulic implementations without rejecting the fluid
+principle. Stop detailed dry-head/return and dependent seal/board qualification.
+Reopen only with changed complete return/isolation AND credible complete-channel
+economics, then revised pressure-volume/closure and full/local time bounds.
+E-108's conditional chunking result remains valid within its model; it is not
+hardware acceptance. No print or purchase. Thermal collar support is the next
+portfolio investigation; it inherits no hydraulic or rack timing pass.
