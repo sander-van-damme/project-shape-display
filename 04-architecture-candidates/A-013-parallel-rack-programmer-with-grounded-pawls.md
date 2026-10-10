@@ -29,3 +29,12 @@ above the entire $500 cap. This excludes these priced embodiments, not all
 independent drives. Stop their layout work; reopen with a complete cheaper
 channel or changed addressing/schedule. Shared-energy selection remains a
 separate mechanism question with E-051's support-proof dwell gate.
+
+E-115 retains a powered pivot-pawl section as a changed support alternative,
+but its assumed gravity-return drag allowance is only 0.161–2.863 microN at the
+tip. A compact toggle crossbolt retains only tight-bound section cases and no
+demonstrated unloaded command retention. Keep the rectangular crossbolt as the
+primary comparator for finite positive set/return coupling. Selection must
+persist through ground reseat, support proof and selective carrier release;
+direct ground=not-command coupling fails that sequence. These local results
+do not reopen the rejected purchased servo route or establish a machine.
