@@ -7,7 +7,7 @@ import importlib.util
 import json
 from itertools import product
 from functools import lru_cache
-from math import atan2, cos, exp, isclose, pi, sin, sqrt
+from math import asin, atan2, cos, exp, isclose, pi, sin, sqrt
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('routes', Path(__file__).resolve().parents[1]/'E-121/finite_routes.py')
@@ -223,24 +223,110 @@ def entry_peak(r,t,height,width,tip,n=2048):
     return best
 
 
-def wrapped_extent(r,t,height,width,tip):
-    """Exact polygon/circle intersections through the finite tape thickness.
-    Arc-coordinate envelope of a fully seated tooth; used to calculate the
-    load-bearing phase instead of assuming every tooth is centered in its hole.
+def circle_intersections(poly,radius):
+    """Exact intersections of polygon edges and a circle, in mm."""
+    pts=[]
+    for a,b in zip(poly,poly[1:]+poly[:1]):
+        dx,dz=b[0]-a[0],b[1]-a[1];A=dx*dx+dz*dz
+        if A==0:continue
+        B=2*(a[0]*dx+a[1]*dz);C=a[0]**2+a[1]**2-radius**2;det=B*B-4*A*C
+        if det>=0:
+            for u in ((-B-sqrt(det))/(2*A),(-B+sqrt(det))/(2*A)):
+                if 0<=u<=1:pts.append((a[0]+u*dx,a[1]+u*dz))
+    return pts
+
+def tape_coordinates(r,t,H,w,tip,angle):
+    """Tooth/tape intersection in unwrapped material coordinates, both tangents
+    and lower annulus. Only stated convex tooth family is covered."""
+    poly=tooth_polygon(r,H,w,tip,angle);coords=[]
+    for side in (1,-1):
+        p=poly
+        for axis,bound,lower in ((0,side*r-t/2,True),(0,side*r+t/2,False),(1,0,True)):
+            p=clip(p,axis,bound,lower)
+            if not p:break
+        coords += [z if side==1 else -pi*r-z for x,z in p]
+    p=clip(poly,1,0,False)
+    if p:
+        points=[q for q in p if (r-t/2)**2<=q[0]**2+q[1]**2<=(r+t/2)**2]
+        points+=circle_intersections(p,r-t/2)+circle_intersections(p,r+t/2)
+        for x,z in points:
+            a=atan2(min(z,0),x)
+            if a>0:a-=2*pi
+            coords.append(r*a)
+    return (min(coords),max(coords)) if coords else None
+
+def contact_interval(n,H,tip,slot,phase,errors=None):
+    """Common tape-phase feasibility for ALL geometrically engaged teeth."""
+    r=n/pi;bounds=[]
+    for j in range(-n,n+1):
+        a=phase+j*2*pi/n
+        if not -1.5*pi<a<.5*pi:continue
+        coords=tape_coordinates(r,.025,H,.8,tip,a)
+        if coords:
+            lo,hi=coords;error=0 if errors is None else errors(j)
+            bounds.append((hi-r*a-slot/2-error,lo-r*a+slot/2-error,j))
+    return max(b[0] for b in bounds),min(b[1] for b in bounds),bounds
+
+def simultaneous_contacts():
+    """Allow load transfer and tape phase motion. A fixed loaded tooth is NOT
+    mandatory: all tooth intervals must overlap; force chooses an interval edge.
+    Negative widths are finite contradictions. Positive sampled widths are only
+    necessary screens, never continuous clearance/load-sharing certification.
     """
-    poly=tooth_polygon(r,height,width,tip,0.)
-    points=[]
-    for radius in (r-t/2,r+t/2):
-        for a,b in zip(poly,poly[1:]+poly[:1]):
-            dx,dz=b[0]-a[0],b[1]-a[1]
-            A=dx*dx+dz*dz; B=2*(a[0]*dx+a[1]*dz)
-            C=a[0]**2+a[1]**2-radius**2
-            determinant=B*B-4*A*C
-            if determinant>=0:
-                for u in ((-B-sqrt(determinant))/(2*A),(-B+sqrt(determinant))/(2*A)):
-                    if 0<=u<=1: points.append((a[0]+u*dx,a[1]+u*dz))
-    assert points
-    return max(abs(r*atan2(z,x)) for x,z in points)
+    failures=[]
+    for n,tip,slot in product((5,8,12),(.8,.2),(1.,1.3,1.6)):
+        best=(float('inf'),None)
+        for i in range(257):
+            phase=i*2*pi/n/256
+            lo,hi,contacts=contact_interval(n,1.3,tip,slot,phase)
+            # e=.2: shrink each half slot by e and assign opposed +/-e
+            # location errors to conflicting holes. Common translation cancels.
+            pair=min((B[1]-A[0]-.4-(.4 if A[2]!=B[2] else 0),A[2],B[2])
+                     for A in contacts for B in contacts)
+            if pair[0]<best[0]:best=(pair[0],(phase,pair[1],pair[2]))
+        gap,(phase,jlow,jhigh)=best
+        assert gap<0
+        def errors(j): return -.2 if j==jlow else .2 if j==jhigh else 0.
+        lo,hi,contacts=contact_interval(n,1.3,tip,slot-.4,phase,errors)
+        assert hi-lo<=gap+1e-10  # reconstruct actual simultaneous error corner
+        failures.append(dict(teeth=n,tip_mm=tip,slot_mm=slot,e_mm=.2,
+            phase_rad=phase,low_tooth_index=jlow,high_tooth_index=jhigh,
+            feasible_phase_interval_mm=[lo,hi],incompatibility_mm=lo-hi))
+    narrow=[]
+    for n in (8,12):
+        for steps in (128,512):
+            intervals=[contact_interval(n,.8,.2,1.6,i*2*pi/n/steps) for i in range(steps+1)]
+            narrow.append(dict(teeth=n,steps=steps,
+                sampled_min_interval_width_mm=min(b-a for a,b,c in intervals),
+                max_step_lower_support_phase_mm=max(abs(intervals[i+1][0]-intervals[i][0]) for i in range(steps)),
+                scope='Allows contact takeover. No complete route, capture force, tolerance or continuous pass.'))
+    # Independent contact-topology event: tall 12-tooth taper loses a carrier
+    # at a finite corner leaving the tape slab. Bracket that actual disappearance.
+    lo,hi=.228,.229
+    for _ in range(48):
+        mid=(lo+hi)/2
+        cs=contact_interval(12,1.3,.2,1.6,mid)[2]
+        if any(j==1 for a,b,j in cs):lo=mid
+        else:hi=mid
+    event=(lo+hi)/2
+    event_limits=[]
+    for eps in (1e-4,1e-5,1e-6):
+        before=contact_interval(12,1.3,.2,1.6,event-eps)
+        after=contact_interval(12,1.3,.2,1.6,event+eps)
+        gap=before[0]-after[0]
+        assert gap>.18 and before[1]>before[0] and after[1]>after[0]
+        event_limits.append(dict(offset_rad=eps,phase_before_mm=before[0],
+                                 phase_after_mm=after[0],unsupported_phase_gap_mm=gap))
+    # Independent separating support function: outer tooth corner x maximum
+    # reaches tape's inner radius when carrier j=1 disappears on right straight.
+    r=12/pi; theta=event+2*pi/12
+    assert abs((r+1.3)*cos(theta)+.1*sin(theta)-(r-.025/2))<1e-10
+    return dict(full_box_tall_profile_failures=failures,
+        least_full_box_incompatibility_mm=min(v['incompatibility_mm'] for v in failures),
+        shallow_full_box_capture='H=.4/.8 cannot satisfy H>6e at e=.2 for any rail gap.',
+        narrow_nominal_contact_takeover=narrow,
+        tall_nominal_support_loss=dict(event_rad=event,carrier_tooth_index=1,limits=event_limits),
+        limitation='Prescribed taut circle/tangent path, rigid teeth. Compliant lift or a changed profile may escape.')
 
 
 def mesh_comparison():
@@ -263,51 +349,17 @@ def mesh_comparison():
             tip_mm=tip,slot_mm=slot,e_mm=e,entry_margin_mm=margin,
             capture_margin_mm=capture,phase_rad=peak[1],witness_mm=peak[2],
             minimum_internal_pitch_mm=2*(r+height+.3),
-            reason='entry_collision' if margin<0 else
-                   'pinch_or_lift_off' if capture<=0 else 'necessary_screens_only'))
-    # Challenge the two e=.1 necessary survivors under real flank loading.
-    # Centered slots carry no tangential load. Required phase shift to touch a
-    # fully seated tooth is slot/2 - wrapped_extent. One signed load/motion
-    # combination puts that shift against the incoming tooth. Hole enlargement
-    # then cancels: loaded entry overrun = entry_extent - wrapped_extent.
-    load_transfer=[]
-    for n in (8,12):
-        r=n/pi; peak=entry_peak(r,.025,.8,.8,.2,2048)
-        wrapped=wrapped_extent(r,.025,.8,.8,.2)
-        overrun=peak[0]-wrapped
-        # Favorable distributed strain over ENTIRE half-wrap between contacts;
-        # holes leave .6 mm total side-band width, t=.025, E=200 GPa scenario.
-        ea=200000*.6*.025
-        stretch=.65*pi*r/ea
-        assert overrun>stretch+.01  # explicit extra 10-um discrepancy allowance
-        load_transfer.append(dict(teeth=n,entry_half_extent_mm=peak[0],
-            seated_half_extent_mm=wrapped,load_phase_shift_mm=.8-wrapped,
-            loaded_entry_overrun_mm=overrun,
-            favorable_intercontact_extension_mm=stretch,
-            residual_after_001mm_discrepancy_mm=overrun-stretch-.01,
-            scope='Taut circle/tangent path. Lift/bowing, tooth bending or conjugate profiles are NOT covered.'))
-    loaded_error_screens=[]
-    for e in (0.,.025,.05,.1,.2):
-        margins=[]
-        for n,height,tip in product((5,8,12),(.4,.8,1.3),(.8,.2)):
-            r=n/pi
-            overrun=entry_peak(r,.025,height,.8,tip,2048)[0]-wrapped_extent(r,.025,height,.8,tip)
-            # An incoming hole and the already seated reference hole carry
-            # opposed location errors +/-e. This survives global phase setting.
-            # Keep hole sizes nominal: the differential 2e alone is a witness.
-            margins.append(overrun+2*e-.65*pi*r/3000-.01)
-        loaded_error_screens.append(dict(e_mm=e,
-            min_interference_after_elastic_and_discrepancy_mm=min(margins),
-            profile_sections=len(margins),
-            all_taut_path_sections_rejected=min(margins)>0))
-        if e>=.025: assert min(margins)>0
+            reason='centered_entry_intersection' if margin<0 else
+                   'pinch_or_lift_off' if capture<=0 else 'centered_configuration_clear'))
+    # Fixed-flank entry overrun is a useful warning but NOT a jam proof:
+    # another tooth can take load while tape phase shifts. Test all contacts.
     rows=[]
     for e in (0.,.025,.05,.1,.2):
         sub=[r for r in population if r['e_mm']==e]
-        rows.append(dict(e_mm=e,variants=len(sub),entry_failures=sum(r['reason']=='entry_collision' for r in sub),
+        rows.append(dict(e_mm=e,variants=len(sub),centered_entry_intersections=sum(r['reason']=='centered_entry_intersection' for r in sub),
                          capture_failures=sum(r['reason']=='pinch_or_lift_off' for r in sub),
-                         necessary_only=sum(r['reason']=='necessary_screens_only' for r in sub)))
-    assert all(r['reason']!='necessary_screens_only' for r in population if r['e_mm']==.2)
+                         centered_clear_samples=sum(r['reason']=='centered_configuration_clear' for r in sub)))
+    assert all(r['reason']!='centered_configuration_clear' for r in population if r['e_mm']==.2)
     # Wide/tall tapered profile is the best attempt in the full .2 box.
     wide=[r for r in population if r['e_mm']==.2 and r['capture_margin_mm']>0]
     closest=max(wide,key=lambda r:r['entry_margin_mm'])
@@ -330,8 +382,7 @@ def mesh_comparison():
                 full_box_closest=closest,nominal_rectangle_witness=dict(
                   teeth=5,R_mm=r,angle_rad=a,point_mm=[r,z],hole_center_mm=r*a,
                   hole_halfwidth_mm=.65,interference_mm=witness_extent-.65),
-                convergence=convergence,loaded_transfer_witnesses=load_transfer,
-                loaded_differential_error_screens=loaded_error_screens,
+                convergence=convergence,simultaneous_contacts=simultaneous_contacts(),
                 seed='None; exhaustive stated Cartesian products',
                 screening_population=population)
 
@@ -377,6 +428,16 @@ def main():
         p=tooth_polygon(2,.8,.8,.2,a)
         q=tooth_polygon(2,.8,.8,.2,-a)
         assert all(any(abs(x-X)<1e-12 and abs(z+Z)<1e-12 for X,Z in q) for x,z in p)
+    # Independent annular rectangular-section bound, plus common-registration
+    # invariance. This checks actual contact coordinates, not just their counts.
+    r=2.; t=.025
+    coords=tape_coordinates(r,t,.8,.8,.8,-pi/2)
+    width=r*asin(.4/(r-t/2))
+    assert isclose(coords[0],-r*pi/2-width,abs_tol=1e-12)
+    assert isclose(coords[1],-r*pi/2+width,abs_tol=1e-12)
+    a,b,_=contact_interval(8,.8,.2,1.6,.2)
+    A,B,_=contact_interval(8,.8,.2,1.6,.2,lambda j:.17)
+    assert isclose(A,a-.17,abs_tol=1e-12) and isclose(B,b-.17,abs_tol=1e-12)
     mesh=mesh_comparison()
     # Keep full rejected population available only in reproducible stdout; no
     # checked-in generated files. Compact default summary avoids bulky reports.

@@ -8,8 +8,8 @@ builds-on: [E-121, E-099]
 **Close the bounded tension-transmission campaign without admitting a complete
 force path.** A finite central spring keeper intersects the moving carriage.
 A positively engaged perforated tape escapes smooth-cord traction, but the tested
-radial and linearly tapered teeth fail the full error box. Two narrower-box
-candidates also interfere during loaded entry on the prescribed taut route.
+radial and linearly tapered teeth fail the full error box. A tall tapered profile
+also loses load-support continuity; shorter profiles retain conditional mesh value.
 Neither proceeds to private locks, printing or machine timing. These are scoped
 embodiment exclusions, not impossibility of springs, belts or larger internals.
 
@@ -21,22 +21,20 @@ python3 tools/curated-experiment-checks/E-122/transmission.py
 python3 tools/curated-experiment-checks/E-122/transmission.py --population
 ```
 
-Evidence: standard-library generated primitive/curve sections, reduced elastic
-closure, exact finite collision witnesses and self-review. No CAD-kernel solve,
-physical measurements, manufacturing calibration, priced parts or accepted
-hardware. Generated JSON is reproducible output and is not retained.
+Evidence: generated sections, reduced elastic closure, finite witnesses and
+self-review; no physical measurements, process calibration, CAD-kernel solve,
+priced parts or qualified hardware. Generated output is not retained.
 
 ## Bounded generation and comparison
 
 | Family | Address, energy, storage and force path | Outcome |
 |---|---|---|
 | Maintained smooth loop | Private lower drive, retained angle still required; upper sheave on spring-loaded yoke; force closes through coil seats/frame and lower axle | Central cartridge obstructs carriage; higher preload repairs a force corner but not geometry |
-| Perforated steel-strip loop | Private sprocket, retained angle still required; finite teeth engage holes, outer edge rails oppose lift; upper return sheave and two carriage joints | Tested fixed circle/tangent path has entry/load-transfer contradictions; tape joints/take-up stopped before detail |
+| Perforated steel-strip loop | Private sprocket, retained angle still required; finite teeth engage holes, outer edge rails oppose lift; upper return sheave and two carriage joints | Full error box has incompatible contact constraints; tall profile loses support; joints/take-up stopped before detail |
 | Direct rigid rack heads | Shared transported heads acquire individual grounded columns, lift/set/proof and withdraw | E-099 control; avoids both flexible-loop subsystems, but acquisition, retention and affordability remain unqualified |
 
-Two principles; parameter/profile variants are not new architectures. Larger
-internals are evaluated without changing surface pitch. No missing lock, reader,
-joint or recovery operation is credited as implemented.
+Two principles; parameter variants are not architectures. No missing lock,
+reader, joint or recovery operation is credited.
 
 ## Loaded spring closure, not externally prescribed preload
 
@@ -114,59 +112,65 @@ neutral radius `R=n/π`. Tape width 1.6 mm, central hole width 1 mm, leaving two
 .3-mm side bands; tooth axial width .6 mm. Longitudinal slots are 1/1.3/1.6 mm,
 leaving at least .4-mm bridges. Tooth polygons extend from R−.2 to R+H,
 H=.4/.8/1.3 mm, root width .8 mm, tip width .8 (rectangular) or .2 (linear taper).
-These dimensions are design assumptions, not a claimed fabrication capability.
+Dimensions are unqualified design assumptions.
 
-The path is straight → circular half-wrap → straight, with a return sheave and
-carriage ends. Stop at the failed mesh before developing joints/take-up. Holes
-are indexed in material distance, not chord distance.
-The 40-mm stroke traverses all entry phases over 20 pitches; mirror symmetry
-checks reverse motion.
+Use straight tangents and circular half-wraps. The 40-mm stroke traverses all
+phases over 20 pitches; mirror symmetry checks reverse motion. Polygon/slab
+clipping at `R±t/2` gives exact finite intersections. For five rectangular teeth,
+H=.8 and θ=.7 rad, a tooth point (R,1.822777) exceeds a centered 1.3-mm hole by
+.058693 mm. This is a configuration witness, not a mechanism rejection: another
+tooth can take load as tape phase shifts. Positive samples never certify clearance.
 
-Rotate each **finite tooth polygon**, intersect it with
-the tape slab `R−t/2≤x≤R+t/2, z≥0`, and compare the actual intersection against
-the hole interval centered at material position `R θ`. Clipping uses exact line
-intersections. Phase samples locate **positive collision witnesses only**; a
-sampled absence is not certified clearance. Independent analytic example:
-5 teeth, H=.8, rectangular tip, θ=.7 rad gives a tooth point
-(R,1.822777) mm versus hole center 1.114085 mm. A 1.3-mm hole is penetrated by
-**.058693 mm even nominally**. It is not corrected by exact tooth-count arithmetic.
+Errors e=.025/.05/.1/.2 are opposed dimensional/feature bounds, not distributions
+or a transfer of PLA accuracy to foil. Edge rails need `g>3e` against pinch and
+`H−g>3e` against lift-off, hence H>6e even at favorable g=H/2. Tapered flanks
+require rail reaction; no friction hold substitutes for capture.
 
-Error e=.025/.05/.1/.2 mm reserves 2e relative phase between an incoming hole
-and already engaged registration, plus e hole-edge error. Common rigid translation
-cancels; differential pitch/feature errors or common tooth growth do not. This is
-an explicit opposed-error construction, not a distribution or automatic transfer
-of PLA accuracy to bought foil. Edge rails also need clearance `g>3e` against
-pinching and tooth height `H−g>3e` against lift-off; even the favorable choice
-g=H/2 needs H>6e. Tapered flanks push against those rails under load; no friction
-hold is assumed in lieu of capture.
+54 profile/slot variants span radii 1.592–3.820 mm; the tallest requires up to
+10.839-mm internal pitch including .3-mm rim space. Centered entry tests alone
+cannot decide the mechanism. **Fixing one seated tooth as permanent load carrier
+would falsely reject contact takeover.** The executable therefore intersects all
+engaged-tooth constraints, including the finite straight sections and annular wrap.
 
-54 geometric variants at each error size give necessary-only survivors
-30/25/19/2/0 for e=0/.025/.05/.1/.2. At e=.2 all have an entry witness; the
-closest capture-capable tall tapered variant still overlaps by **.501042 mm**.
-Its minimum allocated internal pitch is 10.839 mm including .3-mm rim space.
-Thus larger radius was explored rather than silently prohibited at surface pitch.
+For tooth j, let its tape-material intersection be [a_j,b_j], nominal hole
+center c_j, half-slot w and location error e_j. Feasible common tape phase is
 
-**Loaded holdout changes the decision.** The two e=.1 survivors have 8/12 teeth,
-H=.8, .2-mm tips and 1.6-mm slots. Centered holes carry no tangential force.
-Exact tooth-polygon/circle intersections give seated half-widths .353952/.350181
-mm. Flank bearing shifts phase by .446048/.449819 mm. One required signed
-load/direction combination then creates **.096454/.049765 mm** entry interference.
-Enlarging the hole increases that phase shift equally: it cancels from the
-loaded interference `entry_half_extent−seated_half_extent`.
+`max_j(b_j−c_j−w−e_j) ≤ δ ≤ min_j(a_j−c_j+w−e_j)`.
 
-Assumed E=200 GPa and .6-mm combined bands give EA=3000 N. Even allowing .65 N
-to stretch the entire half-wrap supplies only .001733/.002600 mm; a separate
-.01-mm discrepancy allowance still leaves .084721/.037165 mm interference.
-Shallow tapered teeth have near-zero nominal mismatch and are **not rejected**
-on micrometre residuals. However, opposed incoming/reference hole location errors
-±e add 2e after the seated tooth fixes phase. Across all 18 profile sections,
-e=.025 already leaves ≥**.037433 mm** after that favorable elastic/discrepancy
-relief; all tested nonzero error boxes fail this loaded taut-path screen.
+Signed load chooses an edge of this interval; changing its active tooth permits
+load transfer. Circle/line intersections calculate the curved portions. Negative
+interval width is a finite contradiction; sampled positive widths are not a
+continuous contact/strength certificate. The 8/12-tooth, H=.8 tapered sections
+retain nominal sampled widths .795642/.849873 mm at 512 phase steps. Their
+support-phase increments shrink approximately fourfold from 128 to 512 steps.
+These remain conditional building blocks, **not** failed fixed-flank interfaces.
 
-Scope: rigid teeth and prescribed circle/tangent tape path. Tape lift/bowing,
-tooth bending, conjugate profiles, changed pitch or articulated chains can change
-the result and need new contact geometry. No commercial-belt impossibility,
-qualified material life or complete end-joint/take-up design follows.
+**Full-box witness:** at e=.2, H=.4/.8 cannot satisfy both rail-clearance and
+anti-lift inequalities for any gap. For all 18 H=1.3 profile/slot combinations,
+shrink each half-slot by .2 and assign opposite ±.2-mm position errors to two
+conflicting holes. Source reconstructs the actual error assignment, then allows
+any common δ. Every combination has an empty phase interval; the least
+incompatibility is **.268839 mm**. This excludes the declared box without
+assuming centered holes, identical load sharing or a fixed carrier. Correlated
+opposed feature errors can repeat; global phase adjustment cannot remove them.
+
+**Independent nominal support-loss witness:** 12 teeth, H=1.3, .2-mm tip,
+1.6-mm slot. At wheel phase **.228443713 rad**, carrier tooth j=1 leaves the
+straight tape slab. Immediately before/after, the loaded lower phase boundary
+changes from approximately −.248178 to −.432203 mm: **.184025 mm unsupported
+travel** under one signed load/motion combination. Event offsets 1e−4/1e−5/1e−6
+rad give gaps .184393/.184062/.184029 mm, demonstrating a finite jump rather
+than coarse sampling. An independent corner-support equation locates detachment:
+`(R+1.3)cos(θ)+.1sin(θ)=R−t/2`, θ=phase+2π/12. Other teeth are present but do
+not yet contact the loaded flank; arithmetic tooth count misses this loss.
+
+Scope: rigid teeth and taut circle/tangent tape path. Elastic relief over the
+entire half-wrap at .65 N, E=200 GPa and .6×.025-mm side bands is only .0026 mm
+for the 12-tooth case. Tape lift/bowing, tooth flexure, different profiles/pitch
+or articulated chains could change these results and remain unexamined. Smaller
+error boxes are not banned, but need justified construction, continuous load/
+capture checks, finite length take-up, terminals and full-density routing before
+admission. No commercial-belt impossibility or complete tape machine is claimed.
 
 ## Construction provenance and transfer limits
 
@@ -207,8 +211,8 @@ No reader, false-accept rate, yield, service life or reliability estimate follow
 
 Self-review checks units, spring energy reciprocity, force balance, constant-force
 and exact zero-load closure limits, residuals, cavity-excluding coil collision,
-polygon clipping limits, mirrored teeth, exact independent nominal entry witness
-and 256/512/1024/2048-step witness convergence. Reconstruct E-121 and run
+polygon clipping limits, mirrored teeth, independent entry and carrier-detachment
+equations, simultaneous error reconstruction and witness/event convergence. Reconstruct E-121 and run
 `./repo check`. This is self-review, not independent physical validation.
 
 **Allocation decision:** close this bounded campaign without lock/print work.

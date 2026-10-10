@@ -57,12 +57,13 @@ redistribution with finite spring travel and exposes a coil/carriage collision
 through a continuous part of the stroke. Higher preload repairs the tested force
 corner, not that collision. Moving the spring sideways can clear a wider internal
 hull; its full-density connection/fanout is not implemented or excluded. A different
-perforated-tape transmission includes actual tooth entry and capture. The tested
-profiles fail the widest error box. Two narrower-box geometric candidates also
-interfere when seated tooth flanks carry load on the prescribed taut path; larger
-holes do not remove the loaded phase shift. Differential incoming/reference hole
-errors also reject the shallow profiles on that taut path at e≥.025 mm. These
-are bounded embodiment failures, not a general rejection of belts, relocated springs or conjugate tooth profiles.
+perforated-tape transmission includes actual entry, capture and simultaneous
+contact constraints. The full error box fails after allowing tape phase and
+load carrier to change; a tall nominal taper also loses support when its carrier
+disengages. Shorter tapered sections retain conditional mesh value. Fixing one
+loaded tooth would wrongly reject their possible takeover. These are bounded
+embodiment failures, not general rejection of belts, relocated springs or
+conjugate profiles. No complete route covers the declared uncertainty set.
 
 **Start/change/stop:** close this bounded tension campaign without a complete
 force-path survivor. Keep loaded closure and finite negative witnesses; stop
