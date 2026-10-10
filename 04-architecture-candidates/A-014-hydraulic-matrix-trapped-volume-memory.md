@@ -79,14 +79,27 @@ fixed-base chamber valves retain volume; each target closes and is read back
 before heads retract and the bank indexes. This removes floating beams and
 long support shafts but retains 6,400 chamber valves, piston seals, fluid
 plumbing and unqualified volume memory. It is a hypothesis, not completed head
-geometry or a timing/cost survivor. Count head acquisition, independent closure,
+geometry or an accepted timing/cost survivor. Count head acquisition, independent closure,
 reader false acceptance, indexing, controlled lowering and recovery. Unlike
 A-013, each channel need not individually drive the column through 40 mm;
 short valve stroke alone does not establish cheap actuators.
 
-With an assumed $250 shared reserve, 80 channels can receive at most $3.125
-each under the $500 ceiling only at zero bought cell cost. One row scan has
-less than 375 ms/row before other overhead. E-103 records the comparison with
-segmented ramps, A-013 direct heads and known positive-shutter failures. Keep
-this as the next computational discriminator; no print, purchase, seal or
+E-104's executable schedule screen rejects the nominal 3-mm/8-L/min/400-mm/s
+route for arbitrary maps: all-up takes 25.127 s and checkerboard 28.356 s,
+but 79 up / 1 down in every row takes **33.758 s**, including bounded overhead
+and one detected row retry. Only the 2-mm/8-L/min/400-mm/s case survives all
+81 direction splits in the 27-case ideal grid; a common 20% speed reduction
+makes it 32.266 s. A 3-mm/12-L/min control escapes nominally at 29.177 s.
+These are unqualified flow/speed/overhead allocations, not pump or head ratings.
+Sparse mixed changes spanning all rows retain the two-phase timing penalty.
+
+Retain a conditional finite-head investigation, not architecture acceptance.
+Resolve acquisition/withdrawal, port flow, unloaded lowering and closure timing
+before elaborating seals: a diagnostic .2-mm height/.05-mm read-error budget at
+400 mm/s permits only .375 ms residual closure delay. Slower approach or
+predictive control must be modeled explicitly. No stage-02 height tolerance is
+created. At assumed $250 shared reserve, $2 complete heads leave just
+$.0140625/cell for **all** purchases; head and cell maxima cannot both be spent.
+E-104 retains the inverse budgets, shared/local sensitivity, local alignments,
+pressure/power and recovery limits. No priced BOM, print, purchase, seal or
 hardware acceptance follows.
