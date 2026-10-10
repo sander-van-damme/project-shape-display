@@ -19,31 +19,28 @@ Input main `679617b`. Reproduce with Python standard library:
 python3 tools/curated-experiment-checks/E-131/grounded.py
 ```
 
-Evidence: sourced operating principles, analytical force/cost/time bounds and one
-finite rigid prism/shoe contact construction. No assembly CAD, validated dynamics,
-manufacturing distributions, measured performance or independent review. All load,
-friction, error and speed numbers below are **engineering scenarios**, not product
-requirements or X1C priors. This is a bounded discriminator, not full-machine optimization.
+Evidence: sourced principles, analytical bounds and a finite rigid prism/shoe
+construction; no assembly CAD, validated dynamics, measurements or independent
+review. Loads, friction, errors and speeds are **engineering scenarios**, not
+product requirements or X1C priors. This is a bounded screen.
 
-## Causal combinations and search novelty
+## Causal combinations and novelty
 
-| Combination | Selection + energy + retention + ground load path | Verification/recovery and disposition |
+| Combination | Selection, energy, retention and ground load | Verification/recovery |
 |---|---|---|
-| Permanent translating compression wedge | A travelling bank of bilateral push/pull heads docks to individual wedge ends. Each guided column rides a sliding inclined shoe; wedge bottom remains on a fixed bed. Displacement stores height; load-generated friction holds without a separately released brake. | Read column height independently of input position; unload dock after stationary hold evidence. A jam leaves the shoe on its bed. Low friction can cause unarrested lowering; software cannot repair that. Static section survives; long solid embodiment stopped. |
-| Counterbalanced transfer head | A positive head captures a selected output while its permanent ground stop holds; a ground-anchored constant-force strip spring assists the head carriage, which moves then returns load to the stop. | Observe actual output and stop seating before releasing capture. Spring alone leaves residual force in either direction. Add permanent bidirectional drag explicitly or stop. Capture/stop geometry retains prior unresolved failures. |
-| Interlocking helical bands | A rotary writer docks to a local assembly rotor; two stored bands form a compression column under a guided top. Height is deployed length; roller/rotor/base carry load during assembly and reversal. | Read top and band engagement, not rotor angle alone; a jam stops that cartridge. Input torque restraint remains unresolved. Replacing balls with bands does not escape E-130's arrest obligation. |
-| Passive screw control A-007 | Scanning spindle turns a grounded thrust-supported screw; antirotating nut lifts the top. Continuously engaged sliding threads can hold without releasing a brake. | Top readback, wear/backlash and spindle engagement remain; input loss depends on friction and lead. Preserve A-007's rejection; diameter sensitivity below is not a reopening. |
-| Direct head/local drag E-129 | Positive drive moves selected output; two always-contacting pads react through each head to ground, with explicit springs. A permanent cell stop supports after handback. | Read output plus supported stop seating. No pad closure interval, but preload, wear, kinetic arrest and capture remain unresolved. Conditional comparator, not admitted machine. |
+| Translating wedge | Bilateral travelling heads dock to local wedge ends. Each column rides a sliding shoe; wedge rests on a fixed bed. Displacement stores height; load-generated friction holds without brake release. | Read actual top; proof stationary hold before undocking. Low friction defeats recovery. |
+| Counterbalanced head | Capture output before releasing its ground stop. A ground-anchored constant-force strip spring assists the head; return load to the stop after motion. | Read top and supported stop before releasing capture. Spring alone leaves residual force; add explicit permanent drag or stop. |
+| Helical bands | Dock rotary writer to assembly rotor; two stored bands form a guided compression column. Rotor/rollers/base carry load during reversal. | Read top and band engagement; isolate jammed cartridge. Rotor arrest remains missing. |
+| Screw A-007 | Spindle turns grounded thrust-supported screw; antirotating nut lifts top. Sliding threads retain height conditionally. | Read actual top; input-loss behavior depends on friction/lead. Prior rejection retained. |
+| Direct head E-129 | Positive drive moves output; two continuously contacting spring-loaded pads react to ground. Cell stop holds after handback. | Verify supported stop seating and top. Preload, wear, kinetic arrest and capture remain unresolved. |
 
-Novelty cross-check: E-078 concerns short selector ramps; E-100 is a distributed
-2.5-mm rail lift, with the same raising-force equation but no loaded-lowering
-retention construction. Here the ramp changes function to retained 40-mm column
-length: recombination, not a newly invented wedge. A-007 already covers screws;
-A-021 covers planar multistable stacks; M-009/E-120 cover tendons. Three varied
-searches were useful: machine-leveling wedges (continuous ground contact),
-constant-effort spring supports (energy cancellation), and deployable stage-lift
-bands (compression structure assembled from ribbons). The last changes inventory,
-not arrest principle. No search-saturation claim.
+Three varied searches: machine-leveling wedges (continuous ground contact),
+constant-effort supports (energy cancellation), and stage-lift bands (assembled
+compression structure). E-078 uses short selector ramps; E-100 already has this
+raising equation for 2.5-mm rail lift, but no loaded-lowering retention construction.
+The 40-mm memory wedge is recombination, not a new wedge principle. A-007 covers
+screws, A-021 planar multistable stacks, M-009/E-120 tendons. Bands change inventory,
+not arrest. No search-saturation claim.
 
 Primary sources, accessed 2026-10-10:
 
@@ -60,16 +57,13 @@ A vertically guided shoe spans `x∈[−1.2,1.2]`; its underside is
 `z=1+t*q−t*x` and upper face `z=2.5+t*q`. A stem carries a 4.8-mm square
 top; a neighbor lies 5.08 mm away in y. Translate q from 0 to 500 mm and back:
 shoe travel is **40 mm**, with coincident inclined faces in both directions and
-positive wedge thickness. The vertical guide is an ideal rigid constraint with
-moment reaction; its bearings/strength/housing are not designed. For a centered
-shoe resultant and bilateral input at z=.4 mm, the script also checks the bed
-center of pressure lies inside the actual wedge base at both travel endpoints,
-in both directions and with input absent, across all friction/dimensional corners. Its affine dependence
-on q bounds the interior. This requires no tensile bed reaction or free bed couple;
-the extended left base avoids tipping in the high-friction raising case. The
-input force line fits below the thin-end upper surface; the actual dock remains
-unconstructed. These force/moment checks neglect wedge weight; its additional
-bed load and driving friction need inclusion before actuator sizing.
+positive thickness. The ideal vertical guide supplies moment reaction; its actual
+bearings/housing are unbuilt. With centered shoe resultant and bilateral input at
+z=.4 mm, the bed center of pressure stays inside the base at both travel endpoints,
+in raising, lowering and input-absent states, across all friction/dimension corners.
+Its affine q dependence bounds the interior. The extended base prevents tipping
+without tensile bed reaction or a free bed couple. Input fits below the thin-end
+surface, but its dock is unbuilt. Weight and added friction are omitted from sizing.
 
 At 64/256/1024 intervals, including common slope `.0798/.08/.0802` and height
 bias ±.05 mm, input travel `40/t` retains at least **.20-mm end land** and
@@ -88,8 +82,7 @@ height consume **3,474.56 mm** before beds, routing and guides. Stage 02 permits
 other routing, but none is constructed here. Literal solid prisms total **226.27 L**
 of printed volume; hollow/trussed ramps change the support calculation. A
 531.8-mm ramp also needs modular construction for the 256-mm build volume.
-These are scoped compactness/manufacturing disadvantages, not invented hard
-depth or material limits.
+These are disadvantages, not new hard depth/material limits.
 
 With frictionless vertical guidance, top/bed Coulomb coefficients μt/μb and
 negligible wedge weight, exact horizontal force requirements are:
@@ -120,13 +113,11 @@ W=1 N. Static hold at .05 therefore does not establish arrest after input remova
 during motion. No stopping-distance or allowed-drop criterion is invented;
 acceleration/contact dynamics remain open.
 
-The dimensional box represents ±.10-mm differential rise over 500 mm and ±.05-mm
-common datum error, not measured print accuracy. Independent end/registration
-errors within the .20-mm land, local surface variation, hole shrinkage, first-layer
-effects, joints and elastic deflection still require construction. Common
-friction/slope/bias shifts affect a bank; no independent-cell yield is assumed.
-Wear, PLA creep, anisotropy and batch correlations may move the entire bank outside
-the box. No life or board failure probability follows.
+The box is ±.10-mm differential rise over 500 mm and ±.05-mm datum error, not
+print accuracy. Independent registration, hole shrinkage, first layers, joints,
+roughness, warp and elastic distortion remain unmodeled. Common friction/bias,
+wear, PLA creep, anisotropy and batch correlations can move a whole bank outside
+these bounds. No manufactured yield, lifetime or board failure probability follows.
 
 ## Counterbalance reduces force but does not remember position
 
@@ -138,11 +129,10 @@ another; even exact equality is neutral balance, not restoration after disturban
 A paired falling cell cannot support arbitrary all-raising maps, and borrowing
 an unchanged cell violates local isolation.
 
-A counterweight substitutes mass/pulley/routing burdens: 5.5/g is .561 kg/head,
-or **3,588 kg** if repeated at every cell. Reusable-head springs avoid per-cell
-inventory but need an anchored coil, attachment, full travel, fatigue allowance
-and handover. Active weighing/retuning adds sensing/actuation and cannot anticipate
-later payload changes. Load includes follower bias; no unmodeled return is credited.
+Counterweights need .561 kg/head, **3,588 kg** if repeated per cell. Reusable-head
+springs avoid that inventory but need anchors, coils, travel, fatigue and handover.
+Retuning adds sensing/actuation and cannot anticipate later payload changes. W
+includes follower bias; no free return force is credited.
 
 Recombine with E-129's two permanent pads, each nominally preloaded 100 N. With
 20% common preload loss, capacity is **8 N** at μ=.05: insufficient for the
@@ -175,31 +165,24 @@ has zero-margin maximum lead `π*d*μ`: .4712 mm at d=3 mm, **84.88 turns** over
 strokes need actual multilayer routing. No critical-speed, heat, geometry or cost
 pass, and no basis for reversing A-007's disposition.
 
-Repeated obligations: wedge = 6,400 ramps/shoes/beds and column guides plus head
-docks; band route = ≥12,800 band pieces plus magazines/interlocks/forming contacts
-and arrests; screw = 6,400 threads/nuts/thrust reactions/engagement sites;
-counterbalanced control = existing cell stops plus spring anchors/coils and two
-preloaded pad contacts per head. Printing does not erase these assembly/wear
-interfaces. Readback must distinguish actual height and supported handback from
-input position; false acceptance or common sensor bias can release an unsupported
-column. No error probabilities or guaranteed power-loss recovery are known.
-Unchanged cells keep their own support, but frame compliance still couples them.
+Repetition: 6,400 wedge/shoe/bed/guide sets, or ≥12,800 bands plus magazines,
+interlocks/formers/arrests, or 6,400 screw/nut/thrust/dock sets. Counterbalanced
+heads retain cell stops plus head coils/anchors and two preloaded pads each.
+Printing does not erase wear/assembly. False acceptance or common sensor bias
+can release unsupported outputs; neither error probability nor power-loss recovery
+is qualified. Unchanged outputs keep local support; frame compliance couples them.
 
 **Decision:** stop monolithic long-wedge detailing, pure-balance retention and
 band-as-arrest claims. Preserve sliding friction's continuous lowering path and
 the bounded counterbalanced-drag margin as comparison evidence. Do not tune E-130
 pockets or E-129 release pegs. No printing, purchase or full-machine optimization.
 
-**Next discriminator:** relocate continuously engaged low-lead sliding retention
-to a reusable grounded head instead of repeating it 6,400 times; compare its
-raising/lowering and moving-input-loss branches with the counterbalanced pad head.
-A grounded screw/nut driving a bilateral rack or carriage is a concrete starting
-topology, not a free brake. Establish force, motor speed, heat, reflected inertia,
-guide reactions and access at two independent outputs before schedule admission.
-This changes where retention/reduction is repeated; it does not reopen A-007 or
-inherit a working dock. Stop if a clutch releases the sole support, kinetic
-friction defeats arrest within explicit bounds, or routing moves an unchanged
-output. CTO owns the next probe; no external capability or approval boundary.
+**Next discriminator:** put continuously engaged low-lead sliding retention in
+reusable grounded heads instead of 6,400 cells. Compare grounded screw/nut-driven
+bilateral carriages against counterbalanced pad heads: raising/lowering, moving
+input loss, motor speed, heat, inertia, reactions and two-output access. No inherited
+working dock or A-007 reopening. Stop on release of sole support, inadequate
+kinetic arrest or unchanged-output disturbance. CTO owns this probe; no approval gate.
 
 Self-review: independent normal/tangent force resolution, frictionless virtual
 work, nonnegative dissipation, bed moment equilibrium, exact equal-friction
