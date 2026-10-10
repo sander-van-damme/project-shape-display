@@ -24,7 +24,7 @@ def schedule(work,banks=1,extra=0.,speed_scale=1.,mode='fixed',starts=None,chunk
     beyond the inherited 40-ms acquire/withdraw and 20-ms read allocations.
     speed_scale stretches flow time only; pressure windows are still B's.
     """
-    assert banks in (1,2) and 0<speed_scale<=1 and extra>=0
+    assert banks in (1,2) and 0<speed_scale<=1 and extra>=0 and 1<=chunk<=80
     sc=e104.Scenario(bore=2.)
     if starts is None:starts=[0] if banks==1 else [0,79]
     times=[];retry=0.;visits=[]
@@ -108,8 +108,9 @@ def conservative_envelope():
         # Actual selected subset may set a lower coarse pressure than b_max.
         # Each branch is still driven at least loss(400) above its own threshold
         # before saturation. Use the lesser of that and global pump reserve.
-        pump_dp=min(bs)+e106.loss(e106.PUMP/(40*A),.6,B.mu_hi)-max(bs)
-        vc=min(400.,e106.speed(pump_dp,.6,B.mu_hi),
+        pump_speeds=[e106.speed(min(bs)+e106.loss(e106.PUMP/(40*A),.6,mu)-max(bs),.6,mu)
+                     for mu in (B.mu_lo,B.mu_hi)]
+        vc=min(400.,*pump_speeds,
                e106.speed(upper-2*B.eps-max(bs),.6,B.mu_hi))
         u=min(upper-B.eps,max(bs)+e106.loss(400,.6,B.mu_hi)+B.eps)
         band=e106.speed(u+B.eps-min(bs),.6,B.mu_lo)*.002+.05
@@ -193,7 +194,7 @@ def main():
     report['direction_scan']={'cases':1296,'worst_seconds':worst[0],'split_offset':worst[1]}
     for scale,extra in itertools.product((1.,.8,.5), (0.,.04,.1)):
         report['sensitivity'].append(dict(scale=scale,extra=extra,
-          seconds=schedule(ws['minority_down'],2,extra,speed_scale=scale)['seconds']))
+          seconds=schedule(ws['minority_down'],2,extra,speed_scale=scale,chunk=40)['seconds']))
     local=[]
     for r0,c0 in itertools.product(range(71),range(16)):
         w={r:[(c,40.*(-1 if (r+c)%2 else 1)) for c in range(c0,c0+10)] for r in range(r0,r0+10)}
