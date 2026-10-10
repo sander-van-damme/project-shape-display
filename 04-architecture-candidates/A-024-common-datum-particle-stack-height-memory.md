@@ -34,5 +34,11 @@ including 320 heads. It does not reject continuous pocketed feeding. The tested
 4-mm sphere scenarios need 11 particles per site to guarantee geometric reach
 above 40 mm before elastic compression: 70,400 particles, 6,400 slotted tubes and
 forks, return elements, plus feeders, selectors, sensors and a circulation path.
-Reopen detailed particle work only with a concrete continuously supported transfer
-that escapes the serial-cycle bound. No print, purchase or reliability claim.
+E-130 tests a level translating pallet and a circular pocket path at two retained
+heights in both directions. Grounded endpoint seats admit sphere-contact paths,
+but intermediate input removal still needs linear restraint or rotary arrest;
+inline repetition also intersects an unchanged upstream stack. Captivation alone
+does not ground the moving support. Stop these embodiments, not every solid-length
+mechanism. Reopen only with a changed grounded-support/arrest path and explicit
+feed routing that escapes both these failures and the serial-cycle bound.
+No print, purchase or reliability claim.
