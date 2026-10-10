@@ -1,30 +1,30 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-135, input main 4d5ad7e.
+Updated: 2026-10-10 UTC; evidence: E-136, input main 50220e2.
 North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
-Mode: LEARN → PROBE spatial wave localization; avoid another threshold/damping sweep.
+Mode: LEARN → EXPLORE positive energy-path isolation after loaded wave discrimination.
 
 Portfolio / uncertainty:
-- E-135 frequency-only labels crowd: decade capacity 116 at ±1% residual error even before linewidth.
-- An 80-label high-Q nominal window closes at tested 1% spring coupling; common bias needs calibration.
-- Exact resonant bursts retain half-select energy; additive crossed waves supply no positive isolation.
-- Positive coincidence remains an isolation control, with E-076/082/083 withdrawal, force and channel burdens.
-- Time-reversed plate waves are a different spatial addressing lead; receiver loading/energy extraction unbuilt.
-- All wave leads retain powered capture/transfer, positive ground stops and full readback obligations.
-- E-134 confined toggles retain endpoints but leave active input-loss rollback and dense arm collision.
-- E-132 sliding arrest, E-133 shell exchange and earlier structural feed routes remain bounded reserves.
+- E-136 passive identical pickups on a time-reversed bus fail whole-packet work isolation.
+- Nominal worst off/target energy is 14.4; perfect-clear uncertainty limit is .446.
+- Guarded 40×40: 4.27 off/target; favorable continuum holdout .628 still exceeds .446.
+- Direct receiver force has .097 off/target, but needs real local addressing and fails high-retention histories.
+- E-135 frequency labels/crossed waves retain crowding, coupling and accumulated-energy failures.
+- E-076/082/083 positive coincidence controls retain withdrawal, force and channel burdens.
+- Ground seats, powered 40-mm capture/transfer, readback and recovery remain mandatory for every lead.
+- E-134 structural fronts, E-132 sliding arrest and E-133 shell exchange remain bounded reserves.
 
 Recent varied attempts / novelty:
-- Resonant taxel literature confirms M-010 rather than new selection physics.
-- Acoustofluidic bubble interactions add actual opposed force paths but incompatible process/reset burdens.
-- Time-reversal haptics introduces calibrated spatial phase focusing; new useful axis, no saturation claim.
-- Source glass plate achieved 5.2-mm resolution; fingertip loading strongly reduced focus amplitude.
-- No physical parameters transferred to X1C PLA; E-135 uses labelled deterministic uncertainty scenarios.
+- E-135 resonant taxels confirm existing M-010; bubble microrobots add incompatible process/reset burdens.
+- Time-reversal haptics opened a spatial principle; E-136 now includes receiver reaction and extraction.
+- New 2026 metamaterial haptics source uses resonator-induced slow waves and inverse filtering.
+- Its ~2-cm² tactile patches do not prove command energy isolation; no PLA parameter transfer.
+- No global saturation claim. The passive ungated work-pickup embodiment has a new negative discriminator.
 
-Next discriminator: finite separate wave-bus transfer model with identical receiver loads.
-Compare whole-packet selected/off-target energy, coupled load/state drift and reset against direct local excitation.
-Count calibration, finite work, set/clear, read/retry and multi-focus scheduling at board scale.
-Stop if localization needs per-site drives, unchanged-support vibration or a free decoder/rectifier.
-Do not construct full latch/CAD or optimize waveforms until this cheap discrimination survives.
-Reopen frequency-only routes only with calibrated residual/coupling bounds and an explicit safe history.
-No printing/purchasing justified. 01–08/Paperclip remain authoritative.
+Next action: discover physically interrupted/connected energy paths with reusable shared addressing.
+Cross-check M-002/007/008/009/011 and E-076 before calling a routing topology new.
+Compare complete enable, finite work, withdrawal/reset and support-transfer cycles across families.
+Stop renamed thresholds, hidden local decoders and merely relocated 6,400 precision contacts.
+Reopen waves only with changed bus/pickup, full-history energy margin and explicit loaded reset.
+Do not automatically optimize inverse filters, latch CAD or request printing after this rejection.
+No purchasing/staffing boundary. 01–08 and Paperclip remain authoritative.
