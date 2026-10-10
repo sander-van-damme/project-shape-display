@@ -1,25 +1,25 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-127, input main 7f969cc.
+Updated: 2026-10-10 UTC; evidence: E-128, input main 3c26e91.
 North star: Diverse affordable complete machines for ~6,400 supported terrain columns; no selected architecture.
-Mode: LEARN. A common service datum removes height acquisition but not rotary phase, shaft routing or passive arrest; change the joint topology next.
+Mode: LEARN → EXPLORE. Phase freedom moves a series torque cut; passive arrest must stay connected to the load.
 
 Portfolio / uncertainty:
-- A-025/E-127: reject six-dog rigid shared phase and tested two-lane straight shaft; matched lock/dock indexing remains conditional, no machine admitted.
-- A-024 counted solid stacks: new storage topology; E-126 rejects four-stroke loose-particle feed at tested rates, not continuous feed.
-- Linked/zip-chain control: continuous feed but ≥128k links before joints/storage; no reason for detailed chain optimization yet.
-- A-013/E-125: compact retained jaw rejected; sparse head also fails tested loaded capture. Do not resume dimensional sweeps without changed mechanism.
-- A-016/A-020 shared actuation and A-014 fluid memory remain comparisons, with earlier selector/transfer/containment failures preserved.
+- A-025/E-128: compact 20-N friction dock fails low-traction bound; free sleeve moves same cut. Matched dogs avoid it but retain fit/arrest/routing obligations.
+- Outward pinions clear two local shafts; repeating the pair at equal depth overlaps solid gear cores. No admitted two-site machine or board package.
+- Released spring brake has finite zero-contact interval; permanent drag removes closure gap conditionally, with load-dependent heat/force cost.
+- A-024/E-126 solid stacks: loose four-stroke feed rejected at tested rates; continuous feed remains distinct but unsupported.
+- Linked feed still carries ≥128k link inventory; A-013/E-125 retained jaw and sparse loaded capture remain rejected.
+- A-016/A-020 shared actuation and A-014 fluid memory remain controls, with earlier failures preserved.
 
 Recent varied attempts / novelty:
-- Bulk-feeding analogy → counted compression stack at a fixed service plane (A-024).
-- Deployable structural-chain analogy → linked-feed comparison; no miniature capability inherited from industrial sources.
-- Invert moving interface → stationary pinion shaft, moving rack (A-025); topology recombination, not new gear physics.
-- E-127 functional merge: matched ground/dock angular indexing removes phase search at discrete heights, but needs an arrested indexed drive and changed routing.
-- These moves yielded useful topologies; no saturation claim. Earlier streak unknown.
+- Bulk feeding → fixed-plane counted stack; deployable chain → linked-feed control.
+- Invert moving interface → stationary pinion/moving rack; matched ground/dock indexing removes nominal phase search.
+- E-128: outward mirrored access trades shaft collision for repetition collision; free sleeve exposes a series friction cut.
+- E-128: permanent drag versus released brake exposes force/heat versus contact-delay tradeoff.
+- These are recombinations, not new clutch physics. No saturation claim; earlier streak unknown.
 
-Next discriminator: compare independently phased continuous heads with matched stop-at-index heads; finite two-height selective transfer and real shared arrest before schedules.
-E-127's spring bolt cannot enter at mid-step; no continuous passive support. Two-lane shaft collision requires a changed route, not a tolerance sweep.
-Switch/stop if either alternative only relocates an ideal clutch/brake; return to other common-datum principles. Pocketed feed matters only with a simpler actual transfer.
-E-126 timing is an optimistic motion screen: 160 shared-direction heads give 19.07 s with an unallocated 6-s reserve, not an admitted schedule.
+Next discriminator: finite load-energized no-back contact with input-only release, versus direct independently arrested head. Show both motion directions and loss of power before packing or schedules.
+Switch/stop if input release opens the only load path or if a free clutch/return is relocated rather than constructed; then change common-datum storage principle.
+E-127's matched dogs still fail common ±.05-mm fit scenario. E-128 does not tune that failure away.
 No printing/purchases justified. Canonical evidence is in 01–08; task ownership/status belongs in Paperclip.

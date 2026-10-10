@@ -46,8 +46,21 @@ coupling. Its dock fit fails the labelled ±.05-mm error scenario. Two axial
 gear lanes clear gear envelopes but the tested straight shaft hits the adjacent
 rack backing by .62 mm. Neither result rejects other shaft routes or gear forms.
 
-Retain only conditional alternatives: independently phased continuous heads, or
-matched-index heads with an actually arrested shared bus. Before timing/cost
-work, a changed joint must show finite routed access, two distinct retained
-heights, selective load transfer and power-loss support. Stop further dimensional
-tuning of the failed straight-shaft/six-dog embodiment. No fabrication justified.
+E-128 changes routing to outward-facing pinions: two local shafts clear their
+rack backings by 3.30 mm, but naive same-tier pair replication overlaps solid
+pinion roots by 4.08 mm. This is local access, not board packing. Its finite
+annular friction dock (outer radius 3.4 mm, 20-N clamp, mu=.1) transmits at most
+6.8 N·mm under any contact-pressure distribution, below the 11.772 N·mm demand
+of the 3.27-N scenario. An independently phased sleeve with the same proximal
+friction joint merely relocates that failure. Greater clamp force or a different
+capture changes the case; friction coupling generally is not rejected.
+
+Matched dogs remove that friction cut but retain E-127's fit failures. E-128's
+explicit spring-pad model has a finite zero-contact interval on power loss;
+continuously applied drag instead has conditional holding force and dissipation
+cost. Neither is an admitted shared arrest or complete two-site machine. Keep
+matched-index and independently powered positive heads as comparisons. Stop
+single-face/20-N low-traction docking and free-sleeve relabeling. Reopen only with
+actual clamp/reaction or positive capture geometry, replicated routing and arrest
+through handover. Investigate load-energized, input-released no-back contacts
+before more size/tolerance sweeps. No schedule, BOM or fabrication justified.
