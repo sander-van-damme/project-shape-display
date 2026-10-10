@@ -122,7 +122,17 @@ fine-pressure groups. Its specified binary controller takes 48.099 s, or
 can prevent unloaded lowering entirely. Park that controller for heterogeneous
 maps; this is not a rejection of all pressure scheduling. Ideal independent
 throttling retains a conditional 28.808-s timing window but no implemented or
-priced regulator. Next bound a discrete closed/restricted-open/full-open valve
-with a fixed fine-flow passage before completing its mechanical return. This
-changes metering geometry rather than chasing the same analog seat gap; extra
-flow paths and manufacturing/clogging sensitivity remain costs, not free control.
+priced regulator.
+
+E-107 bounds discrete closed/restricted/full-open control using fixed round/slot
+passages. Nominal checkerboard windows disappear under the specified ±.025-mm
+section, .008….012-Pa·s fluid and loss/pressure bounds: best binary coarse case
+31.183 s; ideal capped coarse 30.448 s at diagnostic .5-mm accuracy. A nominal
+winner also fails 79/1 at 30.113 s. A 1-mm diagnostic case nearly survives both
+workloads at 30.036 s, so no family-wide or accuracy-requirement rejection follows.
+Stop passage tuning and dependent dry-head return/frame work for now. Compare
+two independently supplied dry-head banks against a wet docking bank that reuses
+metering in 80 heads. The former doubles complete head count; the latter adds
+wet acquisition, chamber-check opening and docking-volume transients. Neither
+has finite selection/return/sealing or a priced BOM. E-107 records scope,
+reopening conditions and budgets; no print or purchase.
