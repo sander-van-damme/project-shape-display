@@ -1,12 +1,12 @@
 ---
 status: complete
-builds-on: [E-115, E-119, E-120, E-121, ADR-019]
+builds-on: [E-115, E-119, E-120, E-121, E-122, ADR-019]
 ---
 
-# Close dry shared-selector and initial tension-storage searches
+# Close dry shared-selector and bounded tension-transmission searches
 
 **Decision:** conclude the studied dry positive-support/shared-selection and
-initial finite tension-storage investigations without an admitted complete
+bounded finite tension-transmission investigations without an admitted complete
 selector or machine. Retire dependent whole-machine
 economics for this branch. Keep crossbolt/powered-pawl sections, permanent power
 follower, split command cage and long extraction sleeve as conditional building
@@ -52,13 +52,26 @@ bend/termination and repeated fit burdens have no implemented remedy. Retain
 that finite geometry and conditional force interface as building blocks, not a
 complete machine or permission to assume ideal maintained preload.
 
-**Start/change/stop:** retire downstream private torque-lock and full-machine
-comparison for the tested fixed-length tension embodiments. Do not tune the
-four-plane winding or print the local loop. The next useful opportunity is a
-finite transmission that tolerates length/creep uncertainty: physically maintained
-preload or positive engagement, potentially at larger internal pitch, compared
-with direct rigid heads. A changed mechanism must establish that force path
-before detailed locking, pricing or timing. No entire tensile principle is excluded.
+**Maintained-tension/positive-engagement outcome:** E-122 implements loaded branch
+redistribution with finite spring travel and exposes a coil/carriage collision
+through a continuous part of the stroke. Higher preload repairs the tested force
+corner, not that collision. Moving the spring sideways can clear a wider internal
+hull; its full-density connection/fanout is not implemented or excluded. A different
+perforated-tape transmission includes actual tooth entry and capture. The tested
+profiles fail the widest error box. Two narrower-box geometric candidates also
+interfere when seated tooth flanks carry load on the prescribed taut path; larger
+holes do not remove the loaded phase shift. Differential incoming/reference hole
+errors also reject the shallow profiles on that taut path at e≥.025 mm. These
+are bounded embodiment failures, not a general rejection of belts, relocated springs or conjugate tooth profiles.
+
+**Start/change/stop:** close this bounded tension campaign without a complete
+force-path survivor. Keep loaded closure and finite negative witnesses; stop
+private torque-lock work, nominal tooth/radius refinement and print proposals.
+Do not replenish the campaign with another unsupported fit assumption. Direct
+heads remain the simple control, not an accepted machine. The next useful
+portfolio decision concerns complete accessible direct-head acquisition versus
+a changed transmission with demonstrated loaded contact/fanout, rather than
+another unloaded geometry audit. No new campaign is selected by this decision.
 
 **Reopening:** reopen the shared dry-selector branch only with an executable
 materially changed conditional capture/reset topology, or complete accessible
@@ -67,8 +80,10 @@ channel/travel burden. A smaller error box, another fork gap or equal-friction
 sweep is insufficient. Reopen these tension embodiments only with generated
 rerouting that escapes the core collision, or load-reacting preload control/positive engagement covering
 length, compliance, creep and assembly errors through the full stroke, including
-finite cord/termination capacity. A prescribed preload or narrower unsupported
-error box is insufficient.
+finite cord/termination capacity. For the E-122 embodiments, also escape the
+central spring/carriage collision or implement changed loaded tooth entry and
+anti-lift capture; a wider footprint must include full-density passages. A
+prescribed preload or narrower unsupported error box is insufficient.
 
 **Residual limits:** bounds are deterministic epistemic scenarios, not X1C process
 priors or reliability estimates. No complete qualified reader, finite shared
