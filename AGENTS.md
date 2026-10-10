@@ -12,5 +12,6 @@ The 01–08 roots are lifecycle stages; do not add numbered roots. Knowledge liv
 Keep objects atomic with semantic ID-bearing filenames. Metadata: only `status` and optional `builds-on: [ID, ID]`; point backward to material inputs, never maintain reverse links.
 Distinguish sourced facts, assumptions, calculations, simulations, CAD, and physical measurements. Analytical acceptance does not prove hardware performance.
 After experiments, distill conclusions and remove scaffolding with `./repo finish`; Git history is the archive. Keep source and irreplaceable evidence; remove reproducible output.
-No README, CONTRIBUTING, indexes, project-management documents, or engineering CI. Run `./repo check` and relevant engineering checks locally.
+No README, CONTRIBUTING, indexes, project-management documents, or engineering CI.
+Exception: the single `.agents/memory/cto.md` file is a compact, non-canonical CTO research compass, not project-management history or technical evidence. The CTO curates it in place; everyone else treats 01-08 plus Paperclip as authoritative. Run `./repo check` and relevant engineering checks locally.
 Change AGENTS.md only for instructions important to essentially all future agents in its scope. Never add findings, current status, or temporary task rules.
