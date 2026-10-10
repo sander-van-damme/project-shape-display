@@ -51,3 +51,43 @@ Primary leads: [submillimeter alloy catheter](https://pmc.ncbi.nlm.nih.gov/artic
 demonstrates small-scale stiffness control, not a sliding pin lock;
 [NIST gallium standard](https://www.nist.gov/publications/standard-reference-material-1751-gallium-melting-point-standard)
 establishes the melting temperature. Accessed 2026-10-08.
+
+## Inverse annulus load/energy bound
+
+Initial successor calculation at input main `50b81ee`; analytical necessary
+bound and self-review, not material or contact evidence. Under an effective
+allowable cylindrical interface shear stress τ, tail diameter d, radial alloy
+gap g and supported force F, `L >= F/(π d τ)`. An annulus at that minimum length
+has `V >= (F/τ)(g + g²/d)`. Thus shrinking the tail diameter does **not** reduce
+minimum material/heat at fixed load, gap and allowable stress: required length
+increases and the small curvature term gets worse. Gap, effective strength and
+load allocation control this bound. Discrete keys or bridges can change the
+failure section and must be modeled as different geometry, not credited from
+this cylindrical formula.
+
+At illustrative F=10 N, g=.1 mm and τ=.5 MPa, d=3 mm requires L≥2.1221 mm and
+V≥2.0667 mm³. Reducing d to 1 mm increases L to 6.3662 mm and V to 2.2 mm³.
+Using E-063's **assumed** .5 J/mm³ effective heating requirement, the 3-mm case
+requires ≥6.613 kJ/full board and ≥220.44 W average over 30 s, before heating
+the tail, cup, substrate or compensating losses. At g=.15 mm and τ=.25 MPa,
+V≥6.3 mm³ and the same calculation gives 20.16 kJ / 672 W. There is no stage-02
+power cap; these numbers are heat/circuit/cooling obligations, not rejection
+criteria. Simultaneous release, repeated group operations and recovery may
+raise peak power or total heat. The stress scenarios are not alloy strength,
+creep allowables, adhesive qualification or a probability distribution.
+
+Reproduce the inverse result and verify against independent annulus volume:
+
+```python
+from math import pi, isclose
+for d, g, tau in [(3, .1, .5), (1, .1, .5), (3, .15, .25)]:
+    length = 10 / (pi*d*tau)
+    volume = pi*((d/2+g)**2-(d/2)**2)*length
+    assert isclose(volume, 10/tau*(g+g*g/d))
+    print(length, volume, 6400*volume*.5/30)
+```
+
+Next discriminator: finite retained key/shear geometry that survives molten
+translation and containment, with effective strength/creep bounds. Resolve
+that load path before detailed heat simulations. Reduced diameter alone is
+not a low-energy escape. No full-machine scheduling or physical pass follows.
