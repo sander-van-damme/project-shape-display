@@ -1,25 +1,25 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-128, input main 3c26e91.
+Updated: 2026-10-10 UTC; evidence: E-129, input main 6855760.
 North star: Diverse affordable complete machines for ~6,400 supported terrain columns; no selected architecture.
-Mode: LEARN → EXPLORE. Phase freedom moves a series torque cut; passive arrest must stay connected to the load.
+Mode: LEARN → EXPLORE/PROBE. Static no-back hold does not establish controlled loaded lowering.
 
 Portfolio / uncertainty:
-- A-025/E-128: compact 20-N friction dock fails low-traction bound; free sleeve moves same cut. Matched dogs avoid it but retain fit/arrest/routing obligations.
-- Outward pinions clear two local shafts; repeating the pair at equal depth overlaps solid gear cores. No admitted two-site machine or board package.
-- Released spring brake has finite zero-contact interval; permanent drag removes closure gap conditionally, with load-dependent heat/force cost.
-- A-024/E-126 solid stacks: loose four-stroke feed rejected at tested rates; continuous feed remains distinct but unsupported.
-- Linked feed still carries ≥128k link inventory; A-013/E-125 retained jaw and sparse loaded capture remain rejected.
-- A-016/A-020 shared actuation and A-014 fluid memory remain controls, with earlier failures preserved.
+- A-025/E-129: input-peg roller release jams at high friction; released branch cannot resist an overhauling output. Stop this topology, not all no-back brakes.
+- Two phase-staggered fixed ground bolts lack overlap-first transfer; moving support changes the principle.
+- Direct positive heads with permanent local drag have conditional static support, repeated pad/preload obligations and force/heat cost; no admitted machine.
+- E-128 outward routing still fails pair replication; E-127 common ±.05-mm dog-fit failure remains.
+- A-024/E-126 solid stacks: four-stroke loose shuttle rejected; captive continuous exchange is an untested different transaction.
+- Linked feed carries ≥128k links and still needs arrest; A-013/E-125 retained jaw and sparse loaded capture remain rejected.
+- A-016/A-020 shared actuation and A-014 fluid memory remain controls with prior failures preserved.
 
 Recent varied attempts / novelty:
-- Bulk feeding → fixed-plane counted stack; deployable chain → linked-feed control.
-- Invert moving interface → stationary pinion/moving rack; matched ground/dock indexing removes nominal phase search.
-- E-128: outward mirrored access trades shaft collision for repetition collision; free sleeve exposes a series friction cut.
-- E-128: permanent drag versus released brake exposes force/heat versus contact-delay tradeoff.
-- These are recombinations, not new clutch physics. No saturation claim; earlier streak unknown.
+- Bulk feeding → counted solid length; deployable chains → linked-feed control.
+- Inverted moving interface → fixed pinion/moving rack; outward access traded shaft collision for repetition collision.
+- Manufacturer irreversible-lock search exposed explicit overhauling-load exclusion; finite roller model reproduces the missing lowering branch.
+- Positive-stop recombination gave disjoint full-insertion windows, not a new escapement principle.
+- No saturation claim; earlier independent-search streak unknown. Stop size tuning after topology failure.
 
-Next discriminator: finite load-energized no-back contact with input-only release, versus direct independently arrested head. Show both motion directions and loss of power before packing or schedules.
-Switch/stop if input release opens the only load path or if a free clutch/return is relocated rather than constructed; then change common-datum storage principle.
-E-127's matched dogs still fail common ±.05-mm fit scenario. E-128 does not tune that failure away.
-No printing/purchases justified. Canonical evidence is in 01–08; task ownership/status belongs in Paperclip.
+Next discriminator: captive continuous pocket exchange of compression-length storage, against linked-feed control. Construct reversible loaded insertion/removal with simultaneous old/new support and input loss before schedule/BOM.
+Switch/stop if exchange needs E-126's four stopped strokes, an unsupported handover or a hidden rotary no-back lock. Seek a changed material-feed/support topology instead.
+No printing/purchases justified. Canonical evidence is in 01–08; Paperclip owns task state.

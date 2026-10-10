@@ -62,5 +62,15 @@ cost. Neither is an admitted shared arrest or complete two-site machine. Keep
 matched-index and independently powered positive heads as comparisons. Stop
 single-face/20-N low-traction docking and free-sleeve relabeling. Reopen only with
 actual clamp/reaction or positive capture geometry, replicated routing and arrest
-through handover. Investigate load-energized, input-released no-back contacts
-before more size/tolerance sweeps. No schedule, BOM or fabrication justified.
+through handover.
+
+E-129 constructs an opposed roller/input-peg joint: nominal static hold passes,
+but a 20-N extractor cannot release its loaded high-friction scenarios;
+a successful release opens a finite branch with no resisting torque for loaded
+lowering. Alternating fixed ground bolts also lack the proposed overlap-first
+transfer. Neither result rejects all no-back brakes or escapements. Independent
+positive heads with permanent local drag retain conditional support at explicit
+force/heat cost, not machine acceptance. Stop this rotary-arrest refinement and
+change the next common-datum retention investigation to captive solid-length
+exchange (E-126/A-024). Reopen only with a changed anti-overrun/support-transfer
+topology, not retuned roller sizes. No schedule, BOM or fabrication justified.
