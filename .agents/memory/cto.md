@@ -1,24 +1,25 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-131, input main 679617b.
+Updated: 2026-10-10 UTC; evidence: E-132, input main b790ab9.
 North star: Affordable complete machines for ~6,400 supported terrain columns; no selected architecture.
-Mode: LEARN → PROBE. Continuous sliding support closes a release gap conditionally; repetition and kinetic arrest decide value.
+Mode: LEARN → EXPLORE. Both reusable friction-head embodiments stopped; change the state-retention axis.
 
 Portfolio / uncertainty:
-- E-131 wedge: real 40-mm raising/lowering contact path, static hold at bounded friction; 500-mm travel, inline overlap and kinetic-friction failure stop the solid embodiment.
-- E-131 counterbalance alone leaves ≥4.5 N residual over 1–10 N loads; ±20% spring error raises it to 5.6 N.
-- Counterbalanced permanent-pad head gains conditional margin (8 N vs 5.6 N), but kinetic drag, heat, capture and routing remain open.
-- A-007 screws retain their rejection; moving low-lead sliding retention to reusable heads is a changed repetition topology, not a passed dock.
-- Helical bands reduce link inventory but do not establish rotor arrest; E-130 pockets remain stopped.
-- A-025/E-129 peg release fails loaded lowering; fixed stops lack overlap. E-127 fit/E-128 replicated routing failures still apply.
-- A-013/E-125 loaded capture and A-014/A-016/A-020 prior failures are not repaired by this screen.
+- E-132 solid screw: static self-locking survives, but core inertia alone gives 203-mm unconstrained coast at 100 mm/s, 1 N, μk=.02; finite engagement ends first.
+- E-132 counterbalanced pads: ±5.6-N residual exceeds 3.2-N kinetic drag; either direction can accelerate after input loss.
+- New transverse-pin/offset-eye access clears an isolated pair; actual third-row stem collision prevents dense replication. Capture actuation/readback remain unbuilt.
+- E-131 continuous sliding is conditional retention, not a machine; wedges fail travel/packing and kinetic corners.
+- A-007 permanent screws remain rejected; hollow/rotating-nut heads would be changed embodiments, not automatically next priority.
+- A-021/E-063 planar scissors fail reaction/repetition; nonplanar structural memory is a search lead, not a selected solution.
+- A-025/E-129 no-back release, E-130 pocket exchange, E-125 capture and E-127/128 docking failures remain controls.
 
 Recent varied attempts / novelty:
-- Machine-leveling wedges → continuous ground contact and forced extraction, distinct from pocket release.
-- Constant-effort spring supports → minimax balance-plus-drag margin, not position memory.
-- Deployable stage-lift bands → different inventory, same input-arrest obligation.
-- Prior ball/chain and no-back searches remain negative controls; no landscape saturation claim.
+- Machine-leveling wedges, constant-effort supports and stage-lift bands opened continuous-support comparisons (E-131).
+- E-132 moved friction retention to reusable heads: useful repetition change, no new physical principle.
+- Dynamic loaded-flank balance exposes inertia/light-load sensitivity missed by static hold.
+- This finite comparison is complete; no new literature-diversity count or whole-landscape saturation claim.
 
-Next discriminator: reusable grounded low-lead sliding head vs counterbalanced pad head; positive bilateral output coupling, loaded reversal, moving input loss, speed/heat and two-output access.
-Do not assume a free brake/clutch, stationary input or inherited working capture. Stop on release of sole support, inadequate kinetic arrest or unchanged-output disturbance; switch to a different load path.
+Next discriminator: structural state retention via nonplanar multistable shells/distributed elastic structures, against discrete solid-stop control.
+Search then bound loaded energy barriers, collapse path, state reach, manufacturing bias and dense routing; distinguish from A-021 planar stacks.
+Stop on unsupported snap/load transfer, singular force, insufficient state reach or unchanged-output disturbance. No unspecified latch.
 No printing/purchases/full-machine optimization justified. Canonical evidence is in 01–08; Paperclip owns task state.
