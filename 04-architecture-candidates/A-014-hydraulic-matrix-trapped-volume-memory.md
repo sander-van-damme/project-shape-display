@@ -51,3 +51,12 @@ the illustrative 2×8-mm rail at 1500 MPa permits at most eight cells/span with
 compliance. Support stations must translate with the rails; fixed grounding is
 not a solution. Continue only with explicit support and crossed-rail geometry;
 no cartridge fit or stiffness qualification follows from this necessary bound.
+
+E-101 rejects two finite moving-support embodiments: straight upper-tier ground
+posts collide with captured lower ramp forks, while coplanar positive-reset
+radial cam webs collide with neighboring shafts even if disks are staggered.
+Captured-ramp clearance also changes half-select isolation and maximum stem
+travel; positive return alone does not guarantee the original coincidence
+window. Next investigate changed three-dimensional ground/axis routing with
+finite return contacts. Valve synthesis remains dependent on a selector
+survivor; neither the ramp scalar bound nor rail-only clearance is a machine.
