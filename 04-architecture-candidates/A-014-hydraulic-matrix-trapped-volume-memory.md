@@ -57,6 +57,13 @@ posts collide with captured lower ramp forks, while coplanar positive-reset
 radial cam webs collide with neighboring shafts even if disks are staggered.
 Captured-ramp clearance also changes half-select isolation and maximum stem
 travel; positive return alone does not guarantee the original coincidence
-window. Next investigate changed three-dimensional ground/axis routing with
-finite return contacts. Valve synthesis remains dependent on a selector
-survivor; neither the ramp scalar bound nor rail-only clearance is a machine.
+window. E-102 escapes the coplanar-shaft collision using alternating shaft
+heights and four axial cam phases; two phases still collide. Selected finite
+bearing/follower/ground-neck envelopes clear, but slender follower forks fail
+stability/axial-loss bounds and the original beam risers intersect 3-mm shafts.
+Upper ground posts are restraint-sensitive under the correct sparse column
+load. Continue with stiff followers, a grounded frame and retained beam; then
+resolve loaded shaft phase/reset. Stop free-post and diameter sweeps. Valve synthesis
+remains dependent on a selector survivor; neither partial envelope clearance
+nor a scalar stiffness bound is a machine. About 1,600 cams/3,200 bearing
+interfaces precede boundary support, valves and readback in this routing.
