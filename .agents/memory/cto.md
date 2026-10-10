@@ -1,28 +1,30 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-134, input main 8884b78.
+Updated: 2026-10-10 UTC; evidence: E-135, input main 4d5ad7e.
 North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
-Mode: LEARN → EXPLORE a different functional axis: shared energy delivery/local addressing.
+Mode: LEARN → PROBE spatial wave localization; avoid another threshold/damping sweep.
 
 Portfolio / uncertainty:
-- E-134 confined rigid toggles have load-derived endpoint barriers; next stage stays seated.
-- Grounded circular shoe leaves the active angle free; .8F loss witness, 1.559-mm available rollback; transverse arm hits unchanged guide.
-- Nominal 23-stage travel 40.615 mm becomes 34.618–46.762 mm under coherent bounds; rigid joints/contact strength unqualified.
-- This is A-021 recombination with local stage drive, not new toggle physics or a machine survivor.
-- E-133 crowns have unstable internal exchange; smooth tape lacks intermediate wells. Kresling supported transitions remain unresolved.
-- E-126/E-130/E-131 assembled length/endpoint seats still need transition arrest; another feed label is not progress.
-- E-132 solid-stop control keeps abstract sequencing, but its capture/routing failure remains.
+- E-135 frequency-only labels crowd: decade capacity 116 at ±1% residual error even before linewidth.
+- An 80-label high-Q nominal window closes at tested 1% spring coupling; common bias needs calibration.
+- Exact resonant bursts retain half-select energy; additive crossed waves supply no positive isolation.
+- Positive coincidence remains an isolation control, with E-076/082/083 withdrawal, force and channel burdens.
+- Time-reversed plate waves are a different spatial addressing lead; receiver loading/energy extraction unbuilt.
+- All wave leads retain powered capture/transfer, positive ground stops and full readback obligations.
+- E-134 confined toggles retain endpoints but leave active input-loss rollback and dense arm collision.
+- E-132 sliding arrest, E-133 shell exchange and earlier structural feed routes remain bounded reserves.
 
 Recent varied attempts / novelty:
-- E-133 Braille shells, twist-buckled deployables and space-boom fronts supplied distinct hypotheses.
-- E-134 local confinement replaces whole-stack actuation and isolates one degree of freedom; it does not remove arrest.
-- Structural front probe is complete; no global search saturation claimed. No additional independent literature search this probe.
-- Stop repeated friction/dog/front fit refinement without a changed causal support path.
+- Resonant taxel literature confirms M-010 rather than new selection physics.
+- Acoustofluidic bubble interactions add actual opposed force paths but incompatible process/reset burdens.
+- Time-reversal haptics introduces calibrated spatial phase focusing; new useful axis, no saturation claim.
+- Source glass plate achieved 5.2-mm resolution; fingertip loading strongly reduced focus amplitude.
+- No physical parameters transferred to X1C PLA; E-135 uses labelled deterministic uncertainty scenarios.
 
-Next discriminator: can shared wave energy plus localized command receivers replace traveling capture heads?
-Compare frequency addressing, crossed spatial excitation and positive mechanical coincidence with explicit service stops.
-Read A-001/A-016, E-074–083; require actual novelty in isolation, not a renamed threshold ratchet.
-First bound detuning/correlations, coupling, half-selection, command energy and complete-map scheduling; no free selector or readback.
-Stop on overlapping command windows, hidden per-cell drives, or unchanged-support motion. Seek another axis if no new mechanism survives.
-Reopen E-134 only with supported input-loss transition, clear dense routing and coherent loaded reach; endpoint stiffness alone is insufficient.
-No printing, purchasing or full-machine optimization justified. 01–08/Paperclip remain authoritative.
+Next discriminator: finite separate wave-bus transfer model with identical receiver loads.
+Compare whole-packet selected/off-target energy, coupled load/state drift and reset against direct local excitation.
+Count calibration, finite work, set/clear, read/retry and multi-focus scheduling at board scale.
+Stop if localization needs per-site drives, unchanged-support vibration or a free decoder/rectifier.
+Do not construct full latch/CAD or optimize waveforms until this cheap discrimination survives.
+Reopen frequency-only routes only with calibrated residual/coupling bounds and an explicit safe history.
+No printing/purchasing justified. 01–08/Paperclip remain authoritative.

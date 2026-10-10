@@ -2,15 +2,22 @@
 status: active
 ---
 
-**Core principle:** Elements with intentionally different resonances receive a common oscillatory
-input while only the tuned class crosses a trigger threshold.
+**Core principle:** Elements with intentionally different resonances receive a
+common oscillatory input while only the tuned class crosses a trigger threshold.
 
-**What it solves well:** Potential broadcast addressing with little spatial routing.
+**Role:** Broadcast command delivery; long-stroke motion, command reset and
+positive service support require separate causal mechanisms.
 
-**What it does not solve:** It supplies only a selection event; long-stroke motion and stable load support
-must come from elsewhere.
+**Screening boundary:** Frequency boxes, finite linewidth, bank coupling and
+accumulated off-target energy must leave a common command window. Common drift
+may be recalibrated; residual relative tuning and load-dependent response cannot
+be replaced with nominal peaks. High Q trades spectral selectivity against
+ringdown and repeated-pulse memory. Calibration and full set/reset/readback
+belong inside update timing. Different code frequencies are not independent
+physical actuation channels.
 
-**Key risks:** Tolerance drift, modal coupling, load sensitivity and settling time.
-
-**Cheapest discriminating experiment:** 5–10 printed resonators with separated targets, tested before and after added
-load and print-to-print variation.
+**Next evidence:** A finite coupled receiver and extraction path, with explicit
+manufacturing bounds and admissible signed histories. Use simulation before
+printing; a print is useful only to calibrate a decision-driving unresolved
+parameter. No resonance or threshold-only result qualifies a retained command
+array or a physical display.
