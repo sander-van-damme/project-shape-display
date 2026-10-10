@@ -44,7 +44,7 @@ architecture names/content (particle/granular, chain, screw):
   links alone do not establish anti-backdrive at the base. At assumed 4-mm link
   pitch and 40-mm stroke, two strands require at least 20 links/site, or 128,000
   links before stored slack, pins and end joints. $250 residual permits at most
-  $0.00195/bought link before all those other parts; no supplier meets that here.
+  $0.00195/bought link before all those other parts; no qualifying quote is established.
   Linked feed avoids stop/start for every separate sphere, but adds hinge wear,
   storage routing and assembly. Keep as a continuous-feed control, no detailed
   chain optimization yet.
@@ -165,7 +165,7 @@ all repeated cell parts. A-025's 3-mm pinion needs 4.244 turns over 40 mm and
 Reader false acceptance can miss a supported-height error or an open lock.
 No failure probabilities are assigned. Count/drive encoders need independent
 height and support evidence; a common reader bias can invalidate a whole bank.
-No support loss on power failure, local-disturbance or reliability acceptance
+No power-loss support, local-disturbance or reliability acceptance
 follows from these schedules. Printing would not resolve the fatal shuttle-rate
 bound; a finite common-datum pinion/docking/lock transfer is the next useful test.
 
