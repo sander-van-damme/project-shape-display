@@ -1,12 +1,13 @@
 ---
-status: active
-builds-on: [E-115, E-119, E-120, ADR-019]
+status: complete
+builds-on: [E-115, E-119, E-120, E-121, ADR-019]
 ---
 
-# Close dry shared-selector search; investigate tension-based local storage
+# Close dry shared-selector and initial tension-storage searches
 
-**Decision:** conclude the studied dry positive-support/shared-selection campaign
-without an admitted complete selector or machine. Retire dependent whole-machine
+**Decision:** conclude the studied dry positive-support/shared-selection and
+initial finite tension-storage investigations without an admitted complete
+selector or machine. Retire dependent whole-machine
 economics for this branch. Keep crossbolt/powered-pawl sections, permanent power
 follower, split command cage and long extraction sleeve as conditional building
 blocks; stop synchronous common-retractor refinement. No print, purchase, product
@@ -39,22 +40,35 @@ one-turn seed, but still needs finite return, lock and access. It receives bound
 exploration, not architecture selection. Direct rack heads remain the simple
 comparator, with E-099's complete-channel affordability gap intact.
 
-**Start/change/stop:** prioritize finite distributed drum/tendon support and
-private torque takeover, comparing gravity return and antagonistic routing.
-First resolve bidirectional reach and positive support through acquisition,
-unlocking, arbitrary old-to-new motion, relocking/proof and withdrawal around
-unchanged neighbors. Then admit only complete finite survivors to full/regional
-scheduling, all repeated purchases/assembly and failure/readback accounting.
-Do not proceed directly from disk counts to machine economics. Execution and
-continuation belong in Paperclip; no second campaign plan is stored here.
+**Finite tension outcome:** E-121 replaces E-120's disk-only seed with finite
+helical winding, exit-height-corrected takeup and redirection. The tested lower
+plane's riser passes through a shallower neighboring core throughout the stroke;
+adding antagonistic takeup without rerouting inherits this failure. A materially
+different cell-local loop and slotted T-guide clear continuous 40-mm travel and
+arbitrary neighbor heights in rigid geometry. Its fixed-length return is not
+force-robust: at the declared 2,000-N axial rigidity, +.5-mm length error exhausts
+4.5-N nominal preload and leaves slack. The small allowable drift, friction hold,
+bend/termination and repeated fit burdens have no implemented remedy. Retain
+that finite geometry and conditional force interface as building blocks, not a
+complete machine or permission to assume ideal maintained preload.
+
+**Start/change/stop:** retire downstream private torque-lock and full-machine
+comparison for the tested fixed-length tension embodiments. Do not tune the
+four-plane winding or print the local loop. The next useful opportunity is a
+finite transmission that tolerates length/creep uncertainty: physically maintained
+preload or positive engagement, potentially at larger internal pitch, compared
+with direct rigid heads. A changed mechanism must establish that force path
+before detailed locking, pricing or timing. No entire tensile principle is excluded.
 
 **Reopening:** reopen the shared dry-selector branch only with an executable
 materially changed conditional capture/reset topology, or complete accessible
 private/transported drive escaping its demonstrated collisions with credible
 channel/travel burden. A smaller error box, another fork gap or equal-friction
-sweep is insufficient. Tension storage should stop or redirect on its own finite
-contradiction; it has no immunity from long-cable, bend, preload, wear, creep,
-service-volume and affordable-channel constraints.
+sweep is insufficient. Reopen these tension embodiments only with generated rerouting that escapes
+the core collision, or load-reacting preload control/positive engagement covering
+length, compliance, creep and assembly errors through the full stroke, including
+finite cord/termination capacity. A prescribed preload or narrower unsupported
+error box is insufficient.
 
 **Residual limits:** bounds are deterministic epistemic scenarios, not X1C process
 priors or reliability estimates. No complete qualified reader, finite shared
