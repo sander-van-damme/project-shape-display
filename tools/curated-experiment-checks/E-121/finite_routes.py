@@ -302,6 +302,76 @@ def forces():
                 minimum_EA_N_for_conservative_05mm_load_error=.65*exact/.5)
 
 
+def idler_reaction_bounds():
+    """Necessary bounds for a hypothetical movable UPPER sheave, not its design.
+    S is its upward frame/spring reaction. F is the signed column tension
+    difference, positive for upward support. Lossless upper sheave only:
+    Tupper=Tleft=S/2; Tbottom=S/2-F; drive mean P=(S-F)/2.
+    A force with fixed direction is not the same as a motion direction.
+    """
+    fmax = .65
+    mu = .05
+    pmin, pmax = 4.5, 5.
+    # No ONE constant reaction maintains the old narrow P interface for both
+    # signs. This does NOT exclude a load-reacting or wider-envelope mechanism.
+    lower = 2*pmin+fmax
+    upper = 2*pmax-fmax
+    assert lower > upper
+    # Direct capstan ratio, independently equivalent to mean-tension bound.
+    s_required = 2*fmax/(1-exp(-mu*pi))
+    assert isclose(s_required, fmax+fmax/tanh(mu*pi/2))
+    assert isclose((s_required/2)/(s_required/2-fmax), exp(mu*pi))
+    cases=[]
+    for s,f in product((9.,9.7,10.),(-fmax,0.,fmax)):
+        top=left=s/2
+        bottom=top-f
+        mean=(left+bottom)/2
+        assert isclose(top-bottom,f) and isclose(top+left,s)
+        assert isclose(mean,(s-f)/2)
+        assert isclose((left-bottom)*R,f*R)
+        ratio=max(left,bottom)/min(left,bottom)
+        cases.append(dict(upper_reaction_N=s,signed_column_force_N=f,
+                          drive_mean_N=mean,top_terminal_N=top,
+                          bottom_terminal_N=bottom,drive_shaft_reaction_N=left+bottom,
+                          traction_ratio=ratio,ideal_no_slip=ratio < exp(mu*pi)))
+    # Exact uniform axial-extension closure at ZERO column load, where all
+    # tensions are equal. L changes by 2x as the top sheave translates upward.
+    # S(x)=S0-k*x; positive stiffness unloads on extension. A physical spring,
+    # slide, stops and reaction frame are NOT supplied by this scalar model.
+    length=2*H+2*pi*R-.8
+    s0=9.7
+    mismatch=[]
+    for ea,k,dl in product((20.,200.,2000.),(0.,.5,5.),(-.5,.5)):
+        free0=length/(1+s0/(2*ea))
+        free=free0+dl
+        x=(free*(1+s0/(2*ea))-length)/(2+free*k/(2*ea))
+        s=s0-k*x
+        residual=(length+2*x)-free*(1+s/(2*ea))
+        assert abs(residual) < 1e-12 and s > 0
+        if k==0:
+            assert isclose(2*x,dl*(1+s0/(2*ea)))
+        mismatch.append(dict(EA_N=ea,spring_slope_N_per_mm=k,
+                             free_length_error_mm=dl,idler_shift_mm=x,
+                             zero_load_reaction_N=s,
+                             reaction_exceeds_bidirectional_traction_threshold=s > s_required,
+                             nominal_axial_strain=s0/(2*ea),
+                             model_limit='Large strain: linear EA is not credible' if ea==20 else
+                                         'Uncalibrated elastic scenario; no creep/bend/contact model'))
+    # Mechanism equilibrium: upper support S up, drive support S-F down,
+    # external column load F down sum to zero. 6400*S is summed reaction, NOT net
+    # externally applied board load. Support-sheet/internal stress still matters.
+    assert isclose(s0-(s0-fmax)-fmax,0.,abs_tol=1e-12)
+    return dict(evidence='Necessary lossless statics and uniform-extension bounds; no finite tensioner',
+                old_mean_interface_constant_reaction_lower_N=lower,
+                old_mean_interface_constant_reaction_upper_N=upper,
+                minimum_upper_reaction_N_at_mu005_F065=s_required,
+                reaction_cases=cases,zero_load_length_adjustment=mismatch,
+                summed_local_upper_reactions_N_at_S97=6400*s0,
+                net_external_preload_force_N=0.,
+                limitation='Signed F reverses only if demanded force reverses; motion reversal alone need not do so. '
+                           'Upper bearing loss, finite bends, slide friction, spring/frame compliance and terminals remain unqualified.')
+
+
 def uncertainty():
     # Independent opposing surface errors; 2e placement + e effective size.
     # Box corner enumeration, not a distribution. Coherent checkerboard attains
@@ -402,6 +472,7 @@ def main():
     print(json.dumps(dict(evidence='finite primitive geometry, analytical bounds, self-review; not physical validation',
                           layered_winding=layered_witness(),loop=checks[-1],
                           discretization=checks,forces=forces(),uncertainty=uncertainty(),
+                          upper_idler_bounds=idler_reaction_bounds(),
                           repeated_per_board=dict(cords=6400,terminations=12800,pulleys=12800,
                               axles=12800,bearing_interfaces=25600,guide_stations=12800,
                               translating_columns=6400,clamps=6400,local_locks_required=6400,

@@ -184,6 +184,28 @@ These boxes are neither X1C priors nor independent-cell yield estimates. Anchor
 seating, shell warp, roughness, layer anisotropy, creep/wear and frame correlations
 remain unmodeled; they cannot improve the demonstrated bad corner by assumption.
 
+## Upper-idler reaction bound for reopening
+
+Continuation from `7386e5d`: **necessary lossless statics, not a finite tensioner**.
+For upward upper-sheave reaction S and signed upward column force F,
+`Tupper=Tleft=S/2`, `Tbottom=S/2−F`, hence drive mean `P=(S−F)/2`.
+F=±.65 N is a conservative force scenario; velocity reversal need not reverse F.
+One constant S cannot maintain P=4.5…5 N: it needs S≥9.65 **and** S≤9.35 N.
+This excludes that interface substitution, not tension maintenance. Capstan traction
+at μ=.05 requires S>8.943067 N. At S=9.7 N, P=4.525…5.175 N, terminal≤5.5 N and drive
+reaction≤10.35 N **before idler losses**; recompute the former interface capacities.
+
+The source also checks 18 zero-load extension cases: EA=20/200/2000 N,
+`S=9.7−k x`, k=0/.5/5 N/mm, free-length error±.5 mm; upward idler x adds 2x to L.
+Closure is `L+2x=(L/(1+9.7/(2EA))+error)(1+S/(2EA))`. At EA=2000 and +.5 mm,
+k=5 gives x=.235191 mm, S=8.524046 N. This is **not a loaded failure witness**:
+load redistribution changes S. Solve loaded branches, spring travel and geometry
+together. EA=20 gives 24.25% nominal strain: linear-material interpretation fails.
+Self-review checks force/torque balance, direct capstan ratio versus mean-tension
+formula, extension residual and k=0 limit. No spring, slide or frame is implemented.
+The 6,400 local upper reactions sum to 62.08 kN at S=9.7, **not net board load**;
+lower-drive/column reactions balance them. Internal frame stress remains unresolved.
+
 ## Consequence and retained interfaces
 
 Retain executable helical taut-length correction, the core-intersection witness,
