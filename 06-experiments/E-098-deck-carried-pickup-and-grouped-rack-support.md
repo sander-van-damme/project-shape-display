@@ -43,8 +43,9 @@ Nominal dimensions, mm, inside a 5.08-mm cell:
 - A 4.4-mm-square, 1-mm-thick terrain cap starts at height+60; it clears the
   deck's +45-mm extreme even on an unchanged low column. Nominal top gaps
   are .68 mm (.08 mm at the stated XY error bounds).
-  Core axial extent is **142 mm**,
-  tail −41 to highest cap +101, before structure, drives and service space.
+  Settled nominal core extent is 142 mm; pickup overshoot makes the nominal
+  swept extent **146 mm**, tail −41 to cap +105 (146.7 mm under the declared
+  vertical bounds), before structure, drives and service space.
   This is the generated embodiment, not a necessary minimum display thickness.
 
 Root overlap joins each lip/tooth to the spine. Pad/dog guides, ground frame,
@@ -79,8 +80,8 @@ Lip datum δ=.8…1.2, individual tooth-height errors εj=±.2 and ground-dog to
 error g=±.2 are explicit competing bounds. Tooth and moving-member thicknesses
 are enlarged to 1.3 and 1.0 for collision checks. A seated level j has actual
 column coordinate `5j+g−εj`: ±.4-mm height error, and nominal 40-mm endpoint
-span can shrink to 39.6 mm across tooth errors; the common dog datum cancels. No minimum usable travel or
-height-accuracy qualification is claimed.
+span can shrink to 39.6 mm across tooth errors; the common dog datum cancels.
+No minimum usable travel or height-accuracy qualification is claimed.
 
 1. With the deck at −2, arm selected pads. Every column remains dog-supported.
 2. Ascend; the fixed lip lands on its selected pad. At each old level j, stop

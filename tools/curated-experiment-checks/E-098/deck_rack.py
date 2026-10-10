@@ -184,7 +184,9 @@ def geometry():
         lower_tooth_clearance_min_mm=5-1.3-1.-1.-.6,
         maximum_seat_error_mm=.4,failed_clear_lift_mm=failed_clear_lift,
         minimum_endpoint_span_mm=min(spans),
-        core_axial_envelope_mm=41+40+61)
+        settled_axial_envelope_mm=41+40+61,
+        nominal_swept_axial_envelope_mm=41+(45-1)+61,
+        bounded_swept_axial_envelope_mm=41+.4+(45-.8)+61.1)
 
 
 def workload(kind,start=0):
