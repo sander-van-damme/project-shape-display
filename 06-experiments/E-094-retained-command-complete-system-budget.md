@@ -13,7 +13,8 @@ The complete-machine allocation below gives a changed implementation measurable
 reopening targets. It does not prove the principle uneconomic or select a
 product. The feasible-machine Pareto set remains empty.
 
-Input main `aec242d`. Reproduce with
+Original input main `aec242d`; finite deck itinerary revised from E-095 at
+`5b6151a`. Reproduce with
 `python3 tools/curated-experiment-checks/E-094/system_budget.py`.
 Evidence: deterministic schedule/budget calculation using E-089/E-083 source,
 explicit uncertainty scenarios and self-review; no new contact model, sourced
@@ -49,10 +50,14 @@ E-088's rotary writer or E-083's fixed six-second support reserve:
   force-limited row-cycle source at drag=.005 N, k=.5 N/mm, mass=20 g and
   requested a=20 m/s². Its separate 4-ms row-proof allocation is assumed.
   This does not establish compatibility with the failed cam/support package.
-- Selective deck pays E-089's **90-mm ideal pickup/deposition path**. Hooks are
-  written forward, unloaded stops backward, hooks cleared forward, then the
-  writer returns home: four traversals. Finite hook passage, contact microtravel,
-  support retention, rotor setting and output reset remain unimplemented.
+- Selective deck now pays E-095's **94-mm nominal finite pickup/deposition
+  path**, home −2 → top45 → home−2, including stopped proof waypoints at each
+  old/new stop height +1 mm. The fixed top remains 45 mm for local work. Hooks
+  are written forward, unloaded stops backward, hooks cleared forward, then the
+  writer returns home: four traversals. Open pickup separates passively, but
+  real hook retention, stop setting, readback and error-dependent contact
+  microtravel remain unproved; the latter must fit the support slots. Finite
+  contact geometry does not qualify a shared hook/stop writer.
 - Direct heads pay home→old→new→home, each visited row index and final carriage
   return. Bank-row-zero is the declared parked coordinate; arbitrary parking
   adds dispatch time. Complete head cost includes grip/release/sensing, not
@@ -80,16 +85,16 @@ All times below are seconds under those grants. Strict `<30` is enforced.
 
 | Banks | Retained dwell | Binary masks | Selective deck | Direct heads |
 |---:|---:|---:|---:|---:|
-| 1 | 98.273 | 307.083 | 81.767 | 67.403 |
-| 2 | 53.173 | 102.564 | 43.567 | 35.037 |
-| 4 | 30.623 | 48.814 | 24.467 | 18.854 |
-| 8 | 19.348 | 26.479 | 14.917 | 10.762 |
-| 16 | 13.710 | 16.152 | 10.142 | 6.717 |
+| 1 | 98.273 | 307.083 | 81.852 | 67.403 |
+| 2 | 53.173 | 102.564 | 43.652 | 35.037 |
+| 4 | 30.623 | 48.814 | 24.552 | 18.854 |
+| 8 | 19.348 | 26.479 | 15.002 | 10.762 |
+| 16 | 13.710 | 16.152 | 10.227 | 6.717 |
 
 At B=4, retained memory must complete its **40 writes plus one retry at
 <0.48482 s each**; at B=8, 20+1 rounds permit **<1.00726 s**. The separate
 reader and support excursion reduce E-089's simplified 1.2-s allocation.
-At B=4, the selective deck permits **<0.76346 s per stop-setting round** while
+At B=4, the selective deck permits **<0.75943 s per stop-setting round** while
 charging its 40 hook rounds, 18 support groups, return and retries. These
 ceilings are boundary equations, not qualified setter speed or universal bounds.
 
@@ -126,7 +131,7 @@ at 2-s overhead and one retry give minimum passing **tested** bank counts:
 
 Thus deck is not universally faster, nor is memory necessarily uneconomic.
 At B=4, slow/central/fast motion gives retained **38.489/30.623/27.511 s** and
-deck **31.967/24.467/21.434 s**. Binary's own force-limited writer is held fixed
+deck **32.156/24.552/21.476 s**. Binary's own force-limited writer is held fixed
 in this sensitivity; it is not granted the other axes' acceleration.
 
 The code also computes time/cost frontiers with explicitly hypothetical complete
@@ -139,7 +144,7 @@ Unresolved or failed mechanical interfaces exclude every offer from an accepted
 machine set.
 
 At B=8, across all 76 patch positions, central local times range
-**8.163–10.393 s retained**, **5.902–7.388 binary**, **7.181–9.041 deck** and
+**8.163–10.393 s retained**, **5.902–7.388 binary**, **7.389–9.249 deck** and
 **4.556–6.061 direct**. Binary can beat retained memory on this sparse workload
 while losing on full-map time. Dispatch, fixed bank alignment, word reset and
 home return explain why full-board parallelism does not apply directly.
@@ -202,7 +207,9 @@ direct-head control; do not repeat the old rotor coupon or default to printing.
 
 Self-review checks the 199.6/160-mm paths, 1,520 binary writes, 18 support groups,
 380 independent bank/patch alignment counts, zero-work limit, motion crossover,
-strict-threshold neighbors, an independent motion-leg sum and budget recomposition. Source controls reproduce
+strict-threshold neighbors, an independent motion-leg sum and budget recomposition.
+The finite full-map deck sum is `16 move(5)+2 move(3)+2 move(4)`
+(94 mm), plus 76 row-pitch moves at B=4; proof slots and retries remain charged. Source controls reproduce
 E-083's H=21 B=16 **27.40965 s** and E-050's **29.34998/23.87740 s** references.
 The new allocation does not silently overwrite them. This finite accounting has
 no time-step or mesh convergence claim. No purchase, fabrication or deeper

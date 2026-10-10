@@ -77,6 +77,17 @@ def deck_trace(kind):
     return controller.replay(old,new,"stepped_deck")
 
 
+def finite_deck_path(old, target):
+    """E-095 nominal contact waypoints; fixed top 45, home -2, lip datum 1.
+    Stop at each acquisition/deposition proof. Contact-height spread, actual
+    readback, extra take-up and settling must fit the explicit support slots;
+    this nominal motion route is not a proved robust controller.
+    """
+    pairs=[(a,b) for r,s in zip(old,target) for a,b in zip(r,s) if a!=b]
+    if not pairs:return [-2.]
+    return [-2.]+[5*h+1. for h in sorted({a for a,b in pairs})]+[45.]+[5*h+1. for h in sorted({b for a,b in pairs},reverse=True)]+[-2.]
+
+
 @lru_cache(maxsize=None)
 def ledger(kind, banks, start=0, v=200., a=5000.):
     old,new=controller.workload(9, 'local' if kind=='local' else 'all_deltas')
@@ -91,6 +102,7 @@ def ledger(kind, banks, start=0, v=200., a=5000.):
     rounds,route=writer_route(rows,banks,2,v,a)
     _,deck_route=writer_route(rows,banks,4,v,a)
     deck=deck_trace(kind)  # row translation leaves deck support path unchanged
+    deck_path=finite_deck_path(old,new)
     masks=binary.transactions(binary.commands(old,new,'displacement'),80,banks)
     d=binary.drive(banks,.005,.5,20.)
     # Fresh direct-writer itinerary: independent heads, per-bank row scan,
@@ -118,7 +130,8 @@ def ledger(kind, banks, start=0, v=200., a=5000.):
         # Counterfactual charge the SAME finite support itinerary to binary.
         # This is not inherited mechanical compatibility or E-083's old 6 s.
         binary_motion_s=path_time(e,v,a)+masks['rounds']*d['cycle_s'],
-        deck_motion_s=path_time([5*x for x in deck['path']],v,a)+deck_route,
+        deck_travel_mm=sum(abs(y-x) for x,y in zip(deck_path,deck_path[1:])),
+        deck_motion_s=path_time(deck_path,v,a)+deck_route,
         direct_motion_s=max(direct_times),
         observation_floors=dict(retained=2*changed+160*len(rows),deck=2*changed+80*(3*len(rows)),
             binary=2*changed+80*masks['row_writes'],direct=2*changed))
@@ -168,6 +181,7 @@ def checks():
     # Unchanged physical writes and support work are exactly absent.
     z=[[0]*80 for _ in range(80)]
     assert retained_paths(z,z)==([0.],[0.],0)
+    assert finite_deck_path(z,z)==[-2.]
     assert writer_route([],8,2)==(0,0.)
     # Independent counting at every patch alignment and bank count.
     alignments=0
@@ -194,7 +208,9 @@ def checks():
     e_time=18*move(2.2)+2*move(5)+7*move(2.8)+7*move(7.2)+2*move(40)
     r_time=16*move(5)+2*move(40)
     assert math.isclose(ledger('full',4)['retained_motion_s'],e_time+r_time+38*move(5.08))
-    assert math.isclose(ledger('full',4)['deck_motion_s'],18*move(5)+76*move(5.08))
+    assert math.isclose(ledger('full',4)['deck_motion_s'],16*move(5)+2*move(3)+2*move(4)+76*move(5.08))
+    assert ledger('full',4)['deck_travel_mm']==94.
+    assert ledger('local',8)['deck_travel_mm']==94.
     return dict(alignment_cases=alignments,gate='no complete machine accepted')
 
 
