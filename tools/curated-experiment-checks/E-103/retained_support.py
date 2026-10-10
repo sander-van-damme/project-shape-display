@@ -60,6 +60,12 @@ def frame(fork_width):
                    (i*P,(.5+2*(i%4))*P+k*8*P+side*P,55.4/2),
                    (1.6,1.2,55.4))
            for i,k,side in product(range(-2,4),range(-1,2),(-1,1))]
+    cheeks=[old.box('stiff cheek swept',
+                   (x+side*cheek_x,0,(11.8+32.7)/2),
+                   (1.2,fork_width,32.7-11.8)) for side in (-1,1)]
+    # Swept boxes around finite fork solids over the prescribed -.2..2.7 rise.
+    cheek_gap=min(max(a.gaps(b)) for a,b in product(cheeks,necks))
+    assert cheek_gap>2*EPS
     witness=None
     gap=float('inf')
     for a,b in product(bodies,necks):
@@ -70,6 +76,8 @@ def frame(fork_width):
     assert (30-.2)-28>2*EPS
     return dict(fork_width_mm=fork_width,portal_solids=len(bodies),
                 neck_checks=len(bodies)*len(necks),min_neck_separating_gap_mm=gap,
+                cheek_neck_checks=len(cheeks)*len(necks),cheek_neck_gap_mm=cheek_gap,
+                cheek_swept_solids=[dict(lo=c.lo,hi=c.hi) for c in cheeks],
                 actual_collision=witness,
                 scope='finite portal/upper-neck subset; not complete crossing or guide contact')
 

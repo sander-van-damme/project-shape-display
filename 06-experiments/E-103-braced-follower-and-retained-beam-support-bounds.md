@@ -35,7 +35,9 @@ side; wall thickness is .6 mm. No ideal guide fixity is granted.
 A wider **1.2×2.4-mm** cheek generates an actual portal/upper-neck intersection
 **1.6×.060×2.0 mm**. The 1.6-mm-wide alternative clears 216 portal/ground-neck
 pairs with minimum .340-mm sufficient separation (.140 after two .1-mm
-expansions). Neck locations follow E-102's actual four-phase rule, not a
+expansions). Another 72 cheek-sweep/neck checks clear for each fork width.
+The narrow cheek leaves only .2 mm of material beside a 1.2-mm pin bore;
+no lug-strength or printable-wall qualification is inferred. Neck locations follow E-102's actual four-phase rule, not a
 fictitious dense lattice. This is selected-component routing only: upper portals,
 full frame ties, guide angular contact and finite bank boundaries remain open.
 A complete frame is not worth refining after the downstream floor collision.
