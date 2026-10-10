@@ -112,6 +112,17 @@ support high speed conditionally, but unloaded lowering and fine-gap metering
 are sensitive to net bias/drag, pressure and fluid model. A specified two-speed
 controller takes 30.032 s at the illustrative .2-mm accuracy/2-ms response,
 versus 28.808 s at .5 mm; neither accuracy is a product requirement. This rejects
-that fine-control allocation, not the family. Compare binary full-open heads
-with charged shared coarse/fine pressure phases before refining analog lift or
-claiming a complete finite head. No seal, cost or hardware pass follows.
+that fine-control allocation, not the family. It motivated the binary-pressure
+comparison below; no seal, cost or hardware pass follows.
+
+E-106 shows why shared fine pressure does not generally replace independent
+metering: at nominal coefficients, eight load levels over .1 N need eight
+fine-pressure groups. Its specified binary controller takes 48.099 s, or
+37.731 s with 2-ms extra transitions, at diagnostic .5-mm accuracy. Common drag
+can prevent unloaded lowering entirely. Park that controller for heterogeneous
+maps; this is not a rejection of all pressure scheduling. Ideal independent
+throttling retains a conditional 28.808-s timing window but no implemented or
+priced regulator. Next bound a discrete closed/restricted-open/full-open valve
+with a fixed fine-flow passage before completing its mechanical return. This
+changes metering geometry rather than chasing the same analog seat gap; extra
+flow paths and manufacturing/clogging sensitivity remain costs, not free control.
