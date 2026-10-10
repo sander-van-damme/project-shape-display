@@ -38,3 +38,14 @@ primary comparator for finite positive set/return coupling. Selection must
 persist through ground reseat, support proof and selective carrier release;
 direct ground=not-command coupling fails that sequence. These local results
 do not reopen the rejected purchased servo route or establish a machine.
+
+E-123 supplies finite acquisition evidence for the previously abstract direct
+head: a shallow side shoe can approach at arbitrary old foot heights through
+inter-row aisles while inactive heads stay below all feet. Tight translation/face
+bounds admit sections, but a continuous packing bound excludes this compact
+family at ±.10 mm; guide rotation and drive remain unresolved. A centered pad
+clears wider errors but cannot force descent; the captured shoe has .8-mm nominal
+vertical play. A common-datum rack pickup preserves indexed phase but crosses
+its closed guide. Retain these interfaces for finite guidance, powered capture
+and ground-lock proof, not as a complete channel or a reopening of E-059's priced
+servo route. No inherited E-099 time pass or hardware qualification follows.
