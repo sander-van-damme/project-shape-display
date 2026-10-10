@@ -119,12 +119,21 @@ requires 12.462 mm³, exceeding E-111's reduced dead-volume estimate. None of
 E-112's .15-mm-error cases passes its specific side-bay/fold geometry cuts.
 These are prescribed surfaces, not pressure-stable or material-qualified seals.
 
-Next discriminate guided, pressure-stable containment/return and a credible
-repeated fabrication process against the mechanical jaw; no thermal tuning or
-printing until that gate has an informative survivor. The free rolling film
-still lacks backing geometry, compatible seals and a return/preload mechanism.
-A thin FDM membrane, qualified hoop life and affordability are not assumed.
-Stop this embodiment if those obligations fail; changing placement/topology can
-reopen the scoped geometry exclusions. Strength/creep, thermal isolation,
-addressing and full-machine schedule remain unqualified. Reduced tail diameter
-alone remains no low-energy escape, and a command-only thermal latch is A-017.
+E-113 generates conventional backing by moving liquid above the U, and compares
+sliding piston seals. With finite roof ports, return spring and .05-mm error,
+rolling/sliding packages span 4.128/4.596 mm against a 1.89-mm side bay; even
+bare bodies overrun it. Their inventories are 6.598/6.671 mm³. Melting under
+service load drives the reservoir to its stop; positive-pressure return also
+fails some viscosity/duct bounds. Liquid accommodation cannot relieve a chamber
+after its duct freezes. Neither route has sourced miniature film/seal life,
+whole-strut creep or an affordable repeated process for 12,800 boundaries.
+
+**Park these short-stroke side-bay embodiments.** No thermal tuning or printing.
+Reopen with changed placement/return and a compatible repeated process, or new
+components that alter the bounds; ideal seals and smaller radii are insufficient.
+A dry grounded crossbolt remains the simpler comparator, not a qualified machine.
+A-018 remains a bounded physical family; no informative containment survivor
+currently warrants its dependent thermal/full-machine analysis. The next gate
+is a materially different complete escape from the recorded inventory/process
+failures, or campaign closure. Reduced tail diameter alone remains no low-energy
+escape, and a command-only thermal latch is A-017.
