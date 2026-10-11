@@ -1,36 +1,38 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-168, input main 10acee3.
+Updated: 2026-10-11 UTC; E-169, input main 7ef15a1.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN; column-as-lock trades moving pawls for difficult stem/bearing geometry.
+Mode: LEARN → change axis to shared powered motion with independent seating.
 
 Portfolio / uncertainty:
-- E-168 lower slotted guide at -25 clears all bayonet transitions; guide at -20
-  hits lugs. Stem-fitting fixed upper guide blocks cap travel. 72-mm stem needed
-  in tested layout; 6,400 additional guide sites, powered head still absent.
-- Coupled cap clearance / optimistic rigid-lug buckling bound excludes 10 N
-  at d=4.8,E=2 GPa,e=.05,c=.025: upper bound 9.451 N. Explicit assumptions,
-  no PLA/X1C qualification; guide play and material uncertainty change result.
-- d=4.6 escapes exclusion (14.002-N upper bound, NOT capacity/pass). Necessary
-  r>=1.439 makes adverse bearing pressure >=23.95 MPa. Loaded seats unresolved.
-- E-167 interlevel cap rotation removes swivel under thin cap/discrete heights;
-  still 32,000 lugs, 6,400 pockets, angular registration and 229–267-head scenarios.
-  No service/BOM advantage yet; don't pursue head detail before load-path value.
-- E-166 fixed combs reduce placements, not 6,400 springs/hooks; thick hook
-  remains conditional after thin-hook peel and fixed-rear-stop release failures.
+- E-169 wide bayonet lug (4.3×2.4, r=1.48, cap 4.6) restores 1.702-mm²
+  adverse bearing area; 5.875-MPa mean at assumed 10 N is not a strength pass.
+- Reciprocal hazard: rotating upper lug hits unchanged cap. Include guide tilt;
+  centered-neighbor witness fails. Retained directional envelope margin .0367.
+- Ideal flat foundation gives 60.06-MPa peak at q=1 mm; cap-edge load needs
+  guide moment. Loaded root/guide/frame and real pressure remain unresolved.
+- E-168 stiff-lug upper bound for this radius: 5.616/11.233/16.849 N at
+  E=1/2/3 GPa. No qualified PLA modulus, strength or manufactured reach.
+- Column-as-lock removes separate pawls/returns but owes angular pockets,
+  lower guides, 72-mm stems and rotary-linear service; 229–267-head scenarios.
+  4.6 caps cover 82% of plane; no cap utility or total-cost advantage established.
+- E-166 fixed comb removes placements, not repeated springs/hooks; thick hook
+  conditional after thin-hook peel / fixed-rear-stop release failures.
 - E-165 laminate feed/clamps; E-164 aperture bypass/bearings remain open.
 - E-148 broad jaw, E-054/E-056 side-wing pawl and screw remain controls.
   E-162 roller, E-160 braid, E-159 granular/free-tail capstan paused.
 
 Recent varied exploration / novelty:
 - Sheet connectivity → removable carriers; snap-hook comb → load-induced peel.
-- Orthogonal backing recreated E-054 side wings; quarter-turn analogy moved lock
+- Orthogonal backing recreated side wings; quarter-turn analogy moved lock
   into column; interlevel path inversion escaped swivel.
-- E-168 is one within-family guide/structural discriminator, not new family.
-- No global saturation. Recent genuinely independent exploration count unknown.
+- E-168/E-169 are within-family discriminators, not new mechanism families.
+- No global saturation; genuinely independent recent search count unknown.
 
-Next: smaller-cap/wider-lug load-bearing geometry vs nonrotating pawl; require
-credible repeated-inventory or service advantage before rotary head/arrest work.
-If this only restores equal hardware plus rotation, park and change functional
-axis. Cap utility and loaded bearing are more informative than slot-fit prints.
+Next: shared powered motion + independent positive seating, compare rotary
+column and nonrotating pawl combinations. Construct selector/load-transfer path,
+count repeated clutches/channels and complete-map timing; include half-selection.
+Stop if sharing merely relocates costly precision modules or unsupported states.
+Defer more local bearing/head detail until a complete service advantage emerges.
+No print: guide/root calibration cannot yet decide between full architectures.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
