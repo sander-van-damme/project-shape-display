@@ -1,38 +1,38 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-173, input main 5bc2c23.
+Updated: 2026-10-11 UTC; E-174, input main 1c0a7aa.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: PROBE; spatial tooth addressing removed height-group writes, conditionally.
+Mode: LEARN → EXPLORE; finite indexing broke the retained-lane witness.
 
 Portfolio / uncertainty:
-- E-173 lane rack uses one transverse lane per height and a grounded Y dog.
-  Three scans; .5-s target word gives 22.919 s/B4 versus E-172 separate
-  contacts 23.247 s/B8, direct heads 19.469 s/B4. Two resident selectors remain.
-  Shared writer grant gives 328 bundles; split access needs 652, almost the
-  separate-contact control's 656. No complete cost/channel or machine pass.
-- Finite support survives explicit .05-mm bounds; .10 loses lane separation,
-  .125 gives wrong-tooth collision. +.41-mm misindex captures 10.1 mm too high.
-  .5-mm contact breadth, dog guide/moment reaction, indexing and bank arrest
-  are unqualified. Five lanes do not automatically extend to nine heights.
-- E-172 crossbolt stays parked: 20 scans / 19.723 s/B16; shared-Z 52.412 s.
-  Fewer selectors did not compensate for access/scan cost. Preserve topology.
-- E-098/E-099 separate pad/dog and direct heads remain conditional controls.
-  E-123/E-125 compact capture still fails; E-156 does not reject all screws.
-  E-148 field jaws / E-054/E-056 pawls remain distinct leads, not machines.
-- E-170 periodic pickup survives E-171 cam failure; no integral-cap repair.
-  E-164 aperture/E-165 laminate/E-166 shared comb remain other portfolios.
+- E-174 rejects clearance-peg indexing. Guide angular play permits spine contact,
+  but tilted normal contact can arrest earlier with granted lateral restraint.
+  An inserted peg allows .44-mm drift and captures one level / 10.1 mm too high.
+  A4 exact transmission reduces loss to .1125 mm; a clearance follower restores
+  .5763 mm. Amplification alone is not an implemented accurate output constraint.
+  Guide also blocks neighboring pickup underside writer. No complete access.
+- E-173 spatial lanes still remove height-group writes in ideal contact model.
+  .5-s word: 22.919 s/B4; +granted bank access 24.066 s/336 bundles.
+  Split access 652 versus separate control 656; neither a real writer nor price.
+  Two resident selectors, bank arrest and late-fault recovery remain unresolved.
+- Preloaded/keyed/remote constraints remain possible, with force/creep/access
+  obligations; do not reopen failed clearance shapes by nominal parameter tuning.
+- E-172 crossbolt stays parked (20 scans /19.723 s/B16; shared-Z 52.412 s).
+  E-098/E-099 separate contacts and direct heads remain conditional controls.
+- E-148 field jaws, E-164 aperture/E-165 laminate/E-166 shared comb and E-170
+  periodic pickup retain distinct principles. E-171 cam failure is embodiment-only.
+  E-123/E-125 compact capture remains failed; no complete family is qualified.
 
 Recent varied exploration / novelty:
-- Push-push sequence analogy: phase memory alone lacks independent targets.
-- Output-travel/countdown programming: duplicates E-089/E-090 retained trips.
-- Transpose time-separated teeth into spatial lanes: new local combination;
-  avoids E-097's moving tall staircase and E-098's serial dog release scans.
-- Patent search supplied push-push principle only, no novelty clearance.
-  Three varied moves, one new combination; no sharing-axis saturation claim.
+- E-173: push-push sequence analogy; output/countdown programming (duplicate);
+  spatial tooth lanes (new combination). Three varied moves; no saturation claim.
+- E-174 is depth/discrimination, not a fourth independent exploration attempt.
+  New evidence: contact-law-sensitive tilt, locked wrong-height state, output
+  backlash floor and cross-cell writer obstruction. Independent review absent.
 
-Next: finite grounded Y guidance, five-state retention and writer access;
-compare amplified/remote retention against narrow local detents, with cost/time.
-Stop if loaded lane/guide margins fail the .05 box or access restores control
-bank/channel burden. Preserve direct-head comparison and input-loss obligation.
-No crossbolt refinement, print or purchase; no hardware reliability claims.
+Next: contrast a finite preloaded/keyed retention escape with a materially
+changed support selector that eliminates narrow Y memory; first screen loads,
+retained accuracy and shared writer access against direct/separate controls.
+Stop on repeated clearance grants, lost local isolation or restored control burden.
+No print, purchase, whole-machine CAD or hardware reliability claim.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
