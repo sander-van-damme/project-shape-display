@@ -1,31 +1,32 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-140, input main 754bb3d.
+Updated: 2026-10-11 UTC; evidence: E-141, input main 22cb4ca.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → EXPLORE low-load energy sinks after a real supported-descent branch.
+Mode: SCREEN → PROBE whether an actual head can supply low-load arrest bounds.
 
 Portfolio / uncertainty:
-- E-140 Weston stack supports sliding lowering; b>h_plus gives useful force sign.
-- Both free shafts arrest nominally; 1-N/100-mm/s model drops ~2.28 mm.
-- No accepted outage drop; low load/inertia/friction corners reach stroke end.
-- Open stack catches too late at low load; nominal lowering never opens.
-- Failure-state reachability, ratchet reversal and capture geometry remain unbuilt.
-- Manufacturer motor-brake pairing is not proof of standalone impossibility.
-- E-129 released rollers lack controlled lowering; E-132 drag/screw controls remain.
-- E-139 lossless cam/dwell does not dissipate input energy; stop that refinement.
-- Shared brakes remove head inventory, not 6,400 supports or dense routing.
-- No process calibration, full-machine admission or hardware qualification.
+- E-141 spring brake has a conditional rigid-coordinate 100-mm/s envelope.
+- Minimum 12.8-N drag/full force by 2.671 ms bounds down/up to 6.711/1.439 mm.
+- Closure/restitution/force assumptions are unqualified; no accepted outage drop.
+- 300-mm/s adverse case exceeds 40 mm; slower response also loses stroke margin.
+- Tangential compliance/capture can rebound after rotor arrest; unmodelled so far.
+- Fluid closure stores elastic energy; finite leakage allows long-outage creep.
+- Governor limits speed, not rest; gearing adds inertia. Speed-only trip is late.
+- E-140 supports sliding descent but low-load/open-stack cases escape stroke.
+- E-132 drag and E-129 released rollers remain scoped negative controls.
+- E-127/128/132 capture fit and dense routing failures are not repaired by brakes.
+- 100-mm/s optimistic schedule still needs 121/229 heads (without/with return).
+- No process calibration, affordable complete channel, machine admission or hardware proof.
 
 Recent varied attempts / novelty:
-- E-138 spatial magnetic coupling; E-139 rest faces/walking beams/captive inversion.
-- E-140 hoist feedback adds grounded dissipation and a conditional descent branch.
-- Exact runaway, hybrid arrest and open-gap catch are new evidence, not inventions.
-- One load-brake source axis; no saturation claim or manufactured novelty count.
+- E-138 spatial magnetic coupling; E-139 captive cams; E-140 hoist feedback.
+- E-141 industrial spring timing, hydraulic shutoff, centrifugal trip/limiting sources.
+- New evidence: force-time/inertia envelope, fluid rebound/drift, low-load trip delay.
+- These are known principles/recombinations; no broad saturation claim.
 
-Next action: compare low-load head-scale energy sinks with explicit static retention.
-Spring-applied brake: extend E-128 closure to force-rise/inertia, not another gap audit.
-Fluid meter-out/closed valve and centrifugal governor are distinct search axes.
-Compare selection, motion, retention, load path and recovery against E-140/E-132.
-Stop branches needing a free return/lock, unroutable capture or unsupported timing.
-Keep new architectures conditional; no automatic print, purchase or staffing.
-01–08 and Paperclip remain authoritative.
+Next: finite closing mechanism + elastically coupled captured output.
+Compare axial spring closure against a mechanically returned release topology.
+Require actual spring/release energy, contact force rise, rebound and grounded reactions.
+Stop if fast response is only a prescribed ramp or capture routing remains impossible.
+Keep speed/position guards and joint head-cost/throughput bounds visible.
+No automatic print/purchase/staffing; 01–08 and Paperclip remain authoritative.
