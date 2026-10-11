@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-129, E-130, E-134, E-138, D-002, M-004]
+builds-on: [E-129, E-130, E-131, E-132, E-134, E-138, D-002, M-004]
 ---
 
 # Captive cam support leaves a backdrivable input; a dwell does not dissipate its energy

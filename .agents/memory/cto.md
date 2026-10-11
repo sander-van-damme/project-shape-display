@@ -1,6 +1,6 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-139, input main 7baed94.
+Updated: 2026-10-11 UTC; evidence: E-139, input main 7baed94.
 North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
 Mode: LEARN → PROBE load-responsive dissipation after positive-support search.
 
