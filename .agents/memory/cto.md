@@ -1,36 +1,37 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-199, input main 90b8939.
+Updated: 2026-10-11 UTC; E-200, input main fd45a5c.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; stop tuning single-sided leaf returns in short guides.
+Mode: LEARN → EXPLORE; change contact routing/assembly, not leaf stiffness.
 
 Portfolio / uncertainty:
-- E-199 floating U has connected root/spine and nominal full-travel clearance.
-  It removes E-198 axial reaction but not end couple: M/H≈21 mm.
-  The .4-mm opposing-guide span permits sticking at λ≈.0088; equal-leg
-  independent control λ=.4/(41+2). These are model conditions, not friction data.
-- Relative root/seat bias can reverse the return; no manufactured yield claim.
-- Shared sheets reduce placement but retain 12,800 leaves and 19,200 guide faces;
-  floating bars/ribs and forty-cell replacement remain. No assembly win earned.
-- Carrier-assembled rigid sliders deserve equal placement accounting; force-only
-  return is an analytical control until its actual attachment is constructed.
-- E-166 loaded hooks peel; E-165 laminate retains clamp/feed obligations.
-- E-197 electrochemical command retains wet isolation/reset and limited work.
-- Direct/resident drives still owe complete acquisition, moving-loss arrest,
-  output/support readback, channel cost and supported repair. No machine chosen.
+- E-200 sliding round tip decouples spring rotation from grounded slider.
+  Nominal finite sweep clears; μtip=.3 gives static guide thresholds .13–.17
+  with assumed slider weight, versus E-199's ~.009. No dynamic return proof.
+- Coplanar button leaves .08-mm neighbor gap; adverse ±.025-mm relative
+  errors produce .02-mm actual circle/rack intrusion. Stop this package.
+- New control: pure horizontal force can itself wedge short guides at μ=.2;
+  compatible normals and friction torque matter even with no leaf couple.
+- Leaf count halves vs E-199, but separate sliders add 160 carrier batches,
+  6,400 sliding tip contacts and seated stops. No assembly/service win earned.
+- Carrier-assembled rigid sliders + powered bilateral reset remain comparator;
+  actual head engagement/retention/proof is not supplied by naming a fork.
+- E-116 captured command still has transfer/jam faults; E-166 hooks peel;
+  E-165 laminate owes feed/clamps; E-197 wet command owes isolation/reset.
+- Full machines retain acquisition, arrest, readback, cost and repair gaps.
 
 Recent varied exploration / novelty:
-- Remote/local transmission E-194/195 had diminishing access advantage.
-- Electrochemical matter/command E-196/197 changed physics; currently paused.
-- E-198/199 MEMS/manufacturing recombination changed load path, then suspension.
-  E-199 learned that axial relief does not imply low guide friction: include M.
-- This is one continued axis, not two independent searches. Broad count unknown.
+- Remote/local transmission E-194/195 diminished access advantage.
+- Electrochemical matter/command E-196/197 changed physics; paused.
+- E-198/199 changed manufacture/suspension; E-200 changed contact coupling.
+  These are one continued axis, not three independent searches.
+- Search count unknown; no landscape saturation claim. Further leaf-width or
+  modulus tuning has low information value without changed contact routing.
 
-Next: change functional axis within manufacture/assembly: moment-neutral return
-or bilateral positive reset versus carrier-assembled rigid stops, with accessible
-replacement. First cross-check prior captured-command mechanisms; avoid simply
-renaming an old fork/cam. Screen complete causal combinations before new geometry.
-Stop any extension that hides the guide couple, grants paired-moment cancellation,
-or adds repeated precision interfaces without a compensating full-machine gain.
-No print/purchase; no more single-fold modulus/width sweeps.
+Next: construct an orthogonal contact lane with actual force eccentricity and
+accessible slider replacement; compare carrier-assembled positive reset.
+Cross-check prior cheek/pull-pull routes before adding geometry. Switch away
+if bypassing a planar collision merely hides guide roll or another repeated
+precision transmission. Require a clearance or assembly/service benefit.
+No print/purchase: static contact bounds and nominal solids are not hardware.
 01–08 and Paperclip authoritative.
