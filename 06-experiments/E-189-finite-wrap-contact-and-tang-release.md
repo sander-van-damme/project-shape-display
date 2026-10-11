@@ -123,6 +123,16 @@ necessary sliding-capacity condition. It is **not** an arrest or holding accepta
 E-140's need for a grounded dissipative rotor, and E-188's finite engagement/coast
 obligations, remain. A coasting drive clutch cannot serve as that ground path.
 
+To expose the consequence, **grant** instantaneous engagement and a grounded rotor
+maintaining the calculated initial torque throughout a stop. Reuse E-188's downward
+.3-m/s, 1-N gravity load and 1e−8-kg-m² shaft inertia through a 2-mm pinion. With
+`m_eff=1/9.81+J/r²`, `B=tau/r`, stopping distance is `m_eff v²/[2(B−1 N)]` when
+B>1 N. The .1 friction case has no finite stop in this imposed model; .125/.20 give
+**20.23/1.340 mm**. Brake heat equals initial kinetic energy plus gravitational work.
+These are conditional post-engagement calculations, not hardware outage bounds:
+return delay, rotor compliance, changing spring pressure and rebound are omitted.
+Merely crossing the static torque requirement leaves very little arrest margin.
+
 Apply ±.10-mm bounds independently to hub radius and natural inner radius, including
 coherent and opposing shifts. Keep nominal interference .05 mm; mu=.1:
 
@@ -164,7 +174,8 @@ No independent hardware/model validation is claimed.
 Discarded displacement-element models exposed two distinct numerical failures:
 linearized uncoiling introduced false strain, while reduced integration undercounted
 interpolant energy and fully integrated low-order fields locked. The latter gave
-false full clearance on coarse meshes. Their checkpointed source is archived in Git;
+false full clearance on coarse meshes. Their source is archived in checkpoint
+`87fe40b` (`contact.py` and `nonlinear.py` in the E-189 experiment workspace);
 the retained exact-arc formulation avoids those interpolation errors. Do not resurrect
 coarse clearance or force estimates from those trials as engineering evidence.
 

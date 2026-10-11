@@ -10,6 +10,18 @@ import numpy as np
 from rod import Coil, clean, sweep
 
 
+def arrest_bound(torque_Nmm):
+    """Imposed constant post-engagement capacity, grounded rotor, zero delay."""
+    load,pinion,speed,inertia=1.,.002,.3,1e-8
+    mass=load/9.81+inertia/pinion**2
+    brake=torque_Nmm*.001/pinion
+    if brake<=load:return dict(finite_stop=False)
+    distance=.5*mass*speed**2/(brake-load)
+    heat=brake*distance
+    assert abs(heat-(.5*mass*speed**2+load*distance))<1e-12
+    return dict(finite_stop=True,distance_mm=1000*distance,heat_mJ=1000*heat)
+
+
 def mechanics_checks():
     c=Coil(n=8)
     rng=np.random.default_rng(189)
@@ -50,6 +62,8 @@ def mechanics_checks():
     assert max(abs(sf['strain']))<1e-12 and max(abs(sf['shear']))<1e-12
     zero=Coil(n=60,mu=0).solve()
     assert zero['torque_Nmm']==0
+    assert not arrest_bound(2.)['finite_stop']
+    assert arrest_bound(6.)['finite_stop']
     return dict(gradient_error=gradient_error,pure_bending_energy_mJ=float(eu),
                 rigid_motion=True,zero_friction=True)
 
@@ -88,7 +102,8 @@ def friction_continuation():
             r=c.solve(start-intermediate)
         previous=q
         release.append(dict(q_mm=q,force_N=float(-r['reaction'][3*c.command+1]),**clean(r)))
-    return dict(initial=states,high_mu_release=release)
+    return dict(initial=states,high_mu_release=release,
+                imposed_arrest=[dict(mu=s['mu'],**arrest_bound(s['torque_Nmm'])) for s in states])
 
 
 if __name__=='__main__':
