@@ -32,21 +32,18 @@ adds a grounded interference friction ring to a drive shaft: it is a permanent-d
 control, not free retention. Sources accessed 2026-10-11; no prices/material parameters
 transferred. No legal conclusion or landscape-exhaustion claim.
 
-| Causal combination | Selection, energy, memory, load and recovery |
+| Combination | Causal machine and missing functions |
 |---|---|
-| Resident A/B walker, probed | Indexed H-channel writer operates two release keys and a signed short-stroke carrier key at a fixed datum. A is a grounded spring-closed opposed-pad grip; B is another grip on an axial slide with finite stops. Repeated B feed advances a plain guided column; A holds during B reset and after writer removal. Read actual height and grip/support response; keep writer until A holds, retry once, otherwise stop module. |
-| Shared bank carrier + retained local enables | Broadcast short axial cycles to B carriers; locally enable each grip sequence for the required number and sign of steps. A supports inactive columns. Removes long writer travel but needs 6,400 isolated carrier couplings or local B releases, retained step commands, actual readback, bank restraint and fault recovery. A live common motion cannot simply be connected to every closed B. Not constructed. |
-| Resident electrically driven walking feet | Per-cell normal/tangential actuators ground directly, alternately move/grip, and retain through preload. Removes travelling capture; repeats active material, drivers/addressing, preload and moving contacts at 6,400 sites. Read actual height; isolate failed channel while its grounded grip holds. No cost or fabrication route established. |
-| Integrated shaft drag | Reversible indexed torque writer drives resident screw/rack conversion against permanent grounded drag. Read height, prove holding before disengaging. Repeats rotor, drag fit and transmission; E-156 coast/heat and E-131 sliding controls already cover its liabilities. No new probe justified. |
-| Direct / field / aperture controls | Direct full-stroke heads retain capture plus resident supports. E-148 field sharing removes a release winding, not jaw/return/capture. E-164 canted plates repeat pivots/edge contacts and still need a supported writer. None receives a new pass. |
+| Indexed resident walker, probed | H writers operate two release keys and one axial carrier key at a fixed datum. Grounded spring-closed grip A holds during reset/parking; resident sliding grip B feeds. Read actual height/support before withdrawing; failed proof retains writer, retries once, then stops module. |
+| Shared carrier + local enables | Broadcast B strokes; independently sequence grips for each signed step count. Owes 6,400 isolated couplings or B releases, retained commands, readback, bank restraint and recovery. Unbuilt. |
+| Resident electrical feet | Per-cell normal/tangential actuators alternately grip/move and hold through preload. Removes travelling capture but repeats active material, drive/addressing and preload. Read height; isolate faults under grounded support. Unpriced. |
+| Integrated shaft drag | Indexed torque writer drives resident screw/rack against grounded drag. Repeats rotor, drag fit and transmission; E-156/E-131 already cover its coast/heat liabilities. |
+| Direct / field / aperture controls | Direct heads retain capture plus resident support. E-148 shares excitation, not jaw/return/capture; E-164 plates still need a writer. No new pass. |
 
-The useful changed axis is **nonresonant normal/tangential sequencing with explicit
-stationary overlap**, not a new friction law. E-150 coupled oscillating feet to a
-resonant head; E-139 had a free captive-cam input; E-164 was stationary retention.
-Here B remains resident at a fixed axial datum, avoiding acquisition at each old
-height, but is still a second moving support. No removed-function claim for that
-support. Neither search produced a new basic retention principle; broader function
-integration remains unsaturated. Existing documentation volume gives no preference.
+The changed axis is nonresonant sequencing with stationary overlap, versus E-150's
+resonant feet. B remains resident at a fixed datum, avoiding old-height acquisition,
+but is still a second moving support. Neither search produced a new basic retention
+principle; no broader saturation claim. E-139's free carrier problem still applies.
 
 ## Contact sequence and finite section
 
@@ -130,12 +127,10 @@ one step. A timely A closure changes this witness and must be demonstrated; ther
 is no invented allowable drop, universal rejection, or assumed stop strength.
 C≤W additionally loses static holding in this model.
 
-Separate conservative energy scenarios (not solved transients) combine output+
-carrier kinetic energy, gravity over one carrier stroke and a grounded axial
-spring's maximum stored energy: `.5*M*v²+(W+.001*g)*s+.5*K*(s/2)²` in SI.
-They make return/stop energy explicit; they do not prove arrest because pad slip,
-spring force, rebound, source inertia and remaining powered input are not bounded
-by a carrier travel limit. Avoid using the carrier bound as an output certificate.
+The source also reports assigned energy bounds combining kinetic energy, gravity
+through one stroke and a grounded axial spring's stored energy. These are not
+solved transients or arrest certificates; pad slip, rebound, source inertia and
+powered input remain outside those bounds.
 
 ## Board accounting and decision
 
@@ -174,27 +169,24 @@ at H=160 and minimum H=157. Its full-stroke capture, support and cost remain ope
 this is schedule comparison, not hardware selection. Strict 30-s equality is
 excluded with a numerical guard; 267 heads at 8 mm give exactly 30 s, not a pass.
 
-At 1-mm steps there are **512,000 loaded grip transfers/map** and 6,400 permanent
-A/B pairs: 12,800 grip/return functions, 25,600 pad surfaces, 6,400 B slide/stops,
-column guides and H three-coordinate writer interfaces. Normal opening commands
-owe up to the actual spring force/work: nominal elastic preload energy is 3.2 mJ
-per grip at 1 N, scaling to 32 mJ at the 10-N design. Return energy recovery is
-unbuilt. Springs may be shared in sheets but independent motion/grounding remains.
-Ten seconds per grip installation alone is 35.6 h; not measured assembly time.
-No print-time/yield estimate without full geometry. Bought inequality is
-`Cshared+H*chead+6400*ccell<500`; at $400 and $250 shared only $150 remains.
-No sourced BOM or affordability pass. Repeated friction/spring interfaces retain
-wear, creep, fatigue, anisotropy, interlayer, hole/first-layer and calibration risks.
-Common bias can defeat a bank; no fabricated distributions or lifetime claims.
+At 1-mm steps: **512,000 loaded transfers/map**, 12,800 grip/return functions,
+25,600 pad surfaces, 6,400 B slides/stops and column guides, plus H three-coordinate
+writer interfaces. Nominal elastic preload stores 3.2 mJ/grip at 1 N, 32 mJ at the
+10-N design; release-force/work and return-energy handling remain unbuilt. Shared
+sheets do not remove independent motion/grounding. Ten seconds/grip installation
+alone gives 35.6 h; no measured assembly, print-time or yield estimate.
 
-Unselected indexed cells keep A and B uncommanded. A shared moving B carrier with
-both grips closed instead forces strain/slip in the unchanged column, so bank
-sharing owes real isolation. Shared frame compliance still couples indexed cells.
-Actual top position and load-support proof are required, not writer position or
-step count. At per-transfer false acceptance p, expected missed transfers are
-512,000p at 1-mm steps without needing independence (51.2 for illustrative 1e−4);
-this is not predicted failures or a measured p. Common bias and abort/retry time
-are unqualified. Faulted supports require a real prop/service path.
+Bought bound: `Cshared+H*chead+6400*ccell<500`; at $400 with $250 shared only $150
+remains. No quoted BOM/pass. Common preload, warp, shrinkage, layer/first-layer and
+alignment errors affect grip and release. Friction, wear, creep, fatigue, orientation
+and interlayer strength remain uncalibrated; no distributions or lifetime claims.
+
+Unselected indexed cells keep both grips uncommanded. Moving a common B carrier
+while both grips remain closed forces strain/slip in unchanged columns: bank
+sharing owes real isolation. Frame disturbance is unqualified. Actual height and
+support proof, not step count, are needed. Illustrative missed-transfer expectation
+is 512,000p (51.2 at p=1e−4), without independence; this is not predicted failures
+or measured p. Common bias, abort/retry time and supported repair remain open.
 
 **Decision:** stop detailed indexed 1/2-mm walker development on this schedule;
 its retained contact advantage does not offset head count and transfer inventory.
@@ -204,14 +196,10 @@ an explicit bank-isolated enable/feed construction that reduces control count
 without reintroducing a separate pickup, or a materially better complete time/cost
 bound. Ordinary electrically driven piezo walking remains an unpriced reference.
 
-Next useful axis: **direct writing of resident mechanical state using shared
-spatial fields**, with local load path retained. Revisit source domains outside
-contact-drive refinements: magnetic reluctance routing versus E-138's rotating
-head and A-016's switches; ask whether passive spatial shielding can remove local
-release wiring while preserving arbitrary-map isolation. First bound field/force
-contrast and shield saturation including adjacent unselected states; stop if it
-only renames the existing crossed-field selector or hides 6,400 active gates.
-No broad landscape saturation or CEO boundary is asserted.
+Next: shared spatial-field writing with a resident grounded load path. Cross-check
+E-138/A-016/E-065; test passive reluctance routing/shielding for adjacent-state
+field/force contrast and saturation. Stop if it merely renames crossed-field
+selection or hides 6,400 active gates. No CEO boundary or fabrication request.
 
 Self-review: exact event minima versus 1k/4k/16k time-sample holdouts; zero-friction,
 load scaling and signed reach limits; analytic pad-envelope separation and positive
