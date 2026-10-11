@@ -1,33 +1,34 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-142, input main f5a9c31.
+Updated: 2026-10-11 UTC; evidence: E-143, input main c7bbb97.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → SCREEN shared release downstream of drive elasticity.
+Mode: LEARN → SCREEN local return independent of shared-release command.
 
 Portfolio / uncertainty:
-- E-142 derives coil/plate/contact response, replacing E-141's assigned force ramp.
-- Contact at .622/1.700 ms is followed by rebound; 95% force takes 3.059/83.084 ms.
-- Rotor arrest is not output retention: soft loaded output crosses 12-mm clearance.
-- K=1,000/10,000 N/m improves the sampled envelope; actual stiffness unqualified.
-- One apparently stopped case fails future no-slip proof; no allowable outage drop.
-- Sliding-cam return stalls at adverse friction; stronger spring/roller is a new case.
-- Adafruit 412 per-head release costs $726/$1,374 alone for 121/229 heads: stop it.
-- Custom coil remains unpriced; 6.82-W holding/head adds a serious common supply burden.
-- E-132 permanent drag, E-140 load feedback, E-141 fluid/speed-only failures remain.
-- E-142 retained eye has adverse docking overlap; E-132 dense collision remains.
-- 6,400 parked supports/returns, independently driven heads and proof still count.
-- No hardware proof, affordable complete channel, or machine admission.
+- E-143: terminal clamp must be beyond capture, not just drive elasticity (E-142).
+- Direct clamp loses disc leverage: 8 heads need ≥3.072 J at adverse preload/gap.
+- Unilateral lifters/slack branches isolate one jam (7/8 close), not common jam (0/8).
+- Pressure-to-open jaws change release medium; sole common exhaust still fails.
+- Bar fit ranking changes with coherent E/warp bounds; no calibrated PLA prior.
+- 121 $1.56 motors leave <$61.24 after $250 reserve for ALL other head/cell parts.
+- That motor's rated .308–.616 W cannot supply 10 N × .1 m/s before losses.
+- These are embodiment/scenario failures, not market-wide exclusions.
+- E-132 dense elbow collision and E-142 distal elastic escape remain unrepaired.
+- 6,400 parked supports/returns, independent drives and actual output proof count.
+- E-132 permanent drag, E-140 feedback, E-141 fluid/speed-only holds remain controls.
+- No finite closure survivor, dense route, affordable complete channel or hardware proof.
 
 Recent varied attempts / novelty:
-- E-138 spatial magnetic coupling; E-139 captive cams; E-140 hoist feedback.
-- E-141 industrial spring, fluid closure and governor sources; E-142 finite return.
-- New discrimination: normal rebound, cam self-locking, downstream elastic escape.
-- Shared downstream clamp is a recombination hypothesis, not demonstrated novelty.
-- No landscape saturation claim; isolated annulus tuning now has low decision value.
+- E-138 spatial magnetic; E-139 captive cams; E-140 hoist feedback.
+- E-141 energy sinks; E-142 finite normal response and distal escape.
+- E-143 rigid/unilateral/tendon/pressure releases: local versus common fault distinction.
+- These are recombinations, not demonstrated new operating principles.
+- No landscape saturation claim; more single-return bar tuning has low value.
 
-Next: common spring-return release crossbar with independently moving head rods.
-Place clamps downstream of elastic drives; retain separate drives/parked supports.
-Screen summed release work, bending/warp, jam propagation and actual routing first.
-Compare per-head coils/permanent drag; joint purchased cost must include all channels.
-Stop if one stuck-open member defeats returns, routing fails, or inventory disappears.
-No automatic print/purchase/staffing; 01–08 and Paperclip remain authoritative.
+Next: local return despite a held-open common command.
+Compare run-off pickup versus pressure release with local continuous bleed/no accumulator.
+Screen sustained dwell/rearm, local inventory, pump coast, stored pressure and bleed power.
+E-109 valve spring failure is a control; do not claim fluid is the load support.
+Stop if only an individually powered release or trapped return path makes it work.
+Then require dense terminal route and joint channel budget before transient contact work.
+No print/purchase/staffing; 01–08 and Paperclip remain authoritative.
