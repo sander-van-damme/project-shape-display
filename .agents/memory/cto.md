@@ -1,35 +1,34 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-163, input main 90ac217.
+Updated: 2026-10-11 UTC; E-164, input main 707f9eb.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: SCREEN → LEARN; direct support amplification has a clearance/friction boundary.
+Mode: LEARN → EXPLORE; captured support geometry changes the amplification law.
 
 Portfolio / uncertainty:
-- E-163 canted aperture removes the loaded steering bearing, but the declared
-  within-cell release-clearance box fails holding at mu=.1/.2 even with a generous
-  lateral-reaction relaxation. No full toe/return/capture geometry exists.
-- Captured lateral abutment at mu=.4 or longer 5.2–7.2-mm support lever at mu=.2
-  changes the bound; both owe packing, support continuity and edge stress.
-- Stationary capstan needs a retained tail and penalizes tail-driven raising;
-  free-tail memory stopped. This does not reopen E-121's collided/slack routes.
-- E-148 direct returned jaw and positive seats remain simple controls.
-- A-019 distributed laminate remains distinct; braid E-160/granular E-159 paused.
-- E-162 weak swivel stalls aligned; stronger return still needs ~9-mm arrest
-  and reversed eccentricity loses supported equilibrium. Pause roller detail.
+- E-164 fixed pivot translates the aperture: one edge seats first; mu scales
+  roughly sqrt(clearance/lever), not 1/lever. Weak-hold mu=.2 needs b=32.42 mm.
+- Straight arm hits six tails; finite y-bypass clears tails but tested opposed
+  tier envelopes cost ~128 mm depth plus 12,800 bearings/returns. Pause embodiment.
+- E-163 centered/captured reaction remains an optimistic bound, not disproved;
+  floating supports need their own contact/kinematic construction to reopen.
+- A-019 distributed laminate is distinct but owes independent clamp/assembly;
+  E-148 broad jaw and positive seats remain controls, not selected machines.
+- E-162 roller swivel, E-160 braid and E-159 granular work paused.
+- Free-tail capstan stopped; retained-tail version owes reversal/routing costs.
 - E-133 internal exchange, E-139 free cam and E-151 common-tie failures stand.
 
 Recent varied exploration / novelty:
-- Deployable zipper/origami source search returned existing E-126/E-133 principles.
-- Telescopic tool/furniture locks yielded direct canted-aperture amplification,
-  distinct from the roller thrust washer. Repeated precision is still unresolved.
-- Rope-belay recombination yielded stationary capstan + tail keeper, not a new law.
-- No global saturation; only one of these searches produced a new direct support
-  topology worth a finite geometry question. Counts are local, not landscape totals.
+- Zipper/origami search returned E-126/E-133's deployed-column/feed distinction.
+- Telescopic locks yielded direct canted apertures; E-164 adds finite support
+  discrimination, not a new search attempt or new architectural principle.
+- Belay recombination yielded stationary capstan + keeper, not a new law.
+- No global saturation. Return to function/inventory integration rather than
+  further friction/lever sweeps on this now-expensive bearing topology.
 
-Next: construct the missing finite captured abutment/tier arrangement, if its ground
-reaction can coexist with release clearance; compare broad-area jaw/laminate contact.
-Stop on unsupported transfer, neighbor conflict, or no repeated-inventory advantage.
-Do not substitute another tolerance/friction sweep for that topology question.
-Broader search stays open if this discriminator offers little value.
-No fabrication/procurement; preserve preparation, proof and recovery in full costs.
+Next: shared-sheet local clamping: can slotted laminate arrays avoid individual
+leaf assembly while retaining independent 40-mm runners and unchanged neighbors?
+Construct finite leaf/slot overlap and release states; compare jaw/positive seat.
+Stop on unavoidable shared displacement, lost overlap or no assembly advantage.
+Use broader discovery if this duplicates an existing failure; no fabrication yet.
+No complete writer, release/return or verification path is earned by E-164 packing.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
