@@ -1,38 +1,37 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-169, input main 7ef15a1.
+Updated: 2026-10-11 UTC; E-170, input main 6f6b8ee.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → change axis to shared powered motion with independent seating.
+Mode: LEARN → PROBE selected rotary-to-axial support transfer.
 
 Portfolio / uncertainty:
-- E-169 wide bayonet lug (4.3×2.4, r=1.48, cap 4.6) restores 1.702-mm²
-  adverse bearing area; 5.875-MPa mean at assumed 10 N is not a strength pass.
-- Reciprocal hazard: rotating upper lug hits unchanged cap. Include guide tilt;
-  centered-neighbor witness fails. Retained directional envelope margin .0367.
-- Ideal flat foundation gives 60.06-MPa peak at q=1 mm; cap-edge load needs
-  guide moment. Loaded root/guide/frame and real pressure remain unresolved.
-- E-168 stiff-lug upper bound for this radius: 5.616/11.233/16.849 N at
-  E=1/2/3 GPa. No qualified PLA modulus, strength or manufactured reach.
-- Column-as-lock removes separate pawls/returns but owes angular pockets,
-  lower guides, 72-mm stems and rotary-linear service; 229–267-head scenarios.
-  4.6 caps cover 82% of plane; no cap utility or total-cost advantage established.
-- E-166 fixed comb removes placements, not repeated springs/hooks; thick hook
-  conditional after thin-hook peel / fixed-rear-stop release failures.
-- E-165 laminate feed/clamps; E-164 aperture bypass/bearings remain open.
-- E-148 broad jaw, E-054/E-056 side-wing pawl and screw remain controls.
-  E-162 roller, E-160 braid, E-159 granular/free-tail capstan paused.
+- E-170 periodic lugs acquire different old heights at one shared datum;
+  angular state could replace a separate pickup slider. No machine survivor.
+- Orthogonal moving gate's initial bearing footprint coincides with fixed
+  pocket walls: retaining pocket blocks every nominal coplanar pickup pose.
+- Pocket removal loses retention. At e=.05/c=.025, actual tilted cap collides
+  at 5.624° before adverse pickup at 8.567°. Corner-only area sampling misleads.
+- Close moving/fixed plates intersect. Full 40-mm stroke needs ≥50-mm home
+  spacing on this 10-mm lattice: ten lugs/cell, 64,000/board; guide relocation.
+- Granted repaired transfer needs 640 rotary channels at .1-s slot for
+  22.937-s allocation; <$0.391/channel at $250 elsewhere/free bought cells.
+  Not earned timing, cost, readback, load or isolation performance.
+- E-169 wide lug restores 1.702-mm² adverse seated bearing; guide/root load,
+  tilted-neighbor clearance and E-168 stability remain conditional.
+- E-166 backed comb retains repeated hooks; E-165 laminate feed/clamps and
+  E-164 aperture bearing remain open. E-148 jaw, E-054/E-056 pawl, screw controls.
+- E-099 serial deck partition and E-156 fast belt-screw remain scoped failures.
 
 Recent varied exploration / novelty:
-- Sheet connectivity → removable carriers; snap-hook comb → load-induced peel.
-- Orthogonal backing recreated side wings; quarter-turn analogy moved lock
-  into column; interlevel path inversion escaped swivel.
-- E-168/E-169 are within-family discriminators, not new mechanism families.
+- Sheet connectivity → carriers; backed comb → duplicated side-wing support;
+  column-as-lock → interlevel cap path; periodic pickup → no old-height scans.
+- E-170 changes energy/selection interface; not a new quarter-turn principle.
 - No global saturation; genuinely independent recent search count unknown.
 
-Next: shared powered motion + independent positive seating, compare rotary
-column and nonrotating pawl combinations. Construct selector/load-transfer path,
-count repeated clutches/channels and complete-map timing; include half-selection.
-Stop if sharing merely relocates costly precision modules or unsupported states.
-Defer more local bearing/head detail until a complete service advantage emerges.
-No print: guide/root calibration cannot yet decide between full architectures.
+Next: finite grounded rotary cam providing selected short lift and reseat
+before cap collision. Bound torque/friction/contact in both signs, unchanged
+neighbor and common power loss. Compare nonrotating periodic pickup/control.
+Stop if it needs an uncounted axial channel or merely restores independent heads.
+Do not optimize plate spacing or repeat pocket angular sampling; failures proved.
+No print: support-transfer geometry can still discriminate computationally.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
