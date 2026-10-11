@@ -1,33 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence E-161, input main 6792a3e.
-North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → PROBE; crossed rolling contacts change parked constraint rank.
+Updated: 2026-10-11 UTC; E-162, input main 43c2a5a.
+North star: affordable complete ~6,400-column machines; none selected.
+Mode: LEARN → EXPLORE; finite crossed-roller probe reached its stop condition.
 
 Portfolio / uncertainty:
-- E-161 zero-pitch rolling leaves rotor energy and drift from angular bias: stopped.
-- Crossed +20°/−20° rollers block height and rotation only with grounded swivels.
-- Matched angles permit writing; unequal angles require slip during writing/return.
-- Near-aligned static capture needs divergent traction: no instantaneous catch pass.
-- A finite, dissipative skew return is an unresolved topology lead, not a machine.
-- Small contact-motion offsets can overwhelm the illustrative torsion return.
-- Counterweight/spring force balance does not provide height memory; shared mass
-  leaves neighbor exchange. Keep only as energy-assist controls.
+- E-162 weak plain-thrust swivel stalls aligned, including zero-load coasting.
+- Stronger return crosses alignment without more preload, but nominal 10-N
+  arrest consumes ~9 mm; timestep sensitivity ~8.61–10.22 mm remains explicit.
+- Reversed .2-mm eccentricity has no supported return equilibrium on the
+  tested angle grid; stronger spring alone is not a robust embodiment.
+- Thrust bypass / explicit preloaded stop could change that load path, but no
+  complete packing, recovery, cost or print qualification exists. Pause detail.
+- E-148 direct returned jaw remains the simpler comparison, not a chosen design.
+- A-019 laminate remains distinct; braid E-160 and granular E-159 stay paused.
+- Zero-pitch and counterbalance-as-memory E-161 remain stopped.
 - E-133 internal exchange, E-139 free cam and E-151 common-tie failures stand.
-- E-148 returned jaw and A-019 laminate remain controls, not qualified winners.
-- Braid geometry/return E-160 and granular reset E-159 remain paused.
 
 Recent varied exploration / novelty:
 - Wire-winding rolling-ring transmission: variable constraint direction.
-- Robotics balanced compliance: energy store, no independent memory.
-- Recombination: two unequal rolling constraints give parked rank two;
-  revealing the swivel DOF exposes missing reaction/return geometry.
-- No saturation claim; changed topology merits one finite discriminator.
+- Robotics balanced compliance: energy assistance, not independent memory.
+- Recombination: crossed rolling directions alter parked constraint rank.
+- E-162 is a finite discriminator, not another independent search attempt.
+- Actual sphere geometry distinguishes signed traction torque from even-in-offset
+  preload torque; bearing reaction can defeat a nominal return spring.
+- No global search-saturation claim; last session did not perform broad discovery.
 
-Next: construct grounded fixed/returned roller pair, shaft/thrust guide, preload,
-actual swivel/contact path and unchanged neighbor. Simulate signed writing and
-0/.02/1/10-N input cuts with friction, rotor energy and return moments explicit.
-Stop on missing return equilibrium, lost traction, inaccessible recovery or local
-brake; compare with returned jaw and abandon if steering only adds complexity.
-No printing or sourced machine BOM before that discriminator.
-01–08/Paperclip authoritative; compass is not evidence or task history.
+Next: reopen architectural search for selection/support arrangements that avoid
+loaded steering thrust interfaces. Cross-check repository before naming novelty;
+compare changed load paths with direct jaws/positive seats and a distinct family.
+Favor a new causal combination over another torque/tolerance sweep. A rolling
+reopening must escape E-162 equilibrium failure and earn repeated-precision value.
+No fabrication or procurement; keep preparation, proof and recovery in full costs.
+01–08/Paperclip authoritative; this compass is not engineering evidence.
