@@ -1,34 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-206 yaw seat, input main 01061a7.
+Updated: 2026-10-11 UTC; E-207 keyed thick toe, input main 7183367.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: applied PROBE → LEARN; retain shared manufacture, separate load/return.
+Mode: applied PROBE → LEARN; retention and release geometry now discriminate.
 
 Portfolio / uncertainty:
-- E-206 rounded yaw heel clears E-166's rear stop without an axle/slider.
-  Actual upper lip catches broad torsion returns; narrow .4-mm return also
-  collides under opposed .05-mm bank offsets. Flat seat fit is unqualified.
-- Short uniform sheet has incompatible toe/return thickness at 10 N under
-  explicit generous elastic ceilings; not a product load requirement.
-  Lower loads or longer ribbons can escape. Best 65° case needs ~20–22 mm.
-- E-166 thin unbacked hook fails by peel/runoff; shared comb assembly remains
-  useful. E-054/E-056 grounded side-wing slider is the contact/burden control.
+- E-207 monolithic thick toe/thin bending comb removes uniform stock conflict
+  and separate toe joints. Grounded side ledges support an inset pad nominally.
+  Positive keys block rearward bending release in all 16 bounded bank cases;
+  keyless path clears but forfeits positive withdrawal restraint.
+- Nominal C-jaw takeover exists geometrically; 10-N planar service can require
+  40/30-N opposing jaw forces. Fit, strength, full motion and recovery unbuilt.
+- E-206 rounded yaw heel clears E-166 rear stop, but return/lip collision and
+  short uniform-stock conflict remain. Longer favorable torsion needs ~20–22 mm;
+  not prohibited, but controlled seat fit and positive yaw restraint are owed.
+- E-166 thin unbacked hook fails by peel/runoff; shared comb manufacture remains
+  useful. E-054/E-056 grounded side-wing slider is the support/burden comparator.
 - E-205 adaptive jaws clear acquisition; long blades lose support under
-  1-N/2° force bounds. Zero-loss preload/lower loads can change disposition.
-  Common gate still needs 40 held sliders for one change; rack head unbuilt.
+  1-N/2° bounds. Zero-loss preload/lower loads change scope; rack head unbuilt.
 - E-205 local crossbolt adds 6,400 guide/latch units and failed clearances.
-- E-204 fixed-open U support loss and bottom-prop/base collision remain valid.
+  E-204 fixed-open U and bottom prop failures remain scoped to their geometry.
 - E-165 laminate and E-197 wet command remain alternative leads, inactive.
 
 Recent progress / search coverage:
-- New combination: shared torsion return + rounded grounded yaw seat.
-  Finite bodies expose a new lip collision; coupled stock screen exposes
-  bending/twist conflict. PDE holdout checks the torsion series numerically.
-- No new fundamental principle or landscape saturation claimed; count unknown.
+- E-207 changed toe/return section plus explicit collar removes inserted joints;
+  shallow keyed ledges reveal lift/withdrawal conflict, not thickness conflict.
+- E-206 found yaw bypass and lip/stock limits; neither result selects a machine.
+- No new fundamental principle or broad saturation claimed; count unknown.
 
-Next: separate rigid service toe and bending return; construct/count attachment,
-supported reseating and grounded contacts before promising an assembly saving.
-Stop if it adds a second guide/pivot or merely recreates the side-wing slider.
-Longer torsion return remains conditional alternative, with lip/seat work owed.
-No more dock/access tuning before normal supported transfer. No print for clashes.
+Next: change seat release trajectory/retention: rocking support or localized
+curved flexure with initial lift before withdrawal, with actual tool input.
+Compare against longer torsion; stop if it just adds another guided channel.
+Reopen E-207 only with changed trajectory, key geometry or explicit extra input.
+Do not tune dock/recovery before normal release/reseating; no print for clashes.
 01–08 and Paperclip authoritative; analytical acceptance is not hardware proof.
