@@ -1,38 +1,39 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-179, input main 76b98d8.
+Updated: 2026-10-11 UTC; E-180, input main d9367eb.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN; shared output silhouettes do not remove actual-state proof.
+Mode: LEARN → EXPLORE; stop elaborating pickup proof without function removal.
 
 Portfolio / uncertainty:
-- E-179: E-178 mirror collides with E-173 spine. Relocated seam/pad mirrors
-  have individual center-ray access, but tested lower strip blocks upper view.
-- A <.04-mm pad-edge variation makes active/clear pinhole silhouettes identical.
-  Row fiducials cannot fix local shape ambiguity. A second view breaks this
-  witness, but finite access/contrast/price and force proof remain unbuilt.
-- Common fiducials at 25.4-mm spacing conditionally bound registration <.2 mm
-  under stated curvature/local-error box; no measured process capability.
-- E-178 height codes remain conditional and cannot prove support/pickup clear.
-  Stopped scan 9.403 s; granted dual-slot scan 11.023 s. No free 320-setter cut.
-- E-177 cam keeper stopped by shoe/friction/access/rail issues. E-175 V-key and
-  stops collide; E-174 loose peg drifts; E-173 grounded lane index is unsolved.
-- E-176 home broadcast safe-state reset remains a reusable conditional function;
-  B4 scanned 21.494 s vs direct 19.469. Bank proof can worsen local updates.
-- Direct B4/separate B8 remain controls with capture/arrest/support/bought-cost
-  gaps. E-148 jaws, E-164/165 laminate, E-166 comb remain distinct leads.
+- E-180 underside local rays escape the E-179 depth alias; stereo is not
+  intrinsically necessary. Shared direct pose blocks 19/20 cells; 4-camera
+  serial scan floor is 40.615 s. Local housing/deck access remains unbuilt.
+- Broad reusable probe covers rigid pickup clearance at the .05-mm edge box;
+  narrow probe misses partial overlap. Missing finger aliases shared endpoint.
+  Slender finger force budget is small; no constructed travel inhibitor.
+- Perfect home-clear proof does not prove the next armed mask. No setter,
+  ground-support, retention or bank-arrest function was removed by E-180.
+- E-179 one-view silhouettes alias under <.04-mm shape variation; stacked
+  mirror paths conflict. Fiducials remove smooth registration, not local shape.
+- E-177 keeper, E-175 keys/stops and E-174 peg are stopped embodiments;
+  E-173 lane support retains unresolved index and narrow bearing problems.
+- E-176 broadcast reset remains conditional; scanned B4 21.494 s vs direct
+  19.469 s, and whole-bank proof can worsen local updates.
+- Direct B4/separate B8 are controls with capture/arrest/cost gaps. E-148
+  field jaw, E-164/165 aperture laminate and E-166 comb remain distinct leads.
 
 Recent varied exploration / novelty:
-- E-176 safe-state broadcast changes the control function; E-177 probes it.
-- E-178 encoder scales + shared document scanning change sensing route.
-- E-179 adds finite packaging synthesis and a perspective/shape alias, not a
-  new actuator principle. Fiducial interpolation controls smooth error only.
-- Shared one-view output axis now has specific negative evidence; no claim
-  that broader optical or complete-architecture search is saturated.
+- E-176: broadcast a safe state; E-178: encoder/document-scanner analogies.
+- E-179: finite shared-view geometry and perspective/shape ambiguity.
+- E-180: rotate observation into motion plane; occupy forbidden pickup space.
+  New verification bounds, no new actuator principle or complete-machine gain.
+- This verification branch has diminishing value; broader search is not
+  saturated. No count of independent full-architecture searches asserted.
 
-Next: compare writer-carried two-view actual-output sensing against mechanical
-travel inhibition by an uncleared pickup. Construct access or causal inhibition,
-not another flag. Must avoid 6,400 new precision relays and preserve load support.
-Stop sensing elaboration if it removes no repeated function; then broaden the
-architecture axis. Do not resume another local lane keeper/mirror-angle sweep.
-Bank arrest, false acceptance and complete cost remain open. No print/purchase.
-01–08/Paperclip authoritative; this compass is not engineering evidence.
+Next: broaden functional merger/removal of temporary pickup and permanent
+retention. Compare complete direct, field-release and laminate load/addressing
+paths; cross-check prior screw/field/aperture failures before modelling a lead.
+Seek an explicit removed repeated function, with signed motion, lost-input load
+support and local isolation. Stop duplicate latch/reader refinements; change
+physical domain or addressing representation if these combinations add no route.
+No print/purchase; no fixed fabrication gate. 01–08/Paperclip authoritative.
