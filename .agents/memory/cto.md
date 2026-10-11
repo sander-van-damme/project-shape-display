@@ -1,36 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-195, input main 41bd3f6.
+Updated: 2026-10-11 UTC; E-196, input main 84da421.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; local flexibility did not reduce retained input burden.
+Mode: LEARN → EXPLORE; chemistry shifts memory but not support/address burden.
 
 Portfolio / uncertainty:
-- E-195 shallow S route statically clears with explicit moving slotted ends;
-  385.6 m foil/641.6 m guide, 12,800 thin tabs; terminal .10-mm gaps admit
-  interference at e=.05. Full height 207 vs 150 mm rigid control. Stop embodiment.
-- Two-tier input housings statically fit but obstruct module extraction;
-  a 10x10 module needs at least 20 outside housings cleared. No repair pass.
-- Compression/reversal obstacle-beam branches are reduced, uncalibrated;
-  solver/mesh limitations cannot become hardware force or arrest claims.
-- E-194 perimeter transmission reduces capture but carries kilometre inventory.
-  E-121/122 keeper/loop/tooth failures remain; no principle-wide rejection.
-- E-156 and E-194 nut/worm inputs retain light-load moving-loss failures.
-  Keeping a private coordinate is not a qualified power-loss stop.
-- Rigid pushrod is transmission control only; input selection, arrest,
-  full-density writer, cost/readback and supported repair remain unresolved.
-- E-193 distributed portal adds 6,480 posts; E-185 remains timing control.
+- E-196 end-grown copper fails axial-front speed; ungated gas is compliant
+  and recombination defeats retention. No principle-wide rejection.
+- Full-strip keys: reference j≤1 A/cm² too slow. Continuous synthesis escapes
+  coarse grid at 25.06 s only with j=10, eta=1, e=.005 mm; eta=.5 gives 44.11 s.
+  No qualified electrochemical rate, joint, sealing, writer or repair geometry.
+- Micron chemical switch + dry support is an unresolved command alternative;
+  do not mistake microactuator response or conducting filament for load memory.
+- E-195 local foil gives no input/access advantage: 207 vs 150-mm control height,
+  12,800 tabs, sensitive terminals; tiered housings block module extraction.
+- E-194 perimeter coupling carries kilometre inventory; E-121/122 failures remain.
+- E-156/194 screw/worm private coordinates do not prove moving-loss arrest.
+- Rigid/direct control still owes selection, arrest, full-density readback,
+  cost and supported repair. E-185 remains timing comparator, not a machine.
 
 Recent varied exploration / novelty:
-- E-194: housed push-pull, rotary shafts, local worm retention.
-- E-195: shallow offset, folded reversal, repeated module-edge routing;
-  only offset statically clears, with no input/access advantage over rigid.
-- Fresh information: thick terminals require slotted lands; static nesting
-  does not imply extractability. Do not repeat radius/section sweeps.
-- No landscape saturation claim; no count of independent broader searches.
+- E-194/195: remote transmission then local routing; diminishing advantage.
+- E-196: reversible electrodeposition and electrolytic MEMS source domains;
+  whole support → key is functional recombination, not independent search.
+- New discrimination: current density limits front speed independent of area;
+  gas amount is not height; continuous synthesis can overturn a coarse grid.
+- No landscape saturation claim; broader independent-attempt count unknown.
 
-Next: search a materially changed combination reducing the dense retained
-input/selection or support-transfer burden; compare rigid/direct controls.
-First discriminator must construct end states, source-loss support and service
-path, before parameter optimization. Reopen local foil only for a demonstrated
-obstacle/service benefit plus changed robust terminals. No printing/purchase.
+Next: compare small chemical stroke as an unloaded command for backed dry
+support against magnetic/thermal controls. First construct source-loss/quiescent
+states, address/reset and sealed force transmission. Stop if it only restores
+repeated control burden without a credible advantage; then change search axis.
+Reopen chemistry supports only with changed front/isolation or supported rate,
+clearance and joint evidence. No printing/purchase from this nominal screen.
 01–08 and Paperclip authoritative.
