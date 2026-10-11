@@ -54,6 +54,100 @@ def copper_roundtrip(thickness_um, current_a_cm2, efficiency=1):
     return 2*(thickness_um/1000)*100*27.208906/(efficiency*current_a_cm2)
 
 
+def strain_command(length_mm, area_mm2, modulus_n_mm2, strain, stroke_mm,
+                   preload_n=.02, spring_n_mm=.1):
+    """Ideal linear axial eigenstrain stroke through lossless constant-ratio lever.
+    Strain is an imposed state, not a constitutive/transport prediction. No package,
+    membrane, friction, bond or return penalty. Optimizing ratio favors the concept.
+    """
+    volume = length_mm*area_mm2
+    free = strain*length_mm
+    ratio = 2*stroke_mm/free
+    force = modulus_n_mm2*volume*strain**2/(4*stroke_mm)
+    demand = preload_n + spring_n_mm*stroke_mm
+    work = preload_n*stroke_mm + spring_n_mm*stroke_mm**2/2
+    return {'volume_mm3':volume, 'free_stroke_mm':free, 'optimal_ratio':ratio,
+            'max_endpoint_force_N':force, 'endpoint_demand_N':demand,
+            'stroke_energy_uJ':.5*modulus_n_mm2*volume*strain**2*1000,
+            'load_work_uJ':work*1000,
+            'minimum_fixed_ratio_volume_mm3':4*demand*stroke_mm/(modulus_n_mm2*strain**2),
+            'minimum_energy_volume_mm3':2*work/(modulus_n_mm2*strain**2)}
+
+
+def map_time(banks, set_s, reset_s):
+    """Same captured direct-head schedule for every command; no hidden overlap."""
+    rows = math.ceil(80/banks)
+    return (6+(rows+1)*(set_s+.52+reset_s+.04)
+            +rows*move_time(5.08)+move_time((rows-1)*5.08))
+
+
+def strain_and_control_checks():
+    # Independently sample physical load lines and integrate available work.
+    z = strain_command(20,.06,500,.002,.2)
+    assert math.isclose(z['max_endpoint_force_N'],.003)
+    assert math.isclose(z['minimum_fixed_ratio_volume_mm3'],16)
+    assert math.isclose(z['minimum_energy_volume_mm3'],6)
+    errors = []
+    for n in [32,128,512]:
+        # Deliberately exclude exact optimum from grid; observe convergence.
+        ratios = [z['optimal_ratio']*(.25+2*i/n) for i in range(n+1)]
+        # A small shifted grid avoids landing exactly on stationary point.
+        ratios = [m+z['optimal_ratio']*.37/n for m in ratios]
+        forces = [500*.06*(.002-.2/(m*20))/m for m in ratios]
+        errors.append(z['max_endpoint_force_N']-max(forces))
+    assert errors[0] > errors[1] > errors[2] > 0
+    # Trapezoidal integration is exact for a linear force line.
+    x0, stiffness = .002*20, 500*.06/20
+    work_nmm = sum((stiffness*(x0-i*x0/100)+stiffness*(x0-(i+1)*x0/100))
+                   /2*x0/100 for i in range(100))
+    assert math.isclose(work_nmm*1000,z['stroke_energy_uJ'])
+    # Optimal fixed-ratio force decreases with stroke while spring force increases:
+    # endpoint acceptance establishes the entire ideal loading path, not reset.
+    m = z['optimal_ratio']
+    for i in range(101):
+        x = .2*i/100
+        assert 500*.8*(.002-x/(m*20))/m >= .02+.1*x-1e-14
+    assert map_time(4,0,0) < 30 < map_time(4,copper_roundtrip(1,10),0)
+    return {'lever_grid_force_errors_N':errors, 'linear_work_integral_uJ':work_nmm*1000}
+
+
+def strain_and_controls():
+    out = {'checks':strain_and_control_checks()}
+    out['strain_reference'] = [dict(strain=e, stroke_mm=x,
+         **strain_command(20,.06,500,e,x,f))
+         for e,x,f in [(.002,.2,.02),(.02,.2,.02),(.002,.025,.005)]]
+    # All are labelled alternative bounds, not fitted priors or IID yield.
+    # Effective stroke includes mounting/lost motion; common material/film bias
+    # may move every site together. Optimizing every corner grants calibration.
+    corners = [dict(E_N_mm2=E, strain=e, effective_stroke_mm=x,
+                     **strain_command(20,.06*a,E,e,x))
+               for E,e,x,a in itertools.product([250,1000],[.0015,.0025],
+                                                [.15,.25],[.8,1.2])]
+    out['strain_16_bound_corners'] = {
+        'cases':len(corners),
+        'endpoint_passes':sum(z['max_endpoint_force_N']>=z['endpoint_demand_N'] for z in corners),
+        'max_endpoint_force_range_N':[min(z['max_endpoint_force_N'] for z in corners),
+                                      max(z['max_endpoint_force_N'] for z in corners)],
+        'required_fixed_ratio_volume_range_mm3':[min(z['minimum_fixed_ratio_volume_mm3'] for z in corners),
+                                                max(z['minimum_fixed_ratio_volume_mm3'] for z in corners)]}
+    out['strain_charge_scenarios'] = [dict(q_C_mm3=q, volume_mm3=v,
+          one_stroke_charge_C=q*v, current_50ms_A=q*v/.05,
+          board_set_erase_charge_C=2*6400*q*v)
+          for q,v in itertools.product([.002,.02,.2],[1.2,16])]
+    commands = [('ideal_dry_zero_delay',0,0),('magnetic_delay_grant',.01,.001),
+                ('gas_reference_grant',.01,.05),('SMA_guide',1,.4),
+                ('strain_fast_grant',.05,.05),('strain_medium_grant',.5,.5),
+                ('strain_slow_grant',5,5)]
+    commands += [('copper_1um_j'+str(j),copper_roundtrip(1,j)/2,
+                   copper_roundtrip(1,j)/2) for j in [.175,1,10]]
+    out['common_schedule'] = [dict(command=name, banks=b, set_s=s, reset_s=r,
+                                  map_s=map_time(b,s,r))
+                             for name,s,r in commands for b in [4,8]]
+    out['command_roundtrip_ceiling_s'] = {str(b):(30-map_time(b,0,0))/(math.ceil(80/b)+1)
+                                            for b in [1,2,4,8]}
+    return out
+
+
 def check():
     assert advance(3, 2, 0, 4) == 11
     assert math.isclose(advance(0, 1, 2, 1), (1-math.exp(-2))/2)
@@ -119,6 +213,7 @@ def move_time(distance_mm, speed=200, accel=5000):
 
 def main():
     out = {'evidence': 'scenario calculations and exact linear-state histories; self-review', 'checks': check()}
+    out['strain_and_controls'] = strain_and_controls()
     out['mask_windows'] = [dict(rows=n, k_s=k, **window(n, .01, .24, k, .25, .1, .1))
                            for n in [80, 20, 10, 5, 1] for k in [0, .1, 1, 10, 100]]
     out['zero_decay_nominal_r_limit'] = {str(n): 1/n for n in [80, 20, 10, 5, 1]}
@@ -149,7 +244,7 @@ def main():
     out['direct_route_allocation'] = {'worst_1mm_grid_route_s':route, 'index_s':index,
                                     'speed_mm_s':200, 'accel_mm_s2':5000}
     out['serial_times'] = [dict(banks=b, reset_s=r,
-                               map_s=6+(math.ceil(80/b)+1)*(.01+route+r+.04)+math.ceil(80/b)*index+move_time((math.ceil(80/b)-1)*5.08))
+                               map_s=map_time(b,.01,r))
                            for b,r in itertools.product([1,2,4,8], [.001,.05,.4,10])]
     local = []
     for start in range(76):
