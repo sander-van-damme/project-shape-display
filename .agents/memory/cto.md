@@ -1,37 +1,37 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-171, input main 214ff9e.
+Updated: 2026-10-11 UTC; E-172, input main 6af327f.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; local rotary-sharing repairs have diminishing value.
+Mode: LEARN → SCREEN; one new support-routing topology needs a system discriminator.
 
 Portfolio / uncertainty:
-- E-170 periodic lugs acquire different old heights at one shared datum;
-  retain that sharing insight, not its failed paired-gate embodiment.
-- E-171 direct cam needs k>21.563 mm/rad in adverse cap/tilt bounds.
-  At mu=.2, even square-cell-corner contact cannot raise it without collision.
-  Mu is an uncalibrated scenario; low friction does not cure geometry below.
-- Finite helical shoes cannot hold the 2.3-mm plateau while continuing turn;
-  last contact rises to 4.3/7.1 mm. Fixed crest also hits lowest parked cap.
-- Relative rotary collar avoids cap turn but adds resident rotor/thrust/support;
-  rolling cam changes contact physics but still owes finite handoff and arrest.
-- E-170 paired plates still need ≥50-mm separation / 64,000 lug stations,
-  and granted repair needs 640 rotary channels at .1-s slot / 22.937 s.
-  <$0.391/channel at $250 elsewhere/free bought cells is not affordability.
-- E-169 wider seated bearing remains conditional; no complete service advantage.
-- E-166 comb restores repeated hooks; E-165 laminate and E-164 aperture open.
-  E-148 jaw, E-054/E-056 pawl and screw remain comparisons, not winners.
+- E-172: one column-carried crossbolt routes fixed→bridge→moving ladder.
+  Removes a separate pickup selector; keeps periodic common-datum acquisition.
+  20,480 finite routes admit quasistatic transfer at explicit .05-mm bounds;
+  key/column guides, retained command, writer access and bank brake unbuilt.
+- Flat one-shot handoff fails ±floor mismatch; bridge/unload is functional.
+  .075-mm horizontal scenario collides with adjacent selected keys.
+  No process capability, strength, dynamic lowering or input-loss pass.
+- Eight independent difference groups need 32 scans: 30.942 s at 16 banks,
+  .1-s slots; <$0.191/channel with $250 reserve/free bought sites.
+  6,400 keys and 64,000 shelf sites remain. Fewer selectors is not a machine win.
+- E-098/E-099 separate-pad/dog and direct-head schedules remain controls.
+  Direct compact capture still fails E-123/E-125; screw loss limits E-156 apply
+  to its embodiment, not all screws. E-148 jaw/E-054/E-056 pawl remain open.
+- E-170 periodic pickup survives E-171 rotating-cap cam failure; stop cam repair.
+  E-164 aperture/E-165 laminate/E-166 shared comb remain distinct portfolios.
 
 Recent varied exploration / novelty:
-- Sheet connectivity → carriers; backed comb → side-wing duplication;
-  column-as-lock → interlevel cap path; periodic pickup → no old-height scans.
-- E-171 is a finite-contact discriminator, not a new physical principle.
-- No global saturation; independent recent search count unknown. Stop circling
-  the direct rotating-cap repair without a materially changed mechanism.
+- Selector-body inversion → column-carried three-position transfer key (new here).
+- Always-coupled traction → E-150/E-156 contact/preload duplication.
+- Common-pressure force substitution → A-020/E-064 seal/return duplication.
+- No literature/global novelty claim; three varied recombination attempts,
+  one new routing combination. Shared-motion axis is not saturated.
 
-Next: explore nonrotating periodic pickup / shared motion with independently
-grounded retention using distinct contact-routing and physical-addressing axes.
-Cross-check E-098/E-099 and direct-head/screw controls before claiming novelty.
-Probe only a causal path that escapes repeated pickup-plus-ground selectors;
-otherwise switch the function-sharing axis, not just dimensions or vocabulary.
-No print: contact/architecture generation still offers decision-relevant tests.
+Next: co-schedule signed-difference groups with actual bridge/unload motion;
+compare matched five-height separate selectors and direct-head control.
+Charge physical writer access at arbitrary key heights and input-loss support.
+Stop if saved scans hide another resident selector or unbuilt parallel writer;
+only meaningful system advantage justifies retained-key/bank-brake geometry.
+No print: scheduling and physical-addressing discrimination remain cheaper.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
