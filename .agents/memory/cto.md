@@ -1,35 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-183, input main 30b802a.
+Updated: 2026-10-11 UTC; E-184, input main 465513f.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; nonlinear memory does not supply a complete stroke drive.
+Mode: LEARN → PROBE cross-family motion profiles, not another lock refinement.
 
 Portfolio / uncertainty:
-- E-183 EPM + resident ratchet: explicit two-gap circuit; 5-mm pair loses
-  equal-amplitude relay window at .140 mm and retained ON at .302 mm.
-  Asymmetric pulses rescue fixed-gap cases, not tested 1-mm opening strokes
-  with 5/10/20-mm magnets. Full-write/minor-loop law remains uncalibrated.
-  Fixed-gap long-core EPM is conditional memory, not rejected with direct drive.
-- E-182 passive linear routing: 33:1 nominal / 17:1 adverse vs 3,887:1 mixed-load
-  screw deadband; common return flux and screw coast remain. Stop this route.
-- Spatial soft-rotor/local-return heads remain unbuilt, not rejected with PMs.
-  E-138 PM neighbor failure; E-149 magnetic wells do not guarantee arrest.
-- E-181 walking overlap needs grounded carrier support and many heads.
-  Direct B4/separate B8 remain controls with capture/arrest/cost gaps.
+- E-184 Geneva: bilateral parked reaction, finite full-pin handover gate.
+  Nominal 3.696° window vanishes at explicit .025-mm error box; doubled
+  clearance repairs that box but doubles backlash. Relief contour unbuilt.
+  Dwell does not arrest input; 20 turns/40 mm needs >=165 heads at 2,400 rpm
+  under optimistic schedule. Conditional memory, not a machine or outage limit.
+- E-183 EPM: nonlinear memory does not supply the tested 1-mm working stroke.
+  Fixed-gap long-core memory remains conditional; minor-loop law uncalibrated.
+- E-182 passive linear routing: 33:1 / 17:1 vs 3,887:1 mixed-load screw
+  deadband; stop tested route. Spatial soft rotors/local returns still unbuilt.
+- E-154 damped cam: capture depends on inertia; tested neck and priced head fail.
+  E-181 walking needs grounded carrier support/many heads; direct B4/B8 controls
+  retain capture, arrest and cost gaps. No age-based preferred architecture.
 - E-180 underside observation improves access, not mechanical pickup proof;
-  E-176 broadcast reset remains conditional on actual armed-mask verification.
+  E-176 broadcast reset still needs actual armed-mask verification.
 
 Recent varied exploration / novelty:
-- E-181 nonresonant walking vs resonant feet; no new retention principle.
-- E-182 switch-matrix shunts + reluctance coenergy: feed/fanout discriminator;
-  linear routing screened, no wider saturation claim.
-- E-183 hysteretic material memory vs mechanical flags; finite stroke vs screw.
-  New gap-history and full-write/half-disturb discriminator, no new principle.
-  Independent search count beyond these axes unknown; nonlinear field space open.
+- E-182 switch-matrix shunts/reluctance routing; E-183 hysteretic material memory.
+- E-184 machine-tool detents/full-pin entry: new clearance/handover discriminator,
+  not a new principle. Rack packet and passive-damping duplicates reused, not rerun.
+  No broader saturation claim; independent count beyond these axes unknown.
 
-Next: positive-displacement metering with an always-engaged output constraint.
-Read E-134/E-139/E-147 before a finite bidirectional rack escapement versus
-captured-cam/indexing comparison. Seek geometrically blocked next states under
-both load signs and input loss; no free return, reader or catch overlap.
-Stop/recombine if it hides another capture pair or repeats known free-input failure.
+Next: motion-profile/ratio synthesis across screw, indexer and direct setter.
+Read E-131/E-154/E-181 source; include torque-speed, reflected inertia, signed
+load/regeneration, support and observation overhead. Determine whether nonuniform
+profiles materially change head-count/cost ranking before more lock/capture CAD.
+Stop if improvement needs free braking/acceleration/readback or unpriced gearing;
+return to distinct architecture discovery if rankings remain unchanged.
 No print/purchase; no fixed fabrication gate. 01–08/Paperclip authoritative.
