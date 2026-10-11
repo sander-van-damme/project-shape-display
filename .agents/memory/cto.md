@@ -1,37 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-166, input main 85d7ede.
+Updated: 2026-10-11 UTC; E-167, input main 1a3cb2e.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → PROBE/EXPLORE; decouple service moment from release compliance.
+Mode: LEARN → PROBE; combine positive support with fewer separate moving locks.
 
 Portfolio / uncertainty:
-- E-166 fixed comb hooks remove moving-foil feed and reduce placements to 160,
-  but still repeat 6,400 loaded springs/hooks; shared handling is not free support.
-- Frictionless rack-corner migration peels nominal .2-mm metal-like hook off
-  near 1.758 N; coherent corners span .737…3.247 N, so even 1 N is conditional.
-- .4-mm metal-like hook reaches ~14 N geometrically, release ~2.59 N; formed
-  root, material life, guide reactions and head acquisition remain unqualified.
-- Fixed rear block also blocks release. Shaped bypass/orthogonal release and
-  side-wing backing remain distinct routes, not silently supplied repairs.
-- E-165 n=1/2 laminates retain conditional geometry; ≥3 straight tips collide.
-  Upward foil feed, 12,800 attachments and local retained clamps remain owed.
-- E-164 fixed-pivot aperture paused for bypass/tier and bearing burden.
-- E-148 broad jaw, E-054/E-056 side-wing pawl and screw are controls.
-  E-162 roller swivel, E-160 braid, E-159 granular/free-tail capstan paused.
-  E-133 internal exchange, E-139 free cam, E-151 common-tie failures stand.
+- E-167 column-as-lock: five lug stations pass fixed slot, quarter-turn into
+  grounded pocket. No separate pawl; 32,000 lugs and 6,400 precision seats remain.
+- .6-mm lift + 4.8-mm square cap collides at ~7.15 degrees. A 2.3-mm interlevel
+  lift escapes with thin caps/round stems; checkerboard rotation avoids neighbors.
+  This changed route avoids a swivel, not a full-machine or reliability pass.
+- ±.05-mm edge/registration scenarios leave .05-mm slot clearance; 2-degree
+  angular error defeats it. ±.10-mm corners jam. No calibrated process yield.
+- Thin .6-radius stem fails ideal 10-N buckling screen; thicker stems consume
+  gate land. Guidance/head access and input-loss arrest remain unconstructed.
+- Bayonet service scenarios need 229–267 parallel heads; no timing/BOM advantage.
+- E-166 fixed combs reduce placements to 160 but retain 6,400 springs/hooks;
+  thin hook peels, fixed rear stop blocks release. Thick hook remains conditional.
+- E-165 n=1/2 laminates need feed/clamps; E-164 aperture needs bypass/bearings.
+- E-148 broad jaw, E-054/E-056 side-wing pawl and screw remain controls.
+  E-162 roller, E-160 braid, E-159 granular/free-tail capstan paused.
 
 Recent varied exploration / novelty:
-- Telescopic locks → canted aperture; finite pivot changed the scalar bound.
-- Belay recombination → stationary capstan plus keeper, no free tail support.
-- Sheet connectivity/assembly sequence → removable carriers, feed/collision gate.
-- Snap-hook analogy + fixed-sheet return sharing → finite rack-corner peel model;
-  manufacturing recombination, not a new lock principle or independent landscape.
-- No global saturation. Stop scalar friction sweeps and interface-count inflation.
+- Sheet connectivity → removable carriers; snap-hook comb → load-induced peel.
+- Orthogonal backing cross-check recreated E-054 side wings; no pawl refinement.
+- Quarter-turn fastener analogy + column-as-lock changes moving inventory.
+- Surface collision triggered interlevel turn-path inversion, escaping a swivel.
+- No global saturation; one analogy and one path inversion this session.
 
-Next: test load-backed tongue with release orthogonal to service moment, or
-shared return on side-wing crossbolt; first cross-check E-054/E-056/E-115.
-Require actual contact/release geometry and an inventory advantage. If duplicate,
-switch functional axis rather than detail another pawl or nominal spring sweep.
-Do not print to calibrate modulus while a return/support path is obstructed.
-Common frame compliance, head capture and verification remain unqualified.
+Next: finite stem guidance and captured rotary-linear head access versus pawl.
+Require high-position load support, all lug/cap transitions and retained axial
+support/angular command through reseat. Stop if it merely restores equal or
+higher repeated hardware with slower service; switch function/architecture axis.
+Do not print slot calibration before resolving the structural/access route.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
