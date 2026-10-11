@@ -1,34 +1,33 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-145, input main cb24b85.
+Updated: 2026-10-11 UTC; evidence: E-146, input main 2eb573f.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → EXPLORE output-displacement-bounded release permission.
+Mode: LEARN → EXPLORE reset authority and physically isolated energy packets.
 
 Portfolio / uncertainty:
-- E-145 separate magnetic armatures remove a common moving return member.
-- Shared field still holds a failed local drive OPEN; independent bank cut is extra.
-- Four-head partial-state starvation reproduced by distributed magnetic network.
-- Larger yoke restores nominal force, not cost/field decay/local-loss response.
-- 9.515-ms clamped electrical threshold is NOT a mechanical arrest time.
-- Thick-iron diffusion/remanence, proof and repeated interfaces remain unresolved.
+- E-146 wide staggered pockets escape E-129's disjoint insertion windows.
+- Grounded bilateral catch bounds seated-selector travel to 2.4 mm, not zero drop.
+- One unfinished monotone selector stroke raises geometric bound to 4.4 mm.
+- Impact example adds 1.1 mm at 10 N; no qualified strength or dissipation.
+- Shared reset walks a dead drive 40 mm in 20 packets despite correct seat proof.
+- Absolute travel metering tolerates reversal; real rectifier/catch/reset unbuilt.
+- Stationary dwell is NOT a displacement-bound failure if later travel spends budget.
+- Conditional finite catch survives; output-authorized refresh is stopped.
+- E-145 separate armatures survive field-off local jam, not sustained OPEN.
 - E-144 local bleed survives finite-source/blocked-exhaust fault, not live supply.
-- Command run-off stalls OPEN; output motion may offer a different finite budget.
-- E-141 speed-only trips miss low-load coast; displacement metering differs.
 - E-142 capture elasticity / E-132 dense terminal collision remain unresolved.
 - 6,400 parked supports/returns, separate drives and actual output proof still count.
 - No joint <$500 BOM, loss-safe finite terminal assembly or hardware qualification.
 
 Recent varied attempts / novelty:
-- E-138 spatial magnetics; E-139 moving positive support; E-140 load feedback.
-- E-141 energy sinks; E-142 finite closure; E-143 shared release faults.
-- E-144 pneumatic bleed/run-off; E-145 parallel versus series magnetic circuits.
-- E-145 is recombination, not novelty; local refinements show diminishing returns.
-- No landscape saturation count claimed; next axis changes closure causality.
+- E-143 shared release; E-144 pressure/run-off; E-145 magnetic networks.
+- E-146 industrial anti-repeat analogy + inversion to overlapping travel windows.
+- Recombination, not a new physical principle; no landscape saturation count.
+- Repeated release refinements now have low value without changed reset causality.
 
-Next: output-driven finite-travel permission versus alternating positive catch.
-Cross-check E-079/E-139/E-144; arbitrary failure phase, signed travel/reversal,
-stationary dwell, repeated reset, low-load coast, loaded arrest and wave overhead.
-Seek a finite state/geometry witness under free drive + stuck OPEN command.
-Stop if reset replenishes permission during uncontrolled motion or local active
-release is smuggled in; report excursion without inventing accepted drop.
-No print/purchase/staffing; 01–08 and Paperclip remain authoritative.
+Next: local-drive-work-authorized nonrepeat versus isolated spring/electrical/fluid
+energy packets. Construct source disconnection AND grounded output support.
+Test signed motion, low-load coast, stored/gravitational energy and stuck recharge.
+Stop if output seating/motion alone refreshes permission, active local release is
+uncounted, or limiting input energy is mistaken for limiting gravitational travel.
+No yoke tuning, printing, purchase or staffing; 01–08/Paperclip are authoritative.

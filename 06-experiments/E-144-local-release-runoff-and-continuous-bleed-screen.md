@@ -48,8 +48,10 @@ plus .05-s local operations. Yet a pickup seized at 7 mm holds full gap indefini
 passing 12 mm requires the very common motion whose failure must be tolerated.
 This is a reduced unilateral support constraint, not generated contact geometry.
 
-Longer dwell increases vulnerable positions. Rod-driven run-off fails on a
-stationary/reversing rod. A timer with repeated refresh changes the mechanism; an
+Longer dwell increases vulnerable positions. A one-edge rod-driven run-off does not
+bound opposite-signed travel. Stationary dwell alone does not defeat a displacement
+bound if subsequent motion exhausts finite permission. A timer with repeated
+refresh changes the mechanism; an
 OPEN latch requires an explicit loss-safe CLOSE cause. Reset over the same face
 reopens the jaw: bypass/one-way return or proved parked support must precede rearm.
 No finite section earns promotion from the granted run-off behavior.
