@@ -169,6 +169,19 @@ hardware is free. Joint budget is `Cshared+H*chead+6400*ccell<500`; no quote or
 BOM pass. The .05-mm stack plus two assumed .8-mm cheeks occupies 2.25 mm in y;
 this is an allocation, not constructed jaws, flags or loaded printed walls.
 
+The executable connectivity graph ties grounded fingers to a fixed spine and
+moving fingers to each runner; an engaged ideal no-slip clamp constrains that
+runner's **incremental displacement**, not its arbitrary parked height. Intact
+moving-carrier bridges give 2/8 endpoint maps and prohibit every single-cell move
+with neighbors clamped. Removed bridges give 8/8 and permit all three local moves.
+One residual bridge between cells 0 and 1 leaves 4/8 maps; only cell 2 can move
+locally. In a 40-cell tile one such rigid bridge reduces independent axial freedoms
+from 40 to 39 and halves reachable binary maps. These counts are derived from
+connected components; they assume rigid ties, no slip and removed bridges with no
+remaining contact. Flexible ligaments, tearing or frictional interference require
+force/contact models and are not bounded by this graph. Separation inspection is
+therefore an assembly obligation, not merely a sheet-placement detail.
+
 Common frame is a correlated uncertainty: a simply supported 5×10-mm beam with
 assumed E=2,000 MPa, carrying 10 N per 5.08 mm, gives linear deflection diagnostics
 52.44/.2048/.005244 mm for support spacing 203.2/50.8/20.32 mm. The first is outside
@@ -195,7 +208,8 @@ load stop without needing a compressively fed foil? Cross-check A-010 and existi
 seat-array work first; if duplicated, reopen a different functional combination
 rather than optimize laminate friction again.
 
-Self-review: analytic collision reconstruction, interval endpoint/continuous
+Self-review: explicit sheet/runner/clamp connectivity with residual-bridge faults,
+analytic collision reconstruction, interval endpoint/continuous
 ordering checks, released limit, 64 neighbor maps, Euler Rayleigh-quotient
 quadrature, t³ scaling, imperfection boundary, fixed-guided energy/force identity,
 sampling sensitivity and integer timing. These verify the stated reduced models;

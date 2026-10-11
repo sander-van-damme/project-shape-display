@@ -51,6 +51,86 @@ def collision(n, t=.05, gap=.1, h=40., closed=1., steps=256):
     return {'overlap_mm':worst[0], 'witness':worst[1]}
 
 
+def sheet_graph(cells, n, bridges=(), locked=()):
+    """Axial incremental constraints: rigid ties and ideal no-slip clamps.
+    Each node's connected component shares displacement, not absolute height.
+    Grounded combs share a fixed spine. Removed bridges contribute no edge.
+    This tests topology only; it grants rigid frames and adequate clamp force.
+    """
+    parent = {}
+
+    def root(node):
+        parent.setdefault(node, node)
+        if parent[node] != node:
+            parent[node] = root(parent[node])
+        return parent[node]
+
+    def tie(a, b):
+        parent[root(a)] = root(b)
+
+    for i in range(cells):
+        runner = ('runner', i)
+        root(runner)
+        for j in range(2*n+1):
+            leaf = ('leaf', i, j)
+            tie(leaf, 'ground' if j % 2 == 0 else runner)
+        if i in locked:
+            # A sticking local interface grounds the runner's axial increment.
+            tie(('leaf', i, 1), ('leaf', i, 0))
+    for i, k in bridges:
+        # Even one remaining rigid ligament on one moving sheet couples runners.
+        tie(('leaf', i, 1), ('leaf', k, 1))
+    return {node: root(node) for node in list(parent)}
+
+
+def compatible(graph, increments):
+    values = {graph['ground']: 0.}
+    for i, delta in enumerate(increments):
+        component = graph[('runner', i)]
+        if component in values and values[component] != delta:
+            return False
+        values[component] = delta
+    return True
+
+
+def connectivity_witness():
+    results = {}
+    for name, bridges in (('permanent', ((0,1),(1,2))),
+                          ('removed', ()), ('residual_0_1', ((0,1),))):
+        graph = sheet_graph(3, 2, bridges)
+        reachable = [list(h) for h in itertools.product((0.,H), repeat=3)
+                     if compatible(graph, h)]
+        local = []
+        for selected in range(3):
+            held = [i for i in range(3) if i != selected]
+            locked_graph = sheet_graph(3, 2, bridges, held)
+            move = [H if i == selected else 0. for i in range(3)]
+            if compatible(locked_graph, move):
+                local.append(selected)
+        results[name] = {'reachable_endpoint_maps': reachable,
+                         'locally_movable_cells_neighbors_locked': local}
+    # Explicit counterexamples, not a stored cardinality.
+    assert len(results['permanent']['reachable_endpoint_maps']) == 2
+    assert results['permanent']['locally_movable_cells_neighbors_locked'] == []
+    assert len(results['removed']['reachable_endpoint_maps']) == 8
+    assert results['removed']['locally_movable_cells_neighbors_locked'] == [0,1,2]
+    assert len(results['residual_0_1']['reachable_endpoint_maps']) == 4
+    assert results['residual_0_1']['locally_movable_cells_neighbors_locked'] == [2]
+    # Board-tile consequence without enumerating 2**40 maps.
+    for name, bridges in (('removed', ()), ('one_residual_bridge', ((19,20),))):
+        graph = sheet_graph(40, 2, bridges)
+        free = {graph[('runner', i)] for i in range(40)} - {graph['ground']}
+        results[name+'_40_cell_tile'] = {'axial_dofs': len(free),
+                                         'reachable_endpoint_maps': 2**len(free)}
+    assert results['removed_40_cell_tile']['axial_dofs'] == 40
+    assert results['one_residual_bridge_40_cell_tile']['axial_dofs'] == 39
+    # A supported zero increment remains compatible for every clamp pattern.
+    for locks in itertools.product((False, True), repeat=3):
+        graph = sheet_graph(3, 2, locked=[i for i, on in enumerate(locks) if on])
+        assert compatible(graph, [0.,0.,0.])
+    return results
+
+
 def euler(E,t,length,K=1.):
     return math.pi**2*E*WIDTH*t**3/(12*(K*length)**2)
 
@@ -118,8 +198,7 @@ def main():
         'states_checked':states,
         'minimum_x_clearance_with_2p8_carriers_mm':PITCH-2.8,
         'overlap_mm':PATCH, 'spine_rigid_assumption':True}
-    # Common rigid moving carrier gives h0=h1=h2. Only 2 of 8 endpoint maps reachable.
-    results['permanent_moving_carrier_endpoint_maps']=2
+    results['sheet_connectivity']=connectivity_witness()
     results['feed']=[{'E_MPa':E,'t_mm':t,'Pcr_leaf_N':euler(E,t,42),
         'clear_feed_leaf_N':feed_limit(E,t,42,.1,.01),
         'per_interface_drag_limit_N':feed_limit(E,t,42,.1,.01)/2}
