@@ -1,38 +1,38 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-172 scheduling extension, input main 75b842d.
+Updated: 2026-10-11 UTC; E-173, input main 5bc2c23.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; fewer selectors did not remove writer visits.
+Mode: PROBE; spatial tooth addressing removed height-group writes, conditionally.
 
 Portfolio / uncertainty:
-- E-172 single crossbolt is a conditional supported topology, now parked.
-  Co-scheduling signed differences cuts 32→20 scans; fixed-height tongues
-  give 19.723 s/B16 vs five-height separate contacts 13.422 s/direct 6.892 s.
-  Tier-scanned arbitrary-height key access costs 52.412 s/B16.
-- Tongues avoid a second selector causally but add 6,400 long transmissions;
-  their guides, retention, writer aisle and bank brake remain unbuilt.
-  Saves one selector/cell but needs twice separate-contact central bank count.
-  Reopen on changed visit topology or evidenced total-cost crossover, not CAD.
-- E-172 finite support survives explicit .05-mm errors; .075-mm neighbor
-  collision and +.11-mm common carrier/proof fault remain decisive witnesses.
-  No physical reliability, dynamic lowering, strength or input-loss pass.
+- E-173 lane rack uses one transverse lane per height and a grounded Y dog.
+  Three scans; .5-s target word gives 22.919 s/B4 versus E-172 separate
+  contacts 23.247 s/B8, direct heads 19.469 s/B4. Two resident selectors remain.
+  Shared writer grant gives 328 bundles; split access needs 652, almost the
+  separate-contact control's 656. No complete cost/channel or machine pass.
+- Finite support survives explicit .05-mm bounds; .10 loses lane separation,
+  .125 gives wrong-tooth collision. +.41-mm misindex captures 10.1 mm too high.
+  .5-mm contact breadth, dog guide/moment reaction, indexing and bank arrest
+  are unqualified. Five lanes do not automatically extend to nine heights.
+- E-172 crossbolt stays parked: 20 scans / 19.723 s/B16; shared-Z 52.412 s.
+  Fewer selectors did not compensate for access/scan cost. Preserve topology.
 - E-098/E-099 separate pad/dog and direct heads remain conditional controls.
   E-123/E-125 compact capture still fails; E-156 does not reject all screws.
-  E-148 jaws / E-054/E-056 pawls remain distinct leads, not selected machines.
-- E-170 periodic pickup survives E-171 cam failure; no rotating-cap repair.
+  E-148 field jaws / E-054/E-056 pawls remain distinct leads, not machines.
+- E-170 periodic pickup survives E-171 cam failure; no integral-cap repair.
   E-164 aperture/E-165 laminate/E-166 shared comb remain other portfolios.
 
 Recent varied exploration / novelty:
-- Selector-body inversion → new here: travelling three-state transfer key.
-- Always-coupled traction duplicates E-150/E-156 contact/preload burden.
-- Common-pressure substitution duplicates A-020/E-064 seals/return/selectors.
-- New scheduling result changes viability of a protocol, not operating principle.
-  No additional independent search attempt; three varied prior recombinations,
-  one new routing combination. Sharing axis is not provisionally saturated.
+- Push-push sequence analogy: phase memory alone lacks independent targets.
+- Output-travel/countdown programming: duplicates E-089/E-090 retained trips.
+- Transpose time-separated teeth into spatial lanes: new local combination;
+  avoids E-097's moving tall staircase and E-098's serial dog release scans.
+- Patent search supplied push-push principle only, no novelty clearance.
+  Three varied moves, one new combination; no sharing-axis saturation claim.
 
-Next: investigate passive grounded release/capture sequences that eliminate
-writer revisits, cross-checking existing pawl/cam families before claiming novelty.
-Require causal selection + energy + support + recovery and arbitrary local maps.
-Stop/recombine on hidden second selector, ungated reverse motion or neighbor lift.
-No crossbolt guide/brake geometry or print without a matched system advantage.
+Next: finite grounded Y guidance, five-state retention and writer access;
+compare amplified/remote retention against narrow local detents, with cost/time.
+Stop if loaded lane/guide margins fail the .05 box or access restores control
+bank/channel burden. Preserve direct-head comparison and input-loss obligation.
+No crossbolt refinement, print or purchase; no hardware reliability claims.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
