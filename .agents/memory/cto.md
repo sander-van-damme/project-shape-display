@@ -1,34 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-164, input main 707f9eb.
+Updated: 2026-10-11 UTC; E-165, input main ac50711.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; captured support geometry changes the amplification law.
+Mode: LEARN → EXPLORE; assembly sharing is distinct from operating-state sharing.
 
 Portfolio / uncertainty:
-- E-164 fixed pivot translates the aperture: one edge seats first; mu scales
-  roughly sqrt(clearance/lever), not 1/lever. Weak-hold mu=.2 needs b=32.42 mm.
-- Straight arm hits six tails; finite y-bypass clears tails but tested opposed
-  tier envelopes cost ~128 mm depth plus 12,800 bearings/returns. Pause embodiment.
-- E-163 centered/captured reaction remains an optimistic bound, not disproved;
-  floating supports need their own contact/kinematic construction to reopen.
-- A-019 distributed laminate is distinct but owes independent clamp/assembly;
-  E-148 broad jaw and positive seats remain controls, not selected machines.
-- E-162 roller swivel, E-160 braid and E-159 granular work paused.
-- Free-tail capstan stopped; retained-tail version owes reversal/routing costs.
-- E-133 internal exchange, E-139 free cam and E-151 common-tie failures stand.
+- E-165 stationary combs/removable moving carriers reduce sheet placements;
+  permanent rigid moving carrier cannot encode arbitrary neighboring heights.
+- Tested straight-tip stacks with ≥3 moving leaves collide at the grounded exit;
+  n=1/2 retain conditional geometry, not contact/return or full-machine admission.
+- Bottom-connected leaves hold downward load in tension but push upward against
+  drag. .05-mm metal-like pinned leaf Pcr=.0233 N at 42 mm; guides remain owed.
+- n=2 still needs 12,800 leaf attachments and 6,400 local retained clamps.
+  Normal-force benefit over two-pad jaw is only 2× under ideal equal pressure.
+- E-164 captured fixed-pivot aperture is paused: long bypass/tier and bearing cost.
+  Floating/centered supports remain distinct unbuilt possibilities, not disproved.
+- E-148 broad jaw and positive seats are controls, not selected machines.
+- E-162 roller swivel, E-160 braid, E-159 granular and free-tail capstan paused.
+  E-133 internal exchange, E-139 free cam, E-151 common-tie failures stand.
 
 Recent varied exploration / novelty:
-- Zipper/origami search returned E-126/E-133's deployed-column/feed distinction.
-- Telescopic locks yielded direct canted apertures; E-164 adds finite support
-  discrimination, not a new search attempt or new architectural principle.
-- Belay recombination yielded stationary capstan + keeper, not a new law.
-- No global saturation. Return to function/inventory integration rather than
-  further friction/lever sweeps on this now-expensive bearing topology.
+- Zipper/origami search duplicated deployed-column/feed distinction.
+- Telescopic locks yielded direct canted aperture; finite pivot changed its bound.
+- Belay recombination yielded stationary capstan plus keeper.
+- Sheet connectivity/assembly sequence yielded removable carriers and exposed
+  clamped exit collision/compressive feed; no new friction principle claimed.
+- No global saturation. Stop scalar friction sweeps and interface-count inflation.
 
-Next: shared-sheet local clamping: can slotted laminate arrays avoid individual
-leaf assembly while retaining independent 40-mm runners and unchanged neighbors?
-Construct finite leaf/slot overlap and release states; compare jaw/positive seat.
-Stop on unavoidable shared displacement, lost overlap or no assembly advantage.
-Use broader discovery if this duplicates an existing failure; no fabrication yet.
-No complete writer, release/return or verification path is earned by E-164 packing.
+Next: can shared-sheet assembly improve a positive load stop without compressive
+foil feed? Cross-check A-010 and existing seat-array evidence before new work.
+If this duplicates prior gates, switch functional combination rather than rename.
+Reopen laminates only with finite bidirectional feed/separation preserving benefit
+against the jaw control; no printing before this geometry/guide discriminator.
+Common frame compliance, actual return and verification remain unqualified.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
