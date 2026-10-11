@@ -1,31 +1,33 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-10 UTC; evidence: E-138, input main 7533b5e.
+Updated: 2026-10-10 UTC; evidence: E-139, input main 7baed94.
 North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
-Mode: LEARN → EXPLORE positive moving support after bounded contactless-head screen.
+Mode: LEARN → PROBE load-responsive dissipation after positive-support search.
 
 Portfolio / uncertainty:
-- E-138 unshielded 4×2-mm PM head gives ~1.84 N mm, below 1-N rack demand 3.6.
-- Four resident neighbors can oppose with 3.28 N mm; source strength scales both.
-- These are fixed-M finite-field scenario results, not all magnetic transmissions.
-- Steel attraction lacks signed captive motion; reluctance/hysteresis torque remains unbuilt.
-- Contactless transfer removes dog wear, not retention/release/arrest/readback.
-- E-137 reciprocal boundary routing fails isolation; check-only repair loses reverse work.
-- E-136 focusing is not whole-history energy isolation.
-- E-076/082/083 and E-108/128 remain controls with interface/cost/transfer failures.
-- Ground seats and real input-loss behavior remain mandatory; no hardware acceptance.
+- E-139 captive groove carries signed load but Q_input≈−.785F; no passive arrest.
+- Its flat dwell retains height at rest yet coasts under input inertia to end stop.
+- Finite 2-mm stop bound is not an accepted outage drop or qualified impact.
+- Coherent ±.05-mm corner jams groove; same-height neighbor intersects plate.
+- Travelling rocker repeats missing carrier restraint; no new principle claimed.
+- Weston screw/disc/ratchet brake is a new lead, not a selected architecture.
+- Manufacturer also uses motor brake: standalone free-input arrest is unproven.
+- E-129 released rollers lack controlled lowering; E-132 pads/screws remain controls.
+- E-138 magnetic head torque/isolation failures do not reject all magnetic coupling.
+- E-137 routing and E-136 wave isolation failures remain; no hardware acceptance.
 
 Recent varied attempts / novelty:
-- E-137: fluid trees, commutators, indexed idlers, nonlinear boundary steering.
-- E-138: lifting-magnet, synchronous PM, soft reluctance and hysteresis analogies.
-- No new complete survivor; finite resident-neighbor torque is new decision evidence.
-- Bounded saturation only of those cheap routing/coupler searches, not all principles.
+- E-138: lifting magnet, synchronous PM, reluctance and hysteresis analogies.
+- E-139: horological rest faces; walking beams; open→captive contact inversion.
+- Generated cam/dwell witness is new evidence, not a new operating principle.
+- Hoist load-brake search changes axis to explicit load-responsive dissipation.
+- No landscape saturation claim; stop refining tested lossless support branches.
 
-Next action: discover reversible escapements with positive moving load support.
-Compare travelling pallets/conjugate cams against E-129 fixed-bolt control.
-Cross-check M-004, D-002, E-130/134 before novelty claims.
-Generate a loaded step with actual contact continuity and free input-loss response.
-Stop if both seats release or an ideal frozen cam/friction arrest is required.
-Do not invent an acceptable outage drop or treat a static hold as dynamic arrest.
-No automatic magnetic CAD, print, purchase or staffing request.
+Next action: construct a load-responsive screw/disc/ratchet transfer model.
+Compare Weston-type clamping with E-129 rollers and E-132 permanent drag.
+Keep input free, include finite release/reclamp travel and low-load corners.
+Identify ground reaction, source of preload, overhauling descent and energy sink.
+Stop if it needs an unbuilt motor brake/return or repeats an unsupported gap.
+Retain uncertainty in friction, hysteresis, compliance and common bias.
+No automatic print, purchase or staffing request.
 01–08 and Paperclip remain authoritative.
