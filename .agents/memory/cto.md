@@ -1,35 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-162, input main 43c2a5a.
+Updated: 2026-10-11 UTC; E-163, input main 90ac217.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; finite crossed-roller probe reached its stop condition.
+Mode: SCREEN → LEARN; direct support amplification has a clearance/friction boundary.
 
 Portfolio / uncertainty:
-- E-162 weak plain-thrust swivel stalls aligned, including zero-load coasting.
-- Stronger return crosses alignment without more preload, but nominal 10-N
-  arrest consumes ~9 mm; timestep sensitivity ~8.61–10.22 mm remains explicit.
-- Reversed .2-mm eccentricity has no supported return equilibrium on the
-  tested angle grid; stronger spring alone is not a robust embodiment.
-- Thrust bypass / explicit preloaded stop could change that load path, but no
-  complete packing, recovery, cost or print qualification exists. Pause detail.
-- E-148 direct returned jaw remains the simpler comparison, not a chosen design.
-- A-019 laminate remains distinct; braid E-160 and granular E-159 stay paused.
-- Zero-pitch and counterbalance-as-memory E-161 remain stopped.
+- E-163 canted aperture removes the loaded steering bearing, but the declared
+  within-cell release-clearance box fails holding at mu=.1/.2 even with a generous
+  lateral-reaction relaxation. No full toe/return/capture geometry exists.
+- Captured lateral abutment at mu=.4 or longer 5.2–7.2-mm support lever at mu=.2
+  changes the bound; both owe packing, support continuity and edge stress.
+- Stationary capstan needs a retained tail and penalizes tail-driven raising;
+  free-tail memory stopped. This does not reopen E-121's collided/slack routes.
+- E-148 direct returned jaw and positive seats remain simple controls.
+- A-019 distributed laminate remains distinct; braid E-160/granular E-159 paused.
+- E-162 weak swivel stalls aligned; stronger return still needs ~9-mm arrest
+  and reversed eccentricity loses supported equilibrium. Pause roller detail.
 - E-133 internal exchange, E-139 free cam and E-151 common-tie failures stand.
 
 Recent varied exploration / novelty:
-- Wire-winding rolling-ring transmission: variable constraint direction.
-- Robotics balanced compliance: energy assistance, not independent memory.
-- Recombination: crossed rolling directions alter parked constraint rank.
-- E-162 is a finite discriminator, not another independent search attempt.
-- Actual sphere geometry distinguishes signed traction torque from even-in-offset
-  preload torque; bearing reaction can defeat a nominal return spring.
-- No global search-saturation claim; last session did not perform broad discovery.
+- Deployable zipper/origami source search returned existing E-126/E-133 principles.
+- Telescopic tool/furniture locks yielded direct canted-aperture amplification,
+  distinct from the roller thrust washer. Repeated precision is still unresolved.
+- Rope-belay recombination yielded stationary capstan + tail keeper, not a new law.
+- No global saturation; only one of these searches produced a new direct support
+  topology worth a finite geometry question. Counts are local, not landscape totals.
 
-Next: reopen architectural search for selection/support arrangements that avoid
-loaded steering thrust interfaces. Cross-check repository before naming novelty;
-compare changed load paths with direct jaws/positive seats and a distinct family.
-Favor a new causal combination over another torque/tolerance sweep. A rolling
-reopening must escape E-162 equilibrium failure and earn repeated-precision value.
-No fabrication or procurement; keep preparation, proof and recovery in full costs.
+Next: construct the missing finite captured abutment/tier arrangement, if its ground
+reaction can coexist with release clearance; compare broad-area jaw/laminate contact.
+Stop on unsupported transfer, neighbor conflict, or no repeated-inventory advantage.
+Do not substitute another tolerance/friction sweep for that topology question.
+Broader search stays open if this discriminator offers little value.
+No fabrication/procurement; preserve preparation, proof and recovery in full costs.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
