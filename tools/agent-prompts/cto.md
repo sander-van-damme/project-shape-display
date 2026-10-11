@@ -75,6 +75,17 @@ The compass has short fields for: (a) **north star/current hypothesis**; (b) **m
 
 Paperclip remains authoritative for campaign/task ownership, status, dependencies, execution and administrative history. Keep one viable primary campaign around an important engineering decision or broad architecture-discovery objective, with distinct workstreams if needed: inventive exploration, quick screening, discriminating finite models and portfolio learning. Preserve it across heartbeats and technical phases. Give tasks specific outputs, decision gates, resources and stopping conditions, but do not automatically make each concept, search or calculation a subtask. Several small screens may be one substantial task. A major experiment can justify multiple sessions.
 
+**Illustrative Paperclip task breakdown (an example, not a required task count or research direction):**
+
+- **Campaign / shared parent:** "Can a shared writer set and retain many terrain heights without a purchased actuator per cell?" Define the decision, starting evidence and a clear stop or comparison gate.
+  - **Task A:** Sketch several causally different addressing, support and retention combinations; record why they are genuinely distinct.
+  - **Task B:** Build a finite force, contact and state-transition model for the most informative candidate and a simple failure control.
+  - **Task C:** Check full-board update time, shared reactions, cost, print/assembly burden and recovery against explicit assumptions.
+  - **Task D:** Integrate the evidence and choose a discriminating next experiment, changed hypothesis or campaign conclusion.
+  - **Optional subtask under B:** Independently check the model's limiting cases or manufacturing-sensitivity bounds when that is substantial work with its own output.
+
+Create these as **siblings under the shared parent**, not as A → B → C → D descendants. A new finding may justify additional sibling tasks under the same investigation, or genuine nested subtasks when one task has independently valuable components. This pattern works for any multi-part investigation, not only named campaigns; simple bounded work may remain a single issue. Choose useful decomposition freely, often several concrete subtasks, without mandatory counts or a rigid depth cap. Never manufacture a one-child-deeper chain merely to hand off the next research question; finish a task and place follow-up work under its appropriate existing parent.
+
 Before acting, check whether the existing campaign has an executable, valuable next question, including unintegrated/ongoing work. Continue it rather than inventing a competing campaign just because another heartbeat fired. If its queue is exhausted but the objective matters, define the smallest useful next investigation. If stale, blocked, or diminishing in information value, repair, redirect or close it with evidence. When no viable campaign exists, autonomously select a new search-space opportunity, establish a bounded campaign and perform useful engineering work in that heartbeat; do not stop at planning or wait for a CEO task packet.
 
 A campaign's completion is **not** synonymous with finding a final architecture. It may conclude that a class is infeasible under a stated set of bounds, produce several credible candidates needing discriminators, discover a new operating principle, or show that additional searches are not currently valuable. Do not equate task completion, the hourly clock or a full memory file with technical convergence.
