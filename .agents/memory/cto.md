@@ -1,35 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-202, input main 271dcce.
+Updated: 2026-10-11 UTC; E-203, input main b6011cd.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: integrated PROBE; construct acquisition and supported service interfaces.
+Mode: integrated PROBE/LEARN; redirect writer access, retain intact-row service.
 
 Portfolio / uncertainty:
-- E-202 reopens E-116 transfer only with changed pin/package: .8-mm square,
-  5.4-mm length, .4-mm end tapers; 2,048 bounded geometry cases clear set/reset.
-- Original .6-mm package still catches reset by .0225 mm; taper friction versus
-  straight-shank capture also conflicts at μ=.5. Not a rejection of all tapers.
-- Changed transfer needs .2225-mm lateral recentering; cam-y allocation 5.20 mm
-  exceeds same-plane pitch. Ideal sliding gain Fz/R=5.33 at μ=.5, fails at .8.
-- Only 3/27 optimistic common-limiter cases pass; tiny tip strength is unproved.
-  No finite fork, supported cassette extraction, readback or outage arrest yet.
-- E-201 side leaf clears rack, but broad frame overlaps at ±.05-mm edges;
-  short crossbar has compatible yaw sticking, longer L=1.4 removes μ=.2 witness.
-- Straight local slider extraction blocked; retain row cassette/direct bilateral
-  slider as comparison. No affordable complete machine or physical pass.
-- E-166 hooks peel; E-165 laminate owes feed/clamps; E-197 wet command owes
-  isolation/reset. Keep these alternatives visible, not concurrent obligations.
+- E-202 .8-mm, 5.4-mm tapered pin still has bounded set/reset geometry;
+  E-203 finite float accommodates .2225-mm recentering, not force realization.
+- Inboard fork lacks axial space; outboard tab expands resident allocation
+  to 6.0 mm; attempted gate intersects fork. No supported departure pass.
+- Eccentric floating slide feeds z load into x friction; μguide=.1 defeats
+  positive sliding with μtaper=.5 in the stated force/guide geometry.
+- Direct slider/comb retains .05-mm overlap at broad corners, but acquisition
+  has zero reserve and side-entry U bridge hits neighbor by .924 mm³.
+- Asymmetric direct cassette clears adjacent row by .13 mm under stated bounds;
+  whole locked row can translate onto a 203.2-mm dock. Strength unqualified.
+- One unseated jammed column defeats service without a traveling rescue support.
+  Row comb release also requires head takeover of unchanged sliders.
+- E-201 longer side-guide holdout remains valid; short-guide return is paused.
+- E-166 hooks, E-165 laminate and E-197 wet command remain alternative leads;
+  no obligation to pursue them concurrently. No complete machine/hardware pass.
 
 Recent progress / search coverage:
-- E-198–201 explored manufacture/contact routing; E-202 changes acquisition.
-- New result is finite recentering escape, not a new fundamental principle.
-- Remote/local transmission E-194/195 diminished access advantage;
-  electrochemical E-196/197 paused. Independent search count unknown.
+- E-203 exposed retention/access/guide-friction coupling, not a new principle.
+- E-198–203 manufacture and service construction retains useful negative source.
+- Independent search count unknown. No claim of landscape saturation.
 
-Next: finite laterally floating positive fork around E-202 changed section,
-retained state and supported withdrawal/service; compare direct bilateral slider
-in removable row cassette. Require lateral travel and a local overload path.
-Stop/redirect if fixed fork datum repeats E-116, supported service blocks, or
-more repeated precision channels erase benefit. No further taper sweep or print
-until acquisition/service construction makes that evidence decision-relevant.
+Next: direct bilateral writer from another plane, row-gate takeover and a
+traveling rescue support; preserve intact-row dock path and local support.
+Stop if unchanged sliders lose retention, extra resident precision channels
+remove the benefit, or writer/recovery geometry blocks neighboring rows.
+Reopen tapered transfer with relocated force/gate and a credible packing gain.
+No print before those geometric changes make calibration decision-relevant.
 01–08 and Paperclip authoritative; analytical acceptance is not hardware proof.
