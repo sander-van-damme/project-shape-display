@@ -1,34 +1,34 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence E-154, input main 74b1235.
+Updated: 2026-10-11 UTC; evidence E-155, input main b881ec0.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → SCREEN; passive capture exists, but head replication and load transfer dominate.
+Mode: LEARN → SCREEN; compression can help, shared power must pay for independent selection.
 
 Portfolio / uncertainty:
-- E-154 cam + passive sink: strong damping captures; weak damping can keep running.
-- Sampled capture can skip wells; no permissible outage drop has been selected.
-- Sourced 6:1 motor capture flips with 10× unknown rotor inertia; no process prior.
-- Constant-speed ripple reverses gravity contact above ~432 rpm; bilateral capture is not free.
-- Thin .4-mm follower neck fails 10-N/20–60-MPa bounds; rotor capture cannot catch fracture.
-- Priced motor/relay heads exceed budget at the eleven-turn schedule; stop this embodiment.
-- Always-connected generator is causally passive but adds inertia, continuous drag and heat.
-- Switched motor needs inductive commutation/enable-fault closure, not just a relay name.
-- E-153 parked wells still require positive minimum load; no-bias retention remains absent.
-- Cam compression shoes/larger internal layout remain untested principles, not survivors.
-- E-148 downstream jaw retains a distinct dock-separation advantage; E-131 screw saves release gaps.
-- Capillary inserts remain stopped without reversible interface restoration; no optimization.
-- E-152 weak-corner former and E-151/E-150 shared supports remain scoped failures.
-- No complete machine, calibrated process, hardware life or regional-disturbance pass.
+- E-155 supported 2-mm axle: 10.19 MPa at 10 N; conditional 20–60-MPa bounds.
+- Larger R=6-mm developed roller track fits nominally; wrapped geometry/routing unbuilt.
+- Coherent .05-mm wall/roller error consumes its .1-mm radial clearance.
+- Small-R broad shoe bridges retaining wells; nominal compression area is not real contact area.
+- Open differential leaves an undamped relative mode despite a braked carrier: stop that sink.
+- Rigid shared cam bus removes that mode but tested mixed-map protocol needs 3,200 couplings.
+- <$0.078/channel with $250 shared/free sites; selection command path remains unaffordable/unbuilt.
+- Common bus stationarity does not prove local well seating under phase error.
+- Smooth parking + rigid bus cannot switch positive support asynchronously without new arrest.
+- E-154 passive capture stays conditional: inertia, skipped wells, zero-load bias and heat matter.
+- E-131/E-132 screws keep compression contact but kinetic friction/inertia are unresolved.
+- E-148 downstream jaw retains separation advantage; return/excursion/cost remain open.
+- No complete machine, process yield, hardware life or regional-disturbance pass.
 
 Recent varied exploration / novelty:
-- E-151: morphogenesis, confinement, support-field factorization.
-- E-153: load-induced geometric wells and interfacial hydraulic pinning.
-- E-154 is a discriminator of an existing combination, not a new independent search.
-- No saturation claim; no new varied-search count from numerical parameter sweeps.
+- E-153: loaded geometric wells / interfacial hydraulic pinning.
+- E-154: discriminator of existing passive-capture combination, not independent exploration.
+- E-155: footprint inversion; shared transmission modes; smooth-writing/parking separation.
+- New discrimination is undamped differential mode versus synchronous selection burden.
+- These are recombinations, not newly invented principles; no saturation claim.
 
-Next: screen compression-supported geometric memory with shared passive drive/dissipation.
-Compare materially different support/selection topologies and screw/jaw controls.
-Demand arbitrary-map timing, outage retained coupling, local isolation and joint cost.
-Reopen cams only by escaping both neck failure and per-head motor/relay replication.
-Stop free clutches, unsupported transfer, correlated runaway or unaffordable scheduling.
-No fabrication: current failures are computational/economic; 01–08/Paperclip authoritative.
+Next: asynchronous shared frictional writing into resident self-locking screws.
+Test whether belt slip sheds source inertia and dissipates locally without releasing support.
+Compare rigid cam and downstream jaw; include kinetic friction, reversal, zero load and belt faults.
+Stop on destructive source inertia, unaffordable selective contact, sliding heat or turn-count timing.
+Keep roller support as conditional geometry lead; do not tune the shared generator/cam by inertia.
+No fabrication: computational discrimination remains useful; 01–08/Paperclip authoritative.
