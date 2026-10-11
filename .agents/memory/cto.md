@@ -1,33 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-146, input main 2eb573f.
+Updated: 2026-10-11 UTC; evidence: E-147, input main 8f0239c.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → EXPLORE reset authority and physically isolated energy packets.
+Mode: LEARN → EXPLORE combining drive and return functions, after packet screen.
 
 Portfolio / uncertainty:
-- E-146 wide staggered pockets escape E-129's disjoint insertion windows.
-- Grounded bilateral catch bounds seated-selector travel to 2.4 mm, not zero drop.
-- One unfinished monotone selector stroke raises geometric bound to 4.4 mm.
-- Impact example adds 1.1 mm at 10 N; no qualified strength or dissipation.
-- Shared reset walks a dead drive 40 mm in 20 packets despite correct seat proof.
-- Absolute travel metering tolerates reversal; real rectifier/catch/reset unbuilt.
-- Stationary dwell is NOT a displacement-bound failure if later travel spends budget.
-- Conditional finite catch survives; output-authorized refresh is stopped.
-- E-145 separate armatures survive field-off local jam, not sustained OPEN.
-- E-144 local bleed survives finite-source/blocked-exhaust fault, not live supply.
-- E-142 capture elasticity / E-132 dense terminal collision remain unresolved.
-- 6,400 parked supports/returns, separate drives and actual output proof still count.
-- No joint <$500 BOM, loss-safe finite terminal assembly or hardware qualification.
+- E-147: source disconnection, nonrepeat and output arrest are separate conditions.
+- Local shaft work can come from coast, spring return or gravity after power loss.
+- Reset depletion needs nonrecovered debit > gravity backfeed per packet.
+- Zero-backfeed bound: one armed packet + floor(accessible residual energy/debit).
+- No built work debit, gravity isolation, sink or complete input-work handshake.
+- Isolated spring/capacitor/fluid stores fail repeated live recharge; medium irrelevant.
+- Finite exhaust receiver constrains volume, not energy; compliance/leakage matter.
+- Receiver resets repeat the walk; A-014/E-109 remain parked.
+- E-146 bilateral pocket bounds one packet, not repeated shared permission.
+- E-144 bleed / E-145 armatures improve limited faults, not sustained OPEN.
+- E-140 dissipative descent survives conditionally; low-load/free input remains open.
+- E-132 routing / E-142 elastic capture remain unresolved, no inherited passes.
+- All candidates retain independent drives, 6,400 supports/returns and output proof.
+- No joint <$500 BOM, qualified arrest, selected machine or printing proposal.
 
 Recent varied attempts / novelty:
-- E-143 shared release; E-144 pressure/run-off; E-145 magnetic networks.
-- E-146 industrial anti-repeat analogy + inversion to overlapping travel windows.
-- Recombination, not a new physical principle; no landscape saturation count.
-- Repeated release refinements now have low value without changed reset causality.
+- E-146 overlapping windows + industrial anti-repeat analogy.
+- E-147 converter switching + work causality + finite-exhaust-volume inversion.
+- New reset-energy discriminator; storage media are not new operating principles.
+- Scoped reset/packet refinements now diminishing; broad saturation count unknown.
+- Demag conical-rotor source suggests drive/brake function integration (E-147 link).
 
-Next: local-drive-work-authorized nonrepeat versus isolated spring/electrical/fluid
-energy packets. Construct source disconnection AND grounded output support.
-Test signed motion, low-load coast, stored/gravitational energy and stuck recharge.
-Stop if output seating/motion alone refreshes permission, active local release is
-uncounted, or limiting input energy is mistaken for limiting gravitational travel.
-No yoke tuning, printing, purchase or staffing; 01–08/Paperclip are authoritative.
+Next: compare motor-field-actuated spring brake, torque-reaction brake and explicitly
+counted separate brake. Test local loss, live stall, broken transmission and capture.
+A rotor brake cannot restrain a disconnected column: construct downstream ground path.
+Count local windings/springs/contacts/electronics, readback and common abort together.
+Stop if savings require a hidden local actuator; diversify again if paths repeat.
+One inexpensive virtual screen; no purchase, printing, staffing or approval wait.
+01–08/Paperclip remain authoritative.
