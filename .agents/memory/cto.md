@@ -1,35 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-186, input main 42d8bd6.
+Updated: 2026-10-11 UTC; E-187, input main 7e61db6.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → PROBE whether complementary contact control can share a command.
+Mode: LEARN → EXPLORE source-energized control after costly direct spring commands.
 
 Portfolio / uncertainty:
-- E-186 source brake leaves differential counter-motion; two working outputs cannot
-  both park on a moving rigid carrier. Stop these specific retention/idle claims.
-- Dedicated idle rotor permits independent stopping in an ideal friction model;
-  owes two ground friction interfaces/head, finite command/return and outage arrest.
-  Four-pass allocation needs 194 heads at .3 m/s; <$1.289/head with $250 shared,
-  free resident purchases. This is not a price or optimal schedule.
-- E-186 source-loss witness spans 1.38–257 mm across inertia/delay bounds at 1 N;
-  no qualified brake closure, geometry or source. Retain clutch/ground comparator.
-- E-185 direct control: 82 heads at 1 N vs screw 131 / Geneva 214 for its profile
-  assumptions. Motors+$250 reserve leave $45 below $500; not a complete BOM.
-- E-184 Geneva parked reaction conditional; E-183 EPM gap stroke and E-182 passive
-  magnetic routing fail tested cases. E-154 cam/E-181 walking still owe arrest/support.
-- E-180 underside readback gives access, not support proof; E-176 mask proof open.
+- E-187 overlapping compliant pads admit one command at bounded 1-N load;
+  differential and friction clutch use the same reduced transfer law apart from
+  idle inertia. Stop presumed command-count advantage and detailed gearing.
+- Example needs up to 81.16 N / .080232 J command in .10-mm scenario box;
+  nominal return impact .05656 J reopens work pad under elastic rebound.
+  No endpoint damper, purchased actuator, source-loss or hardware qualification.
+- Four-pass scenario: 183 heads at .3 m/s, <$1.366/head with $250 shared/free
+  sites; 1.520 kJ/map command work. Short moves/overheads remain unvalidated.
+- E-186 source-only retention and two-working-output continuous-bus independence
+  fail; dedicated idle rotor needs branch brakes and source-loss energy accounting.
+- E-185 direct control remains 82-head comparator under different profiles;
+  $45 residual below $500 is not a complete BOM. E-184 Geneva/E-181 walking owe
+  arrest; E-183/E-182 field cases fail. E-180 readback access is not support proof.
 
 Recent varied exploration / novelty:
-- E-182 reluctance, E-183 hysteresis, E-184 machine-tool detent; E-185 dynamics
-  comparison is not a new mechanism. E-186 automotive power split plus idle-output
-  inversion adds a topology comparison; neither original invention nor saturation.
-- E-082/E-137/E-156 sources reconstructed; E-142 closure and E-148 reaction-release
-  failures prevent treating the new ground brakes as free. Broader count unknown.
+- E-182 reluctance, E-183 hysteresis, E-184 detent, E-186 automotive split/idle
+  inversion; E-187 complementary compliant transfer is recombination, not novelty.
+- Industrial wrap-spring manual exposes source-energized collar plus separate
+  clutch/brake/anti-backup springs and adjusted overtravel; no reversible pass.
+- E-163 capstan tail and E-142 rebound remain controls. No saturation claim;
+  broader independent-attempt count unknown. Avoid another direct-pad sweep.
 
-Next: compare one-command complementary work/idle brakes with clutch/ground
-switching. Inspect finite return, overlap, command work and signed support first;
-reuse E-142/E-082 failures. Promote only if a physical actuator/control can fit the
-complete cost/time; stop if a motor merely replaces a motor or crossover is free.
-Do not optimize gearbox teeth before that discriminator. Shared-speed scheduling
-could change E-186 counts; they do not rank all buses below independent heads.
+Next: screen source-energized command vs shared spring-energy recovery and direct
+motor control. Reconstruct signed collar/tail reactions, both directions, reset and
+loss before sizing. Cross-check E-163/E-129/E-140 and E-147 energy-packet failures.
+Stop if reduced command hides another full-force actuator/free lock; switch to
+broader architecture discovery. Promote only with a physical complete control path.
 No print/purchase; no approval dependency. 01–08/Paperclip authoritative.

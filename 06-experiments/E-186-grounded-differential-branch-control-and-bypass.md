@@ -113,4 +113,10 @@ Replication remains 6,400 guides/stops and their release/proof paths, plus H reu
 
 Stop paired-working-output continuous-bus independence and source-brake-only retention claims. Do not start detailed differential gearing or printing from these counts. The bypass rotor is a real changed topology, but has no demonstrated cost or arrest advantage over clutch/brake control. Reopen promotion only with a finite affordable complementary brake command, signed load-support continuity and bounded source-loss travel; retain the direct control.
 
-Next useful discriminator: **compare one-command complementary ground/bypass brakes with one-command clutch/ground switching**, reusing E-142 closure and E-082 positive-key failures as controls. First inspect finite return/overlap and command work, then cost/time; stop before detailed CAD if it merely substitutes a catalog motor per costly selector or hides an unsupported crossover. This is conditional function-combination probing, not a preferred machine or another claim of broad novelty. No print, purchase, approval wait or CEO boundary.
+E-187 resolves the next discriminator with finite complementary pad sections: one
+command can cross between compliant friction contacts under stated bounds, but the
+same command controls a friction clutch/ground brake. Its spring work and endpoint
+impact remain substantial; no command-count or purchased-cost advantage is established.
+Keep the bypass as a conditional topology comparator and stop detailed gear work
+pending a physically cheaper command/return and actual loss behavior. No print,
+purchase, approval wait or CEO boundary.
