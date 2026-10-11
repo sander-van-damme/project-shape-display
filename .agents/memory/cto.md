@@ -1,33 +1,31 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-139, input main 7baed94.
-North star: Affordable complete machines for ~6,400 supported columns; no selected architecture.
-Mode: LEARN → PROBE load-responsive dissipation after positive-support search.
+Updated: 2026-10-11 UTC; evidence: E-140, input main 754bb3d.
+North star: Affordable complete machines for ~6,400 supported columns; none selected.
+Mode: LEARN → EXPLORE low-load energy sinks after a real supported-descent branch.
 
 Portfolio / uncertainty:
-- E-139 captive groove carries signed load but Q_input≈−.785F; no passive arrest.
-- Its flat dwell retains height at rest yet coasts under input inertia to end stop.
-- Finite 2-mm stop bound is not an accepted outage drop or qualified impact.
-- Coherent ±.05-mm corner jams groove; same-height neighbor intersects plate.
-- Travelling rocker repeats missing carrier restraint; no new principle claimed.
-- Weston screw/disc/ratchet brake is a new lead, not a selected architecture.
-- Manufacturer also uses motor brake: standalone free-input arrest is unproven.
-- E-129 released rollers lack controlled lowering; E-132 pads/screws remain controls.
-- E-138 magnetic head torque/isolation failures do not reject all magnetic coupling.
-- E-137 routing and E-136 wave isolation failures remain; no hardware acceptance.
+- E-140 Weston stack supports sliding lowering; b>h_plus gives useful force sign.
+- Both free shafts arrest nominally; 1-N/100-mm/s model drops ~2.28 mm.
+- No accepted outage drop; low load/inertia/friction corners reach stroke end.
+- Open stack catches too late at low load; nominal lowering never opens.
+- Failure-state reachability, ratchet reversal and capture geometry remain unbuilt.
+- Manufacturer motor-brake pairing is not proof of standalone impossibility.
+- E-129 released rollers lack controlled lowering; E-132 drag/screw controls remain.
+- E-139 lossless cam/dwell does not dissipate input energy; stop that refinement.
+- Shared brakes remove head inventory, not 6,400 supports or dense routing.
+- No process calibration, full-machine admission or hardware qualification.
 
 Recent varied attempts / novelty:
-- E-138: lifting magnet, synchronous PM, reluctance and hysteresis analogies.
-- E-139: horological rest faces; walking beams; open→captive contact inversion.
-- Generated cam/dwell witness is new evidence, not a new operating principle.
-- Hoist load-brake search changes axis to explicit load-responsive dissipation.
-- No landscape saturation claim; stop refining tested lossless support branches.
+- E-138 spatial magnetic coupling; E-139 rest faces/walking beams/captive inversion.
+- E-140 hoist feedback adds grounded dissipation and a conditional descent branch.
+- Exact runaway, hybrid arrest and open-gap catch are new evidence, not inventions.
+- One load-brake source axis; no saturation claim or manufactured novelty count.
 
-Next action: construct a load-responsive screw/disc/ratchet transfer model.
-Compare Weston-type clamping with E-129 rollers and E-132 permanent drag.
-Keep input free, include finite release/reclamp travel and low-load corners.
-Identify ground reaction, source of preload, overhauling descent and energy sink.
-Stop if it needs an unbuilt motor brake/return or repeats an unsupported gap.
-Retain uncertainty in friction, hysteresis, compliance and common bias.
-No automatic print, purchase or staffing request.
+Next action: compare low-load head-scale energy sinks with explicit static retention.
+Spring-applied brake: extend E-128 closure to force-rise/inertia, not another gap audit.
+Fluid meter-out/closed valve and centrifugal governor are distinct search axes.
+Compare selection, motion, retention, load path and recovery against E-140/E-132.
+Stop branches needing a free return/lock, unroutable capture or unsupported timing.
+Keep new architectures conditional; no automatic print, purchase or staffing.
 01–08 and Paperclip remain authoritative.
