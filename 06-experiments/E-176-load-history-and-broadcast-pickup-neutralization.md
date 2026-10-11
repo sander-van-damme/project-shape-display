@@ -215,11 +215,10 @@ handling with scanned proof and can worsen regional performance. Load-history
 clearing remains possible only with a real third state and a trigger margin;
 it has no demonstrated burden advantage over the home clock.
 
-Next useful move: construct one finite **broad-capture binary keeper + shared
-reset tooth + opposite-side arm writer**, including full neighboring sweeps,
-retained clear/active states, spring energy/force and a stalled reset. Compare
-its repeated compliant contacts and dense/local cost with explicit independent
-clearing. Stop if broad capture requires a second local release or recreates
-E-175's obstructing roof. Do not tune the rejected lane key or claim its ground
-support solved. This small geometry test has higher value than another timing
-sweep, printing, or full-machine CAD.
+E-177 executes the finite cam/leaf keeper discriminator. It stops that package:
+nominal local clearance does not close shoe guidance, frictional self-completion,
+writer access or bank rail stiffness. The broad-reset function remains conditional;
+its assumed capture window and timing are not implemented hardware. Reopen through
+a materially different supported selector rather than refine the failed lane key
+or repeat an ideal snap threshold. Broader setter/readback replication now has
+higher decision value than another keeper or timing sweep.
