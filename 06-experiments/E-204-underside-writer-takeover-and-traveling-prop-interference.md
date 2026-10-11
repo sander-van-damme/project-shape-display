@@ -47,7 +47,10 @@ The comb has slots x=[−1.5,−.5], webs z=[−4.4,−3.6], y=[1,1.25], and a
 continuous back spine z=[−5.1,−4.5]. Translation **down 1.5 mm** releases the
 tangs while staying separate from the writer lane and the entire rack envelope.
 The spine nominally touches tang bottoms when closed; independent z errors can
-interfere. A real closure clearance, actuator, mechanical stop and retained
+interfere. The retained source also leaves a .1-mm gap between web bottoms
+z=−4.4 and spine top z=−4.5: these solids are disconnected. Its sweep result
+therefore does not construct a force-transmitting comb; joining them is owed.
+A real closure clearance, actuator, mechanical stop and retained
 closed state are not supplied. No robust gate pass is inferred from nominal fit.
 
 The source checks **628 expanded exact sweeps** for writer approach/acquisition,

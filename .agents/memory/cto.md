@@ -1,34 +1,34 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-204 underside construction, input main c29c477.
+Updated: 2026-10-11 UTC; E-205 takeover, input main 5b00d5c.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: integrated PROBE/LEARN; access clears, positive takeover now decisive.
+Mode: integrated LEARN → applied PROBE; redirect from long underside blades.
 
 Portfolio / uncertainty:
-- E-204 underside tang/U clears neighbor and comb sweeps with slotted base;
-  unwindowed upper posts survive. Outer base strip only .35 mm, unqualified.
-- Fixed open U permits q=-.55 nominal after comb release: rack support lost.
-  Bound corners give -.30-mm overlap; common offset has .15-mm incompatibility.
-- All 40 sliders need positive restraint before releasing a half-row comb,
-  including unchanged cells. Acquisition/depth readback is not load support.
-- Traveling bottom prop intersects base; granting a hole still leaves sled/end
-  member collision. Lower member clears; central seam relief/dock remain open.
-- Long underside tongue has low polymer-like stiffness; local limiter missing.
-- E-202 taper and E-203 floating head remain scoped geometric/force failures;
-  original side-entry U collision and intact-row clearance controls retained.
-- E-201 longer side-guide holdout remains valid; short-guide return paused.
-- E-166 hooks, E-165 laminate, E-197 wet command remain alternative leads;
-  no obligation to pursue concurrently. No complete machine/hardware pass.
+- E-205 adaptive contact clears acquisition and preserves .020-mm² rack area
+  with ideal retained roots; actual long blades do not guarantee restraint.
+- At 1 N/2° frictionless ramp, metal-like single blade loses .05-mm overlap;
+  ideal bilateral preload still fails with .02-mm root lost motion. Lower
+  load/slope or zero-loss preload can change disposition; no blanket jaw ban.
+- Common gate requires 40 independent held sliders for one changed cell.
+  Locks, local isolation, actual rack takeover/proof remain unsupplied.
+- Local crossbolt control adds 6,400 precision guides/latches; .05-mm nominal
+  gaps fail opposed .05 bounds; .05-mm stem ligaments have no process case.
+- E-204 comb source was disconnected by .1 mm; E-205 joins/lower-clears spine.
+  Underside access survives but .35-mm base strip and service seams remain open.
+- E-204 fixed-open U support loss and bottom-prop/base collision remain valid.
+- E-201 long side-guide result retained; E-202/203 transfer failures scoped.
+- E-166 shared hook/return and E-165 laminate remain distinct assembly leads;
+  E-197 wet command is an alternative, with no current concurrent allocation.
 
 Recent progress / search coverage:
-- E-204 separated access from takeover; no new fundamental principle claimed.
-- Underside construction removed the upper tab window but exposed base access,
-  command-tongue stiffness, common-gate free motion and service seam obligations.
-- Independent search count unknown. No claim of landscape saturation.
+- Adaptive split jaws remove fixed-offset contradiction, expose compliance.
+- Finite tilted nose supplies adverse force contact; friction assumptions matter.
+- No new fundamental principle or landscape saturation claimed; count unknown.
 
-Next: finite adaptive jaw/comb overlap versus a locally retained gate; retain
-rack support and every unchanged slider through the actual handoff.
-Stop if support requires another 6,400 precision channels without a packing or
-assembly gain. Reconsider E-166/E-165 if this shared gate adds rather than saves.
-Recovery/dock detail follows a viable normal handoff; no print for current faults.
+Next: reconstruct E-166 backing with release orthogonal to its blocked path;
+compare shared return + grounded seat against existing slider burden.
+Stop if no finite supported release or assembly/interface advantage emerges.
+Reopen underside only with changed reusable force support or justified load bounds;
+no more aperture/dock tuning before normal takeover. No print for these faults.
 01–08 and Paperclip authoritative; analytical acceptance is not hardware proof.
