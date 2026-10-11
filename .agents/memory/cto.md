@@ -1,38 +1,39 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-175, input main 5fd6150.
+Updated: 2026-10-11 UTC; E-176, input main 2e0d44c.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; stop local lane-retention repair on access/burden evidence.
+Mode: LEARN → PROBE a reusable binary keeper/reset interface, not lane-key repair.
 
 Portfolio / uncertainty:
-- E-175 two-station V-key removes clearance drift, but affine nose error leaves
-  only .0205-mm wrong-lane gap at e=.05. Keeper must resist moment and side load.
-  Proposed spring roof collides with neighboring home pad (.44 mm³); no escape.
-- Five vertical one-hot stops remove narrow Y memory. Isolated transitions clear;
-  retracted upper stop hits neighboring moving pickup (.368 mm³). Conditional
-  B4 schedule 27.968 s; split writers 656 bundles equal separate B8 control,
-  with five resident stops/site. Stop this embodiment, not vertical supports.
-- E-174 clearance peg retains a .44-mm drift / 10.1-mm wrong-height capture;
-  exact remote linkage is not available. Tilted normal contact can equilibrate
-  with granted restraint; do not resurrect inevitable loaded tipping claims.
-- E-173 ideal lane contact cycle still removes height-group writes, but no
-  finite retained shared-writer assembly. Two selectors/site and bank brake persist.
-- Direct B4 19.469 s/324 bundles and separate B8 23.247 s/656 are conditional
-  controls, not priced machines. E-175 unloaded screw stop duplicates E-131.
-- E-148 field jaws, E-164 aperture/E-165 laminate/E-166 shared comb and E-170
-  periodic pickup remain distinct principles. No hardware family qualified.
+- E-176 safe-state broadcast reset at deck home has a nominal connected
+  tooth/post/rail clearance witness. All columns stay grounded while pads clear.
+  Exact-stop rigid comb fails .05-mm opposed errors; broad self-completing
+  keeper could tolerate a shared command window, but keeper remains unbuilt.
+- Load-only neutralization cannot distinguish before/after pickup; exhaustive
+  state synthesis needs 3 states. Home-clear input needs 2. No free load trigger.
+- Broadcast + scanned proof B4: 21.494 s vs explicit 22.919/direct 19.469.
+  Parallel proof floor 19.360 s has no credible advantage margin. Whole-bank
+  proof worsens local maps; changed-only proof needs monotonic safe reset.
+- E-175 V-key roof and vertical-stop stack hit neighboring pickup sweeps;
+  stop those packages. Five resident stops and split writers lose burden gate.
+- E-174 clearance peg: .44-mm drift / 10.1-mm wrong capture; no remote linkage.
+  Do not resurrect inevitable tipping: restrained tilted contact can equilibrate.
+- E-173 lane rack removes height-group writes, but ground index remains unsolved.
+- E-172 single transfer key is already tested; don't rediscover it. Direct B4
+  and separate B8 are conditional controls, not priced or qualified machines.
+- E-148 field jaws; E-164/165 aperture laminate; E-166 shared comb remain distinct.
 
 Recent varied exploration / novelty:
-- E-173: push-push analogy; countdown (duplicate); spatial tooth lanes (new).
-- E-174: depth/discrimination, no independent exploration increment.
-- E-175: precision fixture preloading; vertical support transpose (new here);
-  unload-before-length-programming (screw duplicate). No global saturation claim.
-  New lesson: both replacement packages consume neighboring pickup sweep space;
-  a retained state must be compared with the whole route and repeated inventory.
+- E-175 fixture preload; vertical support transpose (new); screw stop duplicate.
+- E-176 ownership inversion repeated E-172; load-history repeats sequence axis.
+  New combination: broadcast a safe temporary-state clear instead of separately
+  rewriting equal bits. Finite state/comb model, no independent literature search.
+  No global saturation count; broader search remains open.
 
-Next: change pickup/support routing or eliminate one resident selector, using
-functional recombination and direct/separate controls. No further local key tuning.
-Reopen only for finite guide/keeper/writer clearance plus a burden advantage.
+Next: finite broad-capture binary keeper + reset tooth + opposite-side arm writer;
+check both retained states, spring force/energy, neighboring routes, stalled reset.
+Compare explicit clearing and dense/local readback; stop if another local release
+or obstructing roof is needed. This does not reopen failed ground lane supports.
 Bank input-loss arrest, late-fault recovery and reader false acceptance stay open.
 No print, purchase, whole-machine CAD or hardware reliability claim.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
