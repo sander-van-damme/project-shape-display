@@ -1,39 +1,38 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-178, input main cb58cd1.
+Updated: 2026-10-11 UTC; E-179, input main 76b98d8.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: PROBE shared observation of actual support/pickup outputs.
+Mode: LEARN; shared output silhouettes do not remove actual-state proof.
 
 Portfolio / uncertainty:
-- E-178 fixed-datum coded tails + row mirrors give a finite shared optical path.
-  ±.1-mm/.5° box leaves only .094-mm mirror/tail gap; ±.2/1° collides.
-  A larger pupil clips on a real tail. Optics/marks/price remain unqualified.
-- Height codes cannot prove ground support or cleared pickups: do not replace
-  E-176 reset proof. Four-bit code catches one bit, aliases some two-bit faults
-  and global inversion. Registration and coherent bias dominate next work.
-- Stopped full-board scan is 9.403 s under stated allocations; continuous floor
-  4.813 s needs short exposure/pipelining. No free scan or 320-setter reduction.
-- E-177 cam keeper: finite-shoe plateau, friction, writer collision and weak rail
-  stop this package. Do not return to another local keeper friction sweep.
-- E-176 home broadcast safe-state reset remains a conditional reusable function;
-  B4 scanned 21.494 s vs direct 19.469. Whole-bank proof worsens local updates.
-- E-175 V-key roof/vertical stops collide; E-174 loose peg drifts .44 mm.
-  E-173 lane rack still lacks a working grounded index.
-- Direct B4/separate B8 remain conditional controls with capture, arrest, support
-  and bought-cost gaps. E-148 field jaws; E-164/165 laminate; E-166 backed comb
-  remain distinct leads, not selected machines.
+- E-179: E-178 mirror collides with E-173 spine. Relocated seam/pad mirrors
+  have individual center-ray access, but tested lower strip blocks upper view.
+- A <.04-mm pad-edge variation makes active/clear pinhole silhouettes identical.
+  Row fiducials cannot fix local shape ambiguity. A second view breaks this
+  witness, but finite access/contrast/price and force proof remain unbuilt.
+- Common fiducials at 25.4-mm spacing conditionally bound registration <.2 mm
+  under stated curvature/local-error box; no measured process capability.
+- E-178 height codes remain conditional and cannot prove support/pickup clear.
+  Stopped scan 9.403 s; granted dual-slot scan 11.023 s. No free 320-setter cut.
+- E-177 cam keeper stopped by shoe/friction/access/rail issues. E-175 V-key and
+  stops collide; E-174 loose peg drifts; E-173 grounded lane index is unsolved.
+- E-176 home broadcast safe-state reset remains a reusable conditional function;
+  B4 scanned 21.494 s vs direct 19.469. Bank proof can worsen local updates.
+- Direct B4/separate B8 remain controls with capture/arrest/support/bought-cost
+  gaps. E-148 jaws, E-164/165 laminate, E-166 comb remain distinct leads.
 
 Recent varied exploration / novelty:
-- E-176 safe-state broadcast was a new functional combination; E-177 its probe.
-- E-178 combines absolute encoder fixed-datum marks with document-scanner shared
-  imaging. Material sensing-route change relative to E-004/E-046/E-176, not a
-  new actuation principle. Two analogy domains; no global saturation count.
-- A ray pass hid a finite mirror/tail collision at the wider error bound.
+- E-176 safe-state broadcast changes the control function; E-177 probes it.
+- E-178 encoder scales + shared document scanning change sensing route.
+- E-179 adds finite packaging synthesis and a perspective/shape alias, not a
+  new actuator principle. Fiducial interpolation controls smooth error only.
+- Shared one-view output axis now has specific negative evidence; no claim
+  that broader optical or complete-architecture search is saturated.
 
-Next: construct shared views of actual loaded-stop overlap and pickup output,
-comparing direct heads, backed comb and field jaws. Test state aliases and finite
-access before optical sourcing; stop routes needing per-cell precision relays.
-Check if common fiducials bound registration within .2 mm without manual cell
-calibration. Height alone cannot supply the missing support observation.
+Next: compare writer-carried two-view actual-output sensing against mechanical
+travel inhibition by an uncleared pickup. Construct access or causal inhibition,
+not another flag. Must avoid 6,400 new precision relays and preserve load support.
+Stop sensing elaboration if it removes no repeated function; then broaden the
+architecture axis. Do not resume another local lane keeper/mirror-angle sweep.
 Bank arrest, false acceptance and complete cost remain open. No print/purchase.
 01–08/Paperclip authoritative; this compass is not engineering evidence.
