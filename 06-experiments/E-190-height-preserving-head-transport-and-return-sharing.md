@@ -162,7 +162,7 @@ successive row barriers and final reset time. An independent bound for n rows is
 `2*t_empty(44)+(n−1)*t_empty(40)+n*(t_loaded(40)+2s)`. Two columns attain it:
 repeat 40→0 in one and 0→40 in the other. This bounds continuous old/new heights
 for the stated serial-acquisition protocol, not just the nine-level alphabet.
-With two banks, row motion and reserve it is **28.038 s / 160 motors**, before
+With two banks, row motion and reserve it is **28.022 s / 160 motors**, before
 building or timing the new retraction route. Repeated 0→40 still needs a 40-mm
 empty return between jobs; free routing removes only the home undershoot there. Over 80 rows,
 vertical time changes 43.001→37.843 s. Alternating 0→40/40→0 changes
