@@ -1,35 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-181, input main 0ce734e.
+Updated: 2026-10-11 UTC; E-182, input main 7859d6d.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; contact-drive mergers have not removed their repeated burden.
+Mode: LEARN → EXPLORE; linear passive flux routing does not close resident motion.
 
 Portfolio / uncertainty:
-- E-181 nonresonant resident walker: stationary overlap avoids modeled contact
-  gaps under .05-mm/1-ms box, but B's axial carrier still needs grounded support.
-  1/2-mm steps need 1,600/915 heads with weak-grip acceleration; 8-mm section collides.
-  A short carrier stop does not contain a slipping column after a stuck-open A.
+- E-182 resident screw + shared magnetic gates: no temporary pickup, but
+  2.5-mm series gates give 33:1 nominal / 17:1 adverse torque contrast vs
+  3,887:1 for the declared mixed-load deadband. Circuit result, not field CAD.
+  Bypass shunts need finite feed reluctance; free source + shielding is inconsistent.
+  Common return flux, repeated gaps and screw coast prevent a machine advantage.
+- Spatial soft-rotor/local-return heads remain unbuilt, not rejected with PMs.
+  E-138 PM resident-neighbor failure; E-065 crossed air-core margin; A-016 flags
+  are distinct from sustained work. E-149 magnetic wells do not guarantee arrest.
+- E-181 walker overlap avoids modeled gaps but B needs grounded carrier support;
+  1/2-mm steps need 1,600/915 heads at weak-grip acceleration. Pause detailing.
 - Direct B4/separate B8 remain controls with capture/arrest/cost gaps.
-- E-148 field jaw shares excitation, not capture/return; E-164/165 aperture
-  and E-166 shared comb do not establish removed support/selector functions.
-- E-180 underside local rays escape depth alias; shared pose blocks 19/20.
-  Broad probe covers rigid clearance but misses absent fingers; no travel inhibitor.
-  Stop pickup-proof refinements without machine-level function removal.
-- E-176 broadcast reset conditional; home-clear does not prove next armed mask.
-- E-156 continuously engaged screw retains coast, friction and control-cost gaps.
+  E-148 shares excitation, not return/capture; E-164/165 aperture/laminate
+  and E-166 comb have not removed the repeated selector/support burden.
+- E-180 underside observation improves access, not mechanical pickup proof;
+  E-176 broadcast reset remains conditional on actual armed-mask verification.
 
 Recent varied exploration / novelty:
-- E-178/179: scanner analogies and finite perspective/shape ambiguity.
-- E-180: rotate observation plane; physically occupy forbidden pickup space.
-- E-181: nonresonant walking-drive sources vs resonant E-150; integrated
-  shaft-lock patents duplicate permanent drag. New sequencing/transfer accounting,
-  no new basic retention principle or machine advantage. Two search domains;
-  no count claiming broader saturation. Stop elaborating contact-drive hybrids.
+- E-180 observation-plane reversal and occupied-space proof.
+- E-181 nonresonant walking drives vs resonant feet; no new retention principle.
+- E-182 switch-matrix shunts + reluctance coenergy: new feed/fanout/deadband
+  discriminator, no new basic principle. Linear routing provisionally screened;
+  no claim that nonlinear routing or the wider landscape is saturated.
 
-Next: shared spatial-field writing with a resident grounded load path.
-Cross-check E-138/A-016/E-065 before claiming novelty. Compare passive reluctance
-routing/shielding to rotating heads and crossed fields: can it remove local release
-wiring while retaining arbitrary-map isolation? First bound adjacent-state field
-contrast, force/work and saturation; stop if it hides 6,400 active gates or merely
-renames existing selectors. Keep signed motion/retention/recovery in scope.
+Next: nonlinear magnetic coincidence without mechanically switched air gaps.
+Cross-check A-016/E-074/E-080; build one closed circuit with select/half-select/
+reset history before novelty or shielding claims. Does nonlinear routing merge
+functions, or merely hide 6,400 gates? Include a different bounded motion/retention
+path; stop if it returns to command flags + capture or the same high-speed screw.
 No print/purchase; no fixed fabrication gate. 01–08/Paperclip authoritative.
