@@ -1,32 +1,33 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence: E-141, input main 22cb4ca.
+Updated: 2026-10-11 UTC; evidence: E-142, input main f5a9c31.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: SCREEN → PROBE whether an actual head can supply low-load arrest bounds.
+Mode: LEARN → SCREEN shared release downstream of drive elasticity.
 
 Portfolio / uncertainty:
-- E-141 spring brake has a conditional rigid-coordinate 100-mm/s envelope.
-- Minimum 12.8-N drag/full force by 2.671 ms bounds down/up to 6.711/1.439 mm.
-- Closure/restitution/force assumptions are unqualified; no accepted outage drop.
-- 300-mm/s adverse case exceeds 40 mm; slower response also loses stroke margin.
-- Tangential compliance/capture can rebound after rotor arrest; unmodelled so far.
-- Fluid closure stores elastic energy; finite leakage allows long-outage creep.
-- Governor limits speed, not rest; gearing adds inertia. Speed-only trip is late.
-- E-140 supports sliding descent but low-load/open-stack cases escape stroke.
-- E-132 drag and E-129 released rollers remain scoped negative controls.
-- E-127/128/132 capture fit and dense routing failures are not repaired by brakes.
-- 100-mm/s optimistic schedule still needs 121/229 heads (without/with return).
-- No process calibration, affordable complete channel, machine admission or hardware proof.
+- E-142 derives coil/plate/contact response, replacing E-141's assigned force ramp.
+- Contact at .622/1.700 ms is followed by rebound; 95% force takes 3.059/83.084 ms.
+- Rotor arrest is not output retention: soft loaded output crosses 12-mm clearance.
+- K=1,000/10,000 N/m improves the sampled envelope; actual stiffness unqualified.
+- One apparently stopped case fails future no-slip proof; no allowable outage drop.
+- Sliding-cam return stalls at adverse friction; stronger spring/roller is a new case.
+- Adafruit 412 per-head release costs $726/$1,374 alone for 121/229 heads: stop it.
+- Custom coil remains unpriced; 6.82-W holding/head adds a serious common supply burden.
+- E-132 permanent drag, E-140 load feedback, E-141 fluid/speed-only failures remain.
+- E-142 retained eye has adverse docking overlap; E-132 dense collision remains.
+- 6,400 parked supports/returns, independently driven heads and proof still count.
+- No hardware proof, affordable complete channel, or machine admission.
 
 Recent varied attempts / novelty:
 - E-138 spatial magnetic coupling; E-139 captive cams; E-140 hoist feedback.
-- E-141 industrial spring timing, hydraulic shutoff, centrifugal trip/limiting sources.
-- New evidence: force-time/inertia envelope, fluid rebound/drift, low-load trip delay.
-- These are known principles/recombinations; no broad saturation claim.
+- E-141 industrial spring, fluid closure and governor sources; E-142 finite return.
+- New discrimination: normal rebound, cam self-locking, downstream elastic escape.
+- Shared downstream clamp is a recombination hypothesis, not demonstrated novelty.
+- No landscape saturation claim; isolated annulus tuning now has low decision value.
 
-Next: finite closing mechanism + elastically coupled captured output.
-Compare axial spring closure against a mechanically returned release topology.
-Require actual spring/release energy, contact force rise, rebound and grounded reactions.
-Stop if fast response is only a prescribed ramp or capture routing remains impossible.
-Keep speed/position guards and joint head-cost/throughput bounds visible.
+Next: common spring-return release crossbar with independently moving head rods.
+Place clamps downstream of elastic drives; retain separate drives/parked supports.
+Screen summed release work, bending/warp, jam propagation and actual routing first.
+Compare per-head coils/permanent drag; joint purchased cost must include all channels.
+Stop if one stuck-open member defeats returns, routing fails, or inventory disappears.
 No automatic print/purchase/staffing; 01–08 and Paperclip remain authoritative.
