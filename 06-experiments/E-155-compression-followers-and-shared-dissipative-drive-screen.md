@@ -88,8 +88,8 @@ or 14.29-MPa nominal axle bending; contact reversal remains prohibited.
 Common adverse error e moves both walls inward by e and enlarges the roller by e. At
 e=0/.025/.05/.10 mm, minimum center clearance is approximately **.200/.100/0/−.200 mm**;
 the tiny negative at .05 is polyline discretization, not a measured interference prediction.
-These are coherent error scenarios, not X1C accuracy or probabilities. The larger internal envelope needs routing: 8/14/18-mm circular cartridge envelopes
-need 4/9/16 tiers in a simple square interleave at 5.08-mm tops. These layout counts do not prove rod clearance or optimal packing. Sixteen
+These are coherent error scenarios, not X1C accuracy or probabilities. Internal 8/14/18-mm envelopes
+need 4/9/16 tiers in a simple square interleave at 5.08-mm tops. Routing remains unbuilt. Sixteen
 52-mm cartridges consume 832-mm depth before routing/frames; wider internals are allowed.
 
 ## Contact-aware motion, shared modes and outage
