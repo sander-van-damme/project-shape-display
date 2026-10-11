@@ -1,36 +1,36 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; evidence E-148, input main 5830eb0.
+Updated: 2026-10-11 UTC; evidence E-149, input main 2282b42.
 North star: Affordable complete machines for ~6,400 supported columns; none selected.
-Mode: LEARN → EXPLORE retention without releasing the grounded column path.
+Mode: LEARN → PROBE whether a grounded friction writer survives real coupling.
 
 Portfolio / uncertainty:
-- E-148 motor field can share local release at zero drive torque; conditional only.
-- Actual excitation loss differs from supply loss, energized stall and wrong command.
-- Rotor brake cannot hold a separated column; direct column jaw needs its own ground.
-- Downstream field jaw still counts armature/link/return/guides/pads and output proof.
-- .2-rad reaction cam fails steady torque/work; zero-load torque removes release.
-- E-148 return envelope gives conditional bounds, not measured motor/closure dynamics.
-- No all-state miniature field circuit, joint BOM or built downstream jaw.
-- E-147 packets cannot authenticate source; isolated stores can be recharged repeatedly.
-- E-140 supported dissipative descent remains conditional at low load/free input.
-- E-132 routing / E-142 elastic capture remain unresolved; no inherited passes.
-- H drives, 6,400 supports/returns and real column/support observation remain counted.
-- No chosen machine, manufacturing prior, physical qualification or printing proposal.
+- E-149 finite magnetic track fails 1-N holding, writer packing and coast capture.
+- Fixed-M full-board axial upper bound <.929 N in nine coherent scenarios.
+- Magnetic height wells retain light rest states, not arbitrary moving energy.
+- Opposed resident friction feet retain contact in prescribed elliptical motion.
+- Synchronized high-modulation feet have simultaneous gaps; stop that embodiment.
+- Opposed case still needs real resonator, contact stick, preload and local isolation.
+- Nominal 10-N wave surrogate needs 915 heads / ~1.87-kW contact heat; no BOM pass.
+- 1-N surrogate changes ranking; all loads/friction remain explicit scenarios.
+- Micron compression / 150-MPa contact stress has no qualified printed embodiment.
+- Residual vibration, kinetic friction and neighboring-frame excitation govern arrest.
+- E-148 field-driven local jaw remains conditional; stop reaction-cam refinement.
+- A-007/E-131 screw control keeps speed, friction, zero-load inertia and routing limits.
+- No physical qualification, manufacturing prior, architecture selection or print.
 
 Recent varied attempts / novelty:
-- E-146 overlapping windows + anti-repeat; E-147 converter ports + reset work.
-- E-148 motor-field integration sources + signed reciprocal reaction-work screen.
-- Field versus useful torque is new discrimination, not a new spring-brake principle.
-- Repeated release/reset improvements now have diminishing architectural value.
-- Broad search saturation count unknown; do not manufacture a novelty quota.
+- E-148 integrated motor field vs signed torque reaction.
+- E-149 magnetostatic height energy vs ultrasonic direct friction transport.
+- E-149 synchronized→opposed contact phase removes a simultaneous gap in the model.
+- E-135 wave command selection differs from direct load-bearing contact drive.
+- Search saturation count unknown; finite contact coupling is next useful discriminator.
 
-Next: screen persistent resident retention with noncontact/strain-wave programming:
-magnetic height-detent track, travelling friction wave on grounded rail, screw control.
-Cross-check E-138/A-016, E-131/A-007 and vibration evidence before novelty claims.
-Seek actual energy barrier/load path throughout writing, not a renamed release latch.
-Bound zero-load inertia, sustained wrong excitation, neighbor disturbance, repeated
-parts, force/work, cost and 30-s preparation/proof/retry/settling first.
-Stop if it hides a capture brake/local powered release or repeats prior isolation failure.
-One bounded virtual screen; no print, purchases, staffing or approval wait.
+Next: load-dependent resident contact/elastic-wave witness with shared spatial writer.
+Compare real coupling + tangential stick against ideal ellipse and direct sliding control.
+Test signed drive, post-cut ringdown/arrest and adjacent loaded/unloaded parked runner.
+Count preload, hard contacts, piezo/head interfaces, isolation, cost and full-map timing.
+Stop if it needs local powered drivers, a capture brake, unsupported micron preload,
+or only reproduces known friction/crosstalk failures without a changed mechanism.
+One bounded computational probe; no print, purchase, staffing or approval wait.
 01–08/Paperclip remain authoritative.
