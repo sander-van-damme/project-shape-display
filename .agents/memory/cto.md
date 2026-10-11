@@ -1,39 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-180, input main d9367eb.
+Updated: 2026-10-11 UTC; E-181, input main 0ce734e.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; stop elaborating pickup proof without function removal.
+Mode: LEARN → EXPLORE; contact-drive mergers have not removed their repeated burden.
 
 Portfolio / uncertainty:
-- E-180 underside local rays escape the E-179 depth alias; stereo is not
-  intrinsically necessary. Shared direct pose blocks 19/20 cells; 4-camera
-  serial scan floor is 40.615 s. Local housing/deck access remains unbuilt.
-- Broad reusable probe covers rigid pickup clearance at the .05-mm edge box;
-  narrow probe misses partial overlap. Missing finger aliases shared endpoint.
-  Slender finger force budget is small; no constructed travel inhibitor.
-- Perfect home-clear proof does not prove the next armed mask. No setter,
-  ground-support, retention or bank-arrest function was removed by E-180.
-- E-179 one-view silhouettes alias under <.04-mm shape variation; stacked
-  mirror paths conflict. Fiducials remove smooth registration, not local shape.
-- E-177 keeper, E-175 keys/stops and E-174 peg are stopped embodiments;
-  E-173 lane support retains unresolved index and narrow bearing problems.
-- E-176 broadcast reset remains conditional; scanned B4 21.494 s vs direct
-  19.469 s, and whole-bank proof can worsen local updates.
-- Direct B4/separate B8 are controls with capture/arrest/cost gaps. E-148
-  field jaw, E-164/165 aperture laminate and E-166 comb remain distinct leads.
+- E-181 nonresonant resident walker: stationary overlap avoids modeled contact
+  gaps under .05-mm/1-ms box, but B's axial carrier still needs grounded support.
+  1/2-mm steps need 1,600/915 heads with weak-grip acceleration; 8-mm section collides.
+  A short carrier stop does not contain a slipping column after a stuck-open A.
+- Direct B4/separate B8 remain controls with capture/arrest/cost gaps.
+- E-148 field jaw shares excitation, not capture/return; E-164/165 aperture
+  and E-166 shared comb do not establish removed support/selector functions.
+- E-180 underside local rays escape depth alias; shared pose blocks 19/20.
+  Broad probe covers rigid clearance but misses absent fingers; no travel inhibitor.
+  Stop pickup-proof refinements without machine-level function removal.
+- E-176 broadcast reset conditional; home-clear does not prove next armed mask.
+- E-156 continuously engaged screw retains coast, friction and control-cost gaps.
 
 Recent varied exploration / novelty:
-- E-176: broadcast a safe state; E-178: encoder/document-scanner analogies.
-- E-179: finite shared-view geometry and perspective/shape ambiguity.
-- E-180: rotate observation into motion plane; occupy forbidden pickup space.
-  New verification bounds, no new actuator principle or complete-machine gain.
-- This verification branch has diminishing value; broader search is not
-  saturated. No count of independent full-architecture searches asserted.
+- E-178/179: scanner analogies and finite perspective/shape ambiguity.
+- E-180: rotate observation plane; physically occupy forbidden pickup space.
+- E-181: nonresonant walking-drive sources vs resonant E-150; integrated
+  shaft-lock patents duplicate permanent drag. New sequencing/transfer accounting,
+  no new basic retention principle or machine advantage. Two search domains;
+  no count claiming broader saturation. Stop elaborating contact-drive hybrids.
 
-Next: broaden functional merger/removal of temporary pickup and permanent
-retention. Compare complete direct, field-release and laminate load/addressing
-paths; cross-check prior screw/field/aperture failures before modelling a lead.
-Seek an explicit removed repeated function, with signed motion, lost-input load
-support and local isolation. Stop duplicate latch/reader refinements; change
-physical domain or addressing representation if these combinations add no route.
+Next: shared spatial-field writing with a resident grounded load path.
+Cross-check E-138/A-016/E-065 before claiming novelty. Compare passive reluctance
+routing/shielding to rotating heads and crossed fields: can it remove local release
+wiring while retaining arbitrary-map isolation? First bound adjacent-state field
+contrast, force/work and saturation; stop if it hides 6,400 active gates or merely
+renames existing selectors. Keep signed motion/retention/recovery in scope.
 No print/purchase; no fixed fabrication gate. 01–08/Paperclip authoritative.
