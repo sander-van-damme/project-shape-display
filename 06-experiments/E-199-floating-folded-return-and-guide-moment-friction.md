@@ -94,10 +94,14 @@ The contact model uses six unilateral endpoint springs, at both ends of each
 of the three E-198 faces. Equal stiffness taken toward the rigid limit selects
 a contact branch without granting arbitrary interference preload. Static
 tractions are −λNi with one λ≤μ, giving a sufficient sticking witness, not a
-unique prediction of real friction. Merely finding a friction-cone equilibrium
-with unlimited self-stress would falsely stick even a pure horizontal-force
-control; the implementation explicitly avoids that error. At the numerical
-regularizer k=10⁶ N/mm, maximum nominal guide rotation is 1.53e−7 rad; k is
+unique prediction of real friction. The common-ratio traction restriction cannot
+exclude all compatible friction-cone equilibria. In particular, a pure horizontal force with no weight
+or imposed interference can sustain guide wedging: lower x=−.25 and upper
+x=.15 mm, separated vertically by 2 mm, admit N=2.5H on each face and
+traction −.5H on each face at μ=.2. The normal couple −.4N balances the
+upper-traction couple +H. This corrects the earlier broad no-witness claim;
+the folded-return witnesses above remain sufficient counterexamples. At the
+numerical regularizer k=10⁶ N/mm, maximum nominal guide rotation is 1.53e−7 rad; k is
 **not** a claimed printed-guide stiffness. Finite guide play, pressure distributions,
 compliance and resulting beam end rotation require a different coupled model.
 
@@ -148,7 +152,7 @@ cut-sheet hypotheses, not printable X1C features.
 |---|---|
 | Folded sheet + backed positive lock + direct independent heads | Clears the specific axial-compatibility contradiction but fails guaranteed passive return in the stated contact scenarios. Still needs capture/unload, release, powered rack travel, return/seating, output/support proof and recovery. |
 | Straight-leaf sheet, E-198 | Known axial-friction failure remains; no reason to retune only modulus or thickness. |
-| Carrier-assembled rigid slider + separate force-only return | Analytical H-only, zero-gravity/zero-interference control has no normal-force source and no sticking witness. A real return attachment, preload, gravity, guide play and friction must be constructed; this is not a completed return mechanism. Temporary carriers can share placement without integral leaves. |
+| Carrier-assembled rigid slider + separate force-only return | H-only, zero-gravity/zero-interference loading still admits friction-induced guide wedging at μ=.2 when independent contact tractions are allowed. The common-ratio control does not exclude it. A real return attachment, preload, gravity, guide play and friction must be constructed; this is not a completed return mechanism. Temporary carriers can share placement without integral leaves. |
 | Same rigid slider + bilateral powered reset | Can avoid relying on passive-return margin, but needs actual push/pull engagement, jam detection, supported loss of power and completion proof. No free reset stroke, hardware or time credit. |
 
 Forty-cell 203.2×46-mm allocated sheet envelopes require 160 placements and
