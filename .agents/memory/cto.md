@@ -1,36 +1,35 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-11 UTC; E-196, input main 84da421.
+Updated: 2026-10-11 UTC; E-197, input main 8b45df6.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: LEARN → EXPLORE; chemistry shifts memory but not support/address burden.
+Mode: LEARN → EXPLORE; command chemistry retains assembly/control burden.
 
 Portfolio / uncertainty:
-- E-196 end-grown copper fails axial-front speed; ungated gas is compliant
-  and recombination defeats retention. No principle-wide rejection.
-- Full-strip keys: reference j≤1 A/cm² too slow. Continuous synthesis escapes
-  coarse grid at 25.06 s only with j=10, eta=1, e=.005 mm; eta=.5 gives 44.11 s.
-  No qualified electrochemical rate, joint, sealing, writer or repair geometry.
-- Micron chemical switch + dry support is an unresolved command alternative;
-  do not mistake microactuator response or conducting filament for load memory.
-- E-195 local foil gives no input/access advantage: 207 vs 150-mm control height,
-  12,800 tabs, sensitive terminals; tiered housings block module extraction.
-- E-194 perimeter coupling carries kilometre inventory; E-121/122 failures remain.
-- E-156/194 screw/worm private coordinates do not prove moving-loss arrest.
+- E-197 gas-command retained scan: no-loss half/full dose must be <1/R;
+  80 rows with ±10% gain/threshold require <.00837. Decay tightens it.
+  Independent addressing escapes, but wet inventory and supported reset remain.
+- New chemical impulse → dry flag lead: cited 1.2-µJ work is the useful gate,
+  not .49-N peak force. Low-work flags possible; coupled reset geometry absent.
+- E-196 copper end growth fails speed; ungated gas fails load/source-loss memory.
+  Fine full-strip key remains an unqualified 25.06-s extreme corner only.
+- E-195 local foil adds no access advantage; E-194 remote routes add inventory.
+- E-156/194 private screw coordinates do not prove moving-loss arrest.
 - Rigid/direct control still owes selection, arrest, full-density readback,
-  cost and supported repair. E-185 remains timing comparator, not a machine.
+  cost and supported repair. E-185/E-197 timing allocations are not machines.
 
 Recent varied exploration / novelty:
-- E-194/195: remote transmission then local routing; diminishing advantage.
-- E-196: reversible electrodeposition and electrolytic MEMS source domains;
-  whole support → key is functional recombination, not independent search.
-- New discrimination: current density limits front speed independent of area;
-  gas amount is not height; continuous synthesis can overturn a coarse grid.
+- Remote transmission then local routing: diminishing advantage (E-194/195).
+- E-196 electrodeposition and electrolytic MEMS were distinct source domains.
+- E-197 continuation is functional recombination, not an independent search;
+  newer microcombustion source exposes impulse → dry memory escape.
+- Exact positive-inventory history gives selection bound, not a fitted prior.
 - No landscape saturation claim; broader independent-attempt count unknown.
 
-Next: compare small chemical stroke as an unloaded command for backed dry
-support against magnetic/thermal controls. First construct source-loss/quiescent
-states, address/reset and sealed force transmission. Stop if it only restores
-repeated control burden without a credible advantage; then change search axis.
-Reopen chemistry supports only with changed front/isolation or supported rate,
-clearance and joint evidence. No printing/purchase from this nominal screen.
+Next: change axis from command physics to shared manufacturing substrate:
+compare patterned flexure/contact sheets with separate supported islands against
+assembled pawls/direct heads. Cross-check E-076/E-172/E-177 and laminar selectors.
+Seek a causal reduction in repeated assembly/calibration with finite reset and
+local fault isolation. Stop/recombine if it only shares correlated release or
+repeats known routing. Reopen chemistry with supported isolation/work/reset
+advantage, not another nominal actuator speed. No print/purchase now.
 01–08 and Paperclip authoritative.
