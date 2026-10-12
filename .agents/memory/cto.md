@@ -1,12 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-234 on input main de15f3c.
+Updated: 2026-10-12 UTC; E-235 on input main e7c33f5.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: locate height information without duplicating moving
-supports or independently loaded head outputs. E-234 removes cassette travel with
-captive pairs but pays 12,800 bars/friction sites and 720 writer channels. No pad,
-comb or finger refinement. Start with the actual rewrite/hold/transfer transaction.
+Current discriminator: reduce information handling AND supported transactions.
+E-235 removes retained program media using punched webs, but stopped writing,
+feed and sixteen shared heads defeat its apparent simplification. A free flying
+writer barely clears a timing/allocation oracle; this is not a reason to refine
+cutters. Compare a changed full transaction before another local mechanism.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -194,14 +195,23 @@ Evidence to retain:
   Bars alone 4.456 L; 35.6–106.7 h assumed insertion labor. Released .4352-g bar
   needs guide drag <.004269 N to seat; .005-N case sticks. No pad/keeper refinement.
 
+- E-235 thin punched command webs remove retained program bars, not load support.
+  One stopped writer needs >=37.059 s for feed/punch alone at assumed base rates.
+  Actual material-coordinate allocation avoids repeated-window conflicts; causal
+  far-bank retry needs >=425.32-mm new feed. Best base B16/W4:320 channels,
+  28.225 s/$755 assumed; fast B16/W2:160/28.265 s/$635. Base consumes .909 m²/map,
+  increases bars/pickups/probes to 1,280 each, and needs 328 punch/die sites.
+  No finite routing, output-clamp, cutter-force or readback qualification.
+  Free flying-writer oracle B12/W1:29.498 s/$495, only .502 s allowance with
+  punching cost/time deleted. Park stopped web; no smaller-punch campaign.
+
 Next executable investigation:
-- Synthesize state placement with actual supported rewrite/hold/transfer paths:
-  can common load support coexist with externally rewritten height information
-  without paired resident moving supports or independent loaded head outputs?
-  E-234 is a scoped stop, not evidence every external encoding must fail.
-- Do not relabel travelling cassettes, duplicated vertical bars or pooled finite
-  feet as new escapes. Changed geometry must remove their causal burden before
-  timing optimization. No inherited winner and no currently justified print.
+- Change the supported rewrite transaction and information placement together:
+  eliminate repeated media transport plus six pulse transfers, or construct a
+  reusable shared writer with a materially different force/timing path.
+- Do not relabel travelling cassettes, duplicated vertical bars, pooled feet or
+  punched-web buffers as new escapes. Layout does not supply a physical writer.
+  No inherited winner and no currently justified print.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
