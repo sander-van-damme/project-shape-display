@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-254 compares terrain policy; E-257 adds quarter pitch and paid neutral;
+Updated: 2026-10-12 UTC; E-254 compares terrain policy; E-257 adds quarter pitch; E-258 adds player views and depth choice;
 E-255 records owner hold; E-256 bounds the drive envelope.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
@@ -478,6 +478,23 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-258 player_view.py now challenges assigned30-mm ravine itself: N20/40 range
+  keeps20-mm walls and a20-mm physical drop. At64, mixed suite independentB2
+  max22.08s/$953.92 versus stopped-maskB2 26.90s/$1023.92 assumed allocations.
+  N30/50 instead25.38/31.40s. Paid N20 prep18.28s excludes unknown homing.
+  All physical depressions at64/N20 maskB2 max28.10s; no flattening required.
+  Mask boundary fragile:1500rpm30.18s,write50ms30.70s,accel200rev/s²35.08s;
+  independent25.28/22.08/26.48s for same one-at-a-time bounds. No rated BOM.
+  Three-page true-scale views show A/B same final shape; physical neutral differs
+  from labels. Rules/GM practice plus two qualitative dungeon/cave examples are
+  sourced; only original three maps timed, no observed play or preference claims.
+  Exact25.4mm passage has zero base margin at both pitches; one extra clear cell
+  gives30.48/31.75, still under illustrative32mm base. Protect walkable footprints
+  before walls; no global topology pass for old ruin trace. Prefer64/N20/40 as
+  provisional comparison, pending owner's depth and existing representation choices.
+  Inspect live LAB-386 interaction for depth preference; LAB-384 remains policy wait.
+  First further physical discriminator remains successful pair hold/drive/travel,
+  not thread micro-optimization. No print, purchase or architecture approval.
 - Integrating64ee4f9, E-254 now checks paid physical neutral10/20/30. Road from10:
   1951lower/4272stay/177rise,51rows,13.586s atB2/2000rpm; cold neutral prep17.133s,
   combined30.720s versus direct18.633s. Ravine from30:1992changed/78rows/25.333s,
@@ -491,8 +508,8 @@ Next executable investigation:
   max30.13/25.38s at80/64 versus absolute-target26.93/22.98. Initial neutral30
   prep25.33/21.58s is separately paid; inter-map resets are slower. Fewer pins
   do not mean36% faster updates. Preserve both-relief/mixed/both-visual policies.
-  Next decide a wall conversion preserving connectivity/openings/base support,
-  then whether common-ground50 stroke earns added guide/stock cost. No CAD/print/
+  Wall conversion still needs connectivity/openings/base support; new N20/40
+  comparison above challenges whether50 stroke earns added guide/stock cost. No CAD/print/
   purchases/architecture selection. Existing40 stroke screw50/nut10 already
   leaves no end margins;50 stroke needs>=60 threaded length plus margins.
 - Owner representation question is saved on LAB-384; consult live Paperclip for
