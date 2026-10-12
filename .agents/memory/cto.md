@@ -1,11 +1,16 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-252 on fetched main a51ae54; engineering input 666efe6.
+Updated: 2026-10-12 UTC; E-253 input 6fde094, criteria reconciled at 2591458.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: choose a continuously supported motion path once,
-without independent mid-program parking. Reconstruct E-247 before reopening
-rail assignment; a changed physical writer/routing topology is mandatory.
+Current discriminator: establish actual gameplay map/transition workloads,
+particularly occupied rows/banks, before selecting a mechanism. Stage 02 now
+separates <30-s representative gameplay from dense stress and permits credible
+$1,000–$1,500 research demonstrators with a path to the final $500 goal. Existing
+dense results remain valid evidence, not automatic current product rejections.
+E-253 cranks remove parking but enlarge physical writing; three planar heads
+have a <=29.609-s bound for <=3 visited rows/bank under assumptions, versus
+177.424-s dense stress. No gameplay distribution or physical support is qualified.
 E-252 sustained capture saves turns but recreates E-222 output retention and
 adds empty-slide reset; no dog/rack/capture refinement is justified.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
@@ -13,7 +18,8 @@ collides; no guide/pocket/head refinement is justified. E-248 retained writing
 and E-247 rails remain parked; programming savings alone do not supply support.
 E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
 normal force, not individual grip proof or unchanged-row shear displacement.
-No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
+No local membrane, seal, pawl, coil-gap or guide-detail continuation of these
+parked embodiments is justified. A changed architecture must earn its own case.
 
 Evidence to retain:
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
@@ -434,14 +440,40 @@ Evidence to retain:
   Neither rules out multi-view height sensing; software cannot infer unseen
   load-bearing engagement merely from correct height. No automatic new tasks.
 
+- E-253 positive-offset radius plus compensating shaft translation gives
+  delta=d sin(theta)/sin(alpha), removing E-247's nine-rail bridge and E-252's
+  parking. A symmetric signed-radius connected yoke intersects its shaft.
+  Offset design W=8/cos(alpha)+80/sin(alpha)+4 >=111.199 mm; planar B<=3.
+  15,625 ideal maps/1,593,750 support observations; no finite assembly proof.
+  Serial-color stopped writer: routing-granted B27/2160 outputs/26.983s/$1858.20;
+  parallel decks granted B16/1280/28.769s/$1180.60. Base planar177.424s;
+  best free-write/parallel planar50.662s; deleting shaft exclusion still38.259s.
+  Broad radial code pitch11.547mm does not fix time. Radius locks carry load;
+  compensating carrier and crank need grounded reactions. At B3: $379.80 inherited
+  allocation before crank extras; <=3 visited rows/bank has conservative29.609s
+  including synchronous seek/return/retry. Defer detail pending workload comparison,
+  not a product rejection from dense latency or the old $500 research gate.
+
+- New advice at 2591458: Sander reports manual printed threaded-pin translation
+  and variable printed rod/grid fit, without dimensions, settings, counts, loads
+  or cycles. Treat as informal physical observations, not process qualification.
+  Ideas9/10 (screwdriver row versus mechanical-AND drive) deserve workload-aware
+  comparison after A-007/E-050/E-131/E-156 reconstruction; no blanket thread ban.
+  Idea11 supports few precision shared components with actual process/cost proof.
+  Changed workload and staged cost are authoritative in 02, not only advice.
+
 Next executable investigation:
-- Reconstruct E-247 nine signed-displacement rails: can a changed column select
-  a continuously supported path once rather than park between strokes? First
-  inspect unary writing and transverse bridge failure. Develop only a concrete
-  alternative assignment/routing topology with a better full-machine ledger;
-  repeat screening or smaller selector parts alone do not justify reopening.
-- Reopen rigid tilt only for a changed whole-machine guidance/actuation route
-  with comparative burden advantage; a wider slot or thinner stem is insufficient.
+- Build an initial evidence-based D&D map/transition sample with provenance and
+  transparent sampling limits: raised/changed fractions, levels, row/bank occupancy,
+  wall structure, scattered edits and unchanged loaded regions. No invented typical
+  percentage or benchmark-tail compliance. Keep dense stress cases separate.
+- Use that evidence to compare changed-only moving screwdriver rows and a concrete
+  bidirectional mechanical-AND selector with shared-programmed head controls.
+  Count actual engagement, turns/RPM, anti-backdrive, repair and safe disconnect;
+  address bits and manual screw success do not supply a complete drive.
+- Head-only hydraulics remain a comparably simple alternative: reconstruct E-222's
+  differential modes and flow before any independently isolated metered-head screen.
+  No local seal/manifold/capture refinement without a competitive system case.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
