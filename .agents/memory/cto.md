@@ -1,14 +1,15 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-241 on input main 9ba3669.
+Updated: 2026-10-12 UTC; E-242 on input main dc1e1f6.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: can a shared writer reuse magnetic hardware while retaining
-an affordable, supported arbitrary-map transaction? E-241 polarized commands
-remove keeper/hold time but the direct bridges, magnets and coils fail the sampled
-cost/motion/retention screen. No local rotor, detent or magnetic-gap refinement.
-Shared lift power is not the main rejection (E-239); support isolation, gravity
-following and complete affordable command generation remain unresolved.
+Current discriminator: reduce physical rewrites/support transactions per row,
+not another refinement of the magnetic writer. E-242 reused coils save winding
+labor but need more retained flags/banks; the tested route has no coupled
+cost/motion certificate. The small allocation miss alone is not decisive.
+No selected machine, rotor/gap study or print. Shared lift power is not the main
+rejection (E-239); support isolation, gravity following and complete affordable
+command generation remain unresolved.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -285,16 +286,28 @@ Evidence to retain:
   cross-talk upper sums2.461/2.071mT at20.32-mm spacing are unresolved, not
   predicted failures. No detailed rotor/coil/detent development or print.
 
+- E-242 alternating scans reuse q signed writers across 80 passive flags/head;
+  no empty carriage return or free buffer. Base .2m/s/a8 needs B6/q40,
+  480 flags/240 writers/28.010 s/$562.22. Fast flying B5/q20:400 flags/100 writers,
+  28.016 s/$509.96 at v2/a80 with an unqualified 8-mm window (actual v<=1.333).
+  $25 reserve reduction changes cost outcome; no price floor. Reused E-241 bore
+  model still has no .010-N reader certificate in tested 5-V cases. Worst-barrier
+  midpoint at best P40 case needs54.652uJ vs40.671uJ input. No field-immunity
+  solution; park before local magnet/reader work. 1,536 ideal overwrites and
+  24 expanded schedules check logic. Removes300 coils vsdirectB5, not400 flags,
+  five physical writes/row, twenty support transfers or44,800 resident shelves.
+
 Next executable investigation:
-- Screen a shared traveling field writer for passive external polarized flags,
-  against the direct H-bridge control. Reuse windings/drivers without deleting
-  physical arbitrary-map writes, moves/registration, non-target immunity, read
-  reaction, support isolation or recovery. Inspect earlier spatial-writing
-  evidence first. Stop on complete cost/time/field-isolation failure; redirect
-  support/encoding rather than tuning magnetic gaps. This is an unselected
-  topology, not authorization for a local mechanism campaign.
-- Keep load distribution parametric; actual-process gravity drag, dynamic local
-  arrest and field/contact behavior are unresolved, not hardware passes.
+- Change transaction/support encoding. Reconstruct E-232/E-234/E-238 first;
+  generate complete mechanisms retaining one row program through a full height
+  trajectory or encoding target directly in shared supports. Do not relabel
+  paired bars, decoded media or assumed passive admission as a new escape.
+- First executable screen: physical program sites, support stages, online write
+  and read traffic, causal partial-state retry and whole-machine ledger against
+  the five-rewrite control. Stop if fragile local memory/output-copy machinery
+  returns. Local modeling requires a concrete topology removing a burden.
+- Keep payload distribution parametric. Actual-process gravity drag, local
+  dynamic arrest, finite routing and field/contact behavior remain unqualified.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
