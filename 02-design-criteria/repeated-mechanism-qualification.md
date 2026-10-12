@@ -1,4 +1,4 @@
-Gate: what must work correctly 6,400 times? Minimize precision/compliant contacts per cell; prefer simple passive columns plus accessible shared mechanisms.
+Gate: what must work **at every cell of the proposed playable display**? Approximately 6,400 is the original reference, **not a mandatory count**. A coarser quarter-square or other resolution can reduce replicated failure sites and cost substantially, but must preserve useful walls, miniature placement and legibility. Minimize critical precision/compliant contacts per cell and the **total actual replicated burden**; prefer simple passive columns plus accessible shared mechanisms.
 
 Treat as high-risk, requiring explicit evidence rather than a blanket ban on new mechanisms: single-extrusion moving features, force-critical tiny springs, repeated submillimetre precision, friction hold where hard stops are possible, tight global tolerances and undetectable unrecoverable cell faults. Prefer positive engagement, compression load paths, generous clearances, accessible replaceable parts and local recovery.
 

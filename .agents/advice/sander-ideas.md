@@ -10,6 +10,16 @@
 
 Before ranking actuation architectures by updated pin counts, **decide which shapes genuinely need mechanical elevation** and show alternatives (e.g. 3D walls and cliffs plus 2D foliage; a river with or without physical banks). If game conventions or player preferences are unclear, consult useful D&D play sources or create a **concise concrete Paperclip question for Sander**, with clear options and their consequences. Sander may answer later; keep progressing on conditional scenarios in the meantime rather than quietly turning assumptions into requirements.
 
+## [PRIORITY] Owner update — challenge the requirements and the resting height (12 October 2026)
+
+**This is a user-experience-led D&D project, not a quest for science-fiction machinery or strict specification compliance.** Sander would be happy with a simpler display that is fun, interactive and practical. The early 5.08-mm grid, roughly 6,400 columns, 40-mm travel, 30-s timing and ~$500 bought-hardware price reflect reasonable D&D assumptions, but are **adjustable reference targets**, not hard gates. An excellent, enjoyable finished display around **$1,000** might be worth more to him than a compromised $500 one. This is a potential value preference, **not an authorized purchase, new mandatory price or evidence of general customer demand**.
+
+**New alternative: park all columns at a raised neutral/mid-travel height rather than always starting fully lowered.** That lets ordinary ground stay in place while river water, trenches and pits move downward; hills, walls and high rocks can move upward. E-254's existing river encoding is 1,951 cells at 0 mm, 4,272 at +10 mm and 177 at +20 mm; shifting the neutral datum to ordinary ground describes **1,951 below neutral (30.48%), 4,272 unchanged and 177 above (2.77%)**, rather than raising 69.52%. This is a hypothesis about a better mechanism and workload, **not merely a software offset**: below-neutral travel requires actual mechanical headroom, possibly longer pins, safe guides/support, end stops, source-loss behavior and honest initial neutral setup. Compare full real map changes as well as first setup, not only a static fraction.
+
+**New resolution challenge: do we need five pins per D&D square?** A **quarter-square grid at 6.35 mm** or another coarser resolution may still produce perfectly enjoyable walls, doors, terrain relief and miniature support with many fewer repeated parts. Test actual visual and mechanical play value rather than defaulting to the densest grid. Other dimensions, waits and travel ranges can also change when the experience is better.
+
+**Engineering rule:** keep the original choices as comparators and label consequences honestly, but actively pursue simple, buildable, pleasurable alternatives. A solution missing an old number can be successful when its play value is demonstrably greater. Real safety, reliable load support, manufacturability and user trust are never optional.
+
 ## Idea 1 — Self-recovering mechanisms through automatic reset or homing
 
 Perhaps a relatively complex mechanism for each pin could still be viable if the overall machine is designed to **automatically recover to a known-good state** whenever it is activated or reprogrammed.
@@ -122,7 +132,7 @@ An exception to "completely dumb columns" remains possible if a slightly more co
 
 ## Additional product priorities from Sander
 
-- **Incremental research success matters.** The eventual bought-hardware target is still at most $500, but a working full-system mechanism/design at roughly $1,000 or $1,500 would be a much better starting point than no functioning machine. Demonstrate feasibility first where rational, then develop a credible path toward affordability. This does not authorize a purchase or imply $1,500 is an acceptable final-product cost.
+- **Incremental research success matters.** The ~$500 hardware goal is an original **reference**, not the maximum acceptable value of a fun finished product. A convincing $1,000–$1,500 research prototype may be a great step, and a genuinely delightful finished machine around $1,000 could merit consideration. Compare cheaper variants honestly; neither figure authorizes a purchase or guarantees market willingness to pay.
 - **The 30-second goal is a gameplay promise, not an all-cells-move promise.** Ordinary D&D maps are expected to have many floor pins at baseline and comparatively few raised walls or other important structures. The **actual percentages are unknown**; investigate representative maps and map-to-map changes rather than inventing a figure. Dense arbitrary-height maps still deserve separate stress and reliability analysis.
 - **Visual detail need not be mechanical detail.** Show essential walls/large terrain physically, but small objects, textures or icons can potentially be shown by an overhead projector even if it is impractical to sculpt each of them with pins. Projection is optional and must still be checked on uneven geometry.
 
