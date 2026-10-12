@@ -3,3 +3,5 @@ Surface: approximately 400 × 400 mm; square/rectangular columns at approximatel
 Travel: provisional minimum 40 mm usable.
 
 Surface pitch constrains column tops, not internal selectors/memory/locks. Internal machinery may span cells or live at row, bank, tile or external-writer scale.
+
+D&D representation: prioritize playable 3D walls, terrain relief, large obstacles and miniature support. Smaller props (e.g., tiny furnishings, chests), markings and textures may be represented as projected/overlaid imagery instead of distinct mechanical elevations; some larger props may still be physically represented. An overhead projector is an **optional complement**, not a validated design requirement. Assess alignment on changing heights, shadows/occlusion, image readability and cost before counting it as a product feature.
