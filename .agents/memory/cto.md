@@ -1,39 +1,39 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; corrective LAB-343; E-216 on input main 375d168.
-Priority: simple columns; shared, reusable, serviceable mechanical programming.
-Depth: architecture synthesis and necessary-condition screening; no machine selected.
-Why: E-208–E-215 refined local obstacles while repeated manufacturing burden
-failed to determine allocation. ADR-022 now makes that burden decisive.
+Updated: 2026-10-12 UTC; E-217 on input main 12024b9.
+Priority: simple columns, broad positive support, shared accessible programming.
+Depth: architecture invention and necessary-condition screening; no machine selected.
+Why: E-216/E-217 writers leave hundreds of data channels plus unresolved
+friction-grip support; writer-only refinement no longer has product value.
 
 Evidence / chosen direction:
-- E-208–E-215 local toe/return/capture/guidance trajectory dormant; preserve source.
-  No pocket/leaf/guide refinement without a concrete architectural burden escape.
-- E-216 resident shutter support repeats 25,600 switching/retention sites;
-  arbitrary-pattern writing and selective supported pickup remain unsolved.
-- E-216 reusable row head eliminates individual resident locks via 80 comb axes,
-  but needs 160 grips +160 program sliders per head and load-preserving takeover.
-- Explicit stepped-mask writer at B=8/q=1/a=2000 takes 646.672 s.
-  Sampled <30-s cases need 256–1,280 setting lanes; no priced or physical pass.
-- Park both tested embodiments before local contact/CAD refinement.
-- A-001/A-002/A-011 and DES-002 remain seeds, not restored winners.
-  E-017/E-018 do not supply a working parallel aperture writer.
-- E-081 rigid offsets, E-083 clearing and E-084 setter-rate bounds remain controls.
+- ADR-022 governs; E-208–E-215 local toe/return/capture/guide work stays dormant.
+- E-216 common row comb removes individual resident releases but requires
+  160 retained grips/head, old/target media and unbuilt loaded-neighbor takeover.
+- E-217 binary stop stacks need 384 gates in the lowest-channel sampled
+  <30-s case, with 7,680 retained bits and 2,560 compliant pushers at B=16.
+- E-217 commutated tracks need 1,280 gates with .8 scan-speed allowance;
+  640-gate nominal boundary case slips from 29.735 to 33.325 s when derated.
+- Neither beats E-216's 256 multilevel setter lanes on established system value.
+  Park both before local cam/detent refinement; no fabrication or purchase.
+- Bit stack error adds with shared bias; common stroke needs differential
+  compliance and 96–480 N/head under the stated pusher scenarios.
+- A-001/A-002/A-011 and DES-002 remain principles, not restored winners.
+  E-084 still forbids excluding arbitrary media preparation through buffering.
 
 Next executable investigation:
-- Construct shared-stroke programming of reusable five-state mechanical media.
-- Compare binary decisions followed by common multi-position motion with
-  commutated set/reset carrier tracks; retain scalar writing as a control.
-- Model actual arbitrary bits, retention, erase, feed/return, registration,
-  readback and one bounded retry. First one finite complete write transition,
-  then full 6,400-cell schedule and cost/replication ledger.
-- Highest value: test whether physical programming can avoid hundreds of axes
-  without recreating thousands of fragile resident switches.
+- Synthesize broad stepped load-bearing row media, rather than command-only media.
+- Test whether direct positive stops can remove old-code writing, mask-to-grip
+  decoding and 160 frictional retention functions/head.
+- Start with three columns: 40→0, 0→40, 20→20. Construct every supported
+  exchange state, writer access, unchanged support and source-loss arrest.
+- Immediately count resident stop parts, spare media, writer/exchange travel,
+  bought channels and complete 6,400-cell arbitrary-map schedule.
+- Stop if it recreates friction pickups, precision local locks, unchanged-cell
+  disturbance or free prewritten cassettes. No detailed mechanism polishing.
 
-Important unknowns: passive support/loaded-neighbor transfer, grip normal force,
-source-loss arrest, broad-slot alignment, writer packing and actual-process wear.
-Stop/reconsider if speed depends on tiny steps, free gates, unbuilt grip state,
-preloaded media, or hundreds of unpriced channels. No fabrication yet.
-Alternative leads: common positive row supports and direct stop-layer encoding;
-recombine their useful primitives only with a changed failed interface.
-01–08/Paperclip authoritative; this file is an agenda, not evidence or history.
+Important unknowns: positive mixed-height handoff, direct-support media packing,
+retention/load path, actual-process broad-guide capability and assembly economy.
+Alternative: recombine common supports with external programming only if a
+changed load path removes the host machine burden; do not optimize a mask alone.
+01–08/Paperclip authoritative; this file is a mutable compass, not evidence.
