@@ -6,28 +6,25 @@ builds-on: [E-120, E-121, E-126, E-163, E-234, E-243]
 # Moving height memory into cords removes shelves, not independent support
 
 **Park the screened external cord/clamp machine before termination, spool or grip
-refinement.** Its drum-free linear tails remove resident shelf geometry, but add
-6,400 load-bearing cords, 12,800 bends and 6,400 independently adequate grip sites.
+refinement.** Straight tails remove shelves but add 6,400 cords, 12,800 bends and
+6,400 independently adequate grip sites.
 A favorable direct writer still needs 240 independently loaded outputs:
 **24.552 s / $623 allocated**, with unqualified gravity following and arrest.
 A common actuator can close many grips; a common continuous cord cannot replace
-those independent constraints. No tensile or compression machine is selected.
+those independent constraints. No machine is selected.
 
 Input main `3345b91`. Reproduce:
 `python3 tools/curated-experiment-checks/E-244/screen.py`.
 Evidence: **architecture hypotheses, exact linear-constraint calculations, ideal
 handoff replay and bounded geometry/time/force allocations; self-review**.
-No physical measurement, finite routed CAD, calibrated X1C distribution, quotes
-or hardware acceptance. Dimensions and material/force/cost scenarios below are
-assumptions. Five heights 0/10/20/30/40 are a comparison alphabet, not a product
-resolution decision. Source prints disposable JSON only.
+No measurements, finite CAD, calibrated priors or quotes. All numerical inputs
+are assumptions. Five heights 0/10/20/30/40 are a comparison alphabet, not a
+product resolution. JSON output is disposable.
 
 ## What changes, and what earlier work already settled
 
 E-120 already established that two-edge tendon routing is not topologically
-excluded, and counted 740–881 m before moving legs, ends and storage. E-121's
-local winding collides; its pull-pull loop has an explicit slack witness. Neither
-is repaired here. The changed embodiment has **straight externally gripped tails,
+excluded, and counted 740–881 m before moving legs, ends and storage. E-121's winding collision and loop slack witness remain. The changed embodiment has **straight externally gripped tails,
 no drums or local rotary locks**, and accounts for the moving lower column anchor.
 E-163 already rejects a free-tail capstan as memory; no claim that it self-locks
 is reopened. E-126's serial particle shuttle and E-234's paired rigid supports
@@ -56,7 +53,7 @@ if all individual grips remain adequate. Loss during open-clamp motion is not
 safe without independently grounded head retention. Unvisited rows stay clamped;
 all 80 visited cells undergo a load transfer even for one changed cell. Opposing
 capture/seat errors ±e can cause up to 2e unchanged-cell motion, before elasticity.
-These support, verification and fault interfaces have not been constructed.
+All these interfaces remain unconstructed.
 
 ## Shared length is not independent state
 
@@ -83,8 +80,7 @@ Allocate 40 paths toward each x edge per row, 80 rows. Separate the incoming
 vertical legs from outgoing horizontal legs with a lateral lane; two quarter-turn
 guides connect them. Stack outgoing lanes at spacing `s=d+2e+.4` mm, where d is
 cord diameter and e is each route's total size/position error bound. Common
-translation cancels; opposite local or module offsets consume 2e. No random or
-independent-cell yield is inferred. Two bent corridors, a 1.4-mm-wide stem and
+translation cancels; opposite local or module offsets consume 2e. No yield is inferred. Two bent corridors, a 1.4-mm-wide stem and
 .4-mm separating allowance need transverse width `2r+d+2e+1.4+.4`, where
 r=kd/2 and k is assumed bend-diameter/cord-diameter ratio.
 
@@ -108,11 +104,10 @@ No spool slack is required on the taut single-cord branch, but external ends
 sweep 40 mm in separate lanes. Paired cords require real slack storage as well.
 The .3-mm case's external outputs occupy roughly 406×56 mm per edge before clamps
 and structures; arbitrary output-to-channel fanout and head movement are unbuilt.
-The result is no stronger than E-120's ideal routing; its new information is the
-under-cap moving-anchor and stored-tail accounting, not a new cable-routing proof.
+The new information beyond E-120 is moving-anchor/tail accounting, not a
+cable-routing proof.
 
-At e=.15/.35/.70, d=.3/k5 transverse spare is 1.18/.78/.08 mm. The last has no
-useful unmodelled allowance. Shared printed datum warp affects many routes;
+At e=.15/.35/.70, d=.3/k5 transverse spare is 1.18/.78/.08 mm. The last has little unmodelled allowance. Shared printed datum warp affects many routes;
 cord diameter/length batch error, knot seating, tension history, creep and reader
 bias correlate errors. Smooth guide finish, layer strength, wear and small bend
 behavior have no X1C/PLA or cord-specific evidence. Replaceable open routing trays
@@ -204,8 +199,7 @@ $.50/output still costs $503. With entirely free resident bought parts, the
 $1/output case is $495; thus no universal cost impossibility is claimed.
 At $.02/site the complete channel ceiling is **$.4875** below $500. Allocating
 that entire resident $128 to 1,492 m of cord leaves only **$.0858/m**, with no
-money for anchors, clamps or guides. Rated drives, arrest, power, sensing and
-cable procurement have not been found within these allocations.
+money for anchors, clamps or guides. No rated BOM fits these allocations yet.
 
 ## Decision and next discriminator
 
@@ -213,8 +207,7 @@ This topology removes E-243's 32,000 shelves but substitutes many loaded tensile
 interfaces and hundreds of independent head outputs, with added gravity, drift
 and assembly risks. Paired cords duplicate the support route; shared continuous
 cords lose independent retention. Neither earns a drum, tiny grip or bend-design
-campaign. The result does **not** reject all tensile mechanisms or infer universal
-manufacturing precision from the bounded scenarios.
+campaign. This does not reject all tensile mechanisms or establish process capability.
 
 Next compare **direct smooth rigid pins held by replaceable, collectively loaded
 row strips** with the positive-comb control. Remove the long cord transmission;
