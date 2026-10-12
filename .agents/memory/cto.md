@@ -1,11 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-227 on input main 0145b15.
+Updated: 2026-10-12 UTC; E-228 on input main 37b2dca.
 Priority: simple columns, broad positive support, shared accessible programming.
-Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: shared exterior writers do not rescue full-row cassettes.
-They exchange selectors for long extraction strokes, handlers and spare media.
-End this transport trajectory; do not refine fingers, pads, combs or gantry packing.
+Depth: architecture necessary-condition screens; no machine selected or print.
+Current discriminator: shared physical programming/retention of bank masks.
+E-228 changed E-220's transaction to six subset-coded pulses; investigate the
+actual writer before any comb, finger, keeper or tiny-contact development.
+Resident ramps and full-row cassette transport remain parked.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -99,21 +100,35 @@ Evidence to retain:
   actual collision-free paths and causal fault latency are not established.
   Stop the tested full-row travelling-cassette family; no print or local refinement.
 
+- E-228 resident captive ramps remove shoe acquisition/reset but add 6,400 slides,
+  followers and rack sites; slope 2 needs 400 shared channels / 28.059 s with two
+  physical 2-mm contact strokes per handoff, 432-mm deck allocation, assumed $655.
+  Slope 4 reduces depth but raises force, amplifies errors and loses the μ=.3
+  raising branch. No ramp/rack/gantry detail or print.
+- E-228 pulse synthesis retains E-220's load topology but replaces eight disjoint
+  signed-delta groups with ±10/10/20-mm subset-coded strokes: 80 mm loaded +80
+  empty vs 200+200. At assumed total group allowance .10/.25/.50 s, minimum bank
+  counts 6/9/16, selectors 480/720/1280. Favorable six-bank time 28.256 s; additional
+  slack .01938 s/pulse. All 15,625 three-cell maps replay ideal support/invariance.
+  Correlated comb height error, retained pickup/arrest, reader and physical
+  writing still unbuilt. Finer heights add events and require new shelf geometry.
+
 Next executable investigation:
-- Return to resident support memory with shared addressing. Reconstruct E-216/
-  E-217 repeated mask burden, E-220 crossed-support addressing and E-221/E-222
-  intermediate retention before synthesis. Generate a changed support/addressing
-  transaction and show where independent information and supported intermediate
-  heights live. Compare masks/encoded layers explicitly; no assumption that a
-  common clamp can preserve independent capture times (A-019/E-165), or that
-  another buffer removes E-227 transport work. Screen the entire board first.
-- Bound this next task to causal architecture generation and a discriminating
-  executable necessary-condition test; choose a materially new topology before
-  detailed geometry. If a principle duplicates prior work, retain its existing
-  scoped failure and change the transaction rather than repeating an audit.
-- No architecture selected; no prints. E-218 is an ideal support law only;
-  physical following, arrest, dual-lane routing and readback remain unresolved.
-  E-084 keeps media preparation in-cycle; E-220 forbids free separable compression.
+- Construct a few shared physical writers for the six-pulse architecture's 480
+  reusable retained binary bank-mask states. Compare against direct actuators;
+  include erase/write/feed/read, routing, command retention and supported transfer
+  within .11938 s/pulse at six banks (no free offline preparation or buffering).
+  Full overwrite is 38,400 bit commands/map; read actual supported outputs too.
+  First screen all purchased/printed/channel force and service costs. $250 reserve
+  leaves <$.5208/selector at $500; an explicit $130+$65/head allocation already
+  exceeds $500 at six heads before selectors. Neither is a sourced price floor.
+- Stop if writing restores hundreds of bought actuators, narrow unqualified
+  retained contacts, or releases unchanged support. No local selector refinement
+  until a whole-machine writer survives. Compare changed shared programming
+  transactions if this fails; no return to travelling support cassettes.
+- No selected architecture or physical pass. E-218 is an ideal support law;
+  E-084 keeps arbitrary physical programming inside the map boundary. Memory in
+  independent column positions must remain grounded throughout mask changes.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.

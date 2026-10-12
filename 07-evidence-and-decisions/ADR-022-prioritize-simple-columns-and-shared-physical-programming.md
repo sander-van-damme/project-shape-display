@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-227, E-226, E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-228, E-227, E-226, E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -76,6 +76,16 @@ unconstructed. This is a scoped transport/economics rejection, not a universal
 cost floor. Resume resident support/addressing invention; no finer cassette
 comb, writer finger or multi-gantry packing campaign. Reopening needs a concrete
 transaction that removes the handling burden, not another timing allowance.
+
+E-228 parks resident captive ramps with shared drive/park heads: removing old-height
+acquisition does not pay for 6,400 ramps, deck depth, lateral force and retained
+head channels. Its simpler crossed-support control changes disjoint delta groups
+to subset-coded ±10/10/20-mm pulses, reducing conditional bank selectors from
+1,280 to 480 at 28.256 s with an unearned .10-s total pulse allowance. Retain
+this changed programming transaction only for a complete shared-mask writer
+screen; no comb/finger/keeper refinement. Next establish affordable physical
+writing and retention of 480 bank states within the time/force/readback boundary.
+Neither timing arithmetic nor a $250 reserve is a bought-BOM pass.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process
