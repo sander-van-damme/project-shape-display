@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-249 on input main 2a55395.
+Updated: 2026-10-12 UTC; E-167 resolution extension on input main a2025e3.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
 Current discriminator: shared loaded motion/guidance with invariant U support.
@@ -12,6 +12,11 @@ normal force, not individual grip proof or unchanged-row shear displacement.
 No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
 
 Evidence to retain:
+- E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
+  for original 2-mm cap/1.2-mm lug/base. D5 has .60-mm nominal lift window;
+  total axial gap E=.35 closes it (finite cap/lower-lug .05-mm penetrations).
+  D2.5 fails nominally. Bounds are not X1C priors; fine spacing parked, no thin
+  cap/pocket repair. Five levels are a comparison grammar, not a requirement.
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
 - E-216 common row comb removes individual releases but retains 160 grips/head.
   E-217 shared writers retain grips and hundreds of gates; both remain parked.

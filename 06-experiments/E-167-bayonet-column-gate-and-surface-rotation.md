@@ -5,189 +5,202 @@ builds-on: [E-166, E-054, E-056, E-131]
 
 # Bayonet columns trade separate pawls for interlevel rotation and alignment
 
-**Retain interlevel cap rotation as a conditional positive-seat combination;
-stop the nominal short-lift rotating-cap embodiment.** A lugged round stem passes
-through a fixed slot, turns 90 degrees and rests in a grounded pocket. The column
-is the moving lock. A 4.8-mm square cap with .6-mm release lift hits its neighbor;
-**2.3-mm lift between 10-mm levels** escapes without a swivel. Stem guidance,
-angular alignment, head capture and timing remain gates; no machine is selected.
+**Preserve the coarse-grid principle; park this architecture before local detail.**
+A lugged round stem passes a fixed slot, turns 90° and seats in a grounded pocket:
+the column is the moving lock. A 4.8-square cap with .6-mm release hits a neighbor;
+2.3-mm lift between 10-mm levels escapes nominally without a swivel. The resolution
+extension below shows why this does not establish finer-height feasibility.
+No machine, physical qualification, print or procurement is selected.
 
-Input main `1a3cb2e`; LAB-272. Reproduce with standard Python:
+Original input main `1a3cb2e`; reproduce with standard Python:
 `python3 tools/curated-experiment-checks/E-167/probe.py`.
-Evidence: generated rigid polygon/prism transitions, analytical bounds and
-self-review. No fabrication CAD, force/contact dynamics, calibrated process
-priors, measurements or independent review. JSON is disposable. No printing or
-purchase proposed; dimensions, loads and speeds are explicit scenarios.
+Evidence: **generated rigid geometry, analytical bounds and self-review**; no CAD,
+contact dynamics, calibrated process priors, measurements or independent review.
+JSON is disposable. All dimensions, forces and speeds below are scenarios.
 
-## Search and causal combinations
+## Mechanism and controls
 
-Orthogonal backing was cross-checked against E-054/E-056: shelves outside the
-rack's vertical sweep recreate their side-wing load path. A shared return can
-change placements but not erase the repeated guides/contacts. No new pawl detail
-was justified. Change the functional axis to **column-as-lock**, borrowing the
-insert-turn-seat sequence of panel fasteners. [Southco's D2 guide](https://southco.com/en_any_int/fasteners/emdzusemreg-quarter-turn-fasteners/emdzusemreg-turn-to-close-turn-to-open-quarter-turn-fasteners/d2-dzus-rapier-quarter-turn-fasteners)
-describes a cam stud, receptacle, detent and stop, with spring receptacle retention
-(accessed 2026-10-11). This analogy supplies no part selection, dimensions,
-material prior or inherited vibration resistance for our gravity pocket.
+E-054/E-056 side-wing pawls are the nonrotating control. [Southco's D2 guide](https://southco.com/en_any_int/fasteners/emdzusemreg-quarter-turn-fasteners/emdzusemreg-turn-to-close-turn-to-open-quarter-turn-fasteners/d2-dzus-rapier-quarter-turn-fasteners)
+(accessed 2026-10-11) supplies an insert-turn-seat analogy, not dimensions or
+qualified gravity-pocket retention. E-131/A-007 screws retain their own
+friction/throughput constraints; a released quarter-turn is not a 40-mm screw lead.
+A swivel top avoids rotation but adds 6,400 captured thrust/retention interfaces.
+Interlevel turning changes the path without that added joint.
 
-| Combination | Complete causal route / changed burden |
-|---|---|
-| Short-lift cap | Travelling rotary-linear head captures stem, lifts .6, turns, translates, returns and seats; pocket rails ground the lugs; prove actual height/seat before release. Fails cap collision. |
-| Swivel cap | Same gate, with captured thrust swivel keeping square top still; adds 6,400 bearing/retaining interfaces. Swivel geometry is unbuilt. |
-| Interlevel cap | Lift 2.3 before turning; thin cap/round stem exploit the gap between levels. Same positive seat; schedule neighboring rotations. No swivel needed for nominal geometry. |
-| Pawl/comb | E-054/E-056/E-166 keep top orientation but need separate movable support/return. Their shorter service allowances are also unproven. |
-| Screw | E-131/A-007 remains the continuous-height friction control. Released quarter-turn translation is not a 40-mm screw lead and does not reopen its throughput disposition. |
+Units mm, z up, pitch 5.08. Shaft radius .6; five rectangular lugs x=[−2,2],
+y=[−.45,.45], thickness 1.2, spaced 10. A 4.8-square/2-thick cap has top 44 above
+the lowest lug bottom. Stem shift −10k for k=0…4 gives tops 44/34/24/14/4.
+Round exposed stems are essential; full-width square skirts invalidate clearance.
 
-All bayonet variants owe a bidirectional load-bearing head before unlock, axial
-and rotary reaction during motion, and capture retained on failed seating proof.
-Retry once while captured, then stop the module is an intended recovery policy,
-not an implemented sensor or input-loss arrest. Gravity neither proves seating
-nor catches a stem released while slot-aligned. A false accepted seat can drop it.
-One fastener analogy and one path inversion (turn in a height gap) yielded this
-combination; no broad search or saturation claim. Cross-checks included E-101's
-shared cam, not just keyword-equating all rotary mechanisms.
-
-## Finite geometry and support sequence
-
-Units mm, z upward, pitch 5.08. Round shaft radius .6; five transverse rectangular
-lugs x=[−2,2], y=[−.45,.45], thickness 1.2, spaced 10 axially. A 4.8-square,
-2-thick cap has top 44 above the lowest lug bottom. Stem shift −10k, k=0…4,
-gives tops 44/34/24/14/4: 40 travel. Discrete levels are an embodiment choice,
-not a requirement. Exposed round stems are essential; adding full-width square
-skirts invalidates the clearance result.
-
-Gate within one pitch cell: z=[−1.2,0], aperture union of full-width x slot
-|y|<.65 and central square |x|,|y|<.8. Ten nominal solid boxes form base rails,
-shoulders and raised pocket rails z=[0,.4], |y|≥.8, |x|≥.65. At theta=0 lugs
-pass the slot; at 90 their two wings bear on base rails inside the 1.3-wide pocket.
-Pocket walls constrain rotation while seated; lift above .4 permits turning.
-This is a geometric seated stop, not friction assigned to a weak spring.
+Gate base z=[−1.2,0]; aperture is full-width x slot |y|<.65 union central square
+|x|,|y|<.8. Ten boxes form base rails, shoulders and raised pocket rails at
+z=[0,.4], |y|≥.8, |x|≥.65. At theta=0 lugs pass; at 90 wings bear in a 1.3-wide
+pocket. Its walls constrain seated yaw; lift above .4 permits turning.
 
 Captured seat → lift → turn 90→0 → translate → turn 0→90 → lower → prove → detach.
-Twenty unequal transitions and five lug prisms give **8,500/32,500/128,500 poses**
-at 16/64/256 steps per phase for .6 lift, with zero positive-volume collisions.
-The changed 2.3 lift passes 32,500 poses at 64 steps. Fault controls collide for
-seated 45-degree rotation and axial movement while still turned into the rails.
-Independent continuous separation: aligned lugs lie inside the slot; turning
-lug bottom exceeds .4 and next lower lug top stays below −1.2 (−6.5 at 2.3 lift);
-lift/seat occurs inside the pocket. Other lugs stay 10 apart. The round shaft fits
-the central aperture. These bounds certify only the nominal rigid gate path,
-not elastic contact, angular error, head acquisition or support transfer.
+Twenty unequal transitions/five lugs give 8,500/32,500/128,500 poses at 16/64/256
+subdivisions with no gate intersection at .6 lift; 2.3 lift also clears at 64.
+Seated 45° rotation and axial translation while locked deliberately collide.
+Continuous separation: aligned lugs fit the slot; turning lug clears .4 and the
+next lower lug stays below −1.2 (its top is −6.5 at 2.3 lift). These are nominal
+path results, not supported contact, capture, angular-error or hardware passes.
 
-Nominal bearing area **2.16 mm²** gives **4.63 MPa average at 10 N**, not peak
-pressure or a PLA allowable. Symmetric wings admit an axial resultant within
-the support polygon. Lug-root stress, gate bending, tilt, eccentric payload and
-frame grounding remain unsolved. Slotted row rails need distributed support;
-a drawn ground surface is not a proven 203-mm beam or assembly layout.
+All variants need bilateral loaded capture before release and retained axial/
+rotary reaction until actual height and seating are proved. A false seat can drop
+the column. Retry while captured, then stop the module, is an intended policy;
+no sensor or input-loss arrest implements it. Slot-aligned gravity does not hold.
 
-## Cap collision and changed escape
+## Distinct geometric and manufacturing failures
 
-For vertically overlapping equal caps, first contact obeys
-`(d/2)(cos(theta)+sin(theta))=p−d/2`: **7.1484 degrees** for d=4.8, p=5.08.
-Polygon checks at 64/256/1024 steps find 8.4375/7.3828/7.2070 degrees. At 45,
-projection intrusion is **.7141 mm**. Isolated coplanar rotation needs d≤**4.2084**;
-arbitrary simultaneous coplanar neighbors need d≤**3.5921**. Shrinking changes
-gaps/utility, not an invented gap requirement. ±.001 holdouts check the first bound.
+Equal overlapping caps first touch when `(d/2)(cos(theta)+sin(theta))=p−d/2`:
+**7.1484°** at d=4.8. Polygon grids converge through 8.4375/7.3828/7.2070°;
+45° intrusion is .7141. Isolated coplanar turning requires d≤4.2084; arbitrary
+simultaneous neighboring turns need d≤3.5921. Threshold holdouts check these
+geometry limits, not miniature usability.
 
-A .6 lift leaves 2-thick caps overlapping in z: **4,300 intersections / 25,700
-rotation-neighbor poses** across 25 selected/neighbor height pairs. At **2.3 lift,
-the same checks give zero**, including all five neighboring lugs. Continuous
-intervals explain it: cap bottom is .3 above same-height neighbor top; the next
-higher cap bottom is 5.7 above the moving top. Moving cap lies 4.3…6.3 above a
-10-mm lug datum; neighbor lugs at multiples of 10 with 1.2 thickness miss that
-band. Axial travel, lift and seat are axis-aligned, retaining .28 cap-to-cap and
-≥.68 cap-to-lug horizontal gaps throughout. No full manufactured assembly follows.
+At .6 lift, 25 old/neighbor pairs give **4,300 intersections/25,700 poses**.
+At 2.3 lift: zero, including neighboring lugs. The active cap bottom clears a
+same-height top by .3 and its top clears the next higher cap bottom by 5.7.
+It occupies z=4.3…6.3 above a 10-mm lug datum, missing neighboring 1.2-thick lugs.
+Aligned vertical travel has .28 cap/cap and ≥.68 cap/lug horizontal gaps.
+A turning-cap envelope clears a radius-1.4 neighboring stem by .2859, but that
+larger shaft does not fit the original .8 aperture. Adjacent active caps still
+collide; checkerboard centers leave .396 circumcircle separation. This supplies
+neither a head route nor an automatic timing factor. Miniatures on changed caps
+rotate and return; their slipping/handling and exposed-stem appearance are open.
 
-A turning-cap circular envelope clears neighbor shafts of radius up to 1.4 by
-**.2859**; this larger shaft is not integrated into the nominal .8 aperture.
-Adjacent active caps at equal heights still collide. Checkerboard active centers
-are sqrt(2)p apart, exceeding two cap circumradii by **.3960**. Thus nonadjacent
-rotation escapes nominal interference, not head-routing cost or an automatic
-2× timing tax. Selected miniatures turn with caps and return; acceleration,
-slipping, handling and terrain appearance around round stems need assessment.
+Let e bound in-plane moving/gate edges and relative center offset. Shared size/
+registration bias can put many sites at the same adverse corner; rigid common
+translation cancels. Slot/pocket/shaft margins are .2−3e; wing land 1.2−3e;
+short-lift axial margin .2−2e. These are bounds, not printer priors or yield.
 
-## Manufacturing and structural sensitivity
-
-No probabilities or X1C capability assumed. Let e bound moving/gate edges and
-relative center offset; common bank bias can put all cells at one adverse corner,
-while common rigid translation cancels. Slot/pocket/shaft clearances are .2−3e;
-wing land 1.2−3e; short-lift vertical margin .2−2e for stroke/depth errors.
-
-| e mm | Slot/pocket margin | Wing land | Slot / pocket failures among 64 geometry corners |
+| e mm | Slot/pocket margin | Wing land | Slot/pocket failures, 64 corners |
 |---:|---:|---:|---:|
 | .025 | .125 | 1.125 | 0 / 0 |
 | .050 | .050 | 1.050 | 0 / 0 |
 | .100 | −.100 | .900 | 16 / 16 |
 | .150 | −.250 | .750 | 16 / 16 |
 
-Each corner rebuilds x/y offset, lug half-length/width, aperture and slot/pocket
-edges and checks locked/through-plate poses. Wider-than-central slots omit the
-vanished shoulders; a holdout catches inverted-box artifacts. Counts are scenario
-failures, not yield; no warped/elastic/angular sweep is implied. At e=.05,
-angular error delta leaves `.55−.50 cos(delta)−2.05 |sin(delta)|` clearance:
-**.0143 at 1 degree, −.0212 at 2**. Pocket uses the swapped-axis equivalent.
-Widening needs new support geometry. A conservative four-error cap budget gives
-`.3−4e`, retaining .1 at e=.05, failing at .10; it is an envelope, not a fit prior.
+Corners rebuild offset, lug dimensions, aperture and slot/pocket edges. A wide
+slot holdout omits vanished shoulders, avoiding inverted solids. At e=.05,
+angular error delta leaves `.55−.50 cos(delta)−2.05 abs(sin(delta))` clearance:
+.0143 at 1°, −.0212 at 2°. Pocket uses swapped axes. Cap gap budget .3−4e is .1
+at e=.05 and fails at .10; widening needs changed geometry.
 
-Ideal column diagnostic `Pcr=pi² E (pi r⁴/4)/(K*44)²`, E=2000 MPa:
+Nominal bearing area 2.16 mm² gives 4.63 MPa average at an assumed 10 N, not a PLA
+allowable or peak pressure. Root stress, eccentric load, guide moments, plate
+bending and distributed frame grounding remain unsolved. Ideal straight-shaft
+Euler diagnostic `Pcr=pi² E (pi r⁴/4)/(K*44)²` at E=2000 MPa gives:
 
-| Radius mm | Pcr N, K=1 / K=2 | Wing land after aperture enlarged to r+.2 |
+| Radius | Pcr N, K=1 / K=2 | Wing land with aperture r+.2 |
 |---:|---:|---:|
 | .6 | 1.038 / .259 | 1.2 |
 | 1.2 | 16.605 / 4.151 | .6 |
 | 1.4 | 30.763 / 7.691 | .4 |
 
-Source sweeps E=1000/2000/3000 and K=1/2. Neither end restraint is established
-by the short gate. Thin stem fails this 10-N diagnostic; larger stems consume
-bearing land. These ideal elastic cases are not a lugged-column eigenmode,
-creep limit or strength qualification. Any additional guide must permit cap/lug
-travel, not silently restrain the moving stem. No thick-stem assembly passes.
+Source also sweeps E=1000/3000. Neither restraint is established; this is not a
+lugged-column eigenmode, creep or strength qualification. Larger stems consume
+bearing; extra guides must allow every lug/cap transition. No thick-stem pass.
+Ten grams lifted .4 stores only .03924 mJ; this is not shock retention. Stiction,
+upward release, warp, layer/first-layer error, roughness, anisotropy, creep, wear
+and fatigue remain uncalibrated. False acceptance p gives 6,400p expected misses
+without independence; neither p nor product reliability is known.
 
-Assumed 10-g mass has only **.03924 mJ** gravity lift energy through .4. This
-is not a shock-release prediction; gravity pockets inherit no qualified detent.
-Stiction can defeat seating, upward disturbance can unseat, and input loss during
-release lacks arrest. Hole shrinkage, first layers, layer quantization, warp,
-roughness, wear, anisotropy/interlayer strength, creep and fatigue remain
-uncalibrated. False acceptance p implies 6,400p expected misses without requiring
-independence; p is unknown. No board reliability or physical qualification claim.
+## Board burden and service bound
 
-## Board bounds and decision
+Resident burden: 6,400 rotating columns, 32,000 fixed lug stations and 6,400
+precision pocket/slot sites, plus guides and cap attachments. Fixed forms are not
+moving latches. Modular printed rails still need attachments, alignment, repair
+access and assembly. At assumed $250 shared spend, resident bought allowance is
+<$.0391/cell under $500, before head extras; no priced BOM or fabrication pass.
 
-The integral branch removes separate pawls/returns by assigning their function
-to **6,400 rotating stems, 32,000 lug stations and 6,400 precision pocket/slot
-sites**, plus guides and cap attachments. Fixed modular rails reduce neither
-wear nor assembly effort by assertion. Swivels add 6,400 captured thrust interfaces.
-At hypothetical $250 shared spend, resident bought inventory must average
-<$0.0391/cell under $500, before extra head cost; no BOM/quote pass.
+Optimistic service grants 40-mm travel at 300 mm/s, 3000 mm/s²; two lift/reseat
+strokes; two 90° turns at 7200°/s²; .05 s capture/proof/release; and 6 s/map for
+preparation, registration, other travel, settling, verification and bounded retry.
+Strict `6+ceil(6400/H)*service<30` gives:
 
-Optimistic service: 40-mm move at 300 mm/s, 3000 mm/s²; two lift/seat strokes;
-two 90-degree turns at 7200 degree/s²; .05 s capture/proof/release; 6 s/map for
-preparation, registration, remaining travel, settling, final verification and
-bounded retry. Triangular/trapezoidal profiles and strict
-`6+ceil(6400/H)*service<30` give:
-
-| Rotary ceiling degree/s | .6 lift: service s / heads | 2.3 lift: service s / heads |
+| Rotary ceiling °/s | .6 lift: service s / heads | 2.3 lift: service s / heads |
 |---:|---:|---:|
 | 360 | .93990 / 256 | .99409 / 267 |
 | 720 | .78990 / 214 | .84409 / 229 |
 | 1440 | .78712 / 214 | .84130 / 229 |
 
-Acceleration limits the fastest case. These conditional capacity bounds provide
-no achievable layout/timing pass: checkerboard conflicts, transport, retained
-axial/rotary channels and correlated faults remain. E-166's unproven .45/.50/.55-s
-services need 121/137/149 heads. Unchanged pockets retain support, but shared
-rail deformation/vibration remain open. No timing advantage is earned.
+Acceleration limits the fastest cases. Transport, checkerboard conflicts,
+retained output routing and recovery are unbuilt. E-166's .45/.50/.55-s service
+controls need 121/137/149 heads under the same optimistic overhead. No timing
+advantage is earned. U pockets remain grounded, but frame deflection/vibration
+and actual disturbance are unknown. E-168–E-171 subsequently examined guidance,
+bearing and shared pickup without establishing a competitive complete machine.
+No rotary-head detail follows from this historical nominal path.
 
-**Stop** short-lift integral-cap detail and thin-free-stem 10-N claims. **Retain**
-interlevel rotation, conditional on discrete heights, thin caps, round stems and
-nonadjacent turns; do not add a swivel by default. Next construct **finite stem
-guidance and captured rotary-linear head access**, comparing the side-wing pawl:
-can high-position support coexist with every lug/cap transition and retained
-axial/angular command through reseat? Stop if it restores equal or greater
-repeated hardware with slower service. Slot calibration/printing is lower value
-before this structural/access question is answered.
+## Resolution extension: tops and gate consume the same height gap
 
-Self-review checks separating axes, touching/penetration controls, continuous
-gate/cap bounds, surface threshold holdouts, sampled prisms, wrong-state faults,
-coherent corners, units, Euler end-restraint sensitivity and strict integer timing.
-They verify reduced models, not hardware.
+On input main `a2025e3`, run
+`python3 tools/curated-experiment-checks/E-167/resolution.py`.
+**Calculation and reduced rigid geometry, self-review; no physical measurement.**
+Stage 02 specifies 40-mm travel, not a height increment. The five-level result
+cannot silently establish feasibility at finer resolution.
+
+Keep the original 4.8-square/2-thick tops, 1.2-thick lugs/base and .4-deep pocket.
+Change vertical station spacing to D. At an interior height h, put unchanged
+neighbors at h and h+D. At 45 degrees the active cap overlaps both neighboring
+footprints. Turning in the first interlevel gap requires lift L satisfying
+
+`max(2+Ec, .4+Eg) < L < D - max(2+Ec, 1.2+1.2+Eg)`.
+
+Ec/Eg are **total adverse axial gap allowances** for cap/gate separation, not
+per-part errors, distributions, X1C priors or the original in-plane e. The next
+lower lug rising into the base underside sets the upper gate limit. With equal
+Ec=Eg=E, positive clearance needs **D > 4.4+2E mm**. Equality leaves touching.
+This is a first-gap, fixed-axis integral-cap bound, not a universal yaw limit.
+
+| Spacing / levels over 40 mm | Nominal L-window width | E=.15 | E=.35 | E=.70 | Board lug stations |
+|---|---:|---:|---:|---:|---:|
+| 10 mm / 5 | 5.60 mm | 5.30 | 4.90 | 4.20 | 32,000 |
+| 5 mm / 9 | .60 mm | .30 | **−.10** | −.80 | 57,600 |
+| 2.5 mm / 17 | **−1.90 mm** | −2.20 | −2.60 | −3.30 | 108,800 |
+
+Window width is a range of commanded lifts, not a fit margin or complete-geometry
+pass. At D=5, centered L=2.3 leaves .30 mm to each nominal boundary; the error
+tipping point is E=.30. The independent in-plane slot restriction still applies.
+
+**Finite witness:** D=5; thicken the lower neighbor cap upward by .35, move the
+upper neighbor down .35, and thicken the base downward .35. At L=2.3/theta=45°,
+the active cap and next lower lug each penetrate their obstacles by **.05 mm**.
+Cap clearance needs L>2.35; gate clearance needs L<2.25. Thus no first-gap midturn
+height works in this coherent scenario. Original polygon SAT independently checks
+both intersections, 2,001 heights across 0…5, and ±1-micrometre boundary holdouts.
+The contradictory intervals, not sampling, establish continuous exclusion.
+Positive windows also clear reduced cap/own-gate solids at 16/64/256 turn samples;
+neighbor lugs, guides, loaded deformation, active-neighbor turns and heads are
+outside this extension. No three-dimensional machine pass follows.
+
+Common cap/base bias can consume many windows together. Seating, pitch errors,
+wear, debris and deflection spend the same budget; none is measured. A 1-mm cap
+changes the bound to D>3.4+2E (4.1 mm at E=.35), an escape condition rather than
+permission for a thin-top campaign. Stiffness and manufacture remain unpaid.
+
+The ledger above still has 6,400 columns/gates and at least 12,800 guide duties;
+each row has 80/80/160. Nine levels raise fixed lug forms from 400 to 720 per row,
+not moving latch count. No spring, swivel, sensor, insert, or assembly saving is
+created. Print time, orientation, attachment, fits and service remain unqualified.
+Granting the earlier direct-head allowances still needs **229 retained rotary/
+axial output pairs**, .84409 s/service and 29.63447 s/map. An assumed $295 shared
+reserve leaves **$.8952/complete pair** under $500 before resident extras. This
+is a spending bound, not a priced BOM; the six-second overhead has no constructed
+programmer, transport/conflict schedule, readback, arrest or recovery inside it.
+
+E-236's shared five-stroke control uses 400 command channels/seven shelves; its
+unchanged columns transfer support. Integral rotation could keep U rails fixed
+but owes loaded capture and this spacing restriction. E-249 pitch tilt avoids
+yaw but owes compatible guidance/320 retained output pairs in its allocation.
+These are functional comparisons, not equal-assumption timing rankings. A U-cap
+collision directly defeats isolation; installed rails do not prevent it. Head
+support through release, source-loss arrest, actual height/seating proof and
+safe captured recovery remain unbuilt as described above.
+
+**Park the fine-spacing first-gap embodiment.** Preserve the coarse-grid principle
+with its limits. Reopening requires a changed full-machine support/motion route
+that reduces retained loaded outputs while preserving U support, with height
+resolution explicit. No thin-cap, pocket, cam or guide repair and no print is
+justified. The next discriminator remains shared loaded motion and arrest.
