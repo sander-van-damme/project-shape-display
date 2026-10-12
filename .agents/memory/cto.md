@@ -1,37 +1,34 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-254 workload sample input 92aa01c.
-Priority: simple columns, broad positive support, shared accessible programming.
-Depth: complete architecture screens; no selected machine, CAD or print.
-Current discriminator: reconstruct historical trial-5 screw support/hold, then
-stopped shared rotary row head with reusable binary mask,
-compared with independent screwdriver rows on E-254's retained height fields.
-Count mask writes, signed turns, docking, deceleration, proof, source loss and
-retry before local geometry. Do not restore 6,400 resident clutches/brakes.
-E-254 samples three published 2-Minute Tabletop map windows, one annotator:
-ruins 13.55% raised but74/80 rows; road/ravine relief69.52/71.48%, all rows;
-flattened-water alternative2.77% still24rows. Not a gameplay distribution.
-E-253 takes97–178s on initial samples; defer crank detail. At assumed3000rpm,
-screw lead.4 needs8 heads/640spindles for<30s over three setups/six pairs;
-lead1 needs4/320 but μ>.106 at d3 to self-lock ideally. No qualified friction,
-arrest or BOM. $1500/$.02site/$250shared permits$1.753 per640 complete channels.
-Historical actuator.scad at41484f9699 confirms pitch3/OD3.2/length50 and BOSL2;
-if single-start, lead3 allowsB2/160/22.98s for this sample, but ideal μ>.318 at
-mean d3. Physical variant and real hold remain unknown. New e5308d0 owner
-guidance prioritizes recovered screws, wall-oriented heads and maker-time.
-Ruins trace77.8% within15deg of grid axes; one window, not a usage statistic.
-Shared mask/rotary distribution is a possible cost reduction, not a solved escape.
-Stage02 keeps representative gameplay<30s, dense stress separate, final≤$500;
-a credible$1000–1500 research demonstrator can merit work, no purchase authority.
-E-252 sustained capture saves turns but recreates E-222 output retention and
-adds empty-slide reset; no dog/rack/capture refinement is justified.
-E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
-collides; no guide/pocket/head refinement is justified. E-248 retained writing
-and E-247 rails remain parked; programming savings alone do not supply support.
-E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
-normal force, not individual grip proof or unchanged-row shear displacement.
-No local membrane, seal, pawl, coil-gap or guide-detail continuation of these
-parked embodiments is justified. A changed architecture must earn its own case.
+Updated: 2026-10-12 UTC; E-255 completes the historical screw/rotary screen.
+Priority: simple pins, resident screw support, accessible shared programming.
+Owner correction: the screw supports the pin itself; no platform or writer
+load takeover is implied. Fixed screw angle holds the pin through its thread.
+Do not infer a need for 6,400 extra latches from an unmeasured friction condition.
+E-255 reconstructs trial1/3/5 at41484f9699. Date-matched BOSL2 2.0.716 defaults
+single-start, but is not the known print dependency. Its internal2*$slop radial
+expansion makes trial5 .65 setting produce minimum bore radius1.65 > screw1.60.
+Do not claim that trial5 was the successful print. Trial3 collars/plank suggest
+resident thrust support; trial5 omits that assembly, socket and top cap.
+Current discriminator: identify/reuse the successful pair and screw seat before
+any new print; distinguish observed zero-speed hold from moving disconnect.
+No new detailed head/thread CAD, print or purchase is selected.
+E-255 independent B2/160 at assumed3000rpm/lead3:22.98s maximum across E-254's
+nine principal transitions. Stopped shared mask needsB3/240/26.18s including
+signed thresholds, mask rewrite, docking, seeks, return and retry. At1500rpm:
+independentB3/240, maskB4/320. Four16-output quadrant heads are slower for relief.
+Independent favorable complete allocation$1128, not a sourced demonstrator BOM;
+mask$1608. Research$1500 permits$6.325/independent channel but only$3.55/mask
+channel, below sampled$3.96 bare catalog selector. No final<$500 path established.
+Thread-only static threshold at mean d2.3/lead3/30deg included flank angle:mu>.401;
+loaded collar can help. Bounds, not PLA priors; no safe moving-loss distance.
+E-254 three published map windows remain a convenience sample, not typical play:
+ruins13.55% raised/74rows; road/ravine69.52/71.48%/80rows. No corpus expansion.
+Advice retained: screw-first, batch manufacturing, software/shared optics and
+unchanged-neighbor support. E-244-cutoff clamp review remains addressed by later
+screens; no parked microscopic lock/guide/pawl campaign reopens.
+Stage02 retains gameplay<30s, dense stress separate, final<$500; research$1000–1500
+may be worthwhile without granting purchase authority. 01–08/Paperclip authoritative.
 
 Evidence to retain:
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
@@ -475,17 +472,12 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- E-254 next discriminator above: common rotary head with reusable binary selection
-  versus independent screw rows, jointly screening lead/hold/source loss, true
-  programming and complete cost. Stop before detailed clutch/thread/head CAD.
-- Sander9 favors accessible underside writing;10 needs real bidirectional AND and
-  half-selection isolation, not160logical lines;11 permits few specialized shared
-  parts but does not qualify6400threads. Manual observations remain informal.
-- Broaden the map sample only when it can change a surviving architecture ranking.
-  No typical occupancy or performance-tail statistic was established. Hypothetical
-  reveals retain loaded unchanged regions; no observed miniature locations.
-- Head-only hydraulics remain an alternative; reconstruct E-222's differential
-  modes/flow before metered-head work. No automatic parallel campaign.
+- Use E-255's source identification/hold/torque/moving-disconnect discriminator;
+  reuse any existing physical pair first. Recover its variant/settings rather than
+  reprinting the unpinned trial5 configuration or demanding array qualification.
+- A viable pair can justify sourcing a complete B2 high-speed motor/feedback/dock
+  channel below$6.325 and batch assembly; detailed head design has not earned a pass.
+- Expand maps only if missing workload coverage could change that ranking.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
