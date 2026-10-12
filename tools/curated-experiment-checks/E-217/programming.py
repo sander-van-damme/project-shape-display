@@ -143,6 +143,16 @@ def checks():
             commands += [y//10 for y in after]
             assert len(commands)==VALUES
             for i,t in enumerate(commands): assert fn(i%6, int(t))[0] == t
+    # Independent arbitrary-map service bound: all nonempty height-set pairs.
+    # Cartesian witnesses include every old/target combination for those sets.
+    subsets = [[10*k for k in range(5) if mask & (1 << k)] for mask in range(1,32)]
+    for a, b in itertools.product(subsets, repeat=2):
+        pairs = list(itertools.product(a,b))
+        r = base.replay([x for x,y in pairs], [y for x,y in pairs])
+        distances = [abs(y-x) for x,y in zip(r['path'],r['path'][1:])]
+        assert len(distances) <= 8 and sum(distances) <= 80
+        for accel in (2000,8000):
+            assert sum(move(d,accel) for d in distances) <= 8*move(10,accel)+1e-12
     # Independent rate bound: rows consume new words, no preloaded buffer credit.
     assert 80*160 == 12800 and 3*80*160 == 38400
     for kind in ('binary','commutated'):
@@ -185,18 +195,19 @@ def main():
     for r in range(5):
         for c in range(5): patch[r][c]=10*(1+c%4)
     print(json.dumps(dict(evidence='assumed bounds, calculations and ideal logical replay only',
-        checks='72 code overwrites; 6 fault refusals; 25600 full-map media values; E-216 support checks; cam convergence',
+        checks='72 code overwrites; 6 fault refusals; 25600 full-map media values; E-216 support checks; 961 height-set bounds; cam convergence',
         smallest_sampled_stream_survivors=rows, selected_times=selected,
         width_sensitivity={str(w):round(schedule('commutated',8,16,8000,100000,width=w)[0],3) for w in (1,2,3,4)},
         auxiliary_sensitivity={str(x):round(schedule('binary',8,16,8000,100000,auxiliary=x)[0],3) for x in (.25,.5,1,2)},
         regional_5x5={k:round(schedule(k,8,16,8000,100000,flat,patch)[0],3) for k in ('binary','commutated')},
         controls={str((b,q,a)):round(base.schedule(*base.workloads(),b,q,a),3) for b,q,a in ((8,1,2000),(8,40,8000),(16,16,8000))},
-        force_per_stream_peak_N={str(f):{'binary':3*2*f*2/WIDTH,
-            'commutated':sum(2*f*(3*k)/WIDTH for k in range(1,6))+2*f*15/30,
+        force_per_stream_peak_N={str(f):{'binary':3*2*f*2/WIDTH+3*2*f*2/4,
+            'commutated':sum(2*f*(3*k)/WIDTH for k in range(1,6))+math.ceil(30/PITCH)*2*f*15/30,
             'binary_common_min_160':160*f} for f in (.3,1,3)},
         error_margin_mm={str(e):{'bit_half_clearance':.5-e,'level_half_spacing':1.5-e} for e in (.15,.35,.70)},
         speed_fraction_sensitivity={str(f):round(schedule('commutated',16,8,8000,100000,speed_fraction=f)[0],3) for f in (.6,.8,1)},
         binary_pusher_peak_N={str(k):160*(.3+15*k) for k in (.02,.06,.18)},
+        binary_pusher_energy_J={str(k):160*(.3*15+.5*k*15**2)/1000 for k in (.02,.06,.18)},
         head_counts={str(b):{'grips':160*b,'binary_bits':480*b,'output_sliders':160*b,
                             'binary_compliant_pushers':160*b} for b in (8,16)},
     ),indent=2))

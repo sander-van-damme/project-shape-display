@@ -26,33 +26,30 @@ Each head has 160 command sliders at 3-mm spacing: 80 old/BYPASS values
 During writing the comb stays seated and the head unloaded. Output decoding
 to retained grip commands remains E-216's unbuilt cam/grip coupling.
 
-**B — binary decisions, then one common setting stroke.** Each output has three
-transversely sliding stepped blocks. Their two face positions add 0/3, 0/6 and
-0/12 mm in a serial stop stack; common closure positions the output at 3×code.
-The stack has 21-mm possible range; readback must reject codes 6/7 before a
-15-mm useful output stroke. A common stripper first returns all outputs and
-unloads their stops. A moving reset shoe erases all bits; three binary shoes
-per stream set the desired endpoints with 2-mm throws. Each bit needs retained
-endpoints until closure and under stop reaction: count one detent/keeper
-function per bit, not a free Boolean. Three bit planes are written concurrently.
+**B — binary decisions, then one common setting stroke.** Three transverse
+stepped blocks per output add 0/3, 0/6 and 0/12 mm to a serial stop stack.
+The 21-mm possible range includes invalid codes 6/7, rejected before the
+15-mm useful stroke. A common stripper returns outputs and unloads stops;
+a moving reset shoe erases bits, then three simultaneous binary shoes/stream
+write 2-mm endpoint throws. Each bit needs a detent/keeper under stop reaction.
 
-A rigid bar cannot stop 160 outputs at different distances. **160 independently
-compliant, preloaded pushers/head** therefore bridge the common 15-mm stroke to
-the selected stops. These are additional long-stroke compliance/wear sites,
-not hidden in the common motor. Output keepers engage before bar retraction;
-readback checks both bits and final slider position before enabling takeover.
-Unload → strip → erase → write/retain → read bits → common close → keep/read
-output → retract is the physical energy/state sequence. Cam profiles, block
-nesting, detents, pusher force equalization and keeper transfer remain unbuilt;
-no finite clearance or loaded compression-stack pass is claimed.
+A rigid bar cannot stop 160 outputs at different positions. **160 independently
+compliant preloaded pushers/head**, with up to 15-mm compression, bridge the
+common stroke to selected stops. Output keepers engage before bar retraction;
+readback checks bits and final position before takeover. Sequence: unload →
+strip → erase → write/retain → read bits → close → keep/read output → retract.
+Block nesting, detents, force equalization, keeper transfer and cam profiles
+remain unbuilt; no finite clearance or loaded stack pass is claimed.
 
-**C — mechanically commutated set/reset carrier tracks.** Two reusable carrier rails hold stationary old/target sliders under a travelling
-writer; relative motion supplies feed without an assumed circulating belt. A nonselective
+**C — mechanically commutated set/reset carrier tracks.** Two reusable rails
+hold stationary old/target sliders under a travelling writer; relative motion
+supplies feed without an assumed belt. A nonselective
 30-mm-long reset ramp drives all visiting sliders to zero. Five successive
 stations, spaced 5.08 mm, each have a binary retractable gate selecting an
 out-of-plane bypass or a rising cam. Track k pushes a zeroed slider to 3k mm;
 exactly one track is enabled for nonzero commands, none for zero. After a
-selected track, all later tracks bypass that carrier. Online commands follow the carrier identity at each station. Each slider needs
+selected track, later tracks bypass that carrier. Online commands follow its
+identity at each station. Each slider needs
 six retained positions through bypass and writer return.
 
 Traverse supplies setting energy; gates route it. The trailing reader checks
@@ -69,7 +66,7 @@ retained grips/elevator arrest. There is no safe source-loss transfer claim.
 
 B heads serve contiguous banks, with s even streams/head dividing the 160 values
 into n=160/s sites. Each stream requires **3 gates for B or 5 for C**, plus a
-final value reader. Gate endpoint sensing is additional unpriced channel functionality. All data
+final value reader. Gate endpoint sensing is additional unpriced functionality. All data
 is written online; no buffer or offline preparation credit.
 
 Let pitch p=5.08 mm, selective contact width w=2 mm, gate throw 2 mm and assumed
@@ -120,17 +117,13 @@ wider cam contact helps acceleration while removing gate-switching time.
 For B at B=8/s=16, row allowance .25/.5/1/2 s gives
 29.261/32.011/37.511/48.511 s: near-boundary figures are not robust passes.
 
-Packing is **not** hidden in s. Split each old/target array into s/2 isolated
-scan segments. At B=16/s=8 the binary stroke is 111.393 mm versus a segment's
-101.6-mm site pitch allocation. C at s=16 needs 106.540 mm versus 50.8 mm:
-its reset/track train overhangs neighboring segments. Same-plane adjacent
-tracks would strike the wrong media. Separate staggered decks and output
-bridges are mandatory in this construction; hypothetical 8-mm deck spacing
-requires 32/64 mm for four/eight decks per array before frame, slider stroke,
-retention and head motion. These are envelope allocations, not clearance CAD.
-There are 160 mechanical output routes/head regardless of segmentation; their
-collision-free fanout to full-pitch grips is unresolved. Increasing s cannot
-be treated as free packing or zero assembly.
+Packing: each old/target array splits into s/2 isolated segments. Binary at
+B=16/s=8 needs 111.393-mm scan stroke versus 101.6-mm segment pitch allocation;
+C at s=16 needs 106.540 mm versus 50.8 mm. Overhanging tracks would strike
+adjacent media without separate staggered decks and output bridges. Assumed
+8-mm deck spacing allocates 32/64 mm for four/eight decks per array, excluding
+frame/slider/retention/head motion. All 160 output routes/head still need
+collision-free fanout to grips. These are packing bounds, not clearance CAD.
 
 ## Whole-machine replication, economics and manufacturing
 
@@ -185,38 +178,35 @@ Three serial stop blocks accumulate errors: if each has same-signed .35 mm,
 error; .70 mm/block gives 2.1 mm and overlaps states. Common correlated bias
 must add, not shrink by sqrt(3). Direct C avoids that serial stack but still
 needs accurate gate entry and retained output contact. Finer features or more
-preload are not authorized escapes. Warp, friction, fatigue, roughness, first
+preload do not establish feasibility. Warp, friction, fatigue, roughness, first
 layers, retention creep and route misalignment have no measured envelope.
 
 ## Force, support and what the executable establishes
 
 With assumed resisting force R=.3/1/3 N per follower, cycloidal peak cam slope
-is `2d/w`; peak quasistatic scan demand is 1.8/6/18 N per binary stream.
-Conservatively summing all five commutated tracks plus the reset ramp gives
-13.8/46/138 N per stream. This is an envelope when different carriers occupy
+is `2d/w`; selective plus reset cams give a quasistatic envelope of
+2.7/9/27 N per binary stream. Five C tracks plus up to six simultaneous
+followers on its 30-mm reset ramp give 15.3/51/153 N per stream. This is an envelope when different carriers occupy
 all tracks, not their time-average or a dynamic force ceiling. At s=16 and
-R=.3 N, C already demands up to **220.8 N/head**, or 2.208 N·m at a 10-mm drive
+R=.3 N, C already demands up to **244.8 N/head**, or 2.448 N·m at a 10-mm drive
 radius before losses. A 2-g follower at 100 m/s² adds .2 N inertial force at
 peak acceleration; actual reflected gate/cassette mass and contact loss matter.
 
 Binary shared closure has a further demand: preload .3 N, spring k=.02/.06/.18
 N/mm and 15-mm compression produce aggregate worst-case **96/192/480 N/head**.
-These explicitly count the spring energy stored while zero-coded outputs stop
-early; no common-stroke free work. Output clamp and stop contact forces remain
+Stored pusher energy is 1.08/1.80/3.96 J/head for zero-coded outputs. Output clamp and stop contact forces remain
 unqualified. During column movement the inherited friction head still needs
 `80F/mu` summed normal force: F=3.27 N and mu=.1/.2/.4 means
 2,616/1,308/654 N per row, before inertia/moments. Writer success cannot fix that.
 
-The executable checks all 36 initial→target code overwrites for each coupling,
-six injected read/retention faults, both writers across 12,800 commanded values
-per 6,400-cell map, E-216's 625 two-cell support cases and three missing-support
-faults, and cam acceleration by convergent finite differences. These are ideal
-logical proofs with perfect stated readback, not sensor coverage or finite
-contact dynamics. A 5×5 patch within one bank at B=8/s=16/fast bounds calculates
-17.560/25.142 s for B/C. All 80 columns of every touched row still undergo grip
-handoff even if unchanged. Ideal replay preserves their height; real clamp/
-frame displacement and comb reseating remain unbounded. No regional-disturbance
-exception, safe power-loss transfer or physically supported handoff is established.
+Checks: all 36 code overwrites/coupling; six injected faults; both writers over
+12,800 values/map; E-216's 625 two-cell support cases and three support faults;
+961 height-set motion bounds; cam acceleration convergence. Logical readback
+does not prove sensing.
+A 5×5 patch in one bank at B=8/s=16/fast bounds takes 17.560/25.142 s for B/C.
+Every touched row still hands off all 80 columns. Ideal unchanged heights do
+not bound real clamp/frame deflection or reseating. No regional-disturbance
+exception, power-loss transfer or physical support pass follows.
 
 ## Decision and materially changed next coupling
 
