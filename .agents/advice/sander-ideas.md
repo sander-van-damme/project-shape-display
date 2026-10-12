@@ -1,5 +1,15 @@
 # Sander's ideas
 
+## [PRIORITY] Owner's north star — fun, readable, uninterrupted D&D play
+
+**The product exists to make Dungeons & Dragons more enjoyable at the table.** Players and the Game Master need legible terrain, safe places for miniatures, revealing rooms and walls without a tedious pause, and an intuitive picture of the battlefield. An impressive mechanical height field is not useful if it looks wrong in play. The roughly 30-second target means *the players should not have to wait long before play can resume*, not that there is a sacred physical 30-second constant. Technical targets are useful proxies for the experience; change them only with evidence and a deliberate product decision, not to make an inconvenient mechanism pass.
+
+**The physical pins are primarily for actual terrain geometry**, especially solid ground, hills, substantial earth/rock masses, stairs, cliffs/chasms where elevation matters, and thin, clear walls/barriers. **Do not automatically model trees, foliage, tiny stones, small decorative boulders, textures and props as elevated pins.** A row of trees rendered as pins may look like a solid wall, which is visually misleading and can hinder play. If a tree or small object is rules-relevant, consider a conventional removable prop or clear game marker; if it is mainly visual, consider printed/overlaid or optional projected imagery. Projection is an unvalidated option, not assumed hardware. Some larger rocks/cliffs genuinely are terrain and may deserve height; classify by *function in play*, not by an object's label alone.
+
+**The map-to-height conversion is itself a design hypothesis.** In E-254, 69.52% of the Riverside Road map is raised because the surrounding *land* was elevated to make water lower; trees and foliage were explicitly excluded. A flattened-water interpretation raises only 2.77% but removes bank relief. Similarly, an actual deep ravine may need a large physical height difference while a decorative stream may look and play better as flat projected water. Compare deliberately chosen encodings by how they look from a player's perspective, whether miniature placement and movement work, and what the Game Master gains. Do not infer required moving-pin fractions directly from an illustrated picture or a single arbitrary zero-height datum.
+
+Before ranking actuation architectures by updated pin counts, **decide which shapes genuinely need mechanical elevation** and show alternatives (e.g. 3D walls and cliffs plus 2D foliage; a river with or without physical banks). If game conventions or player preferences are unclear, consult useful D&D play sources or create a **concise concrete Paperclip question for Sander**, with clear options and their consequences. Sander may answer later; keep progressing on conditional scenarios in the meantime rather than quietly turning assumptions into requirements.
+
 ## Idea 1 — Self-recovering mechanisms through automatic reset or homing
 
 Perhaps a relatively complex mechanism for each pin could still be viable if the overall machine is designed to **automatically recover to a known-good state** whenever it is activated or reprogrammed.
