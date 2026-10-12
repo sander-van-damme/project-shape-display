@@ -1,13 +1,14 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-235 on input main e7c33f5.
+Updated: 2026-10-12 UTC; E-236 on input main ea72022.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: reduce information handling AND supported transactions.
-E-235 removes retained program media using punched webs, but stopped writing,
-feed and sixteen shared heads defeat its apparent simplification. A free flying
-writer barely clears a timing/allocation oracle; this is not a reason to refine
-cutters. Compare a changed full transaction before another local mechanism.
+Current discriminator: physical overwrite during a supported transfer, plus an
+honest shared drive/arrest budget. E-236's synthesized five-stroke moving datum
+removes empty returns and one event without adding shelves. Direct B5 still
+needs 400 channels/$675; shared-drive lean $503 is not force-qualified. B4's
+$441.40 /28.810-s free-writing oracle warrants only a bounded command-inhibit
+and common-drive screen, not comb/pickup/guide refinement or a cheap-price tweak.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -205,13 +206,28 @@ Evidence to retain:
   Free flying-writer oracle B12/W1:29.498 s/$495, only .502 s allowance with
   punching cost/time deleted. Park stopped web; no smaller-punch campaign.
 
+- E-236 supported moving-datum synthesis chooses [-20,-10,+30,-10,+10] mm:
+  five strokes, 80-mm travel, .525-s motion vs E-229's six/160/1.100. All 25
+  pairs stay within 0..40; changed cells may detour 10 mm, unchanged stay fixed
+  ideally. Joint mask/shelf choice retains seven levels/44,800 board shelves.
+  15,625 three-cell maps /390,625 support checks /150 partial retries pass
+  ideal replay. Four-stroke subset arithmetic alone fails intermediate bounds.
+  Direct B5/400 channels:26.681 s/$675 assumed vs E-229 B8/640/$1,002. Scan and
+  matrix do not improve allocation. Common-drive lean $503 owes 1.624 kN,
+  16.24 N m/464 W, .399-mm d12 shaft twist under labelled bounds, local arrest
+  and finite routing. B4 direct 32.445 s; free-write 28.810 leaves 11.334 ms/pulse.
+  One full retry plus worst 30-mm empty reset charged; regenerate from actual
+  supported partial heights, never replay original code blindly.
+
 Next executable investigation:
-- Change the supported rewrite transaction and information placement together:
-  eliminate repeated media transport plus six pulse transfers, or construct a
-  reusable shared writer with a materially different force/timing path.
-- Do not relabel travelling cassettes, duplicated vertical bars, pooled feet or
-  punched-web buffers as new escapes. Layout does not supply a physical writer.
-  No inherited winner and no currently justified print.
+- Construct whether common mechanical command inhibit permits physical overwrite
+  during a supported transfer, without another active register or private grips.
+  Account for disconnection, retention, safe erase/write, readback, reconnection,
+  power loss and actual shared drive/local bank arrest. B4 oracle $441.40 and
+  28.810 s removes writing, not a pass; only 11.334 ms/pulse remains unoverlapped.
+  Compare new shared interfaces with 80 saved channels and stop if costs erase it.
+- E-235 stopped punched webs, travelling cassettes and duplicated captive bars
+  remain parked. No fine cutter, shelf, finger, guide or detent work; no print.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
