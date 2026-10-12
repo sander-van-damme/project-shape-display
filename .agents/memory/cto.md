@@ -4,8 +4,9 @@ Updated: 2026-10-12 UTC; E-222 on input main 45bb21f.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
 Reason to redirect: cassette substitution, banked selectors and continuous
-absolute writers relocate large functional counts. E-222 shared-source support switching raises
-channel counts and fails its cost allocations; no local refinement is justified.
+absolute writers relocate large functional counts. E-222 shared-source support
+switching raises channel counts and fails its cost allocations; no local
+refinement is justified.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -40,7 +41,6 @@ Evidence to retain:
   Continuous 2-mm passage needs 8 heads/640 axes even with ideal arrest; park it.
   Common swept lift needs 6,400 resident catches; stop before catch refinement.
   $250 reserve leaves <$1.042 per complete 240-axis channel under $500, not a BOM.
-
 - E-222 stopped shared shaft: retained couplings plus grounded parking dogs and
   common brake give an ideal support graph, not dynamic arrest. Acquisition,
   two signed moves and reset need 18 stops/row: five heads/400 channels/27.269 s.
