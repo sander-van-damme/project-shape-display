@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-224 on input main 43e051d.
+Updated: 2026-10-12 UTC; E-225 on input main 297c990.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: compact unloaded media can escape loaded-relief coupling,
-but finite packed followers consume serial gate switching distance. Change
-media handling/programming; do not shrink a tongue or refine the common keeper.
+Reason to redirect: compact media avoids loaded-relief coupling, but continuous
+and indexed branching writers both retain high channel counts and unbuilt routing.
+End this writer campaign; do not refine a tongue, follower toe or common keeper.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -70,20 +70,29 @@ Evidence to retain:
   no fine gate/keeper study. Widening programmer pitch is a changed handling
   topology and owes spread/repack/return without 6,400 extra joints or loops.
 
+- E-225 stop-and-index feed removes the moving-gap speed inequality, but absolute
+  parking margin is .09 mm with ±.35-mm bar and ±.10-mm common phase bounds.
+  Favorable 45-mm exchange: 1,024 gates /16 heads/28.608 s; 65 mm needs 2,560.
+  These grant split routing and captured followers; conservative gravity-only
+  profile misses 30 s even at 5,120 gates, not a universal time lower bound.
+  Plain 3.4-mm bar bottom has no parking window with a 2-mm tongue, even perfect;
+  superposed higher rails intersect its 64-mm shaft. Side follower routing must
+  escape both rails and dual support lanes; narrowing a nose does not fix this.
+  A sideways common rail withdrawal supplies an extraction order, not finite CAD.
+
 Next executable investigation:
-- Construct a changed media path: spread unloaded followers only during writing,
-  then restore 5.08-mm registration before positive exchange; or bypass serial
-  branching with a different shared transaction. First count movable carriers,
-  joints, full spread/write/repack/return time and support through extraction.
-  Stop if it restores resident loops/pantographs, hundreds of costly controls,
-  or unbuilt repacking. E-218 remains a support-law comparator, not a winner.
-- This is architecture invention, not a clutch/dog/shoe or finer screw campaign.
-  E-222 prices/bounds reject specified routes, not every shared drive. Reopen only
-  with credible complete cost/support changes; no prints yet.
-- E-084 buffer production bounds remain valid. Separable additive/max backing
-  cannot produce arbitrary maps (E-220); retain independent state explicitly.
-- E-219 side/continuous captive media can reopen only if it removes long stock
-  strokes and supplies sorting/return; an alternative, not a parallel queue.
+- Return to functional architecture synthesis: independent arbitrary height state
+  is necessary, but serial four-branch traversal and duplicate load-bearing media
+  are choices. Construct a non-branching shared transaction before further timing
+  optimization. Compare direct simultaneous programming of unloaded state with
+  in-place state setting; explicitly supply support during write and power loss.
+  First screen retained sites, parallel controls, transaction count and actual
+  transport geometry against E-216/E-221/E-225. Stop any renamed version of their
+  same grips, independent axes or rail pipeline. No microscopic escape study.
+- No architecture selected; no prints yet. E-218 remains a useful ideal support
+  law. E-084 keeps arbitrary media preparation in the cycle boundary. E-220 rules
+  out separable additive/max backing for arbitrary maps; preserve independent
+  state rather than invent free compression of the map.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.

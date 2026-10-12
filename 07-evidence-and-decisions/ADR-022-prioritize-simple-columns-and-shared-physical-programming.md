@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -51,7 +51,12 @@ at zero error, or 2,560 in the ±.35-mm scenario; park that embodiment. Preserve
 the finite-follower gate-occupancy bound and compact encoding, not a machine
 selection. Reopening needs changed media handling/programming that removes this
 throughput burden and constructs supported extraction, transport and exchange.
-No selected drive or complete-machine physical pass.
+E-225 parks the indexed-feed variant too: stopping removes the continuous-speed
+limit but retains narrow absolute phase margins and 1,024 gates in the favorable
+45-mm schedule, with captured followers and split routing unresolved. Plain
+bar-bottom writing collides with upper rails. End branching-rail refinement;
+reopen only through a changed shared programming transaction, not a smaller toe
+or faster assumed stroke. No selected drive or complete-machine physical pass.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process
