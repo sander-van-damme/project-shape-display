@@ -24,9 +24,7 @@ a comparison workload, not a product resolution decision.
 The required retained output has three configurations: G = column bar engaged /
 pickup retracted; O = both engaged; M = bar withdrawn / pickup engaged. Admission
 must follow G→O→M; retirement M→O→G. A stopped common lift supplies the frame
-reference. Only the addressed channel moves; continuing members stay in M.
-Positive endpoint backing must carry withdrawal reaction without electrical power.
-A digital bit is neither that backing nor a support contact.
+reference. Continuing members stay in M; positive backing must hold without power.
 
 | Construction | Actual writing and output hypothesis | Consequence |
 |---|---|---|
@@ -55,20 +53,17 @@ The pickup plane moves −80→−40→−80 and admits only the selected bottom
 its actual height. This avoids confusing periodic shelves with the unique foot;
 it also avoids vertical intersection with the resident comb planes.
 
-A solid plate would hit unchanged low columns. Retractable fingers must emerge
-from clear passages alongside their stems, with a support spine below the feet
-and a 40-mm route to the fixed column-bar outputs. During row feed all fingers
-must be withdrawn and the head lowered another 2 mm to −82; raise it again
-before the next row. The schedule now charges both strokes. 
+A solid plate hits unchanged low columns. Fingers need passages beside stems,
+a spine below feet and a 40-mm coupling to column-bar outputs. Feed requires
+withdrawn fingers and a 2-mm lowering to −82, then raising before the next row;
+both strokes are charged. These are routing envelopes, not constructed paths.
 
 **Finite envelope screen:** a 4-mm stem at 5.08-mm pitch leaves a 1.08-mm interrow
 passage. A centered 1-mm side blade leaves only `.04−e` mm one-sided margin;
 all combined e=.15/.35/.70-mm scenarios fail. Even a .5-mm blade leaves
 `.29−e` = .14/−.06/−.41 mm. These are opposing part/alignment error bounds,
-not X1C distributions. No universal impossibility follows: a narrower lower
-stem, separated lower pitch or a different pickup path changes the geometry,
-but each owes column stability, top clearance, guides and fabrication at 6,400
-copies. Do not refine thin fingers to rescue this screened machine.
+not X1C distributions. Narrower stems or changed pickup routes might escape, but owe stability, guides
+and fabrication at 6,400 copies. Do not refine thin fingers here.
 
 A stopped 4-mm writer window/2-mm nose instead has `1−e`=.85/.65/.30-mm
 nominal margin. Thus writer registration is not the only or smallest margin.
@@ -93,8 +88,7 @@ These are sequential constructions, not universal lower bounds. Ten level
 visits are charged, including both actions at 40; eight loaded 10-mm moves,
 row-comb withdrawal/reseat, two underpass strokes, row feed and two .010-s
 height reads give `C=8t(10)+10W+2J+2t(2)+t(5.08)+.020`.
-The scanner uses a fixed raster; a second calculation grants **free traversal
-and skips all empty groups**. A valid adversarial row assigns successive old
+A second scanner calculation grants **free traversal and skips empty groups**. A valid adversarial row assigns successive old
 levels and target=(old+1) mod 5 within every group. It needs
 `min(160,800/q)` selected group transitions/row. Even this free-travel screen
 chooses B8/q80/$687.80, so empty raster visits do not explain the cost ranking.
@@ -125,25 +119,20 @@ only **37.5 ms** remain for any additional map overhead. At loaded acceleration
 $687.80/$749.40/$710.90. No option meets the bought target under these assumptions.
 Both optima abandon multiplexing.
 
-Bank enables must retain idle row combs, column supports and disabled pickup
-states while common shafts move; loaded phases require local lift arrest.
-Bank feed couplings engage only after row-seat proof, then advance one pitch.
-An idle bank cannot silently seek arbitrary rows independently. Sparse requests
-may require no-op feed traversal; the full-map bound remains applicable. A
-five-row patch within one bank calculates direct/scanner/matrix
-13.388/15.500/11.459 s, including retry. These are contiguous-patch examples.
-All changed columns still visit 40 mm: a 0↔10 change detours 30 mm above both
-endpoints. Nonmembers remain supported ideally; touching miniatures, bridged
-loads and settling at redundant supports prevent a physical isolation claim.
+Retained bank enables keep idle combs/pickups safe while common shafts move;
+feed engages only after row-seat proof and advances one pitch. No independent
+arbitrary seek is granted. Sparse requests may consume the full-map feed bound.
+Five contiguous rows within one bank calculate direct/scanner/matrix
+13.388/15.500/11.459 s including retry. Changed columns visit 40 mm: 0↔10
+changes detour 30 mm above both endpoints. Nonmembers remain fixed ideally;
+miniature collisions, bridged loads and settling remain unqualified.
 
-Reader coverage must include every selected yoke's incoming **and outgoing**
-output, 80 actual column heights before and after the row, bank enable/feed
-position, common plane, and row-comb seating across all 80 contacts. Proposed
-per-bank camera/folded-light paths are unconstructed; endpoint flags cannot
-prove load-bearing contact. Ten ×80×80 =64,000 membership observations/map
-alone give a union bound .064 at an **assumed** per-observation undetected rate
-10⁻⁶, before retries/output reads. Correlated occlusion or calibration error
-invalidates an independence interpretation. The .003/.010-s proofs are grants.
+Reader coverage: selected incoming/outgoing outputs, 80 actual heights before
+and after each row, bank enable/feed, plane height, and all 80 row-comb contacts.
+Per-bank camera/folded-light paths are unbuilt; flags cannot prove bearing load.
+64,000 membership observations/map alone give union bound .064 at **assumed**
+undetected rate 10⁻⁶, before retries/output reads. Correlated occlusion or
+calibration faults prevent an independence claim. Proof/read times are grants.
 
 ## Replication, force, fabrication and bought hardware
 
@@ -157,9 +146,8 @@ At B8, each bank has ten rows/800 cells. Each head adds 80 column bars/keepers,
 80 pickup slides, 80 retained three-state yokes, 160 links including 80 moving-z
 interfaces, 80 writer gates in the fastest scanner, one lift/arrest/carriage and
 one feed enable. Board: 640 each bars/pickups/yokes/gates, 1,280 links and
-1,920 yoke retention positions. Each slide/link needs at least two locating
-bearing regions; exact bearings, springs, sockets, inserts and mounting fasteners
-are **unselected**, not zero. Matrix swaps gates for coils/armatures/isolation;
+1,920 yoke retention positions. Each slide/link needs locating bearings; bearings, springs, sockets, inserts and
+fasteners remain **unselected**, not zero. Matrix swaps gates for coils/armatures/isolation;
 spare-load-register copying adds at least another 80 pickups/head. Every
 additional overlap stop must retain power-loss state, not merely indicate it.
 
@@ -188,15 +176,12 @@ lift-driver/brake/phase/feed/writer/shafts-bearings $30/10/10/10/20/30.
 Base $195. Per bank reader/enable/local arrest/mounts-guides $10/3/3/4;
 retention hardware $.02 per output. Direct/scanner complete channels $.50 each.
 Matrix three-state actuator $.50 each, bidirectional line drivers $.10 per
-(q+n) line/head, isolation $.05 per output. No actuation, power, thermal,
-reader or arrest rating substantiates these optimistic allocations. Printed
-backing/links are assumed; any needed metal fasteners/springs must fit the
-allocated categories or increase them.
+(q+n) line/head, isolation $.05 per output. Ratings remain unqualified. Printed backing/links are assumed; metal hardware
+must fit these categories or increase them.
 
 At direct B6, nonchannel $324.60 leaves <$0.36542/channel under $500.
 Scanner B8's $367.80 leaves <$0.20657/channel. Matrix B5's nonactuator $363.50
-leaves <$0.34125 per physical actuator. Merely assuming cheaper channels is
-not an escape; the force, three retained states and optical proof are still owed.
+leaves <$0.34125 per physical actuator. Force, retention and optical proof remain owed at these prices.
 
 Column blanks remain 8.192 L (~228 h at assumed 10 mm³/s). Illustrative
 20×4×3-mm yoke blanks add .154 L at B8; 40×4×3-mm link blanks add .614 L,
@@ -211,10 +196,9 @@ buried bars require supported module removal. No tool-free service claim.
 
 ## Redirect the transaction
 
-Safe selective overwrite is logically possible, but these implementations pay
-for sequential live writing with more banks or hundreds of physical actuators.
-A generous stopped-writer registration margin does not fix pickup access,
-gravity following, loaded arrest or cost. This rejects the tested constructions only.
+Safe overwrite is logically possible, but these embodiments buy throughput with
+banks or hundreds of actuators. Writer clearance does not fix pickup access,
+gravity following or loaded arrest. The rejection is scoped to these constructions.
 
 Next test a changed transaction: program **unloaded target stops before pickup**,
 keep one changed-cell mask fixed throughout the stroke, let a rising plane
@@ -224,6 +208,4 @@ stops. This replaces ten live membership writes with one unloaded target program
 and one fixed mask, but owes real stop memory, separate pickup/stop access,
 bar preparation/reset and retained support during row feed. Compare directly
 against E-221's loaded shoes and E-226's unloaded-bar handling: do not silently
-restore their independent axes, turnover/transport or fine locks. The next
-screen must first decide whether these complete-machine obligations can be
-cheaper; no new local mechanism campaign is authorized by this hypothesis.
+restore their independent axes, turnover/transport or fine locks. Screen complete-machine obligations before any local development.
