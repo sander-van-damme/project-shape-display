@@ -14,12 +14,11 @@ heads / 720 binary channels / **28.807 s / $999 assumed bought cost**. Even
 reducing the shared-head allocation from $65 to $20 gives $594. No machine is
 selected and no print is justified.
 
-Input main `de15f3c`. Reproduce:
+Input main `de15f3c`; reproduce with
 `python3 tools/curated-experiment-checks/E-234/screen.py` (stdlib, stdout only).
-Evidence: **architecture hypotheses, ideal contact replay, dimensional bounds,
-and assumed force/time/economic scenarios; self-review**. No CAD, quotes,
-process distributions, physical measurements or independent validation.
-Five heights 0/10/20/30/40 mm are a comparison alphabet, not a resolution choice.
+Evidence: **hypotheses, ideal replay and assumed geometry/force/time/cost bounds;
+self-review**. No CAD, quotes, process priors or measurements. Five heights
+0/10/20/30/40 mm are a comparison alphabet, not a resolution choice.
 
 ## Changed transaction: keep both profiles captive under each row
 
@@ -64,11 +63,9 @@ The inactive bars must remain independent while the common comb is open:
    heights, and feed to the next row. No media transport or offline programming.
 
 Terrain follows E-218's `h=max(old+a,target+b)`: first a=0 and b=−45→0, then
-b=0 and a=0→−45. Thus an ideal unchanged cell stays fixed, and changed cells
-move monotonically; there is no all-changed apex excursion. All 80 cells in a
-visited row nevertheless undergo support replacement. Other rows stay docked.
-Finite contact area, gravity following, comb/dock strength and grounded arrest
-are prerequisites, not supplied by the max equation.
+b=0 and a=0→−45. Ideal unchanged cells stay fixed; changed cells move monotonically.
+All 80 cells of a visited row change supports; other rows stay docked. Contact,
+following, strength and arrest are prerequisites, not supplied by this equation.
 
 The source checks 15,625 three-cell maps / 160,150 contact-event and midpoint
 states, plus a 997-subdivision scalar holdout. It replays 6,250 stable retry/control
@@ -80,12 +77,10 @@ column demands supported service; no under-30-s repair is promised. False
 acceptance can disturb an originally unchanged cell; replay does not qualify
 reader coverage. Resetting the **active** lane gives an explicit drop witness.
 
-A shared lift needs a grounded arrest downstream of its drive; a powered motor
-is insufficient. Without arrest, source loss during a 0→40 rise can lose 20 mm
-at the mid-transfer example. The slower schedule charges 1-mm indexed arrest
-and 1-ms proof per increment, with at least two interlocked catch functions per
-lift; impact, engagement and support proof remain unbuilt. Keeper/dock/pad/read
-interlocks are logical specifications, not sensing hardware.
+Without grounded arrest downstream of the lift drive, source loss during a
+0→40 rise can lose 20 mm at mid-transfer. The slower schedule charges 1-mm
+indexed arrest and 1-ms proof/increment, requiring ≥2 interlocked catches/lift.
+Impact, engagement and keeper/dock/pad/read proof remain unbuilt.
 
 ## Finite envelope and manufacturing window
 
@@ -108,10 +103,9 @@ its local, batch, warp and assembly contribution; these are not X1C priors.
 | Reset platen vertical spare | 2−2e | 1.70 / 1.30 / .60 mm |
 | Possible unchanged-height shift on A/B takeover | 2e | .30 / .70 / 1.40 mm |
 
-The lane gap is already fragile in the .35-mm scenario. Sharing a row base
-correlates errors across 80 sites; opposing A/B batch bias does not cancel.
-Final flank seating and actual readback are necessary because a 4/2-mm notch
-has 2 mm axial play. No yield probability or manufacturing pass follows.
+The .35-mm lane scenario is fragile. A row base correlates 80 sites; A/B batch
+bias need not cancel. A 4/2-mm notch has 2 mm play, requiring actual flank seating
+and readback. No yield probability or manufacturing pass follows.
 
 For an assumed solid-bar density 1.25 g/cm³, mass=.4352 g. Let strip friction
 μ=.1… .4, mean normal force N=.3 N/bar with ±50% spatial/common variation,
@@ -128,9 +122,8 @@ quasistatic gravity seating. The .005-N competing drag case already sticks.
 A common platen cannot press all differing final bar heights simultaneously;
 adding individual seating fingers or springs changes the ledger. This is an
 unresolved mechanism obligation, not justification to refine 12,800 pads.
-Terrain following is separately unqualified: a 3-g column descending at 8 m/s²
-has only .00543 N gravity surplus for guide drag. No positive downward capture
-is included.
+A 3-g terrain column descending at 8 m/s² separately has only .00543 N for drag.
+No positive downward capture is included.
 
 ## Whole-machine schedule and economics
 
@@ -151,11 +144,9 @@ from divisors 1/2/4/5/8/10/16/20/40/80; enumerate B=1…80 disjoint banks.
 - Full map `T=2+(ceil(80/B)+1)S`: two seconds global command/homing/registration/
   settle allowance and a causal full-row retry. No overlap or prewritten target.
 
-At q80 a fresh map writes 6,400 physical values, resets 80 inactive rows,
-executes 320 writer height increments and 160 loaded base transfers before retry.
-Readback owes 6,400 old, 6,400 seated-media and 6,400 final height observations;
-shared cameras/scanners are possible but coverage, occlusion and latency are
-unconstructed. The u and global allowances do not demonstrate those timings.
+At q80: 6,400 writes, 80 resets, 320 writer increments, 160 loaded base transfers
+and 19,200 old/media/final height observations before retry. Reader coverage,
+occlusion and latency are unconstructed; the allowances do not prove timing.
 
 | Scenario, least assumed bought allocation under 30 s | B / q / channels | Seconds | Assumed dollars |
 |---|---:|---:|---:|
@@ -176,11 +167,10 @@ budget under $500 is **less than $9.56/head** for all shared hardware after thes
 other allocations. Granting entirely free heads gives a $302 timing-feasible
 control; therefore this is explicitly not a universal economic impossibility.
 
-A regional edit skips untouched rows. Critical time is two seconds plus visited
-row services, one retry, and **actual seek distance**, replacing adjacent feed
-where rows are skipped. A patch concentrated in the largest nine-row bank can
-consume the full-map service count. One changed cell still rewrites 80 supports;
-A/B seating error exposes unchanged cells in that row to the 2e bound.
+Regional time includes visited rows, one retry and **actual seek**, replacing
+adjacent feed across skipped rows. A nine-row patch in one bank can consume
+full-map time. One changed cell rewrites 80 supports, exposing unchanged cells
+in that row to the 2e takeover bound.
 
 Each loaded lift must carry up to 80F: 80/261.6/800 N for assumed cell loads
 1/3.27/10 N, or .8/2.616/8 N m at 10-mm ideal drive radius, before carrier mass,
@@ -228,14 +218,10 @@ resident moving support bars. Compared with E-233's 32,000 shutters it reduces
 moving media count, but restores friction retention, duplicated supports and
 head multiplicity. Neither comparison earns deeper development.
 
-Keep the distinct causal result: **captive duplicate profiles trade transport
-for resident duplication; unloaded vertical writing trades load-rated arrest
-for a small-force retention-and-seating problem, not zero retention**. Stop this
-embodiment before finer pad or keeper work. Reopening needs a transaction that
-removes duplicated moving supports or most writer strokes/head count, together
-with a complete supported sequence; merely lowering an allocation or adding
-individual springs is insufficient. Next architecture synthesis should address
-state placement directly: can a common load support coexist with externally
-rewritten height information without either two supports per cell or independently
-loaded head outputs? Any proposal must exhibit its actual rewrite/hold/transfer
-paths before a timing sweep. No current survivor or hardware pass is implied.
+Keep the causal distinction: **captive profiles trade transport for duplication;
+unloaded vertical writing still needs retention and seating**. Reopening requires
+removing duplicate moving supports or most writer strokes/heads with an actual
+supported sequence, not lower allocations or individual springs. Next synthesize
+state placement: common load support with external height encoding, without
+paired resident supports or independently loaded outputs. Construct rewrite,
+hold and transfer paths before timing sweeps. No current survivor or print.
