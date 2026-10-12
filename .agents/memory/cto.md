@@ -1,39 +1,41 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-218 on input main 693829e.
+Updated: 2026-10-12 UTC; E-219 on input main e36bdd7.
 Priority: simple columns, broad positive support, shared accessible programming.
-Depth: architecture invention and necessary-condition screening; no machine selected.
-Why: direct support can remove friction pickups, but its encoding must fit the
-whole board; writer optimization cannot rescue an impossible resident layout.
+Depth: architecture invention / necessary-condition screens; no machine selected.
+Reason to redirect: the last three media screens relocate rather than remove
+large functional counts; do not keep optimizing the row-cassette topology by habit.
 
-Evidence / chosen direction:
-- ADR-022 governs; E-208–E-215 local toe/return/capture/guide work stays dormant.
-- E-216 common row comb removes individual releases but needs 160 grips/head.
-- E-217 writers retain grip burden and hundreds of gates; both stay parked.
-- E-218 ideal handoff: raise incoming target cassette, then lower old cassette.
+Evidence to retain:
+- ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
+- E-216 common row comb removes individual releases but retains 160 grips/head.
+  E-217 shared writers retain grips and hundreds of gates; both remain parked.
+- E-218 positive handoff: raise incoming, then lower old; ideal
   h=max(old+a,target+b) preserves unchanged heights and supports mixed moves.
-  15,625 three-column replays; no physical contact/source-loss validation.
-- E-218 broad translating stair medium fails arbitrary-code row packing:
-  76-mm swept depth against 5.08-mm row pitch; simple deck escape is 1.35 m deep.
-- It needs 7,680 media slides with 16 spares; no old-code write or friction grip.
-  Optimistic 128-lane schedule is 29.634 s; indexed arrest needs 640 lanes in
-  sampled passing case. These do not overcome packing, cost or gravity drag.
-- Cassette errors can move unchanged cells; no disturbance/process pass.
-- A-001/A-002/A-011 and DES-002 remain principles, not restored winners.
-  E-084 forbids excluding arbitrary media preparation through buffering.
+  No physical following, contact, readback or source-loss qualification.
+- E-218 translating stair fails arbitrary-code row packing (76 vs 5.08 mm).
+- E-219 vertical-axis sector wheels reduce the illustrated depth escape from
+  15 to six decks (540 mm allocated), but retain 7,680 index engagements.
+  Larger assumed keepouts collide within the old/new wheel pair.
+- E-219 full-height blocks remove media indexing, but complete-row duplication
+  needs N+79B pieces per code: 38,320 total at B=16/five levels. Vertical sorted
+  exchange needs ≥640 lanes in the sampled optimistic <30-s cases; 1,280 with
+  indexed arrest. Stock/return handling is not free. Neither medium is selected.
+- A-001/A-002/A-011/DES-002 are principles, not restored winners. E-084 keeps
+  arbitrary media preparation inside the update boundary.
 
 Next executable investigation:
-- Change height encoding, retaining E-218 positive two-path handoff as a control.
-- Screen bounded-volume rotary height blocks and separable solid-height pieces.
-- First construct horizontal bearing faces/retention or actual feed/sort/return;
-  count all resident functions and inventory before writer/local geometry work.
-- Require adjacent arbitrary codes to fit, unchanged support, unloaded rewrite,
-  source-loss arrest and a whole-machine time/cost path. No presumed survivor.
-- Stop if the escape needs tiny locks, friction pickups, hidden media preparation
-  or hundreds of unpriced channels. No prints or contact refinement yet.
+- Reconsider the entire two-cassette substitution rather than improve its writer.
+- Compare in-place shared backing/support-layer reconfiguration with cassette
+  exchange: construct support continuity, independent arbitrary state, and
+  regional isolation first. Count resident functions and shared channels.
+- A side-loading/continuous captive media route may reopen E-219 only if it
+  actually removes the four long stock strokes and supplies sorting/return.
+- No tiny locks, friction pickups, hidden preprogramming or unpriced hundreds of
+  channels. Stop on the cheapest necessary-condition failure; no prints yet.
 
-Important unknowns: compact direct-support code, downward following under guide
-friction, actual-process margins, loaded cassette exchange and reader coverage.
-Alternative: new shared load topology; do not restore the long stair by shrinking
-its contact lands or adding long differentiated column routes without a ledger.
-01–08/Paperclip authoritative; this file is a mutable compass, not evidence.
+Important unknowns: compact positive-support encoding, gravity following,
+actual-process margins, supported load transfer, reader coverage and bought BOM.
+In-place rewriting must not silently release unchanged loaded cells. Shared
+selection still needs height motion, retention, verification and safe recovery.
+01–08/Paperclip authoritative; this is a mutable compass, not engineering evidence.

@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-218, E-217, E-216, ADR-009]
+builds-on: [E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -26,7 +26,11 @@ then lower old supports. This removes old-code writing and friction grips, but
 its broad translating staircase cannot pack arbitrary adjacent row codes. Park
 that embodiment before writer/contact refinement. Retain the handoff law as a
 conditional principle; next test a different bounded-volume height encoding,
-including physical inventory/rewriting. Gravity following, source-loss arrest,
+including physical inventory/rewriting. E-219 parks the illustrated rotary sector
+and full-height block implementations: the former still needs six depth bands
+in favorable bounds; the latter needs 38,320 pieces and hundreds of handlers.
+Next reconsider in-place shared support reconfiguration against complete cassette
+substitution, rather than refining either writer. Gravity following, source-loss arrest,
 unchanged-neighbor disturbance and complete 6,400-cell cost remain unqualified.
 
 Every deep mechanism investigation must first justify its system-level value
