@@ -1,15 +1,15 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-243 on input main c5fdd0f.
+Updated: 2026-10-12 UTC; E-244 on input main 3345b91.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: change the load path or physical encoding, not another
-writer/pawl refinement. E-243 head-only overrun conditionally solves admission,
-but a six-state target sweep still consumes five selective masks per row.
-No whole-machine survivor: paired media, retained words, magnetic flags and
-head ratchets merely relocate burdens in tested implementations. Shared lift
-payload power is not the main rejection (E-239); supported rewriting, affordable
-physical state and finite routing remain unresolved.
+Current discriminator: direct smooth-pin support with collectively loaded,
+replaceable row strips versus positive combs; first reconstruct supported writing
+and correlated force distribution. No strip/spring optimization yet.
+E-244 drum-free external cords remove shelves but retain 6,400 grips and need
+240 independent loaded outputs. Routing/assembly, gravity return and elastic
+height drift remove the hoped-for manufacturing advantage. Shared continuous
+cords retain sums, not individual heights. No whole-machine survivor.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -309,12 +309,23 @@ Evidence to retain:
   Ratchet can fall a 10-mm pitch on ascent; descent still needs local arrest.
   Park sweep-written target cams before pawl/cam/spring detail; no print.
 
+- E-244 straight externally clamped tails remove resident shelves/drums, but the
+  declared .3-mm/d±position box needs 1,492 m cord,12,800 bends,6,400 grips.
+  Row/column continuous cords leave6,241 differential modes; common platen
+  must instead ground each cord separately. Favorable direct B3/240 outputs:
+  24.552s/$623 allocated;$.50/output still$503,free resident parts$495.
+  This is not a cost floor. Thin stem/cap mass .386g cannot descend against
+  assumed .005N guide drag;3g needs~16.7kg added mass board-wide. At a8/μ.15,
+  3g allows only .268mN tail drag. Paired cords duplicate routes/retention.
+  Stop tensile detail; retained length is not free memory or positive support.
+
 Next executable investigation:
-- Change load-path encoding: compare flexible tensile supports with compression
-  media, reconstructing E-126/E-163/E-234 first. First account for finite routing,
-  anchors, stored length, supported rewriting, isolation and 6,400-path assembly.
-  Stop if a spool/brake per cell merely relocates repeated complexity. Do not
-  assume that cables or shared clamps provide independent length memory.
+- Compare direct smooth rigid pins in replaceable collectively loaded row strips
+  against positive combs. Reconstruct E-148/E-165/E-216/E-236 first. Start with
+  complete supported moving-datum transaction, total writer/retention ledger,
+  and force-distribution bound under coherent pin-size/platen error. Eliminate
+  cord transmission without recreating 240 loaded axes or 6,400 tiny springs.
+  This is an architecture/force screen, not permission for local clamp tuning.
 - Keep payload distribution parametric. Actual-process gravity drag, local
   dynamic arrest, finite routing and field/contact behavior remain unqualified.
 
