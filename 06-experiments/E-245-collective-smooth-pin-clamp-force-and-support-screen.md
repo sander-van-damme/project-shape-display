@@ -13,7 +13,7 @@ The illustrative four-bank schedule is **29.663 s / $441.40 before pads and forc
 corrections**. Its resident pad needs .95 mm compression inside a section allowing
 only .54 mm pad thickness. It is not a feasible machine or a fabrication selection.
 
-Input main `cd37c14`. Reproduce with
+Engineering input main `cd37c14`; reconciled review through `63d893e`. Reproduce:
 `python3 tools/curated-experiment-checks/E-245/screen.py` (stdlib; imports E-236).
 Evidence: **architecture hypotheses, ideal support replay and deterministic
 force/geometry/schedule calculations; self-review**. All new physical inputs are
@@ -45,8 +45,8 @@ is no shelf alignment or separate retained height program. This is a changed loa
 interface, not a new addressing algorithm.
 
 Ideal replay checks **15,625 three-cell maps**, two unchanged rows, **5,765,625
-support observations**, 150 regenerated retries and three missing-support/erase
-faults. It grants adequate friction, no slip, local arrest and retained commands.
+support observations**, 150 regenerated retries, 25 full 80-column single-change
+cases and three missing-support/erase faults. Adequate grip/arrest is granted.
 Fractional checks prove bounded logical coordinates, not dynamics. Changed cells
 may detour 10 mm; continuous heights need new codes. Command and total-force
 readback cannot prove individual support.
@@ -56,13 +56,19 @@ it requires retained moving grips and a **downstream** local datum arrest. A mot
 brake does not cover broken transmission. Friction loss, clamp creep, a broken pad
 or a false support proof can defeat both the schedule and containment. Detected
 stable wrong heights can be held, reread and reprogrammed once; lost support or
-unseatable faults require temporary support and a stopped module. No such hardware
-or fault reader is constructed. Real lateral squeeze, frame compliance and stick-slip
-may disturb unchanged miniatures even though logical coordinates remain fixed.
+unseatable faults require temporary support and a stopped module. Unbuilt squeeze, compliance and stick-slip may disturb unchanged miniatures.
+For example, two equal tangential contact stiffnesses kt initially share load L;
+removing row support adds **L/(2kt)** displacement at each unchanged pin. With
+L=1 N and assumed kt=10 N/mm this is **.05 mm**, despite no slip and adequate
+holding force. kt is distinct from normal pad stiffness. Nine L=.2/1/10 N,
+kt=1/10/100 scenarios span .001–5 mm; these are counterexamples, not displacement
+bounds or measured disturbance. All 79 unchanged pins undergo this transfer.
+Fixed shelves instead owe bearing/registration tolerances, not friction preload;
+44,800 integral shelf levels are not equivalent to 44,800 moving failure sites.
 
 | Alternative complete-machine route | Benefit | Scale obligation / decision |
 |---|---|---|
-| Single common row clamp + independent positioned head outputs | Only 6,400 resident holds | Opens whole row; needs 80 arrested loaded axes/head. E-244's three-head control remains $623 allocated, with cords deleted but axis/hold duties retained. No renewed axis development. |
+| Single common row clamp + independent positioned head outputs | Only 6,400 resident holds | Opens whole row; needs 80 arrested loaded axes/head. E-244's $623 comparator has 240 loaded axes; deleting cords leaves those axes/hold duties. No renewed axis development. |
 | Crossed compressed-pad strips + selected moving grips | Smooth columns, positive downward drive, five shared strokes | 12,800 resident holds plus 80B grips; force/travel/packing screen below fails the declared section. |
 | Serial floating grounded spacers, squeezed from row ends | Ideal series contact gives equal normal force | Restores 6,400 spacers and vertical grounding interfaces in one plane; cumulative width error displaces pins. Crossed use doubles those resident sites. Screen below. |
 | Pressure-backed membranes, same crossed transaction | Ideally equal pressure despite gap variation | Needs 80+80B separately retained resident pressure zones, 80B selected moving grip duties, membranes/seals/volume supply, passive isolation and proof. No pressure source, valve-free retention, routing or purchased budget is granted. |
@@ -113,8 +119,7 @@ backer allocation must fit 5.08 mm at each support plane. Thus each pad is at mo
 even before supplying load. E=.35 needs .95 mm: it exceeds even the entire pad
 thickness. Across 324 force/strain cases, only 15 meet this section, assumed timing
 and pre-pad cost; **all require E=.05 mm**. This is not qualified ±50-micrometre
-manufacturing. Stiffness and allowable strain were varied independently as generous
-bounds; the survivors are not known materials.
+manufacturing. Independent stiffness/strain bounds do not identify real materials.
 
 Staggered planes, bending strips, thinner pins or pressure membranes could escape
 this section. Each owes new routing, force distribution and manufacture/service
@@ -154,11 +159,10 @@ expanded event list checks the formula. No inherited write overlap is credited.
 | .35 /200 | .925/.945 | 4 | 28.246 | $441.40 |
 | .70 /20 | 1.850/2.054 | 5 | 26.548 | $503.00 |
 
-At E=.35/k20 only .337 s additional full-map allowance remains. Five visited rows
-in one bank cost 10.036 s including one retry under the same bounds; longer seeks
-must be charged explicitly. Softening to k2 reduces the mixed-row platen force
-960→456 N but needs six banks. Stiffening to k200 raises it to **6,000 N**. No row
-section in these E=.35 cases passes. Faster motion does not qualify force capacity.
+E=.35/k20 leaves .337 s extra full-map allowance; five visited rows cost 10.036 s
+including retry, before longer seeks. Softening to k2 reduces mixed-row force
+960→456 N but needs six banks. k200 raises it to **6,000 N**. None of these E=.35
+sections fits. Faster motion does not qualify force capacity.
 
 The two-face elastic work is `sum(k compression_i²)` N mm. E=.35/k20 stores .772 J
 per resident row equivalent. One fully selected B4 pulse closes all 6,400 column
@@ -201,10 +205,9 @@ head fault interrupts 1,600 cells. Temporary support and accessible strip remova
 are required before repair; crossed support alone is not permission to service
 live faulty hardware.
 
-One illustrative allocation puts 8-mm-high row/column pads at z=-10/-24 mm,
-and the moving pad at `z=-40+10q`. For q down to -3 and a 40-mm-high column, a
-116-mm land keeps its bottom 2 mm below the lowest pad edge. This is vertical
-reach only, not routed CAD. 3.2-mm-square stems then total **7.602 L**, 156–469 h
+With 8-mm-high row/column pads at z=-10/-24 mm and moving pads at
+`z=-40+10q`, q down to -3 requires a 116-mm land: at 40-mm column height its
+bottom clears the lowest pad edge by 2 mm. This is reach only, not routed CAD. 3.2-mm-square stems then total **7.602 L**, 156–469 h
 at assumed 15–5 mm³/s extrusion with 10% scrap. Each is 1.485 g before its cap;
 active gripping supplies descent. Column insertion at 5–15 s takes 8.89–26.67 h.
 Two faces per 400 strip axes give 800 strip placements, 2.22–6.67 h at 10–30 s,
@@ -218,11 +221,9 @@ closure-energy machine. Do not tune pad ribs, tiny springs or keeper pockets.
 The failed series-spacer chain also does not earn detail. No print is justified
 by a timing-only near-budget case.
 
-Next bounded discriminator: test a **mechanically driven, sealed shared pressure
-equalizer** against the positive-comb control, starting with complete pressure-zone
-routing, local retention and cost/assembly rather than membrane detail. It must
-actually replace stiffness-amplified preload, fit the pin grid with generous error
-accommodation, and preserve all supported selection phases without hundreds of
-additional powered valves. Count fill/seal/repair operations and failure domains;
-reject before CAD if the $58.60 residual or support obligations cannot cover a
-credible construction. A pressure oracle alone cannot reopen smooth-pin tooling.
+Next screen **mechanically driven sealed pressure equalization** versus positive
+combs: zone routing, local retention, fill/seal/repair and cost before membrane
+detail. It must remove stiffness-amplified preload and fit broad gap variation
+without hundreds of new powered valves. Reject before CAD if the $58.60 residual
+or support duties cannot cover a credible construction; an oracle cannot reopen
+smooth-pin tooling.

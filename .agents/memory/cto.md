@@ -325,7 +325,10 @@ Evidence to retain:
   Half-row no-contact witness passes total-force sum. Mixed-row preload 960 N/face;
   resident closure 2.704 kW without energy recovery, all 40->0 map 4.186 kJ, all assumed.
   12,800 holds/25,600 faces/320 moving grips; serial spacers accumulate width error.
-  Park bulk pads/spacers. Pressure oracle .1953MPa and 400 resident zones is unbuilt.
+  All 79 unchanged pins transfer load: equal shear stiffness kt gives L/(2kt)
+  shift when one support opens (.05 mm at 1 N/10 N/mm); no physical disturbance cap.
+  Fixed shelves are not equivalent moving failure sites. Park bulk pads/spacers.
+  Pressure oracle .1953MPa and 400 resident zones is unbuilt.
 
 Next executable investigation:
 - Screen a mechanically squeezed sealed pressure equalizer, not a powered valve

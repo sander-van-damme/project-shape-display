@@ -17,21 +17,22 @@ TABLE = prior.codes(SEQ, 6)
 
 
 def replay(old, target, fault=None):
-    """Active three-cell row plus two unchanged rows sharing column clamps.
+    """Active row plus two unchanged rows sharing column clamps.
     Binary support means an independently adequate friction capacity is GRANTED.
     Source loss requires frozen grips, closed keepers and local elevator arrest.
     """
-    h = [list(old), [0, 2, 4], [4, 1, 3]]
+    n = len(old)
+    h = [list(old), [(2*c)%5 for c in range(n)], [(4+2*c)%5 for c in range(n)]]
     initial = [r[:] for r in h]
     row = [True]*3
-    col = [True]*3
-    grip = [False]*3
+    col = [True]*n
+    grip = [False]*n
     codes = [TABLE[a, b][2] for a, b in zip(old, target)]
     observations = 0
 
     def check():
         nonlocal observations
-        for r, c in it.product(range(3), repeat=2):
+        for r, c in it.product(range(3), range(n)):
             assert row[r] or col[c] or (r == 0 and grip[c]), 'unsupported'
             assert 0 <= h[r][c] <= 4
             if r != 0 or old[c] == target[c]:
@@ -47,12 +48,12 @@ def replay(old, target, fault=None):
         row[0] = False
         col[:] = [not on for on in mask]
         if fault == 'lost_grip':
-            grip[:] = [False]*3
+            grip[:] = [False]*n
         if fault == 'open_idle_row':
             row[1] = False
         check()
         if fault == 'active_erase':
-            grip[:] = [False]*3
+            grip[:] = [False]*n
             check()
         # Three interior observations add no physical dynamics; linear motion
         # is bounded by the endpoints and all selected pins are gripped.
@@ -61,9 +62,9 @@ def replay(old, target, fault=None):
             h[0][:] = [x+fraction*d*on for x, on in zip(start, mask)]
             check()
         row[0] = True
-        col[:] = [True]*3
+        col[:] = [True]*n
         check()
-        grip[:] = [False]*3
+        grip[:] = [False]*n
         check()
     assert h[0] == list(target)
     return observations
@@ -142,6 +143,19 @@ def main():
         for actual in entry[3]:
             replay((actual, 1, 3), (target, 1, 3))
             retries += 1
+    full_row_observations = 0
+    for old_height, target_height in it.product(range(5), repeat=2):
+        old = [c%5 for c in range(80)]
+        old[39] = old_height
+        target = old[:]
+        target[39] = target_height
+        full_row_observations += replay(old, target)
+    # Tangential load sharing is distinct from pad NORMAL stiffness. Two equal
+    # linear shear springs support L at L/(2kt); removing one adds L/(2kt).
+    # This is a no-slip compliant counterexample, not a physical displacement cap.
+    neighbor_shift = [dict(load_N=f, tangential_stiffness_N_mm=kt,
+                           transfer_displacement_mm=f/(2*kt))
+                      for f, kt in it.product((.2,1.,10.),(1.,10.,100.))]
 
     cases = [pad(e, k, f, mu) for e, k, f, mu in it.product(
         (.05, .15, .35, .70), (2., 20., 200.), (.2, 1., 10.), (.1, .15, .3))]
@@ -197,7 +211,9 @@ def main():
     grip_force = moving_grip['min_capacity_N']
     stem_volume = 6400*3.2**2*116/1e6
     print(json.dumps(dict(checks=dict(maps=maps, support_observations=observations,
-        partial_retries=retries, injected_faults=3),
+        partial_retries=retries, injected_faults=3,
+        full_80_cell_single_change_maps=25, full_row_observations=full_row_observations),
+        unchanged_compliance_counterexamples=neighbor_shift,
         nominal=nominal, moving_grip=moving_grip, representative=representative,
         joint_sweep=dict(cases=len(sweep),
             same_plane_and_time_and_prepad_cost_survivors=sum(
