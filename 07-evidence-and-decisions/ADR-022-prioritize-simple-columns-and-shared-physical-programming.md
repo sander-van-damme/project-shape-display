@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-217, E-216, ADR-009]
+builds-on: [E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -21,11 +21,13 @@ support/reusable-state principle, but park these embodiments before detailed
 contact work. E-217 constructs binary-stop/common-stroke and commutated-cam writers. Their
 <30-s sampled cases still need hundreds of controlled gates; binary encoding
 also multiplies retained bits and differential pushers. Park both before local
-refinement. Next examine media that bears column loads directly, with a finite
-mixed-height supported exchange before any detailed writer work. The purpose
-is to remove frictional temporary grip state and duplicated old-height encoding,
-not to hide writing time in a spare cassette. Support, unchanged-neighbor
-isolation and complete 6,400-cell cost/replication remain decisive gates.
+refinement. E-218 constructs an ideal positive two-cassette handoff: raise target supports,
+then lower old supports. This removes old-code writing and friction grips, but
+its broad translating staircase cannot pack arbitrary adjacent row codes. Park
+that embodiment before writer/contact refinement. Retain the handoff law as a
+conditional principle; next test a different bounded-volume height encoding,
+including physical inventory/rewriting. Gravity following, source-loss arrest,
+unchanged-neighbor disturbance and complete 6,400-cell cost remain unqualified.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process
