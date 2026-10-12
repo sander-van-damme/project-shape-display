@@ -1,37 +1,38 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-12 UTC; E-213 axial tail, input main f22e1a8.
+Updated: 2026-10-12 UTC; E-214, input main 651b97c.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: applied LEARN → architecture recombination; no more miniature fit tuning.
+Mode: applied LEARN → support/release/takeover recombination.
 
 Portfolio / uncertainty:
-- E-213 axial sleeve + short tail pin clears nominal acquisition, 40-mm travel,
-  departure and neighbor shafts. Long through-pin hits a neighboring shaft.
-  Passive guide-contact pose hits tight pin in 9/9 cases: moment and height
-  capture cannot be treated separately. Angular acquisition also matters.
-- 82-mm depth staggering clears independent head/dock phases, but unbraced
-  1.6-mm deep tails fail favorable 10-N Euler scenarios. Single-depth multirow
-  packing survives as geometry. Safe-park motion leaves only 2/9 timing cases
-  under .60 s at H=160, none at H=40/80; no drive or hardware pass.
-- E-212 split guide clears translation but old height jaw hits at >1.1-mm lift;
-  its top-cap capture hits neighbors in 4/8 pose corners. Embodiment failures.
-- E-211 resident toe path remains conditional. E-209 strain tails 2.247/3.188%,
-  tensile edge 3.44/4.31%, force up to 7.56/14.80 N persist. Lower rack capture
-  does not repair the resident release tool. No tensile bias reinstated.
-- E-054/E-056 slider and E-206 longer torsion remain controls with guide/fit/
-  support limitations. E-124/E-125 bilateral cup already failed compact retained
-  channels and sparse loaded closure; do not rediscover it as a new solution.
-  E-165 laminate/E-197 wet command inactive. No hardware qualification.
+- E-214 remote resident guide pair amplifies play at tail eye: c≤.005909 mm
+  necessary under declared pin/registration budget. Not an X1C process floor.
+- Pose-seeking reusable guide + retained y-float clears pin corners but its rail
+  hits 16/64 acquisition cases per tested angle. No tiny rail retuning next.
+  Eight pad outputs plus unchanged eight release outputs do not reduce burden.
+- Stronger failure: after reusable guide departure, toe pad y=.8…1.2 cannot
+  balance tail-centered y=1.95 load; 10-N scenario lacks 7.5 N mm moment support.
+  A reusable guide cannot silently replace the resident column reaction path.
+- E-213 nominal axial reach survives; passive guide/tight pin and unbraced
+  82-mm depth-stagger tail fail their declared cases. Safe-park timing only
+  2/9 cases at H=160, none H=40/80; no machine admission.
+- E-209/E-211 rocking release remains costly: return strain 2.247/3.188%,
+  tensile edge 3.44/4.31%, force 7.56/14.80 N; miniature stem demand unresolved.
+- E-054/E-056 guided slider retains 6,400 fits/25,600 shelf faces; pawl
+  guidance is not column guidance. Keep as direct positive-release control.
+- E-124/E-125 cup/channel and E-212 split-guide/jaw remain failed controls;
+  do not rename them as new mechanisms. E-206 longer torsion is an alternative
+  only with an explicit grounded column path. E-165/E-197 inactive.
 
-Recent progress / search coverage:
-- Axial access eliminates jaw/guide crossing, exposes acquisition distance,
-  guide-play/capture coupling and depth-dependent compression. No new principle
-  or broad saturation claim. Current narrow interface has diminishing value.
+Recent learning:
+- Geometry-only collision checks can miss complete pin/eye non-engagement.
+- Moving a moment function into the writer leaves a departure obligation.
+- No broad search saturation claim; narrow tail/pocket axis diminishing value.
 
-Next discriminator: architecture comparison of load-centered axial writing with
-explicit resident moment guidance versus reusable pose-acquiring guidance with
-transverse float at height capture. Reconstruct E-124/E-125 first; demand a changed
-contact/access topology, resident release and finite supported transfer together.
-Stop if it only shifts missing capture/guide precision into another small socket
-or exceeds shared-head allocations. No print before a credible complete load path.
+Next discriminator: co-locate resident support, release and writer takeover;
+construct a ground reaction cone that remains valid when the head departs.
+Compare explicit guided slider with a changed coarse release/support topology.
+Stop on hidden column guides, unsupported departure or recreated tiny grippers;
+count complete head outputs and repeated resident precision before refinement.
+No print/purchase while these load-path contradictions remain.
 01–08/Paperclip remain authoritative.
