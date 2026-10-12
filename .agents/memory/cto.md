@@ -1,11 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-251 shared-carrier screen on fetched input main f23d6d3.
+Updated: 2026-10-12 UTC; E-252 sustained-capture screen on main 666efe6.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: retain loaded outputs across shared strokes without
-recreating E-222's individual arrest/retention burden. E-251's five repeated
-turn/reseat transactions lose even after cap-phase staggering.
+Current discriminator: choose a continuously supported motion path once,
+without independent mid-program parking. Reconstruct E-247 before reopening
+rail assignment; a changed physical writer/routing topology is mandatory.
+E-252 sustained capture saves turns but recreates E-222 output retention and
+adds empty-slide reset; no dog/rack/capture refinement is justified.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
 collides; no guide/pocket/head refinement is justified. E-248 retained writing
 and E-247 rails remain parked; programming savings alone do not supply support.
@@ -411,12 +413,22 @@ Evidence to retain:
   commands at supported seats; its free non-yaw overhead case still loses, so
   reset alone does not reopen this machine or the intricate resident-lock family.
 
+- E-252 retains changed captures through five strokes; two-stage opposite
+  handoffs preserve ideal support. 15,625 maps/234,375 loaded observations and
+  150 stable-prefix retries; all six mask boundaries necessary for this sequence.
+  Reverse empty-slide reset gives B10/800 channels/28.627s/$811 with added
+  parking hardware free. Free reset still B6/480/29.668s/$564.60. No cost floor.
+  800 slides/captures/dogs/couplings; 1,600 switched paths. Original -20 pickup
+  rises to+26.4; deeper -60 allocation needs ten fixed forms/column (64,000).
+  U retains fixed primary support ideally; reset cannot erase support duties.
+  No head CAD, physical arrest or print; scope remains architecture screening.
+
 Next executable investigation:
-- First reconstruct E-222 shared-drive output retention. A changed capture that
-  stays in transit orientation across shared strokes could remove eight turns
-  per row, but each disengaged selected output then needs its own supported
-  arrest. Count those duties and compare whole-machine timing/cost with E-251
-  and E-236 before any local mechanism. Stop if it merely recreates E-222.
+- Reconstruct E-247 nine signed-displacement rails: can a changed column select
+  a continuously supported path once rather than park between strokes? First
+  inspect unary writing and transverse bridge failure. Develop only a concrete
+  alternative assignment/routing topology with a better full-machine ledger;
+  repeat screening or smaller selector parts alone do not justify reopening.
 - Reopen rigid tilt only for a changed whole-machine guidance/actuation route
   with comparative burden advantage; a wider slot or thinner stem is insufficient.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
