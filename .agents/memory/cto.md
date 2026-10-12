@@ -1,16 +1,22 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-253 input 6fde094, criteria reconciled at 2591458.
+Updated: 2026-10-12 UTC; E-254 workload sample input 92aa01c.
 Priority: simple columns, broad positive support, shared accessible programming.
-Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: establish actual gameplay map/transition workloads,
-particularly occupied rows/banks, before selecting a mechanism. Stage 02 now
-separates <30-s representative gameplay from dense stress and permits credible
-$1,000–$1,500 research demonstrators with a path to the final $500 goal. Existing
-dense results remain valid evidence, not automatic current product rejections.
-E-253 cranks remove parking but enlarge physical writing; three planar heads
-have a <=29.609-s bound for <=3 visited rows/bank under assumptions, versus
-177.424-s dense stress. No gameplay distribution or physical support is qualified.
+Depth: complete architecture screens; no selected machine, CAD or print.
+Current discriminator: stopped shared rotary row head with reusable binary mask,
+compared with independent screwdriver rows on E-254's retained height fields.
+Count mask writes, signed turns, docking, deceleration, proof, source loss and
+retry before local geometry. Do not restore 6,400 resident clutches/brakes.
+E-254 samples three published 2-Minute Tabletop map windows, one annotator:
+ruins 13.55% raised but74/80 rows; road/ravine relief69.52/71.48%, all rows;
+flattened-water alternative2.77% still24rows. Not a gameplay distribution.
+E-253 takes97–178s on initial samples; defer crank detail. At assumed3000rpm,
+screw lead.4 needs8 heads/640spindles for<30s over three setups/six pairs;
+lead1 needs4/320 but μ>.106 at d3 to self-lock ideally. No qualified friction,
+arrest or BOM. $1500/$.02site/$250shared permits$1.753 per640 complete channels.
+Shared mask/rotary distribution is a possible cost reduction, not a solved escape.
+Stage02 keeps representative gameplay<30s, dense stress separate, final≤$500;
+a credible$1000–1500 research demonstrator can merit work, no purchase authority.
 E-252 sustained capture saves turns but recreates E-222 output retention and
 adds empty-slide reset; no dog/rack/capture refinement is justified.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
@@ -463,19 +469,17 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- Build an initial evidence-based D&D map/transition sample with provenance and
-  transparent sampling limits: raised/changed fractions, levels, row/bank occupancy,
-  wall structure, scattered edits and unchanged loaded regions. No invented typical
-  percentage or benchmark-tail compliance. Keep dense stress cases separate.
-- Use that evidence to compare changed-only moving screwdriver rows and a concrete
-  bidirectional mechanical-AND selector with shared-programmed head controls.
-  Count actual engagement, turns/RPM, anti-backdrive, repair and safe disconnect;
-  address bits and manual screw success do not supply a complete drive.
-- Head-only hydraulics remain a comparably simple alternative: reconstruct E-222's
-  differential modes and flow before any independently isolated metered-head screen.
-  No local seal/manifold/capture refinement without a competitive system case.
-- Keep payload distribution parametric. Individual support proof, unchanged-region
-  displacement, actual-process margins and affordable shared motion remain open.
+- E-254 next discriminator above: common rotary head with reusable binary selection
+  versus independent screw rows, jointly screening lead/hold/source loss, true
+  programming and complete cost. Stop before detailed clutch/thread/head CAD.
+- Sander9 favors accessible underside writing;10 needs real bidirectional AND and
+  half-selection isolation, not160logical lines;11 permits few specialized shared
+  parts but does not qualify6400threads. Manual observations remain informal.
+- Broaden the map sample only when it can change a surviving architecture ranking.
+  No typical occupancy or performance-tail statistic was established. Hypothetical
+  reveals retain loaded unchanged regions; no observed miniature locations.
+- Head-only hydraulics remain an alternative; reconstruct E-222's differential
+  modes/flow before metered-head work. No automatic parallel campaign.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
