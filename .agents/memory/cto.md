@@ -31,8 +31,10 @@ Advice retained: screw-first, batch manufacturing, software/shared optics and
 unchanged-neighbor support. Latest E-254-cutoff review correctly challenges the
 unselected river/ravine representation; its prior E-244 clamp review is superseded.
 No parked microscopic lock/guide/pawl campaign reopens.
-Stage02 retains gameplay<30s, dense stress separate, final<$500; research$1000–1500
-may be worthwhile without granting purchase authority. 01–08/Paperclip authoritative.
+Owner update64ee4f9: stage02 treats~30s/~$500/5.08mm/40mm as reference variables,
+not automatic rejection gates; enjoyable~$1000 finished hardware can merit study.
+No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historical
+failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
@@ -476,6 +478,12 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- Integrating64ee4f9, E-254 now checks paid physical neutral10/20/30. Road from10:
+  1951lower/4272stay/177rise,51rows,13.586s atB2/2000rpm; cold neutral prep17.133s,
+  combined30.720s versus direct18.633s. Ravine from30:1992changed/78rows/25.333s,
+  cold total50.667s. Map-pair deltas do not change with common software zero.
+  Next independently compare64x64 at6.35mm and actual neutral scenarios, preserving
+  walls/passages/base support and paid setup. Do not merely scale80x80 timing.
 - Owner representation question is saved on LAB-384; consult live Paperclip for
   answer/state. E-254 playable_variants.py preserves original arrays and adds
   visual river/ravine with10-mm local rocks and walls-only ruins. Flat river has

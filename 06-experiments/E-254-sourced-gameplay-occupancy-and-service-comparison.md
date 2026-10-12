@@ -8,6 +8,8 @@ builds-on: [E-253, A-007, E-050, E-131, E-156]
 **Representation qualification is pending.** The historical schedules below apply
 to their declared encodings, not a selected gameplay benchmark. The final section
 compares explicit playable alternatives using the later E-255/E-256 rotary models.
+Owner guidance at `64ee4f9` makes pitch, neutral, timing and cost reference variables;
+the 80×80 schedules below are comparators, not automatic product gates.
 
 Evidence: manual annotations, assumed conversion/play sequences, calculations and
 conditional schedules; self-review, no observed play or hardware qualification.
@@ -38,12 +40,8 @@ not implemented in the update timing, which starts from submitted height fields.
 
 ## Measured annotations and calculated occupancy
 
-| Conversion | Raised / 6,400 | Height counts, mm:cells | Rows / columns | Rows in 27/27/26-row banks | Raised components / largest |
-|---|---:|---|---:|---|---:|
-| Ruins | 867 / 13.55% | 0:5533, 10:295, 20:572 | 74 / 78 | 23 / 27 / 24 | 19 / 150 |
-| Road relief | 4449 / 69.52% | 0:1951, 10:4272, 20:177 | 80 / 80 | 27 / 27 / 26 | 3 / 4037 |
-| Ravine | 4575 / 71.48% | 0:1825, 30:4408, 40:167 | 80 / 80 | 27 / 27 / 26 | 1 / 4575 |
-| Road, flattened water | 177 / 2.77% | 0:6223, 20:177 | 24 / 18 | 9 / 1 / 14 | 3 / 143 |
+Historical occupancy/level/component outputs remain reproducible in `analyze.py`;
+updated comparison below retains the original shapes alongside alternatives.
 
 Four-neighbor components are pin geometry, not room counts. Ruins: 572 wall cells,
 15 wall components; traced centerline 56.3 grid squares (1.43 m on the display).
@@ -71,28 +69,16 @@ return, proof and retry. Initial ruins require47,360 decisions despite867 change
 cells; dense needs51,200, plus640 for a retried row. Updated visual comparisons below
 still reject its row-writing overhead. This does not reject all shared programming.
 
-Historical screw model:80 reversible selectively docked spindles/head; resident
-thrust-supported screws and antirotating columns. Rates200 mm/s,5000 mm/s²,3000 rpm;
-assumed1000 rev/s² ramps,.08-s docking/release,.02-s read,≥.05-s index. Row service
-=.10+spin(max|delta|/lead). Map=4+maximum bank seek/service/return+largest row service
-(one retry). E-255 expands masks/signs with the same assumptions. No physical proof.
-At.4-mm lead, initial maps require35,975/115,650/347,300 revolutions. Serial moving
-writer:970/3300/7979 s; single-intersection AND oracle:898/3208/7867 s (free routing,
-.05-s selection+.08-s dock+.02-s read/site). These are scoped schedules, not universal
-bounds. Multiple selected rows/columns form a Cartesian product;160 address lines do
-not establish arbitrary independent parallel motion, holding or half-select isolation.
+Historical serial moving writer:970/3300/7979 s for initial ruins/road/ravine at
+.4-mm lead; single-intersection AND oracle:898/3208/7867 s. Source retains all
+rates, ramps, docking, proof, retry, support and manufacturing assumptions. These
+are scoped schedules, not universal bounds. Multiple selected rows/columns form
+a Cartesian product;160 lines do not establish independent parallel selection.
 
-## Historical manufacturing and lead screen
-
-`analyze.py` preserves the initial .15/.4/1/3-mm-lead sweep:27/8/4/2 heads for
-this sample. E-255/E-256 supersede its preliminary retention/drive investigation;
-A-007/E-050/E-131/E-156 keep their scoped dense/friction/arrest failures. The old
-.4-mm/3-mm-diameter threshold μ>.0424 becomes>.0512 at2.8/.45; not PLA priors.
-Resident ledger:6,400 columns/screws/thread pairs/thrust supports/sockets/antirotation
-duties and12,800 guide duties, plus80B shared rotary channels. Illustrative stock
-~6 L and two10-s placements/site (~35.6 h) remain unqualified manufacturing warnings.
-The old$250+$.02/site reserve was an allocation, not a BOM. Current costs below use
-E-255. Research$1000–1500 does not authorize purchase or revise final<$500.
+Historical lead/manufacturing calculations remain reproducible; E-255/E-256 now
+supersede that preliminary investigation. Existing dense/friction/arrest failures
+remain scoped. Bought allocations are not quotes or purchase authority; current
+~$500,~30-s and pitch/travel figures are transparent reference comparisons.
 
 ## Physical versus visual terrain: representation sensitivity
 
@@ -164,9 +150,10 @@ road, with 20-mm rocks, remains a separate reproducible control.
 E-255 timing includes seeks, docks, ramps, proof, return, one retry and common4 s;
 lead3 mm,1000 rev/s²,20-ms row proof are assumed. Masks pay signed groups/rewrites.
 These **physical-subsystem estimates** do not establish manual conversion, props or
-new visual workflow within4 s. They are not measured player waits; <30 s remains.
+new visual workflow within4 s. They are not measured player waits; ~30 s is a reference.
 
-For each suite, three initial setups plus all six directed map pairs:
+For each suite, three initial setups plus six directed map pairs; head minima below
+use the historical <30-s comparator, not a product rejection rule:
 
 | Suite | Fewest independent heads, 2000 rpm / maximum s | Fewest mask heads, 2000 rpm / maximum s | Fewest mask heads, 3000 rpm / maximum s |
 |---|---:|---:|---:|
@@ -179,7 +166,7 @@ reduce mask channels **240→160**, mask bought allocation
 **$1608→$1198**, and increase the complete-channel allowance under $1500 from
 **$3.55→$5.8875**. Independent B2 retains its $1128 allocation/$6.325 allowance.
 All numbers use E-255's favorable assumed $4/channel and reserves, not supplier quotes;
-none meets the final <$500 goal. Detail selection is premature.
+all exceed the $500 comparator. Premium value is possible, not established.
 
 Four 16-tip heads improve flat-depression setups but still need 40.62 s for initial
 ruins. The inherited turning 80-tip oracle needs 31.30 s for walls-only ruins, despite
@@ -209,3 +196,26 @@ flow; published rules do not establish owner preference or representative play.
 Source invariance, semantic counts, signed reversal, no-op and bank-boundary checks
 pass; historical E-254/E-255/E-256 checks remain unchanged. No hardware qualification
 or corpus expansion is claimed.
+
+### Paid raised-neutral control (owner update at integration)
+
+Source now tests initial **physical** flats at10/20/30 mm against the unchanged
+0..40-mm targets. These are reversible screw positions, not free negative travel.
+Road from10-mm neutral: **1951 lower,4272 stay,177 rise**;2128 changed/51 rows,
+versus4449/80 from minimum. B2/2000 rpm:**13.586 s** versus18.633 s. Cold minimum→
+neutral preparation costs**17.133 s**: two paid updates total**30.720 s**, slower
+than direct cold setup. Persistent neutral can help, but preparation is not free.
+
+Ravine from30-mm neutral:1825 lower,4408 stay,167 rise;1992 changed/78 rows,
+**25.333 s** versus26.933 s from minimum. Fewer pins barely helps because30-mm
+row maxima remain. Preparation costs25.333 s; two-update cold total50.667 s.
+A common20-mm neutral gives21.233-s ravine service, with plateaux10 mm above it.
+Map-dependent flats need preparation and cannot be swapped beneath loaded terrain.
+
+Map-pair deltas are exactly invariant to relabeling both endpoints by the same datum.
+These targets fit assumed0..40 range;20-mm neutral cannot offer both30-mm depth and
+20-mm wall rise without changing range/representation. Guide engagement, stops,
+shaft/column clearance, loaded reverse and retained neutral remain unqualified.
+The schematics show final relief, not a required start state. A64×64/6.35-mm same-area
+comparison (4096 cells,36% fewer) remains a separate geometry/scheduling investigation:
+inspect walls/passages/base support, not just rescale80×80 timing.

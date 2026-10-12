@@ -103,6 +103,34 @@ def benchmark(maps, names):
     return out
 
 
+def neutral_screen(maps):
+    """Same physical target heights; a paid uniform starting surface, no free zero.
+
+    Range stays 0..40 mm. These are actual commanded screw positions; holding,
+    guidance and signed loaded motion remain unqualified. Map pairs are unchanged.
+    """
+    out = {}
+    for neutral in (10, 20, 30):
+        start = [[neutral]*N for _ in range(N)]
+        prep = rotary.schedule(rotary.delta(FLAT, start), rpm=2000)['seconds']
+        for key in ('ruins', 'road', 'ravine'):
+            delta = rotary.delta(start, maps[key])
+            signed = [v for row in delta for v in row]
+            service = services(start, maps[key])
+            out[f'{key}_from_{neutral}'] = dict(
+                lowered=sum(v < 0 for v in signed), unchanged=signed.count(0),
+                raised=sum(v > 0 for v in signed), service=service,
+                cold_neutral_prep_b2_2000=prep,
+                two_paid_updates_b2_2000=prep+service['independent_b2_2000'])
+    assert (out['road_from_10']['lowered'],out['road_from_10']['unchanged'],
+            out['road_from_10']['raised']) == (1951,4272,177)
+    # Re-labeling both endpoints with the same datum cannot change signed travel.
+    for a,b in itertools.permutations(('ruins','road','ravine'),2):
+        assert rotary.delta([[v-20 for v in row] for row in maps[a]],
+                            [[v-20 for v in row] for row in maps[b]]) == rotary.delta(maps[a],maps[b])
+    return out
+
+
 def checks(maps, labels):
     old = json.loads((HERE/'heightmaps.json').read_text())
     for k, rows in old.items():
@@ -231,7 +259,8 @@ def main():
     if args.figure:
         figure(maps,labels,args.figure)
     print(json.dumps(dict(evidence='Assumed encodings and conditional schedules; no player or hardware qualification',
-        maps=stats,updates=updates,suites={k:benchmark(maps,names) for k,names in suites.items()}),indent=2))
+        maps=stats,updates=updates,neutral=neutral_screen(maps),
+        suites={k:benchmark(maps,names) for k,names in suites.items()}),indent=2))
 
 
 if __name__=='__main__':
