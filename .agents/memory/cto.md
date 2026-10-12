@@ -370,8 +370,9 @@ Evidence to retain:
   after a labelled .30-mm total support/routing gap error (not a process prior).
   Straight upper guide at z95 with .2-mm half-gap collides; needs .516 nominal
   retreat clearance before error. No loaded trajectory, compatible guide or arrest.
-  Direct bilateral Z/pitch allocation B2/160 pairs:26.768 s, $1.28125/pair left
-  after $295 reserve; virtual cap pivot owes real coupled X/Z/pitch geometry.
+  Direct bilateral Z/pitch allocation B4/320 pairs:24.556 s, $.640625/pair left
+  after $295 reserve; .470-s empty approach/return per row is included. Virtual
+  cap pivot owes real coupled X/Z/pitch geometry.
   Resident solid inventory4.084 L,32,000 fixed teeth,12,800 guide duties. Stop
   local tilt/guide/pocket optimization. U rail remains installed only ideally.
 

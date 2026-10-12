@@ -126,6 +126,8 @@ def service_bounds(theta):
     rows=[]
     for proof in (.05,.1,.2):
         service=2*t(2,200,8000)+t(40,200,8000)+angular+proof
+        # Park below all tails between rows; worst empty approach and return.
+        service += 2*t(42,200,8000)
         for B in range(1,9):
             visits=math.ceil(80/B)+1  # one complete causal row retry
             total=2+visits*(service+t(5.08,200,8000))

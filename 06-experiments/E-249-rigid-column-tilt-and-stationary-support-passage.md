@@ -125,29 +125,32 @@ angle error and common frame motion remain unqualified.
 There is no shared-stroke program yet. Granting independently captured Z/pitch
 outputs gives an optimistic service comparison: axial v=.2 m/s, a=8 m/s²;
 angular v=30°/s, a=360°/s²; two 2-mm unload/reseat moves, 40-mm travel and two
-turns. Adding .10 s for acquisition/proof/release gives .55370 s/row. Include one
-5.08-mm row feed per visit, one whole retried row and 2 s for map ingestion,
-registration and final settling: **two heads / 160 output pairs / 26.768 s**.
-At .20-s interface overhead it needs three heads/240 pairs (21.715 s). These are
+turns. Add .10 s for acquisition/proof/release, plus two worst-case 42-mm empty
+strokes to approach an old tail and return below all tails before row transport:
+**1.02370 s/row**. Include one 5.08-mm row feed per visit, one whole retried row
+and 2 s for map ingestion, registration and final settling: **four heads / 320
+output pairs / 24.556 s**. At .05/.20-s interface overhead the same four heads
+take 23.506/26.656 s. Empty approach/return is .470 s per visit; deleting it
+falsely permits two heads/160 pairs. These are
 allocations granting parallel independent motion, completed programming and
 readback inside each slot, not a scheduler for a built machine. No free prepared
 mask is credited. A shared lift must replace those individual motions with an
 explicit retained selection sequence; E-236's five-pulse comparator is not
 inherited automatically.
 
-| Function | Per cell / row | B2 bank or reusable head | Board |
+| Function | Per cell / row | B4 bank or reusable head | Board |
 |---|---|---|---:|
-| Integral columns / tooth forms | 1 / 5; 80 / 400 | 3,200 / 16,000 resident | 6,400 / 32,000 |
-| Stationary bearing sites | 1; 80 | 3,200 resident | 6,400 |
-| Guide stations, at least two assumed | 2; 160 | 6,400 resident | 12,800, geometry unresolved |
+| Integral columns / tooth forms | 1 / 5; 80 / 400 | 1,600 / 8,000 resident | 6,400 / 32,000 |
+| Stationary bearing sites | 1; 80 | 1,600 resident | 6,400 |
+| Guide stations, at least two assumed | 2; 160 | 3,200 resident | 12,800, geometry unresolved |
 | Separate resident hinge, swivel, spring, moving dog | 0 in declared solid column | none constructed | 0 credited; cannot add them free |
-| Bilateral captures / retained axial / pitch outputs | reused | 80 each/head | 160 each |
-| Load/angle/height proof duties | reused | ≥80 each/head | ≥160 each |
-| Feed, grounding, arrest and service | shared | 1 system/head, force rating open | 2 systems, not priced parts |
+| Bilateral captures / retained axial / pitch outputs | reused | 80 each/head | 320 each |
+| Load/angle/height proof duties | reused | ≥80 each/head | ≥320 each |
+| Feed, grounding, arrest and service | shared | 1 system/head, force rating open | 4 systems, not priced parts |
 
 Each output needs either coupled X/Z/pitch motion or a real virtual-pivot linkage;
 counting it as one channel does not make it one cheap actuator. A $295 shared
-reserve leaves **$1.28125 per complete output pair** under $500, before unallocated
+reserve leaves **$0.640625 per complete output pair** under $500, before unallocated
 resident hardware. This is a spending allowance, not a price floor or BOM pass.
 No force-rated actuator, grip, arrest, routed reader or assembly has been selected.
 
@@ -155,7 +158,7 @@ Declared integral solids total **4.0837 L** across the board before guides/frame
 heads: 76–227 extrusion hours at assumed 15–5 mm³/s, or 84–252 hours with 10%
 scrap. No slicing estimate. Upright skinny printing versus horizontal guide
 finish/lug layers needs qualification. 6,400 insertions at an assumed 5 s already
-cost 8.89 h; 160 shared captures at 10 s add .44 h before their actual assembly,
+cost 8.89 h; 320 shared captures at 10 s add .89 h before their actual assembly,
 wiring and calibration. Row rails need modular joining inside the 256-mm bed.
 Integral shapes reduce loose pieces, not the number of bearing and guide duties.
 
@@ -167,7 +170,7 @@ is permissible only after actual support/position is known; broken grip, stuck
 column and off-grid arrest need supported shutdown, not promised 30-s recovery.
 Unchanged rails remain installed but frame compliance and vibration still couple
 cells. Resident failure requires supported column extraction; head failure can
-halt 3,200 scheduled cells. No extraction route is drawn.
+halt 1,600 scheduled cells. No extraction route is drawn.
 
 ## Decision
 
@@ -180,7 +183,7 @@ functional budget allocation. Do not proceed to pockets, hinges, thinner stems,
 individual returns or another local clearance search.
 
 Reopening requires a complete shared motion/guidance topology that materially
-reduces the 160 independently retained loaded output pairs while preserving U's
+reduces the 320 independently retained loaded output pairs while preserving U's
 resident support and providing affordable arrest/readback. First compare that
 architecture against E-236 and direct heads; no automatic E-249 detailing task.
 Otherwise redirect invention to a different support/addressing topology. The
