@@ -1,13 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-232 on input main 063fa01.
+Updated: 2026-10-12 UTC; E-233 on input main 7c812c5.
 Priority: simple columns, broad positive support, shared accessible programming.
-Depth: architecture necessary-condition screens; no selected machine or print.
-Current discriminator: supported old-height admission. E-232 rejects the inherited
-fixed-mask ascent before target-stop development: released changed columns fall;
-retained periodic shelf bars block upward travel. Target stops remove retirement
-writes only. Shared height-layer support needs a finite supported crossing, not
-zero-thickness shelves. No selected machine, CAD or print.
+Depth: architecture screens; no selected machine, CAD or print.
+Current discriminator: avoid pooling finite loaded feet through identical shared
+bearing sections. E-233 rejects homogeneous ramp/stack admission and parks its
+32,000-shutter escape. Next transaction must reduce real spatial state/handling,
+not refine a catch or assume free old-height admission.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -173,12 +172,25 @@ Evidence to retain:
   pickup reaches the upper column. Early withdrawal loses support. A shared
   ramp/changed approach must escape this finite witness without private grips.
 
+- E-233 homogeneous ramp merge: lower foot [0,f] intersects bearing section
+  [delta-t,delta] for 0<delta<f+t; delta=f/2 is an interior witness. Applies to
+  identical finite rectangular bearing projections, not all foot geometries.
+  Common rigid stack preserves separations or moves unchanged columns. Above
+  approach hits foot top before bottom pickup; side bypass owes changed routing.
+- E-233 nonuniform five-layer shutter control replays 15,625 three-cell maps,
+  1,703,125 support states and 6,250 stable wrong-stop retries with disjoint pickup
+  lanes and retained arrest granted. It replaces periodic shelves with 32,000
+  resident shutters/64,000 guide contacts/400 row-layer beds. B7/560 writer gates:
+  27.687 s/$771.20 assumed allocation even with entirely printed resident holds.
+  No route/arrest/retention qualification. Park before latch or writer detail.
+
 Next executable investigation:
-- Screen shared height-layer old-support release: finite supported crossing of
-  a lower foot past an occupied upper layer, versus periodic-comb admission.
-- First account for unchanged-cell support, source-loss arrest, real layer
-  motions and feed. Stop if it restores independent old-height axes, duplicated
-  grips or 6,400 local trips. No stop-memory optimization before support survives.
+- Leave loaded common-plane merging. Screen a shared programmer acting on unloaded
+  captive height supports versus a direct supported row head. First construct
+  support exchange/retention and count repeated sites; avoid E-227 travelling
+  cassette handling and E-221 independently loaded axes. No inherited winner.
+- Reopen layers only through a finite positive-bearing change to the shared-section
+  premise with lower total repeated burden, not thinner tips or free apertures.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
