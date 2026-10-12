@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-229 on input main adcb870.
+Updated: 2026-10-12 UTC; E-230 on input main 15cf99c.
 Priority: simple columns, broad positive support, shared accessible programming.
-Depth: architecture necessary-condition screens; no machine selected or print.
-Current discriminator: retained signed-row programs plus shared power, replacing
-pulse-by-pulse mask rewriting. E-229 parks all tested pulse-mask writers; no
-comb, finger, keeper, detent or dog development is justified.
+Depth: architecture necessary-condition screens; no selected machine or print.
+Current discriminator: merge-and-retire common-plane motion with safe selective
+membership writing. E-230 parks all tested retained signed-row decoders; neither
+cheap shared drives nor reduced command entropy establishes a buildable machine.
 Resident ramps and full-row cassette transport remain parked.
 
 Evidence to retain:
@@ -123,20 +123,39 @@ Evidence to retain:
   pulse-by-pulse writers parked; even free gates cannot fix inherited 130+65B.
   No sourced cost floor, finite routing, support proof or physical qualification.
 
+- E-230 retained row programs: lowest lean-allocation timing case nine-position
+  P/B9/q16, 144 channels, 1,440 bars, 12,960 notches, 77,760 decoder lands,
+  28.899 s/$527.80 lean ($697.80 larger allocation). Four-bit B9/q20 needs
+  180 channels/5,760 sites/28.746 s/$632.20 lean. Six-bit direct decoding worse.
+  All prices unqualified allocations. P's 3-mm code/2-mm probe margin is .15 mm
+  at e=.35 and negative at .70; widening to 6 mm needs q40/$635.80. Park them.
+- Retry deltas must be regenerated from actual supported partial heights after
+  detection; replaying original delta can overshoot. P/B8/q20 buffered goes
+  from 26.287 s without retry to 30.391 s with causal retry, not a timing pass.
+- Shared B8 drive at assumed f=3.27 N/cell: 2.598 kN, 25.98 N m output torque,
+  742 W peak input at .7 efficiency. End-loaded 400-mm/G80-GPa shaft twists
+  .638-mm height-equivalent at d12 mm. Local bank arrest still required on
+  transmission failure. Low hardware allocations are not force-qualified.
+- E-230 changed transaction: common plane rises 0->40, joining changed columns
+  at old height, then descends, retiring at target. Resident column bars hold
+  nonmembers; other rows keep row supports. No old-height capture array or
+  nine-code media; 80 retained membership states/head. All 15,625 three-cell
+  maps replay ideally. Changed cells visit 40 mm (up to 30-mm detour); unchanged
+  cells stay fixed ideally. Direct control B6/480 channels/28.675 s/$564.60 lean
+  still fails allocation. Active members cannot survive an erase-all writer.
+
 Next executable investigation:
-- Change programming frequency: nine signed deltas can be retained once per
-  visited row, then decoded through all six pulses; 38,400 is command count,
-  not an information lower bound. Compare 80 nine-position sliders/head with
-  320 binary sites/head; include decoder contacts, actual writers/readers,
-  erase/feed/retention, support routing, row-scale overlap and bounded recovery.
-  Unlike E-216/E-217 this must not restore 160 grips or old-height capture.
-- Screen synchronized shared lift/phase/feed power with that transaction to
-  replace the failed per-bank shared-hardware allocation. Count simultaneous
-  force/torque, shaft/compliance, bank enable/isolation and source-loss support;
-  shared power is not free force or a cost pass. Stop if decoder/storage or
-  common-load coupling recreates present burden; change architecture again.
-- No local CAD, contact refinement or print. E-229 is the executable control;
-  E-228 pulse code remains an ideal principle, not a selected machine.
+- Construct physical selective membership overwrite for merge-and-retire, with
+  continuing members supported throughout. Count a writer's changes, retention,
+  two-output routing, phase boundaries, readback, feed, causal retry and force.
+  Compare complete machine with E-230's direct 480-channel control. Do not
+  restore old-height grips or declare binary membership free memory.
+- Resolve whether common-plane pickup access and support transitions have a
+  credible finite route before contact detail. Include 0->40->target excursion,
+  regional isolation, moving load and bank-local source-loss arrest. Stop if
+  active-state writing recreates hundreds of unaffordable gates or private parks.
+- No CAD, detent/finger/keeper optimization or print. No shared-drive, optical
+  support-proof or manufactured-reliability pass is implied.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
