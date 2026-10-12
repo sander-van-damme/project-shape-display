@@ -1,11 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-252 on fetched main a51ae54; engineering input 666efe6.
+Updated: 2026-10-12 UTC; E-253 input main 6fde094.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: choose a continuously supported motion path once,
-without independent mid-program parking. Reconstruct E-247 before reopening
-rail assignment; a changed physical writer/routing topology is mandatory.
+Current discriminator: independently isolated hydraulic outputs on reusable
+heads, after reconstructing E-222. Bound valves, signed motion, flow, compliance,
+leakage and stopping before detail; no 6,400 resident wet circuits.
+E-253 offset-radius cranks remove intermediate parking but enlarge physical
+writing and motion; no radius-lock/yoke/shaft-clearance optimization is justified.
 E-252 sustained capture saves turns but recreates E-222 output retention and
 adds empty-slide reset; no dog/rack/capture refinement is justified.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
@@ -13,7 +15,8 @@ collides; no guide/pocket/head refinement is justified. E-248 retained writing
 and E-247 rails remain parked; programming savings alone do not supply support.
 E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
 normal force, not individual grip proof or unchanged-row shear displacement.
-No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
+No local membrane, seal, pawl, coil-gap or guide-detail continuation of these
+parked embodiments is justified. A changed architecture must earn its own case.
 
 Evidence to retain:
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
@@ -434,14 +437,27 @@ Evidence to retain:
   Neither rules out multi-view height sensing; software cannot infer unseen
   load-bearing engagement merely from correct height. No automatic new tasks.
 
+- E-253 positive-offset radius plus compensating shaft translation gives
+  delta=d sin(theta)/sin(alpha), removing E-247's nine-rail bridge and E-252's
+  parking. A symmetric signed-radius connected yoke intersects its shaft.
+  Offset design W=8/cos(alpha)+80/sin(alpha)+4 >=111.199 mm; planar B<=3.
+  15,625 ideal maps/1,593,750 support observations; no finite assembly proof.
+  Serial-color stopped writer: routing-granted B27/2160 outputs/26.983s/$1858.20;
+  parallel decks granted B16/1280/28.769s/$1180.60. Base planar177.424s;
+  best free-write/parallel planar50.662s; deleting shaft exclusion still38.259s.
+  Broad radial code pitch11.547mm does not fix time. Radius locks carry load;
+  compensating carrier and crank need grounded reactions. No local refinement.
+
 Next executable investigation:
-- Reconstruct E-247 nine signed-displacement rails: can a changed column select
-  a continuously supported path once rather than park between strokes? First
-  inspect unary writing and transverse bridge failure. Develop only a concrete
-  alternative assignment/routing topology with a better full-machine ledger;
-  repeat screening or smaller selector parts alone do not justify reopening.
-- Reopen rigid tilt only for a changed whole-machine guidance/actuation route
-  with comparative burden advantage; a wider slot or thinner stem is insufficient.
+- Leave shared solid-selector refinement. Reconstruct E-222's head-only hydraulic
+  differential-mode counterexample and 48-L/min/head example. Screen a common
+  positive-displacement source with independently closed head ports against the
+  direct mechanical control. Count signed drive/reset, separate isolation, seals,
+  flow, trapped-volume compliance, leakage and power-loss stopping; ordinary
+  head plumbing is not E-246's row-clamp pressure strip or resident A-014 circuits.
+- Use actual obtainable components or clearly labelled fabrication bounds before
+  a manifold/seal campaign; shared optical height feedback does not prove support.
+  Preserve unchanged fixed primary seats or quantify the changed support scope.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
