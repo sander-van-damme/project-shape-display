@@ -1,10 +1,10 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-246 on input main d786fff.
+Updated: 2026-10-12 UTC; E-247 on input main 05c5d0e.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: shared positive support with persistent row programs;
-reconstruct E-232/E-238/E-243 before inventing a changed support transaction.
+Current discriminator: physical writing of retained shared programs. E-247
+separates motion distribution from pulse decoding, but its rail machine is parked.
 E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
 normal force, not individual grip proof or unchanged-row shear displacement.
 No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
@@ -341,13 +341,22 @@ Evidence to retain:
   plus total volume can miss one bridged contact. Gas/distributed squeeze do not
   erase 12800 resident holds or untouched-neighbor transfer. No print/detail.
 
+- E-247 nine shared delta rails give h=old+lambda*(target-old), monotonic with
+  one takeover/return instead of E-236's five. 15,625 ideal maps/2,156,250 checks;
+  125 stable wrong-result and 65 on-grid partial retries. No physical arrest proof.
+  Unary writing still needs eight masks/row (51,200 decisions/map). Broad p6
+  B8/q80:640 channels/27.748s/$831.80 assumed. Transverse bridge over opposed
+  rails needs >=80mm standoff plus clearance; 100mm feed union fits only B4,
+  giving50.942s. Absolute-writer oracle B4 still40.206s. p3 B6 costs$672.60.
+  B8 repeats640 loaded shoes/selectors/posts,72 rails and5760 choice contacts;
+  79 unchanged pins still transfer support. Stop cam/post/selector detail.
+
 Next executable investigation:
-- Return to positive support/persistent shared programming: reconstruct
-  E-232/E-238/E-243, then generate changed support/command transactions that could
-  eliminate per-pulse rewrites without private loaded memories. First output:
-  reachable/support state graph, physical program sites, full online traffic,
-  supported recovery and complete-machine ledger versus E-236. Discard relabelled
-  paired bars, decoded media or overrun heads; no local optimization by default.
+- Screen unloaded binary composition of retained selector position: can weighted
+  shared strokes reduce E-247's eight/E-243's five physical write passes without
+  retained clutches per bit, carry interference or free temporary holding? First
+  build finite operation/retention ledger, not a microscopic latch. Reject if it
+  merely relocates a decoder; no parked loaded machine is reopened by default.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
