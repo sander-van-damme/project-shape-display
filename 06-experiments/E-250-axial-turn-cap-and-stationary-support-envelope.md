@@ -13,7 +13,7 @@ not solve descent through the old support. Quarter-turn transit remains a
 separate, conditional escape already demonstrated in E-167; neither route has
 an affordable supported writer. No fabrication or machine selection follows.
 
-Input main `081369f`. Reproduce:
+Input main `522b34b`. Reproduce:
 `python3 tools/curated-experiment-checks/E-250/screen.py`.
 Standard Python; imports E-167's polygon SAT. Evidence: **analytical calculation,
 finite rigid geometry, deterministic error scenarios and self-review**. No CAD,

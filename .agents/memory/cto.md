@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-250 axial screen on input main 081369f.
+Updated: 2026-10-12 UTC; E-250 axial screen on input main 522b34b.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
 Current discriminator: shared loaded motion/guidance with invariant U support.
