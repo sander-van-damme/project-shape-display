@@ -148,7 +148,7 @@ def transition(old,new):
         e253_seconds=crank_time,e253_physical_decisions=640*len(rows),
         e253_program_rounds=n,e253_retry_decisions=640 if count else 0,
         row_slot_inflation=80*len(rows)/count if count else 0,
-        screw_rows={f'B{b}_lead{lead}':screw_row(delta,b,lead) for b in (1,2,3) for lead in (.15,.4,1.)},
+        screw_rows={f'B{b}_lead{lead}':screw_row(delta,b,lead) for b in (1,2,3) for lead in (.15,.4,1.,3.)},
         screw_serial=screw_serial(delta),screw_matrix_serial=screw_serial(delta,matrix=True),
         changed_docks=count, row_orientation90_e253_seconds=crank.sparse(crank.geometry(60),banks(occupied(transpose(delta)))))
 
@@ -177,13 +177,17 @@ def main():
     for m in data['maps']:
         height,labels=raster(m);maps[m['id']]=height;stats[m['id']]=footprint(height)
         wall=[[label=='wall' for label in r] for r in labels]
-        length=0.; x0,y0,w,h=m['crop']
+        length=0.; orientations=Counter(); x0,y0,w,h=m['crop']
         for line in m.get('wall_centerlines',[]):
             for (ax,ay),(bx,by) in zip(line,line[1:]):
                 # Midpoint quadrature clips the hand trace to the sampled window.
                 fraction=sum(x0<=ax+(bx-ax)*(k+.5)/1000<x0+w and y0<=ay+(by-ay)*(k+.5)/1000<y0+h for k in range(1000))/1000
-                length+=math.hypot(bx-ax,by-ay)*fraction/(w/16)
+                segment=math.hypot(bx-ax,by-ay)*fraction/(w/16)
+                length+=segment
+                angle=math.degrees(math.atan2(abs(by-ay),abs(bx-ax)))
+                orientations['horizontal_15deg' if angle<=15 else 'vertical_15deg' if angle>=75 else 'other']+=segment
         stats[m['id']]['traced_wall_length_grid_squares']=length
+        stats[m['id']]['wall_orientation_lengths_grid_squares']=dict(orientations)
         stats[m['id']]['wall_cells']=sum(map(sum,wall));stats[m['id']]['wall_components']=components(wall)
         stats[m['id']]['crop_x_shift_one_square']=[footprint(raster(m,s)[0])['fraction'] for s in (-35,35)]
     maps['road_flat_water']=[[0 if h==10 else h for h in row] for row in maps['road']]
@@ -206,7 +210,7 @@ def main():
     sample_pairs=[(flat,maps[k]) for k in ('ruins','road','ravine')]
     sample_pairs += [(maps[a],maps[b]) for a,b in itertools.permutations(('ruins','road','ravine'),2)]
     minimum_banks={}
-    for lead in (.15,.4,1.):
+    for lead in (.15,.4,1.,3.):
         for b in range(1,81):
             times=[screw_row([[abs(q-p) for p,q in zip(r,t)] for r,t in zip(x,y)],b,lead)['seconds'] for x,y in sample_pairs]
             if max(times)<30:
@@ -215,7 +219,7 @@ def main():
                 break
     # Square-thread necessary friction thresholds, not finished-thread predictions.
     screw_bounds=[dict(diameter_mm=d,lead_mm=l,mu_threshold=l/(math.pi*d))
-                  for d,l in itertools.product((2.8,3.,3.2),(.15,.35,.4,.45,1.))]
+                  for d,l in itertools.product((2.8,3.,3.2),(.15,.35,.4,.45,1.,3.))]
     print(json.dumps(dict(evidence='Annotation calculations and conditional schedules; no hardware or play measurements',maps=stats,transitions=out,minimum_screw_banks=minimum_banks,screw_hold_thresholds=screw_bounds),indent=2))
 
 if __name__=='__main__':main()

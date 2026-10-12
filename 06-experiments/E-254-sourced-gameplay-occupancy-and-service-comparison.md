@@ -10,7 +10,7 @@ raise 13.55% but visit 74/80 rows. River/ravine relief raises 69.52/71.48%: upwa
 columns elevate surrounding ground to depict depressions. A serial addressed screw is
 slow; parallel screws trade lead/retention against head cost.
 
-Input `92aa01c`. Evidence: **manual published-map annotations, assumed conversion/play
+Input `92aa01c`, reconciled with owner guidance at `e5308d0`. Evidence: **manual published-map annotations, assumed conversion/play
 sequences, calculations, conditional schedules; self-review**. No observed play
 frequencies, physical qualification, typical fraction or tail statistic. Reproduce
 `python3 tools/curated-experiment-checks/E-254/analyze.py` (stdlib). `sample.json`:
@@ -24,21 +24,12 @@ Convenience sample selected for distinct visible terrain: ruined enclosures, a r
 ford with islands, and a bridged ravine. All are by **Ross McConnell, 2-Minute
 Tabletop**, accessed 2026-10-12:
 
-- [Desert Ruins](https://2minutetabletop.com/product/desert-ruins/): standing
-  walls and large fallen slabs; derived heights 20/10 mm, floor 0.
-- [Riverside Road](https://2minutetabletop.com/riverside-road/): water 0,
-  shoreline/islands/ford 10, large rock masses 20 mm. A second **conversion of the
-same map**, not a fourth independent sample, flattens water/land to 0 while preserving
-rocks at 20. It loses bank/ford relief.
-- [Mountain Ravine](https://2minutetabletop.com/product/mountain-ravine/): ravine
-  0, plateaux/bridge 30, large boulders 40 mm. The publisher also supplies [D&D
-encounters using this map](https://2minutetabletop.com/mountain-ravine-encounters/).
-That establishes intended use, not measured player behavior.
+- [Desert Ruins](https://2minutetabletop.com/product/desert-ruins/): standing walls and slabs.
+- [Riverside Road](https://2minutetabletop.com/riverside-road/): river/ford/islands/rocks. Flattened-water variant loses bank relief; it is not an independent sample.
+- [Mountain Ravine](https://2minutetabletop.com/product/mountain-ravine/): plateau/bridge/ravine/boulders; [published D&D use](https://2minutetabletop.com/mountain-ravine-encounters/), not observed play.
 
 Trace only major terrain; omit small rubble, furniture, foliage and texture. Heights are
-assigned representations, not recovered elevations. No functioning projection is
-assumed. Ravine bridge has a solid underside: no playable underpass. Shorelines/cliffs
-are stepped; exact natural slopes are unmeasured.
+assigned representations, not recovered elevations. No functioning projection is assumed. The bridge has a solid underside; slopes are stepped.
 
 Normalize previews to 800×555 pixels. Their ~23×16-square grids are cropped to central
 ~16×16-square windows at five pins/square, not squeezed onto the display. Ruins/ravine
@@ -61,14 +52,12 @@ height fields; arbitrary artwork conversion is unimplemented.
 | Ravine | 4575 / 71.48% | 0:1825, 30:4408, 40:167 | 80 / 80 | 27 / 27 / 26 | 1 / 4575 |
 | Road, flattened water | 177 / 2.77% | 0:6223, 20:177 | 24 / 18 | 9 / 1 / 14 | 3 / 143 |
 
-Components use four-neighbor pin connectivity. Ruins have 572 wall cells; manual
-centerlines total approximately **56.3 grid-square lengths** within the crop (1.43 m at
-25.4 mm/square), while the raster has 15 wall components. Thin walls fragment at this
-resolution: raster components are not a count of architectural rooms. Raised-footprint
-boundary lengths are 838/754/496/98 pin edges respectively; these include exterior
-borders and are **not wall centerline lengths**. Connected large ground areas and
-scattered narrow walls thus produce different component counts despite similar row
-coverage.
+Four-neighbor components are pin geometry, not room counts. Ruins: 572 wall cells,
+15 wall components; traced centerline 56.3 grid squares (1.43 m on the display).
+Length within 15° of horizontal/vertical: **25.75/18.03 squares**; other: 12.49.
+Thus 77.8% of this hand trace is near-axis, not a population statistic. Curved
+walls were traced as chords; classification depends on tracing and angle cutoff.
+Raised boundaries total 838/754/496/98 pin edges, including board edges, not wall lengths.
 
 One-pin erosion/dilation gives fractions 3.81–27.05% /61.94–76.89% / 67.75–75.09%
 /1.61–4.20%: **annotation sensitivities**, not confidence/FDM bounds. Horizontal crop
@@ -83,8 +72,7 @@ Initial setup: flat→map. All six directed map pairs hold crops fixed; these ar
 absolute travel but different raising/lowering forces. East reveal restores x≥40 from
 flat while x<40 is already set. Local reveal restores `40≤x<60,20≤y<40` from flat (four
 D&D squares/side). Visual fog-of-war could need no motion; mechanically revealing raised
-ground may be unsuitable under miniatures. No permission to move loaded targets is
-inferred.
+ground may be unsuitable under miniatures.
 
 | Transition | Changed | Rows / max bank rows | Unchanged raised cells | E-253 s | Screw B3, lead .4 s |
 |---|---:|---:|---:|---:|---:|
@@ -103,8 +91,7 @@ inferred.
 | Local reveal: ravine | 4.56% | 20 / 13 | 4283 | 90.83 | 28.26 |
 | **Separate dense stress**, flat→40 mm | **100%** | 80 / 27 | 0 | **178.01** | **66.61** |
 
-No miniature locations or loads were observed. Every unchanged cell, including floor, is
-a potentially loaded site. Local reveals preserve 6364/6229/6108 cells, including
+No observed miniature locations/loads; all unchanged cells are potentially loaded. Local reveals preserve 6364/6229/6108 cells, including
 **1324/789/1308 in serviced rows**. E-253 ideally retains their primary seats; screw
 control never turns them. Neither proves physical non-disturbance. Whole-row
 release/homing is not credited; readback occlusion, common bias and frame flexure remain
@@ -137,11 +124,9 @@ diagnosis and settling. None has a qualified deadline. Independent signs, parall
 read and the ramps are assumptions. Persistent jams require a supported stop; they are
 outside successful bounded-retry timing.
 
-This counts physical screw turning as programming, with **35,975 / 115,650 / 347,300
-total revolutions** for the three initial maps at .4-mm lead; each cell gets one
-dock/read transaction, 867/4449/4575 total. Parallelism reduces time, not thread wear or
-transaction inventory. Row maxima determine bank time, so changes cannot be packed
-freely into idle spindles elsewhere.
+Screw programming requires **35,975 / 115,650 / 347,300 revolutions** and
+867/4449/4575 dock/read transactions for initial maps at .4-mm lead. Parallelism
+reduces time, not wear; row maxima prevent free packing into other idle spindles.
 
 **Changed-cell single writer / Idea 10 serial AND oracle:** same .4-mm lead, rates and
 per-site contact/read. Moving writer uses a row-serpentine route, rest-to-rest
@@ -198,6 +183,7 @@ schedule needs the following smallest B (strict <30; no population percentile):
 | .15 mm | 27 / 2160 | 26.20 | $.056 / $.288 / $.519 |
 | .4 mm | 8 / 640 | 28.04 | $.191 / $.972 / $1.753 |
 | 1 mm | 4 / 320 | 23.53 | $.381 / $1.944 / $3.506 |
+| 3 mm, conditional historical pitch | 2 / 160 | 22.98 | $.763 / $3.888 / $7.013 |
 
 Allowances assume **$250 shared + $.02×6400 resident purchases**, not a priced BOM. Any
 bought thread/nut/thrust cartridge exceeding the resident allocation shrinks them. More
@@ -221,18 +207,22 @@ Ideas 9–11 remain comparators/manufacturing advice. The E-244-cutoff external 
 friction/isolation concerns remain relevant; no clamp campaign reopens. Serial resident
 AND is not the next build.
 
-**Next single discriminator:** test a **stopped common rotary row head with a reusable
-binary selection mask**, against the independent-spindle control on these retained
-height fields. Keep screw memory local but concentrate clutches, writing/readback and
-arrest in accessible heads. Count actual mask rewrite, signed turn groups, seek, dock,
-full deceleration, stationary proof and retry; construct a support/source-loss graph
-before any detailed geometry. Bound the lead/friction/inertia envelope and its required
-channel/cost count together. Stop if it needs resident brakes/AND clutches at every
-cell, assumes free selection or safe disconnection, or lacks a credible
-research-envelope route. If the full architecture survives, identify whether a small
-actual-process thread/torque/hold calibration can reverse the ranking; do not start
-local thread/head optimization on nominal friction. Broaden map sampling only if a
-surviving architecture's ranking is sensitive to the uncovered map/transition mix.
+**Next discriminator:** reconstruct the recovered screw mechanism and test whether its
+coarse lead can retain load safely while a shared rotary writer meets this workload.
+Read-only inspection of `41484f9699:trial-5-grid-and-cubes-and-rod/actuator.scad`
+confirms pitch 3, screw OD 3.2/length 50, rod OD 4.4/wall .44, nut length 10 and BOSL2
+trapezoidal calls. These are CAD settings, not the successful physical print.
+If single-start, 3-mm lead gives 13.3 turns/40 mm and the B2 timing row above, but
+ideal square-thread μ threshold is .318 at mean diameter 3 mm. Actual thread profile,
+BOSL2 version/defaults, guide/thrust path and loaded hold remain to reconstruct.
+Compare stopped reusable-mask rotary heads, orthogonal/reorientable heads and smaller
+parallel heads against independent spindles; charge programming, docking, turns,
+deceleration, support proof, seek/pre-positioning, retry and manufacturing labor.
+Show visible reveal versus sustained cost if pre-positioned; unknown reveals get no
+free preparation. Stop before CAD/printing if support or research economics fails.
+A survivor may justify targeted actual-process calibration. Prioritize this recovered
+family; defer resin microchannels/inflatable pins per new advice. Broaden maps only
+when missing coverage could change a survivor's ranking.
 
 Verification: exact raster/stored-map equality; dense/no-op/bank-boundary controls;
 independent spin/travel arithmetic; visual source/derived-map comparison; all six

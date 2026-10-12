@@ -3,7 +3,8 @@
 Updated: 2026-10-12 UTC; E-254 workload sample input 92aa01c.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: complete architecture screens; no selected machine, CAD or print.
-Current discriminator: stopped shared rotary row head with reusable binary mask,
+Current discriminator: reconstruct historical trial-5 screw support/hold, then
+stopped shared rotary row head with reusable binary mask,
 compared with independent screwdriver rows on E-254's retained height fields.
 Count mask writes, signed turns, docking, deceleration, proof, source loss and
 retry before local geometry. Do not restore 6,400 resident clutches/brakes.
@@ -14,6 +15,11 @@ E-253 takes97–178s on initial samples; defer crank detail. At assumed3000rpm,
 screw lead.4 needs8 heads/640spindles for<30s over three setups/six pairs;
 lead1 needs4/320 but μ>.106 at d3 to self-lock ideally. No qualified friction,
 arrest or BOM. $1500/$.02site/$250shared permits$1.753 per640 complete channels.
+Historical actuator.scad at41484f9699 confirms pitch3/OD3.2/length50 and BOSL2;
+if single-start, lead3 allowsB2/160/22.98s for this sample, but ideal μ>.318 at
+mean d3. Physical variant and real hold remain unknown. New e5308d0 owner
+guidance prioritizes recovered screws, wall-oriented heads and maker-time.
+Ruins trace77.8% within15deg of grid axes; one window, not a usage statistic.
 Shared mask/rotary distribution is a possible cost reduction, not a solved escape.
 Stage02 keeps representative gameplay<30s, dense stress separate, final≤$500;
 a credible$1000–1500 research demonstrator can merit work, no purchase authority.
