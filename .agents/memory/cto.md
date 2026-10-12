@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-220 on input main 61835b6.
+Updated: 2026-10-12 UTC; E-221 on input main 48b75b5.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: both cassette substitution and in-place banked selectors
-relocate large functional counts. Do not turn another conditional support law
-into a local contact/return campaign without a cheaper complete writer.
+Reason to redirect: cassette substitution, banked selectors and continuous
+absolute writers relocate large functional counts. A stopped absolute head lowers
+counts but still owes cheap independent drive/arrest; no local refinement yet.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -33,18 +33,28 @@ Evidence to retain:
 - A-001/A-002/A-011/DES-002 are principles, not restored winners. E-084 keeps
   arbitrary media preparation inside the update boundary.
 
+- E-221 absolute bottom shoes plus one common row keeper remove crossed selectors
+  and eight delta groups. Ideal one-visit replay preserves unchanged heights;
+  real acquisition hands off all 80 cells of any visited row. Favorable stopped
+  timing: 3 heads/240 independent axes, 26.511 s; .25-s row overhead fails at
+  3 banks. Indexed 1-mm arrest needs at least 5 heads/400 axes in the fast grid.
+  Continuous 2-mm passage needs 8 heads/640 axes even with ideal arrest; park it.
+  Common swept lift needs 6,400 resident catches; stop before catch refinement.
+  $250 reserve leaves <$1.042 per complete 240-axis channel under $500, not a BOM.
+
 Next executable investigation:
-- Compare continuous spatial programming of absolute column height in one
-  supported visit against delta-group/banked writing. Construct state retention
-  during passage and source loss first; charge physical write/reset/read/feed
-  at >213 finished cells/s. A small shared command count must be real machinery,
-  not a renamed bank of clutches. E-084's buffer-rate failure remains a control.
-- Separable additive/max shared backing cannot produce arbitrary maps (E-220).
-  Retain independent stored state explicitly; selection alone is insufficient.
-- A side-loading/continuous captive media route may reopen E-219 only if it
-  actually removes the four long stock strokes and supplies sorting/return.
-- No tiny locks, friction pickups, hidden preprogramming or unpriced hundreds of
-  channels. Stop on the cheapest necessary-condition failure; no prints yet.
+- A complete shared transmission/retention route for the stopped absolute-head
+  control, or a materially different broad support topology eliminating those
+  independent axes. Count motor/clutch, load holding, arbitrary old-height
+  acquisition, target deposit, readback, reset and service before detail work.
+- Compare complete channel cost and positive source-loss support first. A common
+  motor does not eliminate independent couplings/arrests. Do not relabel hundreds
+  of clutches as one shared writer or start a shoe/brake geometry campaign.
+- E-084 buffer production bounds remain valid. Separable additive/max backing
+  cannot produce arbitrary maps (E-220); retain independent state explicitly.
+- Side/continuous captive media can reopen E-219 only if it removes four long
+  stock strokes and supplies sorting/return; this is an alternative, not a queue.
+- No prints yet. Reopen parked routes only with a concrete architectural escape.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
