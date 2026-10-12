@@ -93,6 +93,23 @@ def replay(old,target,fault=None):
     return obs
 
 
+def sparse(g, bank_rows):
+    """Synchronous color stages; stopped heads seek before each common service.
+    Sorted row indices are local to each bank; one full immediate retry, then
+    return all empty heads to bank row zero. No hidden preparation or async yaw.
+    """
+    assert all(list(x)==sorted(set(x)) and all(0<=v<=26 for v in x) for x in bank_rows)
+    n=max(map(len,bank_rows),default=0)
+    if not n:return 0.
+    service=row(g,80)-move(5.08)
+    last=[0]*len(bank_rows); feed=0.
+    for k in range(n):
+        new=[rows[k] if k<len(rows) else last[i] for i,rows in enumerate(bank_rows)]
+        feed+=max(move((v-a)*5.08) for v,a in zip(new,last));last=new
+    feed+=max(move(v*5.08) for v in last)
+    return 2.010+(n+1)*service+feed
+
+
 def main():
     maps=observations=0
     for old,target in it.product(it.product(LEVELS,repeat=3),repeat=2):
@@ -143,6 +160,18 @@ def main():
             steps.append(move(5.08))
         assert abs(sum(steps)-timing(g,b,q))<1e-10
     planar_free=min((timing(geometry(a),geometry(a)['bank_cap'],80,'free','parallel_oracle'),a) for a in angles)
+    sparse_cases=[]
+    for n in (1,2,3,4,9,27):
+        # All three banks touch n rows, two changed cells per visited row.
+        # Fraction alone has no timing meaning; this is a hypothetical pattern.
+        bound=2.010+(n+1)*(row(g,80)-move(5.08))+(n+1)*move(26*5.08)
+        rows=tuple(range(27-n,27))
+        exact=sparse(g,(rows,rows,tuple(v for v in rows if v<26)))
+        assert exact<=bound+1e-9
+        sparse_cases.append(dict(visited_rows_per_bank=n,upper_seconds=bound,
+                                 example_seconds=exact))
+    assert sparse(g,((26,),(),()))<30
+    assert sparse(g,(tuple(range(27)),(),()))>30
     gap_oracles=[]
     for gap in (0,4,8,12):
         candidates=[geometry(a,gap=gap) for a in range(20,90)]
@@ -166,6 +195,6 @@ def main():
             b3_serial=timing(g,3,80),b3_parallel=timing(g,3,80,colors='parallel_oracle'),
             b3_free_parallel=timing(g,3,80,'free','parallel_oracle')),
         fastest_planar_free_parallel=dict(seconds=planar_free[0],angle=planar_free[1]),
-        exclusion_sensitivity_free_parallel=gap_oracles,errors=errors,torque=torque),indent=2))
+        exclusion_sensitivity_free_parallel=gap_oracles,sparse_cases=sparse_cases,errors=errors,torque=torque),indent=2))
 
 if __name__=='__main__':main()

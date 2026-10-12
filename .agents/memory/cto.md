@@ -1,13 +1,16 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-253 input main 6fde094.
+Updated: 2026-10-12 UTC; E-253 input 6fde094, criteria reconciled at 2591458.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: independently isolated hydraulic outputs on reusable
-heads, after reconstructing E-222. Bound valves, signed motion, flow, compliance,
-leakage and stopping before detail; no 6,400 resident wet circuits.
-E-253 offset-radius cranks remove intermediate parking but enlarge physical
-writing and motion; no radius-lock/yoke/shaft-clearance optimization is justified.
+Current discriminator: establish actual gameplay map/transition workloads,
+particularly occupied rows/banks, before selecting a mechanism. Stage 02 now
+separates <30-s representative gameplay from dense stress and permits credible
+$1,000–$1,500 research demonstrators with a path to the final $500 goal. Existing
+dense results remain valid evidence, not automatic current product rejections.
+E-253 cranks remove parking but enlarge physical writing; three planar heads
+have a <=29.609-s bound for <=3 visited rows/bank under assumptions, versus
+177.424-s dense stress. No gameplay distribution or physical support is qualified.
 E-252 sustained capture saves turns but recreates E-222 output retention and
 adds empty-slide reset; no dog/rack/capture refinement is justified.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
@@ -446,18 +449,31 @@ Evidence to retain:
   parallel decks granted B16/1280/28.769s/$1180.60. Base planar177.424s;
   best free-write/parallel planar50.662s; deleting shaft exclusion still38.259s.
   Broad radial code pitch11.547mm does not fix time. Radius locks carry load;
-  compensating carrier and crank need grounded reactions. No local refinement.
+  compensating carrier and crank need grounded reactions. At B3: $379.80 inherited
+  allocation before crank extras; <=3 visited rows/bank has conservative29.609s
+  including synchronous seek/return/retry. Defer detail pending workload comparison,
+  not a product rejection from dense latency or the old $500 research gate.
+
+- New advice at 2591458: Sander reports manual printed threaded-pin translation
+  and variable printed rod/grid fit, without dimensions, settings, counts, loads
+  or cycles. Treat as informal physical observations, not process qualification.
+  Ideas9/10 (screwdriver row versus mechanical-AND drive) deserve workload-aware
+  comparison after A-007/E-050/E-131/E-156 reconstruction; no blanket thread ban.
+  Idea11 supports few precision shared components with actual process/cost proof.
+  Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- Leave shared solid-selector refinement. Reconstruct E-222's head-only hydraulic
-  differential-mode counterexample and 48-L/min/head example. Screen a common
-  positive-displacement source with independently closed head ports against the
-  direct mechanical control. Count signed drive/reset, separate isolation, seals,
-  flow, trapped-volume compliance, leakage and power-loss stopping; ordinary
-  head plumbing is not E-246's row-clamp pressure strip or resident A-014 circuits.
-- Use actual obtainable components or clearly labelled fabrication bounds before
-  a manifold/seal campaign; shared optical height feedback does not prove support.
-  Preserve unchanged fixed primary seats or quantify the changed support scope.
+- Build an initial evidence-based D&D map/transition sample with provenance and
+  transparent sampling limits: raised/changed fractions, levels, row/bank occupancy,
+  wall structure, scattered edits and unchanged loaded regions. No invented typical
+  percentage or benchmark-tail compliance. Keep dense stress cases separate.
+- Use that evidence to compare changed-only moving screwdriver rows and a concrete
+  bidirectional mechanical-AND selector with shared-programmed head controls.
+  Count actual engagement, turns/RPM, anti-backdrive, repair and safe disconnect;
+  address bits and manual screw success do not supply a complete drive.
+- Head-only hydraulics remain a comparably simple alternative: reconstruct E-222's
+  differential modes and flow before any independently isolated metered-head screen.
+  No local seal/manifold/capture refinement without a competitive system case.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
