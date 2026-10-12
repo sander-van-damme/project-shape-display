@@ -126,7 +126,12 @@ def main():
         braking.append(dict(rotating_inertia_kgm2=inertia, allowed_distance_mm=distance,
                             initial_energy_J=energy, average_net_braking_Nmm=energy/angle*1000))
     print(json.dumps(dict(evidence='Labelled scenarios; no process or motor qualification',
-        checks=verified, rpm_at_30_seconds=boundaries, coefficients={str(mu): coefficients(mu)
+        checks=verified, rpm_at_30_seconds=boundaries,
+        sample_max_B2_2000rpm=max(screen.schedule(d, 2, rpm=2000)['seconds'] for d in benchmark),
+        sample_min_B2_accel200=max(screen.schedule(d, 2, rpm=6000, accel=200)['seconds'] for d in benchmark),
+        dense_B2_2000rpm={k: screen.schedule(data[k], 2, rpm=2000)['seconds']
+                            for k in ('dense_stress', 'mixed_dense_stress')},
+        coefficients={str(mu): coefficients(mu)
         for mu in (.1, .3, .5)}, drag_static_and_running_thresholds_Nmm={
             str(m): thresholds(m, .3, .1, .5) for m in (5, 20, 100)},
         same_with_collar_02=thresholds(20, .3, .1, .5, collar=.2),

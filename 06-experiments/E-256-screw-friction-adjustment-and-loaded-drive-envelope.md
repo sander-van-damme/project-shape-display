@@ -46,12 +46,13 @@ Modest added friction is not rejected by energy alone. Electrical/transmission
 losses, startup current, binding, breakaway peaks, local heat and wear remain open.
 
 **Speed opportunity:** bisection of the nine-transition sample gives exactly 30 s
-at B 2/1,000rev/s²/20-ms proof:1,613.4 loaded rpm. At 500rev/s²:1,742.8 rpm;
-100-ms proof:2,034.7 rpm; B 3/base settings:953.4 rpm. Strict<30 needs margin.
-B 2 at 2,000 rpm gives 26.9335 s; at 200rev/s² even unlimited speed gives 31.1095 s
+at B2/1,000rev/s²/20-ms proof:1,613.4 loaded rpm. At 500rev/s²:1,742.8 rpm;
+100-ms proof:2,034.7 rpm; B3/base settings:953.4 rpm. Strict<30 needs margin.
+B2 at 2,000 rpm gives 26.9335 s; at 200rev/s² even unlimited speed gives 31.1095 s
 (all moves triangular). Docking, return, retry and common 4 s stay included.
-This is sample timing, not gameplay compliance. B 2 still needs 160 complete
-channels at≤$6.325 each for the$1,500 research allocation; no sourced BOM yet.
+Separate dense flat→40 and mixed±40 stress cases both take29.4335 s at2,000 rpm.
+This is sample timing, not gameplay compliance. B2 still needs 160 complete
+channels at≤$6.325 each for the$1,500 research allocation; no sourced BOM or final<$500 path yet.
 
 Moving-loss energy: at 3,000 rpm/20 g, reflected translating inertia 4.56e-9 kg m²
 plus rotating J=1e-9/1e-8/1e-7 gives.274/.718/5.160 mJ. Arrest within 1 mm needs
@@ -61,7 +62,7 @@ Distances are sensitivity choices, not product limits or predicted coast;
 dynamic contact forces and disconnect state remain unmeasured. Normal withdrawal
 following a complete commanded stop has no initial kinetic energy ideally.
 
-**Decision:** retain B 2; source drives around 2,000 loaded rpm with adequate torque
+**Decision:** retain B2; source drives around 2,000 loaded rpm with adequate torque
 and acceleration. Do not tighten an already holding pair unnecessarily. If needed,
 find a batch setting whose weakest hold and strongest breakaway/running torque
 both fit the measured load and selected drive curve. Common bias, local variation
