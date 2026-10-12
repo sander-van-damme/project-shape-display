@@ -32,7 +32,6 @@ Evidence to retain:
   redundancy is not proof of disturbance-free takeover.
 - A-001/A-002/A-011/DES-002 are principles, not restored winners. E-084 keeps
   arbitrary media preparation inside the update boundary.
-
 - E-221 absolute bottom shoes plus one common row keeper remove crossed selectors
   and eight delta groups. Ideal one-visit replay preserves unchanged heights;
   real acquisition hands off all 80 cells of any visited row. Favorable stopped

@@ -25,15 +25,18 @@ Five 0/10/20/30/40-mm heights are a comparator, not a resolution decision.
 | Construction | Load path and independent memory | First decision |
 |---|---|---|
 | Travelling shaped backing, no resident retention | Column → passing profile → frame only during contact | Reject: after departure all freely sliding columns return to bottom. A circulating pre-shaped carrier must stay resident or transfer to another memory; its preparation is not free |
-| Common rising/descending platen, timed resident catches | Parked column shelf → individual catch → frame; during movement foot → common arrested platen → frame | Ideal one-visit absolute write works, but restores 6,400 moving catches, 32,000 shelf positions and 80 real release/hold gates per head. Stop before catch design: no demonstrated system advantage pays for repeated locks |
+| Common rising/descending platen, timed resident catches | Parked column shelf → individual catch → frame; during movement foot → common arrested platen → frame | Ideal one-visit absolute write works, but restores 6,400 moving catches, 32,000 shelf positions and 80 release/hold gates plus 80 selective pickup fingers per head. Stop before catch design: no demonstrated system advantage pays for repeated locks |
 | Independently positioned bottom shoes with one row keeper | Parked shelf → common row comb → frame; during visit foot → independently arrested shoe axis → head/frame | Removes resident moving catches, crossed column bars and delta groups. Conditional timing improves; real per-shoe drives, arrests, sensing and routing remain the deciding burden |
 
-The sweep first rises from below all feet to 40 mm. Release each **changed**
+The sweep uses 80 **independently retractable, retained pickup fingers**: engage
+changed cells and bypass unchanged cells before rising from below all feet to
+40 mm. A solid platen would lift or jam against unchanged columns even with
+their catches closed; catch selection alone cannot provide this bypass. Release each **changed**
 column's catch only when the platen contacts its old bottom height. At the top,
 all changed columns are at 40; on descent, close each catch at its target before
 platen departure. Unchanged catches never open. The executable checks all
 15,625 three-column old/new combinations. These are ideal point engagements,
-not a finite time/contact proof. Removing selective catches and lifting a whole
+not a finite time/contact proof. Removing selective pickup/retention and lifting a whole
 row `(0,40,20)→(40,0,20)` displaces its unchanged 20-mm column by 20 mm.
 Thus this construction needs independent release and deposit support, not just
 one universal ramp. Changed columns may temporarily overshoot their target.
@@ -41,8 +44,8 @@ one universal ramp. Changed columns may temporarily overshoot their target.
 A sweep gate must perform old-height release, retained-open traversal,
 target-height seating proof and reset/bypass. Loss of drive requires both
 common-lift arrest and stable gate state; spring closure into moving shelves is
-not established safe. Eighty reusable holds/arrests or 6,400 local bistable
-functions must be paid for. This fails the repeated-complexity priority before
+not established safe. Eighty reusable gate holds/arrests or 6,400 local bistable
+functions, plus 80 retained pickup-slide states/head, must be paid for. This fails the repeated-complexity priority before
 fine geometry or a timing optimization is warranted. It does not prohibit all
 common-sweep topologies.
 

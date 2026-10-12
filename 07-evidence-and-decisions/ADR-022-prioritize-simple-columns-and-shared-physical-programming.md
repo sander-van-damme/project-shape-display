@@ -27,7 +27,9 @@ holds a simple height-storing column. This avoids individual releases and casset
 inventory, but the row/delta programmer needs 1,280 selectable column bars plus
 1,280 reusable fingers in its favorable sampled schedule. Park that embodiment;
 neither separable shared backing nor rectangle release supplies free independent
-state or throughput. E-221's one-visit absolute head removes those selectors/delta groups, but needs
+state or throughput.
+
+E-221's one-visit absolute head removes those selectors/delta groups, but needs
 240 independently driven/arrested shoes even in its favorable stopped scenario.
 Continuous 2-mm passage needs 640 and adds sliding contact; park it. A common
 sweep restores 6,400 resident catches; it does not earn local refinement.

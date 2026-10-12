@@ -54,21 +54,24 @@ def row_visit(old, target, fault=None):
 
 
 def caught_sweep(old, target):
-    """Common lift plus individual resident catches; ideal point engagements.
+    """Common lift with independently retractable fingers and resident catches.
     Changed columns are picked up when lift reaches old height; deposited at
     target on descent. Unchanged catches never open. This charges real catches.
     """
     selected = [o != t for o,t in zip(old,target)]
+    pickup = selected[:]  # 80 REAL retained/bypass finger functions per head
     for upward in (True,False):
         for q in (range(-5,41) if upward else range(40,-6,-1)):
-            for o,t,change in zip(old,target,selected):
+            for i,(o,t,change) in enumerate(zip(old,target,selected)):
                 caught = not change or (q < o if upward else q <= t)
                 h = o if not change else (max(o,q) if upward else max(t,q))
                 if not caught:
-                    assert h == q  # grounded arrested common lift
+                    assert pickup[i]
+                    assert h == q  # grounded arrested lift through selected finger
                 else:
                     assert h == (o if upward or not change else t)
                 if not change:
+                    assert not pickup[i]
                     assert h == o
     return True
 
