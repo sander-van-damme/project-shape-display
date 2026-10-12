@@ -1,12 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-222 on input main 45bb21f.
+Updated: 2026-10-12 UTC; E-223 on input main 954f124.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: cassette substitution, banked selectors and continuous
-absolute writers relocate large functional counts. E-222 shared-source support
-switching raises channel counts and fails its cost allocations; no local
-refinement is justified.
+Reason to redirect: shared-source support switching raises channel counts;
+transporting loaded relief couples unchanged heights. Decouple media transport
+from the load path; do not refine a local keeper or conveyor joint.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -51,13 +50,21 @@ Evidence to retain:
   positions; corrected head needs ≥240 seals and 480 isolation seats. Flat 10-mm
   spacers reduce E-126's sphere inventory to 25,600 tokens but the defined feeder
   needs 640 selected forks +640 shuttles. No routed/support-qualified survivor.
+- E-223 prewritten row relief: h(x,q)=r(x-q); stroke >=pitch makes unequal
+  unchanged neighbors demand conflicting heights from the same material point.
+  A 0/40 pair can move 40 mm even with perfect brake and continuous ramps.
+  Below-rail return escapes upstream stock intrusion, not this coupling.
+  Separate fixed-code loops avoid coupling but restore 6,400 retained phases,
+  12,800 pulleys and 32,000 pads (8.138 L before ramps/belts); park that layout.
+  The proof excludes in-place rewriting and orthogonal transfers; these need
+  explicit support continuity, not an assumption that they already work.
 
 Next executable investigation:
-- Fixed-datum continuous solid-media exchange with explicit grounded load path,
-  potentially a reusable encoded support carrier instead of loose tokens. First
-  reconstruct E-130's upstream-stack collision and free-input support failure;
-  require a concrete escape plus arbitrary rewriting/return/storage and fewer
-  stopped transactions. Stop at first support/routing/rate contradiction.
+- Decouple unloaded low-profile programming media from loaded support, or invent
+  an orthogonal old/target swap with actual support overlap. First construct the
+  unequal unchanged-neighbor witness through the complete transaction, including
+  arbitrary rewriting/return and source loss. E-218 remains a comparator, not a
+  restored cassette winner. Stop at the first support/routing/rate contradiction.
 - This is architecture invention, not a clutch/dog/shoe or finer screw campaign.
   E-222 prices/bounds reject specified routes, not every shared drive. Reopen only
   with credible complete cost/support changes; no prints yet.

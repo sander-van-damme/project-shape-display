@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -40,9 +40,14 @@ optimistic $807 allocation and $950.40 for 240 catalog actuators reject those
 procurement embodiments. Shared hydraulic shutoff does not retain differential
 shoe positions. Flat-stack exchange removes absolute axes but the tested feeder
 needs 640 forks, 640 shuttles and 25,600 tokens; park it before local refinement.
-Investigate a fundamentally changed continuous solid-media support/exchange route
-only if it addresses E-130's routing/source-loss failures and E-222's handling
-burden. No selected drive, regional-disturbance or complete-machine physical pass.
+E-223 adds a separate obstruction: prewritten relief translated by at least one
+pitch cannot preserve unequal unchanged neighbors sharing its loaded run. Below-rail
+return and an ideal grounded brake do not repair that material-coordinate conflict.
+Separate five-code cell loops escape it but restore 6,400 retained phases, 12,800
+pulleys and 32,000 pads; park the specified layout before keeper/contact refinement.
+Next invention must decouple transported media from loaded support, or construct
+an orthogonal supported swap, with physical rewriting and unchanged-neighbor
+continuity explicit. No selected drive or complete-machine physical pass.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process
