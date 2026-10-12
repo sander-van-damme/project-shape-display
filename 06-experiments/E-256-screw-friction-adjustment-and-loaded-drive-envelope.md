@@ -97,3 +97,85 @@ disconnect requires a separate caught-load test and cannot pass from static drif
 Evidence: self-reviewed calculations and executable sensitivity bounds; no new physical tests. The positive owner-reported loaded hold is recorded in E-255 and stage 02.
 
 Verification: frictionless work balance, self-lock boundary, reflected inertia, static-hold/running-loss witness, triangular/trapezoidal motion, and bracketed timing roots. E-255's default output remains byte-identical, including 15,625 ideal replay transitions.
+
+## Measurement readiness and reduction
+
+**New calculation, not a test result:** at a 10-mm perpendicular lever arm,
+1 g of tangential deadweight produces **0.09807 N·mm**. A 1-g mass *increment*
+therefore brackets onset only to about that width, even with perfect geometry.
+For an absolute torque-error allowance of 0.01 N·mm, mass error alone must be
+≤0.10197 g at that arm; radius, alignment, tare and friction consume additional
+allowance. This is a measurement-design example, not a required instrument or
+an accuracy claim. It matters because the illustrative 20-g static-drag threshold
+above is only 0.02090 N·mm. A kitchen scale with unspecified uncertainty cannot
+resolve that threshold merely because it displays grams. Do not conflate the
+model's added-drag parameter with measured total drive torque.
+
+A lever/drum fixture can also change the result: force at a 10-mm arm sufficient
+for 0.238 N·mm applies 0.0238 N sideways to the spindle. Do not silently attribute
+its changed journal/guide friction to the thread. Preserve the resident seat,
+record force direction and **perpendicular** moment arm, include lever/holder tare,
+and characterize apparatus effects before inferring intrinsic friction. Known
+mass alone does not calibrate a pulley. A finger-turn observation remains useful
+qualitative evidence but supplies no numeric torque. Do not make a torque fixture
+the prerequisite for the first travel/drift observation.
+
+**First physical record, using the unchanged successful pair if available:**
+
+1. Identify the pair with a present-day photo or label and describe its seat,
+   guide and load placement. The forgotten historical calibration variant is not
+   required. Record measuring tools, temperature and what is unknown. Weigh the
+   miniature and moving pin if possible; otherwise label the load unknown rather
+   than inventing a typical mass. A load applied directly to one pin is a one-pin
+   test, not the distribution beneath a multi-pin miniature base.
+2. At a comfortably engaged middle position, record height against a fixed datum,
+   turn the screw one known revolution each way while keeping away from ends,
+   and record the resulting heights. Note backlash/direction reversal explicitly.
+   Report only reachable, observed travel; do not force 40 or 50 mm from a part
+   that may lack engagement margins. No motor or new print is needed.
+3. With the normal miniature load and drive removed, record height at 0, 60 and
+   600 seconds. Keep the resident seat/guide unchanged and avoid a contact probe
+   that supports the pin during the wait. Take the scale image at the same view;
+   include parallax/fixture movement in the height bounds. Repeat at low/high
+   usable positions later if the first record is informative. This first ten-minute
+   screen supplements the owner's successful hold observation; it is not an
+   endurance test, high-load requirement or array pass.
+4. Only after this record, choose an available torque method and powered drive.
+   Record signed breakaway, slow running and loaded speed separately. A manual
+   revolution gives effective displacement/turn, **not** the 1500–2000-rpm operating
+   envelope or proof of moving-disconnect safety. Continue the separate caught-load
+   moving-loss test only with an appropriate supported apparatus.
+
+`tools/curated-experiment-checks/E-256/measurements.py` reduces explicit interval
+observations without fitting a friction coefficient or issuing a hardware pass:
+
+- `--blank` emits an empty **unmeasured** JSON record; `--record FILE` rejects it
+  until actual observations and provenance/bounds are supplied. Raw records stay
+  with the physical evidence. No measurement file is checked in by this study.
+- `evidence` is `physical_measurement` or `synthetic`; `specimen`, `setup`,
+  `raw_source` and `bounds_basis` identify the actual input and uncertainty basis.
+  `total_supported_mass_g` is `[lower, upper]`; use separate records for different
+  specimens, loads or fixture configurations. If bounds/load are unknown, keep a
+  qualitative observation rather than submitting invented intervals.
+- `holds`: each entry has `position` and `observations`, each with `elapsed_s`
+  and `height_mm: [lower, upper]`. Start at zero elapsed time. Later signed drift
+  bounds conservatively subtract interval endpoints; common bias cancellation is
+  not assumed. Equal readings each bounded ±0.1 mm mean drift **[-0.2,+0.2] mm**,
+  not zero drift. Output `zero_not_excluded` is not a retention pass.
+- `travel`: entries contain `before_mm`, `after_mm`, `signed_turns`, all intervals.
+  Effective displacement/turn includes backlash unless it has been taken up;
+  intervals containing zero turns are rejected. Specify the signed-turn convention.
+- Optional `torque`: entries contain `direction: raise|lower`,
+  `observation: no_motion|onset|slow_running`, `force_N` and
+  `perpendicular_arm_mm` intervals. Output is **applied apparatus torque** only;
+  no automatic parasitic correction, static-threshold fit or motor-speed approval.
+- `--check` uses explicitly synthetic controls for signed travel, unresolved and
+  resolved drift, torque endpoint propagation, units and invalid input rejection.
+  It performs no physical test.
+
+**Decision consequence:** obtain the simplest existing-pair record before buying
+measurement equipment or refining screw fits. A coarse unresolved record can
+still establish apparatus availability and usable travel; it cannot quantify
+holding margin. E-258/E-259's 4096/6400-site, raised-neutral and $500/$1000/$1500
+comparisons remain conditional and unchanged. Static drift, applied torque,
+loaded high-speed motion and manufacture across a batch remain separate claims.

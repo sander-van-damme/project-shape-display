@@ -478,6 +478,13 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-256 now includes a short existing-pair measurement procedure and interval
+  reducer measurements.py. No physical record exists yet. At10-mm arm,1g
+  produces.09807Nmm; a.01Nmm error budget allows only.102g mass error before
+  geometry/parasitics. Equal height readings bounded±.1mm imply drift±.2mm,
+  not zero. First check current specimen/seat availability, travel and timed
+  hold with weighed miniature; do not require remembered calibration variant
+  or a torque fixture upfront. Check LAB-388 for physical access response.
 - E-258 player_view.py now challenges assigned30-mm ravine itself: N20/40 range
   keeps20-mm walls and a20-mm physical drop. At64, mixed suite independentB2
   max22.08s/$953.92 versus stopped-maskB2 26.90s/$1023.92 assumed allocations.
