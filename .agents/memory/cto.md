@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-221 on input main 48b75b5.
+Updated: 2026-10-12 UTC; E-222 on input main 45bb21f.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
 Reason to redirect: cassette substitution, banked selectors and continuous
-absolute writers relocate large functional counts. A stopped absolute head lowers
-counts but still owes cheap independent drive/arrest; no local refinement yet.
+absolute writers relocate large functional counts. E-222 shared-source support switching raises
+channel counts and fails its cost allocations; no local refinement is justified.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -41,19 +41,30 @@ Evidence to retain:
   Common swept lift needs 6,400 resident catches; stop before catch refinement.
   $250 reserve leaves <$1.042 per complete 240-axis channel under $500, not a BOM.
 
+- E-222 stopped shared shaft: retained couplings plus grounded parking dogs and
+  common brake give an ideal support graph, not dynamic arrest. Acquisition,
+  two signed moves and reset need 18 stops/row: five heads/400 channels/27.269 s.
+  Explicit optimistic allocation $807; 240 sourced bare motors or solenoids alone
+  $950.40. Hypothetical $.35 independent motor channel gives $461.20 but no
+  qualified transmission/brake. Shared motors do not erase independent support.
+- E-222 common hydraulic shutoff fixes total volume, not differential shoe
+  positions; corrected head needs ≥240 seals and 480 isolation seats. Flat 10-mm
+  spacers reduce E-126's sphere inventory to 25,600 tokens but the defined feeder
+  needs 640 selected forks +640 shuttles. No routed/support-qualified survivor.
+
 Next executable investigation:
-- A complete shared transmission/retention route for the stopped absolute-head
-  control, or a materially different broad support topology eliminating those
-  independent axes. Count motor/clutch, load holding, arbitrary old-height
-  acquisition, target deposit, readback, reset and service before detail work.
-- Compare complete channel cost and positive source-loss support first. A common
-  motor does not eliminate independent couplings/arrests. Do not relabel hundreds
-  of clutches as one shared writer or start a shoe/brake geometry campaign.
+- Fixed-datum continuous solid-media exchange with explicit grounded load path,
+  potentially a reusable encoded support carrier instead of loose tokens. First
+  reconstruct E-130's upstream-stack collision and free-input support failure;
+  require a concrete escape plus arbitrary rewriting/return/storage and fewer
+  stopped transactions. Stop at first support/routing/rate contradiction.
+- This is architecture invention, not a clutch/dog/shoe or finer screw campaign.
+  E-222 prices/bounds reject specified routes, not every shared drive. Reopen only
+  with credible complete cost/support changes; no prints yet.
 - E-084 buffer production bounds remain valid. Separable additive/max backing
   cannot produce arbitrary maps (E-220); retain independent state explicitly.
-- Side/continuous captive media can reopen E-219 only if it removes four long
-  stock strokes and supplies sorting/return; this is an alternative, not a queue.
-- No prints yet. Reopen parked routes only with a concrete architectural escape.
+- E-219 side/continuous captive media can reopen only if it removes long stock
+  strokes and supplies sorting/return; an alternative, not a parallel queue.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.

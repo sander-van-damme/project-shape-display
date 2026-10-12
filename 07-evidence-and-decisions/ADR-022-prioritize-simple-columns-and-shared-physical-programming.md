@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -33,11 +33,16 @@ E-221's one-visit absolute head removes those selectors/delta groups, but needs
 240 independently driven/arrested shoes even in its favorable stopped scenario.
 Continuous 2-mm passage needs 640 and adds sliding contact; park it. A common
 sweep restores 6,400 resident catches; it does not earn local refinement.
-Keep the stopped row head only as a cost/arrest comparator. Before any detailed
-shoe or brake work, construct a complete affordable transmission/retention route
-or a materially different support topology that eliminates its repeated functions.
-Gravity following, source-loss arrest, unchanged-neighbor disturbance and complete
-6,400-cell cost remain unqualified.
+Keep the stopped row head only as a cost/arrest comparator. E-222's retained
+shaft couplings plus grounded parking dogs supply an ideal supported switching
+sequence, but stopped transfers need five heads/400 channels. Its explicit
+optimistic $807 allocation and $950.40 for 240 catalog actuators reject those
+procurement embodiments. Shared hydraulic shutoff does not retain differential
+shoe positions. Flat-stack exchange removes absolute axes but the tested feeder
+needs 640 forks, 640 shuttles and 25,600 tokens; park it before local refinement.
+Investigate a fundamentally changed continuous solid-media support/exchange route
+only if it addresses E-130's routing/source-loss failures and E-222's handling
+burden. No selected drive, regional-disturbance or complete-machine physical pass.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process
