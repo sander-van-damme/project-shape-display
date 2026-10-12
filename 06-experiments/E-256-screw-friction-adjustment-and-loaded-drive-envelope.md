@@ -5,7 +5,7 @@ builds-on: [E-255]
 
 # Screw friction adjustment and loaded drive envelope
 
-Reproduce: `python 3 tools/curated-experiment-checks/E-256/drive_envelope.py`.
+Reproduce: `python3 tools/curated-experiment-checks/E-256/drive_envelope.py`.
 **Bounded calculations, not measurements or process priors.** Total moving masses
 5/20 g include pin plus assigned miniature load;100 g is a separate stress case.
 None is measured typical play. Weigh actual pieces and their support distribution;
@@ -74,6 +74,20 @@ unavailable, use a documented small calibration family after resolving dependenc
 and engagement; do not demand impossible historical provenance or blindly print
 trial 5. No print is selected here. This informs shared tooling or batch fabrication
 comparisons; it does not qualify molded, machined or printed production.
+
+**Concrete measurement discriminator (proposed, not performed):** start with the
+unaltered successful pair and its resident seat. Record total supported mass and
+load sharing; use the weighed miniature load first, then 5/20-g total-load cases
+where physically applicable, with 100 g separately labelled stress. At low/mid/high
+usable travel, log height immediately and after 1/10 minutes, reporting instrument
+resolution and temperature. Measure signed breakaway and slow running torque in
+both directions, then loaded speed/acceleration and powered-stop withdrawal drift.
+The ten-minute interval is a screening observation, not endurance qualification.
+Only if relevant-load hold fails, compare one documented tighter setting against
+the original across multiple pairs/print locations. Retain adjustment only if it
+restores holding while the worst measured torque permits the B2 speed/acceleration
+envelope without binding; otherwise change the fit/lead/support strategy. Moving
+disconnect requires a separate caught-load test and cannot pass from static drift.
 
 
 Evidence: self-reviewed calculations and executable sensitivity bounds; no new physical tests. The positive owner-reported loaded hold is recorded in E-255 and stage 02.
