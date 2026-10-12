@@ -1,15 +1,15 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-242 on input main dc1e1f6.
+Updated: 2026-10-12 UTC; E-243 on input main c5fdd0f.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: reduce physical rewrites/support transactions per row,
-not another refinement of the magnetic writer. E-242 reused coils save winding
-labor but need more retained flags/banks; the tested route has no coupled
-cost/motion certificate. The small allocation miss alone is not decisive.
-No selected machine, rotor/gap study or print. Shared lift power is not the main
-rejection (E-239); support isolation, gravity following and complete affordable
-command generation remain unresolved.
+Current discriminator: change the load path or physical encoding, not another
+writer/pawl refinement. E-243 head-only overrun conditionally solves admission,
+but a six-state target sweep still consumes five selective masks per row.
+No whole-machine survivor: paired media, retained words, magnetic flags and
+head ratchets merely relocate burdens in tested implementations. Shared lift
+payload power is not the main rejection (E-239); supported rewriting, affordable
+physical state and finite routing remain unresolved.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -297,15 +297,24 @@ Evidence to retain:
   24 expanded schedules check logic. Removes 300 coils versus direct B5; retains 400 flags,
   five physical writes/row, twenty support transfers and 44,800 resident shelves.
 
+- E-243 head-only overrunning pawls bypass E-232 rigid-comb admission, conditional
+  on unqualified return/contact. Six-state U/target cam controls descent; ungated
+  pawls catch 40 instead of requested 20/0. 15,625 maps/4,031,250 ideal observations,
+  3,125 wrong-target and 625 stable partial retries. U corruption excluded.
+  Shared-sweep writer still needs 400 selective bits/row plus preset/clear, no
+  traffic saving over five rewrites. p6 B8/q80:640 channels/28.842s/$815.80 assumed.
+  64-mm planar register bays permit B6/38.513s. Five resident shelves save 12,800
+  levels but add 640 pawls/pivots/returns/programs/followers; no routed head.
+  4-mm opening/2-mm pawl at 1-mm preseat gives 1-2e margin, negative at e=.70.
+  Ratchet can fall a 10-mm pitch on ascent; descent still needs local arrest.
+  Park sweep-written target cams before pawl/cam/spring detail; no print.
+
 Next executable investigation:
-- Change transaction/support encoding. Reconstruct E-232/E-234/E-238 first;
-  generate complete mechanisms retaining one row program through a full height
-  trajectory or encoding target directly in shared supports. Do not relabel
-  paired bars, decoded media or assumed passive admission as a new escape.
-- First executable screen: physical program sites, support stages, online write
-  and read traffic, causal partial-state retry and whole-machine ledger against
-  the five-rewrite control. Stop if fragile local memory/output-copy machinery
-  returns. Local modeling requires a concrete topology removing a burden.
+- Change load-path encoding: compare flexible tensile supports with compression
+  media, reconstructing E-126/E-163/E-234 first. First account for finite routing,
+  anchors, stored length, supported rewriting, isolation and 6,400-path assembly.
+  Stop if a spool/brake per cell merely relocates repeated complexity. Do not
+  assume that cables or shared clamps provide independent length memory.
 - Keep payload distribution parametric. Actual-process gravity drag, local
   dynamic arrest, finite routing and field/contact behavior remain unqualified.
 
