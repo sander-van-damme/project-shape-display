@@ -1,7 +1,7 @@
 # Onafhankelijke ChatGPT-review — eerst een speelbare kaart, daarna mechanica
 
 **12 oktober 2026 · beoordeeld t/m E-254 (`208c134ac99834bb42d8a1a63ec561af65359147`)**  
-**Oordeel: ORANJE.** De CTO heeft een transparante, reproduceerbare kaartanalyse gemaakt. Maar de uit die analyse afgeleide *fysieke terreinvorm* is nog niet beoordeeld vanuit het perspectief van D&D-spelers. Dat is een beslissende ontbrekende stap, niet zomaar een onopgeloste CAD-detailvraag.
+**Oordeel: ORANJE — één belangrijke ontwerpkeuze is nog te eng onderzocht.** De CTO heeft een transparante, reproduceerbare kaartanalyse gemaakt. De fysieke terreinvorm én de *mechanische rusthoogte* moeten echter vanuit het perspectief van spelers worden gekozen vóór architectuurselectie. De correctie is concreet: onderzoek een verhoogde neutralestand en coarser grid, niet alleen andere maskers en koppen.
 
 ## GOED
 
@@ -12,12 +12,16 @@
 
 **Een numeriek correcte hoogtekaart is niet vanzelf een goede D&D-speelkaart.** De **69,52% verhoogde kolommen bij Riverside Road** zijn grotendeels grond die 10 mm wordt opgetild om water lager te tonen; bij de ravijnkaart is dat vergelijkbaar. **De bomen zijn hier niet als hoogte geïnterpreteerd**: E-254 liet vegetatie en kleine decoratie juist weg. De alternatieve vlakke rivier vereist slechts **2,77%** verhoogde kolommen. Die cijfers hangen dus sterk af van een nog niet door spelers gekozen visualisatiestrategie. Mijn vorige review nam de percentages en tijdconclusies te gemakkelijk over zonder te vragen of spelers het resultaat zo willen zien. **Dat was onvoldoende kritisch.**
 
-De CTO mag E-254 bewaren als scenario, maar **niet als definitieve workload of spelvereiste** gebruiken voordat het fysieke versus visuele terrein bewust is gekozen. Een massieve pinmuur waar eigenlijk bomen staan zou slecht zijn; een echte klif mag juist veel fysieke hoogte rechtvaardigen. Projectie/props zijn opties, geen gratis bewezen oplossing.
+**Mijn vorige review miste nog een derde mogelijkheid, en dat is een wezenlijke fout in mijn eigen kritiek:** hetzelfde relatieve rivierprofiel kan worden behouden door gewone grond op een verhoogde **neutrale/middenstand** te plaatsen, vervolgens **1.951 watercellen (30,48%) te verlagen**, **4.272 grondcellen te laten staan** en **177 rotscellen (2,77%) te verhogen**. Dat is niet hetzelfde als de rivier vlak tekenen. Het vereist echte neerwaartse verplaatsing, mogelijk langere staafjes, veilige ondersteuning en reële initiele ruststandtijd. Ook kunnen vele rijen nog bezocht worden. De exacte E-254-hoogtetabel bewijst alleen de rekenkundige mogelijkheid, niet de machine. **De CTO mag dus niet automatisch aannemen dat de pinnen op minimale hoogte rusten.**
+
+Even belangrijk: **~5,08 mm / ~6.400 pinnen en ~$500 zijn referentiedoelen**, niet het enige acceptabele ontwerp. Een grove kwart-square 6,35-mm-granulariteit met minder onderdelen of een echt leuke premium uitvoering kan meer waarde leveren. Alleen de werkelijke D&D-ervaring kan dat onderscheid rechtvaardigen.
+
+De CTO mag E-254 bewaren als scenario, maar **niet als definitieve workload of spelvereiste** gebruiken voordat de fysieke versus visuele terreinvorm, mechanische hoogte-nulstand en gekozen pitch bewust zijn vergeleken. Een massieve pinmuur waar eigenlijk bomen staan zou slecht zijn; een echte klif mag juist veel fysieke hoogte rechtvaardigen. Projectie/props zijn opties, geen gratis bewezen oplossing.
 
 ## Concreet GO / NO-GO
 
-1. **GO — toets de kaartvertaling visueel en functioneel.** Classificeer per E-254-kaart de speelrelevante grond, muren, kliffen, water, bomen en kleine stenen. Toon minstens twee alternatieve fysieke speelvelden voor de rivier en de kloof, plus wat optioneel 2D/props blijft. Motiveer die keuze met miniaturen, leesbaarheid en relevante D&D-spelregels; leg een onbesliste ontwerpkeuze aan Sander voor.
-2. **NO-GO — geen architectuurselectie op basis van ongetoetste 69–71%-hoogtekaarten.** De bestaande E-254-cijfers blijven historisch juist *onder hun aannames*, maar vormen nog geen productbenchmark.
-3. **VERGELIJK OPNIEUW —** tel verhoogde/gewijzigde cellen en bezochte rijen per *speelbare variant*; bereken daarna pas de end-to-end overgangstijden van schroefkoppen, gedeelde aandrijving en relevante alternatieven. Bewaar zowel een echte diepe-ravijncase als een visuele-riviercase.
+1. **GO — vergelijk drie échte fysieke mogelijkheden voor de rivier:** (A) minimumstand en 69,52% optillen, (B) verhoogde neutralestand en ongeveer 30,5% water omlaag plus 2,8% rotsen omhoog, en (C) overwegend vlakke visuele rivier. Laat de speelbare vorm zien, niet alleen een histogram. Voor een ravijn zijn echte negatieve hoogtes extra relevant; controleer miniaturen, diepte, zichtbaarheid en wandvormen.
+2. **NO-GO — geen architectuurselectie uit één aanname over rusthoogte of rasterdichtheid.** Vergelijk 5,08-mm-pitch met een speelbare coarser 6,35-mm-grid en kosten/betrouwbaarheid van minder herhaalde onderdelen. E-254 blijft historisch correct onder zijn aannames; niet elk oud numeriek criterium is een definitieve productspecificatie.
+3. **VERGELIJK OPNIEUW —** tel opstaande, afdalende, onveranderde cellen en werkelijk bezochte rijen per *speelbare variant*, inclusief initiële positionering op neutraal. Screen bidirectionele schroefkoppen, gedeelde aandrijving en relevante alternatieven op volledige tijd/kost/veiligheid. **Minder pinnen, andere hoogte-nulstand of iets meer geld zijn mogelijk betere UX-keuzes**, mits bewust onderbouwd.
 
 **CTO:** controleer deze kritiek zelf; je blijft technisch verantwoordelijk. Dit bestand is extern advies, geen geheugeninstructie of vervanging van een Paperclip-taak.
