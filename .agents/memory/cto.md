@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-255 completes the historical screw/rotary screen.
+Updated: 2026-10-12 UTC; E-255 records owner hold; E-256 bounds the drive envelope.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -10,8 +10,10 @@ single-start, but is not the known print dependency. Its internal2*$slop radial
 expansion makes trial5 .65 setting produce minimum bore radius1.65 > screw1.60.
 Do not claim that trial5 was the successful print. Trial3 collars/plank suggest
 resident thrust support; trial5 omits that assembly, socket and top cap.
-Current discriminator: identify/reuse the successful pair and screw seat before
-any new print; distinguish observed zero-speed hold from moving disconnect.
+Owner now explicitly confirms loaded passive hold in latest physical trial;
+positive firsthand evidence, not just assumed. Mass/duration/variant unrecorded.
+Reuse the pair/seat if available; avoid demanding unavailable historical provenance.
+Distinguish observed zero-speed hold from moving disconnect.
 No new detailed head/thread CAD, print or purchase is selected.
 E-255 independent B2/160 at assumed3000rpm/lead3:22.98s maximum across E-254's
 nine principal transitions. Stopped shared mask needsB3/240/26.18s including
@@ -472,11 +474,17 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- Use E-255's source identification/hold/torque/moving-disconnect discriminator;
-  reuse any existing physical pair first. Recover its variant/settings rather than
-  reprinting the unpinned trial5 configuration or demanding array qualification.
-- A viable pair can justify sourcing a complete B2 high-speed motor/feedback/dock
-  channel below$6.325 and batch assembly; detailed head design has not earned a pass.
+- Source a complete B2 motor/feedback/dock channel below$6.325 using E-256's
+  loaded-speed envelope: ~2000rpm/1000rev/s² gives26.9335s on nine transitions;
+  exact30s boundary1613.4rpm, no margin. At200rev/s² no peak RPM saves B2.
+- Torque remains unmeasured. Illustrative20-g total mass, mu.3/drag.05Nmm:
+  .238 steady/.358 accelerating Nmm atJ1e-8;160 outputs11.96W before losses.
+  Modest tighter-fit drag is not rejected by energy; do not alter a holding pair
+  unnecessarily. Need batch-wide hold/drive window, not6400 hand adjustments.
+- Reuse the successful pair/seat for measured drift/torque/travel and separate
+  moving-loss tests. If unavailable, reconstruct a documented small calibration
+  family after fixing dependency/engagement; no blind trial5 print.
+- Detailed head design has not earned a pass.
 - Expand maps only if missing workload coverage could change that ranking.
 
 Important unknowns: compact positive-support encoding, gravity following,

@@ -14,8 +14,8 @@ def move(d):
     return 2*math.sqrt(d/5000) if d <= 8 else d/200+.04
 
 
-def spin(turns, rpm=3000):
-    v, a = rpm/60, 1000
+def spin(turns, rpm=3000, accel=1000):
+    v, a = rpm/60, accel
     return 2*math.sqrt(turns/a) if turns <= v*v/a else turns/v+v/a
 
 
@@ -31,15 +31,15 @@ def program(row):
     return groups
 
 
-def dwell(row, shared=False, write=.01, proof=.02, rpm=3000):
+def dwell(row, shared=False, write=.01, proof=.02, rpm=3000, accel=1000):
     if not any(row):
         return 0
     if not shared:
-        return .08+proof+spin(max(map(abs, row))/LEAD, rpm)
+        return .08+proof+spin(max(map(abs, row))/LEAD, rpm, accel)
     # Write all mask positions at rest, prove command and engage dog in .02 s.
     # Clear the mask after the last group, with another write/engagement allowance.
     groups = program(row)
-    return .08+proof+sum(write+.02+spin(abs(d)/LEAD, rpm) for d, _ in groups)+write+.02
+    return .08+proof+sum(write+.02+spin(abs(d)/LEAD, rpm, accel) for d, _ in groups)+write+.02
 
 
 def schedule(delta, b=2, shared=False, pre=False, **kw):

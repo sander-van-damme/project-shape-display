@@ -5,11 +5,13 @@ builds-on: [E-254, E-050, E-131, E-156, E-182, E-222]
 
 # Historical screw support and complete rotary programming screen
 
-**The screw supports the pin through its engaged thread.** Sander's clarification
-refers to that pin, not a platform. Preserve his reported working physical mechanism;
-the writer need not lift or take over the pin's axial load. Fixed screw angle and
-intact engagement give fixed pin height. Whether an undriven screw maintains that
-angle is a separate friction/rotation question, not an absent pin-support path.
+**The screw supports the pin through its engaged thread and resident thrust seat.**
+The writer supplies torque, not axial support. Undriven rotation depends on friction.
+**Owner update, 2026-10-12:** Sander explicitly reports that his latest physical
+screw-pin held its height under load without continued drive. This is positive
+firsthand evidence; mass, duration, cycles and exact variant remain unrecorded.
+The trial5 dependency mismatch does not invalidate it. Test tighter fit only if
+needed; do not replace a holding pair or add resident brakes on speculation.
 
 **Retain two independent row heads as the conditional reference.** Signed moves and
 mask rewrites need three shared heads/240 selectors versus two independent heads/160
