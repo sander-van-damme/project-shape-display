@@ -1,12 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-231 on input main 57e6d4a.
+Updated: 2026-10-12 UTC; E-232 on input main 063fa01.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture necessary-condition screens; no selected machine or print.
-Current discriminator: replace live membership rewriting with unloaded target
-stops and a fixed changed-cell mask. E-231 parks selective scanner/matrix/spare
-support registers; safe logical transitions still multiply costly physical outputs.
-Retained row decoders, resident ramps and travelling cassettes remain parked.
+Current discriminator: supported old-height admission. E-232 rejects the inherited
+fixed-mask ascent before target-stop development: released changed columns fall;
+retained periodic shelf bars block upward travel. Target stops remove retirement
+writes only. Shared height-layer support needs a finite supported crossing, not
+zero-thickness shelves. No selected machine, CAD or print.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -158,16 +159,26 @@ Evidence to retain:
   or routing might escape, but no local finger work is justified. Gravity drag
   allowance remains .00543 N for a 3-g column at downward a8 m/s².
 
+- E-232 targets programmed 42 mm below final position and deployed at the apex
+  provide ideal geometric retirement only with individually released old support
+  granted. 15,625 oracle maps and 6,250 stable wrong-stop retries pass; fixed-mask
+  release/retain both have explicit failures. No passive admission proof.
+- Upright bars restore temporary individual gravity holds; horizontal stair
+  slides avoid turnover but occupy a 72-mm feed union (B<=5 single plane).
+  Free-admission/routing stair B8: 28.586 s/$1,154.60; shared writer channels
+  still $857.40/29.347 s with unbuilt output copying. Same-plane B5:42.678 s.
+  Layered thickness stacks retain >=240 shutters/head. Park all tested stops.
+- Unique-foot height-layer shelves are a changed possible admission principle,
+  but lower foot thickness f hits upper shelf thickness t at level-f-t, before
+  pickup reaches the upper column. Early withdrawal loses support. A shared
+  ramp/changed approach must escape this finite witness without private grips.
+
 Next executable investigation:
-- Compare unloaded target stops programmed before pickup, plus one constant
-  changed-cell mask: rising plane acquires unique bottoms passively, prepositioned
-  stops retire them on descent, row comb seats before stops withdraw. This removes
-  ten live membership writes; it does not provide free retained target memory.
-- First screen stop programming/reset, two support lanes, source-loss arrest,
-  retained output count, causal retries, cost and regional detour. Compare E-221
-  loaded shoes and E-226 unloaded-bar handling without reinstating their expensive
-  loaded axes/turnover/transport. No CAD, local locks or print before a credible
-  complete-machine case. E-231 source and result are the current baseline.
+- Screen shared height-layer old-support release: finite supported crossing of
+  a lower foot past an occupied upper layer, versus periodic-comb admission.
+- First account for unchanged-cell support, source-loss arrest, real layer
+  motions and feed. Stop if it restores independent old-height axes, duplicated
+  grips or 6,400 local trips. No stop-memory optimization before support survives.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
