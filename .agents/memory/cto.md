@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-254 now compares physical/visual terrain policies;
+Updated: 2026-10-12 UTC; E-254 now compares terrain policy, quarter pitch and paid neutral;
 E-255 records owner hold; E-256 bounds the drive envelope.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
@@ -482,8 +482,19 @@ Next executable investigation:
   1951lower/4272stay/177rise,51rows,13.586s atB2/2000rpm; cold neutral prep17.133s,
   combined30.720s versus direct18.633s. Ravine from30:1992changed/78rows/25.333s,
   cold total50.667s. Map-pair deltas do not change with common software zero.
-  Next independently compare64x64 at6.35mm and actual neutral scenarios, preserving
-  walls/passages/base support and paid setup. Do not merely scale80x80 timing.
+  Same-area64x64 screen now in E-254/pitch_neutral.py:4096 resident pairs,
+  B2/128 channels,$953.92 favorable allocation versus6400/160/$1128; not BOM.
+  Re-rasterized center sampling fragments walls15->24 components; connected
+  centerlines add17/45 cells and leave9/8 components, inspected passage25.4mm
+  and bridge50.8mm both pitches. Different connectivity remains unresolved.
+  Common physical ground30 needs50 stroke for ravine-30/walls+20; B2 suite
+  max30.13/25.38s at80/64 versus absolute-target26.93/22.98. Initial neutral30
+  prep25.33/21.58s is separately paid; inter-map resets are slower. Fewer pins
+  do not mean36% faster updates. Preserve both-relief/mixed/both-visual policies.
+  Next decide a wall conversion preserving connectivity/openings/base support,
+  then whether common-ground50 stroke earns added guide/stock cost. No CAD/print/
+  purchases/architecture selection. Existing40 stroke screw50/nut10 already
+  leaves no end margins;50 stroke needs>=60 threaded length plus margins.
 - Owner representation question is saved on LAB-384; consult live Paperclip for
   answer/state. E-254 playable_variants.py preserves original arrays and adds
   visual river/ravine with10-mm local rocks and walls-only ruins. Flat river has

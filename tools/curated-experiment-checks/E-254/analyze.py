@@ -26,13 +26,13 @@ def inside(x, y, poly):
     return hit
 
 
-def raster(m, shift=0):
+def raster(m, shift=0, n=N):
     x0, y0, w, h = m['crop']
     rows, labels = [], []
-    for y in range(N):
+    for y in range(n):
         row, lab = [], []
-        for x in range(N):
-            sx, sy = x0+(x+.5)*w/N+shift, y0+(y+.5)*h/N
+        for x in range(n):
+            sx, sy = x0+(x+.5)*w/n+shift, y0+(y+.5)*h/n
             value, label = m['base']*10, 'base'
             for name, level, poly in m['features']:
                 if inside(sx, sy, poly):

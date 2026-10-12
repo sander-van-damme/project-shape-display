@@ -26,10 +26,10 @@ N = 80
 FLAT = [[0]*N for _ in range(N)]
 
 
-def variants():
+def variants(n=N):
     maps, semantics = {}, {}
     for item in json.loads((HERE/'sample.json').read_text())['maps']:
-        height, labels = annotation.raster(item)
+        height, labels = annotation.raster(item, n=n)
         key = item['id']
         maps[key] = height
         # Base means water for road, plateau for ravine, ground for ruins.

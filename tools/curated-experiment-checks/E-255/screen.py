@@ -42,26 +42,28 @@ def dwell(row, shared=False, write=.01, proof=.02, rpm=3000, accel=1000):
     return .08+proof+sum(write+.02+spin(abs(d)/LEAD, rpm, accel) for d, _ in groups)+write+.02
 
 
-def schedule(delta, b=2, shared=False, pre=False, **kw):
+def schedule(delta, b=2, shared=False, pre=False, pitch=PITCH, **kw):
+    n = len(delta)
+    assert len(delta) == len(delta[0]) and all(len(row) == n for row in delta)
     banks, starts, maxrow, writes, stations = [], [], 0, 0, 0
-    width = math.ceil(N/b)
-    for base in range(0, N, width):
+    width = math.ceil(n/b)
+    for base in range(0, n, width):
         last, total, first = 0, 0, None
-        for y in range(base, min(N, base+width)):
+        for y in range(base, min(n, base+width)):
             row = delta[y]
             if not any(row):
                 continue
-            seek = max(.05, move(abs(y-base-last)*PITCH))
+            seek = max(.05, move(abs(y-base-last)*pitch))
             if first is None:
                 first = seek
             service = dwell(row, shared, **kw)
             total += seek+service
             maxrow = max(maxrow, service)
             stations += 1
-            writes += N*(len(program(row))+1) if shared else 0
+            writes += n*(len(program(row))+1) if shared else 0
             last = y-base
         if first is not None:
-            total += move(last*PITCH)
+            total += move(last*pitch)
         banks.append(total-(first or 0) if pre else total)
         starts.append(first or 0)
     if not stations:
@@ -71,25 +73,28 @@ def schedule(delta, b=2, shared=False, pre=False, **kw):
                 mask_decisions=writes, maxrow=maxrow, first_seek=max(starts))
 
 
-def quarters(delta):
-    """Four disjoint 40x40 regions, one 16-tip head each, three strips/row.
-    Last strip uses eight tips. XY simultaneous rest-to-rest motion and return.
+def quarters(delta, pitch=PITCH, **kw):
+    """Four disjoint quadrants, one 16-tip head each.
+    80-grid: 40x40, strips16/16/8; 64-grid:32x32, strips16/16.
+    XY simultaneous rest-to-rest motion and return.
     """
+    half = len(delta)//2
+    strips = list(range(0, half, 16))
     banks, worst, stations = [], 0, 0
-    for y0, x0 in itertools.product((0, 40), repeat=2):
+    for y0, x0 in itertools.product((0, half), repeat=2):
         pos, total = (0, 0), 0
-        for y in range(40):
-            for x in ((0, 16, 32) if y % 2 == 0 else (32, 16, 0)):
-                row = delta[y0+y][x0+x:x0+min(40, x+16)]
+        for y in range(half):
+            for x in (strips if y % 2 == 0 else strips[::-1]):
+                row = delta[y0+y][x0+x:x0+min(half, x+16)]
                 if not any(row):
                     continue
-                total += max(.05, move(abs(x-pos[0])*PITCH), move(abs(y-pos[1])*PITCH))
-                service = dwell(row)
+                total += max(.05, move(abs(x-pos[0])*pitch), move(abs(y-pos[1])*pitch))
+                service = dwell(row, **kw)
                 total += service
                 worst = max(worst, service)
                 pos = x, y
                 stations += 1
-        total += max(move(pos[0]*PITCH), move(pos[1]*PITCH))
+        total += max(move(pos[0]*pitch), move(pos[1]*pitch))
         banks.append(total)
     return 4+max(banks)+worst if stations else 0
 
@@ -147,13 +152,13 @@ def checks():
     return count
 
 
-def costs(b, shared=False, channel=4):
+def costs(b, shared=False, channel=4, n=N):
     # Explicit favorable complete allocation; no quotes or force-qualified hardware.
     # Common electronics20, PSU/protection40, frame60, sensing50, harness20,
     # fasteners20, freight/spares40. Resident stock .02/site.
-    reserve = 250+6400*.02+b*(55+(35 if shared else 0))
-    return dict(reserve=reserve, channels=80*b, assumed_total=reserve+80*b*channel,
-                caps={c: (c-reserve)/(80*b) for c in (500, 1000, 1500)})
+    reserve = 250+n*n*.02+b*(55+(35 if shared else 0))
+    return dict(reserve=reserve, channels=n*b, assumed_total=reserve+n*b*channel,
+                caps={c: (c-reserve)/(n*b) for c in (500, 1000, 1500)})
 
 
 def main():
