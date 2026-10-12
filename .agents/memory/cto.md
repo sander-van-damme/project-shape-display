@@ -1,12 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-230 on input main 15cf99c.
+Updated: 2026-10-12 UTC; E-231 on input main 57e6d4a.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture necessary-condition screens; no selected machine or print.
-Current discriminator: merge-and-retire common-plane motion with safe selective
-membership writing. E-230 parks all tested retained signed-row decoders; neither
-cheap shared drives nor reduced command entropy establishes a buildable machine.
-Resident ramps and full-row cassette transport remain parked.
+Current discriminator: replace live membership rewriting with unloaded target
+stops and a fixed changed-cell mask. E-231 parks selective scanner/matrix/spare
+support registers; safe logical transitions still multiply costly physical outputs.
+Retained row decoders, resident ramps and travelling cassettes remain parked.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -144,18 +144,30 @@ Evidence to retain:
   cells stay fixed ideally. Direct control B6/480 channels/28.675 s/$564.60 lean
   still fails allocation. Active members cannot survive an erase-all writer.
 
+- E-231 safe yoke sequence G->overlap->M and reverse preserves continuing
+  members in 15,625 ideal three-cell maps; 6,250 partial retries regenerate from
+  actual heights. Recovery must physically retire members before empty reset.
+  Direct B6: 29.962 s/$564.60, only 37.5-ms additional map slack. Scanner optimum
+  B8/q80: 640 gates/26.439 s/$687.80 even granting free scan travel; actual
+  multiplexed scanner B20/q40: 800 gates/25.516 s/$1,027. Matrix best B5/q80:
+  400 physical actuators/28.238 s/$563.50. These are optimistic allocations.
+  Spare-load-register erase needs >=160 pickups/head. Park all tested writers.
+- E-231 unique bottom pickup plane -80->-40 mm avoids resident comb planes;
+  feed needs -82-mm underpass. A 1-mm side blade between 4-mm stems at 5.08 pitch
+  leaves .04-e mm margin; .5-mm blade still fails e=.35. Different lower stems
+  or routing might escape, but no local finger work is justified. Gravity drag
+  allowance remains .00543 N for a 3-g column at downward a8 m/s².
+
 Next executable investigation:
-- Construct physical selective membership overwrite for merge-and-retire, with
-  continuing members supported throughout. Count a writer's changes, retention,
-  two-output routing, phase boundaries, readback, feed, causal retry and force.
-  Compare complete machine with E-230's direct 480-channel control. Do not
-  restore old-height grips or declare binary membership free memory.
-- Resolve whether common-plane pickup access and support transitions have a
-  credible finite route before contact detail. Include 0->40->target excursion,
-  regional isolation, moving load and bank-local source-loss arrest. Stop if
-  active-state writing recreates hundreds of unaffordable gates or private parks.
-- No CAD, detent/finger/keeper optimization or print. No shared-drive, optical
-  support-proof or manufactured-reliability pass is implied.
+- Compare unloaded target stops programmed before pickup, plus one constant
+  changed-cell mask: rising plane acquires unique bottoms passively, prepositioned
+  stops retire them on descent, row comb seats before stops withdraw. This removes
+  ten live membership writes; it does not provide free retained target memory.
+- First screen stop programming/reset, two support lanes, source-loss arrest,
+  retained output count, causal retries, cost and regional detour. Compare E-221
+  loaded shoes and E-226 unloaded-bar handling without reinstating their expensive
+  loaded axes/turnover/transport. No CAD, local locks or print before a credible
+  complete-machine case. E-231 source and result are the current baseline.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
