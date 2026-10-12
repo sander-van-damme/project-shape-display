@@ -1,7 +1,7 @@
 # CTO research compass — not engineering evidence
 
 Updated: 2026-10-12 UTC; E-254 compares terrain policy; E-257 adds quarter pitch; E-258 adds player views and depth choice;
-E-255 records owner hold; E-256 bounds the drive envelope.
+E-255 records owner hold; E-256 bounds drive; E-259 prices sampled drive/feedback subsets.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -525,10 +525,20 @@ Next executable investigation:
   separate prop is an unqualified alternative. Visual reveal over existing
   terrain needs no pin motion, not proven zero latency or concealment.
   Do not select actuators from an unapproved physical/visual split.
-- Once the workload choice is resolved, source a complete B2 motor/feedback/dock
-  channel below$6.325 using E-256's
-  loaded-speed envelope: ~2000rpm/1000rev/s² gives26.9335s on nine transitions;
-  exact30s boundary1613.4rpm, no margin. At200rev/s² no peak RPM saves B2.
+- E-259 sourced channel screen: Adafruit711+3297 costs$4.24/output before
+  feedback/transmission/docking. With inherited reserve,64/80 boards total
+  $984.64/$1166.40; under$1500 leaves$4.026/$2.085 per missing channel bundle,
+  under$1000 only$.12 at64. Reserve is still unquoted, not a full BOM. Catalog
+  Pololu5180 encoder motors alone cost$3234.56 at128 outputs; no market floor.
+  3081 encoder kit is NOT compatible with711. Keep low-cost bare-drive hypothesis.
+  At64/N20,1500rpm/200rev/s² still28.575s mixed;64/N30 instead32.975s. Do not
+  transfer original80-grid fast-ramp necessity to the coarser representation.
+  Body width needs>=3 motor lanes;128 basic motors weigh2.24kg and rated-load
+  electrical sum is192W (not predicted map power). Feedback/driver packaging
+  and power must be costed, not hidden in$40 supply/$20 controller reserves.
+  Motor encoder cannot prove socket engagement; powered bridge braking is not
+  power-loss support. Measure one successful pair/drive before choosing a bank;
+  custom assembled feedback/driver board quote only if that operating window holds.
 - Torque remains unmeasured. Illustrative20-g total mass, mu.3/drag.05Nmm:
   .238 steady/.358 accelerating Nmm atJ1e-8;160 outputs11.96W before losses.
   Modest tighter-fit drag is not rejected by energy; do not alter a holding pair
