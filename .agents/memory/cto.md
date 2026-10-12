@@ -1,14 +1,16 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-236 on input main ea72022.
+Updated: 2026-10-12 UTC; E-237 on input main 12e3063.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: physical overwrite during a supported transfer, plus an
-honest shared drive/arrest budget. E-236's synthesized five-stroke moving datum
-removes empty returns and one event without adding shelves. Direct B5 still
-needs 400 channels/$675; shared-drive lean $503 is not force-qualified. B4's
-$441.40 /28.810-s free-writing oracle warrants only a bounded command-inhibit
-and common-drive screen, not comb/pickup/guide refinement or a cheap-price tweak.
+Current discriminator: change the support transaction to remove repeated transfer
+stages or gain substantial slack with broad contacts. E-237's command-inhibit
+screen does not earn local refinement: B4 needs release <13.343 ms; 3-ms proof
+allows <.428-mm total engagement plus adverse error. g=.35 gives 29.917 s,
+g=.50 misses. Shared B4 still owes 1.299 kN/371 W and independent bank arrest.
+Keep E-236's five-stroke code; park tested writers, including forced-return
+inhibition. A retained-output escape stores old selection separately and must
+construct its retention/isolation, not rename it a common inhibit.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -219,15 +221,27 @@ Evidence to retain:
   One full retry plus worst 30-mm empty reset charged; regenerate from actual
   supported partial heights, never replay original code blindly.
 
+- E-237 common forced return allows ideal command overwrite only after resident
+  reseating. 256 four-bit overwrites/1,280 support observations pass; no contact
+  model. Causal B4 schedule is 28.879212+84L seconds, including first and retry
+  writes. Release-proof 0/3/6 ms permits .712/.428/.216-mm actual retreat. With
+  adverse e=.35, 3-ms case leaves <.078-mm nominal engagement. Stop before detail.
+  Output retention needs >=320 duties separate from commands and 640 isolation
+  duties at B4, not necessarily that many added moving parts. Two extra 2-mm
+  transfer stages/pulse give 36.150 s; zero-stage oracle is no implementation.
+  B4 $441.40 excludes new inhibit hardware and force-rating correction. Reducing
+  lift acceleration 8->2 m/s² gives 37.327 s while force only falls 1299->1281 N.
+
 Next executable investigation:
-- Construct whether common mechanical command inhibit permits physical overwrite
-  during a supported transfer, without another active register or private grips.
-  Account for disconnection, retention, safe erase/write, readback, reconnection,
-  power loss and actual shared drive/local bank arrest. B4 oracle $441.40 and
-  28.810 s removes writing, not a pass; only 11.334 ms/pulse remains unoverlapped.
-  Compare new shared interfaces with 80 saved channels and stop if costs erase it.
-- E-235 stopped punched webs, travelling cassettes and duplicated captive bars
-  remain parked. No fine cutter, shelf, finger, guide or detent work; no print.
+- Synthesize a materially changed shared support transaction that reduces contact
+  transfers or gains substantial timing slack without narrow repeated interfaces.
+  Compare a program retained through a whole row against a changed shared load
+  path; reconstruct E-230's decoder failure before revisiting it. Start with
+  event/state/replication bounds; no more pulse-writer clearance optimization.
+- Reopening E-237 requires an explicit broad-engagement release topology and
+  force/arrest-qualified allocation. No hypothetical cheaper channel or faster
+  proof flag suffices. Stopped webs, travelling cassettes and duplicate captive
+  bars stay parked. No fine cutter, shelf, finger, guide or detent work; no print.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
