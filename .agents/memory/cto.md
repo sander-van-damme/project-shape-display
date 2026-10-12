@@ -1,12 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-233 on input main 7c812c5.
+Updated: 2026-10-12 UTC; E-234 on input main de15f3c.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: avoid pooling finite loaded feet through identical shared
-bearing sections. E-233 rejects homogeneous ramp/stack admission and parks its
-32,000-shutter escape. Next transaction must reduce real spatial state/handling,
-not refine a catch or assume free old-height admission.
+Current discriminator: locate height information without duplicating moving
+supports or independently loaded head outputs. E-234 removes cassette travel with
+captive pairs but pays 12,800 bars/friction sites and 720 writer channels. No pad,
+comb or finger refinement. Start with the actual rewrite/hold/transfer transaction.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -184,13 +184,24 @@ Evidence to retain:
   27.687 s/$771.20 assumed allocation even with entirely printed resident holds.
   No route/arrest/retention qualification. Park before latch or writer detail.
 
+- E-234 paired captive vertical bars avoid cassette handling/turnover and old-height
+  acquisition. Shared unloaded reset/sweep writer still needs temporary friction
+  retention and actual flank seating. 15,625 ideal maps and 6,250 retry/control
+  cases (5,000 wrong codes); no finite routed machine or physical proof. Least-allocation fast case
+  B9/q80: 720 channels/28.807 s/$999 assumed; $20 instead of $65/head still $594.
+  Minimum 400 channels at B20/q20 costs $1,602/28.296 s. Resident burden: 12,800
+  bars/pad contacts, 25,600 added guide stations, 64,000 notches, 160 moving bases.
+  Bars alone 4.456 L; 35.6–106.7 h assumed insertion labor. Released .4352-g bar
+  needs guide drag <.004269 N to seat; .005-N case sticks. No pad/keeper refinement.
+
 Next executable investigation:
-- Leave loaded common-plane merging. Screen a shared programmer acting on unloaded
-  captive height supports versus a direct supported row head. First construct
-  support exchange/retention and count repeated sites; avoid E-227 travelling
-  cassette handling and E-221 independently loaded axes. No inherited winner.
-- Reopen layers only through a finite positive-bearing change to the shared-section
-  premise with lower total repeated burden, not thinner tips or free apertures.
+- Synthesize state placement with actual supported rewrite/hold/transfer paths:
+  can common load support coexist with externally rewritten height information
+  without paired resident moving supports or independent loaded head outputs?
+  E-234 is a scoped stop, not evidence every external encoding must fail.
+- Do not relabel travelling cassettes, duplicated vertical bars or pooled finite
+  feet as new escapes. Changed geometry must remove their causal burden before
+  timing optimization. No inherited winner and no currently justified print.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
