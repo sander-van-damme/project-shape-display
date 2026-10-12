@@ -1,16 +1,14 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-238 on input main 4c48018.
+Updated: 2026-10-12 UTC; E-239 on input main 329e94e.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: resolve the physical shared-drive and command-channel
-allocation before more compiler/decoder refinement. E-238 combines retained row
-programs with moving-datum strokes: finite broad-code B8 still $588.60 assumed,
-1,280 bars/64,000 decoder lands; park strips. Keep E-236's five-stroke transaction
-as a simple direct-control comparator. Do not turn the inherited uniform
-3.27-N/cell scenario into a product requirement: loading, actual purchasable
-actuation/arrest and complete writer-channel cost need credible bounds.
-E-237's narrow release window still does not earn local refinement.
+Current discriminator: affordable retained physical command writing, with complete
+support isolation. E-239 separates total payload/concentration from the inherited
+uniform load scenario: shared lift power is not the decisive rejection. Actual
+sampled catalog selectors cost $1,584–3,160 bare at 400 channels; stop those routes.
+E-236's five-stroke transaction remains a comparator. Retained strips (E-238),
+narrow overwrite (E-237), and fine local contacts still do not earn refinement.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -246,19 +244,38 @@ Evidence to retain:
   B6/$494.20/27.486 s still owes real phase selection; no free decoder pass.
   No routed/force-rated machine, process priors or physical qualification.
 
+- E-239 distinguishes load bounds from product requirements. Uniform 3.27 N/cell
+  implies 2,133 kg/board; never use it as a miniature-load requirement. At B5,
+  .5-kg heads/3-g columns/.005-N drag/8-m/s² acceleration, external 0–5 kg with
+  uniform-to-concentrated distribution gives 68–157 N, ~19–45 W assumed input.
+  End-loaded d12 shaft twist .017–.039 mm; joints/bending remain unmodelled.
+  Gravity following, not payload lift alone, constrains acceleration: .020-N
+  unloaded-cell drag gives B5/29.962 s at zero-contact-preload boundary; .025 N
+  needs B7/560 channels. .030 N cannot descend quasistatically under this mass.
+  No measured usage, guide friction or manufacturing probability is inferred.
+- E-239 sourced B070 motor/brake plus DM542T driver costs $235.35 for five axes,
+  raising the lean non-channel reserve to $490.35 before 400 selectors. Motor
+  brake does not cover downstream breakage. Holding torque is not running torque
+  or stopping distance: a favorable .7-Nm dynamic-brake oracle after 10 ms at
+  .2 m/s drops 3.951 mm for 1-kg bank payload and 21.119 mm for 5 kg.
+  Common-drive $295 reserve leaves $.5125/complete command channel under $500;
+  sampled $3.96 solenoid/geared stepper and $7.90 servo routes fail before extras.
+  No market-wide price floor, force-rated machine or justified print.
+
 Next executable investigation:
-- Bound total-board/miniature loading and worst active-row concentration, then
-  compare complete purchasable shared actuation/local arrest and command-channel
-  implementations for E-236's simpler direct control. Report load/price tipping
-  points without inventing a product load requirement. Uniform per-cell load
-  scenarios and optimistic $.50 complete channels are not evidence of either
-  impossibility or affordability. This must change the system-level decision;
-  no decoder, brake tooth, finger or guide detail campaign from an assumed BOM.
-- Retained strips require a concrete reduction of physical state/phase handling
-  and credible complete-machine economics to reopen. E-237 still requires broad
-  release and qualified drive/arrest; cheaper nominal channels or faster proof
-  flags do not suffice. Stopped webs, travelling cassettes and duplicate captive
-  bars stay parked. No print is justified by current computational results.
+- Screen bulk electrical writing of a reusable external binary mask, e.g.
+  matrix-addressed magnetic state with shared mechanical read/actuation, against
+  parked mechanical writers. Changed command medium, not selected architecture.
+  First construct write/retain/read/isolate phases and a 400-site copper, driver,
+  power, routing and assembly ledger. Compare $.5125 complete-channel and
+  73.664-ms physical-write ceilings for E-236 B5; count half-selection, retention,
+  power-loss support and additional transfers. Do not begin coil, latch or fine
+  contact design from cheap component prices. Stop if whole-machine benefit fails;
+  redirect support/encoding principles rather than optimize a fragile selector.
+- Keep load distribution parametric; product-wide load/contact qualification is
+  unresolved. Gravity following and dynamic local arrest must be reconstructed
+  for any otherwise competitive survivor. No further compiler/decoder campaign
+  while complete affordable command writing is absent.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
