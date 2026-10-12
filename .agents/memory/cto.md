@@ -1,15 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-244 on input main 3345b91.
+Updated: 2026-10-12 UTC; E-245 on input main cd37c14.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: direct smooth-pin support with collectively loaded,
-replaceable row strips versus positive combs; first reconstruct supported writing
-and correlated force distribution. No strip/spring optimization yet.
-E-244 drum-free external cords remove shelves but retain 6,400 grips and need
-240 independent loaded outputs. Routing/assembly, gravity return and elastic
-height drift remove the hoped-for manufacturing advantage. Shared continuous
-cords retain sums, not individual heights. No whole-machine survivor.
+Current discriminator: mechanically driven sealed pressure equalization versus
+positive combs, with full zone routing/retention/cost first. No membrane detail.
+E-245 smooth crossed clamps remove 44,800 shelves but add 12,800 friction holds.
+Bulk-pad force/travel/packing coupling rejects the tested section; force sensing
+can miss untouched pins. A near-budget timing calculation does not reopen it.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -319,15 +317,29 @@ Evidence to retain:
   3g allows only .268mN tail drag. Paired cords duplicate routes/retention.
   Stop tensile detail; retained length is not free memory or positive support.
 
+- E-245 crossed row/column friction paths preserve 15,625 ideal maps, 5,765,625
+  observations and 150 retries; adequate grip/arrest granted. E=.35/k20/mu.15/L1
+  scenario needs .95-mm resident compression vs .54-mm available pad thickness.
+  Moving grip inertia raises B4 time to 29.663 s/$441.40 before pads/force changes.
+  Only E=.05 survives any of 324 force/strain cases; no calibrated error bound.
+  Half-row no-contact witness passes total-force sum. Mixed-row preload 960 N/face;
+  resident closure 2.704 kW without energy recovery, all 40->0 map 4.186 kJ, all assumed.
+  12,800 holds/25,600 faces/320 moving grips; serial spacers accumulate width error.
+  All 79 unchanged pins transfer load: equal shear stiffness kt gives L/(2kt)
+  shift when one support opens (.05 mm at 1 N/10 N/mm); no physical disturbance cap.
+  Fixed shelves are not equivalent moving failure sites. Park bulk pads/spacers.
+  Pressure oracle .1953MPa and 400 resident zones is unbuilt.
+
 Next executable investigation:
-- Compare direct smooth rigid pins in replaceable collectively loaded row strips
-  against positive combs. Reconstruct E-148/E-165/E-216/E-236 first. Start with
-  complete supported moving-datum transaction, total writer/retention ledger,
-  and force-distribution bound under coherent pin-size/platen error. Eliminate
-  cord transmission without recreating 240 loaded axes or 6,400 tiny springs.
-  This is an architecture/force screen, not permission for local clamp tuning.
-- Keep payload distribution parametric. Actual-process gravity drag, local
-  dynamic arrest, finite routing and field/contact behavior remain unqualified.
+- Screen a mechanically squeezed sealed pressure equalizer, not a powered valve
+  array: full resident/head-zone routing, passive retention, fill/seal/repair,
+  volume/force stroke and online schedule. It must remove stiffness amplification
+  and fit broad gap variation without new per-cell releases. Compare E-236 and
+  E-245; the B4 allocation leaves only $58.60 for all new pad/force costs. Seek an
+  actual economical construction before any membrane CAD or printing; stop if
+  pressure retention simply adds 400 valves or fragile per-cell sealed elements.
+- Keep payload distribution parametric. Force/readback, actual-process contact
+  behavior, finite routing and local dynamic arrest remain unqualified.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
