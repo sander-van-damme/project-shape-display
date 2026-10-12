@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-254 now compares terrain policy, quarter pitch and paid neutral;
+Updated: 2026-10-12 UTC; E-254 compares terrain policy; E-257 adds quarter pitch and paid neutral;
 E-255 records owner hold; E-256 bounds the drive envelope.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
@@ -482,7 +482,7 @@ Next executable investigation:
   1951lower/4272stay/177rise,51rows,13.586s atB2/2000rpm; cold neutral prep17.133s,
   combined30.720s versus direct18.633s. Ravine from30:1992changed/78rows/25.333s,
   cold total50.667s. Map-pair deltas do not change with common software zero.
-  Same-area64x64 screen now in E-254/pitch_neutral.py:4096 resident pairs,
+  Same-area64x64 screen now in E-257/screen.py:4096 resident pairs,
   B2/128 channels,$953.92 favorable allocation versus6400/160/$1128; not BOM.
   Re-rasterized center sampling fragments walls15->24 components; connected
   centerlines add17/45 cells and leave9/8 components, inspected passage25.4mm

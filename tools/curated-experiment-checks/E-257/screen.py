@@ -10,7 +10,12 @@ import itertools
 import json
 import math
 from pathlib import Path
-import playable_variants as v
+import importlib.util
+
+DATA = Path(__file__).resolve().parent.parent/'E-254'
+_spec = importlib.util.spec_from_file_location('playable_variants', DATA/'playable_variants.py')
+v = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(v)
 
 WIDTH = 406.4
 SUITES = {'relief': ('ruins', 'road', 'ravine'),
@@ -18,7 +23,7 @@ SUITES = {'relief': ('ruins', 'road', 'ravine'),
           'visual': ('ruins_walls', 'road_visual', 'ravine_visual')}
 GROUND = {'ruins': 0, 'ruins_walls': 0, 'road': 10, 'road_visual': 0,
           'ravine': 30, 'ravine_visual': 0, 'road_flat_water': 0}
-SOURCE = json.loads((Path(__file__).parent/'sample.json').read_text())['maps']
+SOURCE = json.loads((DATA/'sample.json').read_text())['maps']
 PROBES = [('thin_wall', 'ruins', (530, 100), (575, 100)),
           ('north_passage', 'ruins', (558, 115), (558, 205)),
           ('south_passage', 'ruins', (420, 382), (510, 382)),
@@ -151,7 +156,7 @@ def suite_screen(maps,n,names,aligned=False):
 def checks():
     # Legacy calculations stay identical; independently derive the dense B2 time.
     old,_=v.variants()
-    raw=json.loads((Path(__file__).parent/'heightmaps.json').read_text())
+    raw=json.loads((DATA/'heightmaps.json').read_text())
     for key,rows in raw.items():assert old[key]==[[int(c)*10 for c in row] for row in rows]
     for n in (64,80):
         p=WIDTH/n;d=flat(n,40);m=n//2
