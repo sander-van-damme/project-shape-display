@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-228 on input main 37b2dca.
+Updated: 2026-10-12 UTC; E-229 on input main adcb870.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture necessary-condition screens; no machine selected or print.
-Current discriminator: shared physical programming/retention of bank masks.
-E-228 changed E-220's transaction to six subset-coded pulses; investigate the
-actual writer before any comb, finger, keeper or tiny-contact development.
+Current discriminator: retained signed-row programs plus shared power, replacing
+pulse-by-pulse mask rewriting. E-229 parks all tested pulse-mask writers; no
+comb, finger, keeper, detent or dog development is justified.
 Resident ramps and full-row cassette transport remain parked.
 
 Evidence to retain:
@@ -113,22 +113,30 @@ Evidence to retain:
   Correlated comb height error, retained pickup/arrest, reader and physical
   writing still unbuilt. Finer heights add events and require new shelf geometry.
 
+- E-229 explicit four-stage transfer, granting paired comb motions, costs
+  .138491 s at assumed 2-mm throws/3-ms proof; B6 needs 31.720 s even with free
+  writing. This is a scoped dynamic scenario, not a universal lower bound.
+  Direct unbuffered: B8/640 channels/26.080 s, assumed bought $1,002. Buffered
+  scan fewest channels: B16/320 gates/2,560 retained bits/29.796 s/$1,970.
+  Buffered matrix fewest: B10/400 gates/1,600 bits +1,600 dogs/28.051 s/$1,380.
+  Actual dual registers need separate writer and service selectors. All three
+  pulse-by-pulse writers parked; even free gates cannot fix inherited 130+65B.
+  No sourced cost floor, finite routing, support proof or physical qualification.
+
 Next executable investigation:
-- Construct a few shared physical writers for the six-pulse architecture's 480
-  reusable retained binary bank-mask states. Compare against direct actuators;
-  include erase/write/feed/read, routing, command retention and supported transfer
-  within .11938 s/pulse at six banks (no free offline preparation or buffering).
-  Full overwrite is 38,400 bit commands/map; read actual supported outputs too.
-  First screen all purchased/printed/channel force and service costs. $250 reserve
-  leaves <$.5208/selector at $500; an explicit $130+$65/head allocation already
-  exceeds $500 at six heads before selectors. Neither is a sourced price floor.
-- Stop if writing restores hundreds of bought actuators, narrow unqualified
-  retained contacts, or releases unchanged support. No local selector refinement
-  until a whole-machine writer survives. Compare changed shared programming
-  transactions if this fails; no return to travelling support cassettes.
-- No selected architecture or physical pass. E-218 is an ideal support law;
-  E-084 keeps arbitrary physical programming inside the map boundary. Memory in
-  independent column positions must remain grounded throughout mask changes.
+- Change programming frequency: nine signed deltas can be retained once per
+  visited row, then decoded through all six pulses; 38,400 is command count,
+  not an information lower bound. Compare 80 nine-position sliders/head with
+  320 binary sites/head; include decoder contacts, actual writers/readers,
+  erase/feed/retention, support routing, row-scale overlap and bounded recovery.
+  Unlike E-216/E-217 this must not restore 160 grips or old-height capture.
+- Screen synchronized shared lift/phase/feed power with that transaction to
+  replace the failed per-bank shared-hardware allocation. Count simultaneous
+  force/torque, shaft/compliance, bank enable/isolation and source-loss support;
+  shared power is not free force or a cost pass. Stop if decoder/storage or
+  common-load coupling recreates present burden; change architecture again.
+- No local CAD, contact refinement or print. E-229 is the executable control;
+  E-228 pulse code remains an ideal principle, not a selected machine.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
