@@ -62,8 +62,12 @@ Distances are sensitivity choices, not product limits or predicted coast;
 dynamic contact forces and disconnect state remain unmeasured. Normal withdrawal
 following a complete commanded stop has no initial kinetic energy ideally.
 
-**Decision:** retain B2; source drives around 2,000 loaded rpm with adequate torque
-and acceleration. Do not tighten an already holding pair unnecessarily. If needed,
+**Decision:** retain B2 as a conditional comparison, not a selected architecture.
+Its present sample suggests drives around 2,000 loaded rpm with adequate torque
+and acceleration. Before selection, compare playable river/ravine encodings and
+obtain owner/player feedback: raising surrounding land to depict water is optional,
+not a required workload. Recompute the envelope if that representation changes.
+Do not tighten an already holding pair unnecessarily. If needed,
 find a batch setting whose weakest hold and strongest breakaway/running torque
 both fit the measured load and selected drive curve. Common bias, local variation
 and wear can close that window; no yield distribution follows. Avoid 6,400 hand fits.
