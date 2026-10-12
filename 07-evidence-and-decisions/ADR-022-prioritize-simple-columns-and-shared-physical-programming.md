@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -13,24 +13,23 @@ concrete change that removes the repeated manufacturing burden and a competitive
 whole-machine ledger; another nominal clearance result is insufficient.
 Canonical evidence and executable sources remain intact.
 
-E-216 compares resident shutter stops with reusable programmed row heads. Neither
-is a machine survivor: four planes repeat 25,600 shutter/retention sites; the
-explicit reusable stepped-mask writer reaches the deadline only with hundreds
-of independent setting lanes and unresolved support forces. Preserve the common
-support/reusable-state principle, but park these embodiments before detailed
-contact work. E-217 constructs binary-stop/common-stroke and commutated-cam writers. Their
-<30-s sampled cases still need hundreds of controlled gates; binary encoding
-also multiplies retained bits and differential pushers. Park both before local
-refinement. E-218 constructs an ideal positive two-cassette handoff: raise target supports,
-then lower old supports. This removes old-code writing and friction grips, but
-its broad translating staircase cannot pack arbitrary adjacent row codes. Park
-that embodiment before writer/contact refinement. Retain the handoff law as a
-conditional principle; next test a different bounded-volume height encoding,
-including physical inventory/rewriting. E-219 parks the illustrated rotary sector
-and full-height block implementations: the former still needs six depth bands
-in favorable bounds; the latter needs 38,320 pieces and hundreds of handlers.
-Next reconsider in-place shared support reconfiguration against complete cassette
-substitution, rather than refining either writer. Gravity following, source-loss arrest,
+E-216/E-217 park resident shutter stacks and reusable row-mask programmers:
+25,600 resident support switches or hundreds of controlled writer gates, with
+unresolved supported pickup and retained-state mechanisms. E-218 retains an
+ideal positive two-cassette handoff (raise target, then lower old), eliminating
+old-code writing and friction grips. Its translating staircase cannot pack;
+E-219's rotary escape still needs six depth bands in favorable bounds, while
+solid blocks need 38,320 pieces and hundreds of handlers. These scoped
+embodiments remain parked; preserve the support laws and reproducible bounds.
+
+E-220 constructs in-place crossed redundant combs: either row or column support
+holds a simple height-storing column. This avoids individual releases and cassette
+inventory, but the row/delta programmer needs 1,280 selectable column bars plus
+1,280 reusable fingers in its favorable sampled schedule. Park that embodiment;
+neither separable shared backing nor rectangle release supplies free independent
+state or throughput. Next test a materially different continuous spatial writer
+that sets absolute height in one supported visit with a small shared command set,
+before detailing more banked selectors. Gravity following, source-loss arrest,
 unchanged-neighbor disturbance and complete 6,400-cell cost remain unqualified.
 
 Every deep mechanism investigation must first justify its system-level value
