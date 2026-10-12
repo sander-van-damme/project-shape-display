@@ -1,9 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-250 axial screen on input main 522b34b.
+Updated: 2026-10-12 UTC; E-251 shared-carrier screen on input main 8b35644.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: shared loaded motion/guidance with invariant U support.
+Current discriminator: retain loaded outputs across shared strokes without
+recreating E-222's individual arrest/retention burden. E-251's five repeated
+turn/reseat transactions lose even after cap-phase staggering.
 E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
 collides; no guide/pocket/head refinement is justified. E-248 retained writing
 and E-247 rails remain parked; programming savings alone do not supply support.
@@ -392,12 +394,24 @@ Evidence to retain:
   Keep fixed forms distinct from moving sites; yaw retention remains unbuilt.
   No local cap/land/guide repair. Shared loaded acquisition/arrest is still the cut.
 
+- E-251 two global checkerboard carriers at 3.2/6.4-mm release heights remove
+  serial cap turns: axial margin1.2-E at D10 (.85 at E=.35); D>6.4+3E required
+  in this sufficient phase model. Lateral fits/capture/guides remain unqualified.
+  Async bank/off-grid neighboring transit can collide with a turning cap; require
+  common stages or stop. 15,625 ideal maps/546,875 support states; no contact proof.
+  Five shared strokes [-20,+10,+10,-20,+20] need B16/1,280 capture selectors,
+  32 carriers,26.073s/$1,180.60 favorable allocation with extra yaw/carrier free.
+  Free non-yaw overhead stillB10/800/$811. Direct staggered controlB5/400 Z/yaw
+  pairs26.708s, only$.5125/pair with$295 reserve. No jaw/guide/speed/print work.
+  Retain axial staggering; park repeated release transaction. FixedU support
+  alone does not make this affordable. E-244-cutoff advice predates these screens.
+
 Next executable investigation:
-- Architecture synthesis, not another small-interface refinement: can shared
-  motion impose individually selected column trajectories and retained arrest
-  without hundreds of independently held bilateral heads? First count physical
-  constraints and support during disengagement, then test the cheapest finite
-  counterexample. Compare direct heads and E-236; keep U support explicit.
+- First reconstruct E-222 shared-drive output retention. A changed capture that
+  stays in transit orientation across shared strokes could remove eight turns
+  per row, but each disengaged selected output then needs its own supported
+  arrest. Count those duties and compare whole-machine timing/cost with E-251
+  and E-236 before any local mechanism. Stop if it merely recreates E-222.
 - Reopen rigid tilt only for a changed whole-machine guidance/actuation route
   with comparative burden advantage; a wider slot or thinner stem is insufficient.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
