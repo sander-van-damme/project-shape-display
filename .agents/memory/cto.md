@@ -1,10 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-247 on input main 05c5d0e.
+Updated: 2026-10-12 UTC; E-248 on input main ae76bca.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: physical writing of retained shared programs. E-247
-separates motion distribution from pulse decoding, but its rail machine is parked.
+Current discriminator: selected passage through stationary positive supports.
+E-248 reduces retained-program traffic but adds slower holding transactions;
+its writer is parked. E-247 separates motion distribution from pulse decoding,
+but its rail machine is also parked.
 E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
 normal force, not individual grip proof or unchanged-row shear displacement.
 No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
@@ -351,12 +353,24 @@ Evidence to retain:
   B8 repeats640 loaded shoes/selectors/posts,72 rails and5760 choice contacts;
   79 unchanged pins still transfer support. Stop cam/post/selector detail.
 
+- E-248 binary target writing uses three weighted strokes and 19,200 selective
+  decisions/map (vs 32,000), but positive inter-bit holding adds moving teeth,
+  stationary keepers and five stages/bit. p6 B10/q80: 800 channels / 27.579 s / $1,141
+  assumed; free added hardware still $971. Planar B6 takes 44.468 s. Rack p6 with
+  2-mm land/tooth leaves .30 mm at opposing ±.35 bounds, fails ±.70; not priors.
+  1,296 program/order checks and 15,625 composed maps are ideal support evidence.
+  Retention does not fix U handoff: 79 neighbors transfer twice. Fixed rigid-group
+  segmentation needs 6,400 independent releases for arbitrary masks; scoped proof,
+  not a universal lower bound. Crossed paths preserve support, not fixed primary
+  contact. Preserve this distinction and stop keeper/rack/pawl refinement.
+
 Next executable investigation:
-- Screen unloaded binary composition of retained selector position: can weighted
-  shared strokes reduce E-247's eight/E-243's five physical write passes without
-  retained clutches per bit, carry interference or free temporary holding? First
-  build finite operation/retention ledger, not a microscopic latch. Reject if it
-  merely relocates a decoder; no parked loaded machine is reopened by default.
+- Reconstruct prior bayonet/lane-support failures before proposing a changed
+  column-to-support interface: can selected columns pass a stationary positive
+  support while U stays bearing, with selection/return in a reusable head?
+  First finite crossing and top/guide envelope; count every rotation, lateral
+  shift, decoupled cap, joint and return at 6,400 scale. Reject renamed local latches
+  or hidden U support withdrawal. No parked precision family is reopened by default.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
