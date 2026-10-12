@@ -14,7 +14,7 @@ in a favorable inherited allocation that charges nothing extra for the second
 carrier or yaw. This is worse than E-236's 400 selectors, despite solving a
 separate unchanged-support problem. No selected machine or justified print.
 
-Input main `8b35644`. Reproduce:
+Fetched input main `f23d6d3` (engineering unchanged from `8b35644`). Reproduce:
 `python3 tools/curated-experiment-checks/E-251/screen.py` (stdlib; imports E-236
 and E-167). Evidence: **finite synthesis, analytical geometry, ideal support
 replay and assumed timing/cost/error scenarios; self-review only**. No fabricated
@@ -135,6 +135,15 @@ are unqualified. Regional one/five-row cases are 10.114/26.073 s with the same
 conservative retry/reset allowances; arbitrary seek adds actual travel. U support
 is invariant ideally; frame displacement/vibration and individual proof remain
 unmeasured.
+
+Automatic reset can restore a recoverable command/index state while the fixed
+supports remain loaded; every mask overwrite already starts in that supported
+state. It does not replace capture integrity, seating proof or fault detection.
+Even deleting all reset/write/capture/seat overhead in the table below fails the
+assumed allocation, so better reset alone cannot rescue this embodiment. Whole-pin
+homing would deliberately disturb unchanged terrain and cannot be treated as a
+free regional-update recovery. Selective internal reset remains an architectural
+option, not a reason to reopen intricate resident hardware without a new ledger.
 
 Six or more pulses cannot beat the selected row time **in this transaction
 grammar**: both ±40-mm reach require total motion ≥80 mm, each ≥10-mm stroke

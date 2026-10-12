@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-251 shared-carrier screen on input main 8b35644.
+Updated: 2026-10-12 UTC; E-251 shared-carrier screen on fetched input main f23d6d3.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
 Current discriminator: retain loaded outputs across shared strokes without
@@ -405,6 +405,11 @@ Evidence to retain:
   pairs26.708s, only$.5125/pair with$295 reserve. No jaw/guide/speed/print work.
   Retain axial staggering; park repeated release transaction. FixedU support
   alone does not make this affordable. E-244-cutoff advice predates these screens.
+- Sander's newly fetched reset idea: retain selective internal reset while fixed
+  supports hold U; distinguish recoverable state errors from damaged contacts.
+  Whole-pin homing conflicts with regional isolation. E-251 already resets
+  commands at supported seats; its free non-yaw overhead case still loses, so
+  reset alone does not reopen this machine or the intricate resident-lock family.
 
 Next executable investigation:
 - First reconstruct E-222 shared-drive output retention. A changed capture that
