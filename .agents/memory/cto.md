@@ -1,12 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-240 on input main 1a2129b.
+Updated: 2026-10-12 UTC; E-241 on input main 9ba3669.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: retained physical commands without expensive purchased
-actuators or a high-current powered hold. E-240's cheap direct electronics change
-the catalog cost comparison, but monostable wound masks add keeper timing, coil
-assembly and pulse-power burden. No tested coupled case earns local refinement.
+Current discriminator: can a shared writer reuse magnetic hardware while retaining
+an affordable, supported arbitrary-map transaction? E-241 polarized commands
+remove keeper/hold time but the direct bridges, magnets and coils fail the sampled
+cost/motion/retention screen. No local rotor, detent or magnetic-gap refinement.
 Shared lift power is not the main rejection (E-239); support isolation, gravity
 following and complete affordable command generation remain unresolved.
 
@@ -275,15 +275,24 @@ Evidence to retain:
   400 coils/returns/keeper sites,800 wire terminations and ≥2800 SMD pin joints
   remain. No routed circuit, qualified supply, physical mask/reader or print.
 
+- E-241 signed PM rotor avoids E-074 soft-pole reversal and E-183 opening-gap
+  remanence. 768 ideal overwrites/1792 retained groups; no physical retention.
+  B4/320 flags/5-ms pulse:29.822 s/$481.75 allocated, but 100turn/1.2A gives
+  only30.50-uJ midpoint work vs157.91-uJ prescribed kinetic energy. B4 pulse cap
+  6.694 ms. B5/100turn:24.997 s q80,27.802 s q20,$550.98. No sampled certificate
+  at .010-N read force in256 cases. N200/.8A/P20 reader ceiling1.677 mN under
+  chosen bounds; zero-read is not a mechanical interface. Permanent/coil
+  cross-talk upper sums2.461/2.071mT at20.32-mm spacing are unresolved, not
+  predicted failures. No detailed rotor/coil/detent development or print.
+
 Next executable investigation:
-- Compare a single-winding polarized retained command mask with E-240's solenoid
-  controls at whole-machine scale. Shared reversible power/direct electronic
-  selection must count magnets, polarity routing, read reaction, unpowered
-  retention, support isolation and fault recovery. Test whether removing second
-  windings, serial keeper strokes and powered hold actually improves the ledger.
-  Do not infer soft-pole reversal from coil polarity (E-074) or import variable-gap
-  EPM retention (E-183). No detailed flag/coil/contact work before affordability
-  and broad functional margins are credible; otherwise redirect support/encoding.
+- Screen a shared traveling field writer for passive external polarized flags,
+  against the direct H-bridge control. Reuse windings/drivers without deleting
+  physical arbitrary-map writes, moves/registration, non-target immunity, read
+  reaction, support isolation or recovery. Inspect earlier spatial-writing
+  evidence first. Stop on complete cost/time/field-isolation failure; redirect
+  support/encoding rather than tuning magnetic gaps. This is an unselected
+  topology, not authorization for a local mechanism campaign.
 - Keep load distribution parametric; actual-process gravity drag, dynamic local
   arrest and field/contact behavior are unresolved, not hardware passes.
 
