@@ -287,15 +287,15 @@ Evidence to retain:
   predicted failures. No detailed rotor/coil/detent development or print.
 
 - E-242 alternating scans reuse q signed writers across 80 passive flags/head;
-  no empty carriage return or free buffer. Base .2m/s/a8 needs B6/q40,
-  480 flags/240 writers/28.010 s/$562.22. Fast flying B5/q20:400 flags/100 writers,
-  28.016 s/$509.96 at v2/a80 with an unqualified 8-mm window (actual v<=1.333).
+  no empty carriage return or free buffer. Base .2 m/s / a8 needs B6/q40,
+  480 flags/240 writers/28.010 s/$562.22. Fast flying B5/q20: 400 flags/100 writers,
+  28.016 s/$509.96 at v2 / a80 with an unqualified 8-mm window (actual v <=1.333).
   $25 reserve reduction changes cost outcome; no price floor. Reused E-241 bore
   model still has no .010-N reader certificate in tested 5-V cases. Worst-barrier
-  midpoint at best P40 case needs54.652uJ vs40.671uJ input. No field-immunity
+  midpoint at best P40 case needs 54.652 uJ vs 40.671 uJ input. No field-immunity
   solution; park before local magnet/reader work. 1,536 ideal overwrites and
-  24 expanded schedules check logic. Removes300 coils vsdirectB5, not400 flags,
-  five physical writes/row, twenty support transfers or44,800 resident shelves.
+  24 expanded schedules check logic. Removes 300 coils versus direct B5; retains 400 flags,
+  five physical writes/row, twenty support transfers and 44,800 resident shelves.
 
 Next executable investigation:
 - Change transaction/support encoding. Reconstruct E-232/E-234/E-238 first;
