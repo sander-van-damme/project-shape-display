@@ -1,6 +1,7 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-255 records owner hold; E-256 bounds the drive envelope.
+Updated: 2026-10-12 UTC; E-254 now compares physical/visual terrain policies;
+E-255 records owner hold; E-256 bounds the drive envelope.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -27,8 +28,9 @@ loaded collar can help. Bounds, not PLA priors; no safe moving-loss distance.
 E-254 three published map windows remain a convenience sample, not typical play:
 ruins13.55% raised/74rows; road/ravine69.52/71.48%/80rows. No corpus expansion.
 Advice retained: screw-first, batch manufacturing, software/shared optics and
-unchanged-neighbor support. E-244-cutoff clamp review remains addressed by later
-screens; no parked microscopic lock/guide/pawl campaign reopens.
+unchanged-neighbor support. Latest E-254-cutoff review correctly challenges the
+unselected river/ravine representation; its prior E-244 clamp review is superseded.
+No parked microscopic lock/guide/pawl campaign reopens.
 Stage02 retains gameplay<30s, dense stress separate, final<$500; research$1000–1500
 may be worthwhile without granting purchase authority. 01–08/Paperclip authoritative.
 
@@ -474,7 +476,21 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- Source a complete B2 motor/feedback/dock channel below$6.325 using E-256's
+- Owner representation question is saved on LAB-384; consult live Paperclip for
+  answer/state. E-254 playable_variants.py preserves original arrays and adds
+  visual river/ravine with10-mm local rocks and walls-only ruins. Flat river has
+  177 raised/24rows/9.50s atB2/2000rpm versus relief4449/80/18.63s.
+  Proposed flat river+physical ravine retainsB2/26.93s maximum. Visual depressions
+  both give independentB2/20.51s and maskB2/24.91s at2000rpm; mask allocation drops
+  $1608->1198 and research channel allowance$3.55->$5.8875. Still no sourced BOM.
+  Tiny occupied fractions do not rescue four16 heads (ruins40.62s) or E-253.
+  These schedules omit unimplemented prop/visual workflow; no gameplay pass.
+  Published ravine under-bridge play conflicts with solid pin-built bridge;
+  separate prop is an unqualified alternative. Visual reveal over existing
+  terrain needs no pin motion, not proven zero latency or concealment.
+  Do not select actuators from an unapproved physical/visual split.
+- Once the workload choice is resolved, source a complete B2 motor/feedback/dock
+  channel below$6.325 using E-256's
   loaded-speed envelope: ~2000rpm/1000rev/s² gives26.9335s on nine transitions;
   exact30s boundary1613.4rpm, no margin. At200rev/s² no peak RPM saves B2.
 - Torque remains unmeasured. Illustrative20-g total mass, mu.3/drag.05Nmm:
