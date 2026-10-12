@@ -1,12 +1,12 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-248 on input main ae76bca.
+Updated: 2026-10-12 UTC; E-249 on input main 2a55395.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: selected passage through stationary positive supports.
-E-248 reduces retained-program traffic but adds slower holding transactions;
-its writer is parked. E-247 separates motion distribution from pulse decoding,
-but its rail machine is also parked.
+Current discriminator: shared loaded motion/guidance with invariant U support.
+E-249 rigid tilt clears a nominal stationary rail section, but its ordinary guide
+collides; no guide/pocket/head refinement is justified. E-248 retained writing
+and E-247 rails remain parked; programming savings alone do not supply support.
 E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
 normal force, not individual grip proof or unchanged-row shear displacement.
 No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
@@ -364,13 +364,25 @@ Evidence to retain:
   not a universal lower bound. Crossed paths preserve support, not fixed primary
   contact. Preserve this distinction and stop keeper/rack/pawl refinement.
 
+- E-249 rigid-column pitch tilt changes the support cut without a resident hinge:
+  20 unequal pairs / 6,500 nominal section poses clear stationary rails/neighbors.
+  H0=100/142-mm stem, 2x2 section, .615925 degrees leaves .05360-mm margin
+  after a labelled .30-mm total support/routing gap error (not a process prior).
+  Straight upper guide at z95 with .2-mm half-gap collides; needs .516 nominal
+  retreat clearance before error. No loaded trajectory, compatible guide or arrest.
+  Direct bilateral Z/pitch allocation B2/160 pairs:26.768 s, $1.28125/pair left
+  after $295 reserve; virtual cap pivot owes real coupled X/Z/pitch geometry.
+  Resident solid inventory4.084 L,32,000 fixed teeth,12,800 guide duties. Stop
+  local tilt/guide/pocket optimization. U rail remains installed only ideally.
+
 Next executable investigation:
-- Reconstruct prior bayonet/lane-support failures before proposing a changed
-  column-to-support interface: can selected columns pass a stationary positive
-  support while U stays bearing, with selection/return in a reusable head?
-  First finite crossing and top/guide envelope; count every rotation, lateral
-  shift, decoupled cap, joint and return at 6,400 scale. Reject renamed local latches
-  or hidden U support withdrawal. No parked precision family is reopened by default.
+- Architecture synthesis, not another small-interface refinement: can shared
+  motion impose individually selected column trajectories and retained arrest
+  without hundreds of independently held bilateral heads? First count physical
+  constraints and support during disengagement, then test the cheapest finite
+  counterexample. Compare direct heads and E-236; keep U support explicit.
+- Reopen rigid tilt only for a changed whole-machine guidance/actuation route
+  with comparative burden advantage; a wider slot or thinner stem is insufficient.
 - Keep payload distribution parametric. Individual support proof, unchanged-region
   displacement, actual-process margins and affordable shared motion remain open.
 
