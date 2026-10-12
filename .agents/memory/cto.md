@@ -1,16 +1,16 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-237 on input main 12e3063.
+Updated: 2026-10-12 UTC; E-238 on input main 4c48018.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: change the support transaction to remove repeated transfer
-stages or gain substantial slack with broad contacts. E-237's command-inhibit
-screen does not earn local refinement: B4 needs release <13.343 ms; 3-ms proof
-allows <.428-mm total engagement plus adverse error. g=.35 gives 29.917 s,
-g=.50 misses. Shared B4 still owes 1.299 kN/371 W and independent bank arrest.
-Keep E-236's five-stroke code; park tested writers, including forced-return
-inhibition. A retained-output escape stores old selection separately and must
-construct its retention/isolation, not rename it a common inhibit.
+Current discriminator: resolve the physical shared-drive and command-channel
+allocation before more compiler/decoder refinement. E-238 combines retained row
+programs with moving-datum strokes: finite broad-code B8 still $588.60 assumed,
+1,280 bars/64,000 decoder lands; park strips. Keep E-236's five-stroke transaction
+as a simple direct-control comparator. Do not turn the inherited uniform
+3.27-N/cell scenario into a product requirement: loading, actual purchasable
+actuation/arrest and complete writer-channel cost need credible bounds.
+E-237's narrow release window still does not earn local refinement.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -232,16 +232,33 @@ Evidence to retain:
   B4 $441.40 excludes new inhibit hardware and force-rating correction. Reducing
   lift acceleration 8->2 m/s² gives 37.327 s while force only falls 1299->1281 N.
 
+- E-238 jointly minimizes retained pulse programs under bounded motion/seven
+  shelves: all 18 supported five-stroke walks need >=10 codes; six strokes can
+  use nine (277 shelf-compatible walks). Minimum set cover is exact within the
+  grammar, not a universal decoder lower bound. Selected [-20,+10,+10,-20,+20]
+  keeps .525-s motion, 20-mm recovery and <=10-mm endpoint detour.
+  46,875 three-cell maps /1,250,000 support observations /9,125 partial retries.
+  Physical five-track indexing at 6 mm adds .365 s/row beyond favorable decoder
+  events. P3 buffered B8/q20:160 channels/27.859 s/$508.60, .15-mm margin at e=.35.
+  P4/P5 B7/q40:280 channels/$541.40,29.240/29.780 s. P6 B8/q40:320 channels,
+  27.842 s/$588.60,1,280 bars/12,800 notches/64,000 lands,7.1424-L program stock.
+  Five direct bits B7:280 gates/5,600 sites/29.273 s/$631. Zero-span P4 oracle
+  B6/$494.20/27.486 s still owes real phase selection; no free decoder pass.
+  No routed/force-rated machine, process priors or physical qualification.
+
 Next executable investigation:
-- Synthesize a materially changed shared support transaction that reduces contact
-  transfers or gains substantial timing slack without narrow repeated interfaces.
-  Compare a program retained through a whole row against a changed shared load
-  path; reconstruct E-230's decoder failure before revisiting it. Start with
-  event/state/replication bounds; no more pulse-writer clearance optimization.
-- Reopening E-237 requires an explicit broad-engagement release topology and
-  force/arrest-qualified allocation. No hypothetical cheaper channel or faster
-  proof flag suffices. Stopped webs, travelling cassettes and duplicate captive
-  bars stay parked. No fine cutter, shelf, finger, guide or detent work; no print.
+- Bound total-board/miniature loading and worst active-row concentration, then
+  compare complete purchasable shared actuation/local arrest and command-channel
+  implementations for E-236's simpler direct control. Report load/price tipping
+  points without inventing a product load requirement. Uniform per-cell load
+  scenarios and optimistic $.50 complete channels are not evidence of either
+  impossibility or affordability. This must change the system-level decision;
+  no decoder, brake tooth, finger or guide detail campaign from an assumed BOM.
+- Retained strips require a concrete reduction of physical state/phase handling
+  and credible complete-machine economics to reopen. E-237 still requires broad
+  release and qualified drive/arrest; cheaper nominal channels or faster proof
+  flags do not suffice. Stopped webs, travelling cassettes and duplicate captive
+  bars stay parked. No print is justified by current computational results.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
