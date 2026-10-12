@@ -80,7 +80,7 @@ Sander has **already printed** small plastic pins/rods and a matching grid that 
 
 He has also **already 3D-printed and manually tried** a near-reference-scale screw-driven pin: a hollow pin with a nut/internal thread at the bottom and a mating threaded bolt/screw. Turning the screw from below while the pin does not rotate translated the pin up or down, and he reports that this worked reasonably well. The direction depends on the thread hand and viewing convention. This was a manual functional observation, **not** a measured 40-mm travel, speed, wear, torque, load or 80x80-array validation.
 
-## Idea 9 — Simple threaded pins, driven from underside screw heads
+## [PRIORITY] Idea 9 — Simple threaded pins, driven from underside screw heads
 
 Use a dense grid of roughly pitch-sized **hollow plastic columns with an internal nut/thread at the lower end**, each riding on an underlying screw/bolt. Restrain the column from rotating while allowing vertical motion; turning the screw at its accessible underside head changes column height. The top remains a simple terrain cell, potentially with little more complexity than its threaded insert or printable internal thread.
 
@@ -92,7 +92,7 @@ Height could be monitored by calibrated commanded turns from a known starting st
 
 Existing canonical **A-007** describes an analytically rejected scanning-screw implementation, and E-050/E-131/E-156 and later work contain additional thread/friction/throughput lessons. The manual printed concept does not erase those results. **Revisit only a materially distinct topology or a newly justified representative-play workload, and compare complete-machine consequences.**
 
-## Idea 10 — One shared reversible motor with row/column mechanical selection
+## [PRIORITY] Idea 10 — One shared reversible motor with row/column mechanical selection
 
 **Possible actuator layout B:** avoid motorizing all 6,400 screws separately. Instead use **one substantial reversible rotary motor** as a shared power source, and a mechanical transmission/selector analogous to clutches in a car or a clockwork mechanism. Independently command a selected row and a selected column; only their intersection should engage the main drive and turn the addressed screw. Conceptually, for an 80x80 grid, this suggests one main drive and up to ~80 row plus ~80 column selectable control channels (potentially small motors, other actuators or mechanical controls), rather than 6,400 independent motors.
 
@@ -118,7 +118,7 @@ An exception to "completely dumb columns" remains possible if a slightly more co
 
 These personal priorities are also reflected in the authoritative mission and stage-02 criteria. This advice file records why Sander requested the change, rather than superseding the criteria.
 
-## Historical screw models recovered from Git history
+## [PRIORITY] Historical screw models recovered from Git history
 
 The original CAD files **are preserved in repository history**. A useful complete historical snapshot is commit [`41484f9699`](https://github.com/sander-van-damme/project-shape-display/tree/41484f96999847c139b9010e73009d73e9459c89), which predates the later agent-driven repository reorganization:
 
@@ -130,7 +130,7 @@ The trial-5 OpenSCAD source defines approximately **4.4-mm outer rod width**, **
 
 Sander remembers personally printing/testing simple rods, a mating guide grid and a working screw-raised rod. He does **not** remember which calibration variants were the successful physical prints. The CTO should inspect the actual historical source before inventing new candidate geometry, but not claim a measured reliability, load test or final successful revision from filenames alone.
 
-## Idea 12 — Rotary writing heads optimized for D&D walls and fog of war
+## [PRIORITY] Idea 12 — Rotary writing heads optimized for D&D walls and fog of war
 
 Sander wants the threaded-rod family investigated **first**. Most D&D terrain geometry might consist of straight wall stretches, possibly mostly aligned with a grid's two axes. This is a personal observation/hypothesis; **look at real battle maps and measure** wall orientation, length, clustering and the sequence in which geometry is revealed before designing around it.
 
@@ -158,6 +158,6 @@ Sander previously used a **resin/SLA-style printer** for tiny air/fluid channels
 
 A possible **low-stack-height** shape display uses small inflatable rubber/silicone/elastomer column sleeves that extend mainly **vertically** with pressure rather than becoming wider. The unsolved questions are how to constrain circumferential expansion, fabricate thousands of tiny, repeatable sealed compliant parts (flexible-filament printing or suitable molding/casting), meter and hold the pressure, avoid leaks and support D&D miniatures safely. Sander did not find a satisfactory earlier answer and has not tested a working inflatable pin. This idea is **lower priority** and should be retained for future comparative exploration, not displace the renewed screw investigation.
 
-## Explicit near-term priority (12 October 2026)
+## [PRIORITY] Explicit near-term priority (12 October 2026)
 
 **First: resume the original screw/rod concept using the preserved OpenSCAD source and Sander's personal print experience.** Then distinguish the passive threaded lift/holding feasibility from the unresolved motorized selector/docking/throughput problem. Compare credible shared rotary heads and row/column selection on D&D fog-of-war wall workloads, costed for a working research prototype, against historical failures. Preserve engineering independence to reject a specific configuration if tests warrant it, but do not silently return to unrelated microscopic mechanism refinements before giving this physically explored family a meaningful new assessment.
