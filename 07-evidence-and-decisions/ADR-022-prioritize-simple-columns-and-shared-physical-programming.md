@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-226, E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-227, E-226, E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -66,6 +66,16 @@ on depth levels gives a best sampled 85.001 s. Preserve the unloaded-orientation
 principle and explicit transport burden, not further finger/pad/comb refinement.
 Any shared-writer reopening must supply buffers, turnover occupancy and delivery;
 notch engagement alone also fails to establish height after upright seating.
+
+E-227 ends the tested full-row cassette trajectory: sharing exterior writers
+trades selector count for long extraction strokes, return handling and buffers.
+Nominal resource work alone needs at least 7 writers/21 shuttles/7 handlers;
+the favorable FIFO model reaches 29.708 s with 16/40/16 and 80 spare cassettes,
+at an explicitly assumed $3,012 allocation. Parallel handler routing remains
+unconstructed. This is a scoped transport/economics rejection, not a universal
+cost floor. Resume resident support/addressing invention; no finer cassette
+comb, writer finger or multi-gantry packing campaign. Reopening needs a concrete
+transaction that removes the handling burden, not another timing allowance.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process

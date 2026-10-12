@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-226 on input main 4828ca4.
+Updated: 2026-10-12 UTC; E-227 on input main 0145b15.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: horizontal unloaded writing removes parked-axis support,
-but bank-owned turnover repeats writers and adds colliding 112-mm service bays.
-Do not refine a finger, pad or common comb to rescue this layout.
+Reason to redirect: shared exterior writers do not rescue full-row cassettes.
+They exchange selectors for long extraction strokes, handlers and spare media.
+End this transport trajectory; do not refine fingers, pads, combs or gantry packing.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -88,19 +88,32 @@ Evidence to retain:
   Four-mm notch/two-mm tooth allows 2-mm axial play; horizontal readback does not
   prove upright seated height. No seating/retention detail campaign is justified.
 
+- E-227 explicit side extraction requires two 414-mm shuttle strokes; overflight
+  handler crosses upright parked media using two 112-mm z strokes per transfer.
+  At assumed v200/a8000, 81-service work alone needs W7/B21/H7; these are separate
+  necessary resource counts, not a sufficient machine. Single gantry handling
+  already consumes 189.54 s even with zero y travel. Nominal FIFO relaxation:
+  W16/B40/H16, two spares/bank, 1,280 selectors, 29.708 s, assumed $3,012.
+  Doubling v/a gives sampled $1,368/28.848 s. No sourced cost floor or routing pass.
+  Buffer media grow to 12,800 bars; parallel all-to-all handlers are granted,
+  actual collision-free paths and causal fault latency are not established.
+  Stop the tested full-row travelling-cassette family; no print or local refinement.
+
 Next executable investigation:
-- At architecture level only, test whether sharing unloaded writers among exchange
-  banks changes the conclusion: aggregate 81 services/28 s needs >=4 writers for
-  E-226 writing alone, >=6 including turnover, before transport/proof/startup/drain.
-  Construct actual buffer and media delivery/return geometry and event schedule;
-  compare retained interfaces, complete bought allocation and depth with the
-  one-writer-per-bank control. Stop if parallel transport needs another expensive
-  bank of independent manipulators or paths remain unspecified. This is a bounded
-  changed allocation, not permission for pusher/pad/comb optimization. If it fails,
-  end this cassette route and synthesize a different resident support topology.
-- No architecture selected; no prints. E-218 remains an ideal support law only;
-  gravity following, arrest and dual-lane routing are unresolved. E-084 keeps all
-  media preparation in-cycle; E-220 forbids free separable compression of maps.
+- Return to resident support memory with shared addressing. Reconstruct E-216/
+  E-217 repeated mask burden, E-220 crossed-support addressing and E-221/E-222
+  intermediate retention before synthesis. Generate a changed support/addressing
+  transaction and show where independent information and supported intermediate
+  heights live. Compare masks/encoded layers explicitly; no assumption that a
+  common clamp can preserve independent capture times (A-019/E-165), or that
+  another buffer removes E-227 transport work. Screen the entire board first.
+- Bound this next task to causal architecture generation and a discriminating
+  executable necessary-condition test; choose a materially new topology before
+  detailed geometry. If a principle duplicates prior work, retain its existing
+  scoped failure and change the transaction rather than repeating an audit.
+- No architecture selected; no prints. E-218 is an ideal support law only;
+  physical following, arrest, dual-lane routing and readback remain unresolved.
+  E-084 keeps media preparation in-cycle; E-220 forbids free separable compression.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
