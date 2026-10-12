@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -45,9 +45,13 @@ pitch cannot preserve unequal unchanged neighbors sharing its loaded run. Below-
 return and an ideal grounded brake do not repair that material-coordinate conflict.
 Separate five-code cell loops escape it but restore 6,400 retained phases, 12,800
 pulleys and 32,000 pads; park the specified layout before keeper/contact refinement.
-Next invention must decouple transported media from loaded support, or construct
-an orthogonal supported swap, with physical rewriting and unchanged-neighbor
-continuity explicit. No selected drive or complete-machine physical pass.
+E-224 decouples writing from loaded support using compact vertical bars and a
+common cassette comb. Its finite branching-rail writer still needs 1,024 gates
+at zero error, or 2,560 in the ±.35-mm scenario; park that embodiment. Preserve
+the finite-follower gate-occupancy bound and compact encoding, not a machine
+selection. Reopening needs changed media handling/programming that removes this
+throughput burden and constructs supported extraction, transport and exchange.
+No selected drive or complete-machine physical pass.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process

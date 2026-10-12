@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-223 on input main 954f124.
+Updated: 2026-10-12 UTC; E-224 on input main 43e051d.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: shared-source support switching raises channel counts;
-transporting loaded relief couples unchanged heights. Decouple media transport
-from the load path; do not refine a local keeper or conveyor joint.
+Reason to redirect: compact unloaded media can escape loaded-relief coupling,
+but finite packed followers consume serial gate switching distance. Change
+media handling/programming; do not shrink a tongue or refine the common keeper.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -58,13 +58,25 @@ Evidence to retain:
   12,800 pulleys and 32,000 pads (8.138 L before ramps/belts); park that layout.
   The proof excludes in-place rewriting and orthogonal transfers; these need
   explicit support continuity, not an assumption that they already work.
+- E-224 vertical support bars/common comb remove staircase horizontal sweep;
+  compact encoding only, no routed/qualified cassette. Finite gate occupancy is
+  ramp run + follower footprint. For 2+2 mm at pitch 5.08, opposing ±.35-mm x
+  errors leave .38 mm for switching; scan speed 6.732 mm/s under assumed bounds.
+  Zero-error finite case needs 1,024 gates vs 256 point control. At ±.35, sampled
+  multi-bar streams miss 30 s; one-bar streams give 2,560 gates / 8 heads / 29.403 s,
+  with unbuilt routing and 45-mm exchange allowance. A 65-mm stroke gives 33.803 s.
+  Common x bias cancels headway erosion; vertical ±.35 still needs 1,024 gates.
+  Printed bars 2.451 L at 8 heads; 7,040 placements/comb sites remain. Park writer;
+  no fine gate/keeper study. Widening programmer pitch is a changed handling
+  topology and owes spread/repack/return without 6,400 extra joints or loops.
 
 Next executable investigation:
-- Decouple unloaded low-profile programming media from loaded support, or invent
-  an orthogonal old/target swap with actual support overlap. First construct the
-  unequal unchanged-neighbor witness through the complete transaction, including
-  arbitrary rewriting/return and source loss. E-218 remains a comparator, not a
-  restored cassette winner. Stop at the first support/routing/rate contradiction.
+- Construct a changed media path: spread unloaded followers only during writing,
+  then restore 5.08-mm registration before positive exchange; or bypass serial
+  branching with a different shared transaction. First count movable carriers,
+  joints, full spread/write/repack/return time and support through extraction.
+  Stop if it restores resident loops/pantographs, hundreds of costly controls,
+  or unbuilt repacking. E-218 remains a support-law comparator, not a winner.
 - This is architecture invention, not a clutch/dog/shoe or finer screw campaign.
   E-222 prices/bounds reject specified routes, not every shared drive. Reopen only
   with credible complete cost/support changes; no prints yet.
