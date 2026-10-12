@@ -2,6 +2,10 @@
 
 Develop an affordable, manufacturable, reliable physical Dungeons & Dragons battle map. Dense independently height-adjustable square/rectangular column tops form terrain, walls, stairs, pits and platforms while supporting normal miniatures. Product requirements live in `02-design-criteria/`.
 
+The physical display primarily provides gameplay-relevant geometry and elevation: walls, barriers, platforms, stairs, large terrain features and a stable surface for miniatures. Tiny objects, textures and other details need not each become tiny raised shapes; an optional overhead projector or other image overlay could render them. Whether projection works on uneven moving terrain, and what it costs, remains a design question, not an assumed capability. Gameplay speed should be judged on representative D&D maps rather than treating every pin changing as a typical map.
+
+Favor fault-tolerant simple repeated pins and use shared actuation, software-driven calibration/feedback and automatic recovery where they **actually reduce** repeated hardware complexity. Software cannot replace a physical load path, holding mechanism or failure-safe state. A few higher-precision shared actuator parts can justify specialized fabrication if the product-wide economics and service route work.
+
 ## Computational invention
 
 The research program must search broadly for mechanisms and complete machine architectures that substantially improve the product. Computational invention is a primary responsibility: generate, combine, synthesize and optimize mechanical operating principles, addressing and multiplexing, state storage, load paths, actuation, sensing and recovery. Existing designs are seed ideas and comparison references, never the boundary of the search or a protected solution.
