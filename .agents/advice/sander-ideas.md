@@ -117,3 +117,47 @@ An exception to "completely dumb columns" remains possible if a slightly more co
 - **Visual detail need not be mechanical detail.** Show essential walls/large terrain physically, but small objects, textures or icons can potentially be shown by an overhead projector even if it is impractical to sculpt each of them with pins. Projection is optional and must still be checked on uneven geometry.
 
 These personal priorities are also reflected in the authoritative mission and stage-02 criteria. This advice file records why Sander requested the change, rather than superseding the criteria.
+
+## Historical screw models recovered from Git history
+
+The original CAD files **are preserved in repository history**. A useful complete historical snapshot is commit [`41484f9699`](https://github.com/sander-van-damme/project-shape-display/tree/41484f96999847c139b9010e73009d73e9459c89), which predates the later agent-driven repository reorganization:
+
+- [`trial-1-threaded-rods/`](https://github.com/sander-van-damme/project-shape-display/tree/41484f96999847c139b9010e73009d73e9459c89/trial-1-threaded-rods): early hollow cuboid/nut and threaded-bolt models (e.g., `cube-v2.scad`, `bolt-v3.scad`).
+- [`trial-3-new-threaded-rods/`](https://github.com/sander-van-damme/project-shape-display/tree/41484f96999847c139b9010e73009d73e9459c89/trial-3-new-threaded-rods): new `actuator.scad`, `calibrate_screw.scad`, `calibrate_rect_tube.scad`, frame components.
+- [`trial-5-grid-and-cubes-and-rod/`](https://github.com/sander-van-damme/project-shape-display/tree/41484f96999847c139b9010e73009d73e9459c89/trial-5-grid-and-cubes-and-rod): later compact rod/screw and grid experiments with explicit calibration geometry, likely worth inspecting first but **not proven to be the successfully printed variant**.
+
+The trial-5 OpenSCAD source defines approximately **4.4-mm outer rod width**, **0.44-mm tube wall**, **3.2-mm screw diameter**, **3-mm thread pitch**, **50-mm screw length**, and a frame with **4.64-mm openings + 0.44-mm webs = 5.08-mm pitch**. Its separate tolerance coupon explores `4.64 +/- 0.3 mm` in 0.1-mm steps. These values document design intent; they are **not measured print error or evidence of passing fits**. The models call BOSL2 routines, so reproducing them requires checking compatible library versions.
+
+Sander remembers personally printing/testing simple rods, a mating guide grid and a working screw-raised rod. He does **not** remember which calibration variants were the successful physical prints. The CTO should inspect the actual historical source before inventing new candidate geometry, but not claim a measured reliability, load test or final successful revision from filenames alone.
+
+## Idea 12 — Rotary writing heads optimized for D&D walls and fog of war
+
+Sander wants the threaded-rod family investigated **first**. Most D&D terrain geometry might consist of straight wall stretches, possibly mostly aligned with a grid's two axes. This is a personal observation/hypothesis; **look at real battle maps and measure** wall orientation, length, clustering and the sequence in which geometry is revealed before designing around it.
+
+Possible shared actuation variants:
+- A **full-row rotary actuator head** that moves like a 3D-printer carriage and can turn 90 degrees at a suitable parking position, changing between writing horizontal and vertical lines of screws/pins.
+- Separate horizontal and vertical actuator heads, avoiding the time/clearance cost of reorienting one long head.
+- **Four independent smaller heads**, perhaps 16 driven pins each, serving different portions of the map in parallel. The exact 4×16 arrangement is illustrative, not a throughput proof.
+- A mechanically multiplexed row/column rotary bus (Idea 10) as a comparator, even if selection cost initially runs above the ideal product BOM.
+
+D&D's **fog of war** means that walls/rooms may be revealed as players move, often in small regions. A head could potentially pre-position near a known future wall before revealing it, then write the new heights quickly. This may improve player-perceived reveal latency but must not alter visible terrain too early, disturb existing miniatures or conceal preparation time as free throughput. Unknown future player choices and worst-placed target walls need to be included.
+
+Compare each layout for docking accuracy and per-pin time, reverse rotation, travel, turn count, rotation/exchange clearance, safe simultaneous operation, collision, isolation, height verification, full bought-hardware cost and realistic gameplay update durations. A long row of screwdriver tips is a mechanical proposal, not a solution just because its motors fit on one moving bridge.
+
+## Idea 13 — Other manufacturing methods and realistic maker assembly time
+
+Sander asks that the engineering search **go well beyond '3D print it or buy a catalog part'**. He can imagine molds/casting to batch-manufacture repeated plastic or metal screws and rods, formed parts, machinable feedstocks, specialized services offering custom polymer/metal components and inexpensive automated processes. A 3D-printed mold may be useful with suitable casting media; compatibility with hot metal and casting shrinkage must be checked, not assumed.
+
+He is happy to spend a weekend, or perhaps **two to four days**, building a promising prototype, but not weeks manually preparing, individually trimming or adjusting thousands of parts. The question is not only price per item but tooling, print time, automated production, number of human touches per part, assembly effort, calibration and later repair. Save expensive/precision processes for a limited shared actuator layer if that is the strongest cost/benefit choice. Favor compact packaging when comparable options work, but do not delay proving a robust mechanism for thinness.
+
+## Sander's earlier resin pneumatic trial — negative practical experience
+
+Sander previously used a **resin/SLA-style printer** for tiny air/fluid channels. He strongly disliked the messy resin handling and rinsing workflow. Small passages resisted flow enough that significant pressure seemed necessary to push air or liquid through, and tiny switching valves appeared to make the problem worse. No actual channel dimensions, pressures, flow curves or quantitative outcomes survive in this report. This is a practical warning about tiny resin-printed fluid networks, **not** measured proof that all pneumatic or hydraulic systems are impractical. He remains more interested in larger tubing if pressure-based designs are later reconsidered.
+
+## Idea 14 — Narrow, lengthwise-inflatable rubber pins (deferred)
+
+A possible **low-stack-height** shape display uses small inflatable rubber/silicone/elastomer column sleeves that extend mainly **vertically** with pressure rather than becoming wider. The unsolved questions are how to constrain circumferential expansion, fabricate thousands of tiny, repeatable sealed compliant parts (flexible-filament printing or suitable molding/casting), meter and hold the pressure, avoid leaks and support D&D miniatures safely. Sander did not find a satisfactory earlier answer and has not tested a working inflatable pin. This idea is **lower priority** and should be retained for future comparative exploration, not displace the renewed screw investigation.
+
+## Explicit near-term priority (12 October 2026)
+
+**First: resume the original screw/rod concept using the preserved OpenSCAD source and Sander's personal print experience.** Then distinguish the passive threaded lift/holding feasibility from the unresolved motorized selector/docking/throughput problem. Compare credible shared rotary heads and row/column selection on D&D fog-of-war wall workloads, costed for a working research prototype, against historical failures. Preserve engineering independence to reject a specific configuration if tests warrant it, but do not silently return to unrelated microscopic mechanism refinements before giving this physically explored family a meaningful new assessment.
