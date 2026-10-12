@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-252 sustained-capture screen on main 666efe6.
+Updated: 2026-10-12 UTC; E-252 on fetched main a51ae54; engineering input 666efe6.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
 Current discriminator: choose a continuously supported motion path once,
@@ -422,6 +422,17 @@ Evidence to retain:
   rises to+26.4; deeper -60 allocation needs ten fixed forms/column (64,000).
   U retains fixed primary support ideally; reset cannot erase support duties.
   No head CAD, physical arrest or print; scope remains architecture screening.
+
+- Sander ideas 2–8 (a51ae54): adopt simple rods/shared/software philosophy;
+  reset corrects state, not support. Row-strip evidence E-245/E-246 and stopped
+  consumable web E-235 already address ideas 3/5; waste was not their stop cause.
+  Head-only flexible motor transmission is not E-244's 6,400-cord embodiment;
+  still owes loaded-output arrest, routing and loss. Conventional head hydraulics
+  remain admissible, with E-222's independent isolation, flow and seal ledger.
+  Shared optical feedback remains promising (Q-006/E-178), not dismissed:
+  E-004 rejects one static view, E-179 rejects specific support-image aliases.
+  Neither rules out multi-view height sensing; software cannot infer unseen
+  load-bearing engagement merely from correct height. No automatic new tasks.
 
 Next executable investigation:
 - Reconstruct E-247 nine signed-displacement rails: can a changed column select

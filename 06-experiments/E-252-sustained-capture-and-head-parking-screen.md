@@ -14,7 +14,8 @@ added parking hardware free. Even **zero-time reset** needs **six banks / 480
 channels / 29.668 s / $564.60**. These are conditional scenarios, not price or
 speed lower bounds. No selected architecture or justified print.
 
-Input main `666efe6`. Reproduce:
+Fetched input main `a51ae54` (engineering unchanged from `666efe6`; the new
+advice was assessed during integration). Reproduce:
 `python3 tools/curated-experiment-checks/E-252/screen.py` (stdlib; imports E-251).
 Evidence: **mechanism hypothesis, ideal support replay, finite enumeration and
 calculations under explicitly labelled bounds**. Self-review, not independent
