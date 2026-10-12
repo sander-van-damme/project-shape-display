@@ -1,6 +1,6 @@
 ---
 status: active
-builds-on: [E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
+builds-on: [E-226, E-225, E-224, E-223, E-222, E-221, E-220, E-219, E-218, E-217, E-216, ADR-009]
 ---
 
 # Prioritize simple columns and shared physical programming
@@ -57,6 +57,15 @@ limit but retains narrow absolute phase margins and 1,024 gates in the favorable
 bar-bottom writing collides with upper rails. End branching-rail refinement;
 reopen only through a changed shared programming transaction, not a smaller toe
 or faster assumed stroke. No selected drive or complete-machine physical pass.
+
+E-226 removes loaded writer retention by orienting unloaded bars horizontally,
+then capturing them with a common comb before turnover. Park its bank-owned
+writer layout: finite rotation needs 113-mm clearance travel; even granted
+routing requires 20 heads/1,600 selectors/26.995 s. Separating overlapping bays
+on depth levels gives a best sampled 85.001 s. Preserve the unloaded-orientation
+principle and explicit transport burden, not further finger/pad/comb refinement.
+Any shared-writer reopening must supply buffers, turnover occupancy and delivery;
+notch engagement alone also fails to establish height after upright seating.
 
 Every deep mechanism investigation must first justify its system-level value
 against a simpler comparator, including replication, assembly, correlated process

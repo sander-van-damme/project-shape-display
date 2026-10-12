@@ -1,11 +1,11 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-225 on input main 297c990.
+Updated: 2026-10-12 UTC; E-226 on input main 4828ca4.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture invention / necessary-condition screens; no machine selected.
-Reason to redirect: compact media avoids loaded-relief coupling, but continuous
-and indexed branching writers both retain high channel counts and unbuilt routing.
-End this writer campaign; do not refine a tongue, follower toe or common keeper.
+Reason to redirect: horizontal unloaded writing removes parked-axis support,
+but bank-owned turnover repeats writers and adds colliding 112-mm service bays.
+Do not refine a finger, pad or common comb to rescue this layout.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -80,19 +80,27 @@ Evidence to retain:
   escape both rails and dual support lanes; narrowing a nose does not fix this.
   A sideways common rail withdrawal supplies an extraction order, not finite CAD.
 
+- E-226 horizontal stationary tray + selective common sweep sets unloaded bars
+  without individual loaded brakes. Shared passive drag is assumed, not qualified.
+  Lock before rotating: 104-mm bar union, 112-mm allocated bay, 113-mm descent.
+  Even free routing: 20 heads/1,600 selectors/26.995 s; overlapping bank bays
+  separated into depth levels give best sampled 85.001 s. Park bank-owned writers.
+  Four-mm notch/two-mm tooth allows 2-mm axial play; horizontal readback does not
+  prove upright seated height. No seating/retention detail campaign is justified.
+
 Next executable investigation:
-- Return to functional architecture synthesis: independent arbitrary height state
-  is necessary, but serial four-branch traversal and duplicate load-bearing media
-  are choices. Construct a non-branching shared transaction before further timing
-  optimization. Compare direct simultaneous programming of unloaded state with
-  in-place state setting; explicitly supply support during write and power loss.
-  First screen retained sites, parallel controls, transaction count and actual
-  transport geometry against E-216/E-221/E-225. Stop any renamed version of their
-  same grips, independent axes or rail pipeline. No microscopic escape study.
-- No architecture selected; no prints yet. E-218 remains a useful ideal support
-  law. E-084 keeps arbitrary media preparation in the cycle boundary. E-220 rules
-  out separable additive/max backing for arbitrary maps; preserve independent
-  state rather than invent free compression of the map.
+- At architecture level only, test whether sharing unloaded writers among exchange
+  banks changes the conclusion: aggregate 81 services/28 s needs >=4 writers for
+  E-226 writing alone, >=6 including turnover, before transport/proof/startup/drain.
+  Construct actual buffer and media delivery/return geometry and event schedule;
+  compare retained interfaces, complete bought allocation and depth with the
+  one-writer-per-bank control. Stop if parallel transport needs another expensive
+  bank of independent manipulators or paths remain unspecified. This is a bounded
+  changed allocation, not permission for pusher/pad/comb optimization. If it fails,
+  end this cassette route and synthesize a different resident support topology.
+- No architecture selected; no prints. E-218 remains an ideal support law only;
+  gravity following, arrest and dual-lane routing are unresolved. E-084 keeps all
+  media preparation in-cycle; E-220 forbids free separable compression of maps.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
