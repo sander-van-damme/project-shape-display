@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-167 resolution extension on input main a2025e3.
+Updated: 2026-10-12 UTC; E-250 axial screen on input main 081369f.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
 Current discriminator: shared loaded motion/guidance with invariant U support.
@@ -380,6 +380,17 @@ Evidence to retain:
   cap pivot owes real coupled X/Z/pitch geometry.
   Resident solid inventory4.084 L,32,000 fixed teeth,12,800 guide duties. Stop
   local tilt/guide/pocket optimization. U rail remains installed only ideally.
+
+- E-250 small axial turn: finite .3-mm tangential land releases at 14.63762°,
+  while 4.8-square caps touch U at 7.14839°. Interior-point witness excludes every
+  angle in the small cap-safe component during old-seat crossing; lifting first
+  does not fix held-angle descent. R2 axial motion offers only .24936 mm point
+  travel before cap contact; longer stem provides no leverage. Quarter-turn is
+  a separate E-167 escape, still needing its interlevel window and supported head.
+  Common direct-head timing: no-yaw B3/240/26.249s; failed microturn B4/320/23.974s;
+  quarter-turn two sequential color phases B8/640/26.300s (not a minimum).
+  Keep fixed forms distinct from moving sites; yaw retention remains unbuilt.
+  No local cap/land/guide repair. Shared loaded acquisition/arrest is still the cut.
 
 Next executable investigation:
 - Architecture synthesis, not another small-interface refinement: can shared
