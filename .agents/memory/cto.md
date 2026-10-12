@@ -1,14 +1,14 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-239 on input main 329e94e.
+Updated: 2026-10-12 UTC; E-240 on input main 1a2129b.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: affordable retained physical command writing, with complete
-support isolation. E-239 separates total payload/concentration from the inherited
-uniform load scenario: shared lift power is not the decisive rejection. Actual
-sampled catalog selectors cost $1,584–3,160 bare at 400 channels; stop those routes.
-E-236's five-stroke transaction remains a comparator. Retained strips (E-238),
-narrow overwrite (E-237), and fine local contacts still do not earn refinement.
+Current discriminator: retained physical commands without expensive purchased
+actuators or a high-current powered hold. E-240's cheap direct electronics change
+the catalog cost comparison, but monostable wound masks add keeper timing, coil
+assembly and pulse-power burden. No tested coupled case earns local refinement.
+Shared lift power is not the main rejection (E-239); support isolation, gravity
+following and complete affordable command generation remain unresolved.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -262,20 +262,30 @@ Evidence to retain:
   sampled $3.96 solenoid/geared stepper and $7.90 servo routes fail before extras.
   No market-wide price floor, force-rated machine or justified print.
 
+- E-240 separates direct electrical writing from matrix retention. An unretained
+  monostable scan loses early bits. Group keepers or opposed bistable coils pay
+  extra contacts/serial phases. B5 direct 1-mm keeper/10-ms pulse:29.274 s/$497.25
+  at assumed 100 turns; 2-mm keeper:B6/27.482 s/$532.40. Actual electronics/wire
+  subtotal $79.25 plus $295 reserve leaves $125.75 for implementation extras.
+  At .2-g/1-mm triangular motion/.002-N drag, +.35-mm initial-gap error, .85
+  current and .5 force factor, 10 ms needs 77.66 NI. Cheapest force survivor:
+  200 turns/.4 A,29.274 s/$519.62, only 6% force margin. None of 228 coupled cases
+  meets force/timing/assumed cost together; no universal cost/pull-in bound.
+  B5 all-on current 160 A persists through 35.36-ms keeper capture; copper 328.5 W.
+  400 coils/returns/keeper sites,800 wire terminations and ≥2800 SMD pin joints
+  remain. No routed circuit, qualified supply, physical mask/reader or print.
+
 Next executable investigation:
-- Screen bulk electrical writing of a reusable external binary mask, e.g.
-  matrix-addressed magnetic state with shared mechanical read/actuation, against
-  parked mechanical writers. Changed command medium, not selected architecture.
-  First construct write/retain/read/isolate phases and a 400-site copper, driver,
-  power, routing and assembly ledger. Compare $.5125 complete-channel and
-  73.664-ms physical-write ceilings for E-236 B5; count half-selection, retention,
-  power-loss support and additional transfers. Do not begin coil, latch or fine
-  contact design from cheap component prices. Stop if whole-machine benefit fails;
-  redirect support/encoding principles rather than optimize a fragile selector.
-- Keep load distribution parametric; product-wide load/contact qualification is
-  unresolved. Gravity following and dynamic local arrest must be reconstructed
-  for any otherwise competitive survivor. No further compiler/decoder campaign
-  while complete affordable command writing is absent.
+- Compare a single-winding polarized retained command mask with E-240's solenoid
+  controls at whole-machine scale. Shared reversible power/direct electronic
+  selection must count magnets, polarity routing, read reaction, unpowered
+  retention, support isolation and fault recovery. Test whether removing second
+  windings, serial keeper strokes and powered hold actually improves the ledger.
+  Do not infer soft-pole reversal from coil polarity (E-074) or import variable-gap
+  EPM retention (E-183). No detailed flag/coil/contact work before affordability
+  and broad functional margins are credible; otherwise redirect support/encoding.
+- Keep load distribution parametric; actual-process gravity drag, dynamic local
+  arrest and field/contact behavior are unresolved, not hardware passes.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
