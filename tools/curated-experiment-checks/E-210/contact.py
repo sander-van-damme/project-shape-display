@@ -131,6 +131,9 @@ class Model:
         assert all(lo+1e-5 < v < hi-1e-5 for v,(lo,hi) in zip(q,bounds)), q
         return self.report(q,sol.nit,writer_k)
 
+    def actual_bodies(self,q):
+        return [(p+q[:2],x) for p,x in r.bodies(q[2],depth=self.depth,t=self.t)]
+
     def report(self,q,nit,writer_k=0.):
         a=self.state(q); columns=[]; labels=[]; points=[]
         pivot=r.P+q[:2]
@@ -158,7 +161,7 @@ class Model:
         required=self.gradient(q)+writer_k*np.r_[q[:3],0.]
         loads,residual=nnls(mat,required,maxiter=500) if columns else (np.zeros(0),np.linalg.norm(required))
         assert residual<2e-5, ('wrench imbalance',q,residual)
-        actual=[(p+q[:2],x) for p,x in r.bodies(q[2],depth=self.depth,t=self.t)]
+        actual=self.actual_bodies(q)
         rack=r.p.rack(q[3]); leaf=r.rod_bodies(a,self.t)
         # Finite solids checked independently of optimization constraints.
         # SAT tolerance accommodates the optimizer's sub-nm penetration.
