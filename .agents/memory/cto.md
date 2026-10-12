@@ -1,13 +1,13 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-245 on input main cd37c14.
+Updated: 2026-10-12 UTC; E-246 on input main d786fff.
 Priority: simple columns, broad positive support, shared accessible programming.
 Depth: architecture screens; no selected machine, CAD or print.
-Current discriminator: mechanically driven sealed pressure equalization versus
-positive combs, with full zone routing/retention/cost first. No membrane detail.
-E-245 smooth crossed clamps remove 44,800 shelves but add 12,800 friction holds.
-Bulk-pad force/travel/packing coupling rejects the tested section; force sensing
-can miss untouched pins. A near-budget timing calculation does not reopen it.
+Current discriminator: shared positive support with persistent row programs;
+reconstruct E-232/E-238/E-243 before inventing a changed support transaction.
+E-245 bulk pads and E-246 sealed pressure strips are parked. Pressure equalizes
+normal force, not individual grip proof or unchanged-row shear displacement.
+No membrane, seal, pawl, coil-gap or guide-detail continuation is justified.
 
 Evidence to retain:
 - ADR-022 governs; E-208–E-215 toe/return/capture/guide refinement stays dormant.
@@ -330,16 +330,26 @@ Evidence to retain:
   Fixed shelves are not equivalent moving failure sites. Park bulk pads/spacers.
   Pressure oracle .1953MPa and 400 resident zones is unbuilt.
 
+- E-246 end-fed sealed pressure: 400 resident+320 head circuits at B4,
+  130.048m resident strips, 1440 ideal terminal closures, 6–18h assumed fill/proof.
+  Row force falls960->400N/face but .9mm accommodation needs3.6864mL/row.
+  3200mm² reservoir gives1.152mm stroke/625N; smaller area pays travel. One-end
+  .44mm slit/.001Pa s/beta.25 needsB8/$687.80; two-end B5/$503. Two-end beta1
+  oracle B4/29.244s/$441.40 leaves$58.60 for all pressure extras (not price floor).
+  Fast case Re9600 and .185MPa triangular-flow inertance exceed creeping-flow
+  evidence; 18/648 relaxed B4 timings are not hardware survivors. Common pressure
+  plus total volume can miss one bridged contact. Gas/distributed squeeze do not
+  erase 12800 resident holds or untouched-neighbor transfer. No print/detail.
+
 Next executable investigation:
-- Screen a mechanically squeezed sealed pressure equalizer, not a powered valve
-  array: full resident/head-zone routing, passive retention, fill/seal/repair,
-  volume/force stroke and online schedule. It must remove stiffness amplification
-  and fit broad gap variation without new per-cell releases. Compare E-236 and
-  E-245; the B4 allocation leaves only $58.60 for all new pad/force costs. Seek an
-  actual economical construction before any membrane CAD or printing; stop if
-  pressure retention simply adds 400 valves or fragile per-cell sealed elements.
-- Keep payload distribution parametric. Force/readback, actual-process contact
-  behavior, finite routing and local dynamic arrest remain unqualified.
+- Return to positive support/persistent shared programming: reconstruct
+  E-232/E-238/E-243, then generate changed support/command transactions that could
+  eliminate per-pulse rewrites without private loaded memories. First output:
+  reachable/support state graph, physical program sites, full online traffic,
+  supported recovery and complete-machine ledger versus E-236. Discard relabelled
+  paired bars, decoded media or overrun heads; no local optimization by default.
+- Keep payload distribution parametric. Individual support proof, unchanged-region
+  displacement, actual-process margins and affordable shared motion remain open.
 
 Important unknowns: compact positive-support encoding, gravity following,
 actual-process margins, supported load transfer, reader coverage and bought BOM.
