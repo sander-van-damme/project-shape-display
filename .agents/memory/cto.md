@@ -1,38 +1,39 @@
 # CTO research compass — working memory, not engineering evidence
 
-Updated: 2026-10-12 UTC; E-214, input main 651b97c.
+Updated: 2026-10-12 UTC; E-215, input main e96a7d4.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: applied LEARN → support/release/takeover recombination.
+Mode: applied LEARN → change writer/support access topology.
 
 Portfolio / uncertainty:
-- E-214 remote resident guide pair amplifies play at tail eye: c≤.005909 mm
-  necessary under declared pin/registration budget. Not an X1C process floor.
-- Pose-seeking reusable guide + retained y-float clears pin corners but its rail
-  hits 16/64 acquisition cases per tested angle. No tiny rail retuning next.
-  Eight pad outputs plus unchanged eight release outputs do not reduce burden.
-- Stronger failure: after reusable guide departure, toe pad y=.8…1.2 cannot
-  balance tail-centered y=1.95 load; 10-N scenario lacks 7.5 N mm moment support.
-  A reusable guide cannot silently replace the resident column reaction path.
-- E-213 nominal axial reach survives; passive guide/tight pin and unbraced
-  82-mm depth-stagger tail fail their declared cases. Safe-park timing only
-  2/9 cases at H=160, none H=40/80; no machine admission.
-- E-209/E-211 rocking release remains costly: return strain 2.247/3.188%,
-  tensile edge 3.44/4.31%, force 7.56/14.80 N; miniature stem demand unresolved.
-- E-054/E-056 guided slider retains 6,400 fits/25,600 shelf faces; pawl
-  guidance is not column guidance. Keep as direct positive-release control.
-- E-124/E-125 cup/channel and E-212 split-guide/jaw remain failed controls;
-  do not rename them as new mechanisms. E-206 longer torsion is an alternative
-  only with an explicit grounded column path. E-165/E-197 inactive.
+- E-215 inverted bayonet: stationary column, resident turning support ring.
+  Grounded upper guides retain a column moment path; no loaded pose pass.
+- Outer takeover hits locked ring at every tested corner. Inward pickup first
+  catches bottom lug in 4/5 states; long rotary release stems cross those lugs.
+  Co-location alone is not an accessible second bearing face.
+- .25-mm release posts recreate precision burden; ledge aperture fails bounded
+  lug corners. Stop pocket/radius tuning: these are not the stronger failures.
+- Direct E-054/E-056 slider remains comparison; E-215 straight rear rod hits
+  next web by .01 mm. No rejection of dogleg/open-side access or whole family.
+  Pawl guidance still does not provide column guidance.
+- E-214 fixed remote eye requires guide half-play ≤.005909 mm under its budget;
+  reusable guidance leaves 7.5 N mm missing after departure at 10-N scenario.
+- E-209/E-211 rocking return retains 2.247/3.188% root-error strain,
+  3.44/4.31% tensile-edge strain and 7.56/14.80-N force tails.
+- E-123/E-174 closed-guide crossing and E-124/E-125 retained-cup failures are
+  controls. Do not rename them as new pickup mechanisms.
+- E-206 longer torsion is dormant pending accessible grounded support;
+  E-165/E-197 inactive. No machine or hardware qualification claimed.
 
 Recent learning:
-- Geometry-only collision checks can miss complete pin/eye non-engagement.
-- Moving a moment function into the writer leaves a departure obligation.
-- No broad search saturation claim; narrow tail/pocket axis diminishing value.
+- Rotating ground instead of terrain avoids cap rotation but routes release
+  through the repeated lug train. Ring-only motion is not a support transaction.
+- Nominal support force/readback cannot identify the correct acquired lug.
+- No broad saturation claim; closed concentric capture axis has diminishing value.
 
-Next discriminator: co-locate resident support, release and writer takeover;
-construct a ground reaction cone that remains valid when the head departs.
-Compare explicit guided slider with a changed coarse release/support topology.
-Stop on hidden column guides, unsupported departure or recreated tiny grippers;
-count complete head outputs and repeated resident precision before refinement.
-No print/purchase while these load-path contradictions remain.
+Next discriminator: permanently open side portal, separate resident bearing and
+writer capture faces; construct missing frame reaction and neighbor clearance.
+Start from E-123/E-174 obstruction controls; avoid a new remote eye/closed sleeve.
+Stop on unsupported departure, access collision or recreated miniature couplers.
+Require signed force, actual/reported proof, full output/cost/time accounting.
+No print/purchase while a causal access/load-path question can decide the design.
 01–08/Paperclip remain authoritative.
