@@ -2,7 +2,7 @@
 
 Updated: 2026-10-12 UTC; E-215, input main e96a7d4.
 North star: affordable complete ~6,400-column machines; none selected.
-Mode: applied LEARN → change writer/support access topology.
+Mode: applied LEARN; stop local capture refinement pending architecture reset.
 
 Portfolio / uncertainty:
 - E-215 inverted bayonet: stationary column, resident turning support ring.
@@ -30,10 +30,10 @@ Recent learning:
 - Nominal support force/readback cannot identify the correct acquired lug.
 - No broad saturation claim; closed concentric capture axis has diminishing value.
 
-Next discriminator: permanently open side portal, separate resident bearing and
-writer capture faces; construct missing frame reaction and neighbor clearance.
-Start from E-123/E-174 obstruction controls; avoid a new remote eye/closed sleeve.
+Next: assigned corrective LAB-343 takes priority; reassess repeated-parts burden
+and shared programmable actuation before selecting further mechanism work.
+A permanently open side portal is only a conditional escape from E-215, not a
+scheduled follow-up. Any reopening must justify the full-machine tradeoff first.
 Stop on unsupported departure, access collision or recreated miniature couplers.
-Require signed force, actual/reported proof, full output/cost/time accounting.
-No print/purchase while a causal access/load-path question can decide the design.
+No print/purchase; preserve current evidence for the corrective investigation.
 01–08/Paperclip remain authoritative.

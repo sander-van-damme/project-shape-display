@@ -205,12 +205,14 @@ capture, arrest and wear evidence; no free spring is credited.
 ## Decision and next discriminator
 
 Stop ring-pocket/ledge tuning: it cannot remove the lower-lug and signed-capture
-obligations. Next change **access topology**: construct a permanently open side
-portal with separate resident bearing and writer capture faces. Reconstruct
-E-123/E-174's closed-guide obstruction; include the portal's missing structural
-reaction, unchanged-neighbor stock and actual ground attachment. No alternative
-is yet accepted. Reopen the ring only with finite takeover/release routes that
-avoid the lug train and establish positive supported departure.
+obligations. A conditional escape is a permanently open side portal with separate
+resident bearing and writer capture faces. It would need E-123/E-174's closed-guide
+control, the missing structural reaction, neighboring stock and ground attachment.
+**Do not schedule that local refinement without a competitive full-machine case.**
+The repeated-part and output ledgers justify stopping here and comparing simpler
+columns with shared programmable support/actuation. No alternative is accepted.
+Reopen the ring only with finite takeover/release routes avoiding the lug train,
+positive supported departure and a justified whole-machine advantage.
 
 Self-review checks inherited generator/reactions, touch/hole/connected-rim
 predicates, exact axial sweeps, rotated spanner intersection, force/moment
