@@ -159,3 +159,8 @@ $984.64/$1166.40 motor/driver subset plus unquoted reserve still excludes suppor
 corrections, versus$500 and$1000/$1500 comparators. This job does not choose pitch,
 finish price, owner preference or a head. It is optional and never blocks other
 research; no reminders or ongoing owner-wait task are created.
+
+Repository check: the task checkout and unchanged main both report only
+`Oversized instructions: AGENTS.md` and
+`Oversized instructions: owner-print-tests/AGENTS.md`. These pre-existing guidance
+size failures are preserved; no instructions/tooling change is made for this job.
