@@ -152,49 +152,38 @@ conversion, inertia tipping point, E-258 timing anchor, no-op and signed control
 Self-review; no independent validation or physical test.
 
 
-## Concurrent-output admission — 2026-10-13 extension
+## Concurrent-output admission — 2026-10-13
 
-Reproduce: `python3 tools/curated-experiment-checks/E-259/concurrency.py`.
-**Deterministic scheduling simulation, not electrical or physical qualification.**
-This adds a software control option to the independent B2 reference: keep all
-64/80 motors on each head, but allow at most K to operate simultaneously. Each
-changed cell gets one complete signed rest-to-rest move. A motor remains assigned
-to its own screw; a free admission slot lets the next waiting motor start. No
-mechanical drive multiplexor, extra clutch or replacement of feedback is implied.
-Idle/finished outputs rely on the same resident screw holding assumption as E-255.
+Reproduce: `python3 tools/curated-experiment-checks/E-259/concurrency.py`;
+`--check` runs only verification. **Deterministic simulation, no physical test.**
+Keep all64/80 independent motors/head but allow at mostK powered simultaneously.
+Each changed cell gets one signed rest-to-rest move on its own motor. An admission
+slot is electrical permission, not a mechanical multiplexor. Idle/finished outputs
+retain E-255's assumed screw hold; feedback, docks and all installed motors remain.
 
-The longest-duration waiting move starts in the earliest available slot (LPT).
-Each row has an explicit feasible slot witness. The lower bound is the larger of
-sum of move durations/K and `ceil(j/K)*t_j` for every duration sorted descending.
-This bounds row service without assuming LPT is optimal. The source includes an
-exact exhaustive small-case comparison and a case where LPT takes 7 units while
-an optimal partition takes 6. Bounds propagate through **the inherited accounting**:
-4 s + slowest fixed-bank route + globally longest row retry. That retry charge is
-conservative; the reported lower bracket is not a universal lower bound on actual
-wall-clock latency across different routes, globally lent slots or retry policies.
+Longest-duration waiting moves start in the earliest available slots (LPT).
+Each row has a feasible schedule; its lower bound is the larger of total duration/K
+and `ceil(j/K)*t_j` for each descending duration. LPT need not be optimal: the source
+includes a7-unit schedule with a6-unit exact optimum. Bounds propagate through the
+**inherited accounting**:4 s + slowest bank + globally longest full-row retry.
+That retry charge is conservative, not the tight adversarial wall-clock optimum;
+the lower bracket does not bound different routes, globally shared slots or retries.
+Preserve80-ms dock/release,20-ms row proof, actual seeks and empty return. Moves
+include individual acceleration/deceleration; waiting adds no partial stops.
+Base token release is instantaneous after the modelled stop; an additional5-ms
+per-move occupancy probes unmeasured stop/current-settling delay.
 
-Preserve 80-ms docking/release, 20-ms row proof, actual pitch-dependent seeks,
-empty return, a full row retry and the common 4 s. One continuous move includes
-its own acceleration/deceleration; waiting adds no extra partial-stop cycles.
-The base assumes current can cease at the predicted stop. A separate 5-ms
-per-output token-release allowance probes current settling/stop qualification;
-it is a labelled bound, not measured overhead. No-op rows remain skipped.
+Workload: E-258 physical river/ravine, ground30 and shallow20/deep30 presets at both
+pitches:6 initial commands and30 directed state transitions. Duplicates/no-ops do
+not add map evidence; these remain three convenience maps, not representative play.
+Ground20/40-mm-travel control has identical shallow deltas; fixed ground30 requires
+the unqualified50-mm range. Preparation, same-ravine switching and dense50-mm
+stress are separately charged. Homing/manual/visual workflow remain unqualified.
 
-Workload: unchanged E-258 physical river and ravine, fixed ground30, shallow20/deep30,
-both pitches. Six scene/preset states give six ground-to-map commands and all30
-directed state transitions; duplicates and no-ops are retained as checks, not
-additional real map evidence. This remains three annotated convenience maps,
-not representative session statistics. The ground20/40-mm-travel control has
-identical shallow-mode deltas; fixed ground30 pays separate initial preparation
-and needs the previously unqualified50-mm hardware range. Dense50-mm stress and
-same-ravine preset change are separate from the scene maxima.
+**At64×64, K32 preserves the25.38-s scene maximum while halving powered outputs
+from128 to64. K24 takes28.62 s.** At2000 output rpm/1000 rev/s², seconds are:
 
-**New result: at64×64, K32 preserves the25.38-s scene maximum while halving
-simultaneously powered outputs from128 to64. K24 takes28.62 s.** This is a useful
-software-controlled power/latency hypothesis, not an installed-motor reduction.
-At2000 output rpm/1000 rev/s², times in seconds are:
-
-| Grid / K per head | Shallow scene max | All preset/scene max | Same ravine20→30 | Cold ground30 prep | Dense50 stress | Loaded / stall motor A |
+| Grid / K per head | Shallow scene max | All preset/scene max | Ravine20→30 | Cold ground30 prep | Dense50 stress | Loaded / stall motor A |
 |---|---:|---:|---:|---:|---:|---:|
 |64 /16|28.18|34.18|19.38|54.58|80.98|8 /16|
 |64 /24|23.95|28.62|16.98|43.58|63.38|12 /24|
@@ -204,51 +193,34 @@ At2000 output rpm/1000 rev/s², times in seconds are:
 |80 /48|26.07|30.13|17.13|39.00|55.40|24 /48|
 |80 /80 full|26.03|30.13|17.13|25.33|33.53|40 /80|
 
-The scene bottleneck has enough idle capacity/unequal move lengths to absorb
-staggering atK32; a cold flat or dense uniform move does not. At64/K32 the
-50-mm dense case takes exactly two waves per row; atK24 it needs three.
-Cold preparation is separately paid, never erased by a raised software zero.
-No new homing or manual/visual workflow qualification is added to these times.
+Scene sparsity/unequal moves absorb staggering atK32; uniform dense moves cannot.
+At64/K32 dense50 needs two waves/row;K24 needs three. Initial neutral is paid.
+The64/base sweep first has a lower bracket≤30 atK22 and an LPT witness≤30 atK23
+(28.92 s); K22 is **not** proved impossible. K24's bracket is28.18–28.62 s.
+At1500 rpm/1000 rev/s²,K29 gives29.93 s but5-ms release raises it to30.12;
+K32 gives29.67/29.84 s. At2000/200,K32 gives29.85/30.02 s: a fragile boundary.
+At1500/200,full concurrency gives32.97 s deep;K32 shallow gives28.70 s.
+These are correlated machine-rate scenarios, not calibrated motor/process priors.
 
-The64/base sweep first has a lower bracket≤30 s atK22 and an LPT witness≤30 s
-atK23 (28.92 s); it does **not** prove K22 impossible. K24's bracket is
-28.18–28.62 s. At1500 rpm/1000 rev/s², K29 gives29.93 s but adding5 ms per
-finished move raises that to30.12; K32 gives29.67/29.84 s without/with that delay.
-At2000 rpm/200 rev/s², K32 gives29.85/30.02 s: the boundary is fragile.
-At1500/200, even full concurrency gives32.97 s for deep relief, whileK32 shallow
-is28.70 s. The80-grid base deep result is30.13 s even at full concurrency.
-These are whole-machine rate scenarios, not independently sampled motor errors
-or manufacturing yield predictions.
+[Adafruit711](https://www.adafruit.com/product/711), rechecked2026-10-13, lists6 V,
+250-mA loaded and500-mA stall maxima under its stated conditions. Two K-slot banks
+yield **0.5K A loaded / K A stalled**, motor-only arithmetic, not measured screw
+consumption or a validated startup/supply rating. PWM, regeneration, controller,
+driver losses, current-limit tolerance and fault isolation remain unresolved.
+Admission must wait until the prior output ceases drawing power; stationary active
+braking also uses budget. An indefinite jam cannot be covered by the one retry.
+Stop/hold/current confirmation is unimplemented, bounded only by stated delays.
 
-**Decision:** keep K24–32 as a conditional64-grid operating option and useK32 as
-the comparison for a future measured current trace. Do not design a128-motor
-simultaneous-start supply merely from the installed count. Equally, do not claim
-an8-A loaded-current case keeps deep relief below30 s: K16 takes34.18 s under
-these rates. Retain slower dense/setup operation explicitly. No motor bank,
-supply, driver PCB, print job or architecture is selected by this screen.
+**Decision:** retainK24–32 as a64-grid control option; compare a future measured
+current trace withK32. Installed count alone does not require simultaneous starts.
+An8-A loaded-current arithmetic case(K16) takes34.18 s deep, not<30. Slower dense
+and setup operation may be worthwhile;30 s remains a reference, not a safety gate.
+All4096/6400 resident pairs,128/160 drive/feedback/dock duties,2.24/2.80-kg motor
+mass and$984.64/$1166.40 quoted-subset-plus-reserve remain unchanged. No supply,
+assembly, print or bought-cost saving is booked; the$500 case and$1000/$1500
+missing-channel/reserve qualifications remain. No hardware or purchase selected.
 
-The supplier [711 listing](https://www.adafruit.com/product/711), rechecked2026-10-13,
-still gives6 V,250-mA loaded and500-mA stall maxima under its specified conditions.
-For two reserved K-slot banks these yield **0.5K A loaded / K A stalled** motor-only
-arithmetic. They are not measured screw-drive consumption, a validated startup
-bound, a rail/protection design or permission to buy a supply. PWM, regeneration,
-driver/controller power, current-limit tolerance and fault isolation still matter.
-Admission must prevent a new start while the preceding output remains powered;
-otherwise counting moving shafts alone understates simultaneous electrical demand.
-A stalled output must time out or release its slot safely; one retry does not
-cover indefinite jams. Stationary active braking would also consume part of the
-budget. Stop/hold/current confirmation remains unimplemented and timed only by
-the stated bounds.
-
-All4096/6400 resident pairs,128/160 installed drive/feedback/dock duties,2.24/2.80-kg
-motor mass and the quoted-subset-plus-reserve$984.64/$1166.40 remain unchanged.
-No reduction in bought cost, assembly, print burden or supply size is booked.
-The$500 reference remains unresolved; the$1000/$1500 cases retain their missing
-feedback/transmission/docking and reserve qualifications. Slower schedules can
-still be useful D&D tradeoffs; crossing30 s is reported, not declared unsafe.
-
-Verification:729 exhaustive small scheduling comparisons, explicit no-overlap and
-one-visit witnesses, a nonoptimal-LPT counterexample, both pitches/all36 full-slot
-anchors against E-255, signed symmetry, no-op and analytically exact equal-move
-wave counts. Self-review only. This changes the power/latency trade study; it does
-not substitute for the existing pair's loaded speed, stop, hold and current tests.
+Verification:729 exhaustive small-row comparisons; no-overlap/one-visit witnesses;
+nonoptimal-LPT counterexample; both pitches/all36 full-slot E-255 anchors; signed,
+no-op and exact dense-wave controls. Self-review. Pair hold/drive/current/stop
+measurements remain the physical discriminator; this screen does not replace them.
