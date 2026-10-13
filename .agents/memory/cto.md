@@ -18,7 +18,12 @@ positive firsthand evidence, not just assumed. Mass/duration/variant unrecorded.
 The recovered pair has no fixture and suffered near-extension breakage (E-256);
 avoid demanding unavailable historical provenance or retesting damaged parts.
 Distinguish observed zero-speed hold from moving disconnect.
-No new detailed head/thread CAD, print or purchase is selected.
+E-263 now supplies one optional supported S40 manual article/READY print job;
+no head, powered-speed or purchase selection. New explicit .15-mm radial cutter
+relief reconciles trial5 mismatch without identifying the old successful print.
+252 nominal phase/float states clear; .2-mm axis-offset witness collides.
+Physical fit/hold/stiffness remain unknown; stop on forced alignment, no fit campaign.
+S50 deferred; no reminders or blocked research on optional printing.
 Recovered non-threaded prints (LAB-391) now recorded in E-245: owner reports
 square pins/grid/circular pushers and lateral one-row jam brake working. Photo
 shows a 5x5 grid/five-opening brake, not loaded motion. Distinct from crossed pads;
