@@ -491,6 +491,16 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-264 reuses rotating-nut topology fromE-156/E-195; not a new principle.
+  Coarse lead/current scenes escape their old high-RPM case, not moving-loss risk.
+  Closed row sockets must pass translating tails before lateral travel:43/53mm
+  withdrawal atS40/50. At64/B2/K32/2000rpm,38.95/45.51s scene maxima versus
+  free-access22.12/25.38; fasterZ400/a8000 gives32.51/37.43. Adaptive row-tail
+  clearance does not improve max. ColdN20/N30 42.81/52.71;dense56.01/65.91s.
+  138/158mm combined stock and longZ/hollow128/160 drives add burden; no speed,
+  support or cost pass. Park closed socket before CAD. Next screen a side-access
+  swept route between tails/nut beds with neighbor isolation before selector work.
+  E-263 optional manual article stays unchanged, no printing wait or new job.
 - E-262 section escape screen: widerOD4.4/root2.6 polymer at6.35 pitch gives
   S50 ideal-nut2487rpm vs historical991, but softkn.1/kθ10/20g cases514/522.
   Full-credit1mm steel core gives6050 ideal but532 soft; rigid-tilt Rayleigh
