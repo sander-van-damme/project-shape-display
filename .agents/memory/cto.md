@@ -511,8 +511,17 @@ Current architecture boundary:
   cold309.40/dense429.87. Serial top stereo81.30s coarseS50 local; force-probe
   bound734.10s. Extra full-board parallel scan73.62/110.26s still misses covered
   loaded pins. Retain top observation comparator, no sensor/head/print/purchase.
-  Next: finite shared optical field/identity and observable-cell contract paired
-  with mechanical isolation evidence for unobserved loaded neighbors.
+  Shared-field extension: two cameras can cover16 coarse cells atD1000/b40;
+  S50/.5pupil margin.166mm but ideal550nm Airy radius1.342mm exceeds patch.
+  Pupil3.4 reduces radius.197/margin.094; no focus/contrast/accuracy pass.
+  Assigned.1px disparity gives.207mm depth bound; .1%fb bias gives1mm error.
+  k16 needs950mm above highest terrain; k4/k8 lower stations give coarseS50
+  local54.72/42.24s vs28.84. Two pupils replace32 relay duties, not bought BOM.
+  FineS50/k16/D1000/b40 blocked; b12 clears.073 but depth error.452mm.
+  Wrong correspondence produces41.10mm false height; lattice gate rejects that
+  witness, not common whole-pitch registration error. No actual decoder qualified.
+  Next: image-level correspondence/calibration plus observable-cell contract;
+  mechanical isolation evidence still owed for unobserved loaded neighbors.
 - E-269 shared keeper shifts1.2mm for service; fixed bed retains neighbor downward
   support, all shared upward capture is absent while powered off. Intact/jammed
   straight pair can lift94/104mm through4.64 guides atS40/50; collar4.4 passes,
