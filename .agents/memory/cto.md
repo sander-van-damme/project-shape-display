@@ -499,6 +499,21 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
+- E-269 shared keeper shifts1.2mm for service; fixed bed retains neighbor downward
+  support, all shared upward capture is absent while powered off. Intact/jammed
+  straight pair can lift94/104mm through4.64 guides atS40/50; collar4.4 passes,
+  collar5.0 does not. Broken/bent parts still need module access. No new clips.
+  Coarse keeper/bed optical holes3.887/3.089mm; fine keyhole/optical cutout chains
+  isolate retaining patches (vertical overlap.32, horizontal.661mm). Park fine.
+  Coarse connected contact subset2.225mm² at.02 grid nominal; .1 edge loss and
+  ±.05/±.10 registration shrink it to.536/.157. .2 loss removes capture exactly.
+  These are bounds, not priors; radial fit and axial float each have.2mm nominal
+  budget. Nominal eccentric upward force adds1.343F Nmm; no docking force rating.
+  No private moving retainer, but4096/6400 keeper apertures + optical holes remain.
+  Whole-sheet support/lock/mount access unconstructed; bordered3x3 kernel is not
+  tileable16x16 modules. No STL/print/purchase; inherited E-268 waits only granted.
+  Next screen complete shared frame/service lock + docking load against an opaque
+  keeper/readback control; stop if it requires fragile webs or thousands of mounts.
 - E-268 actual-pin sensing: motor/screw counts alias missed sockets/stripped
   threads; actual-pin marks still need finite views and stale-frame rejection.
   Structural extension stops reader detail on current slots. Coarse1.10slot
@@ -535,8 +550,8 @@ Current architecture boundary:
   No tiny-lens or fit rescue. Coarse3.8hole retains~46.6% gross bed area, not stiffness;
   keeper/frame/body routing and single-pair repair remain unbuilt. No marks/mirrors/
   bores added;32 shared pupil duties forq16. Existing q16 timing/cost only granted-access.
-  Next construct shared axial keeper and local pair replacement around solid screws,
-  preserving coarse optical access; stop optical sweeps. No print/purchase/question.
+  E-269 now supplies conditional coarse capture/repair geometry; frame and docking
+  force remain open. Stop optical sweeps. No print/purchase/question.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,

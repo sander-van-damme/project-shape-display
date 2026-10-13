@@ -152,8 +152,8 @@ half a pitch in both axes from the screw grid or use a separately cleared carrie
 100ms exchange/q16 timings only as **granted-access controls**; no fixed bays are geometrically
 required by discrete holes, but frame/keeper/body constraints may add them. No speed improvement
 or complete optical BOM follows. **Stop fine-grid underside optics and further tiny-lens sweeps.**
-First construct shared axial capture and local pair replacement around solid screws, preserving
-coarse optical access; supported manufacture now governs detailed-reader investment.
+E-269 now constructs a conditional shared service keeper and single-pair extraction route.
+Coarse access survives its planar screen; whole-sheet support/manufacture still govern reader work.
 
 ## Complete waiting and cost comparisons
 
@@ -200,9 +200,9 @@ under$500/$1000/$1500; two-row control$984.64. Entire$1000 remainder permits$31.
 ($62.65 under$1500), with fabrication/support/docking/transmission unpaid. Alternatively it gives
 $15.70/$3.92 per32/128 slotted panels. These are allocations, not BOM/retail price/purchase authority.
 
-**Next:** construct shared axial capture and local pair replacement around solid screws, with
-the coarse interstitial route as an access constraint. No further tiny-optics refinement. Keep
-all timing/cost controls. E-263 remains retired; no owner blocker.
+**Next:** E-269 adds conditional coarse axial capture and pair extraction, and rejects the fine
+combined keeper/optical layout. Resolve shared frame support, service-lock access and docking
+force before reader detail; keep all timing/cost controls. E-263 remains retired; no owner blocker.
 
 Verification: original262144 rays/fault aliases,114688 supported-bay and196608 structural-extension
 rays; slab/rib obstruction and end clearances. Independent beam closed forms, curvature
