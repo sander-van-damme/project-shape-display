@@ -8,6 +8,10 @@ builds-on: [E-266]
 Reproduce `python3 tools/curated-experiment-checks/E-267/screen.py` (`--check`
 for controls). **Retain16 outputs/coarse pitch as a lower-cost demonstrator
 comparator**, not a fast full-map product or qualified machine.
+Evidence: executable scheduling/calculation, catalog inputs and cost allocations;
+no new physical measurements. Homing and actual visual/prop workflow durations
+remain unmeasured. E-262 support uncertainty can invalidate every assumed RPM;
+no independent-cell yield or calibrated process distribution is inferred.
 
 **Changed architecture:** one XY carriage reuses8/16/32 independent rotary tips.
 Selected tips dock, drive signed moves, stop/prove/release; resident screw/thread/
