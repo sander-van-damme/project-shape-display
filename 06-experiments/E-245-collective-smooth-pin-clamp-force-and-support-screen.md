@@ -21,6 +21,8 @@ labelled scenario bounds, not sourced process priors, material selections, CAD,
 measurements or probabilities. Five heights 0/10/20/30/40 mm are a comparison
 alphabet, not an approved terrain-resolution limit. JSON output is disposable.
 
+**Owner report, 2026-10-13 (LAB-391):** recovered pins/grid/pushers and lateral row brake work; provenance in stage-02 fabrication. Positive informal evidence, distinct from these failed crossed pads. Loads/cycles are unknown. Releasing the sole row brake removes neighbors' holding path; another support must retain their heights. Pushers do not prove captured descent. Screw research stays first.
+
 ## Complete mechanism and alternatives
 
 E-148 preserves opening-work/arrest obligations; E-165 preserves independent
@@ -215,15 +217,7 @@ before head grips, anchors, pad bonding, fixtures, calibration and inspection.
 406-mm row backers need modular printing on the X1C; their joints add correlated
 errors. PLA orientation, roughness, wear and pad adhesion remain unqualified.
 
-**Decision:** remove this same-plane bulk-pad implementation from deep development.
-It replaces shelves with a coupled tolerance/preload/space burden and an unpriced
-closure-energy machine. Do not tune pad ribs, tiny springs or keeper pockets.
-The failed series-spacer chain also does not earn detail. No print is justified
-by a timing-only near-budget case.
-
-Next screen **mechanically driven sealed pressure equalization** versus positive
-combs: zone routing, local retention, fill/seal/repair and cost before membrane
-detail. It must remove stiffness-amplified preload and fit broad gap variation
-without hundreds of new powered valves. Reject before CAD if the $58.60 residual
-or support duties cannot cover a credible construction; an oracle cannot reopen
-smooth-pin tooling.
+**Decision:** park the same-plane bulk pads and series-spacer chain before local
+refinement or printing. Tolerance/preload/space and unpriced closure energy defeat
+these embodiments; timing alone is insufficient. Pressure equalization remains a
+changed principle requiring real routing, passive retention, repair and cost.

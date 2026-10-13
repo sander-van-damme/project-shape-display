@@ -18,6 +18,11 @@ The recovered pair has no fixture and suffered near-extension breakage (E-256);
 avoid demanding unavailable historical provenance or retesting damaged parts.
 Distinguish observed zero-speed hold from moving disconnect.
 No new detailed head/thread CAD, print or purchase is selected.
+Recovered non-threaded prints (LAB-391) now recorded in E-245: owner reports
+square pins/grid/circular pushers and lateral one-row jam brake working. Photo
+shows a 5x5 grid/five-opening brake, not loaded motion. Distinct from crossed pads;
+retain positive manual evidence, but row release still owes neighbor support.
+Screw-first priority unchanged; no additional owner test or brake campaign.
 E-255 independent B2/160 at assumed3000rpm/lead3:22.98s maximum across E-254's
 nine principal transitions. Stopped shared mask needsB3/240/26.18s including
 signed thresholds, mask rewrite, docking, seeks, return and retry. At1500rpm:
