@@ -527,9 +527,16 @@ Current architecture boundary:
   21.67/25.67s at16 parallel paths,29.32/33.32s at4,59.92/63.92s at1.
   S50 scene234.28s/prep282.23/dense403.17 even atq16; process/reader unquoted.
   Removes mirrors/scales but adds4096/6400 bores/targets/inspection duties.
-  Next compare accessible actual-pin sensing retaining solid threads and intact
-  guides; screen repeated manufacture/access before detail, controls above retained.
-  No optical microdetail, print/purchase or new owner question; E-263 retired.
+  Interstitial extension retains solid screws/intact guides: integral pin-bottom
+  corners seen through4096/6400 discrete bed holes. CoarseS50/baseline2/pupil.5/e.1
+  needs3.704mm opening, .211neighbor/.238full-seat margins, ideal.160mm range error
+  atf1200/.1px; not hardware accuracy. e.2 cuts full seat(−.244). Fineb.5/pupil.5/e.1
+  neighbor−.119; tiny pupil.1 clears.042 but550nm Airy radius.416 exceeds.2patch.
+  No tiny-lens or fit rescue. Coarse3.8hole retains~46.6% gross bed area, not stiffness;
+  keeper/frame/body routing and single-pair repair remain unbuilt. No marks/mirrors/
+  bores added;32 shared pupil duties forq16. Existing q16 timing/cost only granted-access.
+  Next construct shared axial keeper and local pair replacement around solid screws,
+  preserving coarse optical access; stop optical sweeps. No print/purchase/question.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,
