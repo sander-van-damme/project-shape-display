@@ -14,7 +14,8 @@ Do not claim that trial5 was the successful print. Trial3 collars/plank suggest
 resident thrust support; trial5 omits that assembly, socket and top cap.
 Owner now explicitly confirms loaded passive hold in latest physical trial;
 positive firsthand evidence, not just assumed. Mass/duration/variant unrecorded.
-Reuse the pair/seat if available; avoid demanding unavailable historical provenance.
+The recovered pair has no fixture and suffered near-extension breakage (E-256);
+avoid demanding unavailable historical provenance or retesting damaged parts.
 Distinguish observed zero-speed hold from moving disconnect.
 No new detailed head/thread CAD, print or purchase is selected.
 E-255 independent B2/160 at assumed3000rpm/lead3:22.98s maximum across E-254's
@@ -488,18 +489,21 @@ Next executable investigation:
   granting independently driven/observed sites; fixture/cleanup/build still unpaid.
   Any justified later batch calibration should time handling, identify lots and
   prove local repair. No mold, fixture, print or production process selected.
-- E-256 includes the2026-10-13 recovered-part photos and owner rough dimensions:
-  pin50mm/width4–5mm,screw40mm/width3mm. Neither registers on kitchen scale;
-  mass unknown, not zero. Ruler/scale/phone available; assembled seat/guide not
-  shown. No measured travel/timed drift/torque yet. Do not equate40mm screw with
-  trial5's50mm or40/50mm useful stroke. Next: supported one-turn/return record,
-  then0/60/600s hold only with stable hands-off load placement; otherwise describe
-  missing support. First missing input is setup/measurements, no longer part access.
-  Interval reducer measurements.py remains available. At10-mm arm,1g
-  produces.09807Nmm; a.01Nmm error budget allows only.102g mass error before
-  geometry/parasitics. Equal height readings bounded±.1mm imply drift±.2mm,
-  not zero. Do not require remembered calibration variant or a torque fixture
-  upfront. LAB-388 owns the measurement response; preserve raw unknowns.
+- E-256 now includes Sander's2026-10-13 loose-pair motion/load/failure report:
+  no fixture;rough2mm/turn,1mm axial play,rough but possible turning;partly engaged
+  pair pressed on scale to~1kg without observed rotation. Near-full-extension,
+  slight insertion: screw bent/broke under force close to1kg without lateral
+  protection. Hand restraint/alignment/duration/engagement unknown. Positive
+  manual evidence, not9.81N rated axial capacity or timed hands-off retention.
+  Preserve failure; do not demand another destructive repeat or tighten the fit.
+  Recovered pin~50mm/4–5wide,screw~40mm/~3wide; mass unknown. No intact fixture
+  exists to reuse. Later supported intact article must establish thrust reaction,
+  anti-rotation/lateral guidance and minimum engagement/end margins. Housing
+  alone is not proven cure.1mm play needs settling/reversal/miniature assessment,
+  not automatic anti-backlash hardware. No new owner question/print selected.
+  Rough2 vs historical3mm lead motivates timing sensitivity (20 vs13.33 turns
+  over40mm;25 vs16.67 over50), not a measured stroke or confidence interval.
+  measurements.py retains synthetic interval checks; don't invent input bounds.
 - E-258 player_view.py now challenges assigned30-mm ravine itself: N20/40 range
   keeps20-mm walls and a20-mm physical drop. At64, mixed suite independentB2
   max22.08s/$953.92 versus stopped-maskB2 26.90s/$1023.92 assumed allocations.
@@ -584,9 +588,9 @@ Next executable investigation:
   .238 steady/.358 accelerating Nmm atJ1e-8;160 outputs11.96W before losses.
   Modest tighter-fit drag is not rejected by energy; do not alter a holding pair
   unnecessarily. Need batch-wide hold/drive window, not6400 hand adjustments.
-- Reuse the successful pair/seat for measured drift/torque/travel and separate
-  moving-loss tests. If unavailable, reconstruct a documented small calibration
-  family after fixing dependency/engagement; no blind trial5 print.
+- A later supported intact specimen needs measured drift/torque/travel and separate
+  moving-loss tests. Fix dependency/engagement before any small calibration
+  family; no blind trial5 print.
 - Detailed head design has not earned a pass.
 - Expand maps only if missing workload coverage could change that ranking.
 

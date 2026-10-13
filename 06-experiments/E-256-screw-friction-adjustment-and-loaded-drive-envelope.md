@@ -62,31 +62,14 @@ Distances are sensitivity choices, not product limits or predicted coast;
 dynamic contact forces and disconnect state remain unmeasured. Normal withdrawal
 following a complete commanded stop has no initial kinetic energy ideally.
 
-**Decision:** retain B2 as a conditional comparison, not a selected architecture.
-Its present sample suggests drives around 2,000 loaded rpm with adequate torque
-and acceleration. Before selection, compare playable river/ravine encodings and
-obtain owner/player feedback: raising surrounding land to depict water is optional,
-not a required workload. Recompute the envelope if that representation changes.
-Do not tighten an already holding pair unnecessarily. If needed,
-find a batch setting whose weakest hold and strongest breakaway/running torque
-both fit the measured load and selected drive curve. Common bias, local variation
-and wear can close that window; no yield distribution follows. Avoid 6,400 hand fits.
-Reuse the existing pair/seat: identify dimensions/travel, weigh miniature/pin,
-record timed low/mid/high-position drift, then breakaway/slow running torque.
-Separate powered stop/withdrawal from unexpected moving loss. If specimens are
-unavailable, use a documented small calibration family after resolving dependency
-and engagement; do not demand impossible historical provenance or blindly print
-trial 5. No print is selected here. This informs shared tooling or batch fabrication
-comparisons; it does not qualify molded, machined or printed production.
+**Decision:** B2 is a conditional comparison, not a selected architecture. Its
+sample suggests ~2,000 loaded rpm with adequate torque/acceleration. Updated
+playable encodings, raised neutral, 4096/6400 sites and $500/$1000/$1500 comparisons
+remain conditional in E-258/E-259. Do not tighten an already holding pair. A batch
+setting needs weakest hold and strongest drive torque inside the measured operating
+window; common bias, wear and local variation can close it. Avoid 6,400 hand fits.
 
 ## Measurement method and reduction
-
-Reuse the unchanged pair before altering fit or buying equipment. After the first
-middle-position record below, repeat low/high positions and measure signed
-breakaway/slow running torque, then loaded speed and powered-stop withdrawal.
-Only if relevant-load hold fails should one documented tighter setting be compared
-across pairs/print locations. Moving disconnect needs a separate caught-load test.
-Ten-minute holding is a screen, not endurance or array qualification.
 
 **Measurement-design calculations, not results:** at a 10-mm perpendicular arm,
 1 g tangential deadweight gives 0.09807 N·mm. That mass increment brackets onset
@@ -129,8 +112,8 @@ and has a ruler, kitchen scale and phone camera. He reports pin length about
 50 mm and width about 4–5 mm; screw length about 40 mm and width about 3 mm.
 Neither part registered on his scale. Mass is **unknown**, not zero or a bounded
 sub-gram measurement: scale increment, minimum load and accuracy are unknown.
-The widths are estimates, not tolerance intervals. No measured travel, timed
-drift or torque record has yet been supplied.
+The widths are estimates, not tolerance intervals. The subsequent manual check
+below supplies rough travel and play estimates, but no timed drift or torque record.
 
 Provenance: [owner answer and photographs on LAB-388](/LAB/issues/LAB-388#comment-ec47dec7-7141-49a7-b009-ed683ba36eee),
 following answered interaction `5ce19b24-943f-4c66-8eb7-a8422be0c929`.
@@ -152,40 +135,78 @@ engagement length and end margins; these dimensions remain unknown. Other
 overlap conventions require their own support check. This pair can discriminate
 basic translation/holding without establishing the proposed product travel.
 
-### First check with the available tools
+### Manual motion, load and failure report, 2026-10-13
 
-1. Reassemble the original setup if its support/guide is available. Record what
-   prevents the pin rotating, what supports the screw axially, and whether the
-   screw is free to rotate when the fingers/driver are removed. If only the two
-   loose parts remain, report that; do not balance a miniature on them or call
-   a hand-held check passive retention. A short assembly photo/video is useful.
-2. At a comfortably engaged position away from either end, place the ruler
-   beside the pin, fixed relative to the support. Keep ruler marks and the observed
-   pin edge as close to the same camera depth as possible. Rest the phone in one
-   position, looking squarely at both. Record the starting reading, one complete
-   screw turn, and one complete return turn, keeping the pin from rotating.
-   Include the viewing direction, any lost motion or binding, and what the hands
-   touch. Do not force an end stop. One turn is enough initially; a longer counted
-   move is useful only after clearance/engagement have been established.
-3. Only if the assembly stands and supports a load without hands, use a stable
-   ordinary miniature/load in the original arrangement. Record its scale reading
-   and smallest displayed increment, or “not detected.” Include any cap/holder
-   mass and other supports; do not assume all miniature weight reaches this pin.
-   Remove the drive and hands, then record the same edge at 0, 60 and 600 seconds.
-   If there is no stable load placement, stop after the unloaded motion record.
-   A screw clamped against rotation tests that fixture's holding, not freely
-   released screw retention. No torque apparatus or new print is needed yet.
+**Firsthand owner observations, not a fixture-qualified load rating.** Source:
+Sander's authenticated answer to interaction
+`31f4a7e3-fb98-4b28-ab16-e09a310f2f44` on [LAB-388](/LAB/issues/LAB-388),
+resolved 2026-10-13 16:47:18 UTC. This supersedes the unanswered setup question.
 
-Return format: `support/guide and hand contacts; h_start; h_after_one_turn;
-h_after_return; load reading/scale increment or unknown; h_0/h_60/h_600 or not
-performed; slip/binding/rotation notes`. Preserve original photos/video as raw
-evidence. A coarse readable result is preferable to invented decimal places.
+| Owner report | Evidence and remaining uncertainty |
+|---|---|
+| No fixture; only screw and pin | No demonstrated thrust support, guide or independently released assembly. Exact hand contacts unknown. |
+| About 2 mm displacement after one turn; difficult to read | Rough effective travel estimate; no endpoint readings, return reading, direction convention or error bound. Does not identify CAD lead. |
+| Turns a little roughly, but turns | Qualitative drive evidence; owner attributes rest stability to roughness. No measured torque or friction coefficient. |
+| About 1 mm upward/downward play when pulling the screw; owner considers it negligible | Rough axial free-play estimate, not measured reversal backlash, creep or commanded position error. |
+| Partly engaged pair pressed on kitchen scale to about 1 kg without observed screw rotation | Positive manual load/rotation observation. Scale calibration, force alignment, engagement, duration and possible hand restraint are unknown. |
+| At near-full extension, only slightly inserted, screw bends and breaks under force close to 1 kg, without bending protection | Physical failure reported. Free length, eccentricity, engagement and fracture site unknown; cannot separate bending, buckling, thread-root or engagement failure. |
 
-**Resolution calculation, not observed accuracy:** if each reading can eventually
-be bounded to ±0.5 mm, two equal readings leave drift in [-1,+1] mm. A nominal
-3-mm displacement over one exact turn would then mean [2,4] mm/turn; three turns
-would narrow the same endpoint contribution to ±1/3 mm/turn, but require more
-safe travel. A millimetre ruler alone does not establish the ±0.5-mm bound:
-parallax, edge blur and support motion must also be included. Do not populate the
-reducer with guessed mass/height bounds. Unknown load can accompany a useful raw
-motion observation; it cannot establish a quantified load-retention margin.
+Preserved owner interpretation: an enclosure should protect against bending,
+miniatures are much lighter, and final designs will need repeat tests. These are
+reasonable hypotheses, not a demonstrated enclosure or measured miniature-load
+margin. No additional destructive repeat is needed to establish this failure.
+
+**Calculations, not calibrated measurement bounds:** a 1-kg mass-equivalent scale
+reading corresponds to approximately 9.81 N using standard gravity. This is the
+reported scale reaction, not a certified pure axial load through the thread or a
+sustained 1-kg miniature capacity. If effective lead were 2 rather than the
+historical model's 3 mm/turn, 40-mm motion would need 20 rather than 13.33 turns;
+50 mm would need 25 rather than 16.67. Rotation count rises 50%; complete update
+time does not necessarily rise 50% because acceleration and other operations
+remain. Neither stroke was measured here; retain 2 and 3 as comparison scenarios,
+not confidence bounds or a silent replacement of the historical CAD parameter.
+
+**Decision:** continue the retained-screw campaign with stronger evidence for
+basic manual motion and load resistance, while making supported engagement and
+end-of-travel control explicit in the next mechanism screen. Do not tighten this
+pair or add a per-cell brake on this evidence. A housing helps only if it actually
+reacts lateral loads and maintains alignment/engagement; it does not automatically
+repair insufficient overlap. Reserve qualified minimum engagement and end margins
+inside usable stroke; do not treat nearly unthreaded extension as terrain range.
+Assess the reported play by repeatable loaded settling/reversal and miniature
+stability before paying for anti-backlash hardware or dismissing it as negligible.
+One-millimetre play is not ten-minute drift. Broken/damaged specimens cannot
+inherit the earlier intact pair's observation in a later test.
+
+The accessible-specimen characterization is complete at this evidence level.
+Timed hands-off retention, breakaway/running torque, powered speed, moving-loss
+arrest and batch variability remain unmeasured. The interval reducer is deliberately
+not fed guessed bounds or synthetic raw readings for this informal report. A later
+supported intact article must provide axial screw reaction, pin anti-rotation and
+lateral guidance while allowing screw rotation, plus limited travel; its design
+and qualification are separate work. No new print or owner response is requested.
+
+### Conditional first supported check
+
+For a later intact specimen, not a current owner request:
+
+1. Describe screw thrust reaction, pin anti-rotation, lateral guide and hand
+   contacts. The fixture must allow screw rotation during retention testing.
+2. At a comfortably engaged middle position, use a fixed ruler/phone, square
+   viewing angle and similar camera depth for marks/edge. Record starting height,
+   height after one complete turn and after one return; include viewing direction,
+   binding and lost motion. Never force either end or use damaged parts.
+3. Only with stable hands-off load placement, record ordinary miniature/load scale
+   reading, scale increment, holder and other supports; then height at 0/60/600 s
+   after releasing drive/hands. No stable placement means omit the hold test.
+
+Preserve original readings/photos; leave unknowns blank. Neither an undetected
+mass nor a hand-gripped screw establishes passive load retention. Later tests add
+low/high positions, signed breakaway/running torque, powered stop/withdrawal and
+separate caught-load moving disconnect. Ten minutes is not endurance qualification.
+
+**Illustrative resolution:** equal readings each bounded ±0.5 mm leave drift
+[-1,+1] mm. A nominal 3-mm move over one exact turn gives [2,4] mm/turn; three
+turns narrow the endpoint contribution to ±1/3 mm/turn but need safe engagement.
+The ruler alone does not establish ±0.5 mm: include parallax, blur and support
+motion. Do not feed the reducer invented error bounds.
