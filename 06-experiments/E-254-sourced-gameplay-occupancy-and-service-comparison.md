@@ -5,11 +5,12 @@ builds-on: [E-253, A-007, E-050, E-131, E-156]
 
 # Sampled gameplay geometry: sparse walls still visit most rows
 
-**Representation qualification is pending.** The historical schedules below apply
-to their declared encodings, not a selected gameplay benchmark. The final section
-compares explicit playable alternatives using the later E-255/E-256 rotary models.
-Owner guidance at `64ee4f9` makes pitch, neutral, timing and cost reference variables;
-the 80×80 schedules below are comparators, not automatic product gates.
+**Owner preference (2026-10-13): physical river banks and a physical ravine.**
+Sander selected `relief` in LAB-384 interaction
+`b9d63f85-7202-4108-b454-2d0580e94b0c`. Use this workload for further research;
+this is not observed-play or hardware qualification. Historical schedules retain
+their declared encodings. Owner guidance at `64ee4f9` makes pitch, neutral, timing
+and cost reference variables, not automatic product gates.
 
 Evidence: manual annotations, assumed conversion/play sequences, calculations and
 conditional schedules; self-review, no observed play or hardware qualification.
@@ -82,11 +83,10 @@ remain scoped. Bought allocations are not quotes or purchase authority; current
 
 ## Physical versus visual terrain: representation sensitivity
 
-**Retain physical cliffs as a meaningful case; do not require raised land for every
-river.** Proposed starting policy: walls and substantial rock/ground forms physical,
-ordinary water and loose rubble visual, deep ravine physical. This is a recommendation
-for owner evaluation, not an adopted product requirement. Flattening both depressions
-changes the shared-drive head count, so the decision cannot be inferred from occupancy.
+**Use both-relief workloads; keep mixed and both-visual controls.** Sander’s choice
+supersedes the proposed visual river/physical ravine policy. It does not select
+rubble, bridge construction, depth, neutral height, pitch or actuator. Lowering
+water below retained ground can create banks without minimum-height rest.
 
 Reproduce `python3 tools/curated-experiment-checks/E-254/playable_variants.py`.
 Optional `--figure /path/terrain-choices.png` requires matplotlib and generates the
@@ -190,9 +190,11 @@ or concealment. A loaded region must never be raised just to uncover its artwork
 All unchanged cells remain potential miniature locations; ideal selective screw
 commands do not prove zero disturbance through a common frame.
 
-**Decision:** compare mixed, both-relief and both-visual policies with Sander using
-the schematics. Keep them conditional pending feedback and a workable marking/prop
-flow; published rules do not establish owner preference or representative play.
+**Decision:** carry both-relief forward. The original 80×80/minimum-rest suite
+remains B2/26.93 s independent or B3/29.19 s mask at assumed 2000 rpm; these are
+conditional schedules. Depth/neutral/pitch and marking/prop workflow remain open.
+One owner preference does not establish representative play.
+
 Source invariance, semantic counts, signed reversal, no-op and bank-boundary checks
 pass; historical E-254/E-255/E-256 checks remain unchanged. No hardware qualification
 or corpus expansion is claimed.

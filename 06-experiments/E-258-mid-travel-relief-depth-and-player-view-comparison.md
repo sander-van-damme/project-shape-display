@@ -7,9 +7,11 @@ builds-on: [E-257, D-011]
 
 **Carry 6.35-mm pitch, a 20-mm neutral plane and 40-mm travel into the next
 playable comparison.** Keep meaningful walls, platforms and cliff edges physical;
-offer visual water and removable cover objects. This is a research recommendation,
-not an owner-approved policy or qualified machine. Reducing the assigned ravine
-depth from 30 to 20 mm is a new representation hypothesis, not a mechanical repair.
+retain physical river banks and a physical ravine following Sander’s 2026-10-13
+representation choice recorded in E-254. Pitch, neutral height and depth remain
+research recommendations, not owner-approved dimensions or a qualified machine.
+Reducing the assigned ravine depth from 30 to 20 mm is a new representation
+hypothesis, not a mechanical repair.
 
 D-011 separates sourced play conventions, five contextual map examples and unmeasured
 preferences. E-254/E-257 retain the original geometry, A/B/C counts and pitch evidence.
@@ -100,15 +102,16 @@ The existing ruins trace lacks a complete semantic door/topology annotation, so 
 repair as functional obligations. Keep 80×80/5.08,40-mm stroke,~30 s and~$500 as explicit
 comparators; challenge minimum rest and mechanical rendering of decoration. Prioritize
 64×64/6.35,N20/40 with a 20-mm physical chasm as the simpler *research comparator*, keeping
-N30/50 for a player-valued deeper drop and both river representations open. This reduces
+N30/50 for a player-valued deeper drop. Use both physical depressions for the next
+workload; retain visual river cases as comparison controls. The coarser grid reduces
 resident duties 36%, but neither array reliability nor a finished $1000 price follows
 from the $954 allocation. Do not adopt larger stroke, extra heads or a projector merely
 to protect a guessed terrain encoding. A one-head slower design remains worth comparing
 if the owner prefers encounter setup over live in-combat reshaping;~30 s is not a veto.
 
-Before selecting hardware, compare the true-scale views with the owner and protect
-actual base/door footprints in a small playable scene. Then reuse the successful
-screw/seat for E-256's load/torque/travel and moving-loss measurements. Batch variation,
+Before selecting hardware, resolve the separate depth choice using the true-scale
+views and protect actual base/door footprints in a small playable scene. Then
+reuse the successful screw/seat for E-256's load/torque/travel and moving-loss measurements. Batch variation,
 guide overlap and safe reverse—not another isolated thread optimization—can change
 whether either head survives. Molding/casting or machined shared parts remain options
 only with their tooling, batch yield and maker-hour ledgers in E-257. No printing or

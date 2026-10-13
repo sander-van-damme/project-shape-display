@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-12 UTC; E-254 compares terrain policy; E-257 adds quarter pitch; E-258 adds player views and depth choice;
+Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and depth choice;
 E-255 records owner hold; E-256 bounds drive; E-259 prices sampled drive/feedback subsets.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
@@ -29,7 +29,7 @@ E-254 three published map windows remain a convenience sample, not typical play:
 ruins13.55% raised/74rows; road/ravine69.52/71.48%/80rows. No corpus expansion.
 Advice retained: screw-first, batch manufacturing, software/shared optics and
 unchanged-neighbor support. Latest E-254-cutoff review correctly challenges the
-unselected river/ravine representation; its prior E-244 clamp review is superseded.
+previously unselected river/ravine representation; its prior E-244 clamp review is superseded.
 No parked microscopic lock/guide/pawl campaign reopens.
 Owner update64ee4f9: stage02 treats~30s/~$500/5.08mm/40mm as reference variables,
 not automatic rejection gates; enjoyable~$1000 finished hardware can merit study.
@@ -498,8 +498,9 @@ Next executable investigation:
   Exact25.4mm passage has zero base margin at both pitches; one extra clear cell
   gives30.48/31.75, still under illustrative32mm base. Protect walkable footprints
   before walls; no global topology pass for old ruin trace. Prefer64/N20/40 as
-  provisional comparison, pending owner's depth and existing representation choices.
-  Inspect live LAB-386 interaction for depth preference; LAB-384 remains policy wait.
+  provisional comparison, pending owner's separate depth choice.
+  Inspect live LAB-386 interaction for depth preference; LAB-384 owner chose both
+  physical depressions on2026-10-13. This does not approve N20/40 or N30/50.
   First further physical discriminator remains successful pair hold/drive/travel,
   not thread micro-optimization. No print, purchase or architecture approval.
 - Integrating64ee4f9, E-254 now checks paid physical neutral10/20/30. Road from10:
@@ -519,11 +520,12 @@ Next executable investigation:
   comparison above challenges whether50 stroke earns added guide/stock cost. No CAD/print/
   purchases/architecture selection. Existing40 stroke screw50/nut10 already
   leaves no end margins;50 stroke needs>=60 threaded length plus margins.
-- Owner representation question is saved on LAB-384; consult live Paperclip for
-  answer/state. E-254 playable_variants.py preserves original arrays and adds
+- Owner chose physical river banks + physical ravine on LAB-384,2026-10-13;
+  use both-relief workloads next. Mixed/visual variants remain controls.
+  E-254 playable_variants.py preserves original arrays and adds
   visual river/ravine with10-mm local rocks and walls-only ruins. Flat river has
   177 raised/24rows/9.50s atB2/2000rpm versus relief4449/80/18.63s.
-  Proposed flat river+physical ravine retainsB2/26.93s maximum. Visual depressions
+  Comparison flat river+physical ravine retainsB2/26.93s maximum. Visual depressions
   both give independentB2/20.51s and maskB2/24.91s at2000rpm; mask allocation drops
   $1608->1198 and research channel allowance$3.55->$5.8875. Still no sourced BOM.
   Tiny occupied fractions do not rescue four16 heads (ruins40.62s) or E-253.
@@ -531,7 +533,7 @@ Next executable investigation:
   Published ravine under-bridge play conflicts with solid pin-built bridge;
   separate prop is an unqualified alternative. Visual reveal over existing
   terrain needs no pin motion, not proven zero latency or concealment.
-  Do not select actuators from an unapproved physical/visual split.
+  Relief preference does not select pitch, neutral, depth, bridge or actuator.
 - E-259 sourced channel screen: Adafruit711+3297 costs$4.24/output before
   feedback/transmission/docking. With inherited reserve,64/80 boards total
   $984.64/$1166.40; under$1500 leaves$4.026/$2.085 per missing channel bundle,
