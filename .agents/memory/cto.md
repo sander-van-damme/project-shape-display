@@ -516,8 +516,19 @@ Current architecture boundary:
   Fixed16 coarse850rpm/lead3/100ms local S40/S50 maxima31.75/39.52s vs free
   19.97/23.97;8 bays31.50/39.26. No inherited free-field speed or rated850rpm.
   4096/6400 marked faces,128/160 mirrors remain unqualified/unquoted.
-  Next compare a materially different actual-pin view preserving connected
-  guides and accessible thrust capture; retain slotted metal bays as control.
+  Intact-route comparison: direct row-end marks are occluded by opposing face
+  deviations .00484/.00117mm coarse/fine full-row; two-end views still fragile.
+  Axial .8mm screw bore sees integral pin cap through intact guides in the ideal
+  bounded-ray model; root1.4 wall.30mm,89.34% I, aspect67.5/80 forS40/S50.
+  Combined .1radial bound leaves>=.130ray margin, not optical/process qualification.
+  Bore sub-degree cone cannot inherit catalog ToF performance; favorable stereo
+  f1200/.1px yields up to3.16mm depth error. No bore/reader detail selected.
+  Conditional850rpm/lead3/100ms reads+100ms exchange coarse16 localS40/S50
+  21.67/25.67s at16 parallel paths,29.32/33.32s at4,59.92/63.92s at1.
+  S50 scene234.28s/prep282.23/dense403.17 even atq16; process/reader unquoted.
+  Removes mirrors/scales but adds4096/6400 bores/targets/inspection duties.
+  Next compare accessible actual-pin sensing retaining solid threads and intact
+  guides; screen repeated manufacture/access before detail, controls above retained.
   No optical microdetail, print/purchase or new owner question; E-263 retired.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
