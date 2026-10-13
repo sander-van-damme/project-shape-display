@@ -58,6 +58,18 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-271 finite16 routing: coax stagger fails neighboring shafts; offset motor/belt
+  lanes with whole-channel3mm docking clear coarse inter-channel envelopes at
+  e.2 with4 encoder/5 bare lanes, ~200/212mm head depth. Fine6mm transmission
+  versus4.4mm bearing riser fails; no tiny pulley/riser repair. Harness3x4mm
+  allowance marginal for12 assumed.8mm wires; no complete packaging pass.
+  Selection alone88W; moving mass/solenoid force unqualified. Itemized whole
+  bought allocations coarse encoder$1702–3406, bare$1247–3114; no$500/$1000 path.
+  Bare$1500 residual$253 only favorable allocation, no quote/purchase. Single
+  direct encoder control$639–1662 but conditional400rpm S50 local~512s.
+  No safe RPM or cap proof; E-270 decoder/hidden-pin limitations persist.
+  Stop local hardware detail; fewer direct reusable spindles is the next distinct
+  architecture discriminator, not another16-channel belt/guide refinement.
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
   for original 2-mm cap/1.2-mm lug/base. D5 has .60-mm nominal lift window;
   total axial gap E=.35 closes it (finite cap/lower-lug .05-mm penetrations).
