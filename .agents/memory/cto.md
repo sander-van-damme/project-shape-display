@@ -3,7 +3,7 @@
 Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and configurable depth;
 E-255 records owner hold; E-256 bounds drive; E-259 bounds channels/concurrency;
 E-260 adds batch assembly/service breakpoints, with no measured production yield.
-E-261 bounds full-travel guide overlap and screw stability after the owner failure.
+E-261 bounds full-travel support; E-262 screens moving-nut rotary modes and waits.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -486,20 +486,19 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- E-261: simple resident screw + two shared guides remains conditional. With
-  assumed nut10/end margins2 each,40/50 travel needs54/64 usable thread. Two2-mm
-  guides40 apart/end reserves2 need86/96-mm pins; deepest top128/148 above thread
-  origin, excluding seat/head. Historical50.8 pin at40 travel permits only4.8-mm
-  guide-center spacing. No qualified engagement or physical stop follows.
-  Guide-play C=.24 scenario atS50/b40 givesU=.417; opposing pins at5.08/w4.4
-  overlap the relaxed envelope.6.35/w4.4 leaves1.116 gap but1.95-mm surface seams;
-  w5.6 loses clearance. Screw lateral restraint can reduce play by carrying load,
-  so this is not a predicted collision. No micro-fit rescue or guide CAD selected.
-  Historical nominal root1.4 (notOD3.2) atE1000/L57 givesEuler.573/.143N for
-  K1/K2; scenario only, no PLA prior or diagnosis. Axial collar is not moment fixity.
-  Next independent discriminator: rotary critical-speed/stiffness through moving
-  nut positions and free screw overhang, before selecting an intact supported
-  test article. No new owner question, broken-pair retry, print or purchase.
+- E-262: 2000–3000rpm remains conditional, not earned across travel. At historical
+  root1.4/E1000/rho1400/OD mass/P.2N, ideal point nut + simple base gives minimum
+  .8ncr1436/991rpm for40/50 travel; retracted free overhang limits. Fixed base
+  without nut support loses static stability atS50. Finite spring/lateral20g
+  scenarios can fall near522rpm or lose stability; no fitted PLA/contact priors.
+  At64/B2/K32/lead3/850rpm, shallow/deep maxima35.54/43.29s; prepN30 58.11,
+  dense50 89.17. No guarantee850 is safe. Keep128/160 channels and old cost caveats.
+  Second root radial land adds4096/6400 duties; no wholesale bearing addition.
+  Smallest justified next article: one intactS40/54-thread/86-pin/b40 supported
+  cell, openable shared-style guides and removable second root land; measure
+  stiffness/straightness/manual hold before powered speed. S50 remains separate
+  64-thread/96-pin variant. Stop before micro-fit iteration; no print/purchase or
+  owner question in this screen. E-261's guide collision/stock limits still apply.
 - E-260: preserve individual pair replacement in openable shared beds; no added
   per-cell cartridge/brake. Sealed64-site disposal costs1.523x fresh-lot attempts
   in a labelled .95%-mean two-class toy case,3.905x if retry class persists; not
