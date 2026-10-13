@@ -5,13 +5,16 @@ builds-on: [E-257, D-011]
 
 # Mid-travel relief depth and player-view comparison
 
-**Carry 6.35-mm pitch, a 20-mm neutral plane and 40-mm travel into the next
-playable comparison.** Keep meaningful walls, platforms and cliff edges physical;
-retain physical river banks and a physical ravine following Sander’s 2026-10-13
-representation choice recorded in E-254. Pitch, neutral height and depth remain
-research recommendations, not owner-approved dimensions or a qualified machine.
-Reducing the assigned ravine depth from 30 to 20 mm is a new representation
-hypothesis, not a mechanical repair.
+**Compare software-selectable 20/30-mm ravine depth on a 6.35-mm grid with
+fixed 30-mm ordinary ground and 50-mm mechanical travel.** Sander's authenticated
+2026-10-13 answer on LAB-386 (interaction `4e8f39d8-833d-497c-8ec2-c6a3deafcbce`)
+requests flexibility between fast updates and larger drops, configurable in software;
+he finds both depths potentially enjoyable and a larger drop potentially more immersive.
+His separate LAB-384 answer selects physical river banks and a physical ravine (E-254).
+These are owner preferences, not measured gameplay superiority or approval of exact
+dimensions. The former N20/40 recommendation remains the simpler limited-travel
+control; it cannot provide a 30-mm drop and +20-mm walls about the same ground plane.
+No actuator architecture or purchase is selected.
 
 D-011 separates sourced play conventions, five contextual map examples and unmeasured
 preferences. E-254/E-257 retain the original geometry, A/B/C counts and pitch evidence.
@@ -19,7 +22,7 @@ Only their original three windows are timed here; the additional dungeon/cave ex
 are qualitative checks. Evidence is deterministic geometry/scheduling and labelled
 machine-wide uncertainty bounds; no new physical measurement or observed-play trial.
 
-Reproduce `python 3 tools/curated-experiment-checks/E-258/player_view.py`.
+Reproduce `python3 tools/curated-experiment-checks/E-258/player_view.py`.
 `--figures DIR` additionally uses matplotlib to emit a three-page PDF and PNGs:
 river and ravine A/B/C at both pitches, then physical depth and walls. All faces are
 actual cell tops/risers at equal XYZ scale. A/B deliberately end in the **same shape**:
@@ -98,28 +101,81 @@ accept a coarser boundary only where it preserves declared openings and separati
 The existing ruins trace lacks a complete semantic door/topology annotation, so its
 9/8-component result remains a warning, not a fixed map or proof that either pitch wins.
 
-**Technical recommendation:** retain grid legibility, miniature access, support and
-repair as functional obligations. Keep 80×80/5.08,40-mm stroke,~30 s and~$500 as explicit
-comparators; challenge minimum rest and mechanical rendering of decoration. Prioritize
-64×64/6.35,N20/40 with a 20-mm physical chasm as the simpler *research comparator*, keeping
-N30/50 for a player-valued deeper drop. Use both physical depressions for the next
-workload; retain visual river cases as comparison controls. The coarser grid reduces
-resident duties 36%, but neither array reliability nor a finished $1000 price follows
-from the $954 allocation. Do not adopt larger stroke, extra heads or a projector merely
-to protect a guessed terrain encoding. A one-head slower design remains worth comparing
-if the owner prefers encounter setup over live in-combat reshaping;~30 s is not a veto.
+**Configurable-depth continuation, 2026-10-13 (calculation).** Keep ground at
+30 mm in both presets: water 20, rocks 40, walls 50; change only ravine bottom
+10→0 mm for a 20→30-mm drop. Shallow-mode targets are exactly the N20/40 targets
+plus 10 mm, so their prepared-start and map-to-map deltas are identical. Software
+selects geometry within real travel; it cannot create missing headroom. The existing
+player-view PDF's relative shapes remain applicable; it does not depict this shared
+absolute datum. `configurable_depth` now checks all 30 directed transitions among
+three scenes × two presets, including same-scene switches, at each pitch.
 
-Before selecting hardware, resolve the separate depth choice using the true-scale
-views and protect actual base/door footprints in a small playable scene. Then
-reuse the successful screw/seat for E-256's load/torque/travel and moving-loss measurements. Batch variation,
-guide overlap and safe reverse—not another isolated thread optimization—can change
-whether either head survives. Molding/casting or machined shared parts remain options
-only with their tooling, batch yield and maker-hour ledgers in E-257. No printing or
-purchasing is needed for this representation decision.
+| Both physical depressions; assumed seconds | 80×80 / 5.08 mm | 64×64 / 6.35 mm |
+|---|---:|---:|
+| Independent B2 maximum, shallow / deep | 26.03 / 30.13 | 22.08 / 25.38 |
+| Mask B2 maximum, shallow / deep | 33.59 / 39.21 | 28.10 / 32.61 |
+| Same ravine, 20↔30-mm switch, independent / mask | 17.13 / 19.59 | 14.98 / 16.96 |
+| Cold preparation to fixed ground30, independent | 25.33 | 21.58 |
+
+Cross-preset map transitions do not exceed the deep-suite maxima in this sample.
+At64 the switch lowers1166, leaves2930 stationary and raises0 pins; reverse swaps
+rise/lower. It visits56 rows,32 columns and24/32 rows in the two head regions.
+At80 it lowers1825, leaves4575 stationary, visits70 rows/40 columns and30/40 bank
+rows. Road/ruins preset switches are no-ops. Ground, bridge and rocks stay fixed.
+Changing the entire neutral plane instead would move2930/4575 pins and visit all
+64/80 rows, but takes the **same** modeled seconds: the busiest head already visits
+all32/40 rows. Fixed ground improves regional isolation here, not this latency.
+Changed-region miniatures/props still need clearance; these are ideal commands,
+not demonstrated disturbance-free motion.
+
+At64, ground30 preparation costs3.30 s more than ground20. With the existing
+walls-only first scene,21.58+17.16=38.74 s precedes unknown homing and manual/visual
+work. Fifty-mm travel with a10-mm engagement requires at least60 mm threaded length
+**plus end margins**, versus50 mm plus margins for40 travel. Guide overlap, frame
+clearance, transport height, wear, batch fit and incremental manufacture cost are
+unqualified. The inherited $953.92 independent/$1023.92 mask allocations are unchanged
+accounting placeholders, **not evidence that longer hardware costs nothing**; E-259
+supersedes the $4 channel assumption with partial sourced component costs. Neither
+allocation establishes a $1000 finished product; keep the ~$500 reference visible.
+
+Recomputed both-relief sensitivity at64:1500 rpm gives25.28/29.68 s independent
+shallow/deep and31.23/36.67 s mask;200 rev/s² gives26.48/29.78 and38.50/45.46 s.
+These vary one input at a time, not a joint confidence interval. Rates, stop/proof,
+mask rewriting and return/retry remain E-255 assumptions; the four-second allowance
+has no measured end-to-end validation. The ~30-s reference therefore favors testing
+the independent head's operating envelope first; it does not forbid a slower deep
+setting. A depth preference is not permission to increase motor speed beyond a
+qualified loaded rate.
+
+**Technical recommendation:** retain legible grids, usable base/door footprints,
+real support, recovery and repair. Keep80×80/5.08,40-mm travel,~30 s and~$500 as
+comparators. Carry64×64/6.35 and fixed-ground software depth presets into architecture
+comparison, with N20/40 as the simpler hardware control. Coarser pitch removes36%
+of resident duties but remains conditional on passage/topology and miniature checks.
+Meaningful physical walls, banks and cliffs supply tactile boundaries; props/visuals
+handle decoration, with their real setup costs. Neither greater travel nor a solid
+pin bridge supplies playable underpasses.
+
+Proposed controller behavior: preserve semantic terrain and fictional depths separately
+from rendered millimetres; expose depth and a predicted wait before movement, compute
+from actual retained heights, and keep ordinary ground fixed across presets. A request
+outside calibrated stroke/guide/load limits must be rejected or offered an explicit
+reduced-depth alternative, never silently clipped. Recompute partial-state recovery
+rather than replaying a stale delta. This is a research control contract, **not a
+shipping software feature**, automatic geometry simplification or a qualified safety
+system. Twenty/thirty millimetres are concrete comparison presets, not the only
+permitted future settings.
+
+The owner preference is resolved; no repeated depth question is needed. Next mechanical
+discriminator remains E-256's successful-pair hold/drive/travel characterization,
+including the added stroke/guide obligation, before detailed head design. Protect
+playable openings and compare batch manufacturing/service effort; do not return to
+isolated thread optimization. No printing or purchase follows from this reassessment.
 
 
 Verification: historical arrays preserved exactly; common-offset invariance versus
 changed-depth distinction;40-mm range and passage-width checks; independent fixed-bus
 arithmetic/no-op/reversal; row/column/quadrant changed-count reconciliation; all
-new schedules replayed. Three-page PDF visually inspected. Self-review only; no
+new schedules replayed; fixed-ground preset switches, cross-preset transitions and
+uniform-offset delta invariance checked at both pitches. Three-page PDF visually inspected. Self-review only; no
 independent physical validation or representative-play claim.

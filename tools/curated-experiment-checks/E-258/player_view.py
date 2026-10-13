@@ -64,7 +64,7 @@ def comparison(n, neutral, depth):
             for a,b in itertools.permutations(keys,2)]
         suites[name]['one_bus_oracles']={kind:max(bus_oracle(s.v.rotary.delta(a,b),kind)
             for a,b in pairs) for kind in ('serial_intersection','parallel_row_mask')}
-        if name == 'mixed':
+        if name in ('mixed', 'relief'):
             # Coherent machine-wide bounds, not independent random cell priors.
             suites[name]['rate_bounds']={label:{kind:max(s.v.rotary.schedule(
                 s.v.rotary.delta(a,b),2,kind=='mask',pitch=s.WIDTH/n,**kw)['seconds']
@@ -86,6 +86,44 @@ def comparison(n, neutral, depth):
             paid_neutral=prep['independent_b2']['seconds']+initial[order[0]]['independent_b2']['seconds']+later),
         # Preserve the full declared height arrays for exact replay/inspection.
         heightmaps_mm=targets)
+
+
+def configurable_depth(n):
+    """Two software depth presets on ONE granted 50-mm-travel machine.
+
+    Ground stays at 30 mm; only the physical ravine bottom changes. This is a
+    command/schedule comparison, not implemented controller or qualified travel.
+    """
+    maps, labs = s.v.variants(n)
+    maps, labs = s.connected_walls(maps, labs, n)
+    fast = aligned(maps, 30, 20)
+    deep = aligned(maps, 30, 30)
+    compact = aligned(maps, 20, 20)
+    for key in fast:
+        assert all(f == c+10 for fr, cr in zip(fast[key], compact[key])
+                   for f, c in zip(fr, cr))
+        assert all(0 <= h <= 50 for row in deep[key] for h in row)
+        assert all(0 <= h <= 50 for row in fast[key] for h in row)
+        assert s.v.rotary.delta(fast[key], deep[key]) == [
+            [-10 if key == 'ravine' and h == 0 else 0 for h in row]
+            for row in maps[key]]
+    switches = {key: dict(to_deep=metrics(fast[key], deep[key]),
+                          to_fast=metrics(deep[key], fast[key]),
+                          moving_neutral_to_deep=metrics(compact[key], deep[key]))
+                for key in s.SUITES['relief']}
+    # Every cross-scene/preset transition, including same-scene mode changes.
+    states = {f'{mode}:{key}': targets[key]
+              for mode, targets in (('fast',fast),('deep',deep))
+              for key in s.SUITES['relief']}
+    cases = {a+'>'+b:metrics(states[a],states[b])
+             for a,b in itertools.permutations(states,2)}
+    for a,b in itertools.permutations(s.SUITES['relief'],2):
+        assert s.v.rotary.delta(fast[a],fast[b]) == s.v.rotary.delta(compact[a],compact[b])
+    return dict(neutral_mm=30, mechanical_range_mm=[0,50],
+                presets_ravine_depth_mm=dict(fast=20,deep=30),
+                switches=switches, cross_preset_transitions=cases,
+                maximum={layout:max(c[layout]['seconds'] for c in cases.values())
+                         for layout in ('independent_b2','mask_b2')})
 
 
 def bus_oracle(delta, kind):
@@ -249,7 +287,8 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--figures',type=Path);args=p.parse_args()
     checks()
     out={f'{n}:N{neutral}:D{depth}':comparison(n,neutral,depth)
-         for n in (80,64) for neutral,depth in ((30,30),(20,20))}
+         for n in (80,64) for neutral,depth in ((30,30),(20,20),(30,20))}
+    out['configurable_depth']={str(n):configurable_depth(n) for n in (80,64)}
     out['abc']={}
     for n in (80,64):
         maps,_=s.v.variants(n)

@@ -1,6 +1,6 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and depth choice;
+Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and configurable depth;
 E-255 records owner hold; E-256 bounds drive; E-259 prices sampled drive/feedback subsets.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
@@ -497,10 +497,16 @@ Next executable investigation:
   sourced; only original three maps timed, no observed play or preference claims.
   Exact25.4mm passage has zero base margin at both pitches; one extra clear cell
   gives30.48/31.75, still under illustrative32mm base. Protect walkable footprints
-  before walls; no global topology pass for old ruin trace. Prefer64/N20/40 as
-  provisional comparison, pending owner's separate depth choice.
-  Inspect live LAB-386 interaction for depth preference; LAB-384 owner chose both
-  physical depressions on2026-10-13. This does not approve N20/40 or N30/50.
+  before walls; no global topology pass for old ruin trace. Owner on2026-10-13
+  wants software choice of speed/depth, not a forced winner;
+  LAB-384 selects both physical depressions. E-258 now compares fixedN30,
+  shallowD20/deepD30 on50 travel; N20/40 stays simpler hardware control.
+  At64 independent maxima22.08/25.38s,mask28.10/32.61s. Same-ravine switch
+  moves1166/leaves2930,56rows,14.98/16.96s independent/mask. Moving neutral
+  would move2930/all64rows but takes same time due busiest-bank saturation.
+  Ground30 prep21.58s; longer guide/thread cost unresolved, not free. Exact
+  dimensions remain proposals; no further depth question. Controller contract
+  separates fictional depth, rendered geometry and qualified physical limits.
   First further physical discriminator remains successful pair hold/drive/travel,
   not thread micro-optimization. No print, purchase or architecture approval.
 - Integrating64ee4f9, E-254 now checks paid physical neutral10/20/30. Road from10:
