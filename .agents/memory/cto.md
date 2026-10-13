@@ -1,8 +1,8 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC. E-273 parks the straight shared-rack drive after
-E-271/272 private-drive comparisons. Next distinct screen: compact circulating
-shared drive with real selection, contact and socket-phase compatibility. No hardware pass.
+Updated: 2026-10-13 UTC. E-274 parks the constructed friction-loop shared drive
+after E-273 straight rack and E-271/272 private/direct controls. Circulation
+removes rack return but not axial docking force or phase recovery. No hardware pass.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -57,6 +57,21 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-274 finite single band/16 drums/15 idlers/4 end turns: coarse band gap1.149mm,
+  fine−.121 at e.2;6mm moving drum face/2mm band/3mm docking leaves.10mm edge
+  reserve. Coarse X sweep452.85mm vs rack838.93. Drive wrap109.47deg; outputs
+  83.05..205.04. At16x.35Nmm/mu.3/effectiveR2.2, required slack3.503N gives
+  axial rub3.760N vs inherited selector.585N remaining. All9 torque/friction
+  scenarios fail; no materials/process priors. Stronger selector/tension release
+  or fixed rotor coupling is changed hardware, not granted rescue. Smooth-loop
+  phase drift adds to E-273 rigid-phase failure: opposite effective-radius
+  errors±.002 atR2.2 exceed10deg common window over50mm. No forced docking.
+  Conditional coarse local25.80/29.80s S40/S50;scenes251.35/281.75;prep263.16/
+  323.63;dense383.63/444.10;known serial phases S50 local235.08/scene1444.09.
+  Unknown phase/covered caps still unbounded. Bought1156–3108 coarse saves~91
+  vs bare16, maker21.77–51.76h before cleanup/commissioning. Stop loop/tooth/
+  clutch detail; reopening needs changed docking load and explicit phase recovery.
+
 - E-273 common rack removes15 rotary motors/16 private belts, retains16 axial
   docking selectors. Coarse e.2/OD5 pinion gap.95; fine−.32 fails; no tooth rescue.
   3mm axial docking/broad6mm rack face leaves.6mm envelope reserve, not mesh proof.
@@ -69,8 +84,8 @@ Evidence to retain:
   local includes10.69s empty rack; removing only it still30.30, no loop pass.
   Bought allocations1116–2982 vs bare16 favorable1247; no$500/$1000 route;
   maker20.77–49.76h before cleanup/phase commissioning. Stop straight rack detail.
-  Next independent discriminator: circulating shared drive finite contact/torque,
-  selection routing and phase-compatible recovery; no print/purchase/question.
+  E-274 now supplies the circulating-drive discriminator; its friction-loop
+  embodiment is also parked. No print/purchase/question.
 - E-271 finite16 routing: coax stagger fails neighboring shafts; offset motor/belt
   lanes with whole-channel3mm docking clear coarse inter-channel envelopes at
   e.2 with4 encoder/5 bare lanes, ~200/212mm head depth. Fine6mm transmission
