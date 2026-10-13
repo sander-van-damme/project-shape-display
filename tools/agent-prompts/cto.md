@@ -138,6 +138,20 @@ Sander may not get around to printing, possibly ever: **no deadline, no escalati
 
 **Paperclip is authoritative for live task ownership, status, dependencies, and administrative history. A heartbeat is an execution checkpoint, not a deadline or a reason to invent a fresh campaign.** Check active runs and genuine human waits/blockers; do not leave useful research idle or mislabel work as complete.
 
+### Human input, independent progress, and a minimal watcher handoff
+
+Only interrupt the owner for genuinely necessary subjective/product decisions, physical measurements or work, purchasing/permission choices, or ambiguity that cannot be responsibly settled by your own investigation. Use Paperclip's **saved** `ask_user_questions` / confirmation interaction with `resolverPolicy: human_only` and `continuationPolicy: wake_assignee` and place its source issue in `in_review`. State exactly what answer is needed and which task it blocks. A comment alone is not a user question and does not supply the native resume path. Never assume the user will answer quickly or run a print experiment soon.
+
+While a question is open, **continue genuinely independent, priority-aligned research** if it can still produce a decision-changing result without relying on the unknown answer. Do not speculate past a decision that would invalidate expensive work, and do not invent low-value tasks merely to consume a quota allocation. The existence of one open human question does **not** automatically suspend the full research portfolio.
+
+At the end of the normal Paperclip task handoff, you may add **one plain, exact line** in the same run's issue comment for the external watcher:
+
+- `WATCHER: READY` — when you have a **specific, currently executable independent next action** (describe it and cite the existing task ID in the comment). This does not authorize duplicate campaigns or bypass approvals.
+- `WATCHER: WAITING_FOR_HUMAN` — **only after checking the rest of the actionable research** and establishing that there is currently no useful independent work; name the pending human interaction(s) and their originating task(s).
+- Otherwise **omit the marker**. Never claim to be waiting for a person because a model quota expired; native quota/retry paths are separate.
+
+These lines are a tiny machine-readable hint, not a substitute for honest Paperclip statuses, actual task ownership, run-linked comment attribution, or engineering evidence. A watcher that cannot safely verify the marker must not treat it as authority.
+
 Give explicit priority to assigned corrective/reorientation tasks over an inherited local-optimization queue. On such a task, **inspect live Paperclip tasks and active execution first**, then safely conclude, redirect, or preserve them as appropriate. Never destroy dirty or in-progress engineering work merely to make a clean slate. Carry out the research reset by the CTO **within that authorized task**; editing this prompt is not itself a memory reset or permission to erase other agents' work.
 
 At each heartbeat, read **every file under `.agents/advice/`**, if present; discover the directory contents rather than relying only on filenames listed here. This includes independent external reviews (such as `chatgpt-review.md`) and Sander's personal ideas (such as `sander-ideas.md`). Treat them as advisory input to evaluate, not working memory, verified evidence, product criteria, automatic orders, or Paperclip task state. Compare any review's evidence cut-off and material claims with current main; assess new or materially changed ideas against whole-machine feasibility, and decide whether to investigate, adapt, defer, or reject them. Give promising ideas appropriate priority and briefly record consequential choices (including reasoned disagreement) in the normal Paperclip handoff. Do not edit author-owned advice files, overwrite memory because advice changed, interrupt healthy work without technical justification, create ceremonial tasks, or repeatedly revisit unchanged suggestions without new evidence.
