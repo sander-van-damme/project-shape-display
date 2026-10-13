@@ -499,19 +499,22 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
-- E-268 actual-pin sensing: motor counts alias missed socket; resident screw
-  angle still aliases stripped thread. No inherited pickup lock exists here.
-  Fixed-datum scales use existing E-261 pin stock (local7..47/57mm), but direct
-  E-178 import fails opaque guide/thrust beds. Slotted-row optical construction:
-  coarse4.4-stem/e.10 gives.130mm backing gap and~.887mm required slot/.411mm
-  guide web; e.20 collides despite clear rays. Fine e.05 already collides.
-  Bounds, not process/optical qualification. Adds4096/6400 marked faces,
-  128/160 mirror pieces and slots in two structural layers; no free plate cutting.
-  Short16 coarse100ms read replaces20ms:local19.97/23.97s;200ms21.67/25.67.
-  Slower stopped proof is affordable in this model; no earned active-stop feedback.
-  Next discriminator is a supported slotted module/batch scale route versus
-  another actual-pin access topology, before cameras or reflector micro-CAD.
-  E-263 print offer now retired; no print/purchase or owner question.
+- E-268 actual-pin sensing: motor counts alias missed socket; screw angle aliases
+  stripped thread. Fixed pin scales fit existing stock; opaque beds need a route.
+  Coarse4.4-stem/e.10 retains.130mm mirror gap; fine e.05 collides, e.20 coarse
+  backing collides. Bounds, not calibrated optics or process priors.
+  New supported-bay screen:16-cell/101.6mm thrust row, .9slot/3.6holes/2thick,
+  E1000/.05N per site gives5.136mm beam deflection; E200000 gives.0257mm.
+  Rigid end support and local seat strength remain unbuilt; loads are scenarios.
+  Transverse end ribs clear sampled rays, interior ribs obstruct a free field.
+  Fixed16-bay coarse/850rpm/lead3/100ms reading raises local S40/S50 maxima
+  19.97/23.97→31.75/39.52s; 8-cell bays31.50/39.26. Slower is not automatic
+  product rejection. Stop thin-polymer slots and free-field timing inheritance.
+  Two slotted layers retain512/800 row spans grouped into32/50 panels; grounded
+  frame/service,4096/6400 marked faces,128/160 mirrors still unqualified/unquoted.
+  Next compare a cross-bay actual-pin observation route with this fixed-bay
+  control at whole-module scale before camera/reflector detail. No new owner
+  question, print or purchase; E-263 offer remains retired.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,

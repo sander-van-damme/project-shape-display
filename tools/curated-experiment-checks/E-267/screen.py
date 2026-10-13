@@ -47,9 +47,9 @@ def stations(delta, width):
     return out
 
 
-def schedule(delta, width, rpm=850, lead=3, accel=1000, extra_dock=0):
+def schedule(delta, width, rpm=850, lead=3, accel=1000, extra_dock=0, station_builder=None):
     n = len(delta); pitch = a.c.v.s.WIDTH/n
-    path = stations(delta, width)
+    path = (station_builder or stations)(delta, width)
     if not path:
         return dict(seconds=0., stations=0, first_seek_s=0., travel_s=0.,
                     seek_s=0., return_s=0., dock_proof_s=0., common_s=0.,
