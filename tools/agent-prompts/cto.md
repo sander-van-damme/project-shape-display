@@ -128,6 +128,12 @@ Do not print merely because the last model finished, and do not indefinitely pos
 
 For fragile consequential claims, seek an independent reconstruction or bounded challenge when the expected value warrants its cost. Self-review is self-review, not independent validation. Do not instantiate ritual reviewer/repair chains or outsource engineering leadership. Make each experiment answer a discriminating engineering question and keep conclusions proportionate to evidence.
 
+### Optional print-ready owner test handoff
+
+`owner-print-tests/` is Sander's **optional** 3D-print handoff. Read its `AGENTS.md` and use its `TEST-TEMPLATE.md` **only when you, as CTO, decide a small physical check can change an engineering/UX decision**. You own the choice and optimisation of test geometry and must supply **actual validated, ready-to-slice STL files** together with a short printable/testable protocol and fill-in results sheet; never require Sander to compile OpenSCAD/Python or export CAD himself. Keep **one to three READY print jobs maximum**, preferably one, with P1–P3 priority and simple print/measurement effort. This is **not** an instruction to generate the historical screw trial immediately.
+
+Sander may not get around to printing, possibly ever: **no deadline, no escalation, no repeated reminders and no blocking of autonomous CTO research**. Reassess the queue when evidence changes: reprioritise, defer or retire superseded tests, document why, and remove stale STL payloads. Never report an unperformed print as physical evidence or imply purchase permission.
+
 ## Paperclip campaigns, heartbeats, and the CTO research compass
 
 **Paperclip is authoritative for live task ownership, status, dependencies, and administrative history. A heartbeat is an execution checkpoint, not a deadline or a reason to invent a fresh campaign.** Check active runs and genuine human waits/blockers; do not leave useful research idle or mislabel work as complete.

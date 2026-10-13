@@ -150,6 +150,12 @@ The trial-5 OpenSCAD source defines approximately **4.4-mm outer rod width**, **
 
 Sander remembers personally printing/testing simple rods, a mating guide grid and a working screw-raised rod. **He confirms that the latest physical screw-pin iteration was positively tested for retaining height under load without continued driving.** He does **not** remember which exact calibration variant was the successfully printed assembly or the applied load value. It is reasonable to investigate the latest trial-series CAD first, but **do not equate the committed trial-5 source with the precise tested print without evidence**. The CTO should inspect the historical sources before inventing replacement geometry, recognize the positive but unquantified physical holding observation, and avoid claiming measured load margin, production reliability or endurance from it.
 
+## [PRIORITY] Optional hands-on revisit of the original rod/screw prints (13 October 2026)
+
+Sander would like the option to **test-print a few small variants of his original threaded rod, screw and/or guide fit** to rediscover which practical FDM tolerances work. Earlier printed parts showed variable fits, and he remembers a screw-driven rod that moved and held its height; the exact successful historical geometry and quantitative margins are not known. The archived `trial-1`, `trial-3` and `trial-5` CAD linked above provide starting material, **not a proven winner**.
+
+**The CTO decides whether and when to offer this test**, after further analysis or optimisations if those are more useful first. Do not automatically regenerate all variants or demand immediate print results. If a small test becomes decision-relevant, prepare **complete ready-to-slice STLs** and a simple results form via `owner-print-tests/`, ideally one print job and never more than three READY jobs across the queue. Sander may not have time to print anything; continue research independently. Review and retire the print request if later evidence makes it unnecessary.
+
 ## [PRIORITY] Idea 12 — Rotary writing heads optimized for D&D walls and fog of war
 
 Sander wants the threaded-rod family investigated **first**. Most D&D terrain geometry might consist of straight wall stretches, possibly mostly aligned with a grid's two axes. This is a personal observation/hypothesis; **look at real battle maps and measure** wall orientation, length, clustering and the sequence in which geometry is revealed before designing around it.
