@@ -142,7 +142,17 @@ def checks():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
+    parser.add_argument('--local-reveals', action='store_true',
+                        help='run the reusable XY-head extension preserved in E-267')
     args = parser.parse_args()
+    if args.local_reveals:
+        spec = importlib.util.spec_from_file_location('short_head',
+                    Path(__file__).resolve().parents[1] / 'E-267/screen.py')
+        short = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(short)
+        verified = short.checks()
+        print(verified if args.check else json.dumps(short.report(verified), indent=2))
+        return
     verified = checks()
     if args.check:
         print(verified)

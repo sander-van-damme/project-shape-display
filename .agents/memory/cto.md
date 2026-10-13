@@ -498,8 +498,10 @@ Current architecture boundary:
   at these rates. Subset+reserve$497.68 leaves only$2.32 under$500 but$502.32
   under$1000 for missing hardware.16-output comparator removes112 channels vsB2,
   not4096 resident pairs. Fine16 local33.91/43.32s; fine32 21.10/26.04.
-  Coarse16 deep lead2/850 gives28.61;lead3/600 27.54;400 35.99. No rated speed,
-  BOM or preference winner. Stop schedule sweeps; retain cheaper local-reveal
+  Coarse16 deep lead2/850 gives28.61;lead3/600 27.54;400 35.99.
+  B2/K32 same-window local16.58/20.58s saves only2.032s versus coarse16;
+  E-266 --local-reveals now exposes signed counts and complete worst-wait ledger.
+  No rated speed, BOM or preference winner. Stop schedule sweeps; retain cheaper local-reveal
   demonstrator as control. Next independent discriminator: shared reader/failed
   engagement coverage and complete observable channel budget; no head micro-CAD,
   purchase or new print. E-263 optional article unchanged.

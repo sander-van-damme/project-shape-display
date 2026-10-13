@@ -62,6 +62,33 @@ needs65.92s on the worst S50 work case before all overhead. Better routing canno
 restore universal30-s scenes within this topology/rate. Actual200.62s is a feasible
 model schedule, not an optimum. Coarse32 buys no better worst local wait.
 
+The identical windows with **two full-row banks/K32** give coarse16.58/20.58s
+and fine19.07/24.01s, all133 nonempty windows/depth under30s in this conditional
+model. Thus coarse16 trades only2.032s of worst local latency against B2 while
+removing112 channels and$486.96 of subset/reserve. Its large-scene penalty above
+remains substantial. B2's shorter seek range helps even when a reveal occupies
+only one bank; adding a second bank does not halve such local spin work.
+
+The worst coarse16 window is ravine `(x0,y0)=(16,48)`:150 lowered, zero raised,
+3946 unchanged cells;16 visited rows/stations,16 nominal dock cycles plus one
+immediate retry. Its explicit ledger is:
+
+| Component (seconds) | S40 | S50 |
+|---|---:|---:|
+| Outward/inter-station seeks |2.63311|2.63311|
+| Return to origin |2.04025|2.04025|
+| Nominal docking/release/proof |1.60000|1.60000|
+| Signed spin work, parallel within station |7.75608|11.52078|
+| One longest station retry, including dock/proof |.58475|.82005|
+| Common allowance |4.00000|4.00000|
+| Total |18.61420|22.61420|
+
+The first seek is1.564s within the seek row, not another charge. Retry occurs
+while still at the failed station; delayed discovery needing a revisit and
+unbounded jams remain outside this model. These are calculated allocations,
+not measured docking or reader performance. JSON now exposes the same ledger
+for each worst scene/window; E-266's `--local-reveals` runs this shared source.
+
 Coarse16/S50 local sensitivity: lead2/850rpm28.61s; lead3/600 or400rpm27.54/35.99s;
 200rev/s² plus100ms extra/station at850rpm25.28s. Bounds, not safe speeds or process
 priors. Known pre-positioning gives21.05s worst visible versus22.61s paid cycle.
@@ -91,4 +118,6 @@ new print, fine-feature/coupler campaign or owner question.
 
 Verification:1538 exhaustive interval covers,144 full-row anchors, exact dense
 station/spin counts including80/32, signed cell replay/no duplicates, no-op/budget
-controls and a narrow-window anti-zigzag control. These verify code, not hardware.
+controls and a narrow-window anti-zigzag control; separate ledger-sum and signed
+count identities, plus an exact far-corner singleton seek/return/retry check.
+These verify code, not hardware.

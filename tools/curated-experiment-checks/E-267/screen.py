@@ -51,7 +51,11 @@ def schedule(delta, width, rpm=850, lead=3, accel=1000, extra_dock=0):
     n = len(delta); pitch = a.c.v.s.WIDTH/n
     path = stations(delta, width)
     if not path:
-        return dict(seconds=0., stations=0, first_seek_s=0., travel_s=0., spin_s=0., retry_s=0., lower_s=0.)
+        return dict(seconds=0., stations=0, first_seek_s=0., travel_s=0.,
+                    seek_s=0., return_s=0., dock_proof_s=0., common_s=0.,
+                    spin_s=0., retry_s=0., lower_s=0., changed_cells=0,
+                    raised_cells=0, lowered_cells=0, unchanged_cells=n*n,
+                    visited_rows=0, seeks=0, dock_cycles=0, retry_cycles=0)
     # Compare row order with a column-major serpentine through the same jobs.
     # This removes the gratuitous full-width sweep after each dense row without
     # pretending to solve a continuous routing or weighted-cover optimum.
@@ -74,14 +78,24 @@ def schedule(delta, width, rpm=850, lead=3, accel=1000, extra_dock=0):
         dwell = .1+extra_dock+rotation
         travel += seek; spin += rotation; retry = max(retry,dwell)
         pos = x,y
-    travel += max(a.r.move(pos[0]*pitch),a.r.move(pos[1]*pitch))
-    total = 4+travel+len(path)*(.1+extra_dock)+spin+retry
+    seek = travel
+    return_time = max(a.r.move(pos[0]*pitch),a.r.move(pos[1]*pitch))
+    travel += return_time
+    dock = len(path)*(.1+extra_dock)
+    total = 4+travel+dock+spin+retry
     # Relaxation: ignore travel/overhead/retry and allow free concurrent routing.
     work = sum(a.r.spin(abs(d)/lead,rpm,accel) for row in delta for d in row if d)
     lower = work/width
     assert total+1e-8 >= lower
     return dict(seconds=total,stations=len(path),first_seek_s=first,
-                travel_s=travel,spin_s=spin,retry_s=retry,lower_s=lower)
+                travel_s=travel,seek_s=seek,return_s=return_time,
+                dock_proof_s=dock,common_s=4.,spin_s=spin,retry_s=retry,lower_s=lower,
+                changed_cells=sum(d!=0 for row in delta for d in row),
+                raised_cells=sum(d>0 for row in delta for d in row),
+                lowered_cells=sum(d<0 for row in delta for d in row),
+                unchanged_cells=sum(d==0 for row in delta for d in row),
+                visited_rows=len({y for _,y,_ in path}),seeks=len(path),
+                dock_cycles=len(path),retry_cycles=1)
 
 
 def cost(n,width,xy_extra=35):
@@ -115,11 +129,22 @@ def summarize(cases,width,**kw):
     active = {k:v for k,v in rows.items() if v['stations']}
     worst = max(active,key=lambda k:active[k]['seconds'])
     return dict(max_s=active[worst]['seconds'],worst=worst,
+                worst_ledger=active[worst],
                 min_nonempty_s=min(v['seconds'] for v in active.values()),
                 nonempty=len(active),within30=sum(v['seconds']<=30 for v in active.values()),
                 max_stations=max(v['stations'] for v in active.values()),
                 max_work_lower_s=max(v['lower_s'] for v in active.values()),
                 max_known_preposition_s=max(v['seconds']-v['first_seek_s'] for v in active.values()))
+
+
+def full_row_local(n,stroke,banks,k=32):
+    """Same reveal windows and rate, E-266 bank scheduler (not a new workload)."""
+    rows={name:a.schedule(d,k,850,lead=3,banks=banks)['feasible_s']
+          for name,d in local_cases(n,stroke).items() if any(map(any,d))}
+    worst=max(rows,key=rows.get)
+    return dict(n=n,stroke=stroke,banks=banks,k=k,outputs=n*banks,
+                max_s=rows[worst],worst=worst,nonempty=len(rows),
+                within30=sum(t<=30 for t in rows.values()))
 
 
 def case(n,width,stroke,rpm=850,lead=3,accel=1000,extra_dock=0):
@@ -159,7 +184,15 @@ def checks():
                         assert x0<=x<x0+width and (x,y) not in seen
                         seen[x,y]=v
                 assert seen=={(x,y):v for y,row in enumerate(d) for x,v in enumerate(row) if v}
-                assert schedule(d,width)==schedule([[-v for v in row] for row in d],width)
+                got=schedule(d,width)
+                reverse=schedule([[-v for v in row] for row in d],width)
+                assert got['seconds']==reverse['seconds']
+                assert got['raised_cells']==reverse['lowered_cells']
+                assert got['lowered_cells']==reverse['raised_cells']
+                assert got['changed_cells']+got['unchanged_cells']==n*n
+                assert math.isclose(got['seconds'],sum(got[key] for key in
+                    ('seek_s','return_s','dock_proof_s','spin_s','retry_s','common_s')))
+                assert got['seeks']==got['dock_cycles']==got['stations']
             for lead in (2,3):
                 ref=a.schedule(d,n,850,lead=lead,banks=1)['feasible_s']
                 assert math.isclose(schedule(d,n,lead=lead)['seconds'],ref,abs_tol=1e-9)
@@ -180,19 +213,29 @@ def checks():
         d=[[30 if 32<=x<48 and 32<=y<48 else 0 for x in range(64)] for y in range(64)]
         path=stations(d,width)
         assert len(path)==16 and len({x for x,_,_ in path})==1
+    # Far-corner singleton: explicitly pay outward/return motion and one retry.
+    d=[[0]*64 for _ in range(64)];d[-1][-1]=-30
+    got=schedule(d,16); move=a.r.move(63*6.35); spin=a.r.spin(10,850)
+    assert math.isclose(got['seconds'],4+2*move+2*(.1+spin))
+    assert got['dock_cycles']==got['retry_cycles']==got['lowered_cells']==1
+    assert schedule([[0]*64 for _ in range(64)],16)['retry_cycles']==0
     return f'{replay} exhaustive interval covers; {anchors} full-row anchors; signed/cell replay, dense/no-op/cost identities'
+
+
+def report(verified):
+    rows=[case(n,w,s) for n,s in itertools.product((64,80),(40,50)) for w in (8,16,32,n)]
+    sensitivity=[case(64,16,50,**kw) for kw in (dict(lead=2),dict(rpm=400),dict(rpm=600),
+        dict(accel=200,extra_dock=.1))]
+    full_rows=[full_row_local(n,s,b) for n,s,b in itertools.product((64,80),(40,50),(1,2))]
+    return dict(verification=verified,rows=rows,sensitivity=sensitivity,
+                full_row_local_controls=full_rows)
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check',action='store_true')
     args=parser.parse_args(); verified=checks()
-    if args.check:
-        print(verified);return
-    rows=[case(n,w,s) for n,s in itertools.product((64,80),(40,50)) for w in (8,16,32,n)]
-    sensitivity=[case(64,16,50,**kw) for kw in (dict(lead=2),dict(rpm=400),dict(rpm=600),
-        dict(accel=200,extra_dock=.1))]
-    print(json.dumps(dict(verification=verified,rows=rows,sensitivity=sensitivity),indent=2))
+    print(verified if args.check else json.dumps(report(verified),indent=2))
 
 
 if __name__=='__main__':

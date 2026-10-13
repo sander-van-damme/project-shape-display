@@ -22,6 +22,30 @@ runs controls only. Standard library; JSON stdout is disposable. Evidence is
 qualification, safe operating RPM, a finished-product price or owner preference.
 E-263's optional manual article is unchanged; no print, purchase or head design.
 
+## Reusable short-head extension
+
+Run `python3 tools/curated-experiment-checks/E-266/frontier.py --local-reveals`
+(add `--check` for controls). The implementation and detailed evidence remain
+in E-267 rather than duplicating its source. This compares 8/16/32 installed
+outputs on one XY head with full-row writers on identical physical-depression
+maps at both pitches, including explicit 101.6-mm reveal windows, cold neutral,
+full scenes and dense stress. JSON includes the worst command's signed cell
+counts and separate seek, return, docking/proof, spin, retry and common allowance.
+
+**Retain coarse16 as a lower-cost local-reveal demonstrator control.** At the
+conditional 850rpm/lead3 scenario, its worst local waits are18.61/22.61s for
+S40/S50, versus16.58/20.58s for B2/K32 full-row writers. The dated partial
+allocation falls from$984.64 to$497.68, including an unquoted$35 extra XY axis;
+it leaves only$2.32 under the$500 reference for all omitted hardware. This buys
+cost/service room under$1000, not a complete$500 machine. Full-scene maxima
+rise to173.33/200.62s and cold first-map waits to291.57/360.17s. Channel reuse
+therefore earns a conditional demonstrator path only if minutes-long large
+changes are acceptable; no owner preference, rated speed or hardware pass is
+inferred. Fine16 misses30s for these local maxima; fine32 restores21.10/26.04s.
+The short head leaves all4096/6400 resident pairs and their assembly/retention
+duties intact. Stop before head CAD, printing or purchases; a complete observed
+drive/engagement channel remains the next engineering discriminator.
+
 ## Inherited anchors and bounded search
 
 - E-259 `concurrency.py` supplies the unchanged E-258/E-257 physical river,
