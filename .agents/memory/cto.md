@@ -512,8 +512,19 @@ Current architecture boundary:
   No private moving retainer, but4096/6400 keeper apertures + optical holes remain.
   Whole-sheet support/lock/mount access unconstructed; bordered3x3 kernel is not
   tileable16x16 modules. No STL/print/purchase; inherited E-268 waits only granted.
-  Next screen complete shared frame/service lock + docking load against an opaque
-  keeper/readback control; stop if it requires fragile webs or thousands of mounts.
+  Full-span frame extension: upper1×20 ribs in coarse inter-row gaps have.275mm
+  clearance under separate.1 pin/placement bounds; fine.4wide gives−.06. One nominal
+  stereo pupil ray hits a rib at raised target;20/32 bounded rays hit versus0/32 low.
+  Park rib+interstitial route; do not notch every rib or refine optical keeper.
+  Opaque control has63/79 ribs+126/158 end seats/layer, external common caps/posts
+  and reachable service-tab lock concept. Two layers126/158 ribs;coarse upper1.383kg
+  atassumed2700kg/m³.16tips×.2N/E70000 gives.05134–.09788mm beam deflection for
+  half/all load sharing, plus.4mm floats; local keeper/contact/joints unqualified.
+  No safe force, price or sensing pass. Opaque bed/keeper removes8192/12800 optical
+  holes but loses actual-pin reader. Inherited timing cannot transfer to blocked
+  views. Next architecture discriminator: actual-pin observation compatible with
+  solid shared supports, including operating sequence/fault coverage, not local
+  keeper/reader aperture refinement. No print/purchase/owner question.
 - E-268 actual-pin sensing: motor/screw counts alias missed sockets/stripped
   threads; actual-pin marks still need finite views and stale-frame rejection.
   Structural extension stops reader detail on current slots. Coarse1.10slot
