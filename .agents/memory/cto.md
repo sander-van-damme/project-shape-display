@@ -1,8 +1,9 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC. E-274 parks the constructed friction-loop shared drive
-after E-273 straight rack and E-271/272 private/direct controls. Circulation
-removes rack return but not axial docking force or phase recovery. No hardware pass.
+Updated: 2026-10-13 UTC. E-275 parks fixed-rotor/axial-friction docking.
+Explicit square sliding shafts remove axial band rub; circular pads remove rigid
+socket phase, but force/no-lift reaction and internal geometry fail the baseline.
+E-274 remains parked; E-271/272 private/direct controls retain their scopes.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -57,6 +58,21 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-275 explicit fixed4mm rotor/2.4 square bore/2mm sliding shaft keeps14mm
+  axial overlap through3mm throw; e.2 internal gap−.20/corner wall−.180mm.
+  Coarse band gap1.149mm/fine−.121 persists; fixed axial edge reserve1.60.
+  AtT.35/mu.3, optimisticr1.5 needs.778N; uniform3.2mm face1.094N. Inherited
+  .785N is no force curve; .20N loss scenario leaves.585. Keeper friction adds
+  torque with squeeze:W.2/rkeeper2/mukeeper.3 gives slope.6 > face.45, no finite
+  force solution, even crediting old bed drag. mu_face.6/keeper.1 rim needs.443N
+  but exceedsW.2, so inherited.2mm float still permits forbidden resident lift.
+  No invisible no-float bearing/clamp: no complete survivor.16 explicit sliding
+  pairs/thrust contacts replace moving-band duty;4096/6400 flat faces need care.
+  Off-grid slip can retry without socket rephasing only from known actual state;
+  E-270 failures remain. No schedule/cost refresh after first-gate failure.
+  Direct motor+positive socket avoids friction squeeze/shared coupling, still
+  owes safe docking/hold/readback. Stop fit/clutch/optics/print/purchase work.
+
 - E-274 finite single band/16 drums/15 idlers/4 end turns: coarse band gap1.149mm,
   fine−.121 at e.2;6mm moving drum face/2mm band/3mm docking leaves.10mm edge
   reserve. Coarse X sweep452.85mm vs rack838.93. Drive wrap109.47deg; outputs
