@@ -79,103 +79,113 @@ and engagement; do not demand impossible historical provenance or blindly print
 trial 5. No print is selected here. This informs shared tooling or batch fabrication
 comparisons; it does not qualify molded, machined or printed production.
 
-**Concrete measurement discriminator (proposed, not performed):** start with the
-unaltered successful pair and its resident seat. Record total supported mass and
-load sharing; use the weighed miniature load first, then 5/20-g total-load cases
-where physically applicable, with 100 g separately labelled stress. At low/mid/high
-usable travel, log height immediately and after 1/10 minutes, reporting instrument
-resolution and temperature. Measure signed breakaway and slow running torque in
-both directions, then loaded speed/acceleration and powered-stop withdrawal drift.
-The ten-minute interval is a screening observation, not endurance qualification.
-Only if relevant-load hold fails, compare one documented tighter setting against
-the original across multiple pairs/print locations. Retain adjustment only if it
-restores holding while the worst measured torque permits the B2 speed/acceleration
-envelope without binding; otherwise change the fit/lead/support strategy. Moving
-disconnect requires a separate caught-load test and cannot pass from static drift.
+## Measurement method and reduction
 
+Reuse the unchanged pair before altering fit or buying equipment. After the first
+middle-position record below, repeat low/high positions and measure signed
+breakaway/slow running torque, then loaded speed and powered-stop withdrawal.
+Only if relevant-load hold fails should one documented tighter setting be compared
+across pairs/print locations. Moving disconnect needs a separate caught-load test.
+Ten-minute holding is a screen, not endurance or array qualification.
 
-Evidence: self-reviewed calculations and executable sensitivity bounds; no new physical tests. The positive owner-reported loaded hold is recorded in E-255 and stage 02.
+**Measurement-design calculations, not results:** at a 10-mm perpendicular arm,
+1 g tangential deadweight gives 0.09807 N·mm. That mass increment brackets onset
+only to that width even with perfect geometry. A 0.01-N·mm absolute error budget
+allows ≤0.10197-g mass error before radius/alignment/tare/friction errors. An
+unspecified kitchen scale cannot resolve the illustrative 0.02090-N·mm added-drag
+threshold simply by displaying grams. Total measured torque is not added drag.
+At this arm, 0.238 N·mm needs 0.0238-N sideways force; spindle/guide friction can
+change. Preserve the seat, measure the perpendicular arm, include holder tare and
+apparatus effects; a pulley is not calibrated by a known hanging mass.
+Finger turning is qualitative torque evidence only.
 
-Verification: frictionless work balance, self-lock boundary, reflected inertia, static-hold/running-loss witness, triangular/trapezoidal motion, and bracketed timing roots. E-255's default output remains byte-identical, including 15,625 ideal replay transitions.
+`python3 tools/curated-experiment-checks/E-256/measurements.py --check` checks
+signed travel, ambiguous/resolved drift, torque endpoints, units and invalid inputs
+using **synthetic** controls. `--blank` emits an unmeasured JSON template;
+`--record FILE` requires observations, provenance, bounds and supported-mass interval.
+Keep raw physical records with their evidence; none is fabricated here.
 
-## Measurement readiness and reduction
+- `evidence`: physical_measurement or synthetic; `specimen`, `setup`, `raw_source`
+  and `bounds_basis` identify input and uncertainty. Unknowns must not become
+  invented bounds merely to satisfy the reducer.
+- `total_supported_mass_g`: [lower, upper]. Separate different specimens/loads/setups.
+- `holds`: position and observations of elapsed_s (starting at zero), height_mm
+  intervals. Endpoint subtraction assumes no common-bias cancellation; equal
+  heights each bounded ±0.1 mm give drift [-0.2,+0.2] mm, not zero drift.
+- `travel`: before_mm, after_mm, signed_turns intervals; zero-turn intervals are
+  rejected. Effective displacement/turn includes backlash unless taken up.
+- Optional `torque`: direction raise/lower, observation no_motion/onset/slow_running,
+  force_N and perpendicular_arm_mm intervals. Output is apparatus torque, with
+  no inferred parasitic correction, friction fit or motor-speed approval.
 
-**New calculation, not a test result:** at a 10-mm perpendicular lever arm,
-1 g of tangential deadweight produces **0.09807 N·mm**. A 1-g mass *increment*
-therefore brackets onset only to about that width, even with perfect geometry.
-For an absolute torque-error allowance of 0.01 N·mm, mass error alone must be
-≤0.10197 g at that arm; radius, alignment, tare and friction consume additional
-allowance. This is a measurement-design example, not a required instrument or
-an accuracy claim. It matters because the illustrative 20-g static-drag threshold
-above is only 0.02090 N·mm. A kitchen scale with unspecified uncertainty cannot
-resolve that threshold merely because it displays grams. Do not conflate the
-model's added-drag parameter with measured total drive torque.
+The existing friction/work/inertia/timing checks remain calculations. E-258/E-259's
+4096/6400-site, raised-neutral and $500/$1000/$1500 comparisons remain conditional.
+Static hold, moving loss, powered speed and batch manufacture are separate claims.
 
-A lever/drum fixture can also change the result: force at a 10-mm arm sufficient
-for 0.238 N·mm applies 0.0238 N sideways to the spindle. Do not silently attribute
-its changed journal/guide friction to the thread. Preserve the resident seat,
-record force direction and **perpendicular** moment arm, include lever/holder tare,
-and characterize apparatus effects before inferring intrinsic friction. Known
-mass alone does not calibrate a pulley. A finger-turn observation remains useful
-qualitative evidence but supplies no numeric torque. Do not make a torque fixture
-the prerequisite for the first travel/drift observation.
+## Recovered specimens, 2026-10-13
 
-**First physical record, using the unchanged successful pair if available:**
+**Owner-reported rough physical measurements:** Sander recovered the printed parts
+and has a ruler, kitchen scale and phone camera. He reports pin length about
+50 mm and width about 4–5 mm; screw length about 40 mm and width about 3 mm.
+Neither part registered on his scale. Mass is **unknown**, not zero or a bounded
+sub-gram measurement: scale increment, minimum load and accuracy are unknown.
+The widths are estimates, not tolerance intervals. No measured travel, timed
+drift or torque record has yet been supplied.
 
-1. Identify the pair with a present-day photo or label and describe its seat,
-   guide and load placement. The forgotten historical calibration variant is not
-   required. Record measuring tools, temperature and what is unknown. Weigh the
-   miniature and moving pin if possible; otherwise label the load unknown rather
-   than inventing a typical mass. A load applied directly to one pin is a one-pin
-   test, not the distribution beneath a multi-pin miniature base.
-2. At a comfortably engaged middle position, record height against a fixed datum,
-   turn the screw one known revolution each way while keeping away from ends,
-   and record the resulting heights. Note backlash/direction reversal explicitly.
-   Report only reachable, observed travel; do not force 40 or 50 mm from a part
-   that may lack engagement margins. No motor or new print is needed.
-3. With the normal miniature load and drive removed, record height at 0, 60 and
-   600 seconds. Keep the resident seat/guide unchanged and avoid a contact probe
-   that supports the pin during the wait. Take the scale image at the same view;
-   include parallax/fixture movement in the height bounds. Repeat at low/high
-   usable positions later if the first record is informative. This first ten-minute
-   screen supplements the owner's successful hold observation; it is not an
-   endurance test, high-load requirement or array pass.
-4. Only after this record, choose an available torque method and powered drive.
-   Record signed breakaway, slow running and loaded speed separately. A manual
-   revolution gives effective displacement/turn, **not** the 1500–2000-rpm operating
-   envelope or proof of moving-disconnect safety. Continue the separate caught-load
-   moving-loss test only with an appropriate supported apparatus.
+Provenance: [owner answer and photographs on LAB-388](/LAB/issues/LAB-388#comment-ec47dec7-7141-49a7-b009-ed683ba36eee),
+following answered interaction `5ce19b24-943f-4c66-8eb7-a8422be0c929`.
+Original images remain in Paperclip: [pin length](/api/attachments/03e1f8f2-359b-4adc-add2-5a77fb71eaf8/content),
+[screw length](/api/attachments/65d58509-a1bf-48b5-bce5-f1bc83e281a1/content),
+[pin width](/api/attachments/ef73fa02-b1be-4ed0-aa58-b6f92491e485/content),
+[screw width](/api/attachments/07cf9d30-1835-414b-9946-2c02988b809e/content).
+**Visual observations:** separate pale rectangular pin and helical screw beside
+a millimetre ruler; approximate lengths are consistent with the owner's report.
+The photographs do not show assembled guidance, screw thrust support, internal
+engagement, load placement or motion. Blur, perspective and different surface
+planes prevent assigning precise diameter, clearance or drift bounds. No pixel
+metrology or identification of the historical calibration variant is claimed.
 
-`tools/curated-experiment-checks/E-256/measurements.py` reduces explicit interval
-observations without fitting a friction coefficient or issuing a hardware pass:
+**Decision consequence:** the recovered roughly 40-mm screw must not inherit
+trial-5's nominal 50-mm screw or a qualified 40/50-mm stroke. For a nut remaining
+fully within the threaded region, stroke is at most threaded length minus nut
+engagement length and end margins; these dimensions remain unknown. Other
+overlap conventions require their own support check. This pair can discriminate
+basic translation/holding without establishing the proposed product travel.
 
-- `--blank` emits an empty **unmeasured** JSON record; `--record FILE` rejects it
-  until actual observations and provenance/bounds are supplied. Raw records stay
-  with the physical evidence. No measurement file is checked in by this study.
-- `evidence` is `physical_measurement` or `synthetic`; `specimen`, `setup`,
-  `raw_source` and `bounds_basis` identify the actual input and uncertainty basis.
-  `total_supported_mass_g` is `[lower, upper]`; use separate records for different
-  specimens, loads or fixture configurations. If bounds/load are unknown, keep a
-  qualitative observation rather than submitting invented intervals.
-- `holds`: each entry has `position` and `observations`, each with `elapsed_s`
-  and `height_mm: [lower, upper]`. Start at zero elapsed time. Later signed drift
-  bounds conservatively subtract interval endpoints; common bias cancellation is
-  not assumed. Equal readings each bounded ±0.1 mm mean drift **[-0.2,+0.2] mm**,
-  not zero drift. Output `zero_not_excluded` is not a retention pass.
-- `travel`: entries contain `before_mm`, `after_mm`, `signed_turns`, all intervals.
-  Effective displacement/turn includes backlash unless it has been taken up;
-  intervals containing zero turns are rejected. Specify the signed-turn convention.
-- Optional `torque`: entries contain `direction: raise|lower`,
-  `observation: no_motion|onset|slow_running`, `force_N` and
-  `perpendicular_arm_mm` intervals. Output is **applied apparatus torque** only;
-  no automatic parasitic correction, static-threshold fit or motor-speed approval.
-- `--check` uses explicitly synthetic controls for signed travel, unresolved and
-  resolved drift, torque endpoint propagation, units and invalid input rejection.
-  It performs no physical test.
+### First check with the available tools
 
-**Decision consequence:** obtain the simplest existing-pair record before buying
-measurement equipment or refining screw fits. A coarse unresolved record can
-still establish apparatus availability and usable travel; it cannot quantify
-holding margin. E-258/E-259's 4096/6400-site, raised-neutral and $500/$1000/$1500
-comparisons remain conditional and unchanged. Static drift, applied torque,
-loaded high-speed motion and manufacture across a batch remain separate claims.
+1. Reassemble the original setup if its support/guide is available. Record what
+   prevents the pin rotating, what supports the screw axially, and whether the
+   screw is free to rotate when the fingers/driver are removed. If only the two
+   loose parts remain, report that; do not balance a miniature on them or call
+   a hand-held check passive retention. A short assembly photo/video is useful.
+2. At a comfortably engaged position away from either end, place the ruler
+   beside the pin, fixed relative to the support. Keep ruler marks and the observed
+   pin edge as close to the same camera depth as possible. Rest the phone in one
+   position, looking squarely at both. Record the starting reading, one complete
+   screw turn, and one complete return turn, keeping the pin from rotating.
+   Include the viewing direction, any lost motion or binding, and what the hands
+   touch. Do not force an end stop. One turn is enough initially; a longer counted
+   move is useful only after clearance/engagement have been established.
+3. Only if the assembly stands and supports a load without hands, use a stable
+   ordinary miniature/load in the original arrangement. Record its scale reading
+   and smallest displayed increment, or “not detected.” Include any cap/holder
+   mass and other supports; do not assume all miniature weight reaches this pin.
+   Remove the drive and hands, then record the same edge at 0, 60 and 600 seconds.
+   If there is no stable load placement, stop after the unloaded motion record.
+   A screw clamped against rotation tests that fixture's holding, not freely
+   released screw retention. No torque apparatus or new print is needed yet.
+
+Return format: `support/guide and hand contacts; h_start; h_after_one_turn;
+h_after_return; load reading/scale increment or unknown; h_0/h_60/h_600 or not
+performed; slip/binding/rotation notes`. Preserve original photos/video as raw
+evidence. A coarse readable result is preferable to invented decimal places.
+
+**Resolution calculation, not observed accuracy:** if each reading can eventually
+be bounded to ±0.5 mm, two equal readings leave drift in [-1,+1] mm. A nominal
+3-mm displacement over one exact turn would then mean [2,4] mm/turn; three turns
+would narrow the same endpoint contribution to ±1/3 mm/turn, but require more
+safe travel. A millimetre ruler alone does not establish the ±0.5-mm bound:
+parallax, edge blur and support motion must also be included. Do not populate the
+reducer with guessed mass/height bounds. Unknown load can accompany a useful raw
+motion observation; it cannot establish a quantified load-retention margin.

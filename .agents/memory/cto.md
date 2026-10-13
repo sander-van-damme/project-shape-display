@@ -488,13 +488,18 @@ Next executable investigation:
   granting independently driven/observed sites; fixture/cleanup/build still unpaid.
   Any justified later batch calibration should time handling, identify lots and
   prove local repair. No mold, fixture, print or production process selected.
-- E-256 now includes a short existing-pair measurement procedure and interval
-  reducer measurements.py. No physical record exists yet. At10-mm arm,1g
+- E-256 includes the2026-10-13 recovered-part photos and owner rough dimensions:
+  pin50mm/width4–5mm,screw40mm/width3mm. Neither registers on kitchen scale;
+  mass unknown, not zero. Ruler/scale/phone available; assembled seat/guide not
+  shown. No measured travel/timed drift/torque yet. Do not equate40mm screw with
+  trial5's50mm or40/50mm useful stroke. Next: supported one-turn/return record,
+  then0/60/600s hold only with stable hands-off load placement; otherwise describe
+  missing support. First missing input is setup/measurements, no longer part access.
+  Interval reducer measurements.py remains available. At10-mm arm,1g
   produces.09807Nmm; a.01Nmm error budget allows only.102g mass error before
   geometry/parasitics. Equal height readings bounded±.1mm imply drift±.2mm,
-  not zero. First check current specimen/seat availability, travel and timed
-  hold with weighed miniature; do not require remembered calibration variant
-  or a torque fixture upfront. Check LAB-388 for physical access response.
+  not zero. Do not require remembered calibration variant or a torque fixture
+  upfront. LAB-388 owns the measurement response; preserve raw unknowns.
 - E-258 player_view.py now challenges assigned30-mm ravine itself: N20/40 range
   keeps20-mm walls and a20-mm physical drop. At64, mixed suite independentB2
   max22.08s/$953.92 versus stopped-maskB2 26.90s/$1023.92 assumed allocations.
