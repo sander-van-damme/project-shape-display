@@ -491,6 +491,18 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
+- E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
+  gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
+  worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,
+  first-map291.57/360.17. Work-only S50 lower65.92s excludes universal30s scenes
+  at these rates. Subset+reserve$497.68 leaves only$2.32 under$500 but$502.32
+  under$1000 for missing hardware.16-output comparator removes112 channels vsB2,
+  not4096 resident pairs. Fine16 local33.91/43.32s; fine32 21.10/26.04.
+  Coarse16 deep lead2/850 gives28.61;lead3/600 27.54;400 35.99. No rated speed,
+  BOM or preference winner. Stop schedule sweeps; retain cheaper local-reveal
+  demonstrator as control. Next independent discriminator: shared reader/failed
+  engagement coverage and complete observable channel budget; no head micro-CAD,
+  purchase or new print. E-263 optional article unchanged.
 - E-266 slower axial B1–4/K16,24,32,full and near64 total slots:400/600/850rpm,
   leads2/3, both pitches/S40N20–S50N30. At64/lead3/850/K32, B2→B3 scene
   35.54/43.29→26.34/31.27s; subset+reserve$984.64→1272.44, leaving$1.19/output
