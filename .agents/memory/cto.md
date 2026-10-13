@@ -491,6 +491,19 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
+- E-268 actual-pin sensing: motor counts alias missed socket; resident screw
+  angle still aliases stripped thread. No inherited pickup lock exists here.
+  Fixed-datum scales use existing E-261 pin stock (local7..47/57mm), but direct
+  E-178 import fails opaque guide/thrust beds. Slotted-row optical construction:
+  coarse4.4-stem/e.10 gives.130mm backing gap and~.887mm required slot/.411mm
+  guide web; e.20 collides despite clear rays. Fine e.05 already collides.
+  Bounds, not process/optical qualification. Adds4096/6400 marked faces,
+  128/160 mirror pieces and slots in two structural layers; no free plate cutting.
+  Short16 coarse100ms read replaces20ms:local19.97/23.97s;200ms21.67/25.67.
+  Slower stopped proof is affordable in this model; no earned active-stop feedback.
+  Next discriminator is a supported slotted module/batch scale route versus
+  another actual-pin access topology, before cameras or reflector micro-CAD.
+  E-263 optional manual article unchanged; no print/purchase or owner question.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,
@@ -502,8 +515,8 @@ Current architecture boundary:
   B2/K32 same-window local16.58/20.58s saves only2.032s versus coarse16;
   E-266 --local-reveals now exposes signed counts and complete worst-wait ledger.
   No rated speed, BOM or preference winner. Stop schedule sweeps; retain cheaper local-reveal
-  demonstrator as control. Next independent discriminator: shared reader/failed
-  engagement coverage and complete observable channel budget; no head micro-CAD,
+  demonstrator as control. Shared reader/failed engagement screen nowE-268; complete channel budget
+  still unresolved; no head micro-CAD,
   purchase or new print. E-263 optional article unchanged.
 - E-266 slower axial B1–4/K16,24,32,full and near64 total slots:400/600/850rpm,
   leads2/3, both pitches/S40N20–S50N30. At64/lead3/850/K32, B2→B3 scene
