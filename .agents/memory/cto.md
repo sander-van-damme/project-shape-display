@@ -490,7 +490,20 @@ Evidence to retain:
   Idea11 supports few precision shared components with actual process/cost proof.
   Changed workload and staged cost are authoritative in 02, not only advice.
 
-Next executable investigation:
+Current architecture boundary:
+- E-266 slower axial B1–4/K16,24,32,full and near64 total slots:400/600/850rpm,
+  leads2/3, both pitches/S40N20–S50N30. At64/lead3/850/K32, B2→B3 scene
+  35.54/43.29→26.34/31.27s; subset+reserve$984.64→1272.44, leaving$1.19/output
+  at$1500 for all missing hardware. Same~64 total slots givesB3/K21 30.87/39.57s
+  but cold53.15/74.80 versusB2 42.58/58.11. Illustrative four-command+prep
+  total159.41→171.67s: more channels need not improve whole-session waiting.
+  B1 coarse$671.08 leaves$5.14/output under$1000, with62.71/76.12s atK64.
+  FineB3$1488.60 leaves$.0475/output;B4 already$1560.56/$1858.80 before extras.
+  Stop bank escalation; retain longer-wait one/two-bank controls and conditional
+  coarseB3 premium option only. No safe RPM, complete BOM or preference winner.
+  Reopen added-bank detail only with earned loaded-support/speed and complete
+  channel/power/assembly allocation. E-263 optional job unchanged; no new print,
+  purchase, owner question or local rotor/selector work.
 - E-265: exposed nut rim and connected neck permit3mm tip lift plus diagonal
   service from inter-column corridors; all4 adjacent targets/reverse routes tested.
   Coarse friction minimum.40mm, fine transit.14; coherentE.30 leaves.10/−.16.
@@ -503,8 +516,8 @@ Next executable investigation:
   slides add to128 rotary channels, not a free common engagement. Park detail.
   E-264 closed sockets remain38.95/45.51s; side route escapes43/53mm extraction
   but keeps138/158mm stock and static-hold/moving-loss uncertainty fromE-156.
-  Next compare slower fixed-screw axial writing/bank counts, installed cost and
-  cold prep without treating850rpm as rated. E-263 optional manual job unchanged.
+  E-266 now completes the slower axial/bank/cold-prep comparison; do not rerun
+  it without changed evidence. E-263 optional manual job unchanged.
 - E-262 section escape screen: widerOD4.4/root2.6 polymer at6.35 pitch gives
   S50 ideal-nut2487rpm vs historical991, but softkn.1/kθ10/20g cases514/522.
   Full-credit1mm steel core gives6050 ideal but532 soft; rigid-tilt Rayleigh
