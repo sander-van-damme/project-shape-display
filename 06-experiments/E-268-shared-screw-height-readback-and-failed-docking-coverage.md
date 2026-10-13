@@ -3,66 +3,47 @@ status: complete
 builds-on: [E-178, E-259, E-261, E-267]
 ---
 
-# Screw-pin readback must retain structural support and pay for access
+# Screw-pin readback must preserve guides, thrust support and service
 
-**Retain coarse, supported optical bays as a conditional comparator; stop direct
-transplantation of E-178 and thin-polymer continuous-slot detail.** Under the
-examined support layout, the previous free-field local-reveal maximum23.97s
-becomes39.52s. This is a reported tradeoff, not automatic product rejection.
-No camera, architecture, scale process, print or purchase is selected. E-263's
-print offer is retired after owner feedback; supported CAD remains a comparator.
+**Stop reader detail on the present slotted-guide layout.** Metal stiffens thrust rows but
+cannot reconnect the fine-grid guide or qualify coarse guide/frame support. Retain coarse metal
+bays as an analytical control; do not rescue the optics with thousands of narrow guide fingers,
+inserts or retainers. The examined support boundaries increase coarse local S50
+maximum23.97→39.52s: a tradeoff, not automatic product rejection. No camera, architecture,
+manufacturing process, print or purchase is selected. E-263's owner print offer remains retired.
 
-Reproduce `python3 tools/curated-experiment-checks/E-268/readback.py` and
-`python3 tools/curated-experiment-checks/E-268/support.py`. Evidence: finite ideal
-specular rays, algebraic fault injection, elastic beam bounds and scheduling
-calculations; self-review, no physical qualification. Errors, loads, stiffness
-and acquisition rates are scenarios, not calibrated FDM/optical distributions.
+Reproduce `python3 tools/curated-experiment-checks/E-268/readback.py`, `python3
+tools/curated-experiment-checks/E-268/support.py` and `python3
+tools/curated-experiment-checks/E-268/structure.py`. Evidence: sampled ideal rays, fault
+witnesses, elastic beam calculations and scheduling. Self-review with independent calculation
+methods; **no hardware qualification**. Loads, moduli, acquisition times and error bounds are
+scenarios, not measured miniature distributions, calibrated process priors or reliability.
 
-## Observe the pin, not merely the drive
+## Observe actual pin position
 
-| Observation | Useful detection | Uncovered fault / obligation |
-|---|---|---|
-|Motor encoder|Motor turn error|Missed socket, transmission slip, stripped thread|
-|Resident screw angle|Missed socket if actually read|Wrong lead, stripped thread, pin not following|
-|Top camera|Visible terrain displacement|Miniature covering the entire top; more cameras cannot see through it|
-|Actual pin scale at fixed datum|Wrong stationary height, slip and missed drive when visible/calibrated|Detached mark, wrong-cell/stale frame, later support failure|
-|Shared contact probe|Actual contacted position|Physical access, probe travel, contact-induced movement and time|
+Motor counts miss failed docking/transmission; screw angles miss stripped threads. A top camera
+cannot see through a miniature covering a pin. Actual-pin scales need integral marks, fresh
+frames and cell identity. Contact probes require access/travel and can disturb the measured pin.
 
-Executable10→20mm/lead2 witnesses: five motor turns with zero screw turns leave10;
-five screw turns with a stripped thread also leave10. Both alias successful motor
-counts. A detached mark can still report20 while the terrain is10. Invalid,
-occluded or stale readings become **unknown**, never last-known success. Cell
-identity, fresh frames, integral marking, batch registration and contrast remain
-obligations; these witnesses establish no detection probability.
+Executable10→20mm/lead2 witnesses: five motor turns with zero screw turns leave10; five screw
+turns with stripped thread also leave10. A detached mark can report20 while terrain remains10.
+Occluded, stale or unreadable means **unknown**, never last-known success. Integral marking,
+fresh-frame identity, contrast, registration and persistent-fault rejection remain necessary. No
+detection probability follows. A correct height cannot establish future retention or moving-loss
+arrest; it also does not automatically require4096/6400 extra brakes or support sensors.
 
-The resident load path remains pin→thread→screw→thrust bed throughout writer
-docking/withdrawal. No E-178 auxiliary pickup lock exists here. Correct height
-cannot establish future retention or moving-loss arrest; neither does that
-limitation automatically require4096/6400 extra brakes or support sensors.
+## Finite route through the actual beds
 
-## Finite optical route through the actual beds
+E-261 lower guide z=S+5mm is2mm thick; upper guide40mm higher. Datum z=S+9
+covers local pin coordinates7…47/57 for S40/50 on86/96mm stock, without added
+tail. Marks face+Y on4.4mm pins; a45° between-row mirror redirects to a centered
+camera at z=−10. readback.py retains the finite tracks, pupil.25mm, tilt±.5°,
+mirror backing and correlated-error definitions. Sampling is not image-quality
+or continuous-pose certification. Original S40 results:
 
-E-261 lower guide center is z=S+5mm,2mm thick, with an upper guide40mm higher.
-Put the scale datum at z=S+9,3mm above the lower guide. For stroke40/50, pin-local
-coordinate `S+7−u` covers7…47/57mm on existing86/96mm stock: no added tail length.
-Marks and guide wear/drag remain unresolved; print texture is not a scale.
 
-Marks face+Y on4.4mm square pins. A shared45° strip sits midway between rows at
-y=p/2 and reflects toward a camera at global z=−10, centered on16 columns.
-Camera-to-datum height is59/69mm. Lenses, lighting, mounts, docking-tip clearance,
-strip seams and board-edge access remain unbuilt.
 
-Each scenario checks16,384 rays:16 columns, tracks±.4/±1.2mm, footprint corners
-±.08mm and64 combinations of row-strip Y/Z, camera Y, pin-face Y, pupil-edge and
-mirror-angle signs. Pupil Y radius.25mm and tilt±.5° are allocations. Independent
-or coherent batch offsets are allowed, not iid yield assumptions. Finite mirrors,
-swept pin/neighbor envelopes and both slab faces are checked. Corner sampling
-does not certify nonlinear intermediate poses or image quality.
-
-Strip half-projection/backing are.2/.1mm fine and.5/.2mm coarse. Both pin and
-mirror may shift by e. S40 results, including tilt even at e=0:
-
-|Pitch / e, mm|Backing-to-pin gap, mm|Mirror misses|Incoming envelope hits|Optical slot, mm|Guide web each side, mm|
+|Pitch / e, mm|Backing gap, mm|Mirror misses|Incoming envelope hits|Required slot, mm|Guide web/side, mm|
 |---|---:|---:|---:|---:|---:|
 |5.08 /0|.068|0|0|.450|−.005|
 |5.08 /.05|−.032|0|8192|.666|−.113|
@@ -70,158 +51,199 @@ mirror may shift by e. S40 results, including tilt even at e=0:
 |6.35 /.10|.130|0|0|.885|.412|
 |6.35 /.20|−.070|0|0|1.400|.155|
 
-Negative gap is a physical envelope collision even when rays clear. Fine e=.10
-also has wrong-side mirror rays. Backing-clearance breakpoints e≈.034/.165mm are
-not manufacturing tolerances. Wider5.6mm stems cannot inherit the narrow-stem
-result. E-261's.24mm guide clearance alone permits.12mm lateral play; e=.10 is
-not established for the built assembly. Envelope hits are conservative access
-failures, not proof every pixel is dark. Narrower pupils or different reflectors
-are changed designs; no microscopic mirror optimization is warranted yet.
+Negative gap is collision even if rays clear; fine e=.10 also gives wrong-side rays. Breakpoints
+e≈.034/.165 are not process tolerances. E-261's.24 guide clearance permits.12 lateral play;
+e=.10 is unestablished. Wider5.6 stems and changed pupils/reflectors cannot inherit this result.
 
-Unmodified guide/thrust plates obstruct the view. An explicit ray crosses solid
-material between4.64mm guide apertures; occupied screw holes are not optical
-windows. The alternative needs slots through **both lower guide and thrust bed**.
-Slot includes ray intersections plus independent plate registration e;
-`web=(pitch−slot−4.64)/2`. S50/coarse/e.10 needs.887mm slot/.411mm webs.
-Continuous slots break cross-row support; these webs are geometry, not strength.
+Opaque lower guide and thrust bed both obstruct the view; occupied screw holes are not optical
+windows. Slots through **both** layers must encompass ray intersections plus plate registration.
+Web=(pitch−slot−4.64)/2. Coarse S50/e.10 needs.887mm slot/.411mm webs. Continuous slots break
+cross-row support. Terminate them at transverse ribs between8/16-column bays. A1mm coarse rib in
+the1.71mm aperture gap leaves.51mm after opposing.10 edge errors; fine.44mm gap cannot fit it.
+An interior rib has an explicit ray-intersection witness: a freely sliding16-field reader cannot
+inherit unobstructed coverage across boundaries. Fixed aligned bays are one sufficient
+restricted policy, not the only possible optical route; extra relays/cameras or separate reader
+motion need costing.
 
-## Supported bays: structural and optical costs together
+## Supported load paths and structural screen
 
-Stop slots at transverse ribs between16-column bays. Pin load passes through
-resident thrust seats into perforated row strips, then end ribs and a grounded
-frame. Upper guides can remain unslotted. Proposed1mm ribs fit the coarse1.71mm
-gap between4.64mm apertures, leaving.51mm after opposing.10mm edge errors; the
-fine grid's.44mm gap cannot fit them. **Rigid ends are only a model assumption:**
-transverse-rail bending, grounded frame, attachments, writer transit, thrust
-collars and openable joints remain unconstructed.
+Intended path: terrain→pin thread→screw→resident shoulder seat→perforated row→ transverse
+rail→grounded frame→table, throughout docking/withdrawal. A proposed 4.4mm shoulder/3.6mm
+journal has5.03mm² area (.010/.040MPa at.05/.20N), with .425mm coarse slot margin before
+eccentricity/play. Seat strength, edge contact, wear and pull-through remain unqualified. Upward
+docking/friction also needs **shared axial capture**; keeper clearance, minimum-stroke collision
+and assembly remain unconstructed. Count one capture duty per screw, not free support or
+permission for4096 clips.
 
-A16-cell/101.6mm row with.90mm slots is5.45mm wide. Allocated3.6mm circular journal
-holes leave minimum net width1.85mm. Compute simply supported center displacement
-from discrete equal cell-center forces with `integral(M*m/(E*I),dx)` and
-`I(x)=net_width(x)*t^3/12`. The [AWC beam formulas, figures1/7/8](https://engineering.purdue.edu/~ce474/Docs/DA6-BeamFormulas.pdf)
-provide constant-section controls; wood properties are not imported. This beam
-approximation excludes local hole deformation/stress concentrations, seat
-pressure, shear, creep, anisotropy, joints and support settlement. Large results
-flag small-deflection breakdown, not a precise deformed shape. Solid and minimum
-net-section controls bracket this calculation, **not hardware compliance**.
+The pin's guides resist rotation and lateral force; the thread carries gravity. Upper/lower
+guide reactions and their moment must reach the frame independently of the writer. E-256 hold
+and E-262 moving-loss/speed limits remain unresolved.
 
-|Cells / assumed E MPa / thickness mm|Deflection at.05N/site, mm|Solid–minimum-section controls, mm|
+### Thrust strips and end rails
+
+Use simply supported, variable-section Euler–Bernoulli virtual work
+`delta=integral(M*m/(E*I),dx)`, `I=net_width(x)*t³/12`, with discrete cell-center forces and
+circular3.6mm holes. Solid and constant-minimum-section controls bracket this **beam
+calculation**, not hardware compliance. The [AWC beam formulas,
+figures1/7/8](https://engineering.purdue.edu/~ce474/Docs/DA6-BeamFormulas.pdf) supply
+constant-section checks only; no wood properties are imported. Exclusions: local hole/seat
+distortion, stress concentrations, shear, torsion, joints, anisotropy, creep, fatigue and frame
+settlement. Large displacement flags linear model breakdown, not a precise shape.
+
+**Supported-module extension:** allow1.10mm coarse / .70mm fine slots rather than spend the
+whole ray margin on fabrication. E1000/3000MPa polymer and E70000/200000MPa metal-like values
+are labelled scenarios, not stock ratings or calibrated printed properties. At2mm thickness/.05N
+per site:
+
+|Pitch / cells|E1000 deflection, mm|E70000, mm|E200000, mm|
+|---|---:|---:|---:|
+|6.35 /16|5.555|.0794|.0278|
+|6.35 /8|.349|.00498|.00174|
+|5.08 /16|5.325|.0761|.0266|
+|5.08 /8|.334|.00478|.00167|
+
+Fine is only a structural control: its guide/mirror fails geometrically. Coarse16 constant-net
+controls are9.947/.1421/.0497mm at E1000/70000/200000. Coarse6mm polymer still gives.206mm.
+Scaling: load linearly, thickness t⁻³. Multiply by.4/4 for.02/.20N per site. Load includes pin
+weight; uniform loading is a stress scenario, not typical miniatures. Full-board.05N
+totals204.8/320N before frame.
+
+An interior transverse rail receives nF/2 from each neighboring n-cell bay, i.e. nF per row and
+n²F per segment. At coarse16/F.05, a proposed1×10mm rail supported at both segment ends
+carries12.8N,6.4N/end. Sag E1000/70000/200000: 2.101/.0300/.0105mm; nominal bending
+stress9.754MPa. At8 cells: .0660/.000942/.000330mm. Exterior rails receive half. Coarse16/2mm
+row plus same-material rail therefore sags approximately.109mm at E70000 or.0383mm at E200000,
+**before joints/frame**. A6mm polymer row does not cure2.10mm polymer rail sag. Hypothetical
+joint stiffness1/1000N/mm adds6.4/.0064mm per loaded end. Unequal adjacent-bay loads can twist
+the rail; torsion is unmodelled.
+
+The .05mm comparison budget is illustrative, not a product requirement. A single .20N changed
+load near row center moves the unchanged center.0564mm in the E70000/2mm constant-net control.
+Fixed screw angle does not establish isolation.
+
+### Guide reactions and repeated edges
+
+With40mm guide separation and maximum top overhang S+3 above upper center, side load H gives
+lower reaction H(S+3)/40; upper=−H−lower. At S50/H.10: +.1325/−.2325N; S40:+.1075/−.2075N.
+H=.02… .50 are scenarios, not measured player loads. Illustrative μ=.3 sliding friction
+adds.1095N axial drag at S50/ H.10 before torque contacts; the.05N axial case does not cover
+this combined state. Torque.35Nmm allocated wholly to the lower guide adds an opposed
+.0795N/contact couple across4.4mm. Upper and lower beds need grounded moments.
+
+Coarse1.10 slot leaves w=(6.35−1.10−4.64)/2=.305mm side ligaments. Screen a 4.64mm simply
+supported edge under the full lower reaction at its center, I=2w³/12. Fixed ends give a
+four-times-stiffer control, not assumed construction. At S50/H.10, excluding global row/frame
+movement:
+
+|Combined inward edge loss, mm|w, mm|Local deflection E1000 / E70000, mm|Nominal stress, MPa|
+|---|---:|---:|---:|
+|0|.305|.0583 / .000833|4.96|
+|.10|.205|.192 / .00274|10.97|
+|.20|.105|1.429 / .02042|41.82|
+
+Loss.10 can mean each hole/slot edge shifting.05 inward, coherently across a panel; these are
+**bounds, not process priors**. Loss.20 amplifies compliance24.5×. With torque.35, nominal
+contact becomes.2120N/stress7.93MPa before edge loss. No notch, strength, creep or fatigue pass
+follows. Shortening bays helps global bending but leaves this same per-aperture vulnerability.
+
+For coherent H.10 at every site, gross-solid16-row lateral control gives.0172mm at E70000; an
+uncoupled single-rail control gives87.6mm, beyond linear validity. The perforated ladder needs
+cross-tie shear transfer; this wide interval does **not** prove metal guide failure, but forbids
+treating thrust stiffness as lateral qualification. No rigid-joint or material-strength credit
+closes it.
+
+Fine/.70 slot gives w=−.130mm, disconnected even with perfect material. Even original.450 slot
+gives−.005. A.20mm fine end rib leaves only.04 after opposing .10 edge allocations; the mirror
+already collides at e=.05. **Metal cannot restore absent geometry. Stop this embodiment before
+repeated micro-supports.**
+
+## Reader envelope, manufacturing and service
+
+Original support recheck covered114,688 rays; the structural extension covers 196,608 more
+across both pitches,8/16 bays,S40/S50 and2/6mm thrust thickness. Maximum slots.89295/.68383mm
+fit the1.10/.70 allocations; sampled end margins ≥2.434/1.938mm. A10mm-deep end rail's lower
+segment approaches the centered camera in X, so it cannot add an end-rib crossing on these
+straight outgoing rays. Mounts, keeper, camera body, writer retraction past deeper rails and
+full-frame access remain unconstructed; additional time cannot be called zero. Upper guide stays
+unslotted.
+
+|Whole board|6.35mm /64²|5.08mm /80²|
 |---|---:|---:|
-|16 /1000 /2|5.136|3.011–8.872|
-|16 /3000 /2|1.712|1.004–2.957|
-|16 /1000 /4|.642|.376–1.109|
-|16 /1000 /6|.190|.112–.329|
-|16 /200000 /2|.0257|.0151–.0444|
-|8 /1000 /2|.323|.189–.557|
+|Resident pairs / thrust-seat duties|4096|6400|
+|Two guide-aperture sets|8192|12800|
+|Thin lower-guide side ligaments|8192|12800|
+|Two slotted-layer row spans,16 /8 bays|512 /1024|800 /1600|
+|Two layers of square panels,16 /8 bays|32 /128|50 /200|
+|Ground-grid node locations,16 /8 bays|25 /81|36 /121|
 
-E1000/3000 are polymer scenarios; E200000 is a metal-like control, not a sourced
-stock specification. At.02/.2N per cell, multiply by.4/4. These are sensitivities,
-not typical miniature loads: even.02 everywhere totals81.92/128N at4096/6400
-sites, including actual pin self-weight. Thin polymer strips are poor stiffness
-candidates in these scenarios; shorter spans or metal address this compliance
-without adding moving locks. A.05mm illustrative budget is not a product gate:
-the metal case meets it at.05N/site but not.2. Guide4.64mm square holes instead
-leave.405mm webs; guide reaction/registration needs its own model. Circular
-thrust-hole results cannot qualify guides or unchanged-neighbor displacement.
+Monolithic panels retain every edge; upper guides, keepers, spacers and mounting
+are extra. Illustrative four fasteners/panel adds128/200 at16 bays or512/800 at8.
+Ten seconds handling/pair costs11.38/17.78h. Marked faces4096/6400; two≤203.2mm
+mirrors/row means128/160 pieces,26.01/32.51m strip. Batch registration, marking,
+deburring, seams and flatness remain unqualified.
 
-Finite-ray recheck: camera centered in bay, end ribs1mm wide, independent.10mm
-X allocations for ray/registration; thrust thickness2/4/6 grows down from z=+1.
-Lower guide stays2mm, camera z=−10. S50 slots become.8873/.8901/.8930mm; checked
-16-column end-rib margin3.772mm (8 columns2.434mm). S40 also clears the sampled
-ends. The.90mm slot is near the optical envelope, **not a manufacturing
-recommendation**. Adding.20mm width reduces guide webs to.305mm and thrust net
-width to1.65mm. Collars, screws, mounts, dirt, lens quality and actual slot
-fabrication remain unqualified; thicker bed means a changed seat assembly.
+Compare FDM/molded/cast panels (creep, shrinkage, tooling/release) with cut or machined metal
+and controlled finishing. Formed stiffeners owe footprint/joint accounting. Density
+scenarios2700/7850kg/m³ give1.78/5.19kg for two full406.4mm square2mm sheets before
+perforation;6mm thrust+2mm guide doubles stock mass. Finished mass, upper bed/frame and pricing
+remain unknown.
 
-An interior crossbar has an explicit ray-intersection witness. A freely sliding
-16-output writer therefore cannot inherit an unobstructed full-width camera
-field across every support boundary. Tested alternative: align writer/reader
-with fixed bays and select only changed outputs. This is a sufficient restricted
-policy, not proof every cross-boundary ray fails. Extra cameras, separate reader
-motion or alternative relays are changed systems with unpaid cost/time.
+Assembly must capture shoulders without bonding beds shut. Panel removal can affect256 sites
+at16-square or64 at8-square; calling it removable proves no single-pair service route. Shared
+openable access must preserve adjacent support. No per-cell cartridge, sensor or latch is added
+or authorized by this screen.
 
-## Resolution, stopped verification and recovery
+## Read/stop/recovery and paid waiting
 
-Five-level/four-track E-178 code is not a continuous sensor. Six10mm setpoints
-need≥3 bits;51 integer-mm positions≥6, before fiducials/redundancy. A hypothetical
-1600px/101.6mm view gives9.45px per.6mm track, not qualified contrast or accuracy.
-Narrower tracks spend registration margin. Scales must survive guide wear without
-thousands of manual calibrations; no marking process is selected.
+E-178's code is not continuous sensing:51 integer-mm positions need≥6 bits before redundancy.
+With acceptance half-width a and error e, accepted true error can reach a+e (.5mm at a=.3/e=.2).
+Pixel density is not accuracy. Retry uses fresh actual height; persistent faults/later drift
+exceed the one-retry model.
 
-With acceptance half-width a and bounded reading error e, accepted true error
-can reach a+e. Illustrative a=.3/e=.2mm can accept.5mm error; e=.35 exceeds a.
-A10mm missed move is distinguishable under these bounds; tiny slip is not.
-Stop/read/compare/retry uses the valid actual height, not replay of the original
-delta. Persistent unreadable/jammed channels remain unaccepted. Later failures,
-repeated retries, revisits and full-board homing are not covered by one retry.
+Final imaging does not replace active control. At850rpm/lead3,10/20ms latency adds.425/.850mm
+before braking; at2000rpm,1/2mm. Keep active stopping/end margins and feedback budgeted. Neither
+image nor powered brake proves power-loss hold.
 
-A final image does not replace active control: at assumed850rpm/lead3,10/20ms
-latency adds.425/.850mm before braking; at2000rpm,1/2mm. Keep head feedback/end
-margins budgeted until active stopping is earned. Neither image nor motor brake
-establishes future hold after power loss.
+Replace E-267's20ms proof slot, never double-charge it. At100ms,16 coarse visits
+plus retry adds1.36s. Two full-row heads give17.94/21.94s coarse and20.75/25.69s
+fine, requiring128/160 drives and8/10 simultaneous fields rather than16 drives/
+one field. Acquisition sensitivity remains in readback.py; no measured rates.
 
-## Full-system timing, manufacture and cost
+At850rpm/lead3/100ms,133 nonempty four-square windows per depth:
 
-Replace E-267's20ms proof slot, never double-charge it. Free16-field coarse
-S40/S50 maxima at20/50/100/200ms are18.61/22.61,19.12/23.12,19.97/23.97 and
-21.67/25.67s. Fine values:33.91/43.32,35.11/44.54,37.11/46.59,41.11/50.69s.
-Coarse worst visits16 stations;80ms extra costs17×.08=1.36s including retry.
-These are conditional rates, not acquisition measurements. At100ms two full-row
-heads give17.94/21.94s coarse and20.75/25.69s fine but need128/160 drives and8/10
-simultaneous fields, versus16 drives and one field.
-
-**Adding support boundaries changes that comparison.** At assumed850rpm/lead3,
-100ms read, same133 nonempty four-square windows per depth:
-
-|Pitch / stroke mm|Free16 field, s|Fixed16 bays, s|Fixed8 bays, s|
+|Pitch / stroke mm|Free16, s|Fixed16 bays, s|Fixed8 bays, s|
 |---|---:|---:|---:|
 |6.35 /40|19.97|31.75|31.50|
 |6.35 /50|23.97|39.52|39.26|
 |5.08 /40|37.11|50.58|64.44|
 |5.08 /50|46.59|64.22|82.79|
 
-Seeks, return,4s common allowance and one immediate retry are paid. Fine-grid
-numbers are scheduling controls only, lacking this rib/optical clearance. Coarse
-fixed16 leaves128/126 windows≤30s atS40/S50, versus all133 with free fields;
-maximum individual penalties12.28/16.05s. A two-cell boundary reveal needs two
-stations instead of one. Some fixed routes improve the travel heuristic, so
-penalties are evaluated per case. Coarse fixed16 large-scene maxima179.25/208.66s;
-cold neutral196.06/256.53s remains separate. Three annotated maps are scenarios,
-not measured representative play. No safe RPM or30s gameplay pass is claimed.
+Seeks, return,4s common allowance and one immediate retry are paid; deeper-frame transport
+remains unqualified. Fine schedules lack feasible support/optics. Coarse fixed16 gives128/126
+windows≤30s; maximum individual penalty12.28/16.05s. A two-cell boundary reveal needs two
+stations, not one; some travel heuristics improve. Coarse fixed16 large-scene
+maxima179.25/208.66s; cold N20/N30 preparation 196.06/256.53s separately. These preserve real
+downward travel,40/50 stroke and unchanged regions in the command schedule, not physical
+isolation qualification. Three annotated maps are scenarios, not representative observed play;
+dense stress remains separate. No safe850rpm or30s gameplay pass is claimed.
 
-The board retains4096/6400 resident pairs and8192/12800 guide apertures. Two
-slotted layers add512/800 row spans; joining their ends in16×16 panels gives
-32/50 panels total. Grounded support-grid locations25/36 and transverse rail
-lines5/6 are **locations, not a built frame**. Unchanged screws share elastic
-supports, so neighbors may move under changed loading despite fixed screw angles.
-Slots do not grant regional-isolation qualification.
+Coarse16 motor/driver subset plus **unquoted** reserve$497.68 leaves
+$2.32/$502.32/$1002.32 at$500/$1000/$1500 for optics, structure, scales, docking,
+feedback and transmission. Two-row-head control$984.64. At32/128 panels the$1000
+remainder averages$15.70/$3.92 per panel if all other omissions were free.
+Allowances are not quotes, a complete BOM or purchase authority. Longer waits
+and premium cost remain product tradeoffs.
 
-Scales still require4096/6400 marked faces. Two≤203.2mm mirror pieces per row
-mean128/160 pieces,26.01/32.51m total strip, before seams/mounts. Ten seconds
-manual marking per pin alone costs11.38/17.78h. Batch marking, molded features,
-laser processing or outsourced scales need real production/repair evidence.
-Laser-cut/machined metal support or molded guides may concentrate precision in
-shared parts, but burrs, warp, flatness, bearing wear, seams and pair replacement
-remain unpaid. Bonding a stack that traps failed pairs is not the assumed service
-route. No per-cell sensor or extra latch is added.
+**Next discriminator:** compare a materially different actual-pin view preserving connected
+guides and accessible resident thrust capture against this slotted-bay control. Include grounded
+frame, service and acquisition cost before camera engineering. Stop fine and thin-polymer slots;
+coarse metal remains conditional, not a complete module. No optical microdetail, print or owner
+answer is required.
 
-Inherited coarse16 dated motor/driver subset plus **unquoted** reserve is$497.68,
-leaving$2.32/$502.32/$1002.32 against$500/$1000/$1500. All optics, structural metal,
-frame, scales, docking, feedback and transmission share this remainder. The
-coarse two-row-head control starts$984.64. No complete BOM, price floor, finished
-retail price or purchase authority follows. Shorter spans have a latency cost;
-metal has an unquoted fabrication/service cost.
-
-**Next discriminator:** compare a cross-bay actual-pin observation route with the
-supported fixed-bay control, including grounded frame and acquisition cost,
-before camera/reflector detail. Batch marking stays unqualified. No owner print
-or new question blocks this independent work; E-263 remains retired.
-
-Verification: original262,144 ray samples plus114,688 supported-bay samples;
-reflection/path identities, finite slabs, opaque-top and interior-rib witnesses,
-fault aliases, stock/error controls; constant-section point-load closed form,
-solid/net envelopes,400→800 samples/cell (<.005% circular-hole change), zero-load
-and E/t scaling;1176 signed-cell replays, two-cell boundary witness and exact
-proof-slot/retry replacement. Scheduler accepts a station-builder callback;
-default behavior retains E-267's checks. These validate calculations, not optics,
-mechanics, process yield or physical safety.
+Checks: original262,144 ray samples/fault aliases and stock/error witnesses; 114,688
+supported-bay rays plus196,608 extension rays; finite slabs/end ribs and interior obstruction.
+Constant-section point-load closed forms agree with separate curvature integration/boundary
+conditions for symmetric and asymmetric loads; dense point loads converge to uniform load. SI
+reconstruction, force/moment balance, zero/load/E/t scaling, solid/net controls and400→800
+samples/cell (<.005% circular-hole change) pass.1176 signed replays, boundary witness and
+proof-slot replacement checks remain. These check calculations, not physical safety.

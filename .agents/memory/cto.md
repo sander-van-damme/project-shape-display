@@ -499,22 +499,26 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
-- E-268 actual-pin sensing: motor counts alias missed socket; screw angle aliases
-  stripped thread. Fixed pin scales fit existing stock; opaque beds need a route.
-  Coarse4.4-stem/e.10 retains.130mm mirror gap; fine e.05 collides, e.20 coarse
-  backing collides. Bounds, not calibrated optics or process priors.
-  New supported-bay screen:16-cell/101.6mm thrust row, .9slot/3.6holes/2thick,
-  E1000/.05N per site gives5.136mm beam deflection; E200000 gives.0257mm.
-  Rigid end support and local seat strength remain unbuilt; loads are scenarios.
-  Transverse end ribs clear sampled rays, interior ribs obstruct a free field.
-  Fixed16-bay coarse/850rpm/lead3/100ms reading raises local S40/S50 maxima
-  19.97/23.97→31.75/39.52s; 8-cell bays31.50/39.26. Slower is not automatic
-  product rejection. Stop thin-polymer slots and free-field timing inheritance.
-  Two slotted layers retain512/800 row spans grouped into32/50 panels; grounded
-  frame/service,4096/6400 marked faces,128/160 mirrors still unqualified/unquoted.
-  Next compare a cross-bay actual-pin observation route with this fixed-bay
-  control at whole-module scale before camera/reflector detail. No new owner
-  question, print or purchase; E-263 offer remains retired.
+- E-268 actual-pin sensing: motor/screw counts alias missed sockets/stripped
+  threads; actual-pin marks still need finite views and stale-frame rejection.
+  Structural extension stops reader detail on current slots. Coarse1.10slot
+  leaves.305mm guide ligaments; coherent.10/.20 edge loss gives.205/.105.
+  S50/H.10 lower reaction.1325N: localE1000 deflection.058/.192/1.429mm;
+  metalE70000 .000833/.00274/.02042, not strength or ladder-frame qualification.
+  Fine.70slot cuts guide web(−.130); metal cannot fix absent geometry. No tiny
+  inserts/fingers repair. Coarse16/.05N/site/2mm thrustE1000/E70000/E200000
+  deflection5.555/.0794/.0278mm;1×10 end rail adds2.101/.0300/.0105 before joints.
+  Shortening8 helps global bending but leaves local thin guide edges. Loads,
+  moduli and errors are bounds, not measured priors. Shared axial capture,
+  grounded guide moment path and pair replacement remain unconstructed.
+  8192/12800 lower-guide ligaments; two-layer16-bay spans512/800, panels32/50;
+  8-square panels128/200 with service/mounting costs, not automatic improvement.
+  Fixed16 coarse850rpm/lead3/100ms local S40/S50 maxima31.75/39.52s vs free
+  19.97/23.97;8 bays31.50/39.26. No inherited free-field speed or rated850rpm.
+  4096/6400 marked faces,128/160 mirrors remain unqualified/unquoted.
+  Next compare a materially different actual-pin view preserving connected
+  guides and accessible thrust capture; retain slotted metal bays as control.
+  No optical microdetail, print/purchase or new owner question; E-263 retired.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,

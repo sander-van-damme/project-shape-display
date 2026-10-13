@@ -53,13 +53,13 @@ def beam(pitch, count, slot, aperture, thickness, modulus, per_site,
     return total,stress
 
 
-def optical_bay(width=16, thickness=2., crossbar=1., error=.1, stroke=50):
+def optical_bay(width=16, thickness=2., crossbar=1., error=.1, stroke=50, pitch=6.35):
     """E-268 rays plus finite X end ribs and thicker bed (guide stays2mm).
 
     Camera centered within bay, at global z=-10; thicker thrust plate grows down
     from +1. Target/plate/crossbar X allocation added independently. No full CAD.
     """
-    p=6.35; cy=p/2; datum=stroke+9; L=width*p
+    p=pitch; cy=p/2; datum=stroke+9; L=width*p
     min_x=1e9; slot=0.; blocked=0; rays=0; interior_witness=None
     for sy,sz,sc,st,sp,sa in itertools.product((-1,1),repeat=6):
         for j,track,dx,dz in itertools.product(range(width),(-1.2,-.4,.4,1.2),(-.08,.08),(-.08,.08)):
