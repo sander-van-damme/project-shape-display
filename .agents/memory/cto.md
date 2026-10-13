@@ -491,16 +491,20 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
-- E-264 reuses rotating-nut topology fromE-156/E-195; not a new principle.
-  Coarse lead/current scenes escape their old high-RPM case, not moving-loss risk.
-  Closed row sockets must pass translating tails before lateral travel:43/53mm
-  withdrawal atS40/50. At64/B2/K32/2000rpm,38.95/45.51s scene maxima versus
-  free-access22.12/25.38; fasterZ400/a8000 gives32.51/37.43. Adaptive row-tail
-  clearance does not improve max. ColdN20/N30 42.81/52.71;dense56.01/65.91s.
-  138/158mm combined stock and longZ/hollow128/160 drives add burden; no speed,
-  support or cost pass. Park closed socket before CAD. Next screen a side-access
-  swept route between tails/nut beds with neighbor isolation before selector work.
-  E-263 optional manual article stays unchanged, no printing wait or new job.
+- E-265: exposed nut rim and connected neck permit3mm tip lift plus diagonal
+  service from inter-column corridors; all4 adjacent targets/reverse routes tested.
+  Coarse friction minimum.40mm, fine transit.14; coherentE.30 leaves.10/−.16.
+  Positive neck gap.05 failsE.15; no microgear/neck repair. These are bounds,
+  not print priors. Long below-tail shaft is a force problem: atS50/T.35/mu.3,
+  even geometry-max2.1mm metal shaft bends.130mm normal vs.05mm closure;
+  favorable fixed-closure ceiling.134Nmm before roller compliance. Low torque
+  remains possible, not measured. Side-friction64 scene27.67/30.93s forS40/50,
+  cold31.53/38.13,dense44.73/51.33;2000nut-rpm conditional.128 selective radial
+  slides add to128 rotary channels, not a free common engagement. Park detail.
+  E-264 closed sockets remain38.95/45.51s; side route escapes43/53mm extraction
+  but keeps138/158mm stock and static-hold/moving-loss uncertainty fromE-156.
+  Next compare slower fixed-screw axial writing/bank counts, installed cost and
+  cold prep without treating850rpm as rated. E-263 optional manual job unchanged.
 - E-262 section escape screen: widerOD4.4/root2.6 polymer at6.35 pitch gives
   S50 ideal-nut2487rpm vs historical991, but softkn.1/kθ10/20g cases514/522.
   Full-credit1mm steel core gives6050 ideal but532 soft; rigid-tilt Rayleigh
