@@ -499,6 +499,20 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Current architecture boundary:
+- E-270 top post-undock sensing escapes opaque supports without new resident optics.
+  Local4mm stereo baseline/.5pupil/.4patch clears deep wells both pitches at
+  bounded±.2mm placement;20mm baseline/H20 hits raised neighbors.32 shared
+  pupil duties for16 simultaneous reads, not one free whole-row camera.
+  Miniature bridging a pin aliases hidden0/−1 heights; occluded/stale/wrong-cell
+  returns unknown. Exposure then hidden restoration cannot prove final height.
+  Post-release read catches driver-assisted false success, not later creep.
+  At850rpm/lead3 with.1undock+.1settle+.1read and full-stroke retry, local
+  coarseS40/S50 24.84/28.84s, fine46.62/56.26; coarseS50 scene253.98s,
+  cold309.40/dense429.87. Serial top stereo81.30s coarseS50 local; force-probe
+  bound734.10s. Extra full-board parallel scan73.62/110.26s still misses covered
+  loaded pins. Retain top observation comparator, no sensor/head/print/purchase.
+  Next: finite shared optical field/identity and observable-cell contract paired
+  with mechanical isolation evidence for unobserved loaded neighbors.
 - E-269 shared keeper shifts1.2mm for service; fixed bed retains neighbor downward
   support, all shared upward capture is absent while powered off. Intact/jammed
   straight pair can lift94/104mm through4.64 guides atS40/50; collar4.4 passes,
