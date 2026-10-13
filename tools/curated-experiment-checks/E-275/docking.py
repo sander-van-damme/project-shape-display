@@ -70,7 +70,7 @@ def finite(n, e=.2):
         square_side_clearance_mm=.2 - 2 * e,
         hub_corner_wall_mm=2 - e - math.sqrt(2) * (1.2 + e),
         square_axial_overlap_mm=14 - 2 * e,
-        selector=loop.r.selection_envelope(n),
+        selector=loop.r.selection_envelope(n, e=e),
         loop_XY_mm=b['loop_head_mm'],
         whole_X_mm=b['whole_X_union_mm'])
 
