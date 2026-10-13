@@ -3,6 +3,7 @@
 Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and configurable depth;
 E-255 records owner hold; E-256 bounds drive; E-259 bounds channels/concurrency;
 E-260 adds batch assembly/service breakpoints, with no measured production yield.
+E-261 bounds full-travel guide overlap and screw stability after the owner failure.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -485,6 +486,20 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-261: simple resident screw + two shared guides remains conditional. With
+  assumed nut10/end margins2 each,40/50 travel needs54/64 usable thread. Two2-mm
+  guides40 apart/end reserves2 need86/96-mm pins; deepest top128/148 above thread
+  origin, excluding seat/head. Historical50.8 pin at40 travel permits only4.8-mm
+  guide-center spacing. No qualified engagement or physical stop follows.
+  Guide-play C=.24 scenario atS50/b40 givesU=.417; opposing pins at5.08/w4.4
+  overlap the relaxed envelope.6.35/w4.4 leaves1.116 gap but1.95-mm surface seams;
+  w5.6 loses clearance. Screw lateral restraint can reduce play by carrying load,
+  so this is not a predicted collision. No micro-fit rescue or guide CAD selected.
+  Historical nominal root1.4 (notOD3.2) atE1000/L57 givesEuler.573/.143N for
+  K1/K2; scenario only, no PLA prior or diagnosis. Axial collar is not moment fixity.
+  Next independent discriminator: rotary critical-speed/stiffness through moving
+  nut positions and free screw overhang, before selecting an intact supported
+  test article. No new owner question, broken-pair retry, print or purchase.
 - E-260: preserve individual pair replacement in openable shared beds; no added
   per-cell cartridge/brake. Sealed64-site disposal costs1.523x fresh-lot attempts
   in a labelled .95%-mean two-class toy case,3.905x if retry class persists; not
