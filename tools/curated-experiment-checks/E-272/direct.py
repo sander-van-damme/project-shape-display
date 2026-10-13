@@ -63,7 +63,9 @@ def stations(delta, k, mode='compact'):
     return out
 
 
-def schedule(delta, k, stroke, mode='compact', rpm=850, lead=3, overhead=.38):
+def schedule(delta, k, stroke, mode='compact', rpm=850, lead=3, overhead=.38, home=(0, 0)):
+    if mode == 'independent':
+        return independent_schedule(delta, k, stroke, rpm, lead, overhead)
     n = len(delta)
     pitch = 406.4/n
     jobs = stations(delta, k, mode)
@@ -77,7 +79,7 @@ def schedule(delta, k, stroke, mode='compact', rpm=850, lead=3, overhead=.38):
              sorted(jobs, key=lambda j:(j[0], j[1] if xs[j[0]]%2==0 else -j[1]))]
 
     def journey(path):
-        pos = (0,0)
+        pos = home
         total = first = 0.
         for index,(x,y,_) in enumerate(path):
             seek = max(.05, h.a.r.move(abs(x-pos[0])*pitch), h.a.r.move(abs(y-pos[1])*pitch))
@@ -85,7 +87,7 @@ def schedule(delta, k, stroke, mode='compact', rpm=850, lead=3, overhead=.38):
                 first = seek
             total += seek
             pos = x,y
-        ret = max(h.a.r.move(pos[0]*pitch), h.a.r.move(pos[1]*pitch))
+        ret = max(h.a.r.move(abs(pos[0]-home[0])*pitch), h.a.r.move(abs(pos[1]-home[1])*pitch))
         return total, ret, first
 
     path = min(paths, key=lambda p:sum(journey(p)[:2]))
@@ -105,6 +107,53 @@ def schedule(delta, k, stroke, mode='compact', rpm=850, lead=3, overhead=.38):
                 retry_s=retry, common_s=common, work_lower_s=work/k,
                 transaction_lower_s=common+retry+work/k+(overhead+.05)*math.ceil(len(changed)/k),
                 utilization=len(changed)/(k*len(path)))
+
+
+def regions(delta, k):
+    """Disjoint address regions; this does NOT make carrier sweep volumes disjoint."""
+    n = len(delta)
+    nx, ny = SHAPES[k]
+    for j, i in itertools.product(range(ny), range(nx)):
+        x0, x1 = i*n//nx, (i+1)*n//nx
+        y0, y1 = j*n//ny, (j+1)*n//ny
+        yield (x0, y0), [[v if x0 <= x < x1 and y0 <= y < y1 else 0
+                         for x, v in enumerate(row)] for y, row in enumerate(delta)]
+
+
+def independent_schedule(delta, k, stroke, rpm=850, lead=3, overhead=.38):
+    """Conditional parallel regional schedules, granting collision-free routing.
+
+    Each head has its own XY and regional corner park; max, not sum, combines
+    asynchronous regions. Common deployment and one global full-stroke retry
+    appear once on the critical path. All k readers are granted concurrently.
+    Envelope witness below shows why these times are not feasible-machine claims.
+    """
+    rows = [schedule(d, 1, stroke, rpm=rpm, lead=lead, overhead=overhead, home=home)
+            for home, d in regions(delta, k)]
+    critical = max(rows, key=lambda v: v['seconds'])
+    result = dict(critical)
+    for key in ('stations', 'changed', 'raised', 'lowered'):
+        result[key] = sum(v[key] for v in rows)
+    result['unchanged'] = len(delta)**2-result['changed']
+    result['work_lower_s'] = max(v['work_lower_s'] for v in rows)
+    result['transaction_lower_s'] = max(v['transaction_lower_s'] for v in rows)
+    # Remove only the common first-seek saving available to every busy region.
+    result['first_seek_s'] = result['seconds']-max(v['seconds']-v['first_seek_s'] for v in rows)
+    result['regional_seconds'] = [v['seconds'] for v in rows]
+    result['routing_granted'] = True
+    return result
+
+
+def independent_boundary(n, k, e=.2):
+    """Finite counterexample to simultaneous service of adjacent regional edges."""
+    nx, ny = SHAPES[k]
+    pitch = 406.4/n
+    # Neighbor cell centers are one pitch apart, not one region width apart.
+    # Same Z carriers are 22 wide and 24 deep; full face uncertainty is 2e.
+    gaps = ([pitch-22-2*e] if nx > 1 else []) + ([pitch-24-2*e] if ny > 1 else [])
+    return dict(min_edge_gap_mm=min(gaps, default=None),
+                collision_witness=any(g < 0 for g in gaps),
+                XY_carriages=k, boundary_coordination_required=k > 1)
 
 
 def envelope(n, k, mode='compact', e=.2, spacing_override=None):
@@ -129,7 +178,7 @@ def envelope(n, k, mode='compact', e=.2, spacing_override=None):
                 neighbor_socket_gap_mm=406.4/n-1.5-2.2-2*e)
 
 
-def cost(n,k):
+def cost(n,k,mode='compact'):
     # 2026-10-13 catalog price tiers; allocations are not quotes or price floors.
     catalog = dict(motors=k*(29.85 if k>=5 else 32.45),
                    encoder_cables=k*(2.76 if k>=5 else 3.), dual_bridges=math.ceil(k/2)*5.95,
@@ -147,9 +196,19 @@ def cost(n,k):
         resident_support=(n*n,.02,.08), actual_cap_reader=(1,80,250),
         reader_mount_carrier=(1,80,180),
         extra_simultaneous_reader_paths=(k-1,5,20))
+    if mode == 'independent':
+        allocations['XY_guides_drives_limits'] = (k,120,240)
+        allocations['regional_control_service_harness'] = (k-1,20,60)
+    elif mode == 'spread' and k > 1:
+        allocations['wide_bridge_stiffening'] = (1,30,100)
+        allocations['wide_harness_extensions'] = (k-1,5,20)
     pre = [sum(catalog.values())+sum(q*v[j] for q,*v in allocations.values()) for j in (0,1)]
     bought = [1.10*pre[0]+20,1.15*pre[1]+60]
     hours = [8+n*n*8/3600+k/6,16+n*n*20/3600+k/2]
+    if mode == 'independent':
+        hours = [hours[0]+(k-1),hours[1]+3*(k-1)]
+    elif mode == 'spread' and k > 1:
+        hours = [hours[0]+1,hours[1]+3]
     return dict(catalog_USD=catalog,allocations_q_low_high=allocations,
                 bought_USD=bought,residuals={b:[b-c for c in bought] for b in (500,1000,1500)},
                 maker_hours=hours,printing_material_USD=[60,160],
@@ -247,7 +306,24 @@ def checks():
     q=[[30 if 8<=x<24 and 8<=y<24 else 0 for x in range(64)] for y in range(64)]
     quadrant_work=sum(h.a.r.spin(v/3,850) for row in q for v in row if v)
     assert quadrant_work>180
-    return dict(replays=replays,checks='cell reach/isolation, dense closed form, signed/no-op, finite collisions, budget and serial anchor')
+    # Regional decomposition is exact; a single-region change gets no speedup.
+    regional_replays = 0
+    for n, k in itertools.product((16, 32), SHAPES):
+        d = [[(-1)**(x+y)*20 if (x+2*y)%3 else 0 for x in range(n)] for y in range(n)]
+        parts = list(regions(d,k))
+        assert all(sum(a[y][x] for _,a in parts)==d[y][x] for y in range(n) for x in range(n))
+        got = schedule(d,k,50,mode='independent')
+        assert got['changed']==sum(bool(v) for row in d for v in row)
+        assert math.isclose(got['seconds'],sum(got[key] for key in
+                           ('seek_s','return_s','spin_s','dock_read_s','retry_s','common_s')))
+        regional_replays += 1
+        assert got['seconds']+1e-8>=got['transaction_lower_s']
+        assert math.isclose(got['seconds'],max(got['regional_seconds']))
+        one = [[20 if x==y==0 else 0 for x in range(n)] for y in range(n)]
+        assert math.isclose(schedule(one,k,50,'independent')['seconds'],schedule(one,1,50)['seconds'])
+        assert independent_boundary(n,k)['collision_witness'] == (k>1 and 406.4/n<22.4)
+        assert all(a>=b for a,b in zip(cost(n,k,'independent')['bought_USD'],cost(n,k)['bought_USD']))
+    return dict(replays=replays,regional_replays=regional_replays,checks='cell reach/isolation, dense closed form, signed/no-op, finite collisions, regional critical paths, budget and serial anchor')
 
 
 if __name__=='__main__':
@@ -260,9 +336,10 @@ if __name__=='__main__':
     else:
         print(json.dumps(dict(verification=verified,
             rows=[report_case(n,k,stroke,mode) for n,stroke,k,mode in
-                  itertools.product((64,80),(40,50),SHAPES,('compact','spread'))],
+                  itertools.product((64,80),(40,50),SHAPES,('compact','spread','independent'))],
             sensitivity=[report_case(64,k,50,rpm=rpm,lead=lead) for k,rpm,lead in
                          itertools.product((1,4,8),(400,850),(2,3))],
             geometry=[dict(n=n,k=k,mode=mode,**envelope(n,k,mode)) for n,k,mode in
                       itertools.product((64,80),SHAPES,('compact','spread'))],
-            costs=[dict(n=n,k=k,**cost(n,k)) for n,k in itertools.product((64,80),SHAPES)]),indent=2))
+            independent_boundaries=[dict(n=n,k=k,**independent_boundary(n,k)) for n,k in itertools.product((64,80),SHAPES)],
+            costs=[dict(n=n,k=k,mode=mode,**cost(n,k,mode)) for n,k,mode in itertools.product((64,80),SHAPES,('compact','spread','independent'))]),indent=2))
