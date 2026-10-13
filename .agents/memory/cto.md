@@ -1,8 +1,8 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC. E-272 compares simpler spaced direct spindles after
-E-271's sixteen-channel routing/cost screen. Current boundary and retained
-evidence below distinguish small changes from larger reveals; no hardware pass.
+Updated: 2026-10-13 UTC. E-273 parks the straight shared-rack drive after
+E-271/272 private-drive comparisons. Next distinct screen: compact circulating
+shared drive with real selection, contact and socket-phase compatibility. No hardware pass.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -57,6 +57,20 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-273 common rack removes15 rotary motors/16 private belts, retains16 axial
+  docking selectors. Coarse e.2/OD5 pinion gap.95; fine−.32 fails; no tooth rescue.
+  3mm axial docking/broad6mm rack face leaves.6mm envelope reserve, not mesh proof.
+  Phase-registered sixfold sockets permit ideal lead/6 height grid;0/.25mm at
+  lead3 gives30deg mismatch, defeats±5deg common docking. Commission/recovery
+  unbounded; no forced engagement/compliance granted. Moving hold unqualified.
+  Finite rack paid distance2max(up,down)*piD/lead. S50/D4/lead3 excursion209.44,
+  coarse swept wholeX838.93mm. Conditional850rpm/local33.43/40.99s S40/S50,
+  scenes338.71/393.30; neutral372.79/487.09; dense600.50/714.79. Coarse S50
+  local includes10.69s empty rack; removing only it still30.30, no loop pass.
+  Bought allocations1116–2982 vs bare16 favorable1247; no$500/$1000 route;
+  maker20.77–49.76h before cleanup/phase commissioning. Stop straight rack detail.
+  Next independent discriminator: circulating shared drive finite contact/torque,
+  selection routing and phase-compatible recovery; no print/purchase/question.
 - E-271 finite16 routing: coax stagger fails neighboring shafts; offset motor/belt
   lanes with whole-channel3mm docking clear coarse inter-channel envelopes at
   e.2 with4 encoder/5 bare lanes, ~200/212mm head depth. Fine6mm transmission
@@ -77,8 +91,8 @@ Evidence to retain:
   for worst coarse four-square S40/S50 reveals; no scan tuning removes this.
   Synthetic short walls/doors remain a narrower conditional use, not typical play.
   Keep a direct spindle as a simple mechanism control; no multi-head selection.
-  Next distinct discriminator: adjacent-cell shared drive/selection without
-  sixteen tiny belt routes. Do not return to riser, optical-patch or fit refinement.
+  E-273 now screens adjacent-cell shared rack drive; do not return to riser,
+  optical-patch or fit refinement.
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
   for original 2-mm cap/1.2-mm lug/base. D5 has .60-mm nominal lift window;
   total axial gap E=.35 closes it (finite cap/lower-lug .05-mm penetrations).
