@@ -554,6 +554,17 @@ Next executable investigation:
   Motor encoder cannot prove socket engagement; powered bridge braking is not
   power-loss support. Measure one successful pair/drive before choosing a bank;
   custom assembled feedback/driver board quote only if that operating window holds.
+- E-259 concurrency.py adds power admission without deleting installed channels.
+  At64/fixedN30/physical river+ravine,2000rpm/1000rev/s²:K32/head preserves
+  full-concurrency25.38s deep scene max;K24 gives28.62s,K16 34.18s. Motor-only
+  rated-load/stall arithmetic32/64A->16/32A atK32, not a PSU rating or cost saving.
+  ColdN30 prep21.58->32.58s;dense50 28.18->45.78s; all128 motors still installed.
+  K23 first LPT<=30;K22 lower bound does not exclude a better schedule. At1500rpm
+  K32 29.67s;at2000rpm/accel200 K32 29.85s becomes30.02 with5ms stop-token delay.
+  RetainK24–32 control hypothesis; measure current/stop along with pair drive.
+  No current trace or electrical design; do not size supply from installed count
+  or assume active braking/indefinite jams release power slots.729 exact small
+  comparisons/full-slot anchors pass; bounds retain conservative global row retry.
 - Torque remains unmeasured. Illustrative20-g total mass, mu.3/drag.05Nmm:
   .238 steady/.358 accelerating Nmm atJ1e-8;160 outputs11.96W before losses.
   Modest tighter-fit drag is not rejected by energy; do not alter a holding pair
