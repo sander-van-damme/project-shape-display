@@ -1,9 +1,8 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and configurable depth;
-E-255 records owner hold; E-256 bounds drive; E-259 bounds channels/concurrency;
-E-260 adds batch assembly/service breakpoints, with no measured production yield.
-E-261 bounds full-travel support; E-262 screens moving-nut rotary modes and waits.
+Updated: 2026-10-13 UTC. E-272 compares simpler spaced direct spindles after
+E-271's sixteen-channel routing/cost screen. Current boundary and retained
+evidence below distinguish small changes from larger reveals; no hardware pass.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -68,8 +67,18 @@ Evidence to retain:
   Bare$1500 residual$253 only favorable allocation, no quote/purchase. Single
   direct encoder control$639–1662 but conditional400rpm S50 local~512s.
   No safe RPM or cap proof; E-270 decoder/hidden-pin limitations persist.
-  Stop local hardware detail; fewer direct reusable spindles is the next distinct
-  architecture discriminator, not another16-channel belt/guide refinement.
+  Stop local hardware detail; E-272 now evaluates fewer direct spindles.
+- E-272 spreads direct encoder spindles at25.4mm, removing belts/risers.
+  At e=.2, 22x24mm carrier envelopes leave1mm separation at either pin pitch;
+  this is not internal fit, safe docking, resident-frame or optical qualification.
+  Favorable coarse costs1/2/4/8 outputs $640/713/865/1146; high allocations
+  $1663/1790/2051/2546. No$500 route or purchase approval.
+  Even ideal8-way packing under the stopped-read model needs >=35.61/43.37s
+  for worst coarse four-square S40/S50 reveals; no scan tuning removes this.
+  Synthetic short walls/doors remain a narrower conditional use, not typical play.
+  Keep a direct spindle as a simple mechanism control; no multi-head selection.
+  Next distinct discriminator: adjacent-cell shared drive/selection without
+  sixteen tiny belt routes. Do not return to riser, optical-patch or fit refinement.
 - E-167 resolution extension: first-gap integral yaw requires D>4.4+2E mm
   for original 2-mm cap/1.2-mm lug/base. D5 has .60-mm nominal lift window;
   total axial gap E=.35 closes it (finite cap/lower-lug .05-mm penetrations).
