@@ -1,7 +1,8 @@
 # CTO research compass — not engineering evidence
 
 Updated: 2026-10-13 UTC; E-254 records owner choice of both physical depressions; E-257 adds quarter pitch; E-258 adds player views and configurable depth;
-E-255 records owner hold; E-256 bounds drive; E-259 prices sampled drive/feedback subsets.
+E-255 records owner hold; E-256 bounds drive; E-259 bounds channels/concurrency;
+E-260 adds batch assembly/service breakpoints, with no measured production yield.
 Priority: simple pins, resident screw support, accessible shared programming.
 Owner correction: the screw supports the pin itself; no platform or writer
 load takeover is implied. Fixed screw angle holds the pin through its thread.
@@ -478,6 +479,15 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-260: preserve individual pair replacement in openable shared beds; no added
+  per-cell cartridge/brake. Sealed64-site disposal costs1.523x fresh-lot attempts
+  in a labelled .95%-mean two-class toy case,3.905x if retry class persists; not
+  FDM priors. With8h setup/2min per64-site bed/2min per bad pair,32h maker budget
+  allows18.08/10.49s handling per4096/6400 pair. Extra1min fitting adds68/107h.
+  Parallel16-site50-travel/N30 screen occupies3.60/5.63h versus57.65/90.07 serial,
+  granting independently driven/observed sites; fixture/cleanup/build still unpaid.
+  Any justified later batch calibration should time handling, identify lots and
+  prove local repair. No mold, fixture, print or production process selected.
 - E-256 now includes a short existing-pair measurement procedure and interval
   reducer measurements.py. No physical record exists yet. At10-mm arm,1g
   produces.09807Nmm; a.01Nmm error budget allows only.102g mass error before
