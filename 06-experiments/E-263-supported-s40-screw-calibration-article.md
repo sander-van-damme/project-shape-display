@@ -109,7 +109,9 @@ Reproduce `python3 tools/curated-experiment-checks/E-263/manufacturing.py`.
 It reads the exact old plate from Git at d0e2470, without dependencies or retained
 output. Mesh envelope checks across91 horizontal roll angles and an independent
 analytical calculation agree. Guide intervals are independently reconstructed
-with4001 travel positions and a shortened-travel counterexample. **These are
+with4001 travel positions and a shortened-travel counterexample. Nut-exit mesh
+sections at121/241 positions give the same finite collision witness; a known slab
+checks the intersection method. **These are
 geometric necessary conditions and labor scenarios, not simulated deposition,
 measured wobble, surface finish, anisotropic strength or support-removal force.**
 
@@ -118,7 +120,7 @@ measured wobble, surface finish, anisotropic strength or support-removal force.*
 | Original upright pair | Pin height86 and screw80 mm; broad feet do not laterally brace their upper lengths. Supports under the pin shoulder alone do not prove shank stability. Retire this offer; no measured wobble threshold is assigned. |
 | Lay unchanged whole parts flat | Pin tray holds the4.4-mm body11.80 mm above the bed with a face down; diagonal roll increases this to16.69 mm. Screw handwheel holds its3.2-mm shaft10.40 mm above bed (small facet variation). Rotation alone therefore leaves substantial support/bridging obligations. |
 | Upright connected batch | Ties only at the feet do not shorten the upper free span. Mid-height ties contact functional surfaces: the lower guide sweeps pin-local2..44 and the upper42..84, covering the entire82-mm outer shank. Guide-safe scar-free tie placement there is unavailable without changing the part or accepting cleanup. A surrounding cage with clearance does not brace until contact; same-layer ties to equally flexible neighbors are not fixed supports. End tabs remain possible, but need a real load path and removal proof. |
-| Horizontal pin with removable laboratory tray/shoulder; screw with separate handwheel | Removes large standoffs, but the pin still has a3.52-mm-wide cavity roof and internal helical surfaces. A rigid full-width cavity support cannot simply translate through the nominal1.70-mm minimum thread opening; fragmented or soluble removal is a different process needing evidence. Unsupported roof bridging may work, but is unqualified. A separate wheel adds torque/thrust/alignment joints; a separate cap adds an axial load/end-stop joint. Keep as a conditional laboratory redesign, not thousands of accepted production joints. |
+| Horizontal pin with removable laboratory tray/shoulder; screw with separate handwheel | Removes large standoffs, but retains a3.52-mm cavity roof and internal helical surfaces. A3.30-mm rigid support fits the cavity but collides during straight axial withdrawal through the nut: archived mesh x-boundary.850006 versus support edge1.65 gives.800-mm penetration. Removing the top cap instead creates a straight cavity exit with.22-mm total nominal width clearance; assumed.10/.30-mm total aperture loss leaves.12/−.08. This bounds an ideal opening, not release force or a designed joint. Fragmented/soluble support or unsupported bridging are different unqualified routes. Separate wheel/cap joints add torque/thrust/alignment or axial-load/end-stop duties. Prefer this conditional laboratory split over a seam through the nut; no replacement STL yet. |
 | Longitudinal split pin / molded or outsourced parts | Opening the cavity improves access but adds a registered seam through the nut and guide faces, plus4096/6400 joining and inspection duties if repeated. Do not select a split merely to improve slicing. E-260's unscrewing-core/tooling alternatives remain controls with their own cost and removal duties; none inherits the old PLA holding observation. |
 
 Generic primary [Prusa support guidance](https://help.prusa3d.com/article/support-material_1698)
@@ -137,6 +139,17 @@ breakpoints, not measured labor or a hard four-day rejection gate. Batch support
 must release in groups without leaving guide/thread scars; individual sanding is
 not an assumed production route. No new purchased-cost or update-speed pass follows.
 The~$500, premium~$1000 and research$1000–1500 comparisons above remain unchanged.
+
+Group release only helps if individual cleanup stays small. At an **assumed30 s
+per16-pair batch** (both parts included), removal alone adds2.13/3.33 h and leaves
+4.10/.305 s per part under the same32-h allocation. At64 pairs/batch, allowance
+becomes4.81/1.01 s; these larger batches have no constructed support or qualified
+common release. Scaling the three-pair diagnostic batch at30 s/group leaves
+.037/−3.759 s per part: a useful sample is not a production process. Partial
+batches are charged in full. A further10-s joining duty per split pin adds
+11.38/17.78 h, before joint inspection, cure time or rework. Retain intact nut and
+guide faces where possible; a removable laboratory cap need not become a
+production joint. All rates and aperture-loss cases are bounds, not process priors.
 
 **Next physical article only after a manufacturing route earns it:** prefer three
 identical pins and three identical screws over three fit variants, in one small
