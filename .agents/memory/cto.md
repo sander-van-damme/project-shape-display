@@ -18,8 +18,16 @@ positive firsthand evidence, not just assumed. Mass/duration/variant unrecorded.
 The recovered pair has no fixture and suffered near-extension breakage (E-256);
 avoid demanding unavailable historical provenance or retesting damaged parts.
 Distinguish observed zero-speed hold from moving disconnect.
-E-263 now supplies one optional supported S40 manual article/READY print job;
-no head, powered-speed or purchase selection. New explicit .15-mm radial cutter
+E-263 old S40 print offer RETIRED after owner declined unsupported tall parts;
+no READY print job, head, powered-speed or purchase selection.
+Manufacturing screen: horizontal unchanged pin/screw standoff11.8/10.4mm;
+entire pin shank2..84 swept by guides, so middle brace scars affect fit.
+Detachable lab appendages/end-connected bracing are conditional next comparisons;
+no orientation winner or replacement STL. Before any future job: actual support
+removal design, slicing inspection and three identical pairs, not fit variants.
+E-260 8s/pair scenario leaves10.08/2.485s cleanup/pair under32h at4096/6400;
+10s removal per part adds22.76/35.56h. Bounds, not process measurements.
+New explicit .15-mm radial cutter
 relief reconciles trial5 mismatch without identifying the old successful print.
 252 nominal phase/float states clear; .2-mm axis-offset witness collides.
 Physical fit/hold/stiffness remain unknown; stop on forced alignment, no fit campaign.
@@ -503,7 +511,7 @@ Current architecture boundary:
   Slower stopped proof is affordable in this model; no earned active-stop feedback.
   Next discriminator is a supported slotted module/batch scale route versus
   another actual-pin access topology, before cameras or reflector micro-CAD.
-  E-263 optional manual article unchanged; no print/purchase or owner question.
+  E-263 print offer now retired; no print/purchase or owner question.
 - E-267 short-head comparison: single XY16/coarse at conditional850rpm/lead3
   gives133 nonempty4-square windows/depth maxima18.61/22.61s(S40/S50), same
   worst local waits as one full row; scene173.33/200.62s, cold175.50/235.97,
@@ -517,7 +525,7 @@ Current architecture boundary:
   No rated speed, BOM or preference winner. Stop schedule sweeps; retain cheaper local-reveal
   demonstrator as control. Shared reader/failed engagement screen nowE-268; complete channel budget
   still unresolved; no head micro-CAD,
-  purchase or new print. E-263 optional article unchanged.
+  purchase or new print. E-263 print offer now retired.
 - E-266 slower axial B1–4/K16,24,32,full and near64 total slots:400/600/850rpm,
   leads2/3, both pitches/S40N20–S50N30. At64/lead3/850/K32, B2→B3 scene
   35.54/43.29→26.34/31.27s; subset+reserve$984.64→1272.44, leaving$1.19/output
@@ -529,7 +537,7 @@ Current architecture boundary:
   Stop bank escalation; retain longer-wait one/two-bank controls and conditional
   coarseB3 premium option only. No safe RPM, complete BOM or preference winner.
   Reopen added-bank detail only with earned loaded-support/speed and complete
-  channel/power/assembly allocation. E-263 optional job unchanged; no new print,
+  channel/power/assembly allocation. E-263 print offer now retired; no new print,
   purchase, owner question or local rotor/selector work.
 - E-265: exposed nut rim and connected neck permit3mm tip lift plus diagonal
   service from inter-column corridors; all4 adjacent targets/reverse routes tested.
@@ -544,7 +552,7 @@ Current architecture boundary:
   E-264 closed sockets remain38.95/45.51s; side route escapes43/53mm extraction
   but keeps138/158mm stock and static-hold/moving-loss uncertainty fromE-156.
   E-266 now completes the slower axial/bank/cold-prep comparison; do not rerun
-  it without changed evidence. E-263 optional manual job unchanged.
+  it without changed evidence. E-263 print offer now retired.
 - E-262 section escape screen: widerOD4.4/root2.6 polymer at6.35 pitch gives
   S50 ideal-nut2487rpm vs historical991, but softkn.1/kθ10/20g cases514/522.
   Full-credit1mm steel core gives6050 ideal but532 soft; rigid-tilt Rayleigh
@@ -552,7 +560,7 @@ Current architecture boundary:
   Wide5.6 pin consumes clearance (S50/b40/.24 gives−.084mm guide-only gap).
   Core1/bore1.2 leaves.10mm root ligament and adds4096/6400 interfaces;
   park that embodiment. Wider polymer stays conditional, no new print/head.
-  ExistingE-263 manual support/hold article remains first physical discriminator;
+  Supported manual hold remains useful; E-263 print offer is retired;
   optional printing does not block independent architectural research.
 - E-262: 2000–3000rpm remains conditional, not earned across travel. At historical
   root1.4/E1000/rho1400/OD mass/P.2N, ideal point nut + simple base gives minimum

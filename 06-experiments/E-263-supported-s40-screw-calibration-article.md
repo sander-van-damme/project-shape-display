@@ -1,166 +1,163 @@
 ---
 status: complete
-builds-on: [E-255, E-256, E-261, E-262]
+builds-on: [E-255, E-256, E-260, E-261, E-262]
 ---
 
 # Supported S40 screw calibration article
 
-**One optional manual calibration article, not powered or physically qualified.**
-The exported mating pair, captured thrust path, two openable guides, removable
-second radial land and travel stops pass nominal geometry checks. The owner
-handoff is [one eight-part print job](../owner-print-tests/supported-s40/test.md).
-Actual-process alignment, stiffness, holding and easy service remain questions
-for this article; there is no fitted-process or array acceptance.
+**Print offer retired; supported CAD remains an unqualified comparator.** Sander
+declined the unsupported slender-part layout. The [retirement note](../owner-print-tests/supported-s40/test.md)
+replaces the print job; no replacement is READY. Nominal mating, captured thrust,
+two openable guides, removable second radial land and travel stops passed geometry
+checks, not actual-process fit, stiffness, holding, speed or array qualification.
+Evidence: source inspection, CAD/mesh checks, calculations and owner feedback;
+self-reviewed, with no new measurements or purchases. E-256's positive manual
+holding report and near-extension break remain separate physical observations.
 
-Evidence: historical/library source inspection, CAD, mesh booleans and interval
-calculations, self-reviewed. No measurements, purchases or owner print obligation.
-E-256's positive manual holding report **and near-extension break** remain intact;
-this new pair is not the identified successful historical variant.
+## Reconstructed mate and supported load path
 
-## Source-controlled mate before fixture CAD
+Reinspected trial3 actuator and trial5 actuator/calibration/frame at41484f9699.
+[BOSL2 at136e636](https://github.com/BelfrySCAD/BOSL2/blob/136e6367e65d52196a3ea51d03156f8b622c60fc/threading.scad)
+confirms E-255: internal mode adds twice `$slop` radially and transforms phase;
+trial5 minimum cutter radius1.65 exceeds male crest1.60. The calibration screw
+has different dimensions. This is not the known successful print dependency.
 
-Reinspected trial3 actuator and trial5 actuator/calibrate_screw/calibrate_rect_tube/
-frame at41484f96999847c139b9010e73009d73e9459c89. The actual
-[BOSL2 source at136e636](https://github.com/BelfrySCAD/BOSL2/blob/136e6367e65d52196a3ea51d03156f8b622c60fc/threading.scad)
-confirms E-255: internal mode adds twice `$slop` radially and transforms helical
-phase. Trial5's minimum cutter radius1.65 exceeds the male crest1.60. Its
-calibration screw uses different dimensions; blindly exporting trial5 is wrong.
-The pinned comparison library is still not the known historical print dependency.
+The specimen instead subtracts the **same external trapezoidal generator**:
+pitch3, depth.9, included angle30°, one right-handed start, no bevel/blunt start.
+Male OD3.2/cutter OD3.5: explicit radial relief.15, root radius.7/cutter minimum.85,
+maximum1.75, radial engagement.75. Nut width4.4 leaves minimum wall.45; tube wall.44.
+These allocations alter friction; owner holding evidence does not transfer.
+The periodic cutter extends−3..57 through the10-mm nut into the cavity; extending
+its boundaries removes a coplanar CGAL seam, not a tuned physical fit.
+Signed mesh mating requires `theta = -360*(q-screw_axial_shift)/3` degrees.
 
-This specimen uses **the same external trapezoidal generator for male and female
-subtractive tool**, avoiding hidden internal slop: pitch3, depth.9, included angle30°,
-one right-handed start, no bevel or blunt start. Male OD3.2, cutter OD3.5; explicit
-radial expansion.15 mm. Root radius.7, cutter minimum.85, maximum1.75, nominal
-radial engagement.75 mm. A4.4-mm square nut leaves.45-mm minimum wall; the tube
-wall remains.44. These are allocations, not measured X1C capability or retention.
-Changing the nut from trial5 changes friction; Sander's hold does not transfer.
+Coordinates below are relative to nominal thread start, in millimetres:
 
-Male thread occupies0..54. The periodic cutter extends−3..57 (two extra whole
-pitches), through the10-mm nut and slightly into the square cavity. Extending
-its numerical boundaries removes a coplanar CGAL non-manifold export seam;
-no alternate physical fit was tuned. Signed mesh mating independently confirms
-rotation `theta = −360*(q−screw_axial_shift)/3` degrees with the pin nonrotating.
-
-## Complete load path and finite dimensions
-
-The following graph was fixed before fixture CAD; the mesh pass refined collar
-endfloat from the sketch's.40 to **.38 mm** because of its.02-mm union overlap.
-All z coordinates below are relative to nominal thread start, in millimetres.
-
-```
-miniature -> fixture tray/cap -> pin -> engaged nut -> resident screw
-          -> lower handwheel/thrust face -> frame foot -> table
-reverse axial force -> upper handwheel face -> fixed thrust shelf -> side rails
-pin torque/side force -> guides z44..46 and84..86 -> common side rails
-screw side force -> primary radial land z-4..-2 -> side rails
-optional second radial land z-18..-16 -> same rails (no axial duty)
-lower travel limit: cap underside -> upper guide top z86
-upper travel limit: bottom shoulder top -> lower guide underside z44
-```
-
-| Feature | CAD allocation / consequence |
+| Duty / feature | CAD allocation |
 |---|---|
-| Pin / nut / useful signed travel |86-mm stock; nut local0..10; q2..42, travel40; neutral20 gives±20 |
-| Guide bearing section |Pin local2..84, two2-mm slabs with40-mm center span; full slab coverage throughout travel |
-| Thread / cap |54-mm thread,2-mm nominal end margins; cavity ends atq+84,32-mm nominal tip clearance when retracted |
-| Thrust capture |Handwheel OD24, z−26..−21.98; fixed faces−26.2/−21.8; axial shift−.20..+.18 |
-| Actual margin with axial float |At least1.80-mm thread end margin,31.82-mm cap clearance (31.8 conservatively reported) |
-| Radial / square guide |OD3.2 journals in3.6-mm bores;4.4 pin in4.8 square apertures; neither is a qualified print fit |
-| Laboratory stops / tray |Bottom shoulder8×8×2; top tray28×28×2, both integral; no removable axial pin brake |
-| Assembly envelope |70×50-mm foot;118.2–158.2-mm tray top above foot underside; no array or head envelope implied |
+| Loaded support | Tray→pin→nut→screw→lower handwheel face→frame foot→table; reverse axial force reaches fixed shelf through upper wheel face. |
+| Guidance | Pin torque/side force reaches common rails through z44..46 and84..86 guides; screw primary radial land z−4..−2; removable second land z−18..−16 has no axial duty. |
+| Pin/travel |86 stock; nut local0..10; q2..42 gives40 travel, N20 gives±20. Guides cover local2..84; centers40 apart. |
+| Thread/cavity |54 thread with2 nominal end margins; cavity ends atq+84. Float leaves≥1.80 thread margin and31.82 cap clearance. |
+| Captured thrust |Wheel OD24,z−26..−21.98; fixed faces−26.2/−21.8; axial shift−.20..+.18. Union overlap.02 reduces initial sketched endfloat.40 to.38. |
+| Fits |OD3.2 journals in3.6 bores;4.4 square pin in4.8 guides; unqualified fits. |
+| Manual stops |Top tray28×28×2 touches upper guide atq2; bottom8×8×2 shoulder touches lower guide atq42. Continued turning can damage the fixture. |
+| Fixture |70×50 foot; tray top118.2..158.2 above foot underside. Two split frames, two3.2×4×3.2 keys in3.6×4.4×3.6 pockets; external tape closes rails. |
 
-The screw handwheel stays resident and may rotate freely during hold tests.
-Thrust capture is not moment fixity or proof of passive retention. Both pin
-end stops act before reduced thread overlap, but are **manual contact limits**,
-not qualified crash stops: continued turning can damage the thread/fixture.
+Handwheel remains resident and free to rotate during hold tests. Thrust capture
+is not moment fixity or passive-hold proof. Second-land halves slide out after
+unloading while main support remains. Pair replacement opens the common frame;
+seam stiffness, alignment and handling time are unknown. No added per-cell brake.
+A rigid.2-mm pin/screw offset atq22 intersects1.243 mm³: a geometric failure witness,
+not an FDM distribution. Stop on forced assembly; no fine-adjustment campaign.
 
-Two frame halves contain the shared-style guides and bearing seats. Two loose
-3.2×4×3.2-mm keys enter3.6×4.4×3.6-mm split pockets; external tape closes the
-common rails. No adjustable bearing tower or unexplained fine alignment step.
-The second root land has two halves sliding out of rail slots after unloading;
-main radial/thrust support stays in place. Pair replacement opens the common
-frame, without destructive separation. Tape seam opening and fitting time are
-explicit failure observations, not automatically adequate fixture stiffness.
-
-**Sensitivity:** the matched coaxial pair clears, while a rigid.2-mm lateral
-pin/screw offset atq22 gives1.243 mm³ interference. This is a failure witness,
-not a process prior or probability. Opposing XY bias, print bow, loose key/guide
-contacts and two-half registration can consume the nominal clearance. Stop if
-assembly needs pushing, bending or fine adjustment; do not add hardware or start
-an iterative fit campaign. One functioning sample cannot establish4096/6400 yield.
-
-## Export, manufacture and checks
+## Reproduction and preserved negative controls
 
 Source: `tools/curated-experiment-checks/E-263/article.scad`, `export.py`, `check.py`.
-For CTO reproduction, obtain a **clean** BOSL2 checkout at136e6367e65d52196a3ea51d03156f8b622c60fc
-in a directory namedBOSL2; export.py checks commit and clean status. With OpenSCAD
-on PATH and Python dependencies NumPy/trimesh/manifold3d:
+Use a clean BOSL2 checkout136e6367e65d52196a3ea51d03156f8b622c60fc namedBOSL2;
+export verifies revision/clean status. Original OpenSCAD2023.09.11, Python
+NumPy/trimesh/manifold3d. In a scratch output directory:
 
 ```
 python3 tools/curated-experiment-checks/E-263/export.py --bosl2 /path/BOSL2 --output /scratch/exports
-python3 tools/curated-experiment-checks/E-263/check.py /scratch/exports --pack /scratch/s40-calibration.stl
+python3 tools/curated-experiment-checks/E-263/check.py /scratch/exports --pack /scratch/old-comparator.stl
 ```
 
-Used OpenSCAD2023.09.11. The dated CGAL ASCII screw export has last-decimal vertex
-seams; conversion through manifold float32 topology yields a watertight solid.
-The checker requires unchanged bounds within.00002 mm, volume difference<.001 mm³,
-positive consistent winding and one material component for each part. **No hole
-filling, smoothing or slicer auto-repair.** Only the verified binary combined
-plate STL is handed off; it is reloaded and checked again, eight separate solids.
+This reproduces retired geometry, **not a print instruction**. CGAL ASCII last-digit
+seams normalize through manifold float32 topology: require watertight consistent
+winding, one component/part, bounds change<.00002 mm and volume change<.001 mm³.
+No hole filling/smoothing/slicer repair. Final binary plate was reloaded as eight
+separate solids; its archived original is preserved at d0e2470.
 
-- 252 phase/axial-float states: zero computed thread intersection; pin/frame and
-screw/seat clear. Endfloat endpoints are sampled.00001 mm inside contact to
-avoid finite-precision face-contact ambiguity; physical intervals are analytic.
-- Wrong-direction control atq22.25 intersects8.834 mm³. Overtravel.1 mm beyond
-lower/upper stops intersects31.296/4.096 mm³; excess screw float also collides.
-- The two keyed frame halves, journals, optional land, key insertion volumes and
-plate part separations clear nominally. No clearance-probability or contact-force
-model is inferred from mesh booleans.
-- Plate occupied bounds x5..229,y5..121.2,z0..86; eight parts,45.367 cm³ CAD solid
-volume before infill/support. Each frame half70×116.2×25; pin28×28×86; screw24×24×80;
-land halves44×10×2; two keys3.2×4×3.2. All bed minima z0.
-- Visually inspected complete assembly and **imported final STL plate**. Frame
-split faces are bed-down; handwheel is bed-down; pin tray is bed-down with the
-pin inverted. Small frame recesses bridge up to4.8 mm. The inverted pin's final
-8-mm shoulder needs externally removable tree supports for its1.8-mm overhang,
-starting outside the tray and reaching inward. Never support the internal thread.
+- 252 phase/axial-float states: no computed thread, guide or seat collision;
+float endpoints sampled.00001 inside contact, with physical intervals analytical.
+- Wrong rotation atq22.25 intersects8.834 mm³; overtravel.1 below/above stops
+intersects31.296/4.096 mm³; excess screw float±.3 also collides. Key insertion,
+frame halves, journals, lands and separated plate parts clear nominally.
+- Original plate bounds x5..229,y5..121.2,z0..86;45.367 cm³ solid. Frame halves
+70×116.2×25 each; pin28×28×86; screw24×24×80; lands44×10×2; two keys3.2×4×3.2.
+Frame split faces down; wheel down; inverted pin tray down. All bed minima0.
+Frame recesses bridge≤4.8; pin's final shoulder has1.8 overhang at~84 high.
+The old instruction relied on external slicer-generated tree supports there.
 
-This is ready **to slice**, not already sliced or printed. Suggested PLA/.4 nozzle/
-.12-mm layers and3–5-hour/40–65-g estimates are uncalibrated; record actual slicer
-values. Thin walls, thread overhangs, tall support removal and slender screw are
-real first-print risks. Stop rather than force cleanup or adjust fits. Existing
-tape/ruler/phone/scale only; no purchase. The two frame halves, two keys, two land
-halves and pair total eight parts. Time assembly and intact pair replacement.
+Previous visual inspection of assembly/STL and nominal checks did not inspect
+deposition. Old PLA/.4-nozzle/.12-layer,3–5 h/40–65 g suggestions were unsliced
+estimates, now withdrawn with the offer. No physical test occurred. Its proposed
+manual protocol covered signed travel, reversal/play, free-handed hold at low/mid/
+high positions, separate guide/frame compliance and timed replacement. A10-g
+external test cap was a precaution, not rated capacity; total moving mass also
+includes the pin. Finger feel is not stiffness/torque data. No powered testing.
 
-## Test decision and machine boundary
+S40/N20 remains the simpler control; S50/64-thread/96-pin/N30 is separate. Laboratory
+tray, shoulders, tape and wheel are not pitch-compatible production hardware.
+4096/6400 resident pairs still need thread/thrust/radial support plus8192/12800
+guide apertures; a second radial land adds4096/6400 alignment duties. E-262's
+conditional64-grid/lead3/850-rpm maxima35.54/43.29 s remain above~30 s, with no safe
+RPM earned. E-259's$984.64/$1166.40 subset+unquoted reserve omits further hardware,
+against~$500/$1000/$1500 benchmarks. This article selects neither head nor product.
 
-The short Dutch protocol/results form covers signed manual travel, loaded passive
-hold at low/mid/high positions, reversal and free play, relative lateral/seat
-compliance with/without the second root land, visible runout/alignment and handling.
-Known force/displacement may support stiffness estimates; finger-feel comparisons
-remain qualitative. Weighed miniatures and separate stress objects are distinct.
-Conservative external test cap10 g is **not a rated load**; total moving mass also
-includes the pin. Skip unknown/unstable loads. No pressing-to-failure, damaged
-specimen reuse or motorized test. Any later powered test needs supported drive
-and measured compliance/runout, not this mesh pass.
+## Print-practice correction and manufacturing discriminator — 2026-10-13
 
-S40/N20 is the simpler control. S50/64-thread/96-pin/N30 stays deferred. The wide
-tray, shoulders, tape and oversized handwheel are accessible laboratory features,
-**not a pitch-compatible repeated cartridge or production end-stop solution**.
-Resident baseline remains4096/6400 pins, screws, thread pairs and thrust/radial
-duties plus8192/12800 shared-guide apertures. A second root land adds4096/6400
-radial/alignment duties; this test decides whether it helps, not whether to install
-thousands. Shared molded/machined beds remain alternatives to printed alignment,
-but no tooling, assembly route or price is qualified here.
+**Owner report, not a failed physical print:** Sander inspected the STL and will
+not print this version. He asks for deliberate support geometry, prefers horizontal
+slender parts, suggests removable batch connections and several identical samples.
+The source feedback was committed at b9ab170 in `.agents/advice/feedback.md`.
+No result about actual print yield follows. Retire the old offer and remove its
+STL; keep CAD/checks and this evidence. No replacement is READY or required now.
 
-No new speed/BOM pass: E-262's64-grid/lead3/850-rpm scenarios give35.54/43.29-s
-shallow/deep maxima versus~30 s; even850 rpm is not physically earned. E-259's
-$984.64/$1166.40 motor/driver subset plus unquoted reserve still excludes support
-corrections, versus$500 and$1000/$1500 comparators. This job does not choose pitch,
-finish price, owner preference or a head. It is optional and never blocks other
-research; no reminders or ongoing owner-wait task are created.
+Reproduce `python3 tools/curated-experiment-checks/E-263/manufacturing.py`.
+It reads the exact old plate from Git at d0e2470, without dependencies or retained
+output. Mesh envelope checks across91 horizontal roll angles and an independent
+analytical calculation agree. Guide intervals are independently reconstructed
+with4001 travel positions and a shortened-travel counterexample. **These are
+geometric necessary conditions and labor scenarios, not simulated deposition,
+measured wobble, surface finish, anisotropic strength or support-removal force.**
 
-Repository check: the task checkout and unchanged main both report only
-`Oversized instructions: AGENTS.md` and
-`Oversized instructions: owner-print-tests/AGENTS.md`. These pre-existing guidance
-size failures are preserved; no instructions/tooling change is made for this job.
+| Manufacturing route | New discriminator / disposition |
+|---|---|
+| Original upright pair | Pin height86 and screw80 mm; broad feet do not laterally brace their upper lengths. Supports under the pin shoulder alone do not prove shank stability. Retire this offer; no measured wobble threshold is assigned. |
+| Lay unchanged whole parts flat | Pin tray holds the4.4-mm body11.80 mm above the bed with a face down; diagonal roll increases this to16.69 mm. Screw handwheel holds its3.2-mm shaft10.40 mm above bed (small facet variation). Rotation alone therefore leaves substantial support/bridging obligations. |
+| Upright connected batch | Ties only at the feet do not shorten the upper free span. Mid-height ties contact functional surfaces: the lower guide sweeps pin-local2..44 and the upper42..84, covering the entire82-mm outer shank. Guide-safe scar-free tie placement there is unavailable without changing the part or accepting cleanup. A surrounding cage with clearance does not brace until contact; same-layer ties to equally flexible neighbors are not fixed supports. End tabs remain possible, but need a real load path and removal proof. |
+| Horizontal pin with removable laboratory tray/shoulder; screw with separate handwheel | Removes large standoffs, but the pin still has a3.52-mm-wide cavity roof and internal helical surfaces. A rigid full-width cavity support cannot simply translate through the nominal1.70-mm minimum thread opening; fragmented or soluble removal is a different process needing evidence. Unsupported roof bridging may work, but is unqualified. A separate wheel adds torque/thrust/alignment joints; a separate cap adds an axial load/end-stop joint. Keep as a conditional laboratory redesign, not thousands of accepted production joints. |
+| Longitudinal split pin / molded or outsourced parts | Opening the cavity improves access but adds a registered seam through the nut and guide faces, plus4096/6400 joining and inspection duties if repeated. Do not select a split merely to improve slicing. E-260's unscrewing-core/tooling alternatives remain controls with their own cost and removal duties; none inherits the old PLA holding observation. |
+
+Generic primary [Prusa support guidance](https://help.prusa3d.com/article/support-material_1698)
+recommends considering orientation/splitting, describes stability versus removal
+tradeoffs and explains support-interface gaps. It supplies no X1C/PLA calibration
+for these threads. A support that separates easily is not automatically a rigid
+lateral brace. A geometrically open removal path does not prove easy release.
+
+**Assembly consequence:** using E-260's optimistic8-s handling scenario and its
+unchanged illustrative setup/bed/rework allocations, the32-h maker allowance has
+only10.08/2.485 added seconds **per pair** left at4096/6400 cells. Divided equally
+between pin and screw, this is5.04/1.24 s per part for cleanup and all other missing
+labor. Ten seconds removal per part adds22.76/35.56 h, giving43.29/63.14 h before
+omitted electronics, fixture development and other work. These are sensitivity
+breakpoints, not measured labor or a hard four-day rejection gate. Batch supports
+must release in groups without leaving guide/thread scars; individual sanding is
+not an assumed production route. No new purchased-cost or update-speed pass follows.
+The~$500, premium~$1000 and research$1000–1500 comparisons above remain unchanged.
+
+**Next physical article only after a manufacturing route earns it:** prefer three
+identical pins and three identical screws over three fit variants, in one small
+batch with supports actually designed/exported and removal access inspected.
+First compare removable laboratory appendages with end-connected external bracing;
+retain an intact thread/nut before considering a longitudinal seam. Require slicer
+layer inspection of the chosen orientation, roof/thread formation and support
+interfaces before reissuing any STL. Inspect the integrated load path again if
+appendages change. Current geometry alone does not establish that horizontal or
+upright printing is the more reliable process.
+
+Record plate positions/lot and which supports touched which faces; preserve raw
+widths at low/mid/high shank on both axes if suitable measuring tools already exist,
+straightness observations against the same reference, and each specimen's travel,
+fit and removal/handling time. Without a suitable gauge, mark dimensions unknown;
+photographs and ruler estimates are qualitative. Use one common guide and one
+reference mate across samples, then a small cross-mating matrix if the intact
+parts turn freely: matching each pin only to its own screw can hide variation.
+Do not force, trim or sort until a preferred fit appears. Separate damage caused
+by removal from as-printed geometry. Three samples reveal possible same-plate
+variation; they cannot estimate batch correlation or board yield (even an assumed
+independent5% defect rate has85.7% chance of three clean samples). Another lot is
+needed before a lot-to-lot claim. No print, purchase, owner question or deadline
+is created; supported retention/speed and E-268 shared-reader access remain open.
