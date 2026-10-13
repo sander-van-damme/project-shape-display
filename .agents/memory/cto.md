@@ -491,6 +491,15 @@ Evidence to retain:
   Changed workload and staged cost are authoritative in 02, not only advice.
 
 Next executable investigation:
+- E-262 section escape screen: widerOD4.4/root2.6 polymer at6.35 pitch gives
+  S50 ideal-nut2487rpm vs historical991, but softkn.1/kθ10/20g cases514/522.
+  Full-credit1mm steel core gives6050 ideal but532 soft; rigid-tilt Rayleigh
+  upper bound independently confirms support-limited modes. No rated RPM.
+  Wide5.6 pin consumes clearance (S50/b40/.24 gives−.084mm guide-only gap).
+  Core1/bore1.2 leaves.10mm root ligament and adds4096/6400 interfaces;
+  park that embodiment. Wider polymer stays conditional, no new print/head.
+  ExistingE-263 manual support/hold article remains first physical discriminator;
+  optional printing does not block independent architectural research.
 - E-262: 2000–3000rpm remains conditional, not earned across travel. At historical
   root1.4/E1000/rho1400/OD mass/P.2N, ideal point nut + simple base gives minimum
   .8ncr1436/991rpm for40/50 travel; retracted free overhang limits. Fixed base
