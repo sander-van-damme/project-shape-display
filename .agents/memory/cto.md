@@ -520,8 +520,22 @@ Current architecture boundary:
   FineS50/k16/D1000/b40 blocked; b12 clears.073 but depth error.452mm.
   Wrong correspondence produces41.10mm false height; lattice gate rejects that
   witness, not common whole-pitch registration error. No actual decoder qualified.
-  Next: image-level correspondence/calibration plus observable-cell contract;
-  mechanical isolation evidence still owed for unobserved loaded neighbors.
+  Pixel extension now renders stereo prisms and searches all0..50mm heights.
+  Blank central patches return unknown. Ideal textured coarse/.4px blur84/96
+  candidate matches, but1px blur gives7 wrong>.25mm among9 candidates (max1mm).
+  Reject this patch decoder; narrow sampled match span is not an error bound.
+  Fineb12 returns unknown. Coverage changes with pixel integration/gates; no
+  calibrated texture, optics or100ms acquisition. No per-pin marks are justified.
+  Independent shared depth references can cancel common calibration drift:
+  at±.1px target/reference error coarse two-ref bound.418mm vs1.624 uncorrected;
+  ±.05px gives.208. Fine±.1 gives.921mm. These are two-parameter scenario bounds,
+  not pose/distortion calibration or fiducial detection. Whole-pitch identity
+  fault needs independently labeled frame reference, not another lattice fit.
+  Stop passive central-patch/optical margin refinements; sensor qualification
+  needs real or independently modeled contrast/segmentation evidence. Return
+  architecture effort to missing shared-drive routing/assembly, while retaining
+  slower/manual observation as explicitly unqualified diagnostic comparators.
+  Mechanical isolation still owed for unobserved loaded neighbors.
 - E-269 shared keeper shifts1.2mm for service; fixed bed retains neighbor downward
   support, all shared upward capture is absent while powered off. Intact/jammed
   straight pair can lift94/104mm through4.64 guides atS40/50; collar4.4 passes,
