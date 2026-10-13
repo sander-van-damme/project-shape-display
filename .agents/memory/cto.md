@@ -589,6 +589,15 @@ Next executable investigation:
   No current trace or electrical design; do not size supply from installed count
   or assume active braking/indefinite jams release power slots.729 exact small
   comparisons/full-slot anchors pass; bounds retain conservative global row retry.
+- E-259 lead_sensitivity.py propagates rough lead2 versus historical3, not bounds.
+  At64/B2/K32/2000rpm/1000rev/s², deep max25.38→32.23s; K64 cannot recover it.
+  Shallow27.32s; coldN30 42.48s/dense50 62.28s separately. Ataccel200 even
+  unlimited RPM/full concurrency needs31.69s. Lead2/1:1 versus lead3/1.5:1
+  at same assumed motor3000rpm/1500rev/s² restores25.38s; torque/inertia unqualified.
+  Third head gives23.40s but192 outputs/$1272.44 subset+reserve leaves$1.19/output
+  under$1500 for missing hardware. No head purchase/selection; measure ratio
+  options with supported intact pair before adding hardware.288 inherited anchors
+  plus work/inertia/dense/scaling/tier checks; no measured50mm travel or arrest.
 - Torque remains unmeasured. Illustrative20-g total mass, mu.3/drag.05Nmm:
   .238 steady/.358 accelerating Nmm atJ1e-8;160 outputs11.96W before losses.
   Modest tighter-fit drag is not rejected by energy; do not alter a holding pair

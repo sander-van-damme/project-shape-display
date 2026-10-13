@@ -11,6 +11,8 @@ $4/output for feedback, transmission, docking and reserve corrections after buyi
 basic motors/drivers. The approximately $1,000 case leaves only $0.12/output.
 An encoder-equipped catalog gearmotor exceeds $1,500 on motors alone.
 These are scoped catalog comparisons, not a market price floor or a selected machine.
+The later 2-mm-lead sensitivity below removes the apparent 30-s margin at the
+old 2000-rpm setting; measure the pair and compare drive ratio before adding heads.
 
 Reproduce: `python3 tools/curated-experiment-checks/E-259/channel_screen.py`.
 Evidence: supplier listings checked **2026-10-12**, deterministic calculations and
@@ -224,3 +226,95 @@ Verification:729 exhaustive small-row comparisons; no-overlap/one-visit witnesse
 nonoptimal-LPT counterexample; both pitches/all36 full-slot E-255 anchors; signed,
 no-op and exact dense-wave controls. Self-review. Pair hold/drive/current/stop
 measurements remain the physical discriminator; this screen does not replace them.
+
+## Lead, gearing and head-count sensitivity — 2026-10-13
+
+Reproduce: `python3 tools/curated-experiment-checks/E-259/lead_sensitivity.py`;
+`--check` runs verification only. **Conditional calculations**, responding to
+E-256's rough owner estimate of 2 mm/turn. Compare 2 and historical 3 mm/turn;
+neither is a calibrated uncertainty bound or identification of the successful CAD.
+Reported 1-mm free play is not silently converted into a lead correction.
+No geometry, engagement, friction or physical qualification is inferred.
+
+Retain the same 36 scene/preset commands, physical river/ravine, ground 30,
+shallow 20/deep 30, 50-mm required range, and 64/80 grids at 6.35/5.08-mm pitch.
+The ground 20/40-mm control has the shallow deltas. All times include inherited
+docking, proof, seeks, return, conservative row retry and 4-s common allowance;
+unknown homing and actual proof remain unpaid qualifications. Default acceleration
+is 1000 rev/s²; K denotes simultaneously powered outputs **per head**.
+
+| Grid / heads / K | Lead mm | Output rpm | Shallow max s | All preset max s |
+|---|---:|---:|---:|---:|
+|64 / 2 / 32|3|2000|22.12|25.38|
+|64 / 2 / 32|2|2000|27.32|32.23|
+|64 / 2 / 64|2|2000|27.28|32.23|
+|64 / 2 / 32|2|3000|22.68|25.93|
+|64 / 3 / 32|2|2000|20.28|23.40|
+|80 / 2 / 80|2|2000|32.53|38.68|
+|80 / 3 / 32|2|2000|27.62|33.74|
+|80 / 3 / 64|2|2000|24.92|28.97|
+
+At 64/B2/K32, changing lead 3→2 raises the maximum by **27%, not 50%**; unchanged
+overheads and motion ramps remain. Increasing K32→64 does not fix the critical
+row-duration limit. The calculated 30-s boundary is approximately 2262 rpm at
+1000 rev/s², with no operating margin. At 200 rev/s², even unbounded speed gives
+32.04 s for this LPT schedule; full concurrency still needs 31.69 s, so merely
+raising top speed cannot reach 30 s in that acceleration scenario. These are
+schedule limits, not hardware failures or reasons to reject a 32-s enjoyable update.
+
+Setup and dense stress worsen separately. At 64/B2/K32/2000 rpm, cold ground 30
+preparation is 42.48 s and dense 50-mm motion 62.28 s, versus 32.58/45.78 s at lead 3.
+With K64 these become 26.53/36.43 s. Same-ravine 20→30 takes 16.63 s at K32;
+the unchanged ground stays supported in the model. None proves actual travel.
+
+**Compare gearing before buying a third head.** Holding the hypothetical motor
+point at 3000 rpm/1500 rev/s², lead 3 with 1.5:1 reduction and lead 2 with 1:1 both give
+100 mm/s and 3000 mm/s² axial motion. Every ideal move then has exactly the same
+duration: 64/B2/K32 returns to 25.38 s. At fixed 1000 output rev/s², increasing only
+RPM gives 25.93 s instead; speed scaling alone is not trajectory equivalence.
+The 1:1 case still needs staggered-motor shaft routing, spindles and docking.
+
+Using the same assumed 70% transmission efficiency, 20-g moving mass, μ=.3,
+.05-N·mm running drag, d2.3 and zero guide drag, the rated-point available torque
+changes 1.030→.686 N·mm; accelerating demand excluding rotating inertia changes
+.295→.239 N·mm. Effective output-inertia ceiling is 1.17e−7→4.74e−8 kg·m².
+After ideal ratio-squared reflection, the motor-only ceilings with **zero output
+inertia** are 5.19e−8→4.74e−8; do not mistake output-reference numbers for a measured
+motor-inertia penalty. Real shafts/gears/socket inertia consume this allowance.
+These are necessary bounds at a hypothetical point, not a speed-torque curve,
+achievable ramp or motor selection. Changed lead also changes the friction model;
+it does not establish holding or moving-loss arrest in the observed pair.
+
+Supplier [711](https://www.adafruit.com/product/711) and
+[3297](https://www.adafruit.com/product/3297) tiers rechecked 2026-10-13. Preserve
+the unquoted reserve and count all installed motor/feedback/dock duties:
+
+| Grid / heads | Outputs | Motor kg | Quoted subset + reserve USD | Remaining/output at $500 / $1000 / $1500 |
+|---|---:|---:|---:|---:|
+|64 / 2|128|2.24|984.64|−3.79 / .12 / 4.03|
+|64 / 3|192|3.36|1272.44|−4.02 / −1.42 / 1.19|
+|80 / 2|160|2.80|1166.40|−4.17 / −1.04 / 2.09|
+|80 / 3|240|4.20|1488.60|−4.12 / −2.04 / .05|
+
+For 192 outputs, buying 100 dual-driver boards at $4.76 costs less than 96 at $5.36;
+four spare boards are counted. At 240 outputs buy 120 boards. Taxes/shipping,
+feedback/transmission/docking and reserve corrections remain unresolved; these
+are not finished BOMs or selling prices. A third head adds 64/80 motor/transmission/
+feedback/dock paths, one carriage, wiring and proof duties without reducing 4096/
+6400 resident pairs. At the illustrative 1 min/channel it adds 1.07/1.33 maker hours
+before carriage build, calibration or repair. At K32 it also raises simultaneous
+outputs 64→96; no electrical or assembly saving follows from the faster schedule.
+
+**Decision:** retain shallow/deep software choice and the two-head, coarser-grid
+comparison. Do not add a third head merely to preserve 30 s under the uncalibrated
+2-mm estimate. Keep 1:1 versus 1.5:1 as explicit measurement hypotheses; first
+establish loaded lead, torque, inertia/ramp and stop/withdrawal on an intact
+supported pair. Minimum engagement/end margins must respect E-256's extension
+failure; changing drive ratio does not repair that failure or grant 50-mm stroke.
+No new thread geometry, brake, print, purchase or architecture selection.
+
+Verification: 288 full-concurrency anchors against the existing E-255 scheduler,
+both leads/pitches and 2/3 banks; exact dense-wave, signed/no-op, cache-isolation,
+frictionless work, reflected translation inertia, trajectory-scaling and quantity
+tier controls. Original 729 admission checks and E-256/E-259 regressions pass.
+Self-review; no independent or physical validation.

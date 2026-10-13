@@ -21,17 +21,17 @@ G = 9.80665
 LEAD = 3.0
 
 
-def coefficients(mu, diameter=2.3, collar=0):
+def coefficients(mu, diameter=2.3, collar=0, lead=LEAD):
     """Quasistatic raise/lower torque per axial N. Collar is mu_c*r_c (mm)."""
     radius = diameter / 2
-    slope = LEAD / (math.pi * diameter)
+    slope = lead / (math.pi * diameter)
     effective = mu / math.cos(math.radians(15))
     assert effective * slope < 1
     return (radius * (slope + effective) / (1 - slope * effective) + collar,
             radius * (effective - slope) / (1 + slope * effective) + collar)
 
 
-def torque(mass_g, mu, drag, accel=0, inertia=0, guide_force=0, collar=0):
+def torque(mass_g, mu, drag, accel=0, inertia=0, guide_force=0, collar=0, lead=LEAD):
     """Raising torque with constant upward acceleration and rotor inertia.
 
     accel: rev/s^2. inertia: all rotating inertia reflected to screw, kg m^2.
@@ -39,8 +39,8 @@ def torque(mass_g, mu, drag, accel=0, inertia=0, guide_force=0, collar=0):
     guide_force: an assumed resisting axial N, NOT a measured guide load.
     """
     mass = mass_g / 1000
-    axial_force = mass * (G + LEAD / 1000 * accel) + guide_force
-    up, _ = coefficients(mu, collar=collar)
+    axial_force = mass * (G + lead / 1000 * accel) + guide_force
+    up, _ = coefficients(mu, collar=collar, lead=lead)
     return axial_force * up + drag + inertia * (2 * math.pi * accel) * 1000
 
 

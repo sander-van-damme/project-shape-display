@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Conditional two-head schedules with at most K energized outputs per head.
+"""Conditional bank schedules with at most K energized outputs per head.
 
 All motors/feedback/docks remain installed. Nonpreemptive longest-first admission
 is a feasible electrical-slot schedule, not a fabricated or qualified drive.
@@ -47,8 +47,8 @@ def slots(jobs, k):
 
 
 @lru_cache(maxsize=None)
-def row_bounds(row, k, rpm, accel, proof, release):
-    jobs = [(x, r.spin(abs(d)/r.LEAD, rpm, accel)+release)
+def row_bounds(row, k, rpm, accel, proof, release, lead=3):
+    jobs = [(x, r.spin(abs(d)/lead, rpm, accel)+release)
             for x, d in enumerate(row) if d]
     if not jobs:
         return 0.0, 0.0
@@ -56,8 +56,8 @@ def row_bounds(row, k, rpm, accel, proof, release):
     return .08+proof+lower, .08+proof+max(job[2] for job in witness)
 
 
-def schedule(delta, k, rpm=2000, accel=1000, proof=.02, release=0):
-    """Two equal fixed banks; preserved seek, return, full-row retry and 4 s.
+def schedule(delta, k, rpm=2000, accel=1000, proof=.02, release=0, lead=3, banks=2):
+    """Fixed row banks; preserved seek, return, full-row retry and 4 s.
 
     Lower/upper bracket the inherited additive accounting (4 + slowest bank
     + globally longest row retry), with fixed local quotas. This conservative
@@ -66,18 +66,20 @@ def schedule(delta, k, rpm=2000, accel=1000, proof=.02, release=0):
     release is an assumed per-output stop/current-settle token occupancy.
     """
     n = len(delta)
-    assert n % 2 == 0 and all(len(row) == n for row in delta)
+    assert all(len(row) == n for row in delta)
     assert 1 <= k <= n and rpm > 0 and accel > 0 and proof >= 0 and release >= 0
-    banks = []; retry = [0.0, 0.0]; stations = 0
-    for base in (0, n//2):
+    assert lead > 0 and math.isfinite(lead) and 1 <= banks <= n and int(banks) == banks
+    width = math.ceil(n/banks)
+    bank_times = []; retry = [0.0, 0.0]; stations = 0
+    for base in range(0, n, width):
         last = 0; times = [0.0, 0.0]; active = False
-        for y in range(base, base+n//2):
+        for y in range(base, min(n, base+width)):
             if not any(delta[y]):
                 continue
             # Identical independent outputs: service depends on absolute move
             # multiset, not cell order/sign. Preserve geometry for seeks only.
             key = tuple(sorted(abs(d) for d in delta[y] if d))
-            dwell = row_bounds(key, k, rpm, accel, proof, release)
+            dwell = row_bounds(key, k, rpm, accel, proof, release, lead)
             seek = max(.05, r.move(abs(y-base-last)*c.v.s.WIDTH/n))
             for i in (0, 1):
                 times[i] += seek+dwell[i]
@@ -85,8 +87,8 @@ def schedule(delta, k, rpm=2000, accel=1000, proof=.02, release=0):
             last = y-base; active = True; stations += 1
         if active:
             times = [t+r.move(last*c.v.s.WIDTH/n) for t in times]
-        banks.append(times)
-    result = [4+max(b[i] for b in banks)+retry[i] for i in (0, 1)] if stations else [0., 0.]
+        bank_times.append(times)
+    result = [4+max(b[i] for b in bank_times)+retry[i] for i in (0, 1)] if stations else [0., 0.]
     assert result[0] <= result[1]+1e-9
     return dict(lower_s=result[0], feasible_s=result[1], stations=stations)
 
@@ -102,9 +104,10 @@ def workloads(n):
     return cases
 
 
-def suite(n, k, rpm=2000, accel=1000, release=0):
+def suite(n, k, rpm=2000, accel=1000, release=0, lead=3, banks=2):
     cases = workloads(n)
-    rows = {name: schedule(d, k, rpm, accel, release=release) for name, d in cases.items()}
+    rows = {name: schedule(d, k, rpm, accel, release=release, lead=lead, banks=banks)
+            for name, d in cases.items()}
     maximum = max(rows, key=lambda name: rows[name]['feasible_s'])
     lower = max(v['lower_s'] for v in rows.values())
     return dict(lower_s=lower, feasible_s=rows[maximum]['feasible_s'], worst=maximum,
