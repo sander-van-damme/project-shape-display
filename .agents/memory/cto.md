@@ -243,16 +243,20 @@ avoided closure labor less4h fixture setup breaks even36.39–132.39 episodes.
 Eight faults in one/eight rows give13.67/95.33min extra,not fault-rate predictions.
 Saved N30 after unknown-state reset owes25.10min/1024 at850rpm before proof/routing;
 commands are not verified state. Do not add closure savings to split-shank savings.
-E-286 removable-row extension carries permanent guides/keeper/thrust through
-extraction;bench opening and broken-target restraint remain owed. Nominal12mm
-cassettes fit coarse pitch,but E-277 body envelope permits only.101° yaw at.1mm
-drift;translation over tall neighbors owes224mm lift. End-supported perforated
-guide at assumed.05N/site needs159.6GPa for allocated.1mm deflection;2GPa gives
-7.98mm. Park polymer/end-only and free-hand variants. Stiff fabricated guides +
-shared constrained lift remain conditional,adding32 spines/64 towers/128 mounts
-at1024 before hoist/bench tooling. No cost/labor saving or hardware qualification.
-Next service work must construct whole access/support or supply process evidence,
-not latch detail or guessed fault-frequency sweeps. E-281 remains optional.
+E-286 removable rows preserve guides/keeper/thrust through extraction, but polymer
+end-supported guides and free-hand lifting fail the sampled stiffness/envelope
+screens. Eight-square modules shorten guides, yet interior reactions require a
+frame and widened seams; beam stiffness alone does not select a module.
+E-287 constructs a ring/sheet shear cage and parks this embodiment: at1024 it
+requires8.74-mm boundary top seams,431.37-mm enclosure,3.56kg shell/rings and1088
+allocated frame interfaces (6.04–18.13h before exclusions). Perfect-joint lateral
+sum.0835mm leaves only.0165mm against an allocated.1mm budget; .02mm correlated
+joint movement exceeds it. No fabrication or hardware pass. Socket reach36mm,
+constrained lift232mm, .2mm nominal pad/shelf separation and broken-target restraint
+remain owed. Do not tune narrow joints/posts/rings or repeat service labor sweeps.
+Reopen through a materially simpler frame/join/transfer construction or process
+evidence; whole-pair manufacture and earned powered support remain unresolved.
+E-281 stays optional and unprinted; no new print or purchase.
 
 ## Actuation, observation and scale boundaries
 
