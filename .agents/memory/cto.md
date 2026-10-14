@@ -190,6 +190,15 @@ for all tooling/other exclusions. Retain whole-body process escape,park manual
 casting/local mold detail. Reopen with low-touch release/finish/gauge construction
 or capable supplied-process evidence;no print or purchase. E-281 remains optional.
 
+E-284 supplied-MJF extension removes mold-core release/joins in principle,not
+qualification. Published Materialise guidance1-mm walls/3-mm internal channels
+and±.3-mm minimum dimensional band do not qualify .8-mm walls/1.7-mm bore/.15
+radial relief. Necessary radial bound leaves0 even with perfect screw; no measured
+yield claim. Delivered-body ceilings at1024 are$0.198/$0.686 for optimistic
+$1000/$1500 machine,or$0.158/$0.549 at80% usability,before other exclusions.
+Receiving10–60s/body adds relevant work;no quote/contact/order. Reopen with
+supplier-specific cleaned fit/guide evidence and all-in price,not clearance tuning.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies

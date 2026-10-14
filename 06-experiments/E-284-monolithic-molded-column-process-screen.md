@@ -3,7 +3,7 @@ status: complete
 builds-on: [E-277, E-280, E-283, E-276]
 ---
 
-# Monolithic molded column process screen
+# Monolithic column manufacture: molding and supplied powder-bed printing
 
 **Retain one-piece open-channel molding as a conditional whole-body process escape;
 park manual casting before mold-detail optimization.** Unlike E-280 screw-only
@@ -148,3 +148,90 @@ Verification:independent reconstruction of manual hours and occupancy;partial
 batches;yield sensitivity;invariant maker work with changed cure;manual/shared
 difference;batch-size monotonicity;inverted32-h budget recovery. Self-review;
 no CAD,casting,load or independent validation claimed.
+
+
+## Supplied powder-bed control (2026-10-14)
+
+**MJF removes solid-core release and body joining, but the existing geometry is
+not qualified by published service guidance.** Retain it as a conditional supplied
+process, not an order-ready part or a demonstrated cheaper machine. This changes
+the manufacturing route of the same integral body; it does not create another
+local mechanism. Reproduce bounds with
+`python3 tools/curated-experiment-checks/E-284/supplied.py`.
+
+The proposed PA12 body is printed separately from the resident screw, cleaned
+and gauged by the supplier, then installed individually. No mold/core removal,
+casting setup or end joining is needed. Supplier production/cleaning time and
+cost replace the533.62-h home-deposition comparison; the60.68-h bare FDM screws
+and unfinished ends remain. The two-piece resident ledger, thread load path,
+shared heads, service access and gameplay schedules above remain unchanged.
+PA12 friction, creep and stiffness cannot inherit the printed PLA holding or
+speed assumptions. Printing the pair already engaged is not an assembly shortcut
+established by this comparison.
+
+Primary process evidence checked on that date:
+
+- [Materialise PA12 MJF guidance](https://www.materialise.com/en/academy/industrial/design-am/pa12-mjf)
+  recommends at least1-mm walls, standard accuracy±0.3% with a±0.3-mm floor,
+  at least3-mm internal channels, and0.5-mm clearance for printed interlocking
+  parts. Long passages can retain partly fused powder. Its stone polishing
+  requires openings larger than6.5 mm. These are service guidelines, not measured
+  distributions or functional guarantees. Our0.8-mm walls miss the recommendation;
+  the10-mm nut's1.7-mm minor bore does not meet the channel recommendation.
+  The open8.7-mm cavity exposes the long body but does not eliminate the nut's
+  helical recesses. The nominal0.15-mm radial thread relief also does not qualify
+  an in-place printed assembly. This is a review requirement, not proof that a
+  separately printed thread is impossible.
+- [Protolabs MJF service](https://www.protolabs.com/en-gb/services/3d-printing/multi-jet-fusion/)
+  states typical dimensional tolerance±(0.25+0.002L) mm for well-designed parts,
+  dependent on geometry. Its process includes vacuum extraction and bead blasting;
+  optional vapor smoothing requires1.5-mm walls. Thus support-free deposition
+  does not mean finish-free manufacture, and smoothing is not an established
+  repair for this0.8-mm body. Neither page supplies a price for this part/quantity.
+
+**Calculated necessary radial bound:** subtract half the adverse bore-diameter
+error from nominal0.15-mm radial relief. Materialise's0.3-mm floor leaves0 mm;
+Protolabs'3.5-mm-diameter formula leaves0.0215 mm even with a perfect screw.
+An explicitly assumed+0.05-mm screw-radius error changes the latter to−0.0285 mm.
+This is a dimensional envelope, not a thread-contact simulation or measured
+failure rate: lead, flank angle, axis error, roughness and wear remain extra.
+Published tolerance bands are not Gaussian priors and do not certify all parts
+reach their bounds. Batch bias can affect every bore; it cannot be averaged out
+by1024 copies. At136-mm length the respective bands are±0.408/±0.522 mm; neither
+is a straightness specification or justification to reuse E-277's guide bounds.
+Do not tune another clearance without a capable process/fit specification.
+
+**Acceptance economics, not market pricing:** with the inherited optimistic
+$797.68 hardware allocation and no allowance yet for other exclusions:
+
+|Total comparison|Body allowance|$/ordered body,100% usable|$/ordered body,80% usable|
+|---|---:|---:|---:|
+|$500|negative$297.68|no positive allowance|no positive allowance|
+|$1000|$202.32|0.198|0.158|
+|$1500|$702.32|0.686|0.549|
+
+At80% usability order1280 bodies for1024 usable ones as a deterministic accounting
+scenario, not a yield prediction or guaranteed count. The quote must cover
+cleaning, functional gauging, shipping/taxes and amortized setup; if accepted
+usable quantity is guaranteed, use its all-in price directly rather than charging
+rejects twice. Every$100 reserved for other unfinished machine work lowers the
+body allowance by$100. With the same hardware allocation held artificially fixed,
+4096/6400 copies leave only$0.171/$0.110 each at$1500 and100% usability. These are
+replication diagnostics, not fine-grid designs:10.3-mm bodies do not fit6.35/5.08
+pitch, and their actuation budgets need not stay constant.
+
+Assume2 h receiving setup, inherited optimistic10.94-h installation, and10–60 s
+additional receiving inspection per ordered body:15.78–30.01 maker h at100%
+usability,16.50–34.27 h at80%. These exclude qualification, diagnosis, repairs,
+screw production/finishing and commissioning; supplier cleaning is paid in the
+quote, not erased. Even a one-minute receiving duty matters at this scale.
+
+**Decision:** this route can remove fabrication/joining duties, but standard
+published guidance does not close the fit, cleaning or affordability case. Park
+unchanged-geometry outsourcing before local wall/fit refinements. Reopen with
+supplier-specific cleaned thread/guide capability and an all-in accepted-body
+quote within an explicit whole-machine allocation, or a substantially simpler
+body construction. No supplier contact, file upload, purchase or new print was
+made. E-281 remains optional. Verification covers diameter-to-radius conversion,
+quote reconstruction, reject/partial-order accounting and receiving labor;
+self-review only, no physical qualification.
