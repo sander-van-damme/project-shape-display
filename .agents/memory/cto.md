@@ -1,6 +1,15 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-14 UTC. E-277 bounds integral coarse-column guidance.
+Updated: 2026-10-14 UTC. E-277 now screens coarse-column manufacture.
+Closed cavity traps a rigid core; cap-only mold removes that obstruction but
+adds1024 joins and .5/1deg draft raises column volume5.1->7.3/9.1L. Published
+Protolabs internal-thread minimum7.6mm does not supply this3.5mm cutter form.
+Horizontal monolithic FDM remains lowest-join hypothesis:8.7mm bridge/thread
+quality unqualified;24 bodies/plate43 plates,94–281h deposition-only scenarios.
+No new print/CAD/strength/speed pass. Next useful process work is actual slicing
+and support-access discrimination, including three identical bodies, before
+owner handoff. Do not add reinforcement from unqualified stress averages.
+E-277 bounds integral coarse-column guidance.
 Wide columns remove cap-yaw amplification but do not remove guide lean; retain
 a larger-seam/longer-stock geometry control only, without a print or head pass.
 E-276 adds a conditional half-square direct-head control.
@@ -72,8 +81,12 @@ Evidence to retain:
   Joining tube+nut+cap adds2048 joins/5.69–17.07h at10–30s, before base labor.
   No stiffness, aligned-thread, friction, readback,850rpm or revised BOM pass.
   E-276 waits/costs stay granted comparisons, not transferable qualifications.
-  Next discriminator: construct bottom-thread/roof load path and compare batch
-  manufacture with joined stock; stop before head/fit/print detail.
+  Manufacturing extension supplies bottom-block/roof section and seated-cap
+  load paths. F=.2N/E1000 roof-strip .653MPa/.00412mm is a surrogate, not
+  strength; thread/guide alignment remains unqualified. Cap-only adds2.84–8.53h
+  at1024; stock+ends twice that. Straight columns6.28–6.37kg at assumed1.24g/cc
+  before screws/bed; old material allowance cannot transfer. Next discriminator
+  is actual horizontal thread/bridge slicing and cleanup, not head/fit detail.
 - E-276 half-square32²/12.7mm: four direct25.4mm-spaced spindles give conditional
   S40/S50 local26.84/31.07s, scenes201.24/222.88, neutral271.15/331.62,
   dense391.62/452.09. Bought798–1768, maker10.94–23.69h excluding cleanup.
