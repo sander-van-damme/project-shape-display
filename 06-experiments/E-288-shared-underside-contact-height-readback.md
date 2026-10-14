@@ -162,3 +162,65 @@ this evidence. Preserve nut-side observation as a possible principle; a next
 construction must change the observation/access or establish nondisturbing,
 post-release measurement, not optimize this nominal hole pattern. No additional
 service-cage, tip-margin, or repeat schedule sweep follows from this result.
+
+
+## Top-contact control: two forces do not prove released height
+
+**Retain force extrapolation only as a calibrated diagnostic, not general final
+verification.** E-270 already screens top access, miniature occlusion and timing;
+this extension tests a new correction hypothesis rather than repeating those
+screens. Reproduce with the same E-288 source. All forces, stiffnesses, errors
+and fault travel below are explicit analytical scenarios, not measured priors.
+
+Move the shared force-limited measured-Z stylus above the exposed terrain cap.
+Stop/undock the writer, settle, touch downward, record positions at added forces
+F1=.02 and F2=.05 N, retract and settle. Existing thread/thrust/keeper support stays
+engaged. Downward force does not unload the gravity-loaded thread flank as the
+underside probe can; direct cap contact also avoids inferring top integrity from
+nut position. It removes the proposed 3N underside passages (3072/12288/19200 at
+1024/4096/6400 cells), adding no resident sensor or witness. But it requires an
+upper carriage, independent Z/force channels, collision protection and registration.
+No reduced complete-machine price follows: upper motion and guarding are uncosted.
+E-270's top access and long read cycles still apply, as do its covered-pin aliases.
+An unknown miniature/prop contact cannot be accepted as a terrain measurement.
+
+For a reversible linear law `z(F)=h−F/k`, the zero-added-force estimate is
+`h_hat=(F2*z1−F1*z2)/(F2−F1)`. This exactly removes unknown linear compliance:
+48 finite cases span h0/20/30/50 mm, k.1/1/10 N/mm and two choices for each force.
+It does not remove common height datum bias. Independent bounded position errors
+±.05 mm amplify to ±.1167 mm at .02/.05 N. Independent actual-force errors ±.002 N
+alone give bounds .04667/.004667/.000467 mm for k.1/1/10 N/mm; combined errors can
+add. These are worst-case corner bounds, not statistical confidence or sensor specs.
+
+A continuous, reversible fault defeats the correction without friction or lash:
+
+- A: `zA(F)=30−F` (k1 N/mm), released top30 mm.
+- B: `zB(F)=31−F−min(1,F/.01)`, released top31 mm. An initially soft,
+  gravity-preloaded element compresses an additional1 mm by .01 N, then rests
+  against a stop; an ordinary k1 element remains in series. This is a constructive
+  compliance law, not a claim that an existing printed part has this response.
+
+Both return29.98/29.95 mm at .02/.05 N and extrapolate to30 mm; after release B
+returns31 mm. Additional readings or unloading repeats entirely above .01 N give
+identical curves. A .005-N read distinguishes this witness, but without an earned
+lower stiffness or upper travel bound a softer transition can lie below any finite minimum
+read force. The source constructs three such cases. Continuous zero-force contact
+tracking could change the observable; it owes qualified near-zero force resolution,
+contact identity and the actual release event, and is not supplied by extrapolation.
+
+This is not proof that every contact method fails or that ordinary intact columns
+are soft. It identifies the missing qualification needed to call the corrected
+reading a final height: a verified reversible force law down to release, a bound
+on unobserved compliant travel, or an independent fresh released-cap observation.
+A supported miniature can still hide the actual cap even with ideal force sensing.
+Neither ramps restricted above the transition nor screw-angle agreement resolves
+these witnesses.
+
+No new scan-time table: E-270 already exceeds the ~30-s reference for its serial
+probe gameplay cases, with separate dense stress, S40/S50 and paid neutral cases.
+Two force levels add settling/acquisition obligations, not free proof or travel.
+The 5.08/6.35/12.7-mm comparisons, raised neutral and ~$500 versus premium cost
+references remain open product trades; slower diagnostics may be useful off-table.
+Do not select automatic verification from this correction alone. A bench force-displacement
+measurement with independent released-height observation could calibrate a survivor;
+no new owner print, sensor purchase or fragile stylus CAD is justified by this model.

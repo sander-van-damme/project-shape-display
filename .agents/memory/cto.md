@@ -293,6 +293,12 @@ E-281 stays optional and unprinted; no new print or purchase.
   position also aliases damaged tops. Four probes add4.02s/group under assumed
   motion; no force/sensor/speed qualification. Reopen with different access or
   nondisturbing post-release evidence,not tip/port sweeps. No new print.
+- E-288 top-force control removes underside ports and nut/top alias, but two-force
+  extrapolation only earns a calibrated linear diagnostic. A reversible soft
+  element reaching a stop gives identical .02/.05N readings for released tops
+  30/31mm. More above-threshold samples do not fix it; a qualified release law
+  or independent released-cap observation is needed. E-270 already covers access,
+  covered pins and timing; do not repeat probe schedules or force sweeps.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,

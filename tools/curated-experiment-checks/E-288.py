@@ -115,6 +115,66 @@ def complete():
     print('No trustworthy actual-surface verification, speed, port manufacture or force pass.')
 
 
+def zero_force_intercept(f1, z1, f2, z2):
+    """Exact only for a linear, reversible incremental compliance law."""
+    assert 0 < f1 < f2
+    return (f2*z1-f1*z2)/(f2-f1)
+
+
+def top_force_control():
+    # F is ADDED downward probe force above the gravity-loaded equilibrium.
+    # No printed material or sensor accuracy is inferred from these scenarios.
+    f1, f2 = .02, .05
+    def linear(f, rest=30., k=1.):
+        return rest-f/k
+    def stopped_compliance(f, rest=31., k=1., travel=1., stop_force=.01):
+        # A soft, preloaded element compresses to a stop, in series with k.
+        # It is continuous, monotone, reversible and has positive stiffness.
+        # A compliant/damaged cap is one possible physical location, not a
+        # measured fault. No upward flank unloading or hysteresis is necessary.
+        return rest-f/k-min(travel, travel*f/stop_force)
+    linear_cases=0
+    for rest,k,fa,fb in product((0.,20.,30.,50.),(.1,1.,10.),(.005,.02),(.05,.1)):
+        result=zero_force_intercept(fa,linear(fa,rest,k),fb,linear(fb,rest,k))
+        assert isclose(result,rest,abs_tol=1e-12)
+        linear_cases+=1
+    for f in (f1,.03,f2,.1):
+        assert isclose(linear(f),stopped_compliance(f))
+    points=[i*.0001 for i in range(1001)]
+    assert all(stopped_compliance(b)<stopped_compliance(a) for a,b in zip(points,points[1:]))
+    assert isclose(stopped_compliance(.01-1e-10),stopped_compliance(.01+1e-10),abs_tol=2e-8)
+    estimates=[zero_force_intercept(f1,fn(f1),f2,fn(f2))
+               for fn in (linear,stopped_compliance)]
+    assert all(isclose(x,30) for x in estimates)
+    assert linear(0)==30 and stopped_compliance(0)==31
+    assert not isclose(linear(.005),stopped_compliance(.005))
+    # Any finite positive minimum force permits an unsampled softer segment.
+    for floor in (.001,.005,.02):
+        for f in (floor,2*floor,5*floor):
+            assert isclose(linear(f),stopped_compliance(f,stop_force=floor/2))
+    # Independent bounded position error corners and a shared datum bias.
+    delta=.05
+    errors=[zero_force_intercept(f1,linear(f1)+a,f2,linear(f2)+b)-30
+            for a,b in product((-delta,delta),repeat=2)]
+    bound=(f1+f2)/(f2-f1)*delta
+    assert isclose(max(map(abs,errors)),bound,abs_tol=1e-12)
+    for bias in (-.2,.2):
+        assert isclose(zero_force_intercept(f1,linear(f1)+bias,f2,linear(f2)+bias),30+bias)
+    # Independent force errors appear as displacement errors in linear control.
+    force_error=.002
+    for k in (.1,1.,10.):
+        errs=[zero_force_intercept(f1,linear(f1+a,k=k),f2,linear(f2+b,k=k))-30
+              for a,b in product((-force_error,force_error),repeat=2)]
+        assert isclose(max(map(abs,errs)),(f1+f2)/(f2-f1)*force_error/k,abs_tol=1e-12)
+        print('linear k/force-error-only intercept bound mm',k,max(map(abs,errs)))
+    print('top linear model cases',linear_cases)
+    print('two-force read positions',linear(f1),linear(f2),'inferred rests',estimates)
+    print('actual released rests',linear(0),stopped_compliance(0))
+    print('independent .05mm read-error intercept bound',bound)
+    print('Top contact removes underside access and nut/top alias, not contact-induced ambiguity.')
+
+
 if __name__=='__main__':
     run()
     complete()
+    top_force_control()
