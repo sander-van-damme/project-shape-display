@@ -82,9 +82,18 @@ Rigid half-thread former still undercuts on straight withdrawal (.1179mm³ at.1m
 while smooth-bore control clears. No straight-pull mold pass. Half handling/join/
 plate scenario15.70–32.77h before base10.94–23.69h,unpaid finishing/fixtures/cure.
 Park bonded half-thread embodiment before adding alignment pins or fit tuning.
-A meaningful independent next discriminator could preserve one intact nut while
-opening the long cavity for manufacture; it must remove the critical thread seam,
-not merely tighten its assembly. No owner print or purchased hardware selected.
+E-277 open U-channel + intact upright nut removes the split-thread seam and one
+join versus tube+nut+cap. Actual channel paths have no bridge/overhang/support;
+nut still has overhangs,with1177 bore support-interface segments when enabled.
+Three-pair repetition534.57h/4.284L at1024,not an X1C/optimized-plate forecast.
+1024 joins remain;maker23.39–53.21h including E-276 base before exclusions.
+Rigid square hull survives,but open-section torsion surrogate is~137× softer;
+joint tension under eccentric load and loaded guide behavior remain unqualified.
+Lateral cavity core nominally exits in9.5mm;no mold cost/release-force pass.
+Retain conditional manufacture control,not a print-ready or selected machine.
+Next evidence must discriminate intact-nut manufacture or actual loaded joint/
+guide behavior;do not add tiny registration features or repeat schedule sweeps.
+No owner print or purchased hardware selected.
 
 Whole rigid cavity core cannot exit the closed body. Cap-only molding owes long
 core withdrawal/unscrewing and1024 joins; internal draft increases material. Open
