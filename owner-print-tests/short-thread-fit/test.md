@@ -2,10 +2,14 @@
 
 > Vul de resultaten alleen na een eventuele print in. Leeg betekent niet getest.
 
-**Status:** READY  
-**Prioriteit:** P1  
-**Laatst beoordeeld:** 2026-10-14  
-**Reden:** kleine falsifieerbare passingproef; geometrie en exacte slicerpaden gecontroleerd, nog niet fysiek getest.  
+**Status:** READY
+
+**Prioriteit:** P1
+
+**Laatst beoordeeld:** 2026-10-14
+
+**Reden:** kleine falsifieerbare passingproef; geometrie en exacte slicerpaden gecontroleerd, nog niet fysiek getest.
+
 **Technische bron:** [E-281](https://github.com/sander-van-damme/project-shape-display/blob/main/06-experiments/E-281-short-thread-repeatability-print-test.md), voortbouwend op E-277/E-279.
 
 ## 1. Waarom deze test? — CTO
@@ -48,9 +52,12 @@
 
 ## 4. Mijn resultaten — Sander
 
-**Testdatum:**  
-**Printer / filament / nozzle / laaghoogte / compensatie:**  
-**Werkelijke printtijd / filament volgens slicer (optioneel):**  
+**Testdatum:**
+
+**Printer / filament / nozzle / laaghoogte / compensatie:**
+
+**Werkelijke printtijd / filament volgens slicer (optioneel):**
+
 **Print gelukt?** [ ] ja [ ] deels [ ] nee [ ] nog niet geprint
 
 | Paar | Start en beweegt? | Soepel / ruw / blokkeert; vijf cycli? | Speling / schade / nabewerking |
@@ -61,15 +68,20 @@
 | 4 — krapper | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
 | 5 — ruimer | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
 
-**Eventuele kruisproef moer 1 / schroef 2 en 3:**  
-**Wat voelde of zag ik?**  
-**Foto/video (optioneel):**  
+**Eventuele kruisproef moer 1 / schroef 2 en 3:**
+
+**Wat voelde of zag ik?**
+
+**Foto/video (optioneel):**
+
 **Wat zou ik anders proberen? (optioneel):**
 
 ## 5. Interpretatie en vervolg — CTO, pas na feedback
 
-**Werkelijk gemeten/geobserveerd:** nog niet getest.  
-**GO / NO-GO / vervolgactie:** open; geen kwalificatie uit simulatie of stilte.  
+**Werkelijk gemeten/geobserveerd:** nog niet getest.
+
+**GO / NO-GO / vervolgactie:** open; geen kwalificatie uit simulatie of stilte.
+
 **Nieuwe prioriteit/status:** pas wijzigen bij resultaten of nieuw technisch bewijs.
 
 > Uitblijvende feedback is geen blokkade. Bij achterhaald ontwerp: RETIRED en oude STL verwijderen.

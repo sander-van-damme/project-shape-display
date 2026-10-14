@@ -86,7 +86,7 @@ retain 1024 threaded pairs and 1024 channel/nut joins at 12.7 mm/32²; 4096/6400
 replication comparators, not compatibility of 10.3 mm bodies with fine grids.
 E-279's upright bare-pair repetition 594–595 h/1024 excludes finished screw ends,
 frame, scrap and joining. This coupon cannot reduce that ledger or qualify 850 rpm.
-The 5.08 mm/~6400-cell, 40 mm, ~30 s/~$500 reference and coarser S40/S50 raised-neutral, 
+The 5.08 mm/~6400-cell, 40 mm, ~30 s/~$500 reference and coarser S40/S50 raised-neutral,
 ~$1000 finished /$1000–1500 demonstrator comparisons remain unchanged. Neither
 optional printing nor a favorable fit supplies a purchase or product decision.
 
