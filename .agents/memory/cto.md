@@ -144,6 +144,17 @@ not quotes; four maker25.16–66.36h before unpaid work. Reopen with cheaper con
 batch stock/joining and an earned loaded speed window, not carrier-fit details.
 7-mm screw heads/10-mm columns do not fit fine/quarter grids.
 
+E-282 screens formed-sheet bodies against the dominant channel printing. At1024,
+replacing long channels removes384.66 comparison print-hours but leaves209.64h
+nuts+bare screws before caps/finished ends. Hand folding owes8192 operations,
+3072 joins and26.32–69.82 maker hours before exclusions;80% yield needs19 sheets
+versus15. External lap loses the existing guide separation bound; closed-section
+stiffness requires an actual seam. A16-seat/3h adhesive-cure scenario occupies209h.
+Retain shared forming/cut-to-length as a conditional process escape,not individual
+fold/seam refinement. Next useful construction must show low-touch forming and
+end joining; mere sheet price or elimination of printer hours is insufficient.
+No new print request,physical result or purchase; E-281 remains optional.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies
