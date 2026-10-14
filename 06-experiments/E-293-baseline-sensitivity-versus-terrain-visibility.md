@@ -204,3 +204,85 @@ park head-mounted-only references as proof of absolute board height. Next useful
 evidence is an independently observable board datum through actual head movement
 or calibrated material images, including reference visibility and cap identity.
 Do not extend scalar parameter/noise sweeps into an optics qualification claim.
+
+## Fixed witness camera: simultaneous board-to-reader datum
+
+Run `python3 tools/curated-experiment-checks/E-293-witness.py` (NumPy).
+**Ideal pinhole geometry and exact sensitivity witnesses, not measured accuracy.**
+A separate fixed overhead camera can observe the moving reader and board together,
+removing the common vertical-motion blindness of riding references. This is a
+constructed alternative to returning to an edge station, not a qualified reader.
+
+Assume a downward-looking camera800mm above board zero, a90mm square target with
+four identifiable corners rigidly attached at reader height300mm, and a600mm-wide
+square field at that target plane. At4096 pixels this gives focal length3413.33px;
+at the board the field is960mm wide. The target moves over±203.2mm in both axes.
+Eight10mm square board reference patches have centers at the corners and side
+midpoints of a460mm square. This enlarges the reference footprint to470mm; it
+adds an overhead mount and must remain outside hands/props, not inside the
+playable terrain. The target-to-optical-center transform is granted known/rigid.
+No reference is added to individual columns.
+
+All target corners remain in the field at289 sampled positions; the outermost
+coordinate is1694.38px versus2048px half-field. Independent small-rigid-motion
+projection Jacobians have rank6 at every position: calibrated ideal corner
+observations are locally pose-observable, not a guarantee of unique global pose,
+accurate decoding or favorable conditioning. Full tilt/distortion inference is
+not implemented; the accuracy calculation below grants parallel planes.
+
+**Visibility is explicit but limited.** Model the reader as an opaque90mm square
+at z300. Rays to the board patches cross this plane at.625 times their board XY.
+The nearest projected patch centers are143.75mm apart, exceeding the96.25mm
+combined reader/patch overlap span: at most one patch can be obscured anywhere
+in the continuous translation domain. The289-position check confirms this and
+that at least one complete diametric side-midpoint pair survives. Four corner
+references alone can lose one point (e.g. reader centered150,150), so a
+four-point planar homography cannot simply assume all four remain visible.
+Eight patches leave at least seven. Their paths stay outside the±203.2mm terrain
+footprint through z0–50: the minimum exterior coordinate at z50 is210.94mm.
+Actual gantry members, thick housing, cables, player hands and tall props are
+excluded and can invalidate this visibility construction; missing references
+must produce unknown, not reuse a stale accepted pose.
+
+For parallel planes, use measured board/head spans sb,sh and known widths460,90:
+`head_z=f*(460/sb-90/sh)`. This independently inverts projected scale. A common
+.5mm camera lift cancels when **both spans are measured simultaneously**; retaining
+a stale board datum instead gives-.5mm error. A.5mm head lift changes its corner
+coordinates by up to.3075px at4096, whereas E-293 riding references do not change.
+This observes rigid head motion, not optics flex beneath an unchanged marker.
+
+|Square image width|Head span px|Board span px|Exact height-error range mm|
+|---:|---:|---:|---:|
+|1024|153.6|490.67|[-2.4473,+2.4384]|
+|4096|614.4|1962.67|[-.6110,+.6104]|
+
+The table assumes±.25px error at each span endpoint; hence±.5px span error.
+Monotonic reciprocal endpoints give exact bounds **only within this parallel,
+known-scale model**. This is an allocated subpixel error, not camera evidence.
+Correlated inward/outward endpoint shifts realize these errors without averaging
+away. Separately, a+.1mm mistake in stated head-target width causes-.5556mm error;
+a+.1% focal-length error scales the inferred300mm height by+.3mm. These are
+exact aliases with zero scale-fit residual. Lens distortion, board flatness,
+target-to-optics calibration, marker warping, tilt, thermal drift and segmentation
+remain outside the bound. Adding this datum channel does not replace the local
+reader's existing height/identity/contrast uncertainty or qualify .5mm accuracy.
+
+**Architecture decision:** retain simultaneous fixed witnessing as a conditional
+way to observe board-to-reader motion; park stale-station and riding-reference-only
+claims. Do not choose a camera or tune marker size/resolution from this model.
+The construction adds one camera/lens, one overhead support, one reader target,
+eight board patches and their mounting/metrology, with no resident pair changes.
+It requires visibility and a stable marker-to-optics transform; those are the
+next discriminating evidence, alongside actual calibrated imagery. Extra hardware
+is unpriced, so it cannot be called a completed~$500/$1000 product or$1000–1500
+demonstrator BOM. No purchase, physical accuracy result or new print.
+
+If one witness frame takes an assumed.1s **serially** per four-cap group, add
+.1/.4/.8s for1/4/8 local groups or25.6/102.4/160s for dense1024/4096/6400 scans.
+Combined local24-frame and witness acquisition is2.5/10/20s or dense640/2560/4000s,
+before writer motion, settling, retries and initial neutral preparation. Concurrent
+capture might avoid that increment only with earned synchronization/stability;
+no rate is qualified. The~30s play reference,5.08/6.35/12.7mm comparisons and
+40/50mm physical travel remain unchanged. Witness visibility above terrain does
+not make a miniature-covered cap visible to the local reader. E-281 remains the
+single optional, unperformed print; this result warrants no extra print job.

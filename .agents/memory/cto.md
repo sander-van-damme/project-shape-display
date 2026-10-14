@@ -409,7 +409,17 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   board-reference datum error also transfers. Retain three-depth interpolation
   control,park riding-reference-only absolute readback. Edge station needs actual
   visibility and pose transfer;24 extra frames add2.4s/visit before motion.
-  Next earn board datum through head moves or calibrated images,not scalar sweeps.
+  Fixed witness-camera extension supplies a concrete simultaneous board/head
+  datum control: camera z800,90mm head target z300,eight rim patches on460mm square.
+  Ideal rigid90mm housing obscures at most1/8;289 positions have local pose rank6.
+  Parallel-scale inversion at±.25px endpoints gives±2.45/±.611mm at1024/4096;
+  target-width+.1mm alone shifts-.556mm. Camera motion cancels with current board
+  observations,not stale ones;marker-to-optics flex remains blind. Adds one camera,
+  overhead mount,target/eight patches and unpriced metrology;470mm footprint.
+  Assumed serial witness adds.1s/group;dense total640/2560/4000s at1024/4096/6400.
+  Retain conditional datum construction,not an accuracy or BOM pass. Stop nominal
+  optics sweeps;next earn measured image/mount transfer or a materially simpler
+  readback construction. No extra print;E-281 remains optional.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
