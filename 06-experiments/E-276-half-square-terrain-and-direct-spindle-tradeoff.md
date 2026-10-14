@@ -27,9 +27,7 @@ All three grids cover 406.4×406.4 mm: 16×16 one-inch game squares. Rerasterize
 | Whole game squares at intended river ground /164 | 136 | 137 | 145 |
 | Whole game squares at intended ravine ground /173 | 155 | 155 | 163 |
 
-The footprint denominators use the same continuous source-square centers. Coarse apparent support gains partly reflect changed boundaries. At half-square pitch, five additional coplanar ruin squares are actually raised rather than at intended ground, so they are excluded; coplanarity alone is insufficient. No continuous footprint calculation proves real base stability.
-
-Probe coordinates are E-257's retained source coordinates. They are cross-sections, not minimum widths along entire routes. Component counts flag changes without proving which joins are correct. A 25.4-mm opening has zero room for a 25.4-mm base's placement error; a 32-mm illustrative base cannot fit. Grid-aligned clear widths accommodating 32 mm are at least 35.56/38.10/38.10 mm, before real tolerances. The 32-mm value is a scenario, not a new miniature requirement.
+Footprint counts use continuous source-square centers. Coarse apparent gains partly reflect changed boundaries; five coplanar ruin squares at32² are raised above intended ground and excluded. Probe widths are inherited cross-sections, not whole-route minima; component counts do not prove correct joins. A25.4-mm opening has no placement reserve for a25.4-mm base. Illustrative32-mm bases need grid-aligned openings≥35.56/38.10/38.10mm before tolerances. No actual base-stability qualification.
 
 The protected alternative declares a source-coordinate rectangle **x449..484, y350..415** through the already inspected southern doorway. Its physical width is 25.4 mm and length 47.17 mm. Polygon clipping confirms zero positive-area intersection with any retained source wall or rubble polygon. Clear every raster cell with positive-area overlap with this rectangle, after wall conversion. At 32² this removes wall cells (19,21), (19,22), (21,22), widening the measured opening to 38.1 mm while retaining six components. Source geometry is clear, but coarse cell footprints erase additional wall ends: this is a representation trade, not lossless repair. Other openings and wall mergers remain unchecked. The executable additionally counts whole game squares remaining at their source-intended ground height; it does not mistake any coplanar raised wall for a safe ground square.
 
@@ -41,7 +39,7 @@ At **±3° yaw**, a centered 4.4-mm stem spans only **4.62425 mm** and fits the 
 
 Half-square caps require opposite yaw below **1.895°** even with centered perfect parts. The core guide permits the 3° witness; manufacturing/translation/warp would add uncertainty. Do not tighten 1,024 fits to rescue it or declare the earlier smaller caps qualified. Wider guide/stem geometry, a different top shape/gap, or a changed common guide is a substantive new construction with stock, friction and support costs. No such remedy is granted here.
 
-Bare 4.4-mm tops cover only **12.0%** of half-square cell area, versus 48.0/75.0% at quarter/fine pitch: deleting wide tops is not a continuous tabletop. Cap overhang beyond the stem becomes **3.95 mm** versus .775/.140. An illustrative .1-N edge load creates .615/.298/.234 Nmm about the stem center, not a measured miniature load or a rated bending calculation. Total projected cap area is **1549/1450/1402 cm²** at half/quarter/fine pitch; a hypothetical 1-mm solid cap layer alone occupies 154.9/145.0/140.2 cm³. Fewer cores do not proportionally reduce surface material; cap stiffness, mass and neighbor motion require new evidence. The footprint-support calculations grant continuous cell coverage and do not qualify cap gaps, rocking or load sharing.
+Bare4.4-mm tops cover12.0/48.0/75.0% of half/quarter/fine cells. Half-square overhang grows to3.95mm versus.775/.140; illustrative .1-N edge loads create .615/.298/.234Nmm. A1-mm solid cap layer occupies154.9/145.0/140.2cm³. These calculations qualify neither bending nor support: fewer cores do not proportionally reduce surface material, and eliminating wide tops loses coverage.
 
 ## Conditional architecture, waits and economics
 
@@ -79,10 +77,61 @@ Use E-272's **2026-10-13 dated catalog entries unchanged**, plus its explicitly 
 
 Half-square/four remains$298 above the$500 bought reference; its favorable residuals under$1000/$1500 are$202/$702. Eight outputs exceed$1000 favorably and leave$422 under$1500. The high allocations exceed both tiers; none authorizes spending or proves consumer value. Printing material retains the inherited$60–160 scenario; printing time, scrap and cap cleanup are not measured. Labor assumes8–20 s/pair,8–16 h common assembly/calibration and10–30 min/channel, excluding unresolved cleanup. Another minute of individual fitting still adds17.1 h at1024 pairs, versus68.3/106.7 h at4096/6400. Fewer cells help but do not license hand fitting.
 
-Board repetition falls to1024 each of pins, screws, threads, sockets, collar/thrust/keeper sites;2048 guide apertures;62 two-layer row ribs (versus8192/12800 apertures and126/158 ribs). Each32-cell row has32 pairs; an illustrative8×8 region has64. Count antirotation, friction, wear and service duties even when molded into one part. Head duties at k outputs remain k motors/encoders/selectors/returns/carriers/couplers,2k bushings/guide/stop/docking-switch duties,ceil(k/2) bridges,12k conductors/24k terminations before buses and two XY drives. No private resident cartridge/brake is added.
-
-FDM batch fixtures, split/unscrewing molds, machined or formed screw stock and precision shared head plates remain possible routes, not qualified yields or quotes. Wider caps must be integrated with the earlier support-removal/orientation constraints; E-263's retired print is not revived. Use openable shared beds for intact pair replacement after unloading/parking; broken/bent pairs can still require module access. Retain individual service rather than scrapping a sealed region. Fewer ribs/sites do not prove frame stiffness or repair access.
+Board repetition falls to1024 pairs, threads, sockets and collar/thrust/keeper sites;2048 guide apertures and62 two-layer row ribs versus8192/12800 apertures and126/158 ribs. Count friction, wear and service even when monolithic. Shared head hardware follows E-272 at k outputs, including k independently selected motors and two XY drives. No resident brake/cartridge is added. Batch FDM, molds, stock and precision shared plates remain possible, unqualified routes. Intact-pair replacement still needs openable supports; broken pairs may require module access. E-263's retired print remains retired.
 
 ## Decision boundary
 
 The topology change reduces threads, assembly touches and work per reveal; it does not cure docking, passive holding variability, E-270's rejected optical decoder or covered-pin uncertainty. Retain the half-square direct-spindle comparison as a lower-count control, with explicit passage and cap costs. Stop before new shaft/guide/selector detail. A useful subsequent discriminator is a coarse terrain-column construction whose tops cannot collide under its admitted guidance motion, with a batch-manufacture route and unchanged-neighbor support; compare it with retaining narrower cells. This is not a recommendation to print or a reason to reopen E-273–275.
+
+## Grid-line walls require a separate floor-interface decision
+
+**Exact geometric extension**, responding to14-Oct owner advice. Reproduce
+`python3 tools/curated-experiment-checks/E-276/wall_clearance.py`;
+`--figure /path/wall-clearance.svg` draws the corridor and adjacent squares.
+Earlier source-map openings are not reinterpreted as grid-line walls.
+
+Assume vertical wall faces overlapping base height, spacing `s=25.4mm`, centered
+wall thickness `t`, circular base diameter `B`. Admissible base-centre interval is
+`[t/2+B/2, s−t/2−B/2]`: if empty, sideways placement cannot fix collision.
+Rotation cannot help a circle. Per-side reserve `c` costs another `2c`.
+Diameters25/25.4/32mm and reserve.2mm are **scenarios**, not measured owner bases
+or manufacturing tolerances.
+
+| Centered wall | Clear corridor | Maximum base with .2mm/side reserve |
+|---|---:|---:|
+| Full5.08mm cell |20.32mm|19.92mm|
+| Full6.35mm cell |19.05mm|18.65mm|
+| Full12.7mm cell |12.70mm|12.30mm|
+| Separate1mm wall |24.40mm|24.00mm|
+| Separate.4mm wall |25.00mm|24.60mm|
+
+All full-cell cases exclude all tested bases. A25mm base fits .4mm walls only
+at exact tangency. A25.4mm base cannot fit any positive centered wall thickness
+at25.4mm spacing. This excludes this geometry, not fine-grid terrain generally.
+
+**Moving thickness outward transfers the loss:** 1mm walls in `[-1,0]` and
+`[25.4,26.4]` restore25.4mm corridor width but leave each adjacent square only
+24.4mm even without a far wall. An above-base undercut could differ but owes
+finite miniature clearance, support and independent neighbor motion.
+
+**Separated wall-lane control:** 1mm wall lanes and25.8mm clear floors accommodate
+25.4mm bases with.2mm/side reserve. Grid spacing becomes26.8mm;16 squares plus
+outer half-walls occupy429.8mm versus406.4mm reference. For32mm bases these become
+33.4/535.4mm. This changes physical game scale and envelope; it is not an exact
+one-inch solution or selected product.
+
+An independently mechanized16×16 edge-wall field potentially adds544 segments
+(`2×16×17`) and289 junctions needing compatible retraction, beyond1024/4096/6400
+terrain sites. No selector/cost/timing implementation is granted. Removable strips
+trade resident drives for manual reveal, storage and attachment. Cut sheet,
+milling or molding still owe anchoring/strength and moving-floor compatibility.
+
+**Decision:** no pitch selection from pair counts or timing alone. Existing
+~30s/~$500 comparisons and the conditional$798–1768 coarse/four-output allocation
+remain for their original encoding, not this wall interface. Raised neutral and
+40/50mm travel do not change coplanar clearance. Preserve optics as later work;
+precise readback is unnecessary for this discriminator. Next mechanical work
+should construct a small independently reversible screw array with retained
+support and neighbor isolation at explicit terrain pitch, without advertising
+unconstructed thin grid-line walls. E-281 stays the sole optional READY test;
+no new print, purchase, physical qualification or owner response is requested.
