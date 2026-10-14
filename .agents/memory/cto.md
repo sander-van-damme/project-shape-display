@@ -243,9 +243,16 @@ avoided closure labor less4h fixture setup breaks even36.39–132.39 episodes.
 Eight faults in one/eight rows give13.67/95.33min extra,not fault-rate predictions.
 Saved N30 after unknown-state reset owes25.10min/1024 at850rpm before proof/routing;
 commands are not verified state. Do not add closure savings to split-shank savings.
-Next useful service work
-must construct accessible shared bench restraint/extraction and price setup,not
-another split joint or assumed fault-frequency sweep. E-281 remains optional.
+E-286 removable-row extension carries permanent guides/keeper/thrust through
+extraction;bench opening and broken-target restraint remain owed. Nominal12mm
+cassettes fit coarse pitch,but E-277 body envelope permits only.101° yaw at.1mm
+drift;translation over tall neighbors owes224mm lift. End-supported perforated
+guide at assumed.05N/site needs159.6GPa for allocated.1mm deflection;2GPa gives
+7.98mm. Park polymer/end-only and free-hand variants. Stiff fabricated guides +
+shared constrained lift remain conditional,adding32 spines/64 towers/128 mounts
+at1024 before hoist/bench tooling. No cost/labor saving or hardware qualification.
+Next service work must construct whole access/support or supply process evidence,
+not latch detail or guessed fault-frequency sweeps. E-281 remains optional.
 
 ## Actuation, observation and scale boundaries
 

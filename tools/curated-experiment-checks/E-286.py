@@ -438,6 +438,111 @@ def offline_closure_comparison():
     print('offline closure: no rates, measured times, accessible fixture or height-proof pass')
 
 
+def removable_row_check():
+    """Finite envelopes and linear beam bounds; not constructed joints or hardware.
+
+    Row carries both body guides, closed keeper and bottom thrust throughout lift.
+    All dimensions mm, forces N, moduli N/mm2. Error/load/modulus values are
+    explicit scenarios, not material data or measured hand-placement capability.
+    """
+    from math import sin, cos, radians
+    pitch, count, body, guide = 12.7, 32, 10.3, 10.8
+    length, module_width = count*pitch, 12.
+    # E-277 bounded body envelope, including width and guide-center errors.
+    g, bmin, h, span = body+.5+.1, body-.1, 52., 82.
+    envelope = g+.2+2*h*(g-bmin+.2)/span
+    gap = pitch-envelope
+    assert isclose(gap, .45853658536585)
+    # New stack: box below thrust z=-10, end towers beyond row ends,
+    # body guide slabs z54..56 and134..136. Body base2..52, length136.
+    for base in (2., 52.):
+        assert base <= 54 and base+136 >= 136
+    assert module_width < pitch and guide < module_width
+    assert 4.4 < guide  # whole screw/collar fits body guides after bench opening
+    # Constant XY projections prove straight vertical separation for every
+    # intermediate height, not just sampled travel frames. Ignore mounts only
+    # if outside the playing footprint; cross-row beams invalidate this model.
+    def clearance(yaw_deg, drift):
+        theta=radians(abs(yaw_deg))
+        moving_width=envelope*cos(theta)+length*sin(theta)
+        return pitch-(envelope+moving_width)/2-abs(drift)
+    assert clearance(0, 0)>0
+    assert clearance(.05, .1)>0
+    assert clearance(.2, .1)<0  # adverse witness: no unconstrained hand lift
+    lo, hi = 0., 1.
+    for _ in range(60):
+        mid=(lo+hi)/2
+        if clearance(mid,.1)>0: lo=mid
+        else: hi=mid
+    # Translation over tallest adjacent row: lowest box z=-34 must clear188.
+    lift = 188-(-34)+2
+    assert lift == 224 and 188+lift == 412
+    print('row cassette: width/body gap mm',pitch-module_width,round(gap,6),
+          'yaw limit at .1mm drift deg',round(lo,6),
+          'lift/top above screw datum mm',lift,188+lift)
+
+    # Simply supported perforated guide at its ends. Virtual work for deflection
+    # at midspan, point lateral force at every aperture center. No fictitious
+    # uniform unperforated EI; each square hole removes the central strip.
+    positions=[(i+.5)*pitch for i in range(count)]
+    def guide_deflection(modulus, force_per_site, steps):
+        dx=length/steps
+        total=0.
+        for i in range(steps):
+            x=(i+.5)*dx
+            in_hole=abs((x % pitch)-pitch/2) < guide/2
+            inertia=2*(module_width**3-(guide**3 if in_hole else 0))/12
+            moment=count*force_per_site*x/2-sum(
+                force_per_site*(x-a) for a in positions if a<x)
+            unit_moment=min(x,length-x)/2
+            total += moment*unit_moment/(modulus*inertia)*dx
+        return total
+    coarse=guide_deflection(2000,.05,32000)
+    fine=guide_deflection(2000,.05,64000)
+    assert abs(coarse-fine)/fine < .002
+    assert isclose(guide_deflection(4000,.05,32000),coarse/2)
+    assert isclose(guide_deflection(2000,.1,32000),2*coarse)
+    print('guide midspan .05N/site; E2/70/200GPa mm',
+          [round(guide_deflection(e,.05,64000),6) for e in (2000,70000,200000)],
+          'E required for allocated .1mm GPa',round(fine*2000/.1/1000,3))
+    # Independent upper/lower comparison: replace all sections by weakest or
+    # strongest inertia, bounded by uniform-load closed-form with small point
+    # discretization correction checked by exact point-load integration above.
+    def solid_point_mid(inertia):
+        # symmetric pair point loads: a<=L/2, midpoint response per point
+        return sum(.05*min(a,length-a)*(3*length**2-4*min(a,length-a)**2)
+                   /(48*2000*inertia) for a in positions)
+    assert solid_point_mid(2*module_width**3/12) < fine
+    assert fine < solid_point_mid(2*(module_width**3-guide**3)/12)
+    # Lower hollow spine 12x24, 1-mm walls, apertures through top/bottom.
+    # Local hole section treated conservatively as removing 2.8-wide wall strips.
+    outer_i=(12*24**3-10*22**3)/12
+    weak_i=outer_i-2.8*(24**3-22**3)/12
+    assert weak_i>0
+    # Uniform vertical load diagnostic, simply supported ends. Connections,
+    # torsion, local annular bending and handling dynamics explicitly excluded.
+    force=count*.338
+    for modulus in (2000,70000,200000):
+        bounds=[5*force*length**3/(384*modulus*i) for i in (outer_i,weak_i)]
+        print('box vertical deflection E/modulus/bounds mm',modulus,
+              [round(d,6) for d in bounds])
+    box_volume=(12*24-10*22)*length*count/1e6
+    print('1024-site box-spine gross wall volume L',round(box_volume,6))
+    # Permanent support paths stay with row; mounting transfers before lift.
+    stages=[('installed',True,False),('hoist attached',True,True),
+            ('undocked',False,True),('bench supported',True,True),
+            ('hoist released',True,False)]
+    assert all(frame or hoist for _,frame,hoist in stages)
+    for side in (32,64,80):
+        # Count comparator only: unchanged 12-mm cassette cannot fit fine grids.
+        print('row cassette counts sites/guide strips/end towers/mounts',
+              side*side,2*side,2*side,4*side,
+              'four mounts at10-30s initial hours',
+              [round(4*side*t/3600,3) for t in (10,30)])
+    print('No support release inside board; bench opening still owes local restraint, '
+          'fragment control and restored-state proof. No stiffness/contact/UX pass.')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
@@ -447,3 +552,4 @@ if __name__ == '__main__':
     detachable_shank_check()
     bench_repair_check()
     offline_closure_comparison()
+    removable_row_check()

@@ -230,6 +230,51 @@ attended time must also enter labor break-even. Fine/quarter counts do not fit
 shared restraint/extraction plus measured complete service labor/interruption,
 not closure detail or guessed fault frequencies. No print or purchase.
 
+## Remove a supported row before opening it
+
+**Cassette access is conditional, not a repair pass.** `removable_row_check`
+constructs envelopes, support states and beam bounds, not contact/CAD qualification.
+Each32-site row carries its closed keeper, thrust and two body guides. Two external
+end towers connect2-mm guide strips at Z54–56/134–136 to a12×24-mm hollow spine
+below thrust Z−10; bottom Z−34. Strip width12, nominal holes10.8, spine walls1mm;
+2.8-mm tool holes penetrate both walls. No cross-row member may obstruct lifting.
+Connections, locks, extended socket access and local plate bending remain unbuilt.
+Attach/prove lift before releasing four row mounts; lift vertically and support
+on bench before releasing lift. Reverse for reinstall. Intact pairs retain their
+existing load/radial/capture paths. Clear miniatures; broken targets need restraint
+**before** lifting. Bench keeper opening still releases32 sites; no free gang
+restraint, fragment recovery or safe disassembly is credited.
+
+E-277 bounded body width12.2415 leaves.4585mm row separation; hardware leaves.7mm.
+Constant XY envelopes clear ideal vertical travel at arbitrary0–50mm heights.
+At406.4mm length/.1mm drift, sufficient clearance ends at **.1011° yaw**; .2° gives
+envelope overlap, not proven solid collision. Constrained shared extraction is
+owed. Translation over tallest neighbors needs224mm lift including2mm clearance;
+target tops reach Z412. This is service overhead, not automatic rejection.
+
+End-supported perforated guides lose shared-grid bracing. Assumed.05N lateral
+force/site gives7.982/.228/.0798mm midspan deflection at assumed E2/70/200GPa.
+An allocated.1mm bound needs **159.6GPa** in this nominal linear model; neither
+load, modulus nor allowable deflection is qualified. Large polymer deflection
+exceeds precision-model applicability; the small-deflection threshold discriminates.
+Nominal.6mm ligaments owe fabrication/burr/warp/joint compliance. Doubling load
+doubles required modulus.32k→64k integration changes<.2%; independent constant-I
+point-load bounds bracket it. No material rating, fatigue or hardware pass.
+At.338N/site, lower box deflection bounds.955–1.123mm at2GPa/.0273–.0321 at70GPa
+exclude joints/torsion/local thrust bending. This is a loaded diagnostic, not
+actual miniature-cleared service weight.32 boxes contain.884L gross wall volume.
+At1024 retain2048 guide apertures,1024 thrust contacts,64 keeper halves; add32
+spines/64 towers/128 mounts. Mount handling10–30s costs.36–1.07h before fabrication,
+alignment/hoist/bench tooling. At6400:80/160/320 and.89–2.67h; counts only, since
+12mm modules do not fit5.08/6.35mm pitch. No cost or maker-hour saving is earned.
+
+**Park end-supported polymer and free-hand variants.** Stiffer fabricated guides
+plus constrained lift remain a conditional escape, without quoted cost, low-touch
+assembly or broken-target/bench restraint. Reinstallation changes row datum and
+owes actual-height proof; earlier row-reset bounds apply only if other rows remain
+undisturbed. Whole-board transport retains whole-board recovery. Require complete
+support/access construction or process evidence before latch/fit refinement.
+
 ## Product boundary
 
 E-276 coarse$798–1768 excludes new support/joint/inspection costs; compare~$500,
