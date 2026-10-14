@@ -1,0 +1,11 @@
+item,quantity,specification,source_type,low_usd,high_usd
+Printed rigid parts,1,"Generated structure and columns plates; PLA; slicer report separate",allocation,2,5
+Flexible strip,1,"180 x 3 x 0.2 mm TPU; experimental; not PLA",allocation,0.1,1
+Frame bolts,6,"M3 x 100 with washers and nuts; trim/protect exposed ends",allocation,3,8
+Head mount bolts,2,"M3 x 16 with nuts and washers",allocation,0.5,2
+Selector adjustment screws,4,"M3 x 12; gently form thread in pilot; no calibrated force from turns",allocation,0.5,2
+Separator wire,5,"1.0 mm steel; cut 23.8 mm; deburr",allocation,1,3
+Selector links,4,"0.8 mm steel; cut 18.8 mm; straight; not printed",allocation,1,3
+Bonding material,1,"Small quantity suitable cured adhesive for links/separators; keep off journals",allocation,1,5
+Bench clamp and measuring tools,1,"Reuse ruler phone caliper small scale if available; replacements optional",allocation,0,40
+Motor electronics,0,"Hand-driven first discriminator; no powered qualification claimed",allocation,0,0
