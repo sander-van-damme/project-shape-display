@@ -330,6 +330,15 @@ E-281 stays optional and unprinted; no new print or purchase.
   Retain only conditional broad-transport control; no periodic-mask tuning.
   Reopen with calibrated imagery or a different path discriminator, not more
   phase steps. No physical evidence or new print.
+- E-291 absolute11-bit Gray address+complements/white/black uses24 frames.
+  Sharp direct1/indirect≤.2 retains every bit (contrast≥2/3), fixing E-290's
+  25→28.38mm witness;90 rounded controls contain truth. Direct.2/reflected1
+  instead reads45.0087mm for25mm, with identical raw data after path relabeling.
+  This is an assumed transport ambiguity,not a realized PLA scene. Projected
+  bins6.714µm atz25,2048 row positions,finite footprint/boundary unknowns remain.
+  Acquisition614.4/2457.6/3840s at1024/4096/6400;local2.4/9.6/19.2s for1/4/8 groups.
+  Retain direct-dominant control;park pattern/threshold tuning without calibrated
+  images or physically discriminated paths and earned optics. No new print.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
