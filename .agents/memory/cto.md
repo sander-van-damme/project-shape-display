@@ -91,9 +91,17 @@ Rigid square hull survives,but open-section torsion surrogate is~137× softer;
 joint tension under eccentric load and loaded guide behavior remain unqualified.
 Lateral cavity core nominally exits in9.5mm;no mold cost/release-force pass.
 Retain conditional manufacture control,not a print-ready or selected machine.
-Next evidence must discriminate intact-nut manufacture or actual loaded joint/
-guide behavior;do not add tiny registration features or repeat schedule sweeps.
-No owner print or purchased hardware selected.
+E-277 paired90° included thread retains lead3/.9 depth/1.4 core and adds no
+parts. Eight actual slices:90° has no support/bridge/overhang paths at.2/.1 layers,
+support off/on. Original30°/.1 loses overhang labels but still generates3864
+support/interface segments when enabled; labels alone are not print proof.
+212 finite mating cases:coaxial clears,both profiles collide at.2 axis offset.
+Helix-corrected assumed-mu hold threshold.403→.305;atF.2/mu.3 torque.191→.228Nmm;
+no measured friction,hold or strength. Whole channel+nut repetition533.62h stays
+large;1024 joins remain. Retain wider profile as a manufacturing comparator,
+not selected or ready to print. No more angle/fit sweeps;next discriminate a
+whole-pair manufacturing route (long screw,batch supports/handling) or actual
+loaded joint/guide behavior. No owner print or purchased hardware selected.
 
 Whole rigid cavity core cannot exit the closed body. Cap-only molding owes long
 core withdrawal/unscrewing and1024 joins; internal draft increases material. Open
