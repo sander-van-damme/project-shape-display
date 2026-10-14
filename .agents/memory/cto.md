@@ -420,6 +420,17 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   Retain conditional datum construction,not an accuracy or BOM pass. Stop nominal
   optics sweeps;next earn measured image/mount transfer or a materially simpler
   readback construction. No extra print;E-281 remains optional.
+- E-294 fixed full-board D455 geometry eliminates reader XY/transported datum,
+  not shadows. D650/b95 real-component control gives4.33/10.14px cap widths;
+  assumed±.1px disparity means.696mm bottom error. One actual adjacent40mm column
+  fully blocks the edge cap from one pupil at all pitches; no seam/mini needed.
+  Coarse z30/H50 retains sufficient patches at1024 sites, versus450 for z0/H50;
+  these relocated pit cases are not gameplay statistics. D4551280×720 is30fps,
+  not90; assumed3-frame.1s is no proof. Dated$499 camera replacing old reader
+  allocations gives coarse four-head$1198–1917 before exclusions. Retain partial
+  monitor,park sole-board proof; no decoder/mount sweep. Next must supply actual
+  image/support evidence or a constructed path covering the shadow witness.
+  No new print/purchase;E-281 optional.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
