@@ -5,79 +5,56 @@ builds-on: [E-292, E-291]
 
 # Baseline sensitivity versus terrain visibility
 
-**Geometric calculation with an inherited optical control, not measured accuracy.**
-Larger baseline is a conditional escape from E-292: a diagonal 90-mm pair can
-retain a substantial unobstructed patch at 12.7-mm pitch while quantizing height
-into approximately .5-mm bins. This does not establish a working reader or an
-acceptable terrain error. Run `python3 tools/curated-experiment-checks/E-293.py`.
-No new resident mechanism, print, purchase or calibrated image.
+**Geometric/direct-image calculations, not measured accuracy.** A diagonal90-mm
+pair retains a useful clear patch at12.7-mm pitch with~.5-mm projector bins;
+finite-camera and reference models do not establish a working reader.
+Reproduce with `python3 tools/curated-experiment-checks/E-293.py`,
+`E-293-camera.py` and `E-293-reference.py` in that directory (NumPy).
 
-## Construction and independent checks
+## Geometry and independent checks
 
-Keep the E-292 coarse angular bin dq=.0005 and fixed 1.927-mm circular projector
-pupil, D=300mm above zero terrain, S40/S50, and harmonic focus. Its sampled minimum
-signed finest-bit fundamental transfer is .745885 across S50, using the existing
-pupil calculation without a new aperture search. Grant the camera the same pupil
-size and otherwise perfect calibrated rays. This is an optical control, not a
-camera specification or complete optical transfer chain. Depth of field requires
-an explicit spatial-frequency/contrast criterion; stopping down is not a free
-resolution fix ([Edmund Optics](https://www.edmundoptics.com/knowledge-center/application-notes/imaging/depth-of-field-and-depth-of-focus/),
-rechecked2026-10-14). E-292 supplies the wave-method derivation and limitations.
+Keep E-292 coarse angular bin dq=.0005, fixed1.927-mm circular projector pupil,
+D300 above zero terrain, S40/S50 and harmonic focus. Sampled minimum signed
+finest-bit fundamental transfer is.745885 across S50. Grant the camera the same
+pupil and perfect rays: an optical control, not a component specification.
+Depth of field requires an explicit contrast/frequency criterion
+([Edmund Optics](https://www.edmundoptics.com/knowledge-center/application-notes/imaging/depth-of-field-and-depth-of-focus/),
+checked2026-10-14); E-292 preserves wave-method limits. Off-axis aberrations,
+scattering, noise and calibration remain unqualified.
 
-Move projector and camera to opposite sides of the target: positions
-`±(b/2)*(cos(theta),sin(theta))` at height D. Compare b=8/45/90mm, grid-axis or
-45-degree diagonal baseline. This changes both baseline and centering from the
-old projector-over-target layout. In rectified slope coordinates,
-`q-r=b/(D-z)`. With perfect camera ray and a bin beginning at height z, its width is
+Place optics at ±(b/2)u, u=(cosθ,sinθ), height D; compare b8/45/90mm and θ0/45°.
+Rectified slopes obey q-r=b/(D-z). Exact bin width beginning at z is
+`dz=(D-z)^2*dq/(b+(D-z)*dq)`: at z0,5.52147/.996678/.499168mm.
+Baselines44.85/89.85mm give1/.5-mm bins, not error guarantees.
 
-```
-dz = (D-z)^2*dq / (b+(D-z)*dq).
-```
-
-At z0 the three widths are5.52147/.996678/.499168mm. Baselines44.85/89.85mm
-are required for1/.5mm bins under this exact quantization convention. Bin width
-is not measured error, a guarantee across blurred bit boundaries, or an adopted
-product tolerance. Off-axis aberrations, camera sampling, scattering, noise and
-calibration drift remain unearned. In particular the inherited on-axis optical
-control is not an off-axis qualification at b90.
-
-For each pitch p and cap width w, put a low cap at z0 and all eight neighboring
-opaque columns at H=40/50mm. Use (p,w)=(5.08,4.4),(6.35,4.4),(12.7,10.3)mm;
-the quarter-grid control retains the inherited narrow cap, not a new surface
-coverage choice. Let a=p-w/2, t=(H-z)/(D-z), R=.9635mm. A ray between local cap
-coordinate x and pupil coordinate X passes height H at `(1-t)*x+t*X`.
-The inner square opening |x|,|y|<a yields a sufficient continuous clear rectangle.
-For each axis i and target offset c_i from the pair midpoint, its interval is
+Place a low cap beside eight H40/50 opaque columns. Compare pitch/width
+(5.08,4.4),(6.35,4.4),(12.7,10.3)mm; the quarter-grid narrow cap is a control,
+not an approved surface. Set a=p-w/2, t=(H-z)/(D-z), pupil radius R=.9635.
+At target offset c from pair midpoint, a sufficient clear rectangle in each axis is
 
 ```
-center_i = t*c_i/(1-t)
-half_i = (a - t*(abs(b*u_i)/2 + R))/(1-t)
-interval_i = [center_i-half_i, center_i+half_i] intersect [-w/2,w/2].
+center_i=t*c_i/(1-t)
+half_i=(a-t*(abs(b*u_i)/2+R))/(1-t)
+interval_i=[center_i-half_i,center_i+half_i] intersect [-w/2,w/2]
 ```
 
-Empty intersections yield no guaranteed patch. For sensitivity only, also move
-all inner walls inward .2mm and require ±.2mm common registration reserve in each
-axis: replace a by a-.2 and subtract .2 from half_i. These are competing geometric
-bounds, not measured printer/camera distributions or independent per-cell errors.
+Competing bounded scenario: move all walls inward.2mm and reserve±.2mm common
+registration by replacing a with a-.2 and subtracting.2 from half. These are
+correlated allocations, not measured process distributions. Independent2916
+segment/AABB cases confirm claimed sampled clear points for both optics' four
+cardinal pupil extrema; continuous clearance follows coordinate support bounds.
+There are58 clear samples outside the rectangle: zero area is not universal
+occlusion. Central-point checks, inverse-bin endpoints, flat terrain and zero
+baseline limits agree. Numerical checks do not qualify hardware.
 
-The inner square is deliberately conservative: real column seams leave openings.
-An independent segment/AABB intersection check over2916 cap/height/baseline/angle
-cases confirms every sampled point inside the claimed rectangle clears actual
-neighbor solids for the four cardinal pupil extrema on both optics. Continuous
-pupil clearance follows from its coordinate support bounds. There are58 clear
-samples outside the rectangle; thus zero rectangle area does **not** prove no
-possible ray. Central-point blocked/clear outcomes agree separately in all
-sampled configurations. Exact inverse-bin endpoints agree with the formula;
-flat-terrain and zero-baseline limiting cases pass. Checks validate calculations,
-not manufacture or hardware.
+## Visibility results
 
-## Results and the shared-field obligation
+S50 lowest terrain; fractions are sufficient patch/cap area, not read probability.
+Four caps occupy one real grid row at (0,j*p), j=±.5,±1.5; the optics stay fixed.
+Conservatively grant every cap eight high neighbors. No individually recentered
+views or free rotation is credited.
 
-Fractions below are sufficient clear rectangle area divided by cap area, not
-probability of successful readback. All are S50 at the lowest terrain point.
-The bounded column applies the correlated .2/.2mm sensitivity scenario.
-
-|Pitch|Baseline / angle|Central-cap clear %|Bounded clear %|Worst of four grid-row caps clear %|
+|Pitch|b / θ|Central clear %|Bounded %|Worst of four caps %|
 |---:|---:|---:|---:|---:|
 |5.08|45 / 0°|0|0|0|
 |5.08|45 / 45°|.137|0|.137|
@@ -88,109 +65,142 @@ The bounded column applies the correlated .2/.2mm sensitivity scenario.
 |12.7|90 / 0°|0|0|0|
 |12.7|90 / 45°|23.63|16.05|18.14|
 
-At b90 both smaller pitches have zero central rectangle at either angle.
-At b45 diagonal the fine-grid rectangle is only .163mm square; it vanishes under
-the stated bounds. Do not tune alignment around that narrow nominal patch.
-At coarse b90 diagonal the central rectangle is5.007mm square; the four-cap
-worst rectangle is approximately5.007×3.843mm. Four target centers lie on an
-actual grid row at `(0,j*p)`, j=±.5,±1.5, under one fixed pair; they are not four
-individually recentered readers. Each target is conservatively granted all high
-neighbors even though other low targets in a real group can improve visibility.
-The clear rectangle shifts across each cap: rejecting all off-center pixels
-would unnecessarily lose this result. Finite projected field, common decoder,
-camera pixel density and complete pupil transfer still need construction.
+At b90 smaller pitches have zero central rectangle at both angles. Fine b45
+has only.163mm square, lost under bounds: park this embodiment, not all optical
+readback. Coarse b90 has5.007mm square centrally, worst four-cap patch5.007×3.843mm.
+Patch shifts across caps; rejecting all off-center pixels discards usable geometry.
+S40 b45 diagonal clear fractions10.92/99.32/100%; coarse b90 clear50.73%, bounded
+39.51%. Raised neutral z30 beside H50 reduces relative relief to20mm but does not
+replace full-travel pit testing or mechanical preparation. Broad ravines/walls may
+be easier than this enclosing-pit stress; its play frequency is unknown. Covered
+caps remain unknown. Source retains all36 configurations.
 
-S40 improves visibility without changing bottom quantization: central b45 diagonal
-clear area is10.92/99.32/100% across fine/quarter/coarse pitches. Coarse b90 diagonal
-has50.73% clear,39.51% with the bounded errors. The source contains all36 cases.
-For ground at a raised neutral z30 beside H50, the relative20mm relief reduces
-occlusion; this must not be substituted for the full-travel pit test. A neutral
-coordinate change alone buys neither physical travel nor ray clearance. Broad
-ravines and isolated walls may be easier than this enclosing-pit diagnostic;
-its frequency in actual play is not known. Miniature-covered caps remain unknown.
+## Finite-camera and common-calibration control
 
-## Whole-machine decision
-
-Retain the coarse diagonal reader as a **conditional geometric survivor**, not
-an architecture selection. Park the fine-grid b45 full-travel central-patch
-embodiment under the stated registration bounds; do not treat gaps or another
-threshold as robust observation. Larger baseline and diagonal placement are
-materially different geometry, not proof that all large-baseline readers work.
-
-No additional per-cell parts, marks, joins or support releases are introduced.
-The machine still has1024/4096/6400 threaded pairs; support, powered rate,
-manufacture, assembly and repair remain the independent mechanical obligations.
-The shared reader retains one projector, one camera, mounting and calibration;
-90mm separation is a mechanical envelope allocation, not a priced packaged head.
-Diagonal mounts and optical clearance must coexist with tabletop use. Custom
-optics remain unpriced against ~$500 bought hardware, ~$1000 finished value and
-$1000–1500 demonstrator references. No complete BOM or purchase authorization.
-
-Conservatively retain E-291's24-frame protocol at assumed .1s/frame and four
-simultaneously observed caps. Coarser bins may permit fewer code bits for a
-constructed field, but no unimplemented reduction is credited. Acquisition is
-2.4/9.6/19.2s for1/4/8 groups,614.4/2457.6/3840s for dense1024/4096/6400-cell
-scans before motion, settling, actuation, retries and proof, against the~30s
-play reference. Four-cap *ray clearance* does not earn four-cap image readout.
-If eventual optics require recentering each cap, acquisition becomes4× these
-numbers; moving/rotating views to chase seams similarly incurs real preparation.
-Minimum/raised neutral,40/50mm travel and initial mechanical preparation retain
-their existing costs. Dense timing is a diagnostic, not automatic rejection.
-
-## Finite-camera and common-calibration extension
-
-Run `python3 tools/curated-experiment-checks/E-293-camera.py` (NumPy).
-This is an **ideal direct-image calculation**, not earned four-cap readback.
-Keep coarse b90/45°, D300, dq.0005. One fixed rectified camera covers slopes
-r∈[-.27,-.07], s∈[-.1,.1] at256²/1024² pixels; camera lies at+45u,
-projector at−45u. Test all four caps at z0/25/30/50, surrounded conservatively
-by H50 neighbors. At each height an **oracle** selects only pixels whose whole
-footprint lies inside E-293's sufficient clear rectangles. This grants actual
-height/identity/visibility for segmentation; no implemented foreground, hidden-cap
-or mixed-depth classifier is claimed. Hidden and boundary pixels remain unknown.
-
-Integrate each of11 Gray bits exactly across square pixels, with white/black
-and complements (24 frames). No diffraction, aberration, noise, indirect paths,
-reflectance variation or exposure qualification: E-292's fundamental transfer
-alone does not establish this sharp-image assumption. The decoder receives
-integrated intensities and calibrated rays, not target heights. Reject pixels
-with any normalized bit contrast<.5. Exact integration agrees with8192-sample
+Use coarse b90/45°, D300, dq.0005 and one fixed camera covering slopes
+r∈[-.27,-.07], s∈[-.1,.1] at256²/1024² pixels. Test four caps at z0/25/30/50.
+An **oracle** selects pixels wholly inside the clear rectangles, granting actual
+height/identity/visibility: segmentation and mixed/hidden-cap detection are not
+implemented. Integrate11 Gray bits plus complements/white/black exactly across
+pixels (24 frames). Grant sharp direct optics, uniform flat caps and no noise,
+indirect light or reflectance variation. E-292 transfer alone does not prove this.
+Reject any normalized bit contrast<.5. Exact integration agrees with8192-sample
 quadrature within.001 on17 pixels/case; weights sum to1. Four-sample integration
-was insufficient near code boundaries and is not used.
+was inadequate near boundaries.
 
-For address interval[qlo,qhi], pixel slope r±dr/2, and common bounds
-angular±e, baseline±db, origin±dD, retain the **unclipped** interval
+For decoded[qlo,qhi], pixel ray r±dr/2 and common angular±e, baseline±db,
+origin±dD bounds, retain the unclipped interval
 
 ```
-[zlo,zhi] = [D-dD-(b+db)/(qlo-r-dr/2-e),
-            D+dD-(b-db)/(qhi-r+dr/2+e)].
+[zlo,zhi]=[D-dD-(b+db)/(qlo-r-dr/2-e),
+           D+dD-(b-db)/(qhi-r+dr/2+e)]
 ```
 
-Independent16-corner evaluation checks extrema. No probability distribution or
-product accuracy requirement is inferred. Intersect pixel intervals only under
-the granted flat-cap/identity assumption; do not average away common errors.
+Independent16-corner checks confirm extrema. Intersect pixels only under granted
+flat-cap identity; do not average common error away. e=.0002,db=.1mm,dD=.2mm
+are sensitivity allocations, not measured calibration or a product criterion.
 
-|1024², height|Accepted / oracle pixels|Largest ideal pixel interval mm|First flat cap ideal interval width mm|Same cap with bounded calibration mm|
+|1024² z|Accepted/oracle pixels|Largest ideal pixel interval mm|First cap ideal intersection mm|Bounded intersection mm|
 |---:|---:|---:|---:|---:|
-|0|20257 /24930|.6962|.2969|1.7635|
-|25|99090 /121961|.5850|.2495|1.5967|
-|30|112735 /141486|.5639|.2468|1.5708|
-|50|142596 /175528|.4834|.2062|1.4395|
+|0|20257/24930|.6962|.2969|1.7635|
+|25|99090/121961|.5850|.2495|1.5967|
+|30|112735/141486|.5639|.2468|1.5708|
+|50|142596/175528|.4834|.2062|1.4395|
 
-The bounded column assumes e=.0002 slope, db=.1mm,dD=.2mm; these are sensitivity
-allocations, **not measured calibration**. At256²,z0 the ideal first-cap
-intersection is1.1875mm wide and bounded2.6542mm. All accepted zero-bias intervals
-contain truth. A common+.0002 camera-ray bias leaves identical intensities but
-makes every cap's unbudgeted intersection exclude truth at all four heights;
-at z0,2719/20257 individual accepted intervals also exclude truth. Including the
-bounds restores containment. This demonstrates systematic sensitivity, not an
-estimate of real camera drift. More pixels cannot independently average it away.
+At256²,z0 first-cap widths1.1875/2.6542mm. All zero-bias intervals contain truth.
+Common+.0002 camera-ray bias leaves intensities identical but makes all16
+unbudgeted cap intersections miss truth; at z0,2719/20257 accepted individual
+intervals also miss. Including bounds restores containment. More pixels cannot
+independently average away systematic error; .5-mm bins are not .5-mm accuracy.
 
-Retain the coarse diagonal geometry conditionally. The finite pixel control
-survives, but .5-mm projector bins are not .5-mm verified terrain accuracy.
-No resident additions or reduced timing/cost are credited: the24-frame and
-whole-machine ledger above remains. Next evidence must earn calibrated optics,
-material images and height-independent cap segmentation, or construct a shared
-reference scheme that identifies camera/projector drift without knowing cap
-height. Do not repeat baseline, resolution or threshold sweeps. E-281 remains
-the sole optional unperformed print; no new print or purchase.
+## Whole-machine ledger and decision
+
+Retain coarse diagonal geometry conditionally. No resident parts, marks, joins or
+support releases added;1024/4096/6400 threaded pairs retain manufacture, support,
+powered speed, assembly and repair obligations. One projector/camera, mounts and
+calibration remain unpriced;90mm separation is an envelope allocation, not a
+packaged head. Compare~$500 bought hardware,~$1000 finished value and$1000–1500
+demonstrator without claiming a complete BOM or purchase authority.
+
+Retain24 frames at assumed.1s/frame/four caps:2.4/9.6/19.2s for1/4/8 groups and
+614.4/2457.6/3840s dense1024/4096/6400 scans, **before** travel, settling, writing,
+retry and proof against~30s play. Recentring each cap would multiply acquisition4×.
+Neither fewer bits nor qualified four-cap readout follows from ray clearance.
+Initial neutral and40/50mm mechanical travel costs remain; dense timing is a
+separate diagnostic. No new print; E-281 remains optional and unperformed.
+
+## Shared-reference identification and transported datum
+
+Run `python3 tools/curated-experiment-checks/E-293-reference.py` (NumPy).
+**Algebraic identification and bounded endpoint scenarios, not image calibration.**
+Model the rectified disparity as `d(z)=b/(D-z)+a`, adding one common angular
+offset a to the earlier baseline b and height origin D. Grant known reference
+heights, correspondence and scalar disparity measurements. This omits spatial
+distortion, tilt, reflectance, blur and segmentation; it cannot qualify the full
+projector/camera system. Multiple lateral points on one plane could supply other
+calibration information in a richer model; the rank result below concerns only
+these depth-disparity observations.
+
+For three fixed depths 0,h,2h with h=25mm, the exact inverse is
+
+```
+R = (d2-d1)/(d1-d0)
+D = 2h*R/(R-1)
+b = (d1-d0)*D*(D-h)/h
+a = d0-b/D
+z = D-b/(d-a)
+```
+
+At D300/b90/a.0002 this recovers all three parameters and1001 held-out heights
+over0–50mm to numerical precision. Independent derivative-matrix ranks are1/2/3
+for one/two/three distinct reference depths. A coplanar zero reference cannot
+distinguish D300/b90 from D301/b90.3: both match exactly but the latter infers
+50.1667mm for a true50-mm target. More repeats of that same observation do not
+identify the missing parameters.
+
+Assume ±.00015 slope error for each reference, **not a measured camera bound or
+an inference from E-293 pixel count**. Across all eight error-sign corners, fitted
+D ranges272.75–333.99mm and b72.90–113.82mm; each fit exactly matches its three
+noisy reference readings. Nevertheless maximum height error on the1001 exact
+target readings is only.1653mm, rising to.3074mm when target readings also receive
+either sign of the same error. These are finite scenario results, not certified
+envelopes over every error combination, hardware accuracy or permission to
+extrapolate outside the reference range. They show useful interpolation can
+coexist with poorly determined physical parameters. Do not use an excellent
+three-point residual as evidence that the head geometry is calibrated, or use
+these unconstrained fits as an earned replacement for the earlier nuisance bounds.
+
+**Reference attachment changes what is observable.** Rigidly raise the head and
+all head-mounted references by.5mm: every reference disparity is exactly unchanged,
+while a stationary terrain cap is inferred.5mm too low. The numerical check holds
+over the entire0–50mm target range. Such references can track internal optical
+change, but cannot prove head-to-board pose. Conversely, a board-fixed staircase
+at known0/25/50mm supplies that datum only where it is observed. A common.2-mm
+error in its stated heights transfers exactly into a.2-mm terrain error in this
+model; hundreds of reference pixels do not remove a common datum error.
+
+A concrete comparison is one rigid three-level target at a board-edge parking
+station versus the same target riding with the head. Both add three reference
+faces, a carrier and registration/metrology obligations, rather than per-column
+marks or mechanisms. The parked target requires travel and stable pose transfer
+back to the active region; the moving target retains the unobservable board datum.
+Neither has a constructed clear optical path, measured geometry, deployment
+repeatability or priced mount. The existing .2-wide angular field spans only
+50–60mm over this depth range, so do not assume it observes edge references while
+servicing the whole~400-mm board. Adding more stations or a board-pose instrument
+would require an explicit count, visibility and calibration construction.
+
+One extra24-frame reference acquisition costs an assumed2.4s **before** station
+travel/settling. Recalibration at every four-cap group would add614.4/2457.6/3840s
+to dense1024/4096/6400 readback, doubling acquisition alone. For1/4/8 local groups,
+it adds2.4/9.6/19.2s; sharing one scan per update costs2.4s but assumes pose remains
+valid through every move. No such stability or frame rate is earned. Mechanical
+actuation, neutral preparation and40/50mm travel costs remain; the~30s play and
+~$500/$1000/$1000–1500 cost comparators above are unchanged, with reference hardware
+and metrology still unpriced. No new resident parts, print or purchase.
+
+Retain depth-separated references as a conditional interpolation control;
+park head-mounted-only references as proof of absolute board height. Next useful
+evidence is an independently observable board datum through actual head movement
+or calibrated material images, including reference visibility and cap identity.
+Do not extend scalar parameter/noise sweeps into an optics qualification claim.

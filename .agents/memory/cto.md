@@ -401,6 +401,15 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   segmentation/physical accuracy. No resolution/threshold sweep. Next earn
   calibrated images or shared reference identification independent of cap height;
   no new print or purchase.
+  E-293 reference extension identifies d=b/(D-z)+a with three known depths;
+  one/two depths have rank1/2. Eight ±.00015 slope endpoint cases fit D272.75–333.99
+  yet interpolate1001 heights within.1653mm (.3074 with target perturbation).
+  Scenarios,not certified bounds/images. A .5mm head+reference translation is
+  invisible to riding references and shifts terrain estimates .5mm; common .2mm
+  board-reference datum error also transfers. Retain three-depth interpolation
+  control,park riding-reference-only absolute readback. Edge station needs actual
+  visibility and pose transfer;24 extra frames add2.4s/visit before motion.
+  Next earn board datum through head moves or calibrated images,not scalar sweeps.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
