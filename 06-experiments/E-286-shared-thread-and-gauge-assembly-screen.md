@@ -86,13 +86,12 @@ controls:10.3-mm bodies do not fit6.35/5.08-mm pitch.
 |N20|10|29.87|11.55|
 |N30|6.67|22.76|10.54|
 
-Speeds/overhead are assumptions, not E-276 route replay. Scale4/6.25 for4096/6400; fit/concurrency unqualified. Direct neutral descent avoids minimum-then-rise
-but does not test full stroke. Do not add old minimum-to-neutral time on top.
-Fully attending120rpm minimum startup leaves1.56h saving at1024 before extras,
-conservatively charging all startup without prior commissioning credit. Separate
-$200–600 station disappears only if existing writer/inspection can do its job.
-Printing is unchanged: integral-U/closed completed-pair repetitions676.31/794.07h
-at1024, not X1C forecasts. Retain this simpler assembly control, not fixture CAD.
+Speeds/overhead/routing/concurrency are assumptions; scale4/6.25 for4096/6400.
+Direct descent to neutral avoids minimum-then-rise, not full-stroke testing.
+Fully attended120rpm minimum startup leaves1.56h/1024 saving before cradle/setup,
+inspection/rejects. Existing writer removes$200–600 station only if it can inspect.
+Integral-U/closed completed-pair print repetitions stay676.31/794.07h at1024,
+not X1C forecasts. Retain assembly control; no fixture CAD.
 
 ## Separate bottom thrust from the opening row keeper
 
