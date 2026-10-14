@@ -1,6 +1,6 @@
 ---
 status: complete
-builds-on: [E-282, E-278, E-276]
+builds-on: [E-282, E-278, E-276, E-262, E-277]
 ---
 
 # Closed-stock bodies with retained printed screws
@@ -14,7 +14,7 @@ Sources checked2026-10-14:
 - [Sinclair & Rush](https://www.sinclair-rush.co.uk/categories/tubes-bars-rods/plastic-box-section-square-tubes/?id=80986) offers RPVC extrusion and bulk cut lengths,but its smallest displayed **exterior** is13 mm;10 mm is internal. It cannot fit12.7-mm pitch. The cutting service does not establish a suitable product.
 - [KIPP K0493](https://www.kippcom.nl/en/products/OPERATING-PARTS/Tube-connectors-profile-connectors/Round-tubes-and-square-tubes/Round-and-square-tubes-/p/agid.2022) explicitly identifies10×10-mm aluminium as **solid bar**,despite the “square tubes” family title. It cannot supply the screw cavity;do not transfer family tolerances to a nonexistent hollow10-mm item.
 
-The old€727.65 ASA/£1568.49 aluminium examples are not general stock price floors. No supplier contact or purchase.
+The older sampled stock prices were not general floors. No supplier contact or purchase.
 
 ### Changed construction and load
 
@@ -22,9 +22,13 @@ Use10/8-mm tube cut124 mm,retaining136-mm assembled height,10-mm nut/2-mm cap en
 
 Per cell:tube,cap,nut,screw;two joins,one threaded pair,two guide interfaces,two screw journals,thrust/keeper contacts and socket. A32-cell row has128 parts/64 joins;8×8 region256/128;board4096/2048. Four shared spindles remain. Compared with E-278 there is no separate metal nut insertion or.7-mm lead;compared with the open printed channel,the cap adds one join. No new resident latch.
 
-Calculated area36 mm² and **assumed** density2.7 g/cm³ give12.05 g/body,12.34 kg/1024 and.118 N self-weight/column before ends,miniature or screw. Self-weight uses59% of an illustrative.2-N total axial case;if.2 N instead denotes payload,the sum is at least.318 N. Recompute drive/holding against total mass before reusing old torque cases. Transport mass is secondary,but self-weight is mechanically relevant. Packaged shipping weight is not a measured bare-tube density.
+Area36 mm² and assumed2.7 g/cm³ give12.05 g/tube,12.34 kg/1024 and.118 N each
+before ends/payload. This consumes59% of a.2-N **total** load; if.2 N means payload,
+load is at least.318 N. See the mass/support extension below.
 
-E-278 already provides the10-mm guide control:62.0% top coverage,.759-mm sufficient neighbor gap at assumed.5-mm clearance/±.1-mm width/±.1-mm guide-center bounds;±.3-mm width loses fit. None is a measured stock tolerance. Lot-correlated size,bow,twist and cut burrs remain unknown;do not start another guide-margin sweep.
+Inherited E-278 guide calculation:62% coverage,.759-mm sufficient gap at
+assumed.5-mm clearance/±.1-mm width/±.1-mm guide-center bounds;±.3-mm width loses
+fit. Size,bow,twist,burrs and lot correlation are unmeasured;no guide-fit sweep.
 
 ### Batch ledger and decision
 
@@ -41,8 +45,6 @@ Labor assumptions:60–180 s/group loading/clamping,5–15 s/stroke,four10–30-
 Removing channels eliminates384.66 comparison print-hours;retained nut/bare-shank allowance209.64 h is **accounting only**,since changed ends need new slices. Caps,finished screw ends,frame,scrap remain additional. At assumed1.0–1.3 USD/EUR,stock adds$256.36–333.27. E-276 four-output hardware plus a separate$100–500 cutting/fixture allocation gives partial bought$1154.04–2601.50 before freight,tax reconciliation,end materials,joining and inspection. No quote,exchange-rate forecast,$1500 demonstrator pass or~$1000 finished-price claim;the~$500 reference remains unmet by this allocation.
 
 Lead3 preserves only the *kinematic* S40/S50 comparison:local26.84/31.07 s,scene~201/223 s,paid neutral271/332 s,dense392/452 s at assumed850 rpm. Manufacture earns no loaded speed,holding,power-loss arrest,readback or~30-s gameplay qualification. Coarse pitch/62% coverage remain unapproved play choices;unchanged neighbors retain their resident pairs but isolation is unqualified.
-
-**Decision:** reopen body-cost comparison,not E-278's fine-lead pair or individual plug/fit CAD. Next useful independent construction:shared end joining with explicit seating/load path,cycle,fixture occupancy and repair route that reduces repeated handling. Cheap stock and fewer saw strokes alone are insufficient. E-281 stays optional/unprinted. Finite cut replay,gang coverage,material conservation,replication,yield sensitivity and invariant end-join checks passed;not hardware proof.
 
 ### Shared end-assembly screen
 
@@ -72,13 +74,9 @@ memory and replace neither the thread nor the drive:
   Shared press force sums simultaneous sites and cannot be inferred from the
   small miniature load. No press selection or purchase is justified.
 
-Both preserve four resident parts, two joins and independent resident support.
-A bonded or staked tube/nut unit is replaceable **as one cell**, not promised
-reusable: accessing the failed unit requires the still-unconstructed openable
-bed/guides and removal of its screw. Neighbor support cannot depend on removing
-an entire loaded row. Destructive release can scrap tube and ends; thread failure
-is not fixed by resetting software. E-281's short loose pairs cannot qualify
-these joints.
+A failed bonded/staked body is replaceable as one cell, not necessarily reusable.
+Destructive release may scrap tube and ends. An openable bed/guide must permit
+removal without releasing loaded neighbors; that access is unconstructed.
 
 Explicit manual work: deburr twice; load tube,cap,nut; seat; unload; gauge = eight
 per-body touches. Adhesive adds two doses. Staking adds two shared press/reorient
@@ -94,34 +92,20 @@ E-276 installation stay charged; joining fixture setup adds2–4 hours.
 |4096|81.81–230.89|71.86–201.02|40960|32768|
 |6400|119.56–341.56|104.00–294.89|64000|51200|
 
-Only1024 at12.7-mm pitch is geometrically contemplated; the larger counts remain
-replication diagnostics,not fits at6.35/5.08mm. At1024,one16-seat adhesive carrier
-occupies206.22–234.67 hours for this joining sequence. Sixteen carriers/256 seats
-reduce that to17.22–45.67 hours,including the final three-hour dwell,**without
-changing14.22–42.67 hands-on joining hours**. That is extra carrier inventory and
-space,not free automation. Charging unload time before dwell conservatively
-withholds carrier reuse. These are uninterrupted station schedules,not a calendar
-promise; retained printing and other production stages are not overlapped here.
+Only1024/12.7mm is contemplated; larger counts are replication diagnostics.
+At1024,one16-seat adhesive carrier occupies206.22–234.67 h;16 carriers/256 seats
+reduce elapsed joining to17.22–45.67 h including final3-h cure, but retain
+14.22–42.67 hands-on hours. Inventory/space are additional. Charging unload time
+before dwell conservatively delays reuse. These uninterrupted station schedules
+do not overlap retained printing or promise calendar delivery.
 
-The optimistic adhesive total leaves only0.52 hour against an illustrative32-hour
-maker weekend; the stake case leaves3.01 hours before exclusions. The upper bounds
-exceed it substantially. The earlier26.63–70.76-hour coarse estimate used four
-aggregate10–30-second body operations; this explicit sequence is a changed
-process assumption,not evidence that workers actually got slower. Tooling money
-is not newly quoted: the previous$1154–2602 partial bought allocation excludes
-these extra cure carriers/press/dies/consumables. No~$500 or$1000 finished-price
-pass; a$1000–1500 research allowance does not authorize purchasing.
-
-**Decision:** shared seating/cure management alone does not establish low-touch
-assembly; park individual bonded/staked plug refinement. Staking trades2.49–7.47
-maker hours at1024 for thousands of unqualified deformation sites. Reopen through
-actual multi-part feeding/seating/gauging evidence, a supplied assembled body/end
-route, or a construction that eliminates an end joint. Do not presume a faster
-adhesive cures the handling problem. Retained lead3/S40–50/N30 and assumed850-rpm
-local26.84–31.07s,scene201–223s,neutral271–332s,dense392–452s remain unchanged;
-no~30-second gameplay,loaded speed,retention or isolation qualification follows.
-No new owner print. Checks cover partial batches,serial closed-form limits,
-unlimited-carrier limit,monotonic carrier benefit,and invariant manual work.
+The explicit-touch ledger supersedes the earlier four-aggregate-operation labor
+estimate. Shared cure management does not remove handling. Park individual plug
+and stake details: staking saves2.49–7.47 maker hours at1024 but adds8192 unqualified
+deformation sites. Extra cure carriers, press/dies and consumables are unpriced.
+Reopen through multi-part feeding/seating/gauging, supplied assembly or elimination
+of an end joint. Checks cover partial batches, serial and unlimited-carrier limits,
+monotonic carrier benefit and invariant manual work.
 
 ### Automation investment ceiling
 
@@ -149,22 +133,76 @@ bound on other production routes. The pessimistic inherited base alone is 40.62 
 at 1024, so joining-only automation cannot make that case fit 32 h. Even the
 optimistic 17.25-h base exceeds a 16-h build before residual work.
 
-At 1024 and full usability, 8 h extra setup consumes 28.125 s/body of the handling
-budget. With 80% usability, 1280 attempts and 256 rejected assemblies are charged;
-reject diagnosis/disposal alone adds 4.27 h. The 80% is a deterministic lot-wide
-scenario, not independent failure probability or measured yield. Remake work is
-included in attempted-body handling; correlated bad lots could require additional
-setup, requalification and scrap. Full proof testing, commissioning, adhesive
-mixing and unlisted tooling remain unpaid, so these allowances are optimistic.
-Cure/machine occupancy and retained printing remain separate elapsed-time costs.
+At1024/full usability,8 h setup costs28.125 s/body. At80% usability,1280 attempts
+include256 rejects costing4.27 h in diagnosis/disposal. This is a deterministic
+lot scenario, not measured independent yield. Bad lots may also need repeated
+setup/qualification. Proof, commissioning, adhesive preparation and unlisted
+tooling remain unpaid; cure occupancy and printing remain separate elapsed costs.
 
-**Decision:** reject the inference that a shared press or faster cure establishes
-a weekend assembly route. Before feeder CAD, require a concrete transfer method
-that reduces deburring/component feed/gauge work as well as seating, or a supplied
-assembled-body route. The 20-s/3.1-s allowances give that construction a falsifiable
-target; they do not demonstrate it. Do not spend 8 h on a feeder justified only by
-an unmeasured best-case cycle. No change to the two joints, load paths, prior
-partial $1154–2602 bought allocation, ~$500 comparison, conditional gameplay waits,
-or optional E-281 print. Checks reconstruct the target total independently,
-recover the earlier manual ledger, and verify setup cost, partial batches and
-yield sensitivity. No physical result or purchase.
+**Decision:** a shared press or faster cure is not an established weekend route.
+Before feeder CAD, require concrete transfer of deburring/component feed/gauge
+work or supplied assembly. The20-s/3.1-s allowances are falsifiable targets, not
+proven cycles. Checks independently reconstruct target totals, recover the manual
+ledger and verify setup, partial batches and yield sensitivity.
+
+### Stock mass versus screw support
+
+**Retain the stock route conditionally; do not transfer its 850-rpm schedule into
+an operating claim.** `OPENBLAS_NUM_THREADS=1 python3
+tools/curated-experiment-checks/E-283/load_screen.py` applies E-262's existing
+linear beam model to the changed moving body. This is a calculated sensitivity,
+not calibrated contact dynamics, measured material properties or a motor rating.
+No new bearing, thread, owner print or purchase is selected.
+
+Tube mass12.05 g plus **assumed2-g ends/joining** gives14.05 g. The printed
+E-277 control is5.18 g:124×23.44 mm² channel,2-mm integral cap and solid10.3²×10-mm
+nut envelope at assumed1.24 g/cm³. Nut bore is not deducted; joining is excluded.
+These are calculated comparators, not weighed parts or identical sections.
+With **.2-N payload**, total gravity is.251/.338 N and moving mass25.57/34.44 g
+(printed/metal). Payload is illustrative, not surveyed miniature loading.
+Screw mass remains separate. Both use64-mm thread,S50/N30.
+
+Reuse root1.4/OD3.2 mm,E1000 MPa, screw density1400 kg/m³ and51 nut positions over
+S50. Nut load/support acts at its midpoint7–57 mm, leaving the full overhang.
+Base translation is fixed; spring cases use10 Nmm/rad base slope stiffness.
+The table gives **minimum0.8×linear natural frequency expressed as rpm**:
+
+|Nut support, .2-N payload|Printed body|Aluminium body|
+|---|---:|---:|
+|Ideal point restraint, simple base|991|991|
+|.1 N/mm spring, zero lateral body lump|630|620|
+|.1 N/mm spring, full translating mass lump|463|395|
+|1 N/mm spring, full translating mass lump|832|815|
+|No nut restraint, fixed base|static instability|static instability|
+
+Zero/full lateral mass at the nut are allocation scenarios, not bounds on real
+long-column dynamics; distributed rotation, unilateral contacts and frame modes
+are omitted. Soft/full-lump minima occur18/20 mm into travel. Ideal support
+suppresses lump translation and leaves the screw overhang dominant. Without
+payload/nut restraint, minima are686/167 rpm; metal's small static margin is not
+qualification. The OD-cylinder screw is.721 g (.0071 N), whose distributed gravity
+is omitted from geometric stiffness; defects/creep also remain absent.
+
+E-277's helix-corrected thread-only force triangle gives raising torque at
+assumedμ=.3 and .2-N payload of **.240/.323 Nmm** (30° included profile) or
+**.286/.385 Nmm** (90°), printed/aluminium respectively:34.7% more for metal.
+An added.1-N upward guide-drag scenario is included in the executable output;
+collar drag, preload, acceleration and motor torque-speed capability are not.
+The friction-only holding thresholds stayμ=.403/.305 for30°/90° because load
+cancels in this model. More weight raises torque magnitude, not that threshold;
+negative calculated lowering torque atμ=.3 means this ideal thread would need
+braking. It neither refutes Sander's observed holding pair nor qualifies this
+changed pair. Friction, support and moving power-loss arrest remain unmeasured.
+
+**Decision:** mass alone does not reject stock, but its savings do not close
+support or feeding. Before further tooling include total load and guide-to-screw
+coupling; do not add resident bearings or tune fits from assumed spring values.
+The earlier parts/cost ledger and conditional gameplay schedules remain unchanged;
+no replacement rated speed, ~30-s gameplay pass or physical isolation follows.
+No new print or purchase; E-281 remains optional/unperformed.
+
+Checks recover E-277's torque anchor and independent force-triangle form, force
+scaling and holding sign, stock mass conservation, Euler SI/N-mm equivalence,
+nonincreasing frequency with added load/mass, and40→80-element changes below
+1.75×10⁻⁶ in three checked loaded soft-support positions. Numerical convergence
+is much smaller than the uncalibrated model uncertainty. Self-review only.

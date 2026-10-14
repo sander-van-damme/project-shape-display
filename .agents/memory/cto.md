@@ -168,6 +168,16 @@ staking adds8192 unqualified deformation sites. Seats carry compression,capture
 still owes descent/torque;repair may scrap a complete single-cell body. Park local
 plug/stake details. Reopen through multi-part feed/seat/gauge,assembled supply,or
 eliminating an end joint;extra carriers/press and process prep remain unpriced.
+E-283 automation ceiling charges setup/reject work:optimistic32h/1024 leaves20s
+per attempted body after8h extra automation setup;80% usable plus60s/reject leaves
+3.1s. Not a demonstrated feeder. Stock-load extension includes tube+2g ends:
+14.05g versus printed-channel solid-nut-envelope5.18g. With.2N payload,gravity
+.338/.251N;E-262 soft-support/full-lump speed screens395/463rpm,ideal nut991/both.
+These are assumed mass-coupling scenarios,not ratings;no-nut case fails statically.
+Torque rises34.7%;holding-mu threshold does not change with load. No new bearing,
+fit refinement or print selected. Stock savings do not close support or feeding.
+Next useful work must change the whole-pair manufacture/assembly construction or
+supply actual process/support evidence;do not repeat cycle/spring sweeps.
 
 ## Actuation, observation and scale boundaries
 
