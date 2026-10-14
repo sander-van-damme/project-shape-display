@@ -1,0 +1,88 @@
+DES-007 reproducibility and evidence — 2026-10-14
+
+All new evidence is analytical, ideal replay, nominal CAD or slicer output.
+No new physical measurement, printer operation or hardware qualification.
+
+Prerequisites
+- Python 3 with analysis/requirements.txt (recorded exact versions).
+- OpenSCAD 2021.01.
+- BOSL2 commit 136e6367e65d52196a3ea51d03156f8b622c60fc,
+  https://github.com/BelfrySCAD/BOSL2 (directory must be named BOSL2).
+- PrusaSlicer 2.7.2+linux-x64-GTK3 for comparison only. Never send its generic
+  generated G-code to the X1C; use actual printer/material profiles for printing.
+- Run in the Shape Display repository, with existing E-254/255/257/258 source.
+  The system model dynamically imports E-258; its own historical imports must
+  remain available. No historical experiment was modified.
+
+Reproduction (shell; use a scratch directory OUT outside the repository)
+  D=08-integrated-designs/DES-007-radial-pinch-belt-row-head
+  OUT=../work/des007-reproduction
+  mkdir -p "$OUT"
+  python -m pip install -r "$D/analysis/requirements.txt"
+  git clone https://github.com/BelfrySCAD/BOSL2 ../work/BOSL2
+  git -C ../work/BOSL2 checkout 136e6367e65d52196a3ea51d03156f8b622c60fc
+  python "$D/analysis/system.py" --check
+  python "$D/analysis/system.py" --output "$OUT/system.json"
+  python "$D/analysis/improvements.py" > "$OUT/improvements.json"
+  python "$D/analysis/build.py" --bosl2 ../work/BOSL2 --output "$OUT/build"
+  python "$D/analysis/check_geometry.py" --bosl2 ../work/BOSL2 --build "$OUT/build"
+  python "$D/analysis/drawings.py" --output "$OUT/drawings" --system "$OUT/system.json"
+  python "$D/analysis/render.py" --build "$OUT/build" --output "$OUT/drawings"
+  prusa-slicer --load "$D/analysis/comparison-pla.ini" --export-gcode --output "$OUT/pla.gcode" "$OUT/build/rig-pla-plate.stl"
+  prusa-slicer --load "$D/analysis/comparison-tpu.ini" --export-gcode --output "$OUT/tpu.gcode" "$OUT/build/flexible-plate.stl"
+  python "$D/analysis/inspect_slice.py" --pla "$OUT/pla.gcode" --tpu "$OUT/tpu.gcode" --output "$OUT/drawings"
+  ./repo check
+
+Numerical evidence
+- 625 exhaustive four-output signed commands from {-6,-3,0,3,6} replay to their
+  targets in the ideal stopped-mask model; unchanged channels remain unchanged.
+  Timing symmetry/zero/acceleration/rewind anchors and contact bounds checked.
+- CAD: 1,540 structure pairs and 200 screw/pin positions (25 per output) with
+  zero positive-volume intersection. Correct helical phase is essential:
+  the deliberately wrong-phase witness intersects by 15.528512 mm^3.
+- All 16 ideal taut-strip masks retain nominal 0.30 mm OFF clearance.
+  This is not a flexible-strip dynamics simulation or measured tolerance.
+- Offset-link/pressure-tip envelope checked at both selector endpoints and
+  13 withdrawal heights through 12 mm, against adjacent rows/columns and both
+  wheel tiers: zero intersection. A straight-stem negative control intersects
+  by 7.002172 mm^3. The withdrawal check is sampled, not a continuous sweep proof.
+- Frame, spacer, separator, head, cover and carrier geometry included. Bolts,
+  adhesive fillets, elastic deformation, roughness and printed variation are
+  not solid-tolerance-stack qualifications. Collars/keeper deliberately have
+  0.2 mm float; journals 0.1 mm radial and guides 0.15 mm side clearance.
+- STL export removes degenerate facets, merges vertices and normalizes winding;
+  no hole filling. All supplied part meshes watertight, positive volume.
+  PLA plate 215 x 162.450001 x 50 mm, 76 disconnected objects,
+  solid CAD volume 41405.824518 mm^3. TPU 180 x 3 x 0.2 mm, 108 mm^3.
+
+Slicer evidence
+- Generic PLA comparison: 16472.32 mm filament, 39.62 cm^3, 49.13 g,
+  10h47m59s. Includes brim and support; not X1C elapsed time.
+- TPU comparison: 58.92 mm filament, 0.14 cm^3, 0.17 g, 1m16s;
+  one 0.2 mm layer. Heating, calibration/purge and actual handling additional.
+- 819293 positive-XY PLA extrusion segments parsed. Support midpoints within
+  the specified screw-thread cylinders: zero. This limited spatial test does
+  not prove all support can be removed or exclude nozzle/scarring risks.
+- Actual layer plots at Z0.2,22.1,24.05,30.05 inspected. Screw bases have brims;
+  sacrificial posts brace collars below the final 20 mm threaded cantilevers.
+  Cleanup must avoid thread, journal and thrust-seat surfaces. The threaded
+  upright geometry remains a real physical print risk, not a qualified yield.
+- Initial TPU profile failed validation at 100% nonrectilinear infill; corrected
+  to rectilinear and rerun successfully. No failed profile is handed off.
+
+Repository checks
+- DES-007 kept below the repository's 15360-byte atomic-document limit.
+- Existing oversized objects E-266,E-283,E-286,E-288,E-293 cause ./repo check
+  to fail on the starting repository too. They are historical evidence and
+  were not rewritten to make this change's check green.
+
+Physical gate and current blocker
+The strip, frictional retention and bonded link need the optional P2 hand test.
+This short rig cannot qualify full-length columns, powered speed, automatic
+selectors, long drive-tape life, affordable production or D&D wall geometry.
+No full-display architecture is declared compliant. See the design's explicit
+verification matrix and cost/performance failures before any scale-up.
+
+Delivered STL SHA-256 (binary files, no printer G-code):
+6dfbc28e13ad8970a3605545e4105f25ca9f974db40006c843e1271143f472b4  flexible-strip.stl
+f4beea1e93726b3f10ab3f9a777f5076ea17a6bdc045cfc2a51d2847604fe6c9  rig-pla-plate.stl
