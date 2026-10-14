@@ -224,6 +224,16 @@ thread-and-gauge assembly tool is an independent construction to investigate;
 its feed,torque limit,good/bad discrimination and actual labor must be earned.
 No new owner print; E-281 remains optional.
 
+E-286 constructs a hand-fed shared spindle/float-slide thread-and-gauge station.
+Finished64-mm screw owes62mm/20.67turn insertion,not just initial pickup.
+Actual collar travel rejects stalls and2.7-mm lead faults over16turns under
+labelled bounds,but damaged same-lead flanks can duplicate good traces/torque.
+No qualified safe torque window. Park fixture CAD/feeder claims pending a changed
+fault discriminator or actual-process evidence. At1024 optimistic4h setup and
+10s handling save only1.12maker h versus28s manual; attending dwell loses that.
+At6400 active saving28h still leaves84–186whole maker h under stated exclusions.
+No print/purchase;E-281 remains optional. Source and result are canonical.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies
