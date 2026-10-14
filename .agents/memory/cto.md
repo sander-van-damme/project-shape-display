@@ -313,7 +313,7 @@ E-281 stays optional and unprinted; no new print or purchase.
   earn directional returns or remove that nuisance,not repeat gradient/shape/ray
   sweeps. Hidden caps remain unknown. No actual images/material characterization,
   hardware qualification or new print; E-281 remains optional.
-- E-289 temporal-pattern extension cancels static per-pixel gain/ambient in180
+- E-290 temporal-pattern control cancels static per-pixel gain/ambient in180
   exact direct controls; quantized low gain reaches.495mm error and8 boundary
   unknowns. A20% second-phase path makes25mm read28.3788mm with a perfect sinusoid
   at4/8/16 steps. Cap-specific±1.67% frame gain can alias25/26mm. Assumed four-frame
