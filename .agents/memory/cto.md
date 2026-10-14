@@ -285,6 +285,14 @@ E-281 stays optional and unprinted; no new print or purchase.
   decoder failed under blur; no further pixel-margin sweep or per-pin marks
   without independent contrast evidence. Shared references help only their modeled
   calibration modes. No qualified100-ms optical read, even at coarse pitch.
+- E-288 parks fixed underside contact readback:3N pierced support layers,
+  keeper port touches outer edge; inherited guide bounds give no full-footprint
+  landing interval near minimum. This is an unearned robustness guarantee,not
+  proof every coupled screw misses. Upward probing can take up lash:3g/.05N
+  makes rest30/lash0 indistinguishable from rest29/lash1 before release. Nut
+  position also aliases damaged tops. Four probes add4.02s/group under assumed
+  motion; no force/sensor/speed qualification. Reopen with different access or
+  nondisturbing post-release evidence,not tip/port sweeps. No new print.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
