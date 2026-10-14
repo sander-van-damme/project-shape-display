@@ -19,7 +19,6 @@ spindle with axial float. Source preserves seek/thread/reverse observations,
 load paths and instrument assumptions; oriented feed/reject automation is unbuilt.
 [DEPRAG](https://www.deprag.com/en/screwdriving-technology/deprag-apps/) supports
 instrumentation concepts, not polymer qualification.
-
 Assumed lead3±.06mm/turn,gain±.2%,datum±.15mm,reading±.10mm,lost motion±.30mm
 admit243 good corners/reversals:2/16turn bands5.368–6.633/46.445–49.559mm.
 Datum cancels within segments; final±.7mm covers .15+.10+.124+.30.
@@ -27,7 +26,6 @@ E-256 rough1-mm play does not justify tighter bounds. Stall≤.5mm/turn fails;
 2.7-mm lead passes2turns but fails16. Damaged same-lead flanks duplicate good
 travel/torque. Entry burr/tilt/elastic twist/strip/creep remain unbounded;
 no qualified safe torque window or prevalence.
-
 Manual handling/thread/gauge allocations give18/28/43s; station10s active+19.33s
 at120rpm,4–12h setup. Source retains whole-machine overhead and yield scenarios.
 At4h setup/all usable, whole maker manual-mid/station-active:25.26–49.39/
@@ -49,7 +47,6 @@ Safe force window requires strongest_bad+error < command < weakest_good_nondamag
 bad.40/good.35 gives none. Owner's near1kg observation supplies neither bound.
 Identical immediate response can conceal fatigue/creep. Endpoint nuts atZ2…12/
 52…62 miss damage near30mm; loaded traversal still cannot prove endurance.
-
 Two-position S50 proof adds33.33turns/16.67s at120rpm+24s dwell+2s active review.
 At1024/6400:11.57/72.30h dwell,.57/3.56h active;80% usable14.46/90.37h and
 .71/4.44h. Optimistic1024 saving drops1.12→.55h before fixture/setup/damage.
@@ -64,7 +61,6 @@ ordered/open assembly remains owed. Unpriced cradle must be removed safely.
 Writer descends from S50 to minimum/N20/N30; jams/unreadable heights stop motion.
 Motor counts are not height proof; undocking requires passive holding. Startup
 never authorizes shared keeper opening or neighbor homing during play.
-
 Split15s manual threading into5s pickup +10s rotation for20.67 turns. Four-turn
 starting costs6.94s, saving8.06s/pair. At1024:2.29h theoretical saving and whole
 maker22.97–47.09h before cradle/setup, extra inspection, rejects and attendance.
@@ -93,18 +89,15 @@ diameter), leaving an annular thrust face. Load: nut→screw→driver end→plat
 Socket burrs, flatness, wear, sag and friction remain repeated obligations.
 Two locked row half-rails surround2.8-mm journals at Z−4…0 with3.2-mm bores; their
 underside captures the collar upward. Axial clearance/preload is unqualified.
-
 At12.7-mm pitch, assumed4.5-mm rail half-width and2.4-mm outward travel leave1.3mm
 to the neighboring closed rail. Opening exceeds2.2-mm collar radius plus.1-mm
 radial envelope. Collar fits10.8-mm guide, not3.2-mm keeper. Locks/frame, straightness/yaw and
 upper-bearing extraction remain unproven.
-
 With writer disabled and target secured, open rails, replace pair, close/verify
 before enabling. Broken screws may need below-board retrieval.31/79 neighbors
 lose radial/upward restraint; thread/column guides are unproven substitutes.
 Temporary keeper must engage first where required, but no contacts are constructed.
 Plate settlement shifts height one-for-one; power-off does not remove handling load.
-
 Tool AF±.05mm, aperture/driver diameter±.10mm and eccentricity0… .10mm give16
 assumed corners: minimum radial tool clearance.0664mm, annular width.600mm and
 conservative ring area6.974mm². Not process tolerances, socket strength or rotating
@@ -112,7 +105,6 @@ contact proof. Uniform-pressure mean friction radius1.8296mm gives drag.0366…
 .1464Nmm at.2N, assumed μ=.1… .4; at.338N,.0618… .2474Nmm. Rebuild torque before
 claiming speed; avoid double-counting an existing thrust allowance. Numerical
 annular quadrature agrees with the identity within3e-10mm; not friction validation.
-
 At1024/6400:2048/12800 bodies+screws,64/160 half-rails,1024/6400 annuli,
 2048/12800 half-journals,128/320 allocated locks. Fine-pitch counts are not fit.
 Manufacture is unqualified;400mm exceeds X1C bed. Rail placement/lock10–30s adds
@@ -124,11 +116,9 @@ Manufacture is unqualified;400mm exceeds X1C bed. Rail placement/lock10–30s ad
 2.8-mm plate downward: favorable±.1-mm diameter bounds leave1.0/1.4-mm interference.
 Enlarging the keeper removes capture; removing only the column leaves the screw
 trapped. Cutting it owes debris/tool access, not intact replacement.
-
 An optimistic4.6-mm row-traversing window admits one collar even at5.08-mm pitch,
 but releases restraint at every crossed center: worst15/39 neighbors from nearer
 end of32/80-site rows,31/79 from one end. This grants perfect restraint elsewhere and ignores moving-plate collisions.
-
 Repair: disable writer; clear/secure target; engage/prove neighbor bypass;
 open keeper; replace; close/prove permanent restraints before releasing bypass;
 verify target. Eight common+12 keeper actions; each neighbor adds4 bypass/proof/
@@ -157,14 +147,12 @@ torque, internal shoulder transmits gravity, axial fastener resists upward loads
 Access fastener through bottom aperture while independently counter-holding driver.
 Wall/key/tail strength, access, anti-loosening and joint manufacture are unknown;
 a simple threaded coupling is not credited for reversing drive.
-
 Secure target and counter-hold driver; release retainer, lift body/shank,
 seat/key replacement, secure/prove retention and height. Only the released tail
 crosses keeper. Nominal.20mm radial clearance reaches zero under assumed±.10mm
 diametric errors/.10mm eccentricity; no fit-tuning mandate. Source retains corner
 checks. Access/fragments remain unresolved; screw-only withdrawal from held
 minimum body owes62mm/20.67turns.
-
 Driver remains trapped by3.2/2.8-mm apertures; socket/thrust/keeper faults remain.
 Body/shank coverage is two fault classes, not a reliability fraction; joint adds
 jam/strip modes. Body+shank+driver+retainer doubles pieces to4096/25600 at1024/6400.
@@ -175,7 +163,6 @@ At1024 installed-run-in22.97h becomes27.24–35.77h before tooling/rejects/exclu
 32h leaves9.03h for all additions. Cost=N×delivered driver/retainer/joint+tools,
 unquoted. Integral-screw slices do not qualify split fabrication; molding/machining
 change cost/yield, not counts. No automated feed credited.
-
 Park local joint CAD pending robust reversible access and whole-process evidence.
 
 ## Offline repair versus detachable shanks
@@ -195,7 +182,6 @@ The following closure comparison adds explicit affected-row work and reset.
 Compare integral pairs with row keepers versus independent cell keepers, not
 split shanks. Normal gameplay regional isolation remains mandatory. Calculations
 below allocate actions/time; no fault rates, closure/fit CAD or hardware proof.
-
 Save absolute heights, address/datum/calibration identity and miniature locations;
 clear all pieces; disable/park writer; secure board upright on bench stand.
 Engage/prove whole-row restraint before opening keeper. Independently support
@@ -205,7 +191,6 @@ The136-mm body owes overhead guide-withdrawal/handling clearance and collar pass
 through every layer. If access requires removing a shared guide, affected cells
 expand to that layer's footprint. Restraint/access construction remains unproven.
 Local closures also owe target/tool clearance, possibly nearby miniature removal.
-
 Each keeper owes12 actions:4 unlock+2 open+2 close+4 lock. Add2 extraction/insertion
 per failed pair; bench adds4 restraint/proof/release actions per affected site.
 Monolithic fixtures earn no free gang proof. Common diagnosis, replacement
@@ -228,7 +213,6 @@ At1024:36.39–132.39 single-fault episodes,55.02–200.20 clustered-eight episo
 Changing5s/action or600s overhead changes the denominator directly. Nonpositive
 numerator means no initial advantage. Correlation changes affected rows; no fault
 frequency/lifetime winner follows. Do not add these savings to split-joint savings.
-
 Saved commands are not actual state. After restraint loss assume affected rows
 unknown; after uncertain transport/guide disturbance assume whole board unknown.
 Stale datum/address identity or unreadable heights stops restoration. Safe homing
