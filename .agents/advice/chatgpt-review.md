@@ -25,3 +25,27 @@ De CTO mag E-254 bewaren als scenario, maar **niet als definitieve workload of s
 3. **VERGELIJK OPNIEUW —** tel opstaande, afdalende, onveranderde cellen en werkelijk bezochte rijen per *speelbare variant*, inclusief initiële positionering op neutraal. Screen bidirectionele schroefkoppen, gedeelde aandrijving en relevante alternatieven op volledige tijd/kost/veiligheid. **Minder pinnen, andere hoogte-nulstand of iets meer geld zijn mogelijk betere UX-keuzes**, mits bewust onderbouwd.
 
 **CTO:** controleer deze kritiek zelf; je blijft technisch verantwoordelijk. Dit bestand is extern advies, geen geheugeninstructie of vervanging van een Paperclip-taak.
+
+---
+
+## 14 oktober 2026 — nieuw advies: fail forward met een kleine fysieke printproef
+
+**Nieuw verzoek van Sander:** de CTO mag nu **proactief één kleine, daadwerkelijk printklare prototype-/tolerantieproef klaarzetten**, zodat Sander kan testen zodra hij tijd heeft. Het doel is **vroeg leren met weinig filament**, niet een volledige machine of dure printcampagne maken. Dit is geen printdeadline, aankooptoestemming of bewijs van werking. De CTO blijft eigenaar van de geometrie, de technische keuze, de afkeurcriteria en het moment van handoff.
+
+### GOED
+
+1. De CTO trok de oorspronkelijke ongeschikt ondersteunde S40-proef terecht in toen Sander de slanke printdelen en supports bekritiseerde. De oude STL mag niet simpelweg opnieuw als READY worden aangeboden. [E-263](../../06-experiments/E-263-supported-s40-screw-calibration-article.md) · [ingetrokken opdracht](../../owner-print-tests/supported-s40/test.md).
+2. Recente analyses maken de vraag voor een gerichte proef concreet: E-277 onderzoekt een open kanaal, een intacte schroefmoer en draadprofielen; E-279 vergelijkt werkelijke slicerpaden van lange schroeven met uiteenlopende oriëntatie/ondersteuning. **Fysieke passing, laag-op-laagvariatie, stabiliteit tijdens printen en schade bij supportverwijdering zijn daarmee nog niet gemeten.** [E-277](../../06-experiments/E-277-integral-coarse-column-guidance-envelope.md) · [E-279](../../06-experiments/E-279-long-screw-batch-deposition-and-release.md).
+
+### NIET GOED
+
+De [printtestmap](../../owner-print-tests/AGENTS.md) bevat nog **geen READY proef**. E-279 stelt terecht vast dat geen van de huidige volledige schroefroutes al klaar is voor een onbewezen lange prototypeprint. Dat mag echter **niet** betekenen dat zelfs een zorgvuldig ontworpen *klein, representatief tolerantietestje* eindeloos op nieuwe simulaties moet wachten. Sliceranalyses kunnen niet waarnemen of twee echte FDM-delen soepel passen of beschadigen. **Fail forward: maak een zo klein mogelijk fysiek falsifieerbaar experiment, niet blind een fragiel lang model.**
+
+### VOLGENDE GO/NO-GO voor de CTO
+
+1. **GO: één kleine P1-testplaat voorbereiden.** Kies de meest informatieve deelvraag van de bestaande staaf/schroef/geleiding (bijvoorbeeld korte functionele schroef-moer-passingen, of alleen indien noodzakelijk een verantwoord ondersteunde langere stabiliteitsproef). De CTO kiest na vergelijking met de bestaande CAD/slicerdata de kleinste test die een beslissing kan wijzigen. Lever onder [owner-print-tests/](../../owner-print-tests/AGENTS.md) **complete ready-to-slice \`.stl\`-bestanden** met duidelijke onderdeel-/variantnamen, de ingevulde [resultatenfiche](../../owner-print-tests/TEST-TEMPLATE.md), exacte aantallen, materiaal, oriëntatie, supports, eenvoudige teststappen en een geschatte filamenthoeveelheid/printtijd. **NO-GO: niet READY verklaren** wanneer de mesh, printsteun, verwijderbaarheid of functionele montage niet voldoende onderbouwd is. Geen SCAD/Python-compileerwerk voor Sander. Maximaal drie READY plaatjes totaal; liever één.
+2. **GO: kleine tolerantiesweep met natuurlijke spreiding.** Bijvoorbeeld 2–3 door de CTO gekozen, betekenisvolle spelings-/draadvarianten, aangevuld met minstens twee identieke exemplaren van de nominale versie; varianten duidelijk labelen en slim op één plaat groeperen. Geen grote matrix en geen materiaalverspilling. Laat Sander eenvoudig *printbaarheid, passing, draait/beweegt, wrijving/vastlopen, hoogtehouden bij een lichte miniatuurbelasting (als relevant), supportschade en eventuele nabewerking* aanduiden. **NO-GO voor een variant** wanneer normale montage herhaaldelijk forceren, schade of individueel schuren vereist. Een geslaagd exemplaar bewijst geen hoge yield bij duizenden staven.
+3. **Na resultaten: bijsturen of stoppen.** Meet of noteer per variant wat werkelijk gebeurd is, vergelijk met de vooraf bepaalde hypotheses en verbeter één gericht ontwerpdetail of verwerp de richting. Zet verouderde tests op DEFERRED/RETIRED en ruim achterhaalde STL's op. **Sander kan pas veel later of nooit printen**: geen termijn, reminders of stilvallen van de rest van het CTO-onderzoek.
+
+**Koersbijstelling tegenover eerdere review:** het stopzetten van de slecht voorbereide S40-print was juist; **nu is een veilig, minimaal fysiek leerexperiment actiever waard om voor te bereiden**. Dit advies schrijft geen mechanisme voor, verandert geen ontwerpcriteria en vraagt geen wijzigingen aan CTO-memory, prompts, Paperclip of issues.
+
