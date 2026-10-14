@@ -216,11 +216,85 @@ A supported miniature can still hide the actual cap even with ideal force sensin
 Neither ramps restricted above the transition nor screw-angle agreement resolves
 these witnesses.
 
-No new scan-time table: E-270 already exceeds the ~30-s reference for its serial
-probe gameplay cases, with separate dense stress, S40/S50 and paid neutral cases.
-Two force levels add settling/acquisition obligations, not free proof or travel.
+E-270 already exceeds the ~30-s reference for its serial probe gameplay cases,
+with separate dense stress, S40/S50 and paid neutral cases. The bounded accounting
+below adds the missing 1024-site and independent four-channel controls; it does
+not rerun those map schedules or grant free force acquisition.
 The 5.08/6.35/12.7-mm comparisons, raised neutral and ~$500 versus premium cost
 references remain open product trades; slower diagnostics may be useful off-table.
 Do not select automatic verification from this correction alone. A bench force-displacement
 measurement with independent released-height observation could calibrate a survivor;
 no new owner print, sensor purchase or fragile stylus CAD is justified by this model.
+
+
+## Top-contact access, faults and scale closure
+
+**Keep top contact as an exposed-cap diagnostic; stop before probe CAD.** The
+source now explicitly checks missed upward/downward moves, damaged tops at an
+unchanged nut and post-undock slip. Under the qualified-linear-law *assumption*,
+these change the direct cap intercept and are detectable, although the cause is
+not identified. Underside nut readback cannot distinguish damaged tops. Neither
+route observes later creep; the stopped-compliance witness above defeats top
+contact even with perfect identity and no sensor error.
+
+A rigid opaque 25.4-mm square base, supported by other cells at z30, has underside
+30 and top32. Central caps at29 versus28 produce identical first contact32 at all
+three pitches. The base covers the entire central cap, so moving the stylus within
+that cap does not resolve it. The source grants perfectly rigid surrounding
+supports and checks base/support overlap; this is an explicit obstruction witness,
+not a miniature-load model or a claim about every base. Recognized obstruction
+must return **unknown**; unrecognized prop contact can falsely pass a command32.
+Higher parking clearance prevents traversal collisions only for obstacles inside
+that assumed height envelope. It cannot reach through a miniature. Clearing and
+replacing miniatures changes loading and interrupts play (E-270); do not grant it
+as routine verification or retry by moving a hidden loaded pin.
+
+For an empty vertical shaft, radius.5 + placement.2 + bow.2 = .9 mm. Nominal
+centered cap widths10.3 at12.7 pitch and4.4 at6.35/5.08 pitch leave landing
+margins4.25/1.30/1.30 mm and nearest-neighbor margins6.65/3.25/1.98 mm. These
+relaxed bounds exclude cap lean/yaw, guide and manufacturing variation, tip
+housing and actual force sensing; they demonstrate a nominal access route, not
+full-travel qualification. The fine grids use E-270's narrower cap control;
+E-277's10.3-mm body is not shrunk silently into those arrays. Shared precision
+could be machined or purchased, but repeated cap finish and integrity remain
+unqualified. No new per-cell holes, marks, sensors or manual finishing is selected.
+
+**Calculated read-only scaling**, not typical gameplay or achieved speed: park
+H60 mm above maximum terrain, search full S40 or S50 downward, retract, acquire
+two force readings at.1 s each and settle after release for.2 s. Retain assumed
+50 mm/s and500 mm/s². Cycle `2*t_move(S+H)+.4` is4.6/5.0 s. This favorable
+allocation does not qualify the force ramp or release; two-force acquisition may
+need more time. Four channels must each independently stop and measure Z/force.
+A rigid four-tip crossbar sees the highest cap; lower unequal states alias in the
+source witness. Four-channel timing grants perfect grouping and excludes XY
+routing, initial deployment, writer undocking, reference checks and retries.
+
+|Cells / pitch, mm|Single-channel S40 / S50, s|Four-channel S40 / S50, s|
+|---|---:|---:|
+|1024 /12.7|4710.4 /5120|1177.6 /1280|
+|4096 /6.35|18841.6 /20480|4710.4 /5120|
+|6400 /5.08|29440 /32000|7360 /8000|
+
+These dense scan components are paid whenever full-board readback is required,
+even if few cells moved. Changed-only inspection requires independently earned
+unchanged-neighbor isolation. One/four/eight active groups cost4.6/18.4/36.8 s
+at S40 and5/20/40 s at S50 before writing/routing; eight groups exceed the~30-s
+reference already. They are scenario counts, not player-frequency estimates.
+An empty-board H5 plane reduces cycles to2.4/2.8 s but cannot safely traverse
+unbounded props. One retry pays another complete cycle for its group; persistent
+obstruction has no finite scan-to-accept time. Minimum rest and elevated neutral
+both owe actual-height search; elevated neutral also retains its paid preparation
+and real downward headroom. A commanded-height shortcut can miss a low fault.
+
+Compared with underside sensing, top contact removes3N access passages and the
+nut-to-top integrity inference but adds upper-carriage access over the play area.
+It retains all column/thread/support functions and repeatsN surface contacts per
+full scan. One/four measured Z axes, force channels, replaceable tips, shared XY,
+reference and collision protection are still necessary. Earlier$80–240/$200–600
+channel allocations exclude the upper gantry/guarding and are **not** a top-system
+quote or complete BOM; no demonstrated$500,$1000 finished or$1000–1500 prototype
+price follows. More spend or a longer acceptable wait cannot resolve hidden-cap
+identity or force-induced ambiguity. A slow empty-board/service diagnostic may
+still have value. Reopen automatic acceptance only with earned release behavior
+and cap access, or an independent fresh released-cap observable. No detailed CAD,
+print, purchase or hardware qualification follows from this bounded screen.

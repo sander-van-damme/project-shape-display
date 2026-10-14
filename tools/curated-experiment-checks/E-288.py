@@ -174,7 +174,65 @@ def top_force_control():
     print('Top contact removes underside access and nut/top alias, not contact-induced ambiguity.')
 
 
+def top_access_and_scale():
+    """Finite observation witnesses and scan accounting, not a probe design."""
+    # Direct exposed-cap readings distinguish these state errors IF the
+    # reversible linear law and identity are independently qualified.
+    for name, commanded, actual in (
+        ('missed upward move', 30., 20.),
+        ('missed downward move', 20., 30.),
+        ('damaged cap at unchanged nut', 30., 28.),
+        ('post-undock slip', 30., 29.),
+    ):
+        read = zero_force_intercept(.02, actual-.02, .05, actual-.05)
+        assert isclose(read, actual) and not isclose(read, commanded)
+        print('conditional exposed-cap fault', name, commanded, read)
+    # An opaque rigid 25.4-mm square base rests on other pins at z30.
+    # Central pin29 vs28 is below it; base underside30/top32 are unchanged.
+    # It covers the entire central cap, so repositioning within that cap cannot
+    # escape. Grant stiff surrounding supports, no sensor error or base flex.
+    for pitch, cap in ((12.7, 10.3), (6.35, 4.4), (5.08, 4.4)):
+        assert cap/2 < 25.4/2
+        assert pitch-cap/2 < 25.4/2  # neighboring support overlaps the base
+        hits = [max(top, 32.) for top in (29., 28.)]
+        assert hits == [32., 32.]
+        print('pitch/hidden tops/identical first contact', pitch, (29.,28.), hits)
+        # .5 radius + .2 placement + .2 bow = .9-mm swept radius.
+        # Empty vertical stylus shaft only; actual tip/housing not constructed.
+        sweep = .9
+        assert cap/2-sweep > 0 and pitch-cap/2-sweep > 0
+        print('pitch/empty cap landing/neighbor margins', pitch,
+              cap/2-sweep, pitch-cap/2-sweep)
+    # Two force acquisitions (.1 s each), then .2 s release settling.
+    # Safe plane is H above maximum terrain. Every unknown-height target can
+    # require the full S+H search, including a downward positioning fault.
+    # Sequential independent groups; XY and deployment are NOT included.
+    for stroke in (40., 50.):
+        for clearance in (5., 60.):
+            cycle = 2*move_time(stroke+clearance)+.4
+            assert isclose(cycle, {(40.,5.):2.4, (50.,5.):2.8,
+                                  (40.,60.):4.6, (50.,60.):5.0}[(stroke,clearance)])
+            print('top stroke/clearance/two-force cycle',stroke,clearance,cycle)
+            if clearance == 60.:
+                for side in (32,64,80):
+                    n = side*side
+                    for channels in (1,4):
+                        groups = ceil(n/channels)
+                        # Explicit group enumeration cross-checks closed form.
+                        sizes = [min(channels,n-i) for i in range(0,n,channels)]
+                        assert sum(sizes)==n and len(sizes)==groups
+                        print('top N/channels/S/read-only seconds',
+                              n,channels,stroke,groups*cycle)
+                for groups in (1,4,8):
+                    print('top local groups/S/read-only seconds',groups,stroke,groups*cycle)
+    # All four channels must stop independently; a single rigid crossbar only
+    # observes the tallest contacted cap, leaving lower states indistinguishable.
+    assert max((30.,20.,10.,0.)) == max((30.,19.,9.,0.))
+    print('Covered caps and common-lift lower caps remain unknown, not accepted.')
+
+
 if __name__=='__main__':
     run()
     complete()
     top_force_control()
+    top_access_and_scale()

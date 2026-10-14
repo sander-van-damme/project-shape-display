@@ -294,11 +294,13 @@ E-281 stays optional and unprinted; no new print or purchase.
   motion; no force/sensor/speed qualification. Reopen with different access or
   nondisturbing post-release evidence,not tip/port sweeps. No new print.
 - E-288 top-force control removes underside ports and nut/top alias, but two-force
-  extrapolation only earns a calibrated linear diagnostic. A reversible soft
-  element reaching a stop gives identical .02/.05N readings for released tops
-  30/31mm. More above-threshold samples do not fix it; a qualified release law
-  or independent released-cap observation is needed. E-270 already covers access,
-  covered pins and timing; do not repeat probe schedules or force sweeps.
+  extrapolation only earns a calibrated linear diagnostic. Reversible soft travel
+  to a stop aliases released tops30/31mm at.02/.05N. More above-threshold samples
+  cannot resolve it. Rigid miniature bases hide29/28mm caps at all three pitches.
+  Independent four-channel H60 scans cost1177.6/4710.4/7360s at S40 and
+  1280/5120/8000s at S50 for1024/4096/6400 before XY/writer/retry. E-270 retains
+  gameplay schedules. Stop CAD; reopen with earned release behavior and cap
+  access or independent released-cap observation, not force/schedule sweeps.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
