@@ -8,4 +8,4 @@ This folder provides **optional, ready-to-slice STL packages and simple result f
 - Record printer conditions and actual fit, travel, friction, binding, damage, cleanup and other observations. An unperformed test is **unknown**, never a measured pass or failure; five coupons do not qualify thousands of parts.
 - Track status DRAFT / READY / DEFERRED / COMPLETED / RETIRED. On new evidence, update genuine priority and retire stale tests/STLs with a reason. No deadline, reminders, purchase or ever-growing backlog.
 
-Current P1: [five short screw/nut pairs](short-thread-fit/test.md). Previous [S40 offer is retired](supported-s40/test.md).
+Latest results: [five short screw/nut pairs](short-thread-fit/test.md) **COMPLETED** (owner hand-fit report 2026-10-14), but the 10.3-mm-wide test nuts are not compact enough to establish dense pin suitability. [Trial 5 short replica](trial5-short-replica/test.md) **DEFERRED** after supports filled its internal threaded bore; its fit is untested, distinct from the owner's historical report of a working slim Trial 5 print. No new print is scheduled. Previous [S40 offer is retired](supported-s40/test.md).
