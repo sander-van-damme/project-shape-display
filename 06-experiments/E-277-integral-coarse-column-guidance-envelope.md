@@ -94,7 +94,7 @@ Load:terrain end→three walls→nut joint→thread→resident screw/bed. The ri
 
 U-seatA23.44 mm²,centroid1.4104 mm toward web,Ix416.609/Iy256.475 mm⁴. At assumed centralF.2 N,affine pressure+.00442..+.01575 MPa; open-side edge loading gives −.01060..+.04209 MPa and requires tension for full contact. Independent Gauss integration recovers force/moments to1e−10. No bond/peel/creep/torque/withdrawal rating; downward gravity alone does not establish joint retention.
 
-[Jönköping University thin-wall approximations](https://mechanics.ju.se/SolidMechanics/Torsion.html) give J_open≈Σbt³/3=5.001 versus closed J≈t(w−t)³=685.9 mm⁴,about137× softer at equal material. **Free-warping surrogate**,not FDM/contact simulation.24 scenarios use assumedG200/1000 MPa,torque.1/1/5 Nmm,effective spans4/54 mm. At1 Nmm/54 mm, open twist3.094/.619° versus closed.0226/.00451°; largest open15.47° warns against small-deformation interpretation. Actual torque,guide contact,warping restraint and laminate properties are unknown; neither universal failure nor isolation pass.
+[Jönköping University thin-wall approximations](https://mechanics.ju.se/SolidMechanics/Torsion.html) give J_open≈Σbt³/3=5.001 versus closed J≈t(w−t)³=685.9 mm⁴,about137× softer at equal material. **Free-warping surrogate**,not FDM/contact simulation.12 scenarios use assumedG200/1000 MPa,torque.1/1/5 Nmm,effective spans4/54 mm. At1 Nmm/54 mm, open twist3.094/.619° versus closed.0226/.00451°; largest open15.47° warns against small-deformation interpretation. Actual torque,guide contact,warping restraint and laminate properties are unknown; neither universal failure nor isolation pass.
 
 Thread-free cavity permits lateral9.5-mm core exit: six sampled withdrawals 0..10 mm have≤.00060 mm³ numerical overlap at nominal touching surfaces. Translation moves the core away from the web while staying between walls/end; no thread undercut or124-mm axial pull. No draft,shrink,release-force,tool-life or mold-cost pass. A molded channel still needs an intact nut and one joint.
 
@@ -104,6 +104,6 @@ At1024:1024 channels+1024 nuts+1024 screws,1024 joins,2048 guide apertures; 32-c
 
 ## Verification and boundary
 
-Source retains guide,core,volume,packing,phase and extrusion-accounting checks. New source adds361 hull extrema,four joint loads,24 torsion scenarios,six core withdrawals and four slices. Self-review,not physical validation.
+Source retains guide,core,volume,packing,phase and extrusion-accounting checks. New source adds361 hull extrema,four joint loads,12 torsion scenarios,six core withdrawals and four slices. Self-review,not physical validation.
 
 **Park bonded split threads,internally supported closed bodies and automatic long bridges.** Transverse unsupported and intact-nut/open-channel routes remain conditional on actual thread manufacture,loaded behavior and batch assembly. No owner print,head selection or strength/speed/readback/repair/gameplay pass.
