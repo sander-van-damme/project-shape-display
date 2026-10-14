@@ -218,8 +218,7 @@ At assumed5s/action plus600s extra bench recording/unloading/stand/reloading:
 |Eight same row|1/32|156/112|13.67|
 |Eight rows|8/256|1136/112|95.33|
 
-This replaces, not adds to, the earlier20-action schematic. Eight co-repaired
-faults are one episode; separate calls repay setup. Initial closures owe2N halves/
+Replaces earlier20-action schematic; separate calls repay setup. Initial closures owe2N halves/
 4N locks versus2w/4w for w rows,N=w². Avoided6(N−w) actions at10–30s each,
 less assumed4h bench-fixture setup, save12.53–45.60/63.20–197.60/101.33–312h
 at1024/4096/6400. These unbuilt closure allocations are not demonstrated savings.
