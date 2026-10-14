@@ -36,19 +36,16 @@ movement defeats it. At.338N/site axial diagnostic, spine.00479+ring.02457+
 panel.000164mm excludes own weight,local contact and settlement. No joint tuning.
 Checks: quadrature,section brackets,central-load identity,force/support-state balance.
 
-Socket access:36-mm reach,2-mm-AF tip in2.8-mm bore (.2453-mm nominal radial gap),
-axis6.3207mm from ring edge. Four spaced spindles cannot inherit uniform routing
-across widened seams. Cradle pads meet ring lips before mounts release; 1mm shelf+
-1mm pad leave only.2mm separation. Minimum24.50N/module/.766MPa pad loading excludes
-some parts and acceleration. Constrained232-mm lift/.3206° yaw allowance does not
-earn tolerant transfer or broken-part restraint. Opening a keeper needs restraint.
-
-At1024 cells:2048 bodies/screws,2048 guide apertures,1024 thrust contacts,256 keeper
-halves,128 spines,64 panels,48 rings,64 mounts,512 guide seats. The1088 frame
-interfaces imply6.04–18.13h at assumed20–60s each before exclusions;4096/6400
-count-only scaling24.18–72.53/37.78–113.33h. Shell/rings3.56kg+spines1.12kg excludes
-guides/keeper. Gross room above E-276's$798 is$12.63/$43.88 per module toward
-$1000/$1500, not a quote or net frame budget. Park cage and narrow-joint refinement.
+Socket reach36mm;2-mm-AF tool in2.8-mm bore leaves.2453-mm radial nominal gap.
+Edge socket is6.3207mm from ring edge. Nonuniform seams invalidate inherited routing.
+Cradle-before-mount-release replay retains support,not contact qualification:
+1mm shelf+1mm pad leave.2mm separation;24.50N/module/.766MPa excludes parts and
+acceleration.232-mm lift/.3206° yaw and broken-part restraint remain unearned.
+At1024:2048 bodies/screws,2048 guide apertures,1024 thrust contacts,256 keeper
+halves,128 spines,64 panels,48 rings,64 mounts,512 guide seats.1088 frame interfaces
+owe6.04–18.13h at20–60s each;4096/6400 count-only24.18–72.53/37.78–113.33h.
+Shell/rings3.56kg+spines1.12kg exclude guides/keeper. Gross room above$798 is
+$12.63/$43.88 per module toward$1000/$1500,not quotes/net frame budget. Park cage.
 
 ## Continuous-sheet construction and independent controls
 
@@ -143,49 +140,86 @@ invalidates local thin-plate stress claims. No collar indentation/pull-through,
 screw-seat stiffness,guide drag,warp,joints,panel/rim or vibration rating follows.
 The guide's10.8-mm apertures are not qualified by this bed calculation.
 
-## Restrained whole-guide service and assembly stop
+## Restrained whole-guide service
 
-Keeper capture does not laterally restrain bodies. Passing a temporary sleeve
-through every occupied guide leaves only(10.8−10.3)/2=.25mm wall/side before clearance.
-Reject that fragile1024-site fixture. A split temporary guide duplicates registration
-and obstructs withdrawal; shared restraint is not free.
+**Park whole-guide repair: one trapped body expands teardown to the whole array.**
+Keeper capture does not laterally restrain bodies. Temporary sleeves through
+10.8-mm occupied guides around10.3-mm bodies leave only.25mm wall/side before
+clearance; reject this fragile1024-site fixture. Split temporary guides repeat
+registration and obstruct withdrawal.
 
-The simpler safe-order construction removes **bodies**, retaining screws in the bed
-and keeper. It is an offline overhaul, not preserved map state or qualified repair:
+The source replays this safer order, not grip/contact or damaged-part qualification:
+clear miniatures/save desired state/isolate writer; support the upright board on
+an underside-access stand with catch; keep both guides,bed,keeper and edge reactions
+attached. One top gripper carries body weight/rotation while an underside driver
+unthreads it. Upper guide/gripper restrain withdrawal; screw remains in its bed
+seat/capture. Store each body in a numbered closed channel. A10.3-mm jaw opening
+plus.8-mm jaws gives11.9mm outside at12.7 pitch; no earned grip/access/tolerance.
+A jammed/bent body blocks guide removal. Sacrificial cutting needs independently
+constructed access and fragment restraint; if unavailable, keep cage closed.
+The replay refuses guide removal with even one body remaining. Verify zero bodies/
+fragments before removing a guide; refit/register before rethreading and proving
+terrain. Do not invert an unrestrained array or treat saved commands as actual state.
 
-1. Clear miniatures,save desired terrain,isolate/park writer. Upright bench stand
-   provides underside access and fragment catch. Keep both guides,bed,keeper and
-   edge reactions attached; do not invert an unrestrained array.
-2. One reusable top gripper holds body weight/rotation before a controlled manual
-   underside driver unthreads it. Upper guide/gripper restrain the body as it leaves
-   the lower guide. Screw stays in its original radial seat/capture. No powered
-   overtravel command proves release. Do not open keeper or lift pairs together.
-3. Lift the body through the upper aperture into a numbered closed storage channel.
-   Repeat with both guides installed. A10.3-mm jaw opening plus.8-mm external jaws
-   gives11.9mm outside versus12.7 pitch; gripper does not pass through a guide.
-   This is an envelope, not earned force/access/tolerance performance.
-4. A jammed/bent body blocks guide removal. After healthy neighbors are removed,
-   shared clamp/catch tooling may permit sacrificing the failed body in sections.
-   Cutting and debris/fragment restraint require case-specific construction; do not
-   assume automatic release. If safe clearance cannot be established, keep cage
-   closed. The state replay refuses removal with even one body remaining.
-5. Only after physically verifying zero bodies/fragments may a guide be lifted.
-   All1024 screws retain bed radial seats/keeper; guides never supplied a far-tip
-   bearing. Refit/register guide before rethreading/checking bodies. Restore and
-   verify terrain; saved commands are not measured heights.
-
-Source replays support order and last-body refusal, not grip/contact/damaged-part
-qualification. No universal safe extraction of arbitrarily broken pairs is claimed.
-Count one gripper,driver,bench stand/catch tray,32 storage trays×32 channels and32
-closures, plus damaged-target tools. Assumed406.4×150×16-mm trays occupy31.21L before
-rack/handles; storage channels need clearance, not precision working fits. Folded/
-machined board or sheet,outsourced or joined trays owe material/labor; no free fixture.
-
+Count gripper,driver,stand/catch,damaged-target tools and32 closed trays×32 channels.
+Assumed406.4×150×16-mm trays occupy31.21L before rack/handles; manufacture is unpaid.
 At least2048 transfers plus2048 thread release/start events. Assumed10–30s/transfer
-alone costs5.69–17.07h, excluding turns,fixtures,damage,alignment,proof and restoration.
-4096/6400 count-only control22.76–68.27/35.56–106.67h. Initial aperture cleanup above
-remains additional. One trapped fault reopens1024 rethreading operations: **stop
-whole-guide repair development before local sleeve/lock/fit CAD.**
+alone costs5.69–17.07h at1024,22.76–68.27/35.56–106.67h at4096/6400, excluding
+turns,fixtures,damage,alignment,proof,restoration and initial aperture cleanup.
+Stop whole-guide sleeve/lock/fit development; one fault must not inherit free teardown.
+
+## Downward row extraction through fixed guides
+
+**Flat rows have a nominal handoff window; mixed-height rows do not inherit it.**
+Park this passive two-plane fixture, not all downward service. Reproduce with
+`python3 tools/curated-experiment-checks/E-287-transfer.py`:32,040 interval cases,
+endpoint controls and dimensional bounds. Analytical envelopes, not contact/CAD
+or hardware qualification.
+
+Replace the bed with32 removable12×24-mm row spines carrying closed keeper/thrust
+(E-286); both guide sheets stay fixed. Clear miniatures,isolate/park writer,engage/
+prove a guided bench elevator before releasing four row mounts. Lower intact pairs
+without screw rotation; insert a shared split body-guide fixture below the lower
+sheet, attach it to the cradle, then continue descent. Gravity remains
+body→thread→screw→spine→elevator. Body restraint must transfer from fixed guides to
+fixture. Broken threads need independent body capture; bent/jammed bodies cannot
+be forced through guides. Reverse transfer for reinstall; catch/fragments remain owed.
+
+The6-mm guides occupy Z50…56/130…136. Body interval is[2+h-d,138+h-d] for extension h
+and row descent d. Test a24-mm fixture: two2-mm contact planes with20mm clear space,
+**not a universal minimum span**. Lateral access/fit/stiffness are not credited.
+Expose its whole span below Z50 before any body loses2mm upper-guide overlap:
+
+`d >= max(0,2+max(h)+24-50)`; `d <= 138+min(h)-130-2`.
+
+|Row state|Earliest insertion d, mm|Latest retained-guide d, mm|
+|---|---:|---:|
+|Mixed0/50|26|6|
+|Mixed0/40|16|6|
+|Flat N30|6|36|
+|Flat S50|26|56|
+
+Mixed S50 exposes at most6mm before upper overlap vanishes,4mm retaining2mm overlap.
+At d8 low top=130/high bottom=44. A4-mm fixture has zero timing margin,not a pass.
+Assumed body-length±.2/relative-guide-spacing±.4/height-range±.2mm bounds give
+3.2…4.8mm; no measured distribution. Common datum translation cancels. A single
+lower guide+screw could restrain differently but needs new contact/load evidence.
+Homing cannot presume a failed target moves. Moving healthy neighbors to a known
+stuck height is a distinct possible procedure,not proved here; unknown/broken targets
+remain. Short clamps/sequential restraint owe32 gripping/moment reactions and proof;
+do not proceed to narrow fixture/fit tuning.
+
+S50 needs140mm descent to clear guides with2mm reserve; lateral exit beneath
+neighboring spines at Z−34 still needs224mm. Writer access/removal,bench height and
+constrained motion are unpaid. At1024:32 spines,64 keeper halves,128 mounts,one
+32-site fixture/64 contacts,elevator/catch. Replacing the bed forfeits its coupled
+plate result: rows carry gravity to perimeter supports. E-286 beam controls do not
+qualify local thrust,mounts or frame. Fixed guide edges stay independently supported;
+no ideal interior top seam, but coarse bodies still do not fit fine/quarter grids.
+One-row teardown potentially transfers64 pairs versus2048; missing support handoff
+prevents a repair claim. Count-only4096/6400:64/80 spines,256/320 mounts,128/160
+fixture contacts. Fabrication/tooling are unpriced; no labor/cost/speed gain or new
+print follows. Existing gameplay,neutral,dense and cost comparisons below remain.
 
 Next decision: retain broad bed action, reopen only with a materially different
 bounded service partition/transfer or earned process avoiding array-wide rethreading,

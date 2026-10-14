@@ -275,6 +275,15 @@ guide repair under assembly stop rule; retain bed as structural control. Reopen 
 with bounded service partition/transfer avoiding array-wide rethreading, narrow seams
 or thousands of closures; no sleeve/fit optimization or new print.
 
+E-287 downward-row extension keeps whole guides but replaces bed with removable
+spines; coupled-bed FEA no longer applies. Mixed0/50 row exposes only6mm below
+lower guide before losing upper guidance (4mm with2mm overlap). Sample24mm
+passive fixture needs d26 before d6 deadline; flatN30 window6…36 is nominal only.
+Park this handoff, not all downward service. Homing cannot presume a failed target
+moves; short clamps/sequential restraint owe new contact and32-site proof.
+140mm descent clears guides,224mm clears neighboring spines;64 row transfers
+versus2048 array transfers is potential only. No fixture-fit sweep or new print.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies
