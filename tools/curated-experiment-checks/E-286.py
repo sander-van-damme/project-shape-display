@@ -71,5 +71,65 @@ def check():
     # classifier operating on these channels, irrespective of a timing improvement.
     assert trace(3) == damaged_same_lead
 
+def proof_check():
+    """Quasi-static bounded examples, NOT measured strength or proof settings."""
+    force, force_error, displacement_error = .4, .02, .04
+    def observed_band(k_min, k_max):
+        return ((force-force_error)/k_max-displacement_error,
+                (force+force_error)/k_min+displacement_error)
+    good = observed_band(10,40)
+    weak = observed_band(.5,2)
+    assert good[1] < weak[0]
+    threshold = (good[1]+weak[0])/2
+    # Independent corner replay: force/read errors may oppose classification.
+    for k,df,dz in product((10,40),(-.02,.02),(-.04,.04)):
+        assert (force+df)/k+dz < threshold
+    for k,df,dz in product((.5,2),(-.02,.02),(-.04,.04)):
+        assert (force+df)/k+dz > threshold
+    # At larger read/fixture uncertainty the observation bands overlap.
+    assert (force+.02)/10+.08 >= (force-.02)/2-.08
+    # Safe fracture-discrimination interval: bad strongest must fail, good
+    # weakest must not be damaged, charging force error and transient overshoot.
+    def safe_window(bad_max, good_nondamage_min):
+        return bad_max+.02, good_nondamage_min-.02-.05
+    separated = safe_window(.3,.8)
+    overlapping = safe_window(.4,.35)
+    assert separated[0] < force < separated[1]
+    assert overlapping[0] > overlapping[1]
+    # Equal immediate stiffness and slip => equal proof observations, even if
+    # an unobserved later creep/durability property differs. No prevalence claim.
+    def observations(k, rotation):
+        return force/k, force/k+LEAD*rotation/360, rotation
+    good_pair = {"k": 20, "rotation": 0, "delayed_failure": False}
+    latent_fault = {"k": 20, "rotation": 0, "delayed_failure": True}
+    assert good_pair != latent_fault
+    assert observations(good_pair["k"], good_pair["rotation"]) == observations(
+        latent_fault["k"], latent_fault["rotation"])
+    locked, free, angle = observations(20,30)
+    assert isclose(free-locked, .25)
+    assert angle > 2*2  # +/-2 degree readings on either end: illustrative bound
+    travel_error = 2*.1-displacement_error  # E-286 original position-channel difference error
+    assert good[1]+travel_error > weak[0]-travel_error
+    # Distal contact changes admitted failure observability; finite proof at
+    # full insertion cannot cover a damaged zone touched only near extension.
+    sampled_z = {2,52}  # S50 endpoints; nut spans [z,z+10] on 64mm thread
+    assert all(not z <= 30 <= z+10 for z in sampled_z)
+    print('proof displacement bands',good,weak,'threshold',threshold)
+    print('proof force windows',separated,overlapping,'N')
+    print('locked/free 30-degree example',locked,free,angle)
+    for n in (1024,6400):
+        for usable in (1,.8):
+            attempts=ceil(n/usable)
+            # Two static positions require S50 out and back, at assumed120rpm.
+            motion=2*50/LEAD/2
+            # Per position locked/free load + unload/read: 12s allocation.
+            static=24
+            print('proof N/y',n,usable,'extra dwell_h',
+                  round(attempts*(motion+static)/3600,2),
+                  'extra active_h at 2s/pair',round(attempts*2/3600,2))
+    print('finite proof does not establish full-stroke/durability qualification')
+
+
 if __name__ == '__main__':
     check()
+    proof_check()

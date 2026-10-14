@@ -167,3 +167,59 @@ E-281 remains optional and cannot qualify long screws or this station.
 Verification: analytical lead/travel identities, finite bound corners, jam/wrong
 lead controls and identical-observation fault witness, full operation-ledger
 replay; self-review only. No hardware qualification or new owner task.
+
+
+## Axial proof extension: changed observability, insufficient labor benefit
+
+A shared load cell/applicator and differential nut-to-collar probe could reject
+some weak engagement that passes travel checks. React axial load through the
+captured collar/cup into the frame, not the driver. Keep body antirotation nests;
+a clearance catch limits failed-pair drop without carrying test load. Apply/unload
+load first with screw angle locked, then with driver retracted and screw free.
+Observe collar rotation independently: the disconnected driver encoder cannot do
+this. Cup friction can hide back-driving and must be bounded. Charge seating,
+frame flex and probe drift in the differential error. On power loss unload into
+the catch; quarantine failures. This functional construction adds shared tooling,
+no resident parts; it has no built/contact/clearance proof.
+
+**Illustrative competing bounds, not selected test settings:** force0.40±0.02 N,
+total differential error±0.04 mm, good stiffness10–40 N/mm, weak0.5–2 N/mm.
+`displacement=force/stiffness` yields observed bands−0.0305…0.082 and0.150…0.880 mm.
+A0.116-mm threshold separates replayed corners; negative readings represent error.
+At±0.08-mm error bands overlap. E-286's original two±0.10-mm readings cannot do
+this: a better gauge is a real requirement. No evidence locates real good/bad
+populations in these stiffness bands. At20 N/mm and30° free rotation, lead3 gives
+locked/free readings0.020/0.270 mm; two±2° angle bounds distinguish that event.
+Smaller rotation, cup restraint, creep and crushing remain ambiguous.
+
+A safe fracture-discrimination interval requires
+`strongest_bad + force_error < command < weakest_good_nondamage − error − overshoot`.
+Assumed bad.30/good.80/error.02/overshoot.05 N leaves(.32,.73) N; bad.40/good.35
+leaves no interval. These are not measured strength bounds. The owner's loose-pair
+near1-kg observation cannot supply them for new parts. **Do not select a proof
+load from these examples.** Identical immediate stiffness/rotation can also hide
+a latent fatigue/creep fault; the script preserves that indistinguishable witness.
+
+Final insertion loads screw coordinates2…12 mm through the10-mm nut; S50 extension
+loads52…62 mm. A damaged zone near30 mm is tested at neither endpoint. Loaded
+full-stroke traversal or extra positions would cost further time; finite endpoint
+proof does not qualify the intervening stroke or durability.
+
+Two-position S50 inspection owes50 mm out/back:33.33 turns,16.67 s at assumed
+120 rpm. Allocate12 s/position for locked/free loading, unloading and reading:
+**40.67 s extra automatic dwell**, plus2 s active review/handling per attempt.
+At1024/6400 usable pairs:11.57/72.30 station hours and0.57/3.56 active maker hours.
+At80% usability:14.46/90.37 station hours and0.71/4.44 active hours. Attending dwell
+adds those hours to maker time. The1024 optimistic labor saving falls1.12→0.55 h
+before added fixture fabrication/calibration. Force/probe/angle hardware, setup,
+reject damage and loaded traversal are unpriced additions to the$200–600 station
+allowance. The$500/$1000/$1000–1500 comparisons and gameplay waits above persist.
+
+**Retain locked/free axial inspection as a conditional diagnostic; keep the
+assembly station parked.** It improves gross weak-contact/back-drive observability,
+not general damaged-thread qualification. No fixture/feeder CAD, print, purchase
+or owner question. Reopen with measured process/force/cup-restraint bounds or a
+whole-pair process that materially removes handling. E-281 remains optional.
+Verification in the existing script: force/compliance corners, overlapping-error
+control, safe/no-window cases, latent-fault and unsampled-zone witnesses, and
+operation ledger. Self-review; no hardware validation.
