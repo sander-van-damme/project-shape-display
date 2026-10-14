@@ -1,14 +1,14 @@
 # Printtest — vijf korte schroef-moerparen
 
-> Vul de resultaten alleen na een eventuele print in. Leeg betekent niet getest.
+> Fysiek getest; eigenaar heeft de resultaten op 14 oktober 2026 gerapporteerd. Dit bevestigt handmatige passing van losse paren, **niet** de afmetingen van een compacte pin of meerdere onafhankelijke pinnen.
 
-**Status:** READY
+**Status:** COMPLETED
 
-**Prioriteit:** P1
+**Prioriteit:** afgerond (voorheen P1)
 
 **Laatst beoordeeld:** 2026-10-14
 
-**Reden:** kleine falsifieerbare passingproef; geometrie en exacte slicerpaden gecontroleerd, nog niet fysiek getest.
+**Reden:** vijf geprinte schroef/moerparen fysiek met de hand getest; varianten verschillen duidelijk in gevoelde weerstand. De compacte pinarchitectuur is nog niet bewezen.
 
 **Technische bron:** [E-281](https://github.com/sander-van-damme/project-shape-display/blob/main/06-experiments/E-281-short-thread-repeatability-print-test.md), voortbouwend op E-277/E-279.
 
@@ -50,38 +50,30 @@
 
 **Onbekend blijft:** houdkracht, lange-screw-stabiliteit, snelheid, levensduur, geleiding, 40/50-mm slag en opbrengst van duizenden delen. Deze test heeft geen externe antirotatie- of lastfixture; eigen gewicht/handgevoel is geen belastingskwalificatie.
 
-## 4. Mijn resultaten — Sander
+## 4. Resultaten — Sander (eigenaarrapportage 2026-10-14)
 
-**Testdatum:**
+**Testdatum:** gerapporteerd op 14 oktober 2026; exacte printdatum niet afzonderlijk vermeld.
 
-**Printer / filament / nozzle / laaghoogte / compensatie:**
+**Printer:** Bambu Lab X1 Carbon. Filament, nozzle, laaghoogte, compensatie, werkelijke printtijd en verbruik niet gerapporteerd. De profielspecificaties in §2 zijn aanbevelingen en geen bevestigde werkelijke printinstellingen.
 
-**Werkelijke printtijd / filament volgens slicer (optioneel):**
+**Handtest:** alle vijf paren werden volgens de eigenaar vijfmaal heen en terug gedraaid. Geen schade en geen nabewerking. Exacte inschroeflengte, axiale speling en benodigd draaimoment niet gemeten of gerapporteerd.
 
-**Print gelukt?** [ ] ja [ ] deels [ ] nee [ ] nog niet geprint
+| Paar | Radiale CAD-speling | Gevoel volgens eigenaar | Resultaat |
+|---|---:|---|---|
+| 1 — nominaal | 0,15 mm | Een beetje stroef, niet extreem | 5 cycli; geen schade |
+| 2 — nominaal | 0,15 mm | Vrij soepel; lichte weerstand | 5 cycli; geen schade |
+| 3 — nominaal | 0,15 mm | Vrij soepel; lichte weerstand | 5 cycli; geen schade |
+| 4 — krapper | 0,10 mm | Zeer stroef, veel weerstand, voelt niet goed | 5 cycli; geen schade |
+| 5 — ruimer | 0,20 mm | Heerlijk soepel; geen voelbare weerstand; voelt het best | 5 cycli; geen schade |
 
-| Paar | Start en beweegt? | Soepel / ruw / blokkeert; vijf cycli? | Speling / schade / nabewerking |
-|---|---|---|---|
-| 1 — nominaal | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
-| 2 — nominaal | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
-| 3 — nominaal | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
-| 4 — krapper | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
-| 5 — ruimer | [ ] ja [ ] deels [ ] nee [ ] niet getest | | |
+**Kruisproef (moer 1 / schroef 2–3):** niet gerapporteerd.
 
-**Eventuele kruisproef moer 1 / schroef 2 en 3:**
+**Bron en beperking:** eerstehands kwalitatieve eigenaarobservaties; geen gemeten wrijving, belasting, uitgebreide levensduur of statistische printeropbrengst. De drie nominale paren hebben dezelfde CAD-geometrie; verschillen in handgevoel kunnen op print- of oppervlaktevariatie wijzen, maar de oorzaak is nog niet vastgesteld.
 
-**Wat voelde of zag ik?**
+## 5. Interpretatie en vervolg — na feedback
 
-**Foto/video (optioneel):**
+**Positief handmatige passing:** alle vijf paren konden vijf cycli bewegen zonder beschadiging of nabewerking. Bij deze print is 0,10 mm onaangenaam stroef; 0,15 mm bruikbaar met voelbare variatie; 0,20 mm het soepelst. Dat laatste is **niet** bewezen als optimale productiespeling: last, backlash/speling, geleiding, motorsnelheid en slijtage blijven onbekend.
 
-**Wat zou ik anders proberen? (optioneel):**
+**Essentiële geometrische beperking:** de moeren in deze test zijn **10,3 mm breed**. Daarmee is geen passend draadmechanisme bewezen binnen een fijn raster zoals de historische pitch van 5,08 mm. De eigenaar meldt dat de veel smallere, oorspronkelijk geprinte Trial 5-familie destijds **wel goed werkte**; de historische CAD noemt 4,4 mm buitenbreedte en korte binnendraad onderaan, maar welke exacte variant toen succesvol was, is onbekend. Zie [trial5-short-replica](../trial5-short-replica/test.md).
 
-## 5. Interpretatie en vervolg — CTO, pas na feedback
-
-**Werkelijk gemeten/geobserveerd:** nog niet getest.
-
-**GO / NO-GO / vervolgactie:** open; geen kwalificatie uit simulatie of stilte.
-
-**Nieuwe prioriteit/status:** pas wijzigen bij resultaten of nieuw technisch bewijs.
-
-> Uitblijvende feedback is geen blokkade. Bij achterhaald ontwerp: RETIRED en oude STL verwijderen.
+**Besluit:** teststatus **COMPLETED**; geen nieuwe tolerantieprint voor dezelfde vraag nodig. De cruciale open ontwerpvraag is compacte op/neergaande beweging van **meerdere onafhankelijk aanstuurbare pinnen zonder buureffecten**. De 0,20-mm-passing is een kandidaat, geen vastgelegde eindtolerantie. Geen nieuwe printopdracht uit deze rapportage.
