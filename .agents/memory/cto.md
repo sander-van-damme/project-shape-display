@@ -301,15 +301,18 @@ E-281 stays optional and unprinted; no new print or purchase.
   1280/5120/8000s at S50 for1024/4096/6400 before XY/writer/retry. E-270 retains
   gameplay schedules. Stop CAD; reopen with earned release behavior and cap
   access or independent released-cap observation, not force/schedule sweeps.
-- E-289 active light-sheet encoding removes passive texture correspondence in an
-  ideal coordinate model; no image decoder or optics qualification. Four-cap fields
-  at D300/b8 retain allocated ray clearance at all three pitches, but cap-dependent
-  stripe-centroid shifts of .026667mm alias a 1mm height error. Shared references
-  correct a common shift, not arbitrary scene-dependent bias. Wide fields lose
-  sightlines; four-cap dense acquisition alone51.2/204.8/320s at1024/4096/6400.
-  Retain small-field comparator; next optical evidence must earn stripe formation/
-  segmentation and centroid bounds, not another optical-margin sweep. Hidden caps
-  remain unknown. No purchase/print; E-281 remains optional.
+- E-289 active light-sheet encoding removes passive texture correspondence in
+  ideal geometry. Four-cap D300/b8 fields retain allocated ray clearance across
+  pitches; dense acquisition alone51.2/204.8/320s at1024/4096/6400,not earned rates.
+  Its finite-stripe extension feeds sampled1D pixels to a decoder. Uniform controls
+  err<.009mm; smooth assumed directional return makes25mm read24.31mm while passing
+  shape checks. A bounded return-law witness aliases25/26mm profiles within.034DN.
+  Shared references do not fix cap-dependent bias. Opposed cameras recover a
+  common-centroid25mm,not view-dependent opposite returns; add one shared camera
+  and calibration,not resident parts. Retain conditionally; next evidence must
+  earn directional returns or remove that nuisance,not repeat gradient/shape/ray
+  sweeps. Hidden caps remain unknown. No actual images/material characterization,
+  hardware qualification or new print; E-281 remains optional.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,

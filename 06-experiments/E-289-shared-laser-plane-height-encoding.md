@@ -10,9 +10,10 @@ final verification.** A shared vertical light sheet changes the observable from
 matching passive texture to intersecting a calibrated plane. This is a distinct
 escape from the failed central-patch matcher, with no per-column marks, bores or
 witness parts. Reproduce `python3 tools/curated-experiment-checks/E-289.py`.
-Evidence is ideal projected coordinates, ray/box visibility, bounded error
-propagation and counterexamples—not rendered images, an image decoder, actual
-laser/PLA behavior or physical accuracy. No print is needed.
+The original screen uses ideal projected coordinates and ray/box visibility.
+The extension below adds sampled one-dimensional stripe images and a decoder;
+neither establishes actual laser/PLA behavior or physical accuracy. No print is
+needed for this bounded model test.
 
 [Micro-Epsilon's scanCONTROL manual, sections 6.5.4–6.5.7](https://www.micro-epsilon.com/fileadmin/download/manuals/man--scanCONTROL-29xx--en.pdf)
 (accessed2026-10-14) identifies receiver and illumination shadowing separately,
@@ -109,3 +110,83 @@ segmentation on exposed unmarked caps, with reference correction and scene-depen
 centroid/shadow errors; another ray-margin or pixel-error sweep is not sufficient.
 It cannot solve hidden-cap verification. No physical accuracy, safety, speed,
 sensor selection, purchase, print or full-machine qualification follows.
+
+
+## Finite stripe and pixel decoder extension
+
+**A clean stripe shape does not establish a correct height.** Reproduce
+`python3 tools/curated-experiment-checks/E-289-stripe.py` (NumPy). This is a
+forward radiometry calculation feeding a separate pixel-only decoder, not a
+full two-dimensional scene renderer or an empirical material model. Cap identity,
+exposure and an unobstructed central strip are granted; arbitrary cap segmentation,
+prop recognition and correspondence remain outside this test. The manufacturer's
+[triangulation overview](https://www.micro-epsilon.com/wiki/laser-triangulation/?sLang=en)
+(accessed2026-10-14) identifies surface and ambient conditions as accuracy factors;
+it does **not** source the following optical parameters or return gradients.
+
+Explicit scenario: D300/b8/k4, original field-derived focal lengths, planar caps,
+Gaussian sheet sigma.05mm, optical Gaussian blur sigma.65pixels, pixel-area
+integration at32 subpixels and12-bit off/on images. Ambient+dark is120DN;
+nominal peak signal1200DN. No random noise, speckle, distortion, motion or rough
+geometry is simulated. Effective directional return is `.1*exp(a*y)`, clipped
+to[0,1]. This is a bounded sensitivity construction, **not measured PLA albedo**.
+The ambient return is held uniform: directional laser response need not equal
+ambient response. A calibrated Lambertian scalar-albedo model could permit
+ambient normalization; this experiment does not reject that conditional control.
+
+The decoder subtracts off/on images, segments above max(2DN,1%peak), requires
+one component, computes its centroid/width/skew and rejects missing, saturated
+or |skew|>.1 returns. It receives neither target height nor an oracle stripe
+window. These are illustrative quality checks, not a validated acceptance policy.
+Uniform returns at0/10/25/40/50mm give the following controls. At true25mm,
+a=8/mm shifts the optical distribution by.020mm; across y±.15mm its return
+factor ranges.0301–.3320. Gaussian multiplication explains the result exactly:
+`exp(-y²/(2s²))*exp(a*y) = exp(a²s²/2)*exp(-(y-a*s²)²/(2s²))`.
+A reflectance gradient can therefore preserve a Gaussian shape while moving it.
+
+|Pitch, mm|Uniform maximum height error, mm|25mm cap: single camera / two-reference correction, mm|Two opposed views: common / opposite gradients, mm|
+|---|---|---|---|
+|5.08|.0031|24.308 /24.310|24.999 /24.308|
+|6.35|.0041|24.310 /24.311|24.998 /24.310|
+|12.7|.0090|24.309 /24.301|24.997 /24.309|
+
+All gradient returns pass the chosen shape check (|skew|≤.0101). Two known-height
+references remove a common.7-pixel image shift but not the cap-dependent error.
+The noiseless16/32/64-subpixel convergence difference is below.000001mm; this
+checks numerical integration only. Missing and saturated controls return unknown.
+
+A stronger whole-profile witness fixes the sheet width and changes true height
+25→26mm. Define `y0=(y-b)*(D-25)/(D-26)+b` and directional return
+`.1*exp((y²-y0²)/(2s²))`, clipped[0,1]. This makes the central sensor profile
+match the25mm uniform cap. Its return range over y±.15mm is.0141–.4734;
+clipped tails leave maximum **.034DN** discrepancy before quantization, with
+essentially the same accepted centroid. This is a near-identical 1D profile under
+explicitly different surface response, not proof that a real PLA cap takes this
+form or that every image feature is ambiguous. Width/skew refinements alone do
+not establish a robust guarantee over this admitted response class.
+
+**Changed shared-sensor construction:** two cameras at y=±8mm can recover
+`z=D-2*f*b/(vminus-vplus)` without knowing the stripe's y centroid **if both views
+weight the same stripe distribution**. Common gradients cancel in the table.
+Opposite effective gradients recreate the.69mm error. This adds one shared
+camera/lens, synchronization and calibration, not any per-column part. It merits
+retention only conditionally: view-dependent return, surface slope, two-sided
+visibility and calibration require earned bounds. Existing ray margins for the
+symmetric cap scene apply on either side; miniature obstruction remains unknown.
+No hardware or safety selection follows.
+
+One extra camera/lens adds the earlier unsourced$50–200 allowance: the optimistic
+base-plus-optics comparison becomes$1048–1728 before extra mount/sync/integration,
+versus single-view$998–1528, the ~$500 reference, and the distinct$1000–1500
+research range. No quote or purchase. Simultaneous capture could retain the
+allocated k4 acquisition51.2/204.8/320s at1024/4096/6400; sequential capture can
+double it. Neither rate is earned. Local groups, all writer/preparation/settling
+costs, S40/S50 reach and raised-neutral preparation remain as above. No resident
+screw, guide, load-retention or manufacturing duty is removed.
+
+**Disposition:** retain dual-view common-centroid triangulation as a conditional
+shared-readback comparator. Park single-view stripe-shape qualification and
+further assumed-gradient sweeps. Reopen through independently characterized
+view-dependent returns on exposed caps, a constructed illumination method that
+removes that nuisance, or actual calibrated images; hidden caps and safe physical
+holding remain separate obligations. No new owner print is requested.
