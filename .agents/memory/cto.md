@@ -1,6 +1,8 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-13 UTC. E-275 parks fixed-rotor/axial-friction docking.
+Updated: 2026-10-14 UTC. E-276 adds a conditional half-square direct-head control.
+1024 pairs reduce work; widened tops on unchanged small stems are not selected.
+E-275 parks fixed-rotor/axial-friction docking.
 Explicit square sliding shafts remove axial band rub; circular pads remove rigid
 socket phase, but force/no-lift reaction and internal geometry fail the baseline.
 E-274 remains parked; E-271/272 private/direct controls retain their scopes.
@@ -58,6 +60,17 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-276 half-square32²/12.7mm: four direct25.4mm-spaced spindles give conditional
+  S40/S50 local26.84/31.07s, scenes201.24/222.88, neutral271.15/331.62,
+  dense391.62/452.09. Bought798–1768, maker10.94–23.69h excluding cleanup.
+  Eight local18.46/20.81s but1078–2264. No$500 route, safeRPM or optical pass.
+  Connected ruin opening narrows25.4→12.7; source-clear25.4 corridor removes3
+  wall cells and expands it38.1, components remain6 versus8/9 quarter/fine.
+  This is a representation option, not approved play. At±3deg yaw4.4 stem fits
+  nominal4.64 guide, but12.3 caps collide(.2266mm SAT); smaller caps avoid this
+  witness only. Wider tops/same stems parked; no fit-tightening, print or purchase.
+  Next useful changed construction must resolve cap guidance/neighbor isolation
+  with batch manufacture; do not return to parked shared-drive micro-couplings.
 - E-275 explicit fixed4mm rotor/2.4 square bore/2mm sliding shaft keeps14mm
   axial overlap through3mm throw; e.2 internal gap−.20/corner wall−.180mm.
   Coarse band gap1.149mm/fine−.121 persists; fixed axial edge reserve1.60.
