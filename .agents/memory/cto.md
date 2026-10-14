@@ -41,9 +41,16 @@ owner-reported success (LAB-391). Positive manual evidence, not loaded regional
 isolation. Screw priority unchanged. Pneumatic/resin microchannels and inflatable
 pins remain lower priority; owner disliked tiny resin-channel cleanup/flow.
 
-No READY owner print. E-263's unsupported tall S40 job was retired after Sander
+One READY P1 owner print: E-281 short-thread fit, five pairs on one plate
+(three nominal .15-mm relief repeats, .10/.20 controls), 16-mm exposed screws
+with permanent wide hand grips. 425 finite assembly cases clear; actual support
+off/on slices have no bridge/overhang/support paths, ~67 min/10.6 g comparison
+estimate. Optional and unprinted; no load/long-rod/yield qualification. A circular
+nut entry chamfer created an unsupported ledge and was removed. Use the Dutch
+results form; no reminder or blocked research. Do not tune fits from silence.
+E-263's unsupported tall S40 job was retired after Sander
 declined it. Future print offers need actual slicing/support-removal design and
-several identical pairs, not fit variants. No deadline, reminders or blocked
+several identical pairs, rather than only fit variants. No deadline, reminders or blocked
 research while optional printing remains unperformed. Advice files are advisory;
 read every file on each heartbeat. The E-254-cutoff external review's neutral/pitch
 challenge is already addressed by E-257/E-258, not a reason to repeat that work.
@@ -118,9 +125,8 @@ a ceiling for a finished FDM pair, whose ends have not been sliced. Flexible16-c
 channel/nut printing plus39.82–54.40h mold occupancy and40.90–104.67 maker hours
 at1024 before exclusions. Park screw-only mold detail; reopen through whole-pair
 production advantage or actual-process evidence, not another local mold tweak.
-No owner print or purchase selected. New14-Oct advice favors a small falsifiable
-print-ready fit test; useful follow-up direction, not a release/production pass
-or override of LAB-425's explicit no-owner-print scope.
+E-280 selected no owner print or purchase. E-281 separately follows 14-Oct advice
+with the short unperformed fit discriminator above; it does not reopen mold detail.
 
 Whole rigid cavity core cannot exit the closed body. Cap-only molding owes long
 core withdrawal/unscrewing and1024 joins; internal draft increases material. Open
