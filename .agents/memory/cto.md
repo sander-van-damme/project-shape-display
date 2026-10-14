@@ -1,14 +1,21 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-14 UTC. E-277 now screens coarse-column manufacture.
-Closed cavity traps a rigid core; cap-only mold removes that obstruction but
-adds1024 joins and .5/1deg draft raises column volume5.1->7.3/9.1L. Published
-Protolabs internal-thread minimum7.6mm does not supply this3.5mm cutter form.
-Horizontal monolithic FDM remains lowest-join hypothesis:8.7mm bridge/thread
-quality unqualified;24 bodies/plate43 plates,94–281h deposition-only scenarios.
-No new print/CAD/strength/speed pass. Next useful process work is actual slicing
-and support-access discrimination, including three identical bodies, before
-owner handoff. Do not add reinforcement from unqualified stress averages.
+Updated: 2026-10-14 UTC. E-277 now includes finite CAD and11 actual slice cases.
+Three identical horizontal bodies: Prusa2.7.2 auto bridges124mm lengthwise;
+explicit90deg gives8.25mm transverse paths but upper thread remains unsupported.
+Park internal breakaway support:9.476cc/three trapped behind small thread mouth.
+Bed-only adds none. Cap-only improves access but retains long auto bridge;
+joined tube auto goes transverse, upright nut still has overhang perimeters.
+No yield/fit/anchoring/sag pass. No owner print/hardware payload or fit campaign.
+Integral3-copy comparison1h49m46s/14.70cc; scalar1024 case624.5h, not X1C/24-up
+forecast. Earlier94–281h was deposition-only;43 plates was packing-only.
+Nominal10.3mm bodies slice to10.2/10.4mm by half-layer rounding, not measured
+dimensions or extra guide margin. Bed scars remain on a sliding guide face.
+Closed cavity traps a rigid mold core; cap-only adds1024 joins and.5/1deg draft
+raises material5.1->7.3/9.1L. Protolabs7.6mm thread minimum is no3.5mm source.
+Further support-free work needs as-deposited thread/bridge evidence without
+individual fitting; supported reopening needs real removal access/process.
+Do not add reinforcement from unqualified stress averages.
 E-277 bounds integral coarse-column guidance.
 Wide columns remove cap-yaw amplification but do not remove guide lean; retain
 a larger-seam/longer-stock geometry control only, without a print or head pass.
@@ -85,8 +92,9 @@ Evidence to retain:
   load paths. F=.2N/E1000 roof-strip .653MPa/.00412mm is a surrogate, not
   strength; thread/guide alignment remains unqualified. Cap-only adds2.84–8.53h
   at1024; stock+ends twice that. Straight columns6.28–6.37kg at assumed1.24g/cc
-  before screws/bed; old material allowance cannot transfer. Next discriminator
-  is actual horizontal thread/bridge slicing and cleanup, not head/fit detail.
+  before screws/bed; old material allowance cannot transfer. Actual slicing now
+  rejects automatic long bridges/trapped support; preserve conditional transverse
+  support-free route without a print handoff, head work or fit tuning.
 - E-276 half-square32²/12.7mm: four direct25.4mm-spaced spindles give conditional
   S40/S50 local26.84/31.07s, scenes201.24/222.88, neutral271.15/331.62,
   dense391.62/452.09. Bought798–1768, maker10.94–23.69h excluding cleanup.
