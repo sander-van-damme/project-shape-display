@@ -10,7 +10,7 @@ thrust as conditional controls.** Neither qualifies support, process yield, torq
 speed or repair. `tools/curated-experiment-checks/E-286.py` preserves observation
 cases, force windows, labor/startup replays and service-access bounds. Evidence is
 self-reviewed analytical identities and allocated operations, not contact simulation
-or hardware measurements. Earlier detailed protocols remain in Git.
+or hardware measurements. 
 
 ## Separate station and axial proof
 
@@ -106,9 +106,8 @@ underside captures the collar upward. Axial clearance/preload is unqualified.
 
 At12.7-mm pitch, assumed4.5-mm rail half-width and2.4-mm outward travel leave1.3mm
 to the neighboring closed rail. Opening exceeds2.2-mm collar radius plus.1-mm
-radial envelope. This planar bound excludes locks/guides/frame stiffness. Collar
-fits upward through illustrative10.8-mm body guide, not closed3.2-mm keeper.
-Body straightness/yaw and any separate upper-bearing extraction remain owed.
+radial envelope. Collar fits10.8-mm guide, not3.2-mm keeper. Locks/frame, straightness/yaw and
+upper-bearing extraction remain unproven.
 
 With writer disabled and target secured, open rails, replace pair, close/verify
 before enabling. Broken screws may need below-board retrieval.31/79 neighbors
@@ -202,7 +201,7 @@ place board upright on a bench stand, secure the entire affected row, open keepe
 replace pair, close/prove restraints, remove fixture, verify/re-reference terrain
 and restore miniatures. Never drive a jammed pair home or transport an unsupported
 board. Saved commands are not actual height; uncertain unaffected state owes full
-recommissioning. A manual fallback map and its setup/acceptability are untested.
+recommissioning. Manual fallback setup/acceptability untested.
 Normal gameplay updates still owe unchanged-neighbor isolation.
 
 Removing miniatures leaves body weight/lean/handling loads. Reusable bench tooling
@@ -216,7 +215,7 @@ For **body/shank faults only**, avoided15–45s/site split-joint assembly equals
 local repair erase that saving after25.6–76.8/8.53–25.6/4.27–12.8 episodes;
 at6400 and30min:53.33–160. Identity: `episodes=N*assembly_seconds/(60*extra_minutes)`.
 Subtract additional fixture setup first. Driver/socket faults are excluded: split
-shanks never solved them. No fault rates/life or independence assumed; eight faults
+shanks never solved them. No fault rates assumed; eight faults
 in one32-site row disturb32 cells versus256 across eight rows. One repair episode
 need not equal one failed cell. Assembly hours cannot price interrupted play.
 
