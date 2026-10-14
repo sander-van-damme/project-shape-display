@@ -23,6 +23,11 @@ All three grids cover 406.4×406.4 mm: 16×16 one-inch game squares. Rerasterize
 | Wall cells cleared by protection | 1 | 1 | 3 |
 | Inspected river ford | 40.64 mm | 38.10 mm | 25.40 mm |
 | Inspected bridge | 50.80 mm | 50.80 mm | 50.80 mm |
+| Whole game squares at intended ruin ground /234 | 144 | 163 | 170 |
+| Whole game squares at intended river ground /164 | 136 | 137 | 145 |
+| Whole game squares at intended ravine ground /173 | 155 | 155 | 163 |
+
+The footprint denominators use the same continuous source-square centers. Coarse apparent support gains partly reflect changed boundaries. At half-square pitch, five additional coplanar ruin squares are actually raised rather than at intended ground, so they are excluded; coplanarity alone is insufficient. No continuous footprint calculation proves real base stability.
 
 Probe coordinates are E-257's retained source coordinates. They are cross-sections, not minimum widths along entire routes. Component counts flag changes without proving which joins are correct. A 25.4-mm opening has zero room for a 25.4-mm base's placement error; a 32-mm illustrative base cannot fit. Grid-aligned clear widths accommodating 32 mm are at least 35.56/38.10/38.10 mm, before real tolerances. The 32-mm value is a scenario, not a new miniature requirement.
 
