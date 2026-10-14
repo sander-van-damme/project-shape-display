@@ -68,8 +68,7 @@ never authorizes shared keeper opening or neighbor homing during play.
 Split15s manual threading into5s pickup +10s rotation for20.67 turns. Four-turn
 starting costs6.94s, saving8.06s/pair. At1024:2.29h theoretical saving and whole
 maker22.97–47.09h before cradle/setup, extra inspection, rejects and attendance.
-At4096/6400:9.18/14.34h saving; whole65.71–134.20/97.72–199.50h. These are count
-controls:10.3-mm bodies do not fit6.35/5.08-mm pitch.
+At4096/6400:9.18/14.34h saving; whole65.71–134.20/97.72–199.50h. Count controls only:10.3-mm bodies do not fit fine grids.
 
 |1024; four spindles, ideal batches,2s visit overhead|Turns/cell|120rpm startup min|850rpm min|
 |---|---:|---:|---:|
@@ -117,8 +116,7 @@ annular quadrature agrees with the identity within3e-10mm; not friction validati
 At1024/6400:2048/12800 bodies+screws,64/160 half-rails,1024/6400 annuli,
 2048/12800 half-journals,128/320 allocated locks. Fine-pitch counts are not fit.
 Manufacture is unqualified;400mm exceeds X1C bed. Rail placement/lock10–30s adds
-.53–1.60/1.33–4h before alignment/tooling. Both assembly routes owe support;
-no net saving claimed against1.56h run-in advantage. No per-cell latch added.
+.53–1.60/1.33–4h before alignment/tooling. No net saving claimed against run-in; support remains owed.
 
 ## Single-pair service: path and closure screen
 
@@ -129,8 +127,7 @@ trapped. Cutting it owes debris/tool access, not intact replacement.
 
 An optimistic4.6-mm row-traversing window admits one collar even at5.08-mm pitch,
 but releases restraint at every crossed center: worst15/39 neighbors from nearer
-end of32/80-site rows,31/79 from one end. This grants perfect restraint elsewhere
-and ignores moving-plate collisions. Lifting keeper also releases restraint.
+end of32/80-site rows,31/79 from one end. This grants perfect restraint elsewhere and ignores moving-plate collisions.
 
 Repair: disable writer; clear/secure target; engage/prove neighbor bypass;
 open keeper; replace; close/prove permanent restraints before releasing bypass;
