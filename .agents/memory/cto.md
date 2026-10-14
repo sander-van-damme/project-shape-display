@@ -120,11 +120,15 @@ external threads are not automatically straight-pull. Sleeve unscrewing owes
 22.67 turns/68mm retreat, separate lower tooling and axial socket-core removal;
 .00325–.00350mm³ residual intersection persists at128 facets,so no clearance pass;
 flexible peeling owes release/finishing/gauging and unqualified life/shrinkage.
-Bare screws account for10.21% of E-279 bare-pair print hours; this is not
-a ceiling for a finished FDM pair, whose ends have not been sliced. Flexible16-cavity/30min-cure/100-shot-life/yield1 scenario retains533.62h
-channel/nut printing plus39.82–54.40h mold occupancy and40.90–104.67 maker hours
-at1024 before exclusions. Park screw-only mold detail; reopen through whole-pair
-production advantage or actual-process evidence, not another local mold tweak.
+E-279 finished-end extension closes the bare-shank accounting gap with E-280's
+unchanged assumed ends:upright off/on879/1034s,1.11/1.44cm³ per three;horizontal
+supported1601s/2.28cm³. Upright socket bridges and socket/journal supports remain;
+horizontal support spans all64mm. At1024 joined pairs616.96/631.66/685.42h,
+not X1C forecasts;no physical print/removal pass. E-280 flexible16-cavity/30min/
+100-shot/yield1 casting still owes533.62h channel/nut plus39.82–54.40h mold occupancy
+and40.90–104.67 maker h. Its serial resource sum is only4.69–7.05% below unsupported
+upright completed pairs before tooling/exclusions. No screw-only mold or socket
+micro-tuning;reopen through whole-pair advantage or actual-process evidence.
 E-280 selected no owner print or purchase. E-281 separately follows 14-Oct advice
 with the short unperformed fit discriminator above; it does not reopen mold detail.
 

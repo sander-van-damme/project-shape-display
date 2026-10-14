@@ -125,16 +125,20 @@ The source evaluates 18 cure/life/yield combinations per cell count (54 total);
 no favorable point is a validated production estimate.
 
 The channel/nut values reproduce E-279 actual three-copy slicer totals:
-4057+1571 seconds and 9.41+3.14 cm³ per three. Bare upright shank adds
-640–650 seconds/.76 cm³ per three; finished ends were not sliced in E-279.
-The bare screw contributes **10.21%** of the lower bare-pair print-time
-control. This is **not an upper bound for a finished printed pair**: journals,
-collar/socket and their supports add unknown deposition/finishing time. No
-usable PrusaSlicer was available in this execution; a finished-end slice is not
-claimed. Cast-vs-finished-FDM speed superiority therefore remains unresolved. Casting does not eliminate channel printing
-or the nut/channel join. No end-volume-to-time conversion is used as a slicer
-forecast. Casting occupancy and printing can overlap on independent equipment;
-serial sums are resource accounting, not calendar delivery promises.
+4057+1571 seconds and9.41+3.14cm³ per three. Its original bare shank contributed
+10.21% of bare-pair print hours, not a finished-part bound. **E-279's complete-end
+extension now closes that gap** using this unchanged90° finished screw: upright
+support off/on879/1034s and1.11/1.44cm³ per three; horizontal supported1601s/2.28cm³.
+At1024 the finished screws add83.34/98.04/151.80h respectively. Upright now has
+socket-roof bridges and generated supports near socket/lower journal; horizontal
+supports span all64mm of working thread. No physical print/removal pass follows.
+
+The unsupported upright completed pair totals616.96h; this casting scenario's
+573.44–588.02h serial resource sum is4.69–7.05% lower before tooling/exclusions.
+That conditional saving does not remove533.62h channel/nut printing,1024 joins
+or40.90–104.67 maker-hours. Screw-only molding stays parked. Casting and printing
+may overlap on independent equipment; serial sums are resource accounting, not
+calendar delivery promises. No geometry-volume-to-time forecast is used.
 
 A 16-cavity flexible-tool scenario grants 10-mm cavity spacing, 13-mm peripheral
 cover and backing outside a 180×104×30.4-mm rubber block; cavity volume is

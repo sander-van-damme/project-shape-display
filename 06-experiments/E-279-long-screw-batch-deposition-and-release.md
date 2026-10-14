@@ -103,3 +103,77 @@ OpenSCAD 2023.09.11, BOSL2 `136e6367e65d52196a3ea51d03156f8b622c60fc`,
 E-277's explicit-slop matched profiles. Python needs numpy, trimesh, manifold3d,
 matplotlib. Source imports E-277's reusable parser/CAD/profile;generated outputs
 remain scratch. No physical printing, process yield, loaded speed or qualification.
+
+
+## Complete-screw deposition extension
+
+**Finished ends change the support obligation and accounting, but do not rescue
+screw-only casting as a whole-pair production solution.** `finished_batch.py`
+uses the same CLI/profile/dependencies, with E-280's unchanged 90° screw,
+128 facets, three copies at10-mm spacing. These are assumed finished journals,
+collar and socket, not qualified support hardware. Finite mesh checks reproduce
+405.703mm³/part and4.4×4.4×78mm envelope; three disjoint manifold solids per plate.
+Four actual Prusa2.7.2 slices,2026-10-14, plus analysis replay:
+
+|Orientation|Support|Time/three|cm³/three|Bridge / overhang / support-interface segments|
+|---|---|---:|---:|---:|
+|Upright|off|14m39s|1.11|60 /0 /0|
+|Upright|on|17m14s|1.44|60 /0 /386|
+|Horizontal|off|15m45s|1.24|42 /660 /0|
+|Horizontal|on|26m41s|2.28|42 /660 /9117|
+
+Upright socket faces the bed:60 bridge segments occur atZ2.2mm over its nominal
+2-mm-deep blind cavity. Enabled support has69 interface segments within the
+socket's axial region and317 in the lower-journal region; no support or bridge
+paths occur in the64-mm threaded region. This is not the bare shank's
+support-free result. Generated supports extend outside the driver/journal and
+into the socket; removal and socket/seat fit remain unmeasured. Unsupported
+bridging is also unqualified. A wider bed contact does not qualify the now78-mm
+tall print's evolving slender span, adhesion or straightness.
+
+Horizontal head radius2.2mm leaves the3.2-mm thread envelope0.6mm above the bed;
+only the driver/collar has first-layer part paths (X10.225..15.775mm).
+The unsupported slice is an intentionally adverse comparison, not a printable
+alternative. Enabled interface midpoints beneath **each** screw occupy all64
+axial1-mm bins of the thread, plus journal/socket regions. Both orientations
+therefore retain N individual release and functional inspection duties; segment
+counts describe deposition, not adhesion contacts or measured scars. No extra
+clips, profile changes, supports or owner-print job were designed.
+
+Reusing channel+nut5628s/12.55cm³ per three, the completed-screw comparisons are:
+
+|Cells|Upright support off h/L|Upright support on h/L|Horizontal support on h/L|
+|---:|---:|---:|---:|
+|1024|616.96 /4.663|631.66 /4.775|685.42 /5.062|
+|4096|2467.84 /18.650|2526.63 /19.101|2741.67 /20.248|
+|6400|3856.00 /29.141|3947.85 /29.845|4283.85 /31.637|
+
+These replace bare-shank accounting only when using E-280's exact assumed ends;
+they remain three-copy repetition, not optimized-plate or X1C forecasts.
+Screw-only print time at1024 is83.34/98.04/151.80h respectively. The unsupported
+upright screw now represents13.51% of joined-pair print hours, versus the former
+bare-shank10.21%; neither is a universal bound. Compare E-280's assumed39.82–54.40h
+casting occupancy to these finished-screw values, **not** bare-shank60.68h.
+With unchanged channel/nut printing, its573.44–588.02h serial resource sum is
+only4.69–7.05% below unsupported-upright616.96h, before tool fabrication and
+casting exclusions. Independent equipment can overlap; this is not calendar
+lead time or a measured casting advantage. E-280's40.90–104.67 maker-hours still
+apply. Upright integral U/closed columns from E-277 would instead total676.31/
+794.07h with the unsupported complete screw, before frame/scrap: eliminating
+column joins does not make screw deposition the dominant remaining process.
+
+**Decision:** close the finished-end accounting gap; retain upright as the lower
+support-burden comparison, not a print-ready or selected process. Do not reopen
+screw-only molds or socket/support micro-tuning from these times. Useful next
+research must remove substantial whole-pair manufacture/assembly or establish
+actual process/support evidence. E-281 remains the single optional owner test.
+No changed~30s gameplay claim, price pass, retention, readback or repair proof;
+12.7-mm/1024,S40/S50,N20/N30 and the5.08-mm/6400,~40-mm,~$500 references remain
+as above. Fine-grid replication here is burden only, not geometric compatibility.
+
+Verification: finite dimensions/volume/component count; all positive extrusion
+cross-checked against slicer material footer; four support-on/off comparisons;
+per-screw support coverage, socket bridge-height and head-only first-layer
+witnesses; plotted paths inspected. Analysis replay passes. Self-review only;
+no physical print, measured labor, speed or yield. Generated meshes/G-code/plots
+are scratch, with executable source retained.
