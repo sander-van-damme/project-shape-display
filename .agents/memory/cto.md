@@ -106,10 +106,21 @@ occupies all64 axial1-mm bins; common raft creates a shared carrier,not clean
 release. Three90° shanks:upright10m40–50s/.76cm³,supported horizontal16m17s/1.21,
 raft30m53s/3.41. Whole channel/nut/bare-shank repetition at1024 is594.30–595.25/626.25/
 709.31h;still excludes journals/collar/socket/frame/scrap. Retain comparisons,
-select no owner print. Avoid another tie/angle/fit or support-label sweep. Next
-useful discriminator must change whole-pair manufacture (e.g. actual external
-screw mold release/finished-end process),or qualify actual loaded joint/guide
-behavior. No owner print or purchased hardware selected.
+select no owner print. Avoid another tie/angle/fit or support-label sweep.
+E-280 now screens actual finite screw molds with assumed finished journals,
+collar and socket. Exact rigid longitudinal halves interfere for both profiles;
+external threads are not automatically straight-pull. Sleeve unscrewing owes
+22.67 turns/68mm retreat, separate lower tooling and axial socket-core removal;
+.00325–.00350mm³ residual intersection persists at128 facets,so no clearance pass;
+flexible peeling owes release/finishing/gauging and unqualified life/shrinkage.
+Bare screws account for10.21% of E-279 bare-pair print hours; this is not
+a ceiling for a finished FDM pair, whose ends have not been sliced. Flexible16-cavity/30min-cure/100-shot-life/yield1 scenario retains533.62h
+channel/nut printing plus39.82–54.40h mold occupancy and40.90–104.67 maker hours
+at1024 before exclusions. Park screw-only mold detail; reopen through whole-pair
+production advantage or actual-process evidence, not another local mold tweak.
+No owner print or purchase selected. New14-Oct advice favors a small falsifiable
+print-ready fit test; useful follow-up direction, not a release/production pass
+or override of LAB-425's explicit no-owner-print scope.
 
 Whole rigid cavity core cannot exit the closed body. Cap-only molding owes long
 core withdrawal/unscrewing and1024 joins; internal draft increases material. Open
