@@ -224,15 +224,22 @@ thread-and-gauge assembly tool is an independent construction to investigate;
 its feed,torque limit,good/bad discrimination and actual labor must be earned.
 No new owner print; E-281 remains optional.
 
-E-286 constructs a hand-fed shared spindle/float-slide thread-and-gauge station.
-Finished64-mm screw owes62mm/20.67turn insertion,not just initial pickup.
-Actual collar travel rejects stalls and2.7-mm lead faults over16turns under
-labelled bounds,but damaged same-lead flanks can duplicate good traces/torque.
-No qualified safe torque window. Park fixture CAD/feeder claims pending a changed
-fault discriminator or actual-process evidence. At1024 optimistic4h setup and
-10s handling save only1.12maker h versus28s manual; attending dwell loses that.
-At6400 active saving28h still leaves84–186whole maker h under stated exclusions.
-No print/purchase;E-281 remains optional. Source and result are canonical.
+E-286 now consolidates assembly, proof, installed run-in and service. Separate
+station/proof barely saves labor and cannot qualify latent damage. Empty-board
+four-turn starting plus existing writer can save2.29h/1024 before cradle/setup.
+Separate bottom thrust preserves gravity when row keepers open,not radial/capture.
+Sliding service windows disturb traversed neighbors; per-site closures repeat
+thousands of locks. Split shank adds2048 pieces/1024 joints and4.27–12.80h at1024,
+while captive driver/socket faults remain inaccessible. Park local closure/joint CAD.
+Offline bench repair is now a conditional simpler control,not approved UX: clear
+miniatures,secure whole row before opening,restore/prove state. Reusable fixture
+still owes32/80 radial+capture functions; no constructed access. At30min extra
+hands-on/event,8.53–25.6 body/shank repair episodes erase avoided split-joint
+assembly at1024; fault rates unknown. Ideal full1024 S50 restoration13.55–44.09min
+at assumed850/120rpm excludes routing/proof/repair. Session interruption cannot be
+traded against assembly hours without owner evidence. Next useful service work
+must construct accessible shared bench restraint/extraction and price setup,not
+another split joint or assumed fault-frequency sweep. E-281 remains optional.
 
 ## Actuation, observation and scale boundaries
 

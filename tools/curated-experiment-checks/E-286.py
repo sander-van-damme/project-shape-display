@@ -329,6 +329,50 @@ def detachable_shank_check():
     print('detachable: only body/shank extraction; captive driver faults unresolved')
 
 
+def bench_repair_check():
+    """Repair-policy sensitivity, not measured faults or permission to lose support."""
+    # Same hands-on metric on both sides; interruption is reported separately.
+    # Avoided split-shank assembly is E-286's 15--45 seconds/site.
+    # Additional bench labor per episode is an allocated DIFFERENCE versus local
+    # service, inclusive of recording/clearing/restoring play and safe fixture use.
+    for n in (1024, 4096, 6400):
+        saved = [n*t/3600 for t in (15,45)]
+        for extra_minutes in (10,30,60):
+            crossings = [h*60/extra_minutes for h in saved]
+            # Direct total-time check around the analytic crossover.
+            for h,c in zip(saved,crossings):
+                assert isclose(c*extra_minutes/60,h)
+                assert (c+1)*extra_minutes/60 > h
+            print('bench N',n,'extra maker min/event',extra_minutes,
+                  'events to erase avoided joint assembly',
+                  [round(c,2) for c in crossings])
+    # Restoration scheduler: four independently driven cells/batch, 2s visit,
+    # lead3, actual travel per affected cell bounded by S50. Movement time is
+    # per-batch max, not sum; this lower-level model grants ideal routing/proof.
+    def restore(distances, rpm):
+        return sum(2 + max(distances[i:i+4])*60/(3*rpm)
+                   for i in range(0,len(distances),4))
+    assert restore([],120)==0
+    assert isclose(restore([0]*4,120),2) # inspection visit is not free
+    assert isclose(restore([50]*4,120),2+50/6)
+    for width in (32,64,80):
+        for affected in (width,width*width):
+            for rpm in (120,850):
+                seconds=restore([50]*affected,rpm)
+                assert isclose(seconds,ceil(affected/4)*(2+50*60/(3*rpm)))
+                print('bench restore cells',affected,'rpm',rpm,
+                      'S50 stress min',round(seconds/60,2))
+    # Correlation changes the number of rows requiring offline intervention.
+    # Enumerate equal-sized faults in a 32-square board without assuming rates.
+    clustered={(0,c) for c in range(8)}
+    scattered={(r,0) for r in range(8)}
+    assert len(clustered)==len(scattered)==8
+    assert len({r for r,c in clustered})==1
+    assert len({r for r,c in scattered})==8
+    print('eight faults: clustered/scattered disturbed cells',32,256,
+          'if complete affected rows must be recommissioned')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
@@ -336,3 +380,4 @@ if __name__ == '__main__':
     bottom_thrust_service_check()
     single_pair_service_check()
     detachable_shank_check()
+    bench_repair_check()

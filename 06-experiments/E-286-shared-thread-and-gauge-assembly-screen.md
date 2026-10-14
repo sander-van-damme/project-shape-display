@@ -12,72 +12,62 @@ cases, force windows, labor/startup replays and service-access bounds. Evidence 
 self-reviewed analytical identities and allocated operations, not contact simulation
 or hardware measurements. Earlier detailed protocols remain in Git.
 
-## Separate station: construction, detection and cost
+## Separate station and axial proof
 
-E-277 integral136×10.3-mm body/10-mm nut; E-280 finished64-mm lead-3 screw.
-Two side nests hold body; split collar cup/counterbalanced slide support screw.
-Spindle seeks backward≤1turn then threads with limited torque/preload. Measure
-actual collar/nut displacement, downstream angle and torque; never impose Z feed.
-Read2/16turns, reverse2/return2, finish nut bottomZ2:62mm/20.67turn insertion.
-Catch parts; quarantine jams/unreadable states; at most one low-torque reverse.
-Station owes nests/clamp/cup/spindle, angle/position/torque sensors, float,
-guard/controller/catch; automated oriented feed/reject handling is unconstructed.
-Body+screw still2048/12800 pieces at1024/6400; threads/sockets/collar/two guides
-remain. [DEPRAG](https://www.deprag.com/en/screwdriving-technology/deprag-apps/)
-supports instrumentation concepts, not polymer qualification.
+E-277 integral136×10.3-mm body/10-mm nut; E-280 finished64-mm lead3 screw.
+Side nests hold body; split collar cup/counterbalanced slide supports screw.
+Limited-torque spindle seeks backward≤1turn, then threads without imposed Z feed.
+Measure actual collar/nut travel, downstream angle and torque at2/16turns,
+reverse2/return2, finish nut bottomZ2:62mm/20.67turn insertion. Catch/quarantine
+jams; at most one low-torque reverse. Station owes clamp/cup/spindle, sensors,
+float/guard/controller/catch; oriented feed/reject automation is unconstructed.
+Bodies+screws remain2048/12800 at1024/6400; existing interfaces unchanged.
+[DEPRAG](https://www.deprag.com/en/screwdriving-technology/deprag-apps/) supports
+instrumentation concepts, not polymer qualification.
 
-**Assumed bounds:** lead3±.06mm/turn, gain±.2%, datum±.15mm, reading±.10mm,
-lost motion±.30mm. Common datum cancels within segments, not final position.
-Final±.7mm contains .15+.10+.124 gain+.30 seating. E-256's rough1-mm play does not
-justify these tighter bounds. Two-/16-turn intervals5.368–6.633/46.445–49.559mm
-admit all243 corners/reversals. Stall≤.5mm/turn fails;2.7-mm lead can pass2 turns
-but fails16. No process prevalence is inferred. Damaged same-lead flanks can give
-identical travel/low torque to good threads: these channels cannot distinguish them.
-Entry burrs, tilt, offset and shared shrinkage remain unmodeled. Safe torque needs
-`good maximum + error < trip < damage minimum − overshoot`; no measured window.
+Assumed lead3±.06mm/turn,gain±.2%,datum±.15mm,reading±.10mm,lost motion±.30mm
+admit243 good corners/reversals:2/16turn bands5.368–6.633/46.445–49.559mm.
+Datum cancels within segments; final±.7mm covers .15+.10+.124+.30.
+E-256 rough1-mm play does not justify tighter bounds. Stall≤.5mm/turn fails;
+2.7-mm lead passes2turns but fails16. Damaged same-lead flanks duplicate good
+travel/torque. Entry burr/tilt/elastic twist/strip/creep remain unbounded;
+no qualified safe torque window or prevalence.
 
-Allocated manual handling9s+thread5/15/30s+gauge4s=18/28/43s, five actions.
-Station10s/four actions plus19.33s dwell at120rpm:123 attempts/h versus200/129/84.
-Dwell counts as maker time unless overlapped. Setup4–12h (table4).
-Common frame/electrical8–16h, four channels10–30min each, removal/gauge10–30s/part,
-install8–20s/pair,5min/plate in two assumed289-up streams; yield/packing unqualified.
+Allocated manual9s handling+5/15/30s threading+4s gauge gives18/28/43s/five actions.
+Station10s/four actions+19.33s dwell at120rpm gives123 attempts/h versus200/129/84.
+Setup4–12h; table uses4. Common frame/electrical8–16h,four channels10–30min each,
+removal/gauge10–30s/part,install8–20s/pair,5min/plate in two assumed289-up streams.
+Yield/packing/overlapped dwell unqualified; source preserves80%-usable cases with
+60s/reject and all manual variants.
 
-|N; all usable|Manual fast/mid/slow assembly h|Station active/serial h|Whole maker manual-mid/station-active h|
-|---|---:|---:|---:|
-|1024|5.12/7.96/12.23|6.84/12.34|25.26–49.39/24.14–48.27|
-|6400|32/49.78/76.44|21.78/56.15|112.06–213.83/84.06–185.83|
+|N; all usable|Whole maker manual-mid/station-active h|Station serial assembly h|
+|---|---:|---:|
+|1024|25.26–49.39/24.14–48.27|12.34|
+|6400|112.06–213.83/84.06–185.83|56.15|
 
-At1024 only1.12h saving;12h setup reverses it. Ideal threading break-even11.06s.
-Attending dwell adds5.50/34.37h. Touches5120→4096 or32000→25600 exclude external
-work. At80% usable, ceil(N/.8) attempts plus60s/reject give whole maker
-station30.71–57.68 versus manual33.11–60.08h at1024; at6400 station
-124.89–244.44 versus manual160.89–280.44h. Equal usability is an assumption.
-Unquoted station allowance$200–600 plus E-276 four-output$798–1768 =$998–2368
-before exclusions. Reusing a spindle does not supply free gauges/calibration.
+At1024 only1.12h saving;12h setup reverses it. Attending dwell adds5.50/34.37h.
+At80% usable,station30.71–57.68/manual33.11–60.08h at1024;124.89–244.44/
+160.89–280.44h at6400. Equal usability is assumed. Unquoted station$200–600 plus
+E-276 four-output$798–1768=$998–2368 before exclusions. Reused spindle is not free
+inspection/calibration.
 
-## Axial proof improves observation, not qualification
+**Axial proof adds observability, not qualification.** Load cell/applicator and
+nut/collar differential probe react through cup/frame, not spindle. Test locked
+then free angle; bound cup friction/frame seating/drift; catch on power loss.
+Illustrative.40±.02N,error±.04mm,good stiffness10–40N/mm,weak.5–2N/mm yield
+−.0305….082/.150….880mm bands; .116 threshold separates corners. Error±.08mm
+or original two±.10mm readings do not. At20N/mm,30° free rotation gives.020/.270mm
+locked/free travel; two±2° errors resolve it, smaller movement/restraint may not.
+Safe force window requires strongest_bad+error < command < weakest_good_nondamage
+−error−overshoot. Bad.30/good.80/error.02/overshoot.05N gives(.32,.73)N;
+bad.40/good.35 gives none. Owner's near1kg observation supplies neither bound.
+Identical immediate response can conceal fatigue/creep. Endpoint nuts atZ2…12/
+52…62 miss damage near30mm; loaded traversal still cannot prove endurance.
 
-Force applicator/load cell and differential nut/collar probe react through cup/frame,
-not spindle. Test angle-locked then free, observing collar angle. Cup friction,
-frame flex/seating/drift need bounds; clear catch during test, catch on power loss.
-Fixture unconstructed.
-
-Illustrative0.40±.02N, displacement error±.04mm, good stiffness10–40N/mm and
-weak.5–2N/mm give bands−.0305….082/.150….880mm: threshold.116 separates corners;
-±.08mm errors overlap. Original two±.10mm readings cannot discriminate. At20N/mm,
-30° free rotation gives locked/free.020/.270mm; two±2° errors resolve it. Smaller
-motion/cup restraint remain ambiguous. Safe destructive discrimination needs
-`strongest_bad + error < command < weakest_good_nondamage − error − overshoot`.
-Bad.30/good.80/error.02/overshoot.05N gives(.32,.73)N;bad.40/good.35 gives none.
-Owner's near1kg loose-pair observation supplies neither bound. Identical immediate
-stiffness/angle can conceal latent fatigue/creep. Endpoint nuts contact Z2…12 and
-52…62; damage near30mm escapes both. Loaded traversal still cannot prove endurance.
-
-Two-position S50 proof adds33.33 turns/16.67s at120rpm +24s static dwell and2s
-active review. At1024/6400:11.57/72.30h dwell and.57/3.56h active; at80% usable:
-14.46/90.37 and.71/4.44h. Optimistic1024 saving drops1.12→.55h before fixture
-setup/hardware/damage. Park until measured process/force bounds or a construction
-removes handling; no extra owner print.
+Two-position S50 proof adds33.33turns/16.67s at120rpm+24s dwell+2s active review.
+At1024/6400:11.57/72.30h dwell,.57/3.56h active;80% usable14.46/90.37h and
+.71/4.44h. Optimistic1024 saving drops1.12→.55h before fixture/setup/damage.
+Park station/proof CAD pending measured bounds or fewer handling operations.
 
 ## Install extended pairs and reuse the writer
 
@@ -145,13 +135,11 @@ contact proof. Uniform-pressure mean friction radius1.8296mm gives drag.0366…
 claiming speed; avoid double-counting an existing thrust allowance. Numerical
 annular quadrature agrees with the identity within3e-10mm; not friction validation.
 
-At1024:2048 unchanged bodies+screws;64 half-rails,1024 annular contact/aperture
-sites,2048 half-journal features, illustrative128 locks. At6400:160 rails,6400
-annuli,12800 half-journals,320 locks; counts only, not fine-pitch fit. Sheet machining,
-molding/modular FDM are unqualified options;400mm exceeds one X1C bed.10–30s per
-rail placement/lock adds.53–1.60h at1024 or1.33–4h at6400 before alignment/tooling.
-Material against1.56h attended-run-in savings, but manual assembly also owes support
-installation: no net saving claimed. No per-cell latch components are added.
+At1024/6400:2048/12800 bodies+screws,64/160 half-rails,1024/6400 annuli,
+2048/12800 half-journals,128/320 allocated locks. Fine-pitch counts are not fit.
+Manufacture is unqualified;400mm exceeds X1C bed. Rail placement/lock10–30s adds
+.53–1.60/1.33–4h before alignment/tooling. Both assembly routes owe support;
+no net saving claimed against1.56h run-in advantage. No per-cell latch added.
 
 ## Single-pair service: path and closure screen
 
@@ -160,13 +148,10 @@ installation: no net saving claimed. No per-cell latch components are added.
 Enlarging the keeper removes capture; removing only the column leaves the screw
 trapped. Cutting it owes debris/tool access, not intact replacement.
 
-Construct an optimistic4.6-mm shared window translating along a row from outside
-to target and back, with bottom plate fixed. Grant perfect restraint elsewhere,
-ignoring moving-plate/shaft collisions. Its endpoint admits one collar even at
-5.08-mm pitch. But every intervening center is crossed and loses radial/capture
-restraint. Enumerating all targets gives worst-case15/39 neighbors even choosing
-the nearer end of32/80-site rows; one fixed end gives31/79. Continuity covers travel
-between centers. Lifting the keeper instead also releases restraint.
+An optimistic4.6-mm row-traversing window admits one collar even at5.08-mm pitch,
+but releases restraint at every crossed center: worst15/39 neighbors from nearer
+end of32/80-site rows,31/79 from one end. This grants perfect restraint elsewhere
+and ignores moving-plate collisions. Lifting keeper also releases restraint.
 
 Repair: disable writer; clear/secure target; engage/prove neighbor bypass;
 open keeper; replace; close/prove permanent restraints before releasing bypass;
@@ -182,14 +167,10 @@ release actions. Fragment recovery/setup unpaid; actions may need multiple touch
 |6400;4|3200 /6400|3|32;204800|
 |6400;1|12800 /25600|0|20;128000|
 
-Two locks/half is an allocation; even one/site repeats1024/6400 closures. Other
-interface counts above remain. Row bypass adds31/79 radial and31/79 capture
-functions even if monolithic. All-site-once is scaling, not predicted maintenance.
-
-Bypass contacts/access/frame reaction remain unconstructed: power-off and bottom
-thrust do not restore radial/upward restraint. Overhead extraction is unresolved.
-Process changes do not remove release sets; fine-pitch counts are not fit proof.
-Park window/row/per-site closure detail absent actual restraint-preserving access.
+Locks are allocations, not fabricated closures. Row bypass repeats31/79 radial
+and capture functions even if monolithic. All-site-once is scaling, not predicted
+maintenance. Bypass/access/frame reaction and overhead extraction are unconstructed;
+power-off/thrust cannot replace radial capture. Park closure/window detail.
 
 ## Detachable shank with captive driver
 
@@ -210,23 +191,63 @@ eccentricity (eight corners). Not a process tolerance or clearance-tuning mandat
 Tall-pair extraction, terrain/tool access and fragment recovery remain unconstructed.
 Removing only screw from held minimum-height body instead owes62mm/20.67turns.
 
-Driver cannot exit3.2/2.8-mm keeper/plate apertures. Socket/thrust/driver/keeper/plate
-faults retain prior service problem. Two repairable classes (body/shank) are not a
-failure-rate fraction; prevalence unknown. New joint can jam/strip too.
-Body+shank+driver+retainer doubles pieces to4096/25600 at1024/6400 sites. New
-functions/site: key, compression seat, tensile retention and proof. Seven allocated
-assembly actions: present driver, orient tail, seat, present retainer, counter-hold,
-tighten, verify. Assumed15–45s adds4.27–12.80h/1024,17.07–51.20h/4096,26.67–80h/6400.
-At1024 optimistic22.97h installed-run-in becomes27.24–35.77h before tooling/rejects
-and previous exclusions;32h reference leaves9.03h for all additions. Cost increment
-is N times delivered driver/retainer/joint cost plus tools; unquoted. Previous
-integral-screw print hours do not qualify split/keyed fabrication. Machining/molding
-may change cost/yield, not count. No automated feeding credited.
+Driver remains trapped by3.2/2.8-mm apertures; socket/thrust/keeper faults remain.
+Body/shank coverage is two fault classes, not a reliability fraction; joint adds
+jam/strip modes. Body+shank+driver+retainer doubles pieces to4096/25600 at1024/6400.
+Key/compression seat/tensile retention/proof repeat per site. Seven assembly actions:
+present driver,orient tail,seat,present retainer,counter-hold,tighten,verify.
+Assumed15–45s adds4.27–12.80/17.07–51.20/26.67–80h at1024/4096/6400.
+At1024 installed-run-in22.97h becomes27.24–35.77h before tooling/rejects/exclusions;
+32h leaves9.03h for all additions. Cost=N×delivered driver/retainer/joint+tools,
+unquoted. Integral-screw slices do not qualify split fabrication; molding/machining
+change cost/yield, not counts. No automated feed credited.
 
-**Park local joint CAD.** This changes release topology by leaving driver faults
-unresolved and adding1024/6400 joints. Reopen with robust reversible joint/access,
-fault prevalence and whole-process evidence. Executable interval/count checks are
-self-review, not contact simulation or physical repair. No print/purchase.
+Park local joint CAD pending robust reversible access and whole-process evidence.
+
+## Offline bench repair control
+
+**Preserved play during repair need not be mandatory; safe support remains so.**
+Compare integral screws with offline row service before adding per-cell joints.
+Record desired terrain/miniature positions, clear miniatures, disable/park writer,
+place board upright on a bench stand, secure the entire affected row, open keeper,
+replace pair, close/prove restraints, remove fixture, verify/re-reference terrain
+and restore miniatures. Never drive a jammed pair home or transport an unsupported
+board. Saved commands are not actual height; uncertain unaffected state owes full
+recommissioning. A manual fallback map and its setup/acceptability are untested.
+Normal gameplay updates still owe unchanged-neighbor isolation.
+
+Removing miniatures leaves body weight/lean/handling loads. Reusable bench tooling
+still owes32/80 radial+capture functions and accessible frame reaction; no contacts
+or extraction construction are proven. Resident64/160 half-rails and128/320 locks
+remain at1024/6400. Omitting split shanks avoids2048/12800 added pieces and1024/6400
+joints, not ordinary threads/journals/thrust. Fixture setup and cost remain unpaid.
+
+For **body/shank faults only**, avoided15–45s/site split-joint assembly equals
+4.27–12.80h/1024. Assumed extra10/30/60 hands-on minutes per bench episode versus
+local repair erase that saving after25.6–76.8/8.53–25.6/4.27–12.8 episodes;
+at6400 and30min:53.33–160. Identity: `episodes=N*assembly_seconds/(60*extra_minutes)`.
+Subtract additional fixture setup first. Driver/socket faults are excluded: split
+shanks never solved them. No fault rates/life or independence assumed; eight faults
+in one32-site row disturb32 cells versus256 across eight rows. One repair episode
+need not equal one failed cell. Assembly hours cannot price interrupted play.
+
+Ideal four-spindle batches,2s/visit,lead3,S50 travel and assumed120/850rpm give
+**stress restoration**, excluding repair/homing/routing/height proof/miniatures:
+
+|Affected cells|120rpm min|850rpm min|
+|---|---:|---:|
+|32-site row|1.38|0.42|
+|1024 board|44.09|13.55|
+|80-site row|3.44|1.06|
+|6400 board|275.56|84.71|
+
+Verified smaller travel reduces time; unknown state earns no credit. Minimum versus
+elevated neutral changes signed travel, not verification. Fine/quarter grids remain
+count controls;10.3-mm bodies do not fit. Not a30s update pass or scene benchmark.
+**Retain offline service as a conditional simpler control, not approved product UX.**
+Next construct accessible shared bench restraint/extraction and count setup; do not
+refine split joints. Owner choice belongs after a credible interruption/complexity
+trade exists. No new print, purchase or question. Checks are analytical self-review.
 
 ## Product boundary
 
