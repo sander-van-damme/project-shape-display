@@ -1,0 +1,32 @@
+name: Publish Trial 5 STL (temporary)
+on:
+  push:
+    branches:
+      - codex/trial5-short-replica-printtest-20261014
+    paths:
+      - owner-print-tests/trial5-short-replica/generate-trial5-short.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out task branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate ready-to-slice STL
+        run: node owner-print-tests/trial5-short-replica/generate-trial5-short.mjs
+      - name: Commit the STL once
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add owner-print-tests/trial5-short-replica/trial5-short-comparison-plate.stl
+          git commit -m "Build reproducible short Trial 5 print plate"
+          git push origin HEAD:codex/trial5-short-replica-printtest-20261014
