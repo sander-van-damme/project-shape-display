@@ -154,6 +154,85 @@ def geometry_screen():
                 old_witness_first_hit_x_mm=landing)
 
 
+def wall_transport(pitch, width, nz=256, nx=1, rho=1.):
+    """One finite Lambertian wall -> Lambertian central cap, point projector.
+
+    Unit radiant intensity per source solid angle, no atmosphere. P=(0,0,D),
+    T=(0,0,25), near wall y=p-w/2, x in [-w/2,w/2], z in [25,50].
+    Divide by direct irradiance I/(D-25)^2. Cap albedo cancels only for
+    Lambertian response in both directions. rho=1 is an energy-conserving
+    diffuse wall upper control, NOT a measured material or general BRDF bound.
+    Integrate separately inside each source-address bin so bit discontinuities
+    never straddle an x quadrature panel. z quadrature is midpoint.
+    """
+    y = pitch-width/2
+    hist = [0.]*CELLS
+    dz = 25/nz
+    for iz in range(nz):
+        z = 25+(iz+.5)*dz
+        src_height = D-z
+        qmin, qmax = -width/(2*src_height), width/(2*src_height)
+        for j in range(address(qmin), address(qmax)+1):
+            xl = max(-width/2, (LO+j*DQ)*src_height)
+            xr = min(width/2, (LO+(j+1)*DQ)*src_height)
+            dx = (xr-xl)/nx
+            for ix in range(nx):
+                x = xl+(ix+.5)*dx
+                source_r2 = x*x+y*y+src_height*src_height
+                bounce_r2 = x*x+y*y+(z-25)**2
+                # Ewall/Edirect = cos(source, wall)/r_source^2 * 275^2.
+                incident = y*(D-25)**2/source_r2**1.5
+                # Wall solid angle and receiver cosine: y*t/r_bounce^4.
+                kernel = y*(z-25)/(math.pi*bounce_r2**2)
+                hist[j] += rho*incident*kernel*dx*dz
+    return hist
+
+
+def radiometry_screen():
+    rows=[]
+    for pitch,width in ((5.08,4.4),(6.35,4.4),(12.7,10.3)):
+        hist=wall_transport(pitch,width,512,2)
+        coarse=wall_transport(pitch,width,256,1)
+        total=sum(hist)
+        # Independent continuous bound: max incident irradiance ratio times
+        # a wall's projected solid angle/pi, at most HALF the upper hemisphere.
+        # A vertical wall at +y only occupies directions with positive y.
+        y=pitch-width/2
+        bound=.5*y*(D-25)**2/(D-50)**3
+        assert 0 < total < bound < 1/3
+        l1=sum(abs(a-b) for a,b in zip(hist,coarse))
+        assert l1/total < .001
+        # Convert integrated transport bins to all 24 forward observations.
+        # Full wall illumination is an overestimate if a four-cap field clips it.
+        paths=[(q_at(25),1.)]+[(LO+(j+.5)*DQ,w)
+                              for j,w in enumerate(hist) if w]
+        got=decode(capture(paths))
+        assert got and got['address']==address(q_at(25))
+        assert got['min_normalized_contrast'] >= (1-total)/(1+total)-1e-12
+        # Radiance from a black wall is identically zero; reflectance scales
+        # the derived kernel linearly. Check at lower quadrature cost.
+        black=wall_transport(pitch,width,16,1,0.)
+        half=wall_transport(pitch,width,16,1,.5)
+        unit=wall_transport(pitch,width,16,1,1.)
+        assert sum(black)==0
+        assert all(abs(a-.5*b)<1e-15 for a,b in zip(half,unit))
+        wrong=address(q_at(45))
+        rows.append(dict(pitch_mm=pitch,width_mm=width,
+            reflected_over_direct=total,
+            continuous_one_wall_upper_bound=bound,
+            source_histogram_l1_relative_change=l1/total,
+            occupied_source_bins=sum(w>0 for w in hist),
+            false45_bin_over_direct=hist[wrong],
+            aggregate_gain_to_ratio_one_third=(1/3)/total,
+            aggregate_gain_to_ratio_five=5/total,
+            decoded=got))
+    return dict(assumptions='one bounce, point projector, uniform radiant intensity, '
+                'Lambertian wall rho=1 and Lambertian target; not PLA calibration',
+                fine_quadrature='512 vertical slices, 2 samples per clipped address bin',
+                coarse_quadrature='256 vertical slices, 1 sample per clipped address bin',
+                rows=rows)
+
+
 def main():
     controls=0
     max_error=0.
@@ -215,7 +294,7 @@ def main():
                        required_y_span_at_z50_mm=w,
                        available_y_span_mm=WIDTH*250)
            for p,w in ((5.08,4.4),(6.35,4.4),(12.7,10.3))}
-    print(json.dumps(dict(geometry=geometry_screen(),
+    print(json.dumps(dict(radiometry=radiometry_screen(),geometry=geometry_screen(),
         controls=controls,max_control_midpoint_error_mm=max_error,
         address_roundtrips=CELLS,bits=BITS,frames=2+2*BITS,
         projector_bin_mm_at_z25=DQ*275,max_height_bin_mm=max_interval,

@@ -142,3 +142,69 @@ radiometric bounding or calibrated images of a low cap beside a high wall,
 including source-address spread; further pattern/threshold sweeps remain parked.
 This extension adds no resident/shared hardware or scan frames: the preceding
 pitch, S40/S50/neutral, timing, cost, retention and optional-print limits stand.
+
+## Finite-wall radiometry: path existence does not earn dominant return
+
+**Numerical integration and continuous bound, not physical measurement.** The
+same executable now integrates the *whole* near wall, including its distribution
+across source addresses. Assume a point projector with uniform radiant intensity
+per solid angle, a Lambertian wall of reflectance rho≤1, a Lambertian target,
+one reflection, static geometry, and the preceding central target at25mm beside
+one50-mm neighbor. These assumptions are a control, not a prior for printed PLA.
+[PBRT's diffuse model](https://www.pbr-book.org/4ed/Reflection_Models/Diffuse_Reflection)
+uses BRDF=rho/pi and cautions about grazing-angle deviations; its
+[surface-reflection equation](https://pbr-book.org/4ed/Radiometry%2C_Spectra%2C_and_Color/Surface_Reflection)
+supplies the irradiance integral (accessed2026-10-14). No material reflectance,
+roughness or projector angular-uniformity measurement is inferred from these sources.
+
+Let wall distance `a=p-w/2`, wall point `(x,a,z)`, target `(0,0,25)` and source
+`(0,0,300)`. Integrate x over[-w/2,w/2], z over[25,50]. Normalizing by direct
+irradiance `I/275²`, the differential reflected/direct ratio is
+
+```
+rho/pi * [a*275² / (x²+a²+(300-z)²)^(3/2)]
+       * [a*(z-25) / (x²+a²+(z-25)²)^2] dx dz.
+```
+
+The first factor in brackets is normalized wall illumination; the second is
+wall solid angle times target incidence cosine. Target diffuse reflectance
+cancels in this ratio. The entire wall is granted illumination, even if the
+actual four-cap projector field clips it; no new optics are assumed earned.
+Source slope is `x/(300-z)`: integrate separately inside each Gray-code bin,
+then form all24 raw observations from the histogram and unit direct return.
+
+| Pitch/width mm | Total reflected/direct, rho=1 | Continuous upper bound | Contribution in false45-mm bin |
+|---|---:|---:|---:|
+|5.08/4.4|.00224428|.0069696|.000003772|
+|6.35/4.4|.00241817|.0100430|.000003847|
+|12.7/10.3|.00521917|.0182710|.000003758|
+
+Independent bound: wall irradiance/direct≤`a*275²/250³`; a single vertical wall
+occupies at most half the target's cosine-weighted upper hemisphere, so multiply
+by≤rho/2. This bound does not depend on quadrature or code sampling. Doubling
+vertical samples256→512 and within-bin samples1→2 changes the histogram by
+less than.0062% in relative L1 norm across the three cases. Black-wall and
+half-reflectance controls give zero and half transport. This checks this smooth
+integral, not model discrepancy or real optics.
+
+The reflection spreads across722/722/1688 bins. All three raw-data decodes retain
+the true25-mm address, minimum contrast.99748/.99716/.99368. Even the continuous
+bounds are below the total-indirect/direct≤1/3 sufficient condition for the
+existing.5 contrast threshold, absent blur/drift/noise. The original5:1 reflected
+witness is therefore **not produced by this finite diffuse wall**. Total reflection
+would require an aggregate amplification of958–2228× to reach5:1, and merely
+amplifying this broad distribution does not concentrate it into the false45 bin.
+These factors are sensitivity ratios, not permissible BRDF multipliers or proof
+against glossy materials, props, multiple walls/bounces or a suppressed direct path.
+
+**Decision:** retain the direct-dominant control with a physically normalized
+one-wall example; stop presenting the abstract dominant path as a likely diffuse
+neighbor failure. Keep it as a conditional identifiability counterexample. A
+reader still needs earned finite optical resolution, exposure, calibration,
+material response and accessible cap identity; this result supplies none of those.
+Do not start another pattern/threshold sweep or request another print. Existing
+24-frame, ~30-s comparison, pitch/cell counts, S40/S50/neutral preparation,
+~$500/$1000/$1000–1500 cost comparisons, manufacture, retention and repair limits
+above are unchanged; no hardware is added or removed. Next useful optical work
+must earn a real finite projector/camera capability or calibrated material images,
+rather than replace these bounded weights with another arbitrary strong reflector.

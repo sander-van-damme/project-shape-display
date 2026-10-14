@@ -363,8 +363,12 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   The3D extension constructs a compatible one-wall bounce at all three pitches:
   a stripe plane reaches a taller neighbor although its central2D ray stays on
   target. Grazing incidence.0113–.0296 does not earn the assumed5:1 reflected/direct
-  ratio. Next optical evidence must integrate finite-wall radiometry or measure
-  calibrated low-cap/high-wall images; no pattern tuning. Projected
+  ratio. Finite Lambertian-wall integration now gives reflected/direct
+  .00224/.00242/.00522, independently bounded by .00697/.01004/.01827. All
+  three decodes retain25mm; histogram convergence<.0062%. The abstract5:1
+  witness is not realized by this diffuse scene; keep it conditional,not likely.
+  Next earn finite projector/camera capability or calibrated material images;
+  no pattern tuning or arbitrary strong-return replacement. Projected
   bins6.714µm atz25,2048 row positions,finite footprint/boundary unknowns remain.
   Acquisition614.4/2457.6/3840s at1024/4096/6400;local2.4/9.6/19.2s for1/4/8 groups.
   Retain direct-dominant control;park pattern/threshold tuning without calibrated
