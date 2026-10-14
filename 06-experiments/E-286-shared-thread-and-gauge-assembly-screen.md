@@ -213,3 +213,70 @@ shared support/service construction that admits completed screws and preserves
 neighbor support, or actual-process evidence. No new print or purchase; E-281
 remains optional. Verification: exact turn/engagement identities, two-turn failure
 control, aperture-order obstruction and full labor/startup replay; self-review only.
+
+
+## Separate bottom thrust from the opening row keeper
+
+**A fixed bottom plate preserves gravity support while a row keeper opens, but
+not radial guidance or upward restraint.** Retain this support decomposition;
+park repair-fixture detail. This changes shared structure, not per-cell latches.
+The script checks finite aperture bounds, transverse opening, constraint states,
+friction and replication; no CAD/contact/deflection or physical qualification.
+
+E-280's collar and driver both have4.4-mm diameter: **no lower collar shoulder**
+exists between them. Support the driver bottom at Z−10 on a fixed plate with a
+2.8-mm aperture. It admits the2-mm-AF hex tool (2.309mm corner diameter), leaving
+an annular thrust face. Load: nut→screw→driver end→plate→frame. Socket burrs,
+end flatness, wear, plate sag and friction remain repeated-interface obligations.
+Two locked row half-rails surround the2.8-mm journals at Z−4…0 with3.2-mm bores;
+their underside captures the collar upward. Clearance/preload is unqualified.
+
+Retract both rails sideways for service. At12.7-mm pitch, assumed4.5-mm half-width
+and2.4-mm outward travel leave1.3mm to the neighboring closed rail; opening exceeds
+collar radius2.2mm plus an illustrative.1mm radial envelope. This planar bound
+excludes locks, transverse guides, end access and frame stiffness. No fine-pitch
+fit claim. The4.4-mm collar can move upward through an illustrative10.8-mm body
+guide, but not the closed3.2-mm keeper. Body straightness/yaw remain unqualified;
+any separate fixed upper bearing must also admit extraction.
+
+Sequence: disable writer; leave bottom plate bolted; remove target miniature and
+secure target; open rails; lift/replace pair; close/lock rails; verify actual height,
+capture and free rotation before enabling writer. Broken/stripped pairs may require
+separate screw retrieval from below. Overhead extraction clearance and avoiding
+nearby terrain/miniatures are unconstructed. No row homing or neighbor motion is
+credited. Unlike a load-bearing clamshell, opening does not remove gravity support.
+However,31 neighbors (79 at80-wide) lose lower radial guidance/upward capture.
+Their threads/column guides are not proven substitutes. A temporary keeper could
+restore those constraints **only if constructed and engaged before withdrawal**;
+a boolean support graph is not that construction. Do not add comb/latch/fit detail
+without an earned support handoff. Bottom-plate settlement changes surface height
+one-for-one even at fixed screw angle. Power-off does not eliminate handling loads.
+
+**Assumed bounds, not printer tolerances:** tool AF±.05mm, aperture/driver diameter
+±.10mm and eccentricity0… .10mm give16 corners. Minimum tool radial clearance
+.0664mm, annular width.600mm and conservative complete-ring area6.974mm² are
+positive; no socket-strength or continuous rotating-envelope proof. Uniform-pressure
+mean friction radius1.8296mm gives drag.0366… .1464Nmm at.2N and assumed μ=.1… .4;
+at.338N,.0618… .2474Nmm. Rebuild the torque budget before claiming speed; do not
+add this twice if an older allowance already includes a thrust bearing. Actual
+preload, contact, friction and wear are unknown.
+
+At1024 sites: unchanged2048 bodies+screws;64 half-rails,1024 thrust apertures/contact
+sites,2048 half-journal features and illustrative128 rail locks. At6400:160 rails,
+6400 annuli,12800 half-journals,320 locks; replication only, not5.08/6.35-mm fit.
+Sheet machining, molding or modular FDM are unqualified process options;400mm
+exceeds one X1C bed. At10–30s per rail placement/lock, assembly adds.53–1.60h at1024
+or1.33–4h at6400 before alignment/gauging/tooling. This is material against1.56h
+attended-run-in savings; net savings require charging equivalent support assembly
+to the manual control too. No thousands of individual latch components are added.
+
+The existing$798–1768 coarse allocation does not price this support/lock/inspection
+stack. Keep~$500/~$1000 finished/$1000–1500 demonstrator comparisons without claiming
+a new price. Inherited S40/S50 local26.84/31.07s,scene201/223s,neutral271/332s and
+dense392/452s remain conditional versus~30s: this friction has not earned their
+speed. Minimum/elevated neutral and real bidirectional travel remain kinematic
+possibilities, not support qualification. No new print/purchase; E-281 optional.
+**New decision:** a row opening need not transfer gravity load, but complete neighbor
+restraint and damaged-pair extraction remain unresolved. Reopen through a concrete
+constraint-preserving service path or actual support/handling evidence. Closed-bore
+failure, open-row control, finite corners, settlement and ledger checks are self-review.

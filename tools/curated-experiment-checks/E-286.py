@@ -181,7 +181,70 @@ def installed_runin_check():
     print('installed run-in: conditional assembly saving; no support or qualification pass')
 
 
+def bottom_thrust_service_check():
+    """Finite aperture/force-direction screen, not contact or hardware proof."""
+    from math import pi, sqrt
+    from itertools import product
+    # Changed stationary stack, unchanged E-280 finished screw.
+    # Driver bottom z=-10 rests on annulus; socket entered through its aperture.
+    # Top split journal/keeper surrounds z=-4..0 and arrests upward collar travel.
+    tool_af, aperture, driver, journal = 2., 2.8, 4.4, 2.8
+    assert tool_af * 2/sqrt(3) < aperture < driver
+    assert journal < 3.2 < driver
+    corners=[]
+    for tool_error, hole_error, body_error, eccentricity in product(
+            (-.05,.05),(-.1,.1),(-.1,.1),(0.,.1)):
+        rt=(tool_af+tool_error)/sqrt(3)
+        rh=(aperture+hole_error)/2
+        ro=(driver+body_error)/2
+        tool_margin=rh-rt-eccentricity
+        bearing_width=ro-rh-eccentricity
+        # Conservative complete concentric ring remaining despite hole offset.
+        ring_area=pi*(ro**2-(rh+eccentricity)**2)
+        assert min(tool_margin,bearing_width,ring_area)>0
+        corners.append((tool_margin,bearing_width,ring_area))
+    print('bottom thrust: 16 bounded aperture cases; minima mm/mm/mm2',
+          [round(min(x[i] for x in corners),6) for i in range(3)])
+    ro,rh=driver/2,aperture/2
+    mean_radius=2/3*(ro**3-rh**3)/(ro**2-rh**2)
+    assert rh < mean_radius < ro
+    # Uniform pressure Coulomb friction only. Actual wear/contact/preload unknown.
+    for force in (.2,.338):
+        print('bottom thrust F/assumed mu .1-.4/drag Nmm',force,
+              [round(mu*force*mean_radius,6) for mu in (.1,.4)])
+    # Constraint graph: radial here means dedicated lower-journal support,
+    # not claimed zero movement or replacement by the loaded thread/upper guides.
+    def constraints(bottom,keeper,service_keeper=False):
+        return (bottom,keeper or service_keeper,keeper or service_keeper)
+    assert constraints(True,True)==(True,True,True)
+    assert constraints(False,False)==(False,False,False) # open load-bearing row
+    assert constraints(True,False)==(True,False,False) # gravity-only escape
+    assert constraints(True,False,True)==(True,True,True) # unbuilt third interface
+    assert 4.4 < 10.8 # axial collar through illustrative coarse body guide
+    assert 4.4 > 3.2 # fixed keeper obstructs the same extraction
+    # Full body still requires known yaw/straightness/clearance, not just this check.
+    # Single coarse row opens transversely, adjacent row rails stay closed.
+    half_width, opening, pitch, radial_error = 4.5, 2.4, 12.7, .1
+    assert opening > driver/2 + radial_error
+    neighbor_gap=pitch-2*half_width-opening
+    assert isclose(neighbor_gap,1.3)
+    print('coarse row nominal outer gap mm',neighbor_gap)
+    for side in (32,80):
+        n=side**2
+        print('support replication sites/row half rails/added ring contacts',
+              n,2*side,n)
+        print('illustrative rail lock operations at two/rail',4*side,
+              'temporary neighbor restraint sites for single row',side-1)
+        print('assumed rail placement+lock maker h',
+              [round((2*side+4*side)*seconds/3600,3) for seconds in (10,30)])
+    # Common lower-plate downward error transfers directly into surface height.
+    for settlement in (0.,.05,.2):
+        assert isclose((52-settlement)-52,-settlement,abs_tol=1e-12)
+    print('gravity continuity does not prove upward capture, radial guidance or unchanged height')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
     installed_runin_check()
+    bottom_thrust_service_check()
