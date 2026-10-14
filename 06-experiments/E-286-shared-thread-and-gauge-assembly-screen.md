@@ -131,16 +131,11 @@ radial envelope. This planar bound excludes locks/guides/frame stiffness. Collar
 fits upward through illustrative10.8-mm body guide, not closed3.2-mm keeper.
 Body straightness/yaw and any separate upper-bearing extraction remain owed.
 
-Sequence: disable writer; keep bottom plate bolted; remove target miniature and
-secure target; open rails; lift/replace pair; close/lock rails; verify height,
-capture/rotation before enabling. Broken pairs may need separate screw retrieval
-from below. Overhead access/avoiding neighboring terrain are unconstructed.
-No row homing or neighbor motion is credited.31 neighbors (79 at80-wide) lose
-lower radial guidance/upward capture; threads/column guides are unproven substitutes.
-A temporary keeper must engage before opening if those constraints are required;
-it is not constructed. A boolean graph does not prove the handoff. Plate settlement
-changes surface height one-for-one at fixed angle. Power-off does not remove handling
-loads. Park comb/latch/fit detail without a complete supported sequence.
+With writer disabled and target secured, open rails, replace pair, close/verify
+before enabling. Broken screws may need below-board retrieval.31/79 neighbors
+lose radial/upward restraint; thread/column guides are unproven substitutes.
+Temporary keeper must engage first where required, but no contacts are constructed.
+Plate settlement shifts height one-for-one; power-off does not remove handling load.
 
 Tool AF±.05mm, aperture/driver diameter±.10mm and eccentricity0… .10mm give16
 assumed corners: minimum radial tool clearance.0664mm, annular width.600mm and
@@ -191,17 +186,10 @@ Two locks/half is an allocation; even one/site repeats1024/6400 closures. Other
 interface counts above remain. Row bypass adds31/79 radial and31/79 capture
 functions even if monolithic. All-site-once is scaling, not predicted maintenance.
 
-**Bypass remains unqualified:** existing keeper occupies the capture surface;
-new contacts need access, frame reaction and engagement without lifting/side-loading
-neighbors. Stop before opening absent that construction. Power-off/bottom thrust
-cannot replace radial/upward restraint. Overhead extraction through guides/terrain
-is also unconstructed. Do not home neighbors or transfer their loads to the writer.
-
-This analytical path bound is process-independent; warp/play/settlement add risk.
-Machining/molding/FDM change cost, not release sets.6400 counts are not fine-pitch
-fit. Neutral height cannot remove capture. Retain empty-board run-in; park window,
-row-service and per-site closure refinement. Reopen with changed removable ends
-preserving neighbor constraints or qualified bypass contacts. No new print/purchase.
+Bypass contacts/access/frame reaction remain unconstructed: power-off and bottom
+thrust do not restore radial/upward restraint. Overhead extraction is unresolved.
+Process changes do not remove release sets; fine-pitch counts are not fit proof.
+Park window/row/per-site closure detail absent actual restraint-preserving access.
 
 ## Detachable shank with captive driver
 
