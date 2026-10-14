@@ -29,7 +29,7 @@ the entire working thread, so shortening an upright support-free specimen isolat
 roughness/fit without that cleanup confound. A 16 mm cantilever has 1/64 the static
 compliance of 64 mm at equal EI; this is a length-scaling identity, **not** hot-layer
 stiffness, nozzle-force or print-stability qualification. Broad grips anchor the
-base but do not brace the upper thread. Actual success remains to be observed.
+base but do not brace the upper thread. Physical short-pair hand-fit feedback is recorded below; full-length print stability remains untested.
 
 A nominal pair must start by hand, move approximately one turn bidirectionally
 with full engagement, and survive five gentle cycles without custom sanding or
@@ -77,7 +77,25 @@ Reproduce with `python3 tools/curated-experiment-checks/E-281/check.py --bosl2
 <scratch-pack>` (one shell line). Python dependencies: numpy, trimesh,
 manifold3d, matplotlib and networkx. `--reuse-cad` only reuses unchanged SCAD
 exports already in the scratch directory. The default regenerates everything.
-The single READY P1 pack is an unperformed physical experiment, not a fit pass.
+The former READY P1 pack has now been physically tried by the owner; the qualitative hand-fit results below supersede its unperformed status, without qualifying an array.
+
+## Physical owner feedback (14 October 2026)
+
+Owner reports printing the five screw/nut pairs on a Bambu Lab X1 Carbon and manually rotating each pair forward and backward five times, **without damage or postprocessing**. Other actual printer settings and measured torque/play were not supplied.
+
+| Pair | Radial CAD relief | Subjective owner report |
+|---|---:|---|
+| 1 | 0.15 mm | Slightly stiff, not excessive |
+| 2 | 0.15 mm | Fairly smooth, minor resistance |
+| 3 | 0.15 mm | Fairly smooth, minor resistance |
+| 4 | 0.10 mm | Very stiff, lots of resistance, feels poor |
+| 5 | 0.20 mm | Very smooth, no felt resistance, preferred |
+
+This supports manual thread-fit feasibility and suggests subjective repeat-to-repeat variation within nominal pairs, without establishing its cause. The easiest-feeling pair is **not** a proven production clearance: backlash, loading, wear, driven performance and long-array yield are untested.
+
+**Critical geometry boundary:** the coupon nuts are **10.3 mm wide** and do not establish suitability at a fine pin pitch. The owner independently recalls previously printing a functioning narrow Trial 5 threaded-column family, based on archived CAD showing **4.4-mm outer width**, though exact successful print parameters remain unidentified. A recent attempt to print the shortened Trial 5 replica with supports filled the hollow threaded bore; supports were left in place, so the new replica has **no valid fit test** (not a demonstrated thread failure). See `owner-print-tests/trial5-short-replica/test.md`.
+
+**Decision:** complete this short-fit test; retain compact integrated-thread geometry as an unresolved prerequisite to any independently moving dense pin array. Do not assume the 0.20-mm coupon clearance transfers to the narrow Trial 5 geometry.
 
 ## Whole-machine consequence
 
