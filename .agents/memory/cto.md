@@ -151,7 +151,7 @@ nuts+bare screws before caps/finished ends. Hand folding owes8192 operations,
 versus15. External lap loses the existing guide separation bound; closed-section
 stiffness requires an actual seam. A16-seat/3h adhesive-cure scenario occupies209h.
 Retain shared forming/cut-to-length as a conditional process escape,not individual
-fold/seam refinement. E-282 closed-stock extension finds listed10×10×1 aluminium
+fold/seam refinement. E-283 closed-stock comparison finds listed10×10×1 aluminium
 52×2.6m/€256.36 at1024,retaining printed lead3 rather than E-278 metal threads.
 This reopens body cost,not qualification:calculated12.34kg tubes/.118N each,
 2048 end joins,26.63–70.76 maker hours,partial bought$1154–2602 with tooling.

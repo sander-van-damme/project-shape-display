@@ -2,7 +2,13 @@
 """Closed hollow-stock extension of E-282; bounds, not production qualification."""
 import json
 import math
-from forming import ledger
+import importlib.util
+from pathlib import Path
+spec = importlib.util.spec_from_file_location(
+    'forming', Path(__file__).resolve().parents[1]/'E-282/forming.py')
+forming = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(forming)
+ledger = forming.ledger
 
 
 def route(n, bar=2600., price=4.93, gang=8, usable=1.):
