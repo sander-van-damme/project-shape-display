@@ -275,6 +275,67 @@ owes actual-height proof; earlier row-reset bounds apply only if other rows rema
 undisturbed. Whole-board transport retains whole-board recovery. Require complete
 support/access construction or process evidence before latch/fit refinement.
 
+## Square service modules: shorter guides, real boundary supports
+
+**Retain wider module seams as a conditional architectural escape; do not select
+an eight-by-eight module from beam stiffness alone.** `square_module_check`
+changes the support topology to square modules carrying all guides, closed
+keepers and bottom thrust. Inherits the supported lift/bench sequence above;
+broken-target restraint and bench opening remain owed. Evidence: linear beam
+calculation, sufficient projection envelopes and allocated counts, not CAD/contact
+or physical measurements. No new owner print.
+
+With identical 12-mm-wide/2-mm-thick perforated strips, .05N/site and assumed
+2GPa, lengths of 8/16/32 cells give .03135/.49939/7.98165mm midspan bending.
+The allocated .1mm bound requires .627/9.988/159.633GPa respectively. Two integration
+resolutions differ <.2%; independent constant-section point-load bounds bracket
+each result. These are strip results assuming rigid end reactions, not module
+stiffness. At 8 cells the projection-only yaw limit grows to .408° with .1mm drift,
+versus .101° for the full row; support frames are excluded from those yaw numbers.
+The 224-mm lift over tallest neighbors remains; shorter XY span does not reduce it.
+
+**Interior end reactions are the missing construction.** Unlike a full row's
+external towers, internal modules must carry reactions through the array. A
+specific frame using two adjacent full-height .8-mm side walls needs 1.6mm where
+E-277's retained conservative body projection leaves .4585mm. Maximum wall per
+side is .2293mm without added reserve. This fails the sufficient envelope by
+1.1415mm; it is not proof of solid collision at every height or a ban on all
+frames. Walls also owe transverse bending, joints, thrust load, torque and tool
+access. Thin-wall tuning would not establish those paths.
+
+A different layout adds spacing **only at the three internal module boundaries
+per axis** of the 32² board. Allowing both .8-mm walls plus .4mm residual clearance
+requires 1.5415mm extra at each boundary: board footprint becomes411.0244mm
+versus406.4mm; nominal10.3-mm-top seam becomes3.9415mm versus2.4mm. This clears
+that projection allocation only; frame stiffness, actual top gaps under lean,
+constrained extraction and miniatures crossing seams remain unqualified. Ordinary
+within-module pitch stays12.7mm; nonuniform spacing requires explicit coordinate
+registration and a writer that reaches both sides of each seam. Fixed25.4-mm
+spindle spacing cannot batch across widened boundaries; all8-cell blocks divide
+into four-output groups, but additional positioning/routing is unpaid. No existing
+map, elapsed update or optical calibration can silently inherit a uniform grid.
+
+At1024 sites, sixteen8×8 modules retain2048 bodies/screws,2048 guide apertures
+and1024 thrust contacts. Segmenting rows adds256 guide strips/256 keeper halves/
+128 lower spines versus64/64/32 for full rows. Allocate64 module mounts versus128
+row mounts; at10–30s/mount this is .178–.533h, excluding frame fabrication,
+assembly, alignment and lift tooling. Internal frames and permanent joints are
+unpriced, so fewer mounts are not a total labor saving. At4096/6400 count-only
+comparators:64/100 modules,1024/1600 strips and keeper halves,512/800 spines,
+256/400 mounts. The unchanged coarse geometry does not fit6.35/5.08mm pitch.
+
+Loss of module datum can make64 cells unknown rather than32 in a removed row.
+Inherited ideal four-output S50 reset plus N30 reconstruction at850rpm takes
+1.569 versus .784min; at120rpm4.622 versus2.311min, before routing/proof/repair.
+Eight faults in eight distinct modules could affect512 cells (12.549min at850rpm),
+versus256 for eight full rows; these are placement scenarios, not failure rates.
+Bench restraint may still open only the target subrow, but that does not certify
+other heights after module motion. No extra session interruption is accepted by
+this analysis. Next decision-changing construction is a load-bearing module frame
+with reachable sockets and supported extraction at the widened boundaries, not
+another guide-span or clearance sweep. Cost, seams and maker time must earn any
+advantage over supported full rows before requesting player preference.
+
 ## Product boundary
 
 E-276 coarse$798–1768 excludes new support/joint/inspection costs; compare~$500,

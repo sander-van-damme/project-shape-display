@@ -543,6 +543,81 @@ def removable_row_check():
           'fragment control and restored-state proof. No stiffness/contact/UX pass.')
 
 
+def square_module_check():
+    """Square service module necessary conditions, not a constructed frame.
+
+    Same perforated strips/load as removable_row_check; each shortened strip
+    requires real end reactions at internal tile boundaries. Tile shells and
+    capture remain unqualified. All thickness/drift/load values are assumptions.
+    """
+    from math import radians, sin, cos, ceil
+    pitch, width, hole, modulus, load = 12.7, 12., 10.8, 2000., .05
+    envelope = 10.9+.2+2*52*(10.9-10.2+.2)/82
+    gap = pitch-envelope
+    def bending(n, steps):
+        length=n*pitch
+        points=[(i+.5)*pitch for i in range(n)]
+        dx=length/steps
+        answer=0.
+        for k in range(steps):
+            x=(k+.5)*dx
+            cut=abs(x%pitch-pitch/2)<hole/2
+            inertia=2*(width**3-(hole**3 if cut else 0))/12
+            moment=n*load*x/2-sum(load*(x-a) for a in points if a<x)
+            answer += moment*min(x,length-x)/2/(modulus*inertia)*dx
+        # Independent exact point-load constant-section brackets.
+        def constant(i):
+            return sum(load*min(a,length-a)*(3*length**2-4*min(a,length-a)**2)
+                       /(48*modulus*i) for a in points)
+        assert constant(2*width**3/12)<answer<constant(2*(width**3-hole**3)/12)
+        return answer
+    for n in (4,8,16,32):
+        d=bending(n,n*2000)
+        assert abs(d-bending(n,n*1000))/d<.002
+        # Bounding square, including both body overhangs, at any signed yaw.
+        side=(n-1)*pitch+envelope
+        def clear(angle):
+            t=radians(angle)
+            return gap-.1-side*(cos(t)+sin(t)-1)/2
+        lo,hi=0.,2.
+        for _ in range(60):
+            mid=(lo+hi)/2
+            if clear(mid)>0: lo=mid
+            else: hi=mid
+        assert clear(0)>0 and clear(hi)<=0
+        print('square module side/guide deflection mm/E for .1mm GPa/yaw deg',
+              n,round(d,6),round(d*modulus/.1/1000,6),round(lo,6))
+    # Carrying support frames cannot be omitted from the finite lift envelope.
+    # Two adjacent full-height .8mm edge walls are a specific construction.
+    # Conservative body projection is sufficient clearance test, not proof
+    # all body corners occupy their extrema at the same height.
+    print('full-height edge-wall sufficient clearance: gap/max wall each/.8 pair residual',
+          round(gap,6),round(gap/2,6),round(gap-1.6,6))
+    assert gap-1.6<0
+    # Architectural escape: extra spacing only at module boundaries, not every
+    # cell. Reserve .4mm beyond both walls; no wall stiffness/yaw qualification.
+    extra=1.6+.4-gap
+    print('coarse 32 board: added seam/board side/nominal top seam mm',
+          round(extra,6),round(32*pitch+3*extra,6),round(pitch-10.3+extra,6))
+    assert isclose(gap+extra-1.6,.4)
+    for board in (32,64,80):
+        n=8
+        tiles=(board//n)**2
+        sites=board**2
+        assert board%n==0
+        print('8x8 count comparison sites/tiles/strips/keeper halves/spines/mounts',
+              sites,tiles,2*sites//n,2*sites//n,sites//n,4*tiles,
+              'mount10-30s hours',[round(4*tiles*t/3600,3) for t in (10,30)])
+    # Four outputs, unknown S50 reset + flat N30 restoration, identical inherited
+    # 2s overhead per phase. Ideal group count, no routing/proof/repair credited.
+    for cells in (32,64,512,1024):
+        groups=ceil(cells/4)
+        print('unknown cells/N30 recovery minutes120,850rpm',cells,
+              [round(groups*(4+80*60/(3*rpm))/60,4) for rpm in (120,850)])
+    print('Short spans improve strips only. Interior reaction walls fail the '
+          'retained sufficient envelope; widened seams require new frame and play checks.')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
@@ -553,3 +628,4 @@ if __name__ == '__main__':
     bench_repair_check()
     offline_closure_comparison()
     removable_row_check()
+    square_module_check()
