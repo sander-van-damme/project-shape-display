@@ -213,17 +213,13 @@ Finite-field source/receiver visibility is unconstructed; sheet-center clearance
 is not a temporal-field pass. All180 exact controls reconstruct;172 quantized
 cases decode, eight boundary cases return unknown outside a±.1-mm numerical
 reserve (not extra travel). Maximum accepted errors at the three gains are
-.4952/.1751/.0355mm. Flat/saturated returns are unknown. These finite cases are
-not noise bounds; acceptance does not assert.25-mm accuracy. A four-step atan2
-identity independently checks the Fourier sign convention.
+.4952/.1751/.0355mm. Flat/saturated returns are unknown. Acceptance does not assert.25-mm accuracy; atan2 independently checks phase.
 
 **Counterexample:** a25-mm direct return plus20% modulation at the phase of45mm
 on that ray decodes **28.3788mm**. Phasors sum into a perfect sinusoid at4/8/16
 steps, residual<5e-13DN. Rounded results28.3963/28.3906/28.3957mm pass the1DN
-residual check. Re-projection constructs identical direct-only samples at the
-wrong height with adjusted mean/contrast. This is a transport-path scenario,
-not a rendered wall or measured20% reflection. More same-frequency steps cannot
-resolve it without an independent contrast constraint. Separately, cap-specific
+residual check. A direct-only waveform with adjusted mean/contrast matches exactly. This is an
+assumed transport path, not measured reflection; extra steps cannot resolve it. Separately, cap-specific
 frame gains.98333–1.01667 exactly counterfeit25→26mm;±1.67% is an adversarial
 bound, not observed flicker. Shared references do not necessarily remove local
 response changes. Prop identity and hidden caps remain unresolved.
@@ -232,10 +228,9 @@ No resident additions or removed screw/support duties. Replace sheet/driver
 with projector/controller; retain camera, shared references/mount/upper carrier
 and undock/settle/register/read transaction. At assumed.1s/frame/k4, four-frame
 acquisition costs102.4/409.6/640s for1024/4096/6400 cells; eight doubles it without
-fixing the witness. Local1/4/8 groups add.4/1.6/3.2s. Writer/routing/preparation,
-settling/retries and raised-neutral setup remain paid; S40/S50 and E-270/E-276
-conditional schedules are retained, not a new gameplay distribution. Dense scans
-remain separate from~30s play updates. Obstruction has no finite acceptance time.
+fixing the witness. Local1/4/8 groups add.4/1.6/3.2s. All writer/preparation/settling/retry costs remain paid; retain S40/S50, raised
+neutral and E-270/E-276 conditional gameplay schedules versus~30s. These dense
+scans do not qualify gameplay or obstructed caps.
 Unsourced projector/control$100–400 replacing sheet$30–150 makes optics$270–980,
 base-plus-optics$1068–1778 before integration/qualification, versus~$500 reference
 and$1000–1500 research range. No BOM, source-safety selection, purchase or print.
