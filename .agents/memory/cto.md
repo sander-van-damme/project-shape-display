@@ -1,6 +1,9 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-14 UTC. E-276 adds a conditional half-square direct-head control.
+Updated: 2026-10-14 UTC. E-277 bounds integral coarse-column guidance.
+Wide columns remove cap-yaw amplification but do not remove guide lean; retain
+a larger-seam/longer-stock geometry control only, without a print or head pass.
+E-276 adds a conditional half-square direct-head control.
 1024 pairs reduce work; widened tops on unchanged small stems are not selected.
 E-275 parks fixed-rotor/axial-friction docking.
 Explicit square sliding shafts remove axial band rub; circular pads remove rigid
@@ -60,6 +63,17 @@ No purchase authority. Explore actual raised neutral and6.35-mm pitch. Historica
 failures below retain their stated scopes; 01–08/Paperclip remain authoritative.
 
 Evidence to retain:
+- E-277 constant square column: .4 seam/.24 clearance/S50/b40 permits finite
+  nominal lean collision >.42mm at only.327deg, even after removing cap yaw.
+  Bounded c.5/e.1/r.1 needs3.029/1.941mm seam at b40/80; these are not priors.
+  Half-square seam2.4/b80 gives.459mm rigid separation,136mm stock,65.8% area.
+  Same absolute seam budget at finer pitches loses more coverage; no fit rescue.
+  1024 tubes/.8wall4.234L; integral10mm nut block+2mm roof raises5.081–5.148L.
+  Joining tube+nut+cap adds2048 joins/5.69–17.07h at10–30s, before base labor.
+  No stiffness, aligned-thread, friction, readback,850rpm or revised BOM pass.
+  E-276 waits/costs stay granted comparisons, not transferable qualifications.
+  Next discriminator: construct bottom-thread/roof load path and compare batch
+  manufacture with joined stock; stop before head/fit/print detail.
 - E-276 half-square32²/12.7mm: four direct25.4mm-spaced spindles give conditional
   S40/S50 local26.84/31.07s, scenes201.24/222.88, neutral271.15/331.62,
   dense391.62/452.09. Bought798–1768, maker10.94–23.69h excluding cleanup.
