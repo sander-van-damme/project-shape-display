@@ -137,10 +137,60 @@ numbers; moving/rotating views to chase seams similarly incurs real preparation.
 Minimum/raised neutral,40/50mm travel and initial mechanical preparation retain
 their existing costs. Dense timing is a diagnostic, not automatic rejection.
 
-**Stop local baseline/angle sweeps here.** Next discriminating work is a finite
-four-cap forward image/decoder at the surviving coarse diagonal geometry, with
-camera sampling and calibration error charged, or calibrated actual imagery.
-It must establish recoverable height intervals and reject mixed/hidden pixels,
-not merely render more rays or assume image errors vanish. The narrow fine-grid
-patch does not earn lens development. E-281 remains the sole optional unperformed
-print test; this result neither requires another print nor waits for it.
+## Finite-camera and common-calibration extension
+
+Run `python3 tools/curated-experiment-checks/E-293-camera.py` (NumPy).
+This is an **ideal direct-image calculation**, not earned four-cap readback.
+Keep coarse b90/45°, D300, dq.0005. One fixed rectified camera covers slopes
+r∈[-.27,-.07], s∈[-.1,.1] at256²/1024² pixels; camera lies at+45u,
+projector at−45u. Test all four caps at z0/25/30/50, surrounded conservatively
+by H50 neighbors. At each height an **oracle** selects only pixels whose whole
+footprint lies inside E-293's sufficient clear rectangles. This grants actual
+height/identity/visibility for segmentation; no implemented foreground, hidden-cap
+or mixed-depth classifier is claimed. Hidden and boundary pixels remain unknown.
+
+Integrate each of11 Gray bits exactly across square pixels, with white/black
+and complements (24 frames). No diffraction, aberration, noise, indirect paths,
+reflectance variation or exposure qualification: E-292's fundamental transfer
+alone does not establish this sharp-image assumption. The decoder receives
+integrated intensities and calibrated rays, not target heights. Reject pixels
+with any normalized bit contrast<.5. Exact integration agrees with8192-sample
+quadrature within.001 on17 pixels/case; weights sum to1. Four-sample integration
+was insufficient near code boundaries and is not used.
+
+For address interval[qlo,qhi], pixel slope r±dr/2, and common bounds
+angular±e, baseline±db, origin±dD, retain the **unclipped** interval
+
+```
+[zlo,zhi] = [D-dD-(b+db)/(qlo-r-dr/2-e),
+            D+dD-(b-db)/(qhi-r+dr/2+e)].
+```
+
+Independent16-corner evaluation checks extrema. No probability distribution or
+product accuracy requirement is inferred. Intersect pixel intervals only under
+the granted flat-cap/identity assumption; do not average away common errors.
+
+|1024², height|Accepted / oracle pixels|Largest ideal pixel interval mm|First flat cap ideal interval width mm|Same cap with bounded calibration mm|
+|---:|---:|---:|---:|---:|
+|0|20257 /24930|.6962|.2969|1.7635|
+|25|99090 /121961|.5850|.2495|1.5967|
+|30|112735 /141486|.5639|.2468|1.5708|
+|50|142596 /175528|.4834|.2062|1.4395|
+
+The bounded column assumes e=.0002 slope, db=.1mm,dD=.2mm; these are sensitivity
+allocations, **not measured calibration**. At256²,z0 the ideal first-cap
+intersection is1.1875mm wide and bounded2.6542mm. All accepted zero-bias intervals
+contain truth. A common+.0002 camera-ray bias leaves identical intensities but
+makes every cap's unbudgeted intersection exclude truth at all four heights;
+at z0,2719/20257 individual accepted intervals also exclude truth. Including the
+bounds restores containment. This demonstrates systematic sensitivity, not an
+estimate of real camera drift. More pixels cannot independently average it away.
+
+Retain the coarse diagonal geometry conditionally. The finite pixel control
+survives, but .5-mm projector bins are not .5-mm verified terrain accuracy.
+No resident additions or reduced timing/cost are credited: the24-frame and
+whole-machine ledger above remains. Next evidence must earn calibrated optics,
+material images and height-independent cap segmentation, or construct a shared
+reference scheme that identifies camera/projector drift without knowing cap
+height. Do not repeat baseline, resolution or threshold sweeps. E-281 remains
+the sole optional unperformed print; no new print or purchase.

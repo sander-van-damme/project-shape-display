@@ -393,6 +393,14 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   Retain coarse diagonal conditionally; next earn finite four-cap imagery,
   camera sampling/calibration and decoding,not another baseline/angle sweep.
  24-frame timing/custom optics cost remain unearned; no new print or purchase.
+  E-293 finite-camera extension integrates24 ideal Gray frames for four coarse
+  caps.1024² flat-cap intersections.206–.297mm widen1.439–1.764mm under labelled
+  angular±.0002/baseline±.1mm/origin±.2mm bounds. Common+.0002 ray bias makes all
+  16 unbudgeted cap intervals miss truth; bounded intervals contain it. Oracle
+  visibility/flat identity and sharp direct optics are granted,not implemented
+  segmentation/physical accuracy. No resolution/threshold sweep. Next earn
+  calibrated images or shared reference identification independent of cap height;
+  no new print or purchase.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
