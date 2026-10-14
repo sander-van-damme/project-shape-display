@@ -5,13 +5,13 @@ builds-on: [E-276, E-261, E-260, E-263]
 
 # Integral coarse columns trade cap yaw for guide lean, seams and stock
 
-**Integral columns remove cap-yaw amplification, not guide lean.** Retain only a geometry control:12.7-mm pitch,2.4-mm seams,80-mm guide separation gives.459-mm bounded rigid separation,136-mm stock/S50 and65.8% coverage. Horizontal monolithic printing is a conditional manufacturing route, not a selected surface or qualified screw assembly.
+**Integral columns remove cap-yaw amplification, not guide lean.** Control:12.7-mm pitch,2.4-mm seams,80-mm guide span,.459-mm rigid separation,136-mm stock/S50,65.8% coverage. Horizontal FDM is conditional, not qualified.
 
-Reproduce `python3 tools/curated-experiment-checks/E-277/guidance.py --check`; omit the flag for tables. Evidence: self-reviewed **analytical bounds/rigid geometry**, not physical qualification. Wide caps on4.4-mm stems stay parked; no added latch or fit tightening.
+Run `python3 tools/curated-experiment-checks/E-277/guidance.py --check` (without flag: tables). Self-reviewed **analytical/rigid geometry**; wide caps on4.4-mm stems stay parked.
 
 ## Guidance construction and full-travel bound
 
-Compare a straight square hollow column with **equal top/exterior width**, replacing E-276's wide cap on a narrow stem. The bottom thread, resident screw and thrust bed retain height/support; the writer supplies torque. Two square guide slabs react lateral load and antirotation. Integral roof/bottom material and manufacture cannot inherit the thin-tube allowance.
+Replace E-276's wide cap/narrow stem with a square hollow column of **equal top/exterior width**. Resident screw/thread/bed retain load; two guide slabs react lateral load and antirotation. Roof/bottom material cannot inherit the thin-tube allowance.
 
 Use E-261's two2-mm guide slabs, center separation b and travel S. Stock P=S+b+6; maximum top-center height above upper guide h=S+2; extreme guide-face separation B=b+2. This rigid/straight model excludes bow, twist, actual screw restraint, contact/friction, roof stiffness and wear.
 
@@ -21,7 +21,7 @@ For pitch p, seam s, column width w=p−s, nominal guide clearance c, separate t
 - A square prism contains an inscribed cylinder, so its horizontal width in either guide coordinate is≥w_min, including yaw/tilt.
 - Guide confinement bounds centerline slope by(G−w_min+2r)/B. Extrapolation gives combined neighbor occupied width **W=G+2r+2h(G−w_min+2r)/B**, separation≥p−W.
 
-Positive separation suffices in this rigid model at all smaller/unequal heights; negative bound alone is not collision proof. Solve the exact yaw-zero strip equation `B tan(theta)+w_min/cos(theta)=G+2r`, realize opposite guide contacts and check finite ends to obtain a collision witness. A screw may restrain lean only if its lateral reaction/stiffness is established. Positive guide clearance does not prove guide/thread alignment.
+Positive separation suffices for smaller/unequal heights; a negative bound is not collision proof. Solve `B tan(theta)+w_min/cos(theta)=G+2r` at zero yaw with opposite guide contacts and finite ends for a witness. Screw restraint and guide/thread alignment are not established.
 
 Bounds are **not process distributions**. Common translation cancels between neighbors. Common inter-plane skew cancels at equal heights but contributes `(h2−h1)*skew/B` at unequal heights: .2-mm skew across42 mm over50-mm height difference gives .238 mm. Opposing local/module errors can realize the adverse bound. No independent yield is inferred. Enlarged openings must leave an actual separating web.
 
@@ -38,7 +38,7 @@ At.4-mm seams and inherited.24-mm nominal total clearance, with zero manufacturi
 
 At12.7-mm pitch/S50/b40, exact strip tilt is only.327°. One millimetre below finite top faces, opposite neighbors overlap **>.42 mm** while satisfying both guides. This is a geometric witness, not measured jamming. Nominal grid web is.16 mm, without a stiffness/printability claim.
 
-Width cancels from the conservative bound: widening the whole column does not improve absolute separation at fixed seam/clearance/errors. Coarser pitch merely loses less coverage to that seam. For S50,c=.5,e=.1,r=.1 mm, aligned clearance is.3 mm; zero-separation seam is3.029 mm at b40 or1.941 at b80. The old.4-mm seam gives **negative web−.4 mm**. With c=.8/e=.2/r=.2, b80 needs3.429-mm seam. Keeping c=.24 with e=.2 instead fails fit(−.16 mm); tighter nominal fit is not free rescue.
+Width cancels from the separation bound; coarse pitch loses less coverage to the same seam. At S50/c.5/e.1/r.1 mm, aligned clearance=.3 mm; zero-separation seam=3.029 mm at b40 or1.941 at b80. The old.4-mm seam gives **web−.4 mm**. At c.8/e.2/r.2, b80 needs3.429-mm seam. Keeping c.24/e.2 fails fit(−.16 mm).
 
 A finite grammar over b40/60/80 and seams.4/.8/1.2/1.6/2/2.4/3.2 has six of21 nonnegative cases under c=.5/e=.1/r=.1:
 
@@ -50,13 +50,11 @@ A finite grammar over b40/60/80 and seams.4/.8/1.2/1.6/2/2.4/3.2 has six of21 no
 
 Keep2.4/b80 as the clearer **comparison geometry**, not a product winner;2/b80 has only.059-mm margin despite70.98% coverage. Same2.4-mm seam at quarter/fine pitch leaves38.7/27.8% coverage; fine2.68-mm exterior cannot enclose the3.2-mm screw. Keeping4.4-mm stems without caps covers only12% at half-square pitch.
 
-Even equal-height2.4-mm seams affect bases/props/dice/fingers/appearance. A25.4-mm base spanning several columns is not automatically stable. E-276's filled-cell support counts do not transfer; wall width becomes10.3 instead of12.3 mm, and coarse opening/connectivity remains unresolved.
+The2.4-mm seams need miniature/appearance evaluation; E-276's filled-cell support counts do not transfer. Walls narrow12.3→10.3 mm; connectivity remains unresolved.
 
 ## Manufacture and load: closed core, seated cap and horizontal bridging
 
-Removing the top enables rigid-core extraction but adds1,024 joins; cavity draft increases material. Park the assumed easy closed mold.
-
-Run `python3 tools/curated-experiment-checks/E-277/manufacture.py --check`; omit the flag for the ledger. Evidence: section construction, rigid-core access, structural surrogates and process/labor scenarios. No new CAD mesh, slicing, FEA, material measurement or qualification is claimed. The optional S40 owner print stays retired.
+Run `python3 tools/curated-experiment-checks/E-277/manufacture.py --check` (without flag: ledger). Evidence: sections, rigid tooling access, structural/process scenarios; no mesh, slicing, FEA or physical qualification. S40 print stays retired.
 
 ### Explicit section and force path
 
@@ -66,7 +64,11 @@ Load flows roof → tube walls → integral nut block → thread flanks → resi
 
 Calculated shell area30.4 mm² and second moment460.51 mm⁴ give .0181 MPa extreme normal stress under an illustrative total .2-N upper load at5.15-mm eccentricity, conservatively lumping column weight there. Nut net-section average is .00207 MPa, **not thread stress or capacity**. A simply supported1-mm roof strip across8.7 mm, carrying.2 N centrally, gives.653 MPa/.00412-mm deflection at2-mm thickness/assumed E1000 MPa. E250 gives.0165 mm;1-mm thickness gives2.61 MPa/.0329 mm. At9.81 N:32.0 MPa/.202 mm. This surrogate is not a bound for anisotropic prints or safe-load evidence; buckling/layer/creep/contact failures are absent. No destructive repeat is requested.
 
-An optional separate2-mm cap seats on the tube end annulus: nominal30.4 mm² transmits downward load in compression (.00658 MPa average at.2 N). Attachment still carries handling/lateral/eccentric duties. A bonded butt joint plus alignment fixture is a **process hypothesis**, one joint/inspection per cell, not an added tiny snap. Joined stock adds a bottom joint and thread registration. Cap offset, size and squeeze-out must remain inside the previous exterior-error allowance or the separation bound is lost. Actual contact area and joint strength are unknown.
+An optional2-mm cap seats on the30.4-mm² tube annulus (.00658 MPa average at.2 N). Its butt bond carries handling/lateral/eccentric duties; one joint/inspection per cell.
+
+**Joined stock:**10.3/8.7-mm square tube z10..134, full-width nut z0..10 and cap z134..136. The screw pushes the nut against the lower tube annulus; the cap presses on the upper annulus. Both flush butt seats have30.4-mm² area, with no hidden plug/fastener. An external alignment fixture holds both bonds. This is finite section geometry, not a sourced stock size or qualified adhesive. The separate10-mm nut has through tooling/cleaning access; clean the124-mm open tube before joining. A monolithic closed body lacks machining access to its wide cavity through the3.5-mm mouth.
+
+For either seat, full-contact elastic traction `p=F/A ± F e (w/2)/I` stays compressive only for `e≤I/(A w/2)=2.941 mm`. At.2 N/e5.15 mm, extrema **−.00494/+.01810 MPa** require bond tension or contact redistribution/opening. This is not bond failure: roof/guide reactions may redistribute moment. Four-rectangle traction integration independently recovers force/moment. Neither small average stress nor this conditional model qualifies thread/peel/creep strength. Joint offset/squeeze-out must stay within the guidance exterior-error allowance.
 
 ### Core access and material
 
@@ -84,21 +86,33 @@ For a124-mm cavity with8.7-mm top opening:
 
 Major/minor cylinders bound thread-cut volume; E-263's explicit cutter replaces the earlier3.2..1.4 bore-only5.081–5.148-L allowance. Neither is exact mesh volume. At illustrative±.2-mm screw offset and.1-mm total cavity-width loss,1° leaves .336-mm radial room;1.5° fails, with zero-clearance angle1.155°. Bounds are not molding priors. Batch shrink/warp is unqualified. Thin.44-mm walls use2.417 L tube-only but owe stiffness.
 
-[Protolabs draft guidance](https://www.protolabs.com/resources/design-tips/improving-part-moldability-with-draft/) makes draft dependent on depth/material/ejection; its small-angle advice does not qualify this124-mm core. Its [molded-thread guidance](https://www.protolabs.com/resources/design-tips/molded-threads-and-how-to-design-them/) uses manually unscrewed formers and specifies internal threads≥7.6 mm. That published service is **not an established source for this3.5-mm cutter form**; other suppliers/processes are not excluded. Casting likewise owes core release, shrink, material/friction and handling evidence. No quote or automated unscrewer is assumed. Sources checked2026-10-14.
+[Protolabs draft guidance](https://www.protolabs.com/resources/design-tips/improving-part-moldability-with-draft/) does not qualify this124-mm core. Its [thread service](https://www.protolabs.com/resources/design-tips/molded-threads-and-how-to-design-them/) uses manually unscrewed formers and internal threads≥7.6 mm: **not an established source for this3.5-mm form**. Other suppliers/casting remain possible, owing release, shrink, material/friction, handling and quotes. Checked2026-10-14.
 
 ### Batch effort and whole-machine ledger
 
-Horizontal one-piece FDM lies on a10.3×136-mm face at10.3-mm build height. The long cavity ceiling needs8.7-mm **transverse** bridges, not124-mm longitudinal bridges; thread overhangs/transition require separate inspection. [Prusa's guidance](https://help.prusa3d.com/article/poor-bridging_1802) confirms short unsupported bridging depends on cooling/settings, not that this body/thread works on an X1C. Internal removable support is neither automatically needed nor safe to assume unnecessary. Sag/debris in the thread, bed bias and exterior scars affect function.
+Horizontal FDM lies on a10.3×136-mm face,10.3-mm high. The cavity ceiling needs8.7-mm **transverse** bridges, not124-mm longitudinal ones. [Prusa's bridging guidance](https://help.prusa3d.com/article/poor-bridging_1802) does not qualify this X1C body/thread. Thread overhangs, sag/debris, bed bias, scars and support removal remain untested.
 
-A256-mm-plate footprint with10-mm margins/3-mm gaps fits17+7 rotated bodies: **24/plate,43 plates**. This excludes screws/brims/braces and is neither optimal nesting nor slicing. At hypothetical5/10/15 mm³/s sustained deposition,5.065 L alone needs281/141/94 machine hours before travel/support/scrap. Five minutes handling/plate adds3.58 maker hours, excluding removal/inspection. Upright packing revives the owner's stability concern and is not selected. At assumed1.24 kg/L, columns alone weigh6.28–6.37 kg; hypothetical$20–30/kg gives$126–191, already challenging the inherited$60–160 **total** printing allowance. These are scenarios, not quotes/material measurements. Half-degree internal draft adds about43% material.
+A256-mm plate,10-mm margins/3-mm gaps fits17+7 rotated bodies: **24/plate,43 plates**, excluding screws/brims/braces. This is not optimal nesting or slicing. Hypothetical5/10/15 mm³/s deposition needs281/141/94 machine hours before travel/support/scrap. At assumed1.24 kg/L, columns weigh6.28–6.37 kg; hypothetical$20–30/kg gives$126–191 versus inherited$60–160 **total** printing allowance. No quote/material measurement; .5° draft adds43% volume. Upright printing remains disfavored by the owner's stability observation.
 
-| Cells | Cap only:1 join/cell,10–30 s | Stock+ends:2 joins/cell,10–30 s |
-|---|---:|---:|
-|1,024|2.84–8.53 h|5.69–17.07 h|
-|4,096 reference|11.38–34.13 h|22.76–68.27 h|
-|6,400 reference|17.78–53.33 h|35.56–106.67 h|
+| Route at1,024 sites | Pieces / joins | Material and paid operations |
+|---|---:|---|
+| Integral horizontal FDM |1,024 /0|5.065–5.140 L;43 plates;1,024 removal/inspection sites |
+| Square tube + nut + cap |3,072 /2,048|3.860 L tube +1.205–1.280 L ends;1,024 cuts/2,048 cut faces;128 m feed at1-mm kerf (.031 L waste), before stock-end loss |
+| Open-top mold + cap, .5° draft |2,048 /1,024|7.258–7.333 L;1,024 core pulls/former removals;16-cavity example:64 cycles/16 tool sets |
 
-Fine rows scale joins only:10.3-mm bodies cannot fit them. Cap work raises inherited four-spindle maker10.94–23.69 h to13.78–32.22 h before process/cleanup/cure/scrap/commissioning. Another minute fitting each pair adds17.1 h. Stock cutting/deburring/joining and automated fixtures remain unpaid.
+Mold removal needs≥124-mm upward core pull and≥10-mm downward former retreat (3⅓ turns), plus handling clearance and reverse reset. Retract the core before conflicting part motion, then open exterior halves laterally. Filling, cooling/curing, ejection, gate/flash removal, inspection and separate cap manufacture remain unpaid. Gang unscrewing/shared pull plates need tooling, torque/reset and cost evidence; casting does not erase these operations.
+
+**Manual-time sensitivities, not forecasts/yields:**10–30 s each for integral removal/inspection plus5 min/plate; stock cut/deburr and two joins; mold core pull/reset, former unscrew/reset, eject/trim and cap join. Excluded: tooling/fixtures, procurement, machine/cure/cooling time, separate ends/caps, scrap, pair assembly and commissioning.
+
+| Sites | Integral active hours / plates | Stock active hours / joins | Mold active hours / joins /16-cavity cycles |
+|---|---:|---:|---:|
+|1,024|6.43–12.12 /43|8.53–25.60 /2,048|11.38–34.13 /1,024 /64|
+|4,096 reference|25.63–48.38 /171|34.13–102.40 /8,192|45.51–136.53 /4,096 /256|
+|6,400 reference|40.03–75.58 /267|53.33–160.00 /12,800|71.11–213.33 /6,400 /400|
+
+Reference rows replicate the **same coarse body**, which cannot fit6.35/5.08-mm pitch. Their straight material is20.261–20.562 /31.657–32.128 L; .5° mold29.031–29.332 /45.361–45.832 L; stock feed512/800 m. Coarse joins alone cost2.84–8.53 h cap-only or5.69–17.07 h stock. Adding stock work to E-276's10.94–23.69 h gives **19.47–49.29 h**; integral removal/plate handling gives17.37–35.81 h. Exclusions above still apply; these are not complete estimates. Another minute fitting each coarse pair adds17.1 h. No unbuilt automation earns savings.
+
+Service replaces the column/pair rather than repairing a bonded end in situ. Caps grant inspection access before bonding; no reversible attachment is constructed.
 
 Board repetition:1,024 columns/screws/threads/roofs/bottom blocks,2,048 guide apertures;32-cell row32/64 and8×8 region64/128 pairs/apertures. Two layers retain62 row ribs/frame joints. Quarter/fine references4096/6400 pairs and8192/12800 apertures remain. No private moving guide, latch or anti-backlash nut is added. Individual service through openable shared layers must accommodate136-mm stock; extraction, bed access and re-registration are unconstructed.
 
@@ -106,8 +120,8 @@ E-276's granted four-output S40/S50 waits remain local26.84/31.07 s, scenes201.2
 
 ## Decision and limits
 
-Stop near-continuous column detail: yaw improvement does not fix the nominal lean/web failures. The2.4-mm-seam/b80/136-mm-stock control owes thread alignment, elasticity, miniature support and process evidence. Horizontal one-piece FDM minimizes joins; open-top molding removes trapped-core geometry but adds material/joints and lacks a sourced small-thread process. Stress averages do not justify reinforcement or establish strength. No new speed/support/readback/repair/play qualification; no tooling, head detail or replacement print.
+**Horizontal one-piece FDM survives only as a candidate for slicing.** Its thread/ceiling must avoid inaccessible cleanup. Joined stock has accessible ends but2,048 bonds without established labor advantage; open-top molding adds material/joins and lacks a sourced small-thread process. Park both as controls. The2.4-mm-seam/b80/136-mm control still owes thread alignment, elasticity, miniature support and manufacture. No strength, speed, readback, repair or gameplay pass; no reinforcement, tooling, head detail or replacement print.
 
 Next discriminator: actual horizontal body/thread slicing and support-access comparison, including three identical bodies, bridge direction, exterior errors and cleanup. Stop on inaccessible support removal or individual fitting; retain coupled guide/thread alignment as unresolved. This is computational work before any owner handoff.
 
-Checks:432 exact-strip/guide-contact cases, finite collision witness, zero-clearance/fit/monotonicity/pitch/correlation limits, volume arithmetic and21-case geometry grammar;1,140 core-section checks, independent volume decomposition/Simpson integral, failed draft, beam compliance from strain energy, load/thickness scaling, all24 footprint rectangles/gaps and labor scaling. These verify models, not hardware.
+Checks:432 exact-strip cases, finite collision witness, fit/correlation/pitch limits and21-case grammar;1,140 core sections, volume decomposition/Simpson integral, failed draft, strain-energy beam compliance,24 packing rectangles/gaps, joined-piece/material balance, seat force/moment integration with mesh convergence and labor scaling. Model checks, not hardware proof.

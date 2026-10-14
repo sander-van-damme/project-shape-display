@@ -105,6 +105,55 @@ def joins(cells, per_cell, seconds):
     return cells*per_cell*seconds/3600
 
 
+def joined_stock(c, force=.2, eccentricity=0., kerf=1.):
+    """Three finite coaxial pieces, with flush butt seats (no hidden spigots).
+
+    Bond/fixture design and material properties are deliberately unqualified.
+    Positive pressure means compression; a negative full-contact prediction
+    requires bond tension OR redistribution/opening, not a compression pass.
+    """
+    area=c.width**2-c.inner**2
+    inertia=(c.width**4-c.inner**4)/12
+    bending=force*eccentricity*c.width/(2*inertia)
+    return dict(piece_z_mm=[(0.,c.nut),(c.nut,c.length-c.roof),
+                            (c.length-c.roof,c.length)],
+                tube_mm3=area*c.cavity_length,
+                ends_mm3=[c.nut*(c.width**2-math.pi*d*d/4)+c.roof*c.width**2
+                          for d in (c.cutter_major,c.cutter_minor)],
+                contact_area=area, full_contact_pressure=[force/area-bending,force/area+bending],
+                kern_mm=inertia/(area*c.width/2),
+                # Total consumed feed length before stock-end/batch losses.
+                cut_feed_mm=c.cavity_length+kerf, kerf_mm3=area*kerf,
+                cut_faces=2, joins=2)
+
+
+def process_ledger(c, n):
+    """Operation inventory, NOT measured cycle time/yield or complete labor.
+
+    10--30 s is a common sensitivity per named manual operation, not a prior.
+    Mold example grants 16 cavities; its tooling and automatic reset aren't free.
+    References at 4096/6400 scale this SAME body, not fitting finer pitches.
+    """
+    stock=joined_stock(c)
+    plates=math.ceil(n/packing(c)[1]['total'])
+    return dict(cells=n,
+        same_body_liters=[n*c.volume(d)/1e6 for d in (c.cutter_major,c.cutter_minor)],
+        half_degree_mold_liters=[n*c.volume(d,.5)/1e6 for d in (c.cutter_major,c.cutter_minor)],
+        integral=dict(pieces=n,joins=0,plates=plates,removal_inspection_sites=n,
+                      active_h=[plates*5/60+joins(n,1,t) for t in (10,30)]),
+        stock=dict(pieces=3*n,joins=2*n,cuts=n,cut_faces=2*n,
+                   feed_m=n*stock['cut_feed_mm']/1000,
+                   kerf_liters=n*stock['kerf_mm3']/1e6,
+                   # Cut/deburr counted as one operation plus two joins.
+                   active_h=[joins(n,3,t) for t in (10,30)]),
+        open_top_mold=dict(pieces=2*n,joins=n,cavity_cycles=n,
+                          cycles_at_16=math.ceil(n/16),core_pulls=n,former_unscrews=n,
+                          core_pull_mm=c.cavity_length,former_retreat_mm=c.nut,
+                          former_turns=c.nut/3,
+                          # Core pull/reset, unscrew/reset, eject/trim, cap join.
+                          active_h=[joins(n,4,t) for t in (10,30)]))
+
+
 def report():
     c=Column()
     _,packed=packing(c)
@@ -124,6 +173,8 @@ def report():
         # Cap-only adds to inherited four-spindle labor; not a complete new total.
         cap_plus_inherited_h=[10.94+joins(1024,1,10),23.69+joins(1024,1,30)],
         material_kg_scenario=[1024*low/1e6*1.24,1024*high/1e6*1.24],
+        joined_stock=joined_stock(c,.2,c.width/2),
+        process_ledger=[process_ledger(c,n) for n in (1024,4096,6400)],
         # This is column material only, no stock/thread/guide quote.
         material_usd_scenario=[1024*low/1e6*1.24*20,1024*high/1e6*1.24*30])
 
@@ -173,7 +224,40 @@ def check():
             assert a[2]+3<=b[0]+1e-10 or b[2]+3<=a[0]+1e-10 or a[3]+3<=b[1]+1e-10 or b[3]+3<=a[1]+1e-10
     for n in (1024,4096,6400):
         assert math.isclose(joins(n,2,10),2*joins(n,1,10))
-    print(f'{count} rigid core-section checks; independent volume/energy, draft failure, footprint and labor anchors pass')
+    s=joined_stock(c)
+    # Pieces tile the full length without an inaccessible inserted joint.
+    assert s['piece_z_mm'][0][0]==0 and s['piece_z_mm'][-1][1]==c.length
+    for a,b in zip(s['piece_z_mm'],s['piece_z_mm'][1:]): assert a[1]==b[0]
+    for bore,ends in zip((c.cutter_major,c.cutter_minor),s['ends_mm3']):
+        assert math.isclose(s['tube_mm3']+ends,c.volume(bore),abs_tol=1e-9)
+    # Independently integrate full-contact normal traction on four rectangles.
+    # Midpoint quadrature is exact for force; x^2 moment converges with mesh.
+    F,e=.2,c.width/2
+    A=c.width**2-c.inner**2; I=(c.width**4-c.inner**4)/12
+    errors=[]
+    for k in (20,40,80):
+        resultant=moment=0.
+        strips=[(-c.width/2,c.width/2,-c.width/2,-c.inner/2),
+                (-c.width/2,c.width/2,c.inner/2,c.width/2),
+                (-c.width/2,-c.inner/2,-c.inner/2,c.inner/2),
+                (c.inner/2,c.width/2,-c.inner/2,c.inner/2)]
+        for x0,x1,y0,y1 in strips:
+            da=(x1-x0)*(y1-y0)/k
+            for j in range(k):
+                x=x0+(j+.5)*(x1-x0)/k
+                pressure=F/A+F*e*x/I
+                resultant+=pressure*da; moment+=pressure*da*x
+        assert math.isclose(resultant,F,abs_tol=1e-12)
+        errors.append(abs(moment-F*e))
+    assert errors[2]<errors[1]<errors[0] and errors[-1]/(F*e)<1e-4
+    assert joined_stock(c,F,s['kern_mm'])['full_contact_pressure'][0]>-1e-12
+    assert joined_stock(c,F,e)['full_contact_pressure'][0]<0
+    assert joined_stock(c,F,0)['full_contact_pressure'][0]>0
+    ledger=process_ledger(c,1024)
+    assert ledger['stock']['feed_m']==128 and ledger['stock']['joins']==2048
+    assert ledger['open_top_mold']['cycles_at_16']==64
+    assert math.isclose(ledger['stock']['active_h'][1],25.6)
+    print(f'{count} rigid core-section checks; independent volume/energy, draft failure, footprint, joined-seat equilibrium/convergence and labor anchors pass')
 
 
 if __name__=='__main__':
