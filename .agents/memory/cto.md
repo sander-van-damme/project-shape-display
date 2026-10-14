@@ -213,6 +213,17 @@ stiffness9.32/5.19× a64-mm solid3.2 shank does not qualify adhesion/warp/layers
 Retain conditional assembly-saving control,not a winner or new print. No cap,
 brace or fit sweep absent actual process evidence or whole-pair advantage.
 
+E-285 screens printing integral body and completed screw already engaged.
+Unchanged upright assembly floats the body12mm; horizontal floats screw2.95mm.
+Both touch at76.19° tilt, but .2mm layers shift lower boundary.814mm versus.45
+width; analytical diagnostic,not slicing or universal print failure. Pedestal
+addsN release sites to save at mostN threading operations (assumed1.42–8.53h
+at1024). No resident parts eliminated,clearance/yield/repair unqualified.
+Park co-deposition fit/tilt/support refinement. Separate fabrication plus a shared
+thread-and-gauge assembly tool is an independent construction to investigate;
+its feed,torque limit,good/bad discrimination and actual labor must be earned.
+No new owner print; E-281 remains optional.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies
