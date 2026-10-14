@@ -33,23 +33,14 @@ E-256 rough1-mm play does not justify tighter bounds. Stall≤.5mm/turn fails;
 travel/torque. Entry burr/tilt/elastic twist/strip/creep remain unbounded;
 no qualified safe torque window or prevalence.
 
-Allocated manual9s handling+5/15/30s threading+4s gauge gives18/28/43s/five actions.
-Station10s/four actions+19.33s dwell at120rpm gives123 attempts/h versus200/129/84.
-Setup4–12h; table uses4. Common frame/electrical8–16h,four channels10–30min each,
-removal/gauge10–30s/part,install8–20s/pair,5min/plate in two assumed289-up streams.
-Yield/packing/overlapped dwell unqualified; source preserves80%-usable cases with
-60s/reject and all manual variants.
-
-|N; all usable|Whole maker manual-mid/station-active h|Station serial assembly h|
-|---|---:|---:|
-|1024|25.26–49.39/24.14–48.27|12.34|
-|6400|112.06–213.83/84.06–185.83|56.15|
-
-At1024 only1.12h saving;12h setup reverses it. Attending dwell adds5.50/34.37h.
-At80% usable,station30.71–57.68/manual33.11–60.08h at1024;124.89–244.44/
-160.89–280.44h at6400. Equal usability is assumed. Unquoted station$200–600 plus
-E-276 four-output$798–1768=$998–2368 before exclusions. Reused spindle is not free
-inspection/calibration.
+Manual handling/thread/gauge allocations give18/28/43s; station10s active+19.33s
+at120rpm,4–12h setup. Source retains whole-machine overhead and yield scenarios.
+At4h setup/all usable, whole maker manual-mid/station-active:25.26–49.39/
+24.14–48.27h at1024;112.06–213.83/84.06–185.83h at6400. Attending dwell adds
+5.50/34.37h;12h setup reverses the1024 saving. At80% usable with60s/reject,
+station/manual:30.71–57.68/33.11–60.08h at1024 and124.89–244.44/160.89–280.44h
+at6400. Equal usability/overlap unqualified. Unquoted station$200–600 plus
+E-276$798–1768=$998–2368 before exclusions; reused spindle is not free inspection.
 
 **Axial proof adds observability, not qualification.** Load cell/applicator and
 nut/collar differential probe react through cup/frame, not spindle. Test locked
@@ -80,8 +71,8 @@ pass a close2.8-mm journal aperture: split/open layers or ordered assembly are o
 Cradle manufacture, handling and removal are unpriced. No miniatures at startup.
 Writer lowers from S50 to minimum or true N20/N30; stop on jam/unreadable height.
 Motor counts are not actual-height proof. Undocking still requires passive holding.
-A mid-stroke jam remains a service fault. Empty-board assembly does not authorize
-opening shared keepers on a played-on board or homing unchanged neighbors.
+A jam remains a service fault; empty-board assembly does not authorize shared
+keeper opening or neighbor homing during play.
 
 Split15s manual threading into5s pickup +10s rotation for20.67 turns. Four-turn
 starting costs6.94s, saving8.06s/pair. At1024:2.29h theoretical saving and whole
@@ -95,8 +86,7 @@ controls:10.3-mm bodies do not fit6.35/5.08-mm pitch.
 |N20|10|29.87|11.55|
 |N30|6.67|22.76|10.54|
 
-Speeds/overhead are assumptions, not E-276 route replay. Scale4/6.25 for4096/6400;
-concurrency/fit are unqualified. Direct neutral descent avoids minimum-then-rise
+Speeds/overhead are assumptions, not E-276 route replay. Scale4/6.25 for4096/6400; fit/concurrency unqualified. Direct neutral descent avoids minimum-then-rise
 but does not test full stroke. Do not add old minimum-to-neutral time on top.
 Fully attending120rpm minimum startup leaves1.56h saving at1024 before extras,
 conservatively charging all startup without prior commissioning credit. Separate
