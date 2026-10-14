@@ -47,24 +47,24 @@ At 0.1-mm lateral opening, interference persists under mesh refinement:
 
 Both halves collide already at .02 mm. At 4.4 mm they are clear, but that final
 position does not make the intervening path feasible. Smooth stepped controls
-stay below1e-5 mm³ across the same sampled pulls. Axial socket-pin withdrawal
+stay below 1e-5 mm³ across the same sampled pulls. Axial socket-pin withdrawal
 clears; lateral .1-mm motion instead intersects .400 mm³. Finished 128-facet CAD volumes
-are417.622/405.703 mm³ for30°/90°; these are solids, not deposited resin volumes.
+are 417.622/405.703 mm³ for 30°/90°; these are solids, not deposited resin volumes.
 
-Downward sleeve extraction samples72/136 steps at64/128 facets,416 total.
+Downward sleeve extraction samples 72/136 steps at 64/128 facets, 416 total.
 Maximum residual overlap is .003605→.003497 mm³ (30°) and
-.004497→.003248 mm³ (90°); fully withdrawn at68 mm gives zero. **No exact sleeve
+.004497→.003248 mm³ (90°); fully withdrawn at 68 mm gives zero. **No exact sleeve
 clearance pass:** the residual persists with refinement and its origin is not
 resolved. Do not reclassify it as harmless mesh noise or permitted compliance.
 Wrong-sign rotation at .375-mm
-retreat intersects101.66–103.39 mm³ at128 facets; upward5-mm travel brings the
-collar into the sleeve with31.30–32.44 mm³ overlap.
+retreat intersects 101.66–103.39 mm³ at 128 facets; upward 5-mm travel brings the
+collar into the sleeve with 31.30–32.44 mm³ overlap.
 
 Verification: eight manifold meshes; two resolutions; smooth/no-motion controls;
 axial-versus-lateral socket pull and wrong-rotation/direction controls; scenario
 capacity and cure accounting checks. Self-review, not independent validation.
-OpenSCAD2023.09.11; BOSL2`136e6367e65d52196a3ea51d03156f8b622c60fc`;
-numpy2.5.4, trimesh5.1.1, manifold3d3.5.4. No force, wear, thermal, casting or
+OpenSCAD 2023.09.11; BOSL2 `136e6367e65d52196a3ea51d03156f8b622c60fc`;
+numpy 2.5.4, trimesh 5.1.1, manifold3d 3.5.4. No force, wear, thermal, casting or
 physical-print qualification.
 
 ## Process alternatives and finished-end duties
@@ -199,16 +199,16 @@ This is a manufacturing comparison for E-277's 12.7-mm/1024-cell control with
 S40/S50 and paid N20/N30. Replication to 4096/6400 is a burden comparison, **not
 compatibility of its 10.3-mm columns with 6.35/5.08-mm pitch**. Original references
 remain ~40 mm travel, ~30 s gameplay waits and ~$500 bought parts. E-276's
-four-spindle S40/S50 local26.84/31.07 s, scenes~201/223 s, initial neutral271/332 s
-and dense392/452 s remain conditional assumed850-rpm schedules. Casting supplies
+four-spindle S40/S50 local 26.84/31.07 s, scenes~201/223 s, initial neutral 271/332 s
+and dense 392/452 s remain conditional assumed 850-rpm schedules. Casting supplies
 no new motor, docking, retention, isolation or readback evidence and cannot
 improve those waits by itself. No resolution or neutral choice is selected.
 
 **Decision: reject exact rigid two-half straight opening for the tested screw;
 park screw-only molding before mold-detail work.** Downward unscrewing and
 supported flexible peeling remain process hypotheses, not qualified routes.
-Even the favorable scenario retains534 print-hours/1024 pairs and41–105 maker
-hours before exclusions, above the illustrative2–4-day maker preference. Reopen
+Even the favorable scenario retains 534 print-hours/1024 pairs and 41–105 maker
+hours before exclusions, above the illustrative 2–4-day maker preference. Reopen
 with whole-pair process advantage or measured low-touch finished-screw production
 including column joining, release, checks and service. No gates/vents, local mold
 refinement, purchases or owner prints follow. This does not reject all casting;
