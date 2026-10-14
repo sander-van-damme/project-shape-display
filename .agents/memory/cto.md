@@ -179,6 +179,17 @@ fit refinement or print selected. Stock savings do not close support or feeding.
 Next useful work must change the whole-pair manufacture/assembly construction or
 supply actual process/support evidence;do not repeat cycle/spring sweeps.
 
+E-284 screens monolithic molded U-channel+nut+cap: eliminates1024 joins and
+533.62 comparison print-hours,retains60.68h bare screws before finished ends.
+Short nut core needs>=3.33 turns out/reset plus lateral cavity core;combined
+release is unconstructed,not inherited from E-277. Manual16-cavity scenarios
+35.30–87.69 maker h;shared cores29.61–70.62 before extra automation/tool fabrication.
+Optimistic gang handling savings only5.69h;80% usability pushes its lower case32.27h.
+Resin allocation$199–532 leaves$170–503 from optimistic$1500 whole-machine case
+for all tooling/other exclusions. Retain whole-body process escape,park manual
+casting/local mold detail. Reopen with low-touch release/finish/gauge construction
+or capable supplied-process evidence;no print or purchase. E-281 remains optional.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies
