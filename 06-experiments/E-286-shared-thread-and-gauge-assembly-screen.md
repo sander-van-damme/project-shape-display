@@ -14,14 +14,9 @@ or hardware measurements.
 
 ## Separate station and axial proof
 
-E-277 integral136×10.3-mm body/10-mm nut; E-280 finished64-mm lead3 screw.
-Side nests hold body; split collar cup/counterbalanced slide supports screw.
-Limited-torque spindle seeks backward≤1turn, then threads without imposed Z feed.
-Measure actual collar/nut travel, downstream angle and torque at2/16turns,
-reverse2/return2, finish nut bottomZ2:62mm/20.67turn insertion. Catch/quarantine
-jams; at most one low-torque reverse. Station owes clamp/cup/spindle, sensors,
-float/guard/controller/catch; oriented feed/reject automation is unconstructed.
-Bodies+screws remain2048/12800 at1024/6400; existing interfaces unchanged.
+E-277 body/E-280 screw use side nests, split collar cup and limited-torque
+spindle with axial float. Source preserves seek/thread/reverse observations,
+load paths and instrument assumptions; oriented feed/reject automation is unbuilt.
 [DEPRAG](https://www.deprag.com/en/screwdriving-technology/deprag-apps/) supports
 instrumentation concepts, not polymer qualification.
 
@@ -62,17 +57,13 @@ Park station/proof CAD pending measured bounds or fewer handling operations.
 
 ## Install extended pairs and reuse the writer
 
-At nut bottom Z52, four lead-3 turns from first contact engage the complete10-mm
-nut at Z52…62. Two turns leave6mm engagement at Z58, beyond screened S50 travel.
-Full engagement is geometry, not strength. During empty, unpowered assembly, a
-cradle supports each started pair/collar while its column enters both guides.
-Close journal/thrust/capture layers before releasing it. The4.4-mm collar cannot
-pass a close2.8-mm journal aperture: split/open layers or ordered assembly are owed.
-Cradle manufacture, handling and removal are unpriced. No miniatures at startup.
-Writer lowers from S50 to minimum or true N20/N30; stop on jam/unreadable height.
-Motor counts are not actual-height proof. Undocking still requires passive holding.
-A jam remains a service fault; empty-board assembly does not authorize shared
-keeper opening or neighbor homing during play.
+Four turns engage the complete10-mm nut at Z52…62; two leave6mm at Z58,
+outside S50. Empty-board cradle supports pair/collar through both guides until
+journal/thrust/capture closure. The4.4-mm collar cannot pass2.8-mm journal:
+ordered/open assembly remains owed. Unpriced cradle must be removed safely.
+Writer descends from S50 to minimum/N20/N30; jams/unreadable heights stop motion.
+Motor counts are not height proof; undocking requires passive holding. Startup
+never authorizes shared keeper opening or neighbor homing during play.
 
 Split15s manual threading into5s pickup +10s rotation for20.67 turns. Four-turn
 starting costs6.94s, saving8.06s/pair. At1024:2.29h theoretical saving and whole
@@ -170,14 +161,12 @@ Access fastener through bottom aperture while independently counter-holding driv
 Wall/key/tail strength, access, anti-loosening and joint manufacture are unknown;
 a simple threaded coupling is not credited for reversing drive.
 
-Disable/park writer; clear target miniature; secure body/shank; counter-hold driver,
-remove/capture retainer; lift whole pair; insert/seat/key replacement; secure and
-prove retention; verify target height/holding. Neighbor restraints stay closed.
-Thread already lies ABOVE keeper; only released tail crosses its bore. Nominal
-radial clearance.20mm becomes zero with assumed±.10-mm diametric errors and.10-mm
-eccentricity (eight corners). Not a process tolerance or clearance-tuning mandate.
-Tall-pair extraction, terrain/tool access and fragment recovery remain unconstructed.
-Removing only screw from held minimum-height body instead owes62mm/20.67turns.
+Secure target and counter-hold driver; release retainer, lift body/shank,
+seat/key replacement, secure/prove retention and height. Only the released tail
+crosses keeper. Nominal.20mm radial clearance reaches zero under assumed±.10mm
+diametric errors/.10mm eccentricity; no fit-tuning mandate. Source retains corner
+checks. Access/fragments remain unresolved; screw-only withdrawal from held
+minimum body owes62mm/20.67turns.
 
 Driver remains trapped by3.2/2.8-mm apertures; socket/thrust/keeper faults remain.
 Body/shank coverage is two fault classes, not a reliability fraction; joint adds
@@ -203,91 +192,69 @@ The source retains reconstruction-only S50 stress: four ideal spindles,2s/visit,
 lead3,120/850rpm give44.09/13.55min per1024 cells before reset/proof/routing.
 The following closure comparison adds explicit affected-row work and reset.
 
-## Bench versus repeated cell closures: operation and restoration ledger
+## Bench versus repeated cell closures
 
-**Offline repair can remove resident closures, but a saved map does not remove
-recommissioning.** Compare the same integral pair and bottom thrust with row
-keepers versus independently opening cell keepers (not detachable shanks).
-This extension is analytical; no closure/fit CAD, measured timings or fault rates.
-Both routes still owe extraction access and actual load/capture qualification.
+**Retain offline service as a conditional simpler control, not accepted UX.**
+Compare integral pairs with row keepers versus independent cell keepers, not
+split shanks. Normal gameplay regional isolation remains mandatory. Calculations
+below allocate actions/time; no fault rates, closure/fit CAD or hardware proof.
 
-Bench sequence: save cell-addressed absolute heights, datum/calibration version
-and miniature locations; clear all pieces; disable/park; secure board on stand;
-engage and verify row restraint before unlocking. Support the target independently,
-withdraw the entire pair upward, seat replacement onto bottom thrust, close/lock
-and prove keeper before releasing fixture. Re-home only after damaged parts and
-fragments are removed. No forced homing of a jam. The 136-mm body needs overhead
-withdrawal of its guide engagement plus handling clearance; collars must traverse
-all intervening layers. This is an owed access envelope, not a constructed path.
-If access requires removing a shared guide layer, expand affected cells to that
-layer's entire footprint; the row-only case then ceases to apply.
+Save absolute heights, address/datum/calibration identity and miniature locations;
+clear all pieces; disable/park writer; secure board upright on bench stand.
+Engage/prove whole-row restraint before opening keeper. Independently support
+target, extract pair upward, insert replacement onto bottom thrust, close/lock/prove
+keeper before releasing fixture. Remove fragments before homing; never force jams.
+The136-mm body owes overhead guide-withdrawal/handling clearance and collar passage
+through every layer. If access requires removing a shared guide, affected cells
+expand to that layer's footprint. Restraint/access construction remains unproven.
+Local closures also owe target/tool clearance, possibly nearby miniature removal.
 
-Count each unlock/open/close/lock as one allocated action: 4+2+2+4=12 per
-opened keeper; extraction/reinsertion adds2 per failed pair. Bench restraint adds
-4 actions per affected site (engage, verify, prove permanent restraint, release).
-These include healthy neighbors: a monolithic fixture earns no free gang proof.
-Common diagnosis, pair manufacture, target testing and general access work remain
-unpriced on BOTH routes. Additional bench-only recording/unloading/stand/reloading
-is a **600-s scenario**, not a measured workflow. At5s/action:
+Each keeper owes12 actions:4 unlock+2 open+2 close+4 lock. Add2 extraction/insertion
+per failed pair; bench adds4 restraint/proof/release actions per affected site.
+Monolithic fixtures earn no free gang proof. Common diagnosis, replacement
+manufacture, access and target testing remain unpriced on both routes.
+At assumed5s/action plus600s extra bench recording/unloading/stand/reloading:
 
-|32² board; faults in one episode|Rows / disturbed cells|Bench / local actions|Extra bench hands-on min|
+|32² faults per episode|Rows/cells|Bench/local actions|Extra bench hands min|
 |---|---:|---:|---:|
-|One|1 /32|142 /14|20.67|
-|Eight in same row|1 /32|156 /112|13.67|
-|Eight in different rows|8 /256|1136 /112|95.33|
+|One|1/32|142/14|20.67|
+|Eight same row|1/32|156/112|13.67|
+|Eight rows|8/256|1136/112|95.33|
 
-Local controls retain healthy neighbors but still require tool/extraction access;
-miniatures may need removal in that access footprint. Neither route promises
-in-session service. Counts above separate target extraction from the earlier
-20-action schematic; do not add both ledgers together. Eight co-repaired faults
-are one episode; eight separate calls pay setup eight times.
+This replaces, not adds to, the earlier20-action schematic. Eight co-repaired
+faults are one episode; separate calls repay setup. Initial closures owe2N halves/
+4N locks versus2w/4w for w rows,N=w². Avoided6(N−w) actions at10–30s each,
+less assumed4h bench-fixture setup, save12.53–45.60/63.20–197.60/101.33–312h
+at1024/4096/6400. These unbuilt closure allocations are not demonstrated savings.
+Break-even=`max(0,6(N−w)*initial_action_s−fixture_setup_s)/extra_bench_hands_s`.
+At1024:36.39–132.39 single-fault episodes,55.02–200.20 clustered-eight episodes,
+7.89–28.70 scattered-eight episodes; at6400:165.82–510.55/204.94–631.01/27.22–83.82.
+Changing5s/action or600s overhead changes the denominator directly. Nonpositive
+numerator means no initial advantage. Correlation changes affected rows; no fault
+frequency/lifetime winner follows. Do not add these savings to split-joint savings.
 
-Initial cell closures have2N halves/4N locks versus2w/4w for w rows (N=w²).
-Avoided placement/locking is6(N−w) actions:5952/24192/37920 at1024/4096/6400.
-At10–30s/initial action, less an assumed4h extra bench-fixture setup, net saving
-is12.53–45.60/63.20–197.60/101.33–312h. This is an allocation comparison, **not
-savings from demonstrated closures**; cell closure manufacture may add more burden.
-With the above service times,1024-cell break-even is36.39–132.39 single-fault
-**episodes**,55.02–200.20 clustered-eight episodes or7.89–28.70 scattered-eight
-episodes. At6400:165.82–510.55/204.94–631.01/27.22–83.82. No service frequency
-or lifetime winner follows. Recompute as
-`[6(N−w)*initial_action_s − extra_fixture_setup_s] / extra_bench_hands_s`;
-nonpositive numerator means no initial labor advantage. Changing5s/action or600s
-setup changes the denominator directly. Correlated failures change affected rows,
-not just fault count. These closure savings must NOT be added to avoided
-split-shank assembly: those are alternative hardware comparisons.
+Saved commands are not actual state. After restraint loss assume affected rows
+unknown; after uncertain transport/guide disturbance assume whole board unknown.
+Stale datum/address identity or unreadable heights stops restoration. Safe homing
+and actual-height proof remain unqualified. Replay fixed four-site row groups:
+S50 maximum reset then saved absolute height h owes
+`4+(50+max(h))*60/(3*rpm)` seconds/group (lead3,2s/phase visit).
+This adds reset to the reconstruction-only table, still excludes routing,
+retries, settling, proof and manual work. Flat N30 is a diagnostic, not typical play:
 
-Save commanded geometry separately from proven physical state. After restraint
-loss, assume affected cells unknown; after uncertain transport/guide disturbance,
-assume whole board unknown. Require valid saved datum/address identity and safe
-homing/actual-height checks. A stale map or unreadable height stops restoration.
-A fault-free saved command cannot certify damaged hardware or miniature positions.
-
-Executable replay uses fixed four-site row groups, assumed2s per phase visit,
-lead3, S50 maximum reset then saved absolute height h: each group owes
-`4+(50+max(h))*60/(3*rpm)` seconds. This adds reset to the earlier reconstruction-
-only table. Conditional bounded safe homing is assumed; routing, retries, settling,
-proof and manual work remain additional. Restoring N30 (h=30):
-
-|32² faults|Bench reset+restore min at120 /850rpm|Local min at120 /850rpm|
+|32² faults|Bench min120/850rpm|Local min120/850rpm|
 |---|---:|---:|
-|One|2.31 /0.78|0.29 /0.10|
-|Eight same row|2.31 /0.78|0.58 /0.20|
-|Eight rows|18.49 /6.27|2.31 /0.78|
+|One|2.31/.78|.29/.10|
+|Eight same row|2.31/.78|.58/.20|
+|Eight rows|18.49/6.27|2.31/.78|
 
-Whole1024 unknown at850rpm takes22.09/24.09/25.10/27.11min for saved
-minimum/N20/N30/S50;6400 takes138.04/150.59/156.86/169.41min. N30 is a flat
-restoration diagnostic, not typical D&D terrain. Arbitrary maps use actual batch
-maxima; true bidirectional hardware and paid neutral are still owed. These times
-are separate from extra hands-on labor; unattended time is still interruption,
-attended time must also enter the labor denominator. Fine/quarter grids are count
-controls, not a claim10.3-mm bodies fit. Slower120rpm further increases downtime.
-
-**Decision:** retain bench repair as the simpler conditional control, not accepted
-repair UX. Saved-map recovery does not justify discarding regional isolation during
-ordinary gameplay. A preference requires demonstrated shared restraint/access and
-measured complete service labor/interruption; closure CAD and fault-frequency
-assumptions would not resolve those gaps. No print or purchase.
+Whole1024 unknown at850rpm:22.09/24.09/25.10/27.11min for minimum/N20/N30/S50;
+6400:138.04/150.59/156.86/169.41min. Actual maps use batch maxima; true signed
+travel and paid neutral remain owed. Unattended time is still interruption;
+attended time must also enter labor break-even. Fine/quarter counts do not fit
+10.3-mm bodies. These are not30s gameplay passes. Next useful evidence is accessible
+shared restraint/extraction plus measured complete service labor/interruption,
+not closure detail or guessed fault frequencies. No print or purchase.
 
 ## Product boundary
 
