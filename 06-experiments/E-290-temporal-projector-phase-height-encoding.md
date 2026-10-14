@@ -48,7 +48,49 @@ Unsourced projector/control$100–400 replacing sheet$30–150 makes optics$270�
 base-plus-optics$1068–1778 before integration/qualification, versus~$500 reference
 and$1000–1500 research range. No BOM, source-safety selection, purchase or print.
 
-**Stop:** park single-frequency fit/extra-step sweeps. Reopen through constructed
-direct/global separation with a full frame budget or calibrated cap imagery.
-Static-gain cancellation is useful; actual-height acceptance, visibility and
-mechanical holding remain unqualified. E-281 stays the sole optional print.
+## Spatial separation extension
+
+**Numerical construction, not captured imagery:** multiply each of four temporal
+phase patterns by a binary spatial carrier at four quarter-period shifts. For
+each phase take maximum minus minimum across the shifts, then decode those four
+differences. [Nayar et al., 2006](https://www.cs.columbia.edu/cg/pdfs/1156189195-Krishnan_TOG06.pdf)
+(accessed2026-10-14) derive direct/global separation under sufficiently smooth
+global transport; finite projector/camera optics require additional images in
+their demonstration. That source does not establish our carrier resolution,
+material transport or frame rate.
+
+The same executable now includes30 exact limiting controls (five heights, three
+gains, with/without shift-invariant global return). All recover height. A finite
+nonnegative Gaussian transport lobe centered on the45-mm ray, width.0008 ray units,
+truncated at±.003 and total weight.2, reads25.0065/25.0001mm at2048/4096 midpoint
+samples. Quadrature change.00635mm is numerical sensitivity, not optical accuracy.
+No material distribution or probability of broad transport is asserted.
+
+**Full raw-data counterexample:** a localized20% path at the45-mm projector ray
+and direct25-mm path share the carrier code when its period is their ray
+separation/6. With carrier origin offset.13 periods, the falsely inferred28.3788-mm
+ray shares that code too. A direct-only return at that false height with fitted
+mean/contrast reproduces **all16 samples within1.4e-12DN**, not merely their
+max/min or sinusoidal residual. Rounded separation reads28.3963mm. This is a
+constructed nonnegative transport witness and unknown-local-contrast scenario,
+not a measured PLA reflection or a universal impossibility proof. It shows why
+retaining this four-mask address code alone does not certify direct light.
+
+Carrier period.00038027 corresponds to.1046mm at the25-mm plane (half-stripe
+.0523mm). Finite projector resolution, defocus and camera footprint are omitted:
+even this idealized sharp pattern fails the localized witness. No extra resident
+parts; same shared projector/camera and allocated$1068–1778 base-plus-optics
+remain, without a verified specification/BOM. More capable optics could cost more.
+At the inherited assumed.1s/frame and four caps/group,16-frame acquisition alone
+costs409.6/1638.4/2560s at1024/4096/6400 cells (12.7/6.35/5.08-mm pitch controls).
+Local1/4/8 groups cost1.6/6.4/12.8s before writer motion, registration, settling
+and retries. Retain S40/S50, minimum versus raised neutral, paid preparation,
+~30-s gameplay and separate dense benchmarks; these sensing times select no
+playable pitch or end-to-end update. Hidden caps still return unknown.
+
+**Decision:** retain spatial separation only as a conditional broad-transport
+control. Stop periodic-mask/phase-count tuning without earned transport and
+resolution evidence. Reopening needs calibrated cap imagery or a materially
+different path discriminator with a full frame/visibility budget. Static-gain
+cancellation is useful; height acceptance and mechanical holding remain
+unqualified. No new print or purchase; E-281 stays the sole optional print.

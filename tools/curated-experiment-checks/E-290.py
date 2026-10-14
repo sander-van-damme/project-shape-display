@@ -102,6 +102,93 @@ def main():
         mixed_returns=mixed,one_mm_alias_frame_gain_range=[min(gains),max(gains)],
         acquisition_seconds={str(n):{str(N):N/4*n*.1 for N in (1024,4096,6400)} for n in (4,8)},
         local_four_frame_seconds={str(groups):groups*4*.1 for groups in (1,4,8)}),indent=2))
+    print(json.dumps(spatial_separation(), indent=2))
+
+
+def spatial_separation():
+    """Finite 1D binary carrier times temporal sinusoid; ideal linear transport.
+
+    Four carrier shifts per phase, then max-minus-min isolates the direct
+    waveform ONLY when global return is invariant to those carrier shifts.
+    The period below deliberately constructs a localized-path alias, not a
+    measured projector resolution or an optimized carrier specification.
+    """
+    q0 = RAY+B/(D-25)
+    q1 = RAY+B/(D-45)
+    period = (q1-q0)/6
+
+    def mask(q, shift):
+        return float(((q-q0)/period+.13+shift/4) % 1 < .5)
+
+    def illumination(q, j):
+        return 1000+500*math.cos(2*math.pi*(q-ORIGIN)/PERIOD+2*math.pi*j/4)
+
+    def capture(paths, smooth=False):
+        # paths are (projector ray, nonnegative transport weight).
+        rows=[]
+        for j in range(4):
+            rows.append([120+sum(w*illumination(q,j)*mask(q,s) for q,w in paths)
+                         + (.1*illumination(q1,j) if smooth else 0)
+                         for s in range(4)])
+        return rows
+
+    def separate(rows):
+        return [max(row)-min(row) for row in rows]
+
+    # Independent limiting cases: zero indirect and exactly shift-invariant
+    # global (which may still vary across temporal phases) recover direct.
+    controls=0
+    for z,g in itertools.product((0,10,25,40,50),(.05,.2,1)):
+        q=RAY+B/(D-z)
+        for smooth in (False,True):
+            got=decode(separate(capture([(q,g)],smooth)))
+            assert got and abs(got['z']-z)<1e-9
+            controls+=1
+
+    # Broad spatial transport: explicit nonnegative, normalized Gaussian lobe.
+    # Doubling quadrature is a numerical check, not a process/noise prior.
+    broad=[]
+    for count in (2048,4096):
+        rays=[q1-.003+.006*(i+.5)/count for i in range(count)]
+        weights=[math.exp(-.5*((q-q1)/.0008)**2) for q in rays]
+        total=sum(weights)
+        paths=[(q0,1)]+[(q,.2*w/total) for q,w in zip(rays,weights)]
+        got=decode(separate(capture(paths)))
+        assert got
+        broad.append(got['z'])
+    assert abs(broad[1]-broad[0])<.01
+
+    # Localized reflected path at q1 shares all four masks with q0. Its
+    # modulation survives max-min exactly, including the 20% phase witness.
+    assert all(mask(q0,s)==mask(q1,s) for s in range(4))
+    data=capture([(q0,1),(q1,.2)])
+    separated=separate(data)
+    expected=[illumination(q0,j)+.2*illumination(q1,j) for j in range(4)]
+    assert max(abs(a-b) for a,b in zip(separated,expected))<1e-9
+    got=decode(separated)
+    rounded=decode(separate([[round(x) for x in row] for row in data]))
+    assert got and rounded and abs(got['z']-28.3788)<.0001
+    # Retaining the binary mask identity does not reject this witness either:
+    # the inferred false ray falls in the same four-mask address class.
+    false_q=RAY+B/(D-got['z'])
+    assert all(mask(false_q,s)==mask(q0,s) for s in range(4))
+    # Therefore a direct-only scene with the decoded height and inferred
+    # mean/contrast duplicates ALL 16 raw samples, not only their extrema.
+    alternative=[[120+mask(false_q,s)*(got['mean']+got['amplitude']*
+                  math.cos(phase(got['z'])+2*math.pi*j/4))
+                  for s in range(4)] for j in range(4)]
+    raw_alias=max(abs(a-b) for row,other in zip(data,alternative)
+                  for a,b in zip(row,other))
+    assert raw_alias<1e-9
+    return dict(spatial_separation_controls=controls,carrier_ray_period=period,
+                carrier_mm_at_z25=period*275,
+                broad_transport_decoded_mm=broad,
+                localized_path_decoded_mm=got['z'],
+                localized_path_quantized_mm=rounded['z'],
+                localized_path_residual_DN=got['residual'],
+                full_16_frame_alias_max_DN=raw_alias,
+                acquisition_16_frames_s={str(N):N/4*16*.1 for N in (1024,4096,6400)},
+                local_16_frames_s={str(g):g*16*.1 for g in (1,4,8)})
 
 
 if __name__=='__main__':

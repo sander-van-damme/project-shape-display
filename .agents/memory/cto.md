@@ -321,6 +321,15 @@ E-281 stays optional and unprinted; no new print or purchase.
   or hardware pass. Stop single-frequency fit/step sweeps; reopen with constructed
   direct/global separation and earned frame budget or calibrated images. Finite
   projector field/visibility, prop identity and hidden caps remain unqualified.
+  Spatial-separation extension adds four binary carrier shifts per phase.
+  Thirty exact controls recover height; a broad Gaussian transport control
+  reads25.0001mm at4096 samples. A localized20% reflected path still aliases
+  25→28.3788mm across all16 raw samples, including the four-mask address code,
+  with fitted local contrast. Carrier.1046mm is ideal/unqualified. Acquisition
+  409.6/1638.4/2560s at1024/4096/6400;local1/4/8 groups1.6/6.4/12.8s before motion.
+  Retain only conditional broad-transport control; no periodic-mask tuning.
+  Reopen with calibrated imagery or a different path discriminator, not more
+  phase steps. No physical evidence or new print.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
