@@ -199,6 +199,16 @@ $1000/$1500 machine,or$0.158/$0.549 at80% usability,before other exclusions.
 Receiving10–60s/body adds relevant work;no quote/contact/order. Reopen with
 supplier-specific cleaned fit/guide evidence and all-in price,not clearance tuning.
 
+E-277 upright integration removes1024 nut joins without molding:90° nut and
+136-mm closed/U body are one piece. Four slices show8.585-mm roof bridges;
+U adds six roof-edge overhangs. Automatic supports fill closed cavity and add
+large cleanup to U. Unsupported closed/U repetition710.73/592.97h versus joined
+533.62h;with bare screws771.41/653.65h. Assumed289-up/removal+gauge gives16.96–41.09
+maker h before exclusions,not measured savings or stable batch. Equal-E tip
+stiffness9.32/5.19× a64-mm solid3.2 shank does not qualify adhesion/warp/layers.
+Retain conditional assembly-saving control,not a winner or new print. No cap,
+brace or fit sweep absent actual process evidence or whole-pair advantage.
+
 ## Actuation, observation and scale boundaries
 
 - E-260: independent pair replacement matters. Sealed module disposal amplifies

@@ -33,17 +33,26 @@ E-276 conditional four-output S40/S50:local26.84/31.07s,scene201.24/222.88, neut
 
 ## Closed-body manufacture and support
 
-Body:10.3-square/.8 walls/136 length; solid nut z0..10,8.7-square cavity z10..134, roof z134..136. E-263's3.5/1.7 cutter,3-mm single-start lead and explicit.15 radial relief mate nominally with3.2/1.4 male. Not the identified historical print; its.2-mm axis-offset collision remains. S50's64-mm male/10-mm engagement/two2-mm end reserves are reach geometry,not physical stops or strength.
+10.3-square/.8-wall/136-long body:nut z0..10,cavity8.7-square z10..134,
+roof z134..136. E-263 cutter3.5/1.7,lead3,radial relief.15 mates3.2/1.4 male;
+not identified historical print.64-mm male/10-mm nut/two2-mm reserves permit
+S50 geometrically,not safe stops or strength.
 
-Closed load path:roof→walls→nut→thread→screw/collar→bed. Eccentric butt-seat contact requires tension beyond e2.941 mm; atF9.81 the roof-strip surrogate gives32.0 MPa/.202-mm deflection. `manufacture.py` preserves equilibrium,material and load assumptions; no strength/creep/bond qualification.
+Roof→walls→nut→thread→screw/collar→bed. Eccentric butt-seat tension begins
+beyond e2.941mm;F9.81 roof-strip surrogate32MPa/.202-mm deflection.
+`manufacture.py` retains assumptions/equilibrium,not strength qualification.
 
-**Closed-core obstruction:**8.7-mm rigid core cannot exit roof or≤3.5 threaded mouth. Open-top+cap permits≥124-mm pull and≥10-mm/3⅓-turn unscrewing. 1,140 section checks establish access only. Cavity draft0/.5/1° increases material5.065–5.140/7.258–7.333/9.054–9.129 L/1024; offset/error scenario loses screw clearance at1.155°. [Protolabs draft](https://www.protolabs.com/resources/design-tips/improving-part-moldability-with-draft/) and [internal thread service](https://www.protolabs.com/resources/design-tips/molded-threads-and-how-to-design-them/) do not qualify our process; the latter cites≥7.6-mm diameters,not3.5 (checked2026-10-14).
+Rigid8.7-mm cavity core cannot pass roof or≤3.5 mouth. Open top+cap owes≥124-mm
+pull and≥10-mm/3⅓-turn unscrewing.1140 section checks establish access only.
+Draft0/.5/1° gives5.065–5.140/7.258–7.333/9.054–9.129L at1024;offset scenario
+loses screw clearance at1.155°. [Protolabs internal-thread service](https://www.protolabs.com/resources/design-tips/molded-threads-and-how-to-design-them/)
+minimum7.6mm does not qualify3.5mm(checked2026-10-14).
 
-256-mm bed/10-mm margins/3-mm gaps packs24 bodies,43 plates before screws/brims/braces; packing only. Closed bodies alone ~6.3kg/$126–191 at1.24kg/L,$20–30/kg. The former94–281h deposition-only estimate is superseded by actual slice accounting below.
-
-Integral FDM has1024 bodies/no joins; tube+nut+cap3072 pieces/2048 joins; open-top molding+cap2048 pieces/1024 joins. `manufacture.py` retains cut/core/fixture operations.
-
-Including E-276 base, integral assembly17.37–35.81h and stock19.47–49.29h exclude tooling,procurement,cleanup,cure,scrap and commissioning. Board:1024 screws/threads/roofs/blocks,2048 apertures,62 ribs. Pair extraction/openable layers/re-registration remain unconstructed.
+24-body geometric packing/256-mm bed gives43 plates before screws/braces.
+Integral body:no joins;tube+nut+cap:2048 joins;open-top+cap:1024 joins.
+With E-276 base,integral17.37–35.81h/stock19.47–49.29h exclude tooling,
+cleanup,cure,scrap,commissioning.1024 screws/threads/roofs,2048 guide apertures,
+62 ribs;service extraction/openable layers remain unconstructed.
 
 ## Actual closed-body slicing
 
@@ -51,7 +60,7 @@ Including E-276 base, integral assembly17.37–35.81h and stock19.47–49.29h ex
 
 Run `python3 tools/curated-experiment-checks/E-277/slicing.py --bosl2 /path/to/BOSL2 --slicer /path/to/prusa-slicer --output "$PAPERCLIP_RUN_SCRATCH_DIR/e277-slicing"`; `--analyze-only` rechecks scratch.
 
-Actual witnesses (`slicing.py` retains segment/coordinate details):
+Path witnesses:
 
 - Auto ceiling bridges126.489 mm across124-mm cavity;reject.90° override spans8.25 mm; anchoring/sag unqualified.
 - Upper horizontal thread has overhangs and4.216/4.303-mm bridges.
@@ -63,15 +72,26 @@ Three-copy transverse14.70cm³/18.23g/1h49m46s scales **624.5h/5.018L/6.222kg at
 
 ## Longitudinal split-shell discriminator
 
-Cut the unchanged body along its screw axis; print two complementary open-faced halves horizontally and join. Each contains half the roof/nut; no added locating features or screw changes. `split.py` uses the same arguments/profile as slicing; `--analyze-only` rechecks scratch. Reunited volume differs from integral by<.01mm³.
+`split.py`/`.scad` preserve complementary axial halves,printed open-face up;
+reunited volume differs<.01mm³. Six-half slices have no bridge/overhang/support,
+even enabled. Three pairs15.27cm³/18.94g/1h56m50s;1024 extrapolation664.65h/
+5.212L/6.465kg. Nominal5.15 halves slice5.2:10.4 assembled before bondline,
+not a measurement.
 
-**Actual six-half paths have no bridge,overhang or support,including with support enabled.** Three pairs15.27cm³/18.94g/1h56m50s; at1024,664.65h/5.212L/6.465kg, not optimized-plate/X1C or physical-print proof. Nominal5.15-mm halves end at commandedZ5.2:assembled10.4 before bondline is toolpath arithmetic,not measurement.
+654 finite phase cases:relative axial offsets0/.05/.08/.10/.20/.40mm give
+minimum overlap0/0/.0128/.1705/1.0357/2.7647mm³. One screw phase must fit both
+halves;common shift clears. Radial.15 relief gives only.0402 axial planar-flank
+relief at30°. Not continuous contact,printer tolerance or yield.
 
-For relative axial half offsets0/.05/.08/.10/.20/.40 mm,sampled minimum male/shell overlap is0/0/.0128/.1705/1.0357/2.7647 mm³.654 cases:109 axial-equivalent phases per offset over one3-mm lead (.05-mm grid,.01 near alignment). One screw phase must fit both halves; common shift of both halves and screw clears. Finite CAD, not continuous optimization,printer tolerance or contact proof. Radial relief.15 only gives.0402-mm axial relief in a30° planar-flank surrogate; faceted helical clearance,warp,shrink,bond cure and deformation remain unqualified.
+Rigid half-thread former fails:9-mm interior core shifted.02/.1/.5mm intersects
+.0265/.1179/.3275mm³;initial/2-mm states clear. Smooth semicircular control
+clears. No straight-pull thread mold pass.
 
-**Rigid straight-pull half-thread mold fails:** actual9-mm interior former shifted .02/.1/.5 mm toward the open plane intersects by.0265/.1179/.3275 mm³; initial and2-mm-extracted states clear. Smooth semicircular bore control clears all draws. Flexible stripping/unscrewing/changed thread needs new tooling evidence.
-
-Split burden:2048 halves+1024 screws,1024 paired-thread joins,2048 seams. At24-halves/plate:86/342/534 plates for1024/4096/6400. Assumed handling/joining plus E-276 base26.64–56.46h before exclusions;extra minute/thread adds17.07h. **Park before seam/fit refinement** unless batching removes registration or leaves the thread intact.
+1024 paired-thread joins/2048 seams;24-halves/plate gives86/342/534 plates for
+1024/4096/6400. Handling+E-276 base26.64–56.46h before exclusions;one extra
+minute/join adds17.07h. **Park seam/fit refinement** unless changed batching
+removes registration or keeps the thread intact. Source retains phase grids,
+force-free geometry controls and slicing provenance.
 
 ## Open channel with one intact nut
 
@@ -99,55 +119,95 @@ At1024:1024 channels+1024 nuts+1024 screws,1024 joins,2048 guide apertures. Spli
 
 ## Print-oriented intact thread discriminator
 
-**Changed pair:** included angle30°→90°;same3-mm single-start lead,.9 depth,
-3.2 male/3.5 cutter diameters,10-mm nut,parts and joins. Nuts upright,channels
-horizontal;not historical-print reconstruction. `thread_profile.py`/`.scad` use the same pinned dependencies,
-profile and `--bosl2/--slicer/--output/--analyze-only` arguments above. Outputs are
-scratch, not owner-print payloads.
+`thread_profile.py`/`.scad`:included angle30°→90°,same3-mm lead,.9 depth,
+3.2 male/3.5 cutter,10-mm nut;no part/join change. Same pinned dependencies,
+profile and`--bosl2/--slicer/--output/--analyze-only`. Not historical-print
+reconstruction. [BOSL2](https://github.com/BelfrySCAD/BOSL2/blob/136e6367e65d52196a3ea51d03156f8b622c60fc/threading.scad)
+gives flats1.259/.600mm,radial flank advance.746/.200mm per.2 layer;
+core1.4/bore1.7 remain.
 
-[Pinned BOSL2](https://github.com/BelfrySCAD/BOSL2/blob/136e6367e65d52196a3ea51d03156f8b622c60fc/threading.scad)
-gives half-angles15°/45°, axial crest/root flats1.259/.600 mm and radial flank
-advance.746/.200 mm per.2-mm layer. Male core1.4/nut minor bore1.7 mm remain.
-[Prusa orientation guidance](https://help.prusa3d.com/article/modeling-with-3d-printing-in-mind_164135)
-informs45°, not this pair's actual fit/strength.
+Actual three-nut slices,2026-10-14:
 
-**Actual three-identical-nut slices,2026-10-14**, unchanged.45-mm extrusion width:
-
-| Angle/layer | Support off: overhang segments /time | Support on: support+interface segments /time |
+|Angle/layer|Unsupported overhang segments/time|Supported segments/time|
 |---|---|---|
-|30°/.2 mm|333 /26m28s|1197 /27m40s|
-|30°/.1 mm|0 /49m55s|3864 /52m17s|
-|90°/.2 mm|0 /26m11s|0 /26m11s|
-|90°/.1 mm|0 /50m01s|0 /50m01s|
+|30°/.2|333/26m28s|1197/27m40s|
+|30°/.1|0/49m55s|3864/52m17s|
+|90°/.2|0/26m11s|0/26m11s|
+|90°/.1|0/50m01s|0/50m01s|
 
-No bridge paths;90° also has no overhang paths with support enabled. Re-exported
-control gives1194 interface segments versus1177 earlier; compare within-run.
-**Missing overhang labels do not qualify unsupported printing:**30°/.1 still
-generates3864 support/interface segments.90° removes these paths too; sag,crest
-rounding,seam blobs and fit remain unmeasured. Both.2-mm unsupported cases use
-3.14 cm³/3.89 g.
+No bridges;90° also has no overhangs with support enabled.30°/.1 demonstrates
+why absent overhang labels alone are insufficient. Re-exported control1194
+interface segments versus earlier1177;compare within-run. Unsupported.2 cases
+3.14cm³/3.89g. Sag,rounding,blobs and fit remain unmeasured.
 
-**Finite mating:** control1002.089-mm³ nut matches prior volume;90° is1003.949.
-Each pair clears53 sampled axial states over one turn and S50 endpoints2..52 mm.
-At.2-mm axis offset,every state collides: minimum1.0642/.7464 mm³. Wrong rotation
-sign also collides. Finite rigid reach,not continuous contact or yield;no further
-clearance sweep warranted.
+212 finite mating cases:53 axial states/pair over one turn andS50 endpoints
+2..52mm clear coaxially;at.2-mm offset all collide,minimum1.0642/.7464mm³.
+Wrong-sign controls collide. Not continuous contact or yield.
 
-**Force calculation:** half-angle a;lambda=atan(3/(pi*2.3))=22.548°;
-k=sqrt(1+(cos(lambda)*tan(a))²). [DANotes](https://www-mdp.eng.cam.ac.uk/web/library/enginfo/textbooks_dvd_only/DAN/threads/mechanics/mechanics.html)
-uses effective friction mu*k. Assumed mean diameter2.3/no collar/preload gives
-self-lock threshold mu>tan(lambda)/k: **.4030→.3050**. Small-lead approximation
-.4010→.2936 would change the decision at assumed mu=.3;retain helix correction.
-AtF.2 N/mu.3,raising torque.1911→.2281 Nmm;axial-section radial/axial normal-force
-ratio.268→1.0. Rigid surrogates omit real contact,roughness,preload,collar,guide
-drag,compliance and creep. No measured PLA coefficient;owner holding and moving
-arrest do not transfer.
+Helix-corrected [DANotes](https://www-mdp.eng.cam.ac.uk/web/library/enginfo/textbooks_dvd_only/DAN/threads/mechanics/mechanics.html)
+model:lambda22.548°,k=sqrt(1+(cos(lambda)*tan(angle/2))²),self-lock requires
+mu>tan(lambda)/k=.4030→.3050. Small-lead approximation.4010→.2936 changes the
+assumed-mu.3 decision. AtF.2N/mu.3,torque.1911→.2281Nmm;radial/axial normal
+ratio.268→1.0. Source verifies force identities;collar,preload,roughness,guide
+drag,compliance/creep and actual friction remain unqualified.
 
-**Scale:**1024 nuts/screws/channels/joins remain; finer-grid replication is not dimensional compatibility. Nut CAD adds.00190 L/1024. With prior channel slice,90°/.2 repetition gives **533.62h/4.284L/5.311kg**,excluding screws/frame/scrap/joining;not optimized plates/X1C. Avoiding assumed10/30/60-s cleanup saves2.84/8.53/17.07h at1024; source calculates4096/6400. Conditional savings cannot be deducted from the23.39–53.21-h assembly baseline,which already excluded cleanup.
+1024 joined channels/nuts/screws remain.90° nut adds.00190L;channel+nut slice
+repetition533.62h/4.284L/5.311kg excludes screws/frame/scrap/joining. Avoided
+10/30/60-s cleanup would save2.84/8.53/17.07h,but baseline23.39–53.21h already
+excludes cleanup. No qualified850rpm or mold release follows.
 
-Same lead preserves turns,not qualified850rpm. Earlier whole-machine timing,cost,neutral and~30s/~$500 comparisons remain conditional. Thread still undercuts a mold;unscrewing tooling is uncosted/unqualified.
+E-279 retains nine64-mm screw slices and pair ledger. Upright90° is least-support
+control;horizontal raft adds83.06h/1024 without earned group release. No fit,
+angle or support-label sweep absent changed manufacture or physical evidence.
 
-**Long-screw route:** [E-279](E-279-long-screw-batch-deposition-and-release.md) retains source,nine64-mm slices,per-screw support checks and1024/4096/6400 whole-pair ledger. Retain upright90° as least-support control;park horizontal raft:83.06h extra/1024 without earned group release. No print/fit tuning;stability,thread damage and joins remain unqualified. Next evidence must change finished-pair manufacture or qualify actual stability,release and joint/guides.
+## Upright one-piece bodies (2026-10-14)
+
+**Integral90° nut+136-mm body removes1024 joins without molding.**
+`upright.py`/`.scad` reuse pinned dependencies/profile and
+`--bosl2/--slicer/--output`;`--analyze-only` rechecks four slices. Closed tube
+and open U print nut-down with integral roof. Explicit`-D angle=90` avoids the
+imported module's30° default;independent nut+prism volume checks guard this.
+
+Unsupported bodies have no thread overhang/support paths;both roof bridges
+span8.585 mm atZ134.2. U adds six8.3-mm roof-edge overhang segments. Automatic
+support generates13749/27683 support+interface segments closed/U,including
+below10 mm. Closed support is trapped behind the threaded mouth;open-side
+access does not prove clean removal.
+
+|Three bodies|Time|Filament cm³|Repetition h/L at1024|
+|---|---:|---:|---:|
+|Closed,unsupported|2h04m56s|15.30|710.73/5.222|
+|U,unsupported|1h44m14s|12.64|592.97/4.314|
+|Closed,supported|2h51m43s|23.99|976.88/8.189|
+|U,supported|2h49m37s|25.13|964.93/8.578|
+
+Against joined533.62h,unsupported U/closed add59.35/177.11h;with60.68-h bare
+screws,total653.65/771.41h before finished ends/frame/scrap. Three-copy
+extrapolations,not X1C/batch forecasts. Assumed1.24kg/L,$20–30/kg gives body
+filament$107–161 U/$130–194 closed,not an all-in cost.
+
+Body+screw:2 pieces/cell,64/row,128/8×8,2048/board;1024 fewer pieces/joins.
+Threads,guides,journals,thrust/keepers/sockets and shared spindles remain.
+Roof→walls→nut→thread→screw→bed support remains;closed walls remove U torsion
+weakness. Failed nut scraps body;openable guides/136-mm service extraction,
+warp,layer strength,holding and actual motion remain unqualified. Earlier whole-machine comparisons remain unchanged.
+
+17×17 packing with3-mm gaps/10-mm margins gives289 bodies/256-mm bed,not a
+stable/sliced batch;brims/braces excluded. Assume removal+gauge10–30s each,
+5min/plate and E-276 base10.94–23.69h:four plates give16.96–41.09 maker h versus
+joined23.39–53.21h under its different operation list. Cleanup,tooling,rejects,
+fitting and commissioning remain extra;60s/body adds17.07h. Body-only handling
+at4096/6400:24.01–69.52/37.47–108.58h. Replication only:10.3-mm bodies do not
+fit6.35/5.08 pitch. Correlated plate failure is unmeasured.
+
+Equal-E ideal cantilever`I/L³` versus64-mm solid3.2 shank is9.32× closed/5.19× U
+weak-axis. No adhesion,nozzle-load,anisotropy,resonance or growing-print qualification.
+
+**Retain conditional assembly-saving controls,not manufacturing winners.**
+No cap/brace/fit sweep or new owner print. Reopen through actual bridge/tall-body
+process evidence or a whole-pair production advantage. E-281 remains optional.
+Checks:one-shell meshes,volume sums,three-copy paths,extrusion accounting and
+four-slice replay;self-review,no physical qualification.
 
 ## Verification and boundary
 
