@@ -257,6 +257,15 @@ remain owed. Do not tune narrow joints/posts/rings or repeat service labor sweep
 Reopen through a materially simpler frame/join/transfer construction or process
 evidence; whole-pair manufacture and earned powered support remain unresolved.
 E-281 stays optional and unprinted; no new print or purchase.
+E-287 continuous-sheet extension replaces module rings/seams with three whole
+sheets/four perimeter panels. Coarse6mm screen lateral.0473mm; baseline bed solid/
+strip controls.0408/.1634mm including own bed mass;4.606kg before rims/keeper.
+Sixteen continuous joins total5.581m,not16 easy touches;3072 apertures/100m cutting
+owe4.27–17.07h at assumed5–20s cleanup. Retain coarse sheet conditional,park3mm
+unsupported bed under its assumed load. No plate-action/contact/RPM qualification.
+Whole-guide service affects up to1024 cells versus64/module;keeper is not lateral
+restraint. Next useful discriminator is coupled coarse perforated-plate stiffness
+plus safe whole-board service sequence,not joint/fit sweeps or optical patterns.
 
 ## Actuation, observation and scale boundaries
 
