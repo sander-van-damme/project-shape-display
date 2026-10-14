@@ -94,13 +94,13 @@ before enabling. Broken screws may need below-board retrieval.31/79 neighbors
 lose radial/upward restraint; thread/column guides are unproven substitutes.
 Temporary keeper must engage first where required, but no contacts are constructed.
 Plate settlement shifts height one-for-one; power-off does not remove handling load.
-Tool AF±.05mm, aperture/driver diameter±.10mm and eccentricity0… .10mm give16
-assumed corners: minimum radial tool clearance.0664mm, annular width.600mm and
-conservative ring area6.974mm². Not process tolerances, socket strength or rotating
-contact proof. Uniform-pressure mean friction radius1.8296mm gives drag.0366…
-.1464Nmm at.2N, assumed μ=.1… .4; at.338N,.0618… .2474Nmm. Rebuild torque before
-claiming speed; avoid double-counting an existing thrust allowance. Numerical
-annular quadrature agrees with the identity within3e-10mm; not friction validation.
+Source preserves16 assumed diameter/tool/eccentricity corners: minimum tool
+clearance.0664mm, annular width.600mm, area6.974mm². Uniform-pressure friction
+radius1.8296mm gives drag.0366–.1464Nmm at.2N,μ=.1–.4; at.338N,.0618–.2474Nmm.
+Quadrature agrees within3e-10mm; not contact/friction validation. Coarse open-rail
+gap1.3mm is nominal; plate settlement transfers height one-for-one. Rebuild torque
+without double-counting thrust before claiming speed.
+
 At1024/6400:2048/12800 bodies+screws,64/160 half-rails,1024/6400 annuli,
 2048/12800 half-journals,128/320 allocated locks. Fine-pitch counts are not fit.
 Manufacture is unqualified;400mm exceeds X1C bed. Rail placement/lock10–30s adds
