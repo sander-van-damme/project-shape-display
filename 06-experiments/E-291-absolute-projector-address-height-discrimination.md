@@ -48,8 +48,9 @@ establish that actual caps have a dominant direct path.
 and exact pair sums. Relabeling the same two weights as a true45mm direct surface
 plus a weak25mm reflected path changes **none of the24 raw intensities**. Both
 hypothesized cap points lie on the calibrated camera ray within a4.4mm cap.
-This is an admitted nonnegative transport ambiguity, not a constructed reflecting
-3D scene or evidence that our PLA realizes it. More source patterns alone cannot
+This is an admitted nonnegative transport ambiguity, not a radiometrically
+constructed scene or evidence that our PLA realizes these weights. The geometric
+extension below constructs a compatible reflected source address only. More source patterns alone cannot
 label the same transport distribution's direct component. A stronger contrast
 threshold can reject this example, but cannot establish directness: a sufficiently
 weak direct return can leave an arbitrarily confident reflected address.
@@ -85,3 +86,59 @@ or a physically constructed path discriminator and earned resolution/exposure,
 not another code-count or threshold sweep. The positive result removes a specific
 weak-reflection alias; it does not close actual-height acceptance. No hardware,
 print, holding or manufacturing qualification. E-281 remains optional/unprinted.
+
+
+## Finite terrain geometry: stripe plane versus a single ray
+
+**Geometric calculation, not material measurement:** a taller neighboring
+column can deliver the false45-mm source address to the true25-mm cap through
+one side-wall interaction. This removes a geometric objection to the abstract
+transport witness; it does **not** establish its assumed5:1 reflected/direct
+ratio, two-scene indistinguishability, or any observed error frequency.
+
+Coordinates here are `(coding axis, cross-row axis, height)`; projector is
+`(0,0,300)`, camera `(8,0,300)`, observed target `(0,0,25)`. Caps are opaque flat
+rectangles with vertical sides, no props, centered grids and maximum height50.
+These ideal assumptions exclude roughness, transmission, lean and multiple
+reflections. No new manufacturing tolerance distribution is assigned.
+
+A tempting **2D-only control** grants a ray through the target center. With
+actual height h and claimed height v, its projector slope is
+`q=-8/(300-h)+8/(300-v)`; at the actual plane its intercept is
+`8*(v-h)/(300-v)`. For all h,v in[0,50], the complete source-ray segment inside
+the terrain slab stays within1.6mm of center; the camera segment within1.333mm.
+The bounds follow from linear endpoints and monotonic denominators, cross-checked
+at2601 integer height pairs. A4.4-mm cap leaves.6mm in this plane (10.3mm leaves
+3.55mm); these are **ideal geometric reserves**, not tolerance qualifications.
+The old25→45 source ray hits x=.627451 on the same cap. A single reflection
+between two points on that flat cap cannot propagate through free space to its
+center. This rules out that particular coplanar construction only.
+
+**A stripe address is a plane of rays, however.** Put the neighboring column
+at cross-row distance p and height50. Its near vertical wall is at `y=p-w/2`.
+The45-mm source stripe reaches
+`R=(.581818,p-w/2,45)`, then can travel down to `(0,0,25)`:
+
+| Pitch / width (mm) | Wall y (mm) | Incident normal cosine | Outgoing normal cosine |
+|---|---:|---:|---:|
+|5.08 /4.4|2.88|.011293|.142471|
+|6.35 /4.4|4.15|.016272|.203090|
+|12.7 /10.3|7.55|.029595|.353042|
+
+Executable segment/box intersection checks show the source first reaches the
+neighbor's near wall at R, then the open outgoing segment remains outside both
+solids until reaching the target cap. Both directions are on the reflecting
+side of the wall; target receives light from above. Direct source and camera
+paths stay unobstructed. Positive cosines admit diffuse reflection geometrically,
+but the grazing incident angles caution against assigning strong weights without
+radiometry. This is a point-path construction; integrating finite wall area,
+projector pixels, BRDF, cap return and camera footprint is still owed.
+
+**Decision:** retain shared optical readback conditionally, with the3D side-wall
+path as the relevant falsification scene. Do not infer direct-path dominance from
+small baseline or a clear central ray, and do not infer dominant reflection from
+path existence. The next decision-changing optical check is finite-area
+radiometric bounding or calibrated images of a low cap beside a high wall,
+including source-address spread; further pattern/threshold sweeps remain parked.
+This extension adds no resident/shared hardware or scan frames: the preceding
+pitch, S40/S50/neutral, timing, cost, retention and optional-print limits stand.

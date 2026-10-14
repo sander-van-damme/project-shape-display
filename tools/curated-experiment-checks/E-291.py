@@ -77,6 +77,83 @@ def decode(data, ray=RAY, stroke=50.):
                 min_normalized_contrast=min(margins))
 
 
+def geometry_screen():
+    """Opaque, flat caps; central point; point source; no material inference.
+
+    Ray coordinates are in the coding plane: projector (0,D), camera (B,D).
+    Check the 2D segment inside the terrain slab by its linear endpoints.
+    Any extra *single* surface interaction would have to be the first hit.
+    Multiple interreflections and subsurface transport are explicitly excluded.
+    """
+    stroke = 50.
+    maximum = 0.
+    camera_max = 0.
+    cases = 0
+    for h, claimed in itertools.product(range(51), repeat=2):
+        ray = -B/(D-h)  # actual cap center is x=0, forward geometry only
+        q = q_at(claimed, ray)
+        endpoints = [q*(D-z) for z in (h, stroke)]
+        camera_endpoints = [B+ray*(D-z) for z in (h, stroke)]
+        maximum = max(maximum, *map(abs, endpoints))
+        camera_max = max(camera_max, *map(abs, camera_endpoints))
+        # Direct ray's endpoint on the true plane is independently projected.
+        assert abs(endpoints[0] - B*(claimed-h)/(D-claimed)) < 1e-12
+        assert max(map(abs, endpoints+camera_endpoints)) < 2.2
+        cases += 1
+    analytic = B*stroke/(D-stroke)
+    assert abs(maximum-analytic) < 1e-12
+    # Exact old witness: wrong source ray hits a different point on the SAME
+    # flat cap. It cannot then travel through free space to its coplanar center.
+    landing = q_at(45)*(D-25)
+    assert abs(landing-0.6274509803921569) < 1e-12
+    def unit(v):
+        length = math.sqrt(sum(x*x for x in v))
+        return tuple(x/length for x in v)
+    # A stripe address is a PLANE of source rays, not one 2D ray.
+    # Adjacent taller column's near vertical wall can reflect downward to cap.
+    def first_hit(a, b, lower, upper):
+        lo, hi = 0., 1.
+        for x, y, mn, mx in zip(a, b, lower, upper):
+            delta = y-x
+            if abs(delta) < 1e-14:
+                if not mn <= x <= mx:
+                    return None
+                continue
+            t0, t1 = sorted(((mn-x)/delta, (mx-x)/delta))
+            lo, hi = max(lo, t0), min(hi, t1)
+            if lo > hi+1e-12:
+                return None
+        return lo
+    wall_controls = []
+    for pitch, width in ((5.08,4.4),(6.35,4.4),(12.7,10.3)):
+        src = (0.,0.,D)
+        cap = (0.,0.,25.)
+        point = (q_at(45)*(D-45),pitch-width/2,45.)
+        target_box = ((-width/2,-width/2,-100.),(width/2,width/2,25.))
+        wall_box = ((-width/2,pitch-width/2,-100.),
+                    (width/2,pitch+width/2,50.))
+        assert first_hit(src,point,*target_box) is None
+        assert abs(first_hit(src,point,*wall_box)-1) < 1e-12
+        assert abs(first_hit(point,cap,*target_box)-1) < 1e-12
+        # Open outgoing segment lies strictly outside wall (decreasing y).
+        assert point[1] > cap[1]
+        toward_source = unit(tuple(a-b for a,b in zip(src,point)))
+        toward_target = unit(tuple(a-b for a,b in zip(cap,point)))
+        incidence, emergence = -toward_source[1], -toward_target[1]
+        assert incidence > 0 and emergence > 0
+        assert first_hit(src,cap,*wall_box) is None
+        assert first_hit((B,0.,D),cap,*wall_box) is None
+        wall_controls.append(dict(pitch_mm=pitch,bounce_mm=point,
+                                  incident_normal_cosine=incidence,
+                                  outgoing_normal_cosine=emergence))
+    return dict(three_dimensional_wall_paths=wall_controls,
+                sampled_height_pairs=cases,
+                continuous_projector_envelope_mm=analytic,
+                sampled_camera_envelope_mm=camera_max,
+                remaining_half_width_mm={str(w):w/2-analytic for w in (4.4,10.3)},
+                old_witness_first_hit_x_mm=landing)
+
+
 def main():
     controls=0
     max_error=0.
@@ -138,7 +215,8 @@ def main():
                        required_y_span_at_z50_mm=w,
                        available_y_span_mm=WIDTH*250)
            for p,w in ((5.08,4.4),(6.35,4.4),(12.7,10.3))}
-    print(json.dumps(dict(controls=controls,max_control_midpoint_error_mm=max_error,
+    print(json.dumps(dict(geometry=geometry_screen(),
+        controls=controls,max_control_midpoint_error_mm=max_error,
         address_roundtrips=CELLS,bits=BITS,frames=2+2*BITS,
         projector_bin_mm_at_z25=DQ*275,max_height_bin_mm=max_interval,
         minority_path_z45=minority[4],equal_paths='unknown',

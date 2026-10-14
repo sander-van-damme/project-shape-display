@@ -360,7 +360,11 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   Sharp direct1/indirect≤.2 retains every bit (contrast≥2/3), fixing E-290's
   25→28.38mm witness;90 rounded controls contain truth. Direct.2/reflected1
   instead reads45.0087mm for25mm, with identical raw data after path relabeling.
-  This is an assumed transport ambiguity,not a realized PLA scene. Projected
+  The3D extension constructs a compatible one-wall bounce at all three pitches:
+  a stripe plane reaches a taller neighbor although its central2D ray stays on
+  target. Grazing incidence.0113–.0296 does not earn the assumed5:1 reflected/direct
+  ratio. Next optical evidence must integrate finite-wall radiometry or measure
+  calibrated low-cap/high-wall images; no pattern tuning. Projected
   bins6.714µm atz25,2048 row positions,finite footprint/boundary unknowns remain.
   Acquisition614.4/2457.6/3840s at1024/4096/6400;local2.4/9.6/19.2s for1/4/8 groups.
   Retain direct-dominant control;park pattern/threshold tuning without calibrated
