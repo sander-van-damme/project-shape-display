@@ -1,4 +1,9 @@
-# Sander's ideas
+# Owner ideas and historical observations
+
+This is the original owner idea log recovered from Paperclip's advice directory. It preserves Sander's first-hand experiences and alternative mechanisms. **Optional background, not a backlog, verified measurement record or invitation to run all its ideas.** Current owner instructions in [prototype priorities](../02-design-criteria/current-prototype-priorities.md) take precedence. Old Git revisions preserve original wording.
+
+---
+
 
 ## [PRIORITY] Owner's north star — fun, readable, uninterrupted D&D play
 
@@ -136,7 +141,7 @@ An exception to "completely dumb columns" remains possible if a slightly more co
 - **The 30-second goal is a gameplay promise, not an all-cells-move promise.** Ordinary D&D maps are expected to have many floor pins at baseline and comparatively few raised walls or other important structures. The **actual percentages are unknown**; investigate representative maps and map-to-map changes rather than inventing a figure. Dense arbitrary-height maps still deserve separate stress and reliability analysis.
 - **Visual detail need not be mechanical detail.** Show essential walls/large terrain physically, but small objects, textures or icons can potentially be shown by an overhead projector even if it is impractical to sculpt each of them with pins. Projection is optional and must still be checked on uneven geometry.
 
-These personal priorities are also reflected in the authoritative mission and stage-02 criteria. This advice file records why Sander requested the change, rather than superseding the criteria.
+These personal priorities are also reflected in the authoritative mission and stage-02 criteria. This idea log records why Sander requested the change, rather than superseding the criteria.
 
 ## [PRIORITY] Historical screw models recovered from Git history
 

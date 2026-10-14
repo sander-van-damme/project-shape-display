@@ -101,7 +101,7 @@ against~$500/$1000/$1500 benchmarks. This article selects neither head nor produ
 **Owner report, not a failed physical print:** Sander inspected the STL and will
 not print this version. He asks for deliberate support geometry, prefers horizontal
 slender parts, suggests removable batch connections and several identical samples.
-The source feedback was committed at b9ab170 in `.agents/advice/feedback.md`.
+The original owner feedback was committed at b9ab170 (former `.agents/advice/feedback.md`) and is consolidated in [fabrication process](../02-design-criteria/fabrication-process.md).
 No result about actual print yield follows. Retire the old offer and remove its
 STL; keep CAD/checks and this evidence. No replacement is READY or required now.
 

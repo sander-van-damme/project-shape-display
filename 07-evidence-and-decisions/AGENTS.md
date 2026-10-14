@@ -1,4 +1,1 @@
-Keep context/output minimal; retain only durable engineering knowledge or required product source.
-Use `./repo`; do not inspect or modify its source unless tasked with repository tooling.
-Decisions are atomic ADR files: decision, basis, consequence and residual risk. Point backward with `builds-on`; do not duplicate evidence.
-Change this file only for instructions important to essentially all future agents in this scope.
+ID-bearing ADR files capture the decision, evidence, consequence and residual uncertainty. Cite the relevant experiment(s) with `builds-on` where suitable. Do not add agent-management or status records. A rejected embodiment does not reject an entire mechanism principle. Avoid duplicated evidence; `./repo check` is available for structural checks.
