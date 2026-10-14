@@ -99,9 +99,17 @@ support/interface segments when enabled; labels alone are not print proof.
 Helix-corrected assumed-mu hold threshold.403→.305;atF.2/mu.3 torque.191→.228Nmm;
 no measured friction,hold or strength. Whole channel+nut repetition533.62h stays
 large;1024 joins remain. Retain wider profile as a manufacturing comparator,
-not selected or ready to print. No more angle/fit sweeps;next discriminate a
-whole-pair manufacturing route (long screw,batch supports/handling) or actual
-loaded joint/guide behavior. No owner print or purchased hardware selected.
+not selected or ready to print. E-279's nine long-shank slices show upright90°
+likewise has no support/overhang/bridge paths, but64-mm growing-span stability is
+unmeasured; end ties form too late to brace earlier layers. Horizontal support
+occupies all64 axial1-mm bins; common raft creates a shared carrier,not clean
+release. Three90° shanks:upright10m47s/.76cm³,supported horizontal16m17s/1.21,
+raft30m53s/3.41. Whole channel/nut/bare-shank repetition at1024 is594.96/626.25/
+709.31h;still excludes journals/collar/socket/frame/scrap. Retain comparisons,
+select no owner print. Avoid another tie/angle/fit or support-label sweep. Next
+useful discriminator must change whole-pair manufacture (e.g. actual external
+screw mold release/finished-end process),or qualify actual loaded joint/guide
+behavior. No owner print or purchased hardware selected.
 
 Whole rigid cavity core cannot exit the closed body. Cap-only molding owes long
 core withdrawal/unscrewing and1024 joins; internal draft increases material. Open
