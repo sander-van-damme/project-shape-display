@@ -89,11 +89,9 @@ At12.7-mm pitch, assumed4.5-mm rail half-width and2.4-mm outward travel leave1.3
 to the neighboring closed rail. Opening exceeds2.2-mm collar radius plus.1-mm
 radial envelope. Collar fits10.8-mm guide, not3.2-mm keeper. Locks/frame, straightness/yaw and
 upper-bearing extraction remain unproven.
-With writer disabled and target secured, open rails, replace pair, close/verify
-before enabling. Broken screws may need below-board retrieval.31/79 neighbors
-lose radial/upward restraint; thread/column guides are unproven substitutes.
-Temporary keeper must engage first where required, but no contacts are constructed.
-Plate settlement shifts height one-for-one; power-off does not remove handling load.
+Opening releases31/79 neighbors' radial/capture paths; guides are unproven
+substitutes. Engage temporary restraint first; no contacts constructed. Power-off
+does not remove handling load. Broken screws owe fragment retrieval.
 Source preserves16 assumed diameter/tool/eccentricity corners: minimum tool
 clearance.0664mm, annular width.600mm, area6.974mm². Uniform-pressure friction
 radius1.8296mm gives drag.0366–.1464Nmm at.2N,μ=.1–.4; at.338N,.0618–.2474Nmm.
