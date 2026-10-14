@@ -191,102 +191,56 @@ view-dependent returns on exposed caps, a constructed illumination method that
 removes that nuisance, or actual calibrated images; hidden caps and safe physical
 holding remain separate obligations. No new owner print is requested.
 
-## Temporal-pattern control: static gain cancels, mixed paths do not
+## Temporal-pattern control
 
-**Retain temporal coding as a distinct conditional observable; do not qualify
-single-frequency phase readback from a clean waveform.** Reproduce
-`python3 tools/curated-experiment-checks/E-289-temporal.py` (standard library).
-A programmable projector replaces the fixed sheet and presents four sinusoidal
-phase steps. At one stationary camera pixel, a direct return has
-`I_j = A + C*cos(phi + 2*pi*j/n)`. Fourier quadrature removes constant ambient A
-and positive static gain C. Unlike a spatial stripe centroid, different static
-reflectance at different pixels need not shift the recovered projector coordinate.
-This is an analytical escape under a direct, linear, stationary-return model,
-not a calibrated PLA or camera result.
+**Temporal coding cancels static gain, but a clean phase waveform does not
+qualify height.** Run `python3 tools/curated-experiment-checks/E-289-temporal.py`.
+A shared programmable projector replaces the sheet. On a stationary pixel,
+`I_j=A+C*cos(phi+2*pi*j/n)` lets Fourier quadrature cancel constant ambient A
+and positive gain C, avoiding spatial-centroid bias under direct linear return.
+[Gupta et al.](https://www.cs.cmu.edu/~ILIM/projects/IL/lightscan/lightscanindex.html)
+(accessed2026-10-14) demonstrate conventional phase errors under interreflection
+and scattering; they do not source our assumed amplitudes or hardware.
 
-[Gupta et al.'s research project](https://www.cs.cmu.edu/~ILIM/projects/IL/lightscan/lightscanindex.html)
-(accessed2026-10-14; CVPR2011/IJCV2012) reports conventional phase/Gray-code errors
-under interreflection and scattering, and investigates patterns tailored to
-those effects. That supports testing mixed light paths; it does not supply the
-scenario amplitudes below or establish feasibility at our pitch/cost.
+Calculated geometry: D300/b8, camera ray r, projector ray q;
+`q-r=b/(D-z)`, `phi=2*pi*(q+.01)/.02`. Period.02 exceeds the S50 ray interval
+.005333. Decoder uses calibrated r and travel, never desired height. Test rays
+`-8/275+[-.003,0,.003]`, heights0/10/25/40/50, gains.05/.2/1, ambient120/300DN,
+four/eight steps:180 cases. All points fit a4.4-mm cap, granting cap identity.
+Forward samples are `ambient+gain*(1000+500*cos(phi+step))`, rounded to12 bits.
+No noise, gamma, projector pixels, blur, motion or image segmentation is modeled.
+Finite-field source/receiver visibility is unconstructed; sheet-center clearance
+is not a temporal-field pass. All180 exact controls reconstruct;172 quantized
+cases decode, eight boundary cases return unknown outside a±.1-mm numerical
+reserve (not extra travel). Maximum accepted errors at the three gains are
+.4952/.1751/.0355mm. Flat/saturated returns are unknown. These finite cases are
+not noise bounds; acceptance does not assert.25-mm accuracy. A four-step atan2
+identity independently checks the Fourier sign convention.
 
-**Construction and explicit bounds:** use the previous D300/b8 mm geometry;
-projector at y0, camera at y8. For normalized camera ray r and projector ray q,
-`q-r=b/(D-z)`, hence `z=D-b/(q-r)`. Project
-`phi=2*pi*(q+.01)/.02`. The .02 angular period exceeds the .005333 full S50
-q-range on each fixed camera ray. Decoder branch selection uses calibrated
-r and allowed travel only, never the desired height. Test three rays centered
-on `r=-8/275` and offset by ±.003, five heights0/10/25/40/50,
-three static gains.05/.2/1, ambient120/300DN, four/eight frames:180 cases.
-All tested points fit within even a4.4-mm cap, granting known cap identity.
-The forward model generates `ambient+gain*(1000+500*cos(phi+step))`, then rounds
-to12-bit integer samples. No random noise, projector quantization/gamma, lens
-blur, motion or spatial image segmentation is modeled. Projector pixel address,
-focus, synchronization and source/receiver visibility over this finite patch
-remain unconstructed; the original sheet's central-ray clearance does not
-qualify the whole temporal field.
+**Counterexample:** a25-mm direct return plus20% modulation at the phase of45mm
+on that ray decodes **28.3788mm**. Phasors sum into a perfect sinusoid at4/8/16
+steps, residual<5e-13DN. Rounded results28.3963/28.3906/28.3957mm pass the1DN
+residual check. Re-projection constructs identical direct-only samples at the
+wrong height with adjusted mean/contrast. This is a transport-path scenario,
+not a rendered wall or measured20% reflection. More same-frequency steps cannot
+resolve it without an independent contrast constraint. Separately, cap-specific
+frame gains.98333–1.01667 exactly counterfeit25→26mm;±1.67% is an adversarial
+bound, not observed flicker. Shared references do not necessarily remove local
+response changes. Prop identity and hidden caps remain unresolved.
 
-All180 unquantized direct cases reconstruct to numerical precision. Of the
-quantized cases,172 return a height; eight at travel boundaries return unknown
-when quantization moves them beyond the decoder's ±.1-mm numerical reserve.
-That reserve is not additional mechanical travel. Maximum accepted errors are
-.4952/.1751/.0355mm for gains.05/.2/1 respectively. These are finite deterministic
-scenarios, not noise bounds or a claim that every accepted result meets.25mm.
-Missing/flat and saturated signals return unknown. An independent four-step
-atan2 identity checks the Fourier convention; exact forward re-projection
-checks the ambiguity witnesses.
+No resident additions or removed screw/support duties. Replace sheet/driver
+with projector/controller; retain camera, shared references/mount/upper carrier
+and undock/settle/register/read transaction. At assumed.1s/frame/k4, four-frame
+acquisition costs102.4/409.6/640s for1024/4096/6400 cells; eight doubles it without
+fixing the witness. Local1/4/8 groups add.4/1.6/3.2s. Writer/routing/preparation,
+settling/retries and raised-neutral setup remain paid; S40/S50 and E-270/E-276
+conditional schedules are retained, not a new gameplay distribution. Dense scans
+remain separate from~30s play updates. Obstruction has no finite acceptance time.
+Unsourced projector/control$100–400 replacing sheet$30–150 makes optics$270–980,
+base-plus-optics$1068–1778 before integration/qualification, versus~$500 reference
+and$1000–1500 research range. No BOM, source-safety selection, purchase or print.
 
-**New failure witness:** at a true25-mm surface, add a second transport path
-carrying the projector phase corresponding to45mm on the same calibrated camera
-ray, at20% of direct modulation. This labels a possible indirect contribution,
-not a simulated physical wall or measured20% interreflection. Their sum is
-exactly another sinusoid: phasors add. The decoder returns **28.3788mm** with
-residual below5e-13DN for4,8 and16 steps. Rounded samples return28.3963/28.3906/
-28.3957mm and pass the illustrative1DN residual threshold. A direct-only signal
-with the resulting mean/contrast and this wrong height matches every unrounded
-sample. More phase steps at the same frequency cannot distinguish these cases.
-Absolute contrast is not independently known; enforcing the assumed forward
-contrast would require its own material/optical calibration.
-
-A separate exact witness holds true height25mm but varies cap-specific gain
-between **.98333 and1.01667** across four frames. It reproduces the26-mm direct
-signal. This is an adversarial ±1.67% drift construction, not a measured flicker
-rate or statistical prior. Shared references can detect global illumination
-changes, but not necessarily local motion/response changes. Spatially mixed
-pixels, indirect paths and changing gain require earned limits or a different
-encoding/separation method. Hidden caps still return no independent information;
-a prop surface must not be accepted as the cap merely because it has valid phase.
-
-**Whole-machine consequence:** zero new resident parts/joins/marks, but no removal
-of1024/4096/6400 screw pairs or guidance, thrust, holding, anti-rotation and repair
-obligations. Retain undock/settle/register/read/accept-or-unknown sequencing;
-unchanged loaded neighbors are not deliberately moved. Replace one fixed sheet
-source/driver with one programmable projector/controller plus camera, shared
-mount/calibration and upper positioning. Optical setup is shared; it does not
-repair uncertain mechanical support or guarantee later power-loss retention.
-
-At the same explicitly unearned .1s/frame and four-cap group, four-frame
-acquisition alone costs **102.4/409.6/640s** at1024/4096/6400 cells versus the
-sheet's51.2/204.8/320s. Eight steps double those times without resolving the
-witness. Local1/4/8 groups add.4/1.6/3.2s before all routing, writing, digital
-preparation, reference checks, settling and retries. No new gameplay distribution
-is claimed; E-270/E-276 schedules stay conditional. These S50 tests also contain
-S40, and neither raised neutral nor initial preparation is free. Dense scan time
-is separate from the~30s gameplay reference. An obstructed cap has no finite
-automatic acceptance latency.
-
-As **unsourced allocation only**, replace the earlier$30–150 sheet/driver with
-$100–400 projector/control: optics total$270–980; adding the same optimistic$798
-base gives$1068–1778 before integration/qualification. This is not a supplier
-quote, rated projector or a full BOM. It exceeds the~$500 reference and partly
-exceeds the$1000–1500 research range without proving superior play. A~$1000
-finished product remains an owner-value option, not a selected price. No purchase,
-light-source safety selection, physical test or additional owner print follows.
-
-**Stop/next evidence:** park single-frequency phase-fit refinement and extra-step
-sweeps. Temporal coding earns static-gain cancellation, not reliable actual-height
-acceptance. A distinct useful next investigation is a constructed direct/global
-separation code with an independent decoder and its complete frame budget, or
-actual calibrated cap imagery. It must challenge mixed paths and occlusion,
-not simply regenerate noiseless phase controls. E-281 remains the sole optional
-short-thread print; the manufacturing/support campaign is not blocked on it.
+**Stop:** park single-frequency fit/extra-step sweeps. Reopen through constructed
+direct/global separation with a full frame budget or calibrated cap imagery.
+Static-gain cancellation is useful; actual-height acceptance, visibility and
+mechanical holding remain unqualified. E-281 stays the sole optional print.
