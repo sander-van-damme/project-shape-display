@@ -130,6 +130,58 @@ def proof_check():
     print('finite proof does not establish full-stroke/durability qualification')
 
 
+def installed_runin_check():
+    """Changed assembly boundary; dimensions exact, time allocations unmeasured."""
+    length, nut, low, stroke = 64., 10., 2., 50.
+    high = low + stroke
+    def engagement(z):
+        return max(0., min(length, z + nut) - max(0., z))
+    # Count turns from first thread contact, excluding the separate pilot approach.
+    start_turns = (length - high) / LEAD
+    full_turns = (length - low) / LEAD
+    assert isclose(start_turns, 4)
+    assert isclose(engagement(high), nut)
+    two_turn_z = length - 2 * LEAD
+    assert two_turn_z > high and engagement(two_turn_z) == 6
+    for neutral in (0, 20, 30):
+        run_turns = (high - (low + neutral)) / LEAD
+        assert isclose(start_turns + run_turns, (length-low-neutral)/LEAD)
+    # An intact close journal aperture cannot admit the larger finished collar.
+    assert 2.8 < 3.0 < 4.4  # 3.0 is an illustrative aperture, not selected fit
+    # Separate fixed pickup from rotation: allocate 5s pickup +10s full advance.
+    # This reproduces manual-mid15s; proportional time applies only to advance.
+    shallow_seconds = 5 + 10 * start_turns / full_turns
+    saved_per_pair = 15 - shallow_seconds
+    print('installed: first-contact turns',start_turns,'two-turn engagement',engagement(two_turn_z))
+    print('shallow manual seconds',shallow_seconds,'saved seconds/pair',saved_per_pair)
+    for n in (1024,4096,6400):
+        attempts = n  # No fabricated usable-yield or detection claim.
+        saved_h = attempts * saved_per_pair / 3600
+        # Replace ONLY manual threading in E-286 mid ledger; same common work.
+        assembly = n * (9 + shallow_seconds + 4) / 3600
+        base_low = 8+4/6+(n*20+n*8)/3600+2*ceil(n/289)*5/60
+        base_high = 16+4*.5+(n*60+n*20)/3600+2*ceil(n/289)*5/60
+        print('installed N',n,'saved_h',round(saved_h,3),'whole maker pre extras',
+              [round(base_low+assembly,2),round(base_high+assembly,2)])
+        for rpm in (120,850):
+            for neutral in (0,20,30):
+                # Four independent spindles, ideal full batches; 2s visit allocation
+                # includes reposition/dock/undock/read. Not E-276 route replay.
+                visits = ceil(n/4)
+                turns = (stroke-neutral)/LEAD
+                minutes = visits*(turns*60/rpm + 2)/60
+                assert minutes >= visits*2/60
+                print('commission N/rpm/neutral/min',n,rpm,neutral,round(minutes,3))
+        # At 120rpm and zero home, fully attending the entire new run-in operation
+        # charges a conservative increment, without crediting prior commissioning.
+        attended_h = ceil(n/4)*((stroke/LEAD)*60/120+2)/3600
+        print('maximum extra fixture/setup h after full attendance',round(saved_h-attended_h,3))
+    # Manufacturing/replacement identity: cold-start whole-board run-in is not
+    # a local replacement protocol. No blanket homing of unchanged loaded cells.
+    print('installed run-in: conditional assembly saving; no support or qualification pass')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
+    installed_runin_check()
