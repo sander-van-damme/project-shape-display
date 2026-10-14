@@ -35,18 +35,14 @@ station/manual:30.71–57.68/33.11–60.08h at1024 and124.89–244.44/160.89–2
 at6400. Equal usability/overlap unqualified. Unquoted station$200–600 plus
 E-276$798–1768=$998–2368 before exclusions; reused spindle is not free inspection.
 
-**Axial proof adds observability, not qualification.** Load cell/applicator and
-nut/collar differential probe react through cup/frame, not spindle. Test locked
-then free angle; bound cup friction/frame seating/drift; catch on power loss.
-Illustrative.40±.02N,error±.04mm,good stiffness10–40N/mm,weak.5–2N/mm yield
-−.0305….082/.150….880mm bands; .116 threshold separates corners. Error±.08mm
-or original two±.10mm readings do not. At20N/mm,30° free rotation gives.020/.270mm
-locked/free travel; two±2° errors resolve it, smaller movement/restraint may not.
-Safe force window requires strongest_bad+error < command < weakest_good_nondamage
-−error−overshoot. Bad.30/good.80/error.02/overshoot.05N gives(.32,.73)N;
-bad.40/good.35 gives none. Owner's near1kg observation supplies neither bound.
-Identical immediate response can conceal fatigue/creep. Endpoint nuts atZ2…12/
-52…62 miss damage near30mm; loaded traversal still cannot prove endurance.
+**Axial proof adds observability, not qualification.** Source preserves differential
+probe/load-cell force windows and stiffness/rotation corners. Assumed.40±.02N,
+±.04mm error separates10–40 versus.5–2N/mm stiffness bands at.116mm;±.08mm does
+not. Safe force requires strongest_bad+error < command < weakest_good_nondamage
+−error−overshoot. Example(.32,.73)N exists; inverted strengths leave none.
+Owner evidence establishes neither bound. Fixture friction, drift, restraint,
+latent fatigue/creep and mid-shank damage remain unresolved; no proof-setting pass.
+
 Two-position S50 proof adds33.33turns/16.67s at120rpm+24s dwell+2s active review.
 At1024/6400:11.57/72.30h dwell,.57/3.56h active;80% usable14.46/90.37h and
 .71/4.44h. Optimistic1024 saving drops1.12→.55h before fixture/setup/damage.
