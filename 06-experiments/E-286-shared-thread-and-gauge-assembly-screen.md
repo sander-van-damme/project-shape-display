@@ -168,6 +168,54 @@ rail placement/lock adds.53–1.60h at1024 or1.33–4h at6400 before alignment/t
 Material against1.56h attended-run-in savings, but manual assembly also owes support
 installation: no net saving claimed. No per-cell latch components are added.
 
+## Single-pair service: path and closure screen
+
+**Stop before local CAD.** Fixed4.4-mm collar cannot exit3.2-mm keeper upward or
+2.8-mm plate downward: favorable±.1-mm diameter bounds leave1.0/1.4-mm interference.
+Enlarging the keeper removes capture; removing only the column leaves the screw
+trapped. Cutting it owes debris/tool access, not intact replacement.
+
+Construct an optimistic4.6-mm shared window translating along a row from outside
+to target and back, with bottom plate fixed. Grant perfect restraint elsewhere,
+ignoring moving-plate/shaft collisions. Its endpoint admits one collar even at
+5.08-mm pitch. But every intervening center is crossed and loses radial/capture
+restraint. Enumerating all targets gives worst-case15/39 neighbors even choosing
+the nearer end of32/80-site rows; one fixed end gives31/79. Continuity covers travel
+between centers. Lifting the keeper instead also releases restraint.
+
+Segment repair sequence: isolate writer; record height/clear target miniature;
+secure pair; engage/prove temporary neighbor restraints; unlock4/open2 half-rails;
+extract; insert supported replacement; close2/lock4; prove permanent restraints
+before removing temporary ones; release target support; run in/verify only target;
+restore play. Eight common coarse actions +12 keeper actions =20; each neighbor
+adds4 (engage/prove temporary/prove permanent/release). Actions may require multiple
+touches; times, fragment/jam recovery and fixture setup are unpaid.
+
+|Sites; segment width|Halves / allocated locks|Neighbors needing bypass|Actions/repair; all-site-once diagnostic|
+|---|---:|---:|---:|
+|1024;32|64 /128|31|144;147456|
+|1024;4|512 /1024|3|32;32768|
+|1024;1|2048 /4096|0|20;20480|
+|6400;80|160 /320|79|336;2150400|
+|6400;4|3200 /6400|3|32;204800|
+|6400;1|12800 /25600|0|20;128000|
+
+Two locks/half is an allocation; even one/site repeats1024/6400 closures. Other
+interface counts above remain. Row bypass adds31/79 radial and31/79 capture
+functions even if monolithic. All-site-once is scaling, not predicted maintenance.
+
+**Bypass remains unqualified:** existing keeper occupies the capture surface;
+new contacts need access, frame reaction and engagement without lifting/side-loading
+neighbors. Stop before opening absent that construction. Power-off/bottom thrust
+cannot replace radial/upward restraint. Overhead extraction through guides/terrain
+is also unconstructed. Do not home neighbors or transfer their loads to the writer.
+
+This analytical path bound is process-independent; warp/play/settlement add risk.
+Machining/molding/FDM change cost, not release sets.6400 counts are not fine-pitch
+fit. Neutral height cannot remove capture. Retain empty-board run-in; park window,
+row-service and per-site closure refinement. Reopen with changed removable ends
+preserving neighbor constraints or qualified bypass contacts. No new print/purchase.
+
 ## Product boundary and decision
 
 E-276's$798–1768 coarse allocation does not price this new support/lock/inspection
@@ -178,7 +226,8 @@ friction has not earned their speed. Minimum/elevated neutral and real bidirecti
 travel remain kinematic possibilities, not support qualification.
 
 **New result:** opening a row need not transfer gravity load, but complete neighbor
-restraint and damaged-pair extraction are unresolved. Reopen through a concrete
+restraint and damaged-pair extraction are unresolved. The single-pair extension
+rejects a translating service window and quantifies the segmentation/closure cost. Reopen through a concrete
 constraint-preserving service path or actual support/handling evidence. Closed-bore
 failure, open-row control, finite corners, settlement and ledger checks are self-review.
 No new owner print/purchase; E-281 remains optional.

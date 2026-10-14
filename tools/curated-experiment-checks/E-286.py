@@ -243,8 +243,67 @@ def bottom_thrust_service_check():
     print('gravity continuity does not prove upward capture, radial guidance or unchanged height')
 
 
+
+def single_pair_service_check():
+    """Necessary access/constraint bounds; no contact, strength or repair proof."""
+    # Same finite screw as bottom_thrust_service_check. No fit optimization.
+    collar, journal_bore, bottom_bore = 4.4, 3.2, 2.8
+    # Even favorable +/-0.1 mm independent diameter bounds block intact removal.
+    assert collar-.1 > journal_bore+.1
+    assert collar-.1 > bottom_bore+.1
+    # Opening a fixed keeper to pass this collar also removes its capture shoulder.
+    for aperture in (4.6, 4.8):
+        assert aperture > collar and (collar-aperture)/2 < 0
+    for side, pitch in ((32,12.7),(80,5.08)):
+        n = side**2
+        # Optimistic translating single window, ignoring collisions of the rest
+        # of the plate with journal shafts. Closed constraints are granted except
+        # where the window is centered. Every intermediate center is reached by
+        # any continuous in-plane path along this row from its left edge.
+        window_width = 4.6
+        assert window_width < pitch  # single-site endpoint is possible in 1D
+        for target in range(side):
+            crossed = [j for j in range(side) if -pitch <= j*pitch <= target*pitch]
+            assert crossed == list(range(target+1))
+            assert len([j for j in crossed if j != target]) == target
+        # Mid-row target defeats even a choice of the nearer row end.
+        worst_nearest = max(min(j,side-1-j) for j in range(side))
+        assert worst_nearest == side//2-1
+        print('service sliding window N/worst-nearest crossed neighbors',n,worst_nearest)
+        for block in (1,4,side):
+            assert side % block == 0
+            segments=n//block
+            # Each segment has two halves and two locks per half, inherited
+            # allocation, not a physical lock design or universal lower bound.
+            halves, locks = 2*segments, 4*segments
+            neighbor_contacts=block-1
+            # 8 common actions +4 unlock+2 open+2 close+4 lock =20.
+            # Per neighbor: engage temporary restraint, verify, verify restored
+            # permanent restraint, release temporary restraint. Not free batching.
+            operations=20+4*neighbor_contacts
+            print('service N/block/halves/locks/neighbors/repair actions',
+                  n,block,halves,locks,neighbor_contacts,operations)
+            print('service all-site-once diagnostic actions',n*operations)
+            # Explicit constraint replay. All neighbors retain bottom support;
+            # radial/upward paths vanish when keeper opens unless transferred.
+            permanent = {j: True for j in range(block)}
+            target=0
+            temporary=set()
+            permanent={j:False for j in permanent}
+            unsupported=[j for j in permanent if j != target and
+                         not(permanent[j] or j in temporary)]
+            assert len(unsupported)==neighbor_contacts
+            # Granting an unqualified bypass can satisfy a graph; it is NOT a
+            # geometric implementation. Label this assumption, never a pass.
+            temporary=set(range(1,block))
+            assert all(permanent[j] or j in temporary for j in range(1,block))
+        assert 2*n == n+n  # body+screw count unchanged by access architecture
+    print('service STOP: shared opening needs restraint transfer; cell closure repeats locks')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
     installed_runin_check()
     bottom_thrust_service_check()
+    single_pair_service_check()
