@@ -122,3 +122,49 @@ local26.84–31.07s,scene201–223s,neutral271–332s,dense392–452s remain unc
 no~30-second gameplay,loaded speed,retention or isolation qualification follows.
 No new owner print. Checks cover partial batches,serial closed-form limits,
 unlimited-carrier limit,monotonic carrier benefit,and invariant manual work.
+
+### Automation investment ceiling
+
+`python3 tools/curated-experiment-checks/E-283/automation_budget.py` inverts that
+ledger before investing in a feeder. **Necessary calculated bounds, not a
+constructed automated process.** Retain accepted-pair installation, cutting,
+4–12 h general setup and 2–4 h joining-fixture setup. Add an illustrative 60 s of
+shared operator work per 16 attempted bodies. Every remaining per-body operation
+must fit the residual allowance: deburring, loading all three components, dosing,
+unloading, gauging and routine cleanup. Calling a platen automatic cannot remove
+these operations. Additional automation development/setup is charged separately.
+
+|Case, 32 maker-hour comparison|1024 bodies: residual s/attempt|4096 diagnostic|6400 diagnostic|
+|---|---:|---:|---:|
+|Optimistic inherited base; no additional automation setup|48.09|2.47|infeasible|
+|Same, plus 8 h automation setup|19.97|infeasible|infeasible|
+|Same 8 h, 80% usable fraction, 60 s additional handling/reject|3.10|infeasible|infeasible|
+
+Only 1024 at 12.7-mm pitch is a proposed fit; 10-mm bodies still cannot fit the
+quarter-square 6.35-mm or reference 5.08-mm grids. The larger columns in the table
+are replication diagnostics, not alternative playable layouts. “Infeasible”
+means fixed/shared/reject work already exceeds this **chosen maker-hour scenario**
+even with zero residual handling; it is not a product rejection or a universal
+bound on other production routes. The pessimistic inherited base alone is 40.62 h
+at 1024, so joining-only automation cannot make that case fit 32 h. Even the
+optimistic 17.25-h base exceeds a 16-h build before residual work.
+
+At 1024 and full usability, 8 h extra setup consumes 28.125 s/body of the handling
+budget. With 80% usability, 1280 attempts and 256 rejected assemblies are charged;
+reject diagnosis/disposal alone adds 4.27 h. The 80% is a deterministic lot-wide
+scenario, not independent failure probability or measured yield. Remake work is
+included in attempted-body handling; correlated bad lots could require additional
+setup, requalification and scrap. Full proof testing, commissioning, adhesive
+mixing and unlisted tooling remain unpaid, so these allowances are optimistic.
+Cure/machine occupancy and retained printing remain separate elapsed-time costs.
+
+**Decision:** reject the inference that a shared press or faster cure establishes
+a weekend assembly route. Before feeder CAD, require a concrete transfer method
+that reduces deburring/component feed/gauge work as well as seating, or a supplied
+assembled-body route. The 20-s/3.1-s allowances give that construction a falsifiable
+target; they do not demonstrate it. Do not spend 8 h on a feeder justified only by
+an unmeasured best-case cycle. No change to the two joints, load paths, prior
+partial $1154–2602 bought allocation, ~$500 comparison, conditional gameplay waits,
+or optional E-281 print. Checks reconstruct the target total independently,
+recover the earlier manual ledger, and verify setup cost, partial batches and
+yield sensitivity. No physical result or purchase.
