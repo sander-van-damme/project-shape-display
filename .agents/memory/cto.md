@@ -263,9 +263,17 @@ strip controls.0408/.1634mm including own bed mass;4.606kg before rims/keeper.
 Sixteen continuous joins total5.581m,not16 easy touches;3072 apertures/100m cutting
 owe4.27–17.07h at assumed5–20s cleanup. Retain coarse sheet conditional,park3mm
 unsupported bed under its assumed load. No plate-action/contact/RPM qualification.
-Whole-guide service affects up to1024 cells versus64/module;keeper is not lateral
-restraint. Next useful discriminator is coupled coarse perforated-plate stiffness
-plus safe whole-board service sequence,not joint/fit sweeps or optical patterns.
+E-287 coupled Morley plate now gives.047595mm baseline versus solid.040822 and
+strip.1634; circular mesh refinement1.14%. Sixteen assumed20g minis add.00220–.00451mm;
+dense diagnostic.20508mm. Common.05mm ledge settlement takes clustered case.10210mm.
+Global plate action is useful,not local collar/shear/contact or guide qualification.
+Whole-guide removal can retain screws in bed/keeper while unthreading/storing all
+1024 bodies first; one uncleared body blocks guide removal. Shared gripper/stand,
+32 trays/31.21L storage and2048 transfers cost assumed5.69–17.07h before rethreading,
+fixtures,damage/proof. No universal jammed-part release was constructed. Park whole-
+guide repair under assembly stop rule; retain bed as structural control. Reopen only
+with bounded service partition/transfer avoiding array-wide rethreading, narrow seams
+or thousands of closures; no sleeve/fit optimization or new print.
 
 ## Actuation, observation and scale boundaries
 

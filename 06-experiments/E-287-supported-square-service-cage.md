@@ -5,88 +5,60 @@ builds-on: [E-286, E-277, E-280, E-269]
 
 # Screw support: modular cage versus continuous sheets
 
-**Park the fabricated modular cage; retain the coarse continuous-sheet control
-conditionally.** Whole sheets remove interior seams and joins but enlarge the
-service scope. Neither construction qualifies support, speed, repair or manufacture.
-Evidence: analytical statics, rigid envelopes and allocated interfaces, self-reviewed;
-not CAD/contact FEA or physical measurements. No purchase/new print; E-281 is optional.
+**Park both the fabricated modular cage and the whole-guide service embodiment.**
+Coupled plate action supports the coarse bed stiffness hypothesis; staged service
+still requires a whole-board body teardown. Whole sheets remove interior seams
+and joins but enlarge the service scope. Neither construction qualifies support, speed, repair or manufacture.
+Evidence: analytical statics, coupled linear plate FEA, rigid envelopes and
+allocated interfaces, self-reviewed; not contact qualification or physical measurements. No purchase/new print; E-281 is optional.
 Reproduce cage: `python3 tools/curated-experiment-checks/E-287.py`.
 Sheet source and controls are below. Outputs are disposable; source preserves detail.
 
-## Modular cage: preserved failure and reopening conditions
+## Modular cage: preserved failure
 
-Sixteen8×8 modules retain E-277's12.7-mm pitch,10.3-mm columns and0–50-mm travel;
-bases Z2…52,tops Z138…188. Each module has16 perforated12×2-mm guide strips
-at Z54…56/134…136,16 closed keeper halves and eight12×24-mm hollow thrust spines
-at Z−34…−10. Three machined square rings (2.2-mm radial width×8-mm height) at
-Z46…54,126…134,−42…−34 receive guides/spines **on** their faces. Four .8-mm sheet
-sidewalls form a shear shell with joined corners. Assembled-bar rings instead
-add12 corner joints/module. No joint/process qualification is implied.
+Source `E-287.py` retains geometry, load paths, checks and the interface ledger.
+Sixteen8×8 modules at12.7-mm pitch contain10.3-mm columns,0–50-mm travel,
+16 perforated guide strips,16 keeper halves,eight hollow thrust spines,three
+2.2×8-mm metal rings and four.8-mm shear panels each. Ring-supported guides
+are at Z54…56/134…136; spines Z−34…−10. Gravity passes through thread/driver,
+spines,lower ring,mounts; lateral loads through guides,rings,shell and mounts.
 
-Gravity: thread→driver→perforated spine→lower ring→four mounts→board frame.
-Guidance: body→strips→upper/middle rings→panel/corner shear paths→lower mounts.
-Keeper attachments carry upward loads. Local contact, buckling, torsion, attachment
-compliance and thread holding remain unqualified; frame stiffness cannot replace them.
+E-277's12.2415-mm body projection plus.2mm/side reserve gives101.5415-mm opening,
+103.7415-mm reaction span,107.5415-mm module exterior. With.4-mm module gaps,
+footprint425.424mm,enclosure431.366mm and8.7415-mm top seams replace the intended
+406.4-mm field/2.4-mm seams. Neither reserve nor miniature usability is qualified.
 
-E-277's sufficient body projection12.2415mm plus .2mm/side rigid reserve gives
-101.5415-mm ring opening,103.7415-mm reaction span,107.5415-mm module exterior.
-With .4-mm inter-module gaps,32² pitch footprint425.424mm and enclosure431.366mm
-exceed406.4mm. Interior top seams widen2.4→8.7415mm. Neither miniature usability
-nor the .2-mm collision reserve is qualified; loaded lean/joints consume clearance.
+At assumed E2/70GPa polymer/metal and.05N/site at each guide, lateral deflection
+is guide.03406+ring.04806+ideal shell.00137=.08350mm; post-only control6.4601mm.
+Only.01650mm remains against illustrative.1mm allocation; correlated.02-mm joint
+movement defeats it. At.338N/site diagnostic, axial spine.00479+ring.02457+
+panel.000164mm excludes own weight,local contact and settlement. No narrow-joint
+refinement. Checks include quadrature,section brackets,central-load identity and
+force/support-state balance; these are analytical, not hardware qualification.
 
-Assume polymer E2GPa,metal E70GPa,ν.33. At .05N/cell at **each** guide, total6.4N
-lateral/module: guide bend .03406mm +ring .04806 +ideal shell .00137 =.08350mm.
-Four3×3×.8-mm corner posts without shear panels give6.4601mm, outside precision
-small-deflection use. Against an allocated .1mm budget, only .01650mm remains;
-correlated .02/.05-mm joint movement gives .10350/.13350mm. The linear no-joint
-threshold is .05988N/site, not a safe rating. No micrometre joint optimization.
-At .338N/site axial diagnostic, spine .00479mm +lower ring .02457 +panel compression
-.000164 excludes self-weight, local face bending and settlement. Not typical
-miniature loading or a hardware pass; thrust friction still enters motor torque.
+Socket access requires36-mm reach,2-mm-AF tip in2.8-mm bore (.2453-mm nominal
+radial clearance). Nearest socket axis6.3207mm from ring edge. Four spaced spindles
+cover64 sites in two parity groups/row but cannot inherit uniform-grid routing
+across widened seams. Lift cradle meets lower-ring lips before mount release;
+1mm shelf+1mm pad leave only.2mm separation. Minimum24.50N/module pad load,
+.766MPa average excludes some parts/acceleration. Constrained232-mm lift and
+.3206° sufficient yaw allowance do not establish a tolerant transfer or broken-part
+restraint. Keeper opening still needs separate row restraint.
 
-Checks:32k→64k guide integration<.2%,strong/weak section brackets,central-load
-FL³/(48EI),force balance and positive support-state replay. Joint/model errors
-dominate numerical error. The perfect shell uses two in-plane walls with
-I=2tL³/12 and shear area2tL; actual connections are not demonstrated.
-
-Nearest socket axis is6.3207mm from inner ring edge. A2-mm-AF tool has2.3094-mm
-corner diameter in2.8-mm bores,nominal radial clearance .2453mm. Reach from lower
-ring underside into driver is36mm. Four25.4-mm-spaced spindles cover64 sites in
-two parity groups/row, but cannot batch across widened boundaries. No inherited
-uniform-grid routing or optical calibration is a prediction for this cage.
-
-Service proposal: clear miniatures,park writer,secure broken targets/fragments;
-four bench-lift pads meet inner lower-ring lips **before** mounts release. Installed
-shelves occupy outer lips. Allocating1mm to each leaves only .2mm separation.
-Transfer closed module to bench nest before withdrawing cradle. Separate restraint
-is still needed before opening the eight-site keeper row. Four1×8-mm pads see at
-least24.50N/.766MPa average from diagnostic cells/shell/rings/spines; omitted guides,
-keeper,fasteners and acceleration preclude a rating. At .1mm drift/.4mm gap,
-sufficient yaw allowance .3206° requires constrained lifting. Lift232mm to clear
-neighbor tops (versus224mm prior module). No tolerant transfer,broken-part restraint,
-repair time or actual-height restoration has been constructed.
-
-At1024 cells retain2048 bodies/screws,2048 guide apertures,1024 thrust contacts,
-256 keeper halves,128 spines. Add64 panels,48 monolithic rings,64 mounts,512 guide
-seats. Per-module minimum interfaces:12 ring/panel+32 guide seats+16 spine seats+
-4 corner seams+4 mounts=68,or1088/board. One assumed20–60s operation/interface
-alone costs6.04–18.13h,excluding fabrication,extra fasteners,inspection,fixtures and
-rework. Metal shell/rings3.56kg plus polymer spines1.12kg excludes guides/keeper/etc.
-4096/6400 **count-only** scaling gives4352/6800 interfaces and24.18–72.53/
-37.78–113.33h; coarse geometry does not fit fine pitches.
-
-E-276 optimistic$798 leaves gross$12.63/$43.88 per16 modules toward$1000/$1500,
-before omitted hardware; replacement frame allowances must be netted. No quote,
-finished price or purchase authority. Conditional850rpm S40/S50 local26.84/31.07s,
-scene201/223s,neutral271/332s,dense392/452s remain references versus~30s,not new
-performance. Ideal64-cell S50 reset+N30 restore1.569min excludes repair/routing/proof.
-Reopen only with materially simpler frame/transfer or process evidence; shorter
-guides and nominal contact area do not earn a complete machine.
+Board allocation:2048 bodies/screws,2048 guide apertures,1024 thrust contacts,
+256 keeper halves,128 spines,64 panels,48 rings,64 mounts,512 guide seats.
+1088 frame interfaces imply6.04–18.13h at assumed20–60s each before exclusions;
+4096/6400 count-only scaling24.18–72.53/37.78–113.33h. Shell/rings3.56kg and
+polymer spines1.12kg exclude guides/keeper. Gross room above E-276's$798 is
+$12.63/$43.88 per module toward$1000/$1500, not a quote or net frame budget.
+Park this cage: new broad sheets below change the topology; another ring/post/
+joint sweep does not. Source preserves further disposable numerical detail.
 
 ## Continuous-sheet control: fewer joins, larger shared service scope
 
-**Retain coarse sheets for coupled plate/access work; park the3-mm unsupported
-bed under its stated load scenario.** Two full guide sheets,one thrust bed and
+**Initial screen:** retain coarse sheets for coupled plate/access work; park the
+3-mm unsupported bed under its stated load scenario. The extension below resolves
+the global stiffness question and parks whole-guide service. Two full guide sheets,one thrust bed and
 four .8-mm perimeter panels remove interior shells/rings/mounts/seams,not resident
 threads,capture,radial seats,verification or broken-pair restraint. Source:
 `python3 tools/curated-experiment-checks/E-287-sheet.py --check`; omit `--check`
@@ -203,7 +175,150 @@ dense stress still apply conditionally. Sheets earn no speed,readback or travel.
 
 Checks: solid/minimum-section strip brackets,32k→64k quadrature agreement<.2%,
 central-point-load identity, force and thickness scaling,61→121-term plate series
-agreement<1e−7, and mass/aperture accounting. Self-review only. **Continue only the
-coarse shared-sheet load/access question; do not refine cage joints or optical
-patterns.** A coupled perforated-plate model can resolve the present stiffness
-ambiguity; a viable service sequence must accompany any subsequent selection.
+agreement<1e−7, and mass/aperture accounting. Self-review only. The following extension supplies the coupled bed calculation and service decision;
+these initial strip controls remain reproducible comparators.
+
+
+## Coupled plate and restrained teardown: decision
+
+**Global bed stiffness is plausible; whole-guide service is not selected for further
+local development.** The new result resolves the .0408/.1634-mm ambiguity in favor
+of substantial two-direction plate action under ideal continuous supports. It does
+not earn a bed/collar contact, guide, joint, RPM or physical support pass. The
+safe-order service alternative below avoids 1024 simultaneous temporary locks,
+but trades them for extensive removal/rethreading. Apply the assembly stop rule;
+do not optimize thin service sleeves, individual locks or guide fits.
+
+### Reproducible coupled model
+
+Source: `tools/curated-experiment-checks/E-287-plate.py`, dependencies NumPy2.5.4,
+SciPy1.18.1, scikit-fem12.0.2. Run `python3 …/E-287-plate.py --check`, then
+`--circle --refine 1` and `--circle --refine 2`; omit `--circle` for circumscribed
+3.6-mm square holes, use `--hole 2.545584412` for inscribed squares, or
+`--edges clamped` for the favorable edge control. No generated output is retained.
+
+Numerical simulation: quarter of the 406.4×406.4×6-mm bed, 256 explicit holes,
+mirrored to1024; isotropic E70GPa, ν.33. Morley triangular bending energy is
+`D∫[(1−ν) Hess(w):Hess(v)+ν Δw Δv]dA`. Zero normal slope at symmetry planes;
+zero deflection and free rotation at exterior supported edges; hole edges free.
+Circular boundaries use8/16 polygon segments at refinement1/2. Fine mesh has
+65,536 triangles/135,681 DOFs per quarter. This is a coupled sheet, not fitted
+strip interpolation. Method follows the primary
+[scikit-fem plate example](https://github.com/kinnala/scikit-fem/blob/12.0.2/docs/examples/ex02.py).
+
+Resident allocation stays .06N×1024=61.44N; round-hole bed weight24.591N, total
+86.031N. These are separate load vectors. Resident forces are smeared over remaining
+material, not applied as singular collar contacts. Solid/square controls keep the
+same total force to isolate geometry. Two illustrative miniature layouts put
+16×20g on sixteen25.4-mm square footprints, total3.139N: distributed symmetrically
+across the board or clustered in its central101.6-mm square. These are plausible
+light-load scenarios, **not measured miniature populations or typical occupancy**.
+Patch forces are normalized over actual remaining metal. Dense extra load is
+(.338−.06)N×1024=284.672N, separately added to resident and bed weight.
+
+|Simply supported result|Peak bed displacement mm|
+|---|---:|
+|Solid numerical / independent Navier, baseline|.040844 / .040822|
+|Independent perforated strips, baseline (earlier source)|.1634|
+|Circular holes, resident alone / bed alone, fine mesh|.033990 / .013604|
+|Circular holes, baseline, refinement1 /2|.048145 / .047595|
+|Circular holes, baseline + spread / clustered miniatures|.049791 / .052102|
+|Circular holes, dense diagnostic including weight|.205082|
+|Inscribed / circumscribed square cuts, refinement1 baseline|.046646 / .051573|
+|Circumscribed squares, refinement2 baseline|.050442|
+|Clamped circumscribed squares, refinement1 baseline|.016173|
+
+Solid analytical disagreement .053%; circular refinement change1.14%, square2.19%.
+Residual and translational reaction balance checked to1e−5 relative. The independent
+strip source retains section, quadrature and point-load controls. Circle/square
+ordering is an observed global sensitivity, not a certified local-displacement
+bracket. No independent reviewer or physical validation is claimed.
+
+**Edge/model uncertainty matters more than another mesh sweep.** Do not credit
+clamping without a moment-carrying attachment. Common downward ledge settlement
+of0/.02/.05mm adds directly to absolute bed height: clustered case .0521/.0721/
+.1021mm. Equal common movement does not itself create relative terrain relief,
+but can shift the writer datum; unequal settling also distorts it. Assumed E50GPa
+and thickness5.5mm multiply force-induced bending by1.818: clustered .0947mm plus
+.02 settlement is .1147mm (bed-weight term held fixed conservatively). These are
+labelled correlated bounds, not process priors. Missing edge contact cannot be
+represented by small settlement; strip/two-direction support alternatives remain
+relevant until continuous ledges are constructed. The .1mm allocation remains a
+comparison, not a player-derived universal limit.
+
+Kirchhoff theory omits transverse shear and local 3D collar/edge behavior; t/d=1.67
+at the holes makes local thin-plate stresses particularly unsuitable. No contact
+stress, pull-through, screw-seat stiffness, panel/rim deformation, guide axial drag,
+warp, joints or vibration rating follows. The guide's much larger10.8-mm apertures
+are **not** qualified by this bed calculation. A global low-deflection result alone
+cannot close loaded support.
+
+### Whole-guide removal without releasing the array
+
+A keeper retains screws; it cannot laterally restrain the tall bodies. A temporary
+sleeve through every occupied10.8-mm aperture leaves only(.5/2)=.25mm wall per side
+before any fitting clearance. Reject that fragile1024-site fixture route. A split
+external temporary guide duplicates aperture registration and obstructs withdrawal;
+it is not free shared restraint.
+
+The simpler service construction is **empty the bodies while retaining the bed,
+screw seats and keeper**, then lift an unloaded guide. Treat this as an offline
+bench overhaul, not an in-session procedure or preserved map state:
+
+1. Clear miniatures, save desired terrain only, isolate and park the writer, and
+   hold the chassis upright on a bench stand with underside tool access and a
+   fragment-catching tray. Both guides, all edge reactions, bed and keeper stay
+   attached. Do not invert the unrestrained array.
+2. Use one reusable top gripper to hold a body's weight and rotation before a
+   manually controlled underside driver unthreads it. The existing upper guide
+   and gripper restrain the body as it leaves the lower guide. Never use a powered
+   overtravel command as proof of release. The screw remains in its original bed
+   journal/capture; do not open its keeper or extract all pairs together.
+3. Lift that body through the upper aperture and place it horizontally in a
+   numbered, closed storage channel. Repeat; remaining bodies retain both guides.
+   Tool geometry allocation:10.3-mm jaw opening with .8-mm external jaws gives
+   11.9mm outside, .8mm less than pitch. It need not pass through a guide. This is
+   an envelope, not qualified gripping force, access at all heights or tolerance.
+4. A jammed/bent body is a **stop**, not permission to pull the guide. After healthy
+   neighbors are removed, an accessible shared clamp and catch enclosure may allow
+   the failed body to be sacrificed in sections while both guides remain installed.
+   Cutting, debris containment and fragment capture need a case-specific safe
+   construction; none is assumed automatic. If every body/fragment cannot be
+   cleared safely, leave the cage closed. The model deliberately refuses guide
+   removal with even one resident body remaining.
+5. Only with the body count physically zero may the whole guide be unbolted and
+   lifted. All1024 screws still retain their existing bed radial seats and keeper;
+   the removed guide never supplied them a new far-tip bearing. Refit/register the
+   guide before loading bodies. Re-engage and check every body, then restore and
+   verify terrain. A saved command map does not prove actual recovered heights.
+
+The source replays that support order and the one-body-left refusal. It is a
+logical prerequisite check, **not proof of gripping, damaged-part release or hardware
+safety**. No claim of a universal repair for arbitrary fractured pairs is made.
+
+Count the service equipment: one gripper, one controlled driver, one upright
+bench stand/catch tray,32 storage trays with32 channels each and32 closures, plus
+any damaged-target clamp/catch tooling. A406.4×150×16-mm tray allocation occupies
+31.21L stacked before handles/rack; channels are storage clearance, not precision
+operating fits. All exceed the256-mm printer width: folded/machined board or
+sheet trays, outsourced fabrication or joined trays owe labor/material/space.
+These are allocations with no quote, force rating or free-fixture assumption.
+
+At least2048 body transfers and2048 thread release/start events remain. Assumed
+10–30s per transfer alone costs5.69–17.07h, **excluding** turning, preparation,
+fixture fabrication, damaged-target work, alignment, inspection and restoration.
+At4096/6400, the same count-only control is22.76–68.27/35.56–106.67h. Re-threading
+1024 sites after a single trapped fault reopens the very manufacturing burden the
+continuous sheets were meant to reduce. Existing3072 apertures/100m cuts and
+4.27–17.07h assumed manual deburring remain in the initial-build ledger. Automated
+cut/deburr/gauge could improve that initial work, but does not remove this teardown.
+
+**Next decision:** park whole-guide repair and its fixture refinement. Preserve
+coarse two-direction metal bed action as a useful structural control. Reopen only
+for a materially different bounded service partition/transfer or an earned process
+that eliminates array-wide rethreading without narrow module seams, thousands of
+closures or fragile repeated fits. The task does not select another micro-CAD or
+print step. Whole-pair manufacture and powered contact/support remain unqualified;
+E-281 stays optional. The prior~$500/$1000/$1500 comparisons,12.7 versus6.35/5.08-mm
+pitch, paid neutral,40/50-mm travel,~30-s update reference and separate dense waits
+remain unchanged; this analysis earns neither a cheaper machine nor faster play.
