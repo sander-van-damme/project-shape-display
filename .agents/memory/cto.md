@@ -313,6 +313,14 @@ E-281 stays optional and unprinted; no new print or purchase.
   earn directional returns or remove that nuisance,not repeat gradient/shape/ray
   sweeps. Hidden caps remain unknown. No actual images/material characterization,
   hardware qualification or new print; E-281 remains optional.
+- E-289 temporal-pattern extension cancels static per-pixel gain/ambient in180
+  exact direct controls; quantized low gain reaches.495mm error and8 boundary
+  unknowns. A20% second-phase path makes25mm read28.3788mm with a perfect sinusoid
+  at4/8/16 steps. Cap-specific±1.67% frame gain can alias25/26mm. Assumed four-frame
+  k4 scans102.4/409.6/640s;allocated base+optics$1068–1778. No resident additions
+  or hardware pass. Stop single-frequency fit/step sweeps; reopen with constructed
+  direct/global separation and earned frame budget or calibrated images. Finite
+  projector field/visibility, prop identity and hidden caps remain unqualified.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
