@@ -1,6 +1,15 @@
 # CTO research compass — not engineering evidence
 
-Updated: 2026-10-14 UTC. E-277 now includes finite CAD and11 actual slice cases.
+Updated: 2026-10-14 UTC. E-278 parks sampled M4/open-tube full-board route.
+Catalog full-thread M4x70/.7 exists; another70mm DIN912 has only20mm thread.
+10/8 ASA stock warns few-percent variation; neither guides nor metal hold qualified.
+S50/1024:147 one-metre lengths/€727.65,2048 joins,1024 nut insertions.
+Four outputs850rpm local75.98s vs printed31.07;2000rpm42.24. Eight2000 gives27.21,
+but sourced dimensions/conditional conversion+nut allocations give bought four
+$1714–3356/eight$1995–3852,not quotes;four maker25.16–66.36h before unpaid work.
+Reopen with cheaper controlled batch stock/joining and earned loaded speed;
+no nut-carrier/guide-fit detail,owner print or purchase. Fine-pitch parts do not fit.
+E-277 includes finite CAD and11 actual slice cases.
 Three identical horizontal bodies: Prusa2.7.2 auto bridges124mm lengthwise;
 explicit90deg gives8.25mm transverse paths but upper thread remains unsupported.
 Park internal breakaway support:9.476cc/three trapped behind small thread mouth.
