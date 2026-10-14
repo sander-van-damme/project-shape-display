@@ -43,7 +43,7 @@ Closed load path:roof→walls→nut→thread→screw/collar→bed. Eccentric but
 
 Integral FDM has1024 bodies/no joins; tube+nut+cap3072 pieces/2048 joins; open-top molding+cap2048 pieces/1024 joins. `manufacture.py` retains cut/core/fixture operations.
 
-`manufacture.py` retains volume,packing,draft,seat,energy and labor. Including E-276 base, integral assembly17.37–35.81h and stock19.47–49.29h exclude tooling,procurement,cleanup,cure,scrap and commissioning. Board:1024 screws/threads/roofs/blocks,2048 apertures,62 ribs. Pair extraction/openable layers/re-registration remain unconstructed.
+Including E-276 base, integral assembly17.37–35.81h and stock19.47–49.29h exclude tooling,procurement,cleanup,cure,scrap and commissioning. Board:1024 screws/threads/roofs/blocks,2048 apertures,62 ribs. Pair extraction/openable layers/re-registration remain unconstructed.
 
 ## Actual closed-body slicing
 
@@ -147,11 +147,8 @@ arrest do not transfer.
 
 Same lead preserves turns,not qualified850rpm. Earlier whole-machine timing,cost,neutral and~30s/~$500 comparisons remain conditional. Thread still undercuts a mold;unscrewing tooling is uncosted/unqualified.
 
-**Retain90° as a support-eliminating toolpath comparator,not a selected thread or
-owner print.** It removes a modeled cleanup burden,not thin long-screw manufacture,
-loaded joint/guide uncertainty or1024 joins. Stop angle/fit sweeps;next investigate
-a whole-pair batch process or a genuinely ready optional physical comparison.
+**Long-screw route:** [E-279](E-279-long-screw-batch-deposition-and-release.md) retains source,nine64-mm slices,per-screw support checks and1024/4096/6400 whole-pair ledger. Retain upright90° as least-support control;park horizontal raft:83.06h extra/1024 without earned group release. No print/fit tuning;stability,thread damage and joins remain unqualified. Next evidence must change finished-pair manufacture or qualify actual stability,release and joint/guides.
 
 ## Verification and boundary
 
-Source retains guide,core,volume,packing,phase and extrusion-accounting checks;361 hull extrema,four joint loads,12 torsion scenarios,six core withdrawals and the channel slices. Thread-profile extension adds212 finite offset/reach cases,two wrong-sign controls,eight slices and independent inclined-plane torque identities. Self-review,not physical validation.
+Source checks geometry,force balance,extrusion accounting and reported scenario sets;self-review only. Thread extension:212 finite offset/reach cases,two wrong-sign controls,eight slices and independent torque identities. No physical validation.

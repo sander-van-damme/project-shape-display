@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent / "E-277"
 sys.path.insert(0,str(ROOT))
 import slicing as base
 from split import solid, mesh, analyze
+from open_channel import ledger as column_ledger
 
 CASES = [(angle, pose, support) for angle in [30,90]
          for pose in ['horizontal','upright'] for support in [False,True]] + [(90,'horizontal','raft')]
@@ -50,6 +51,14 @@ def metrics(path,pose):
                 ]
         bins=sorted({min(63,max(0,int((p[0]+p[2])/2-10))) for p in region})
         r['interface_under_screw'] = dict(segments=len(region),axial_1mm_bins=bins)
+        r['interface_under_each_screw'] = []
+        for center in [15,25,35]:
+            local=[p for p in region if abs((p[1]+p[3])/2-center)<=1.8]
+            r['interface_under_each_screw'].append(dict(
+                center_y_mm=center, segments=len(local),
+                axial_1mm_bins=sorted({min(63,max(0,int((p[0]+p[2])/2-10)))
+                                      for p in local})))
+        assert sum(p['segments'] for p in r['interface_under_each_screw'])==len(region)
     first=[p for p in pp if abs(p[4]-.2)<1e-5 and not p[5].startswith('Support')]
     r['first_layer_part_path_length_mm']=sum(math.hypot(p[2]-p[0],p[3]-p[1]) for p in first)
     r['first_layer_support_gap_crossings']=sum(
@@ -92,10 +101,19 @@ def ledger(slices):
     # Channel and 90-degree nut: existing actual three-component E-277 slices.
     pair_without_screw_s=4057+1571
     pair_without_screw_cm3=9.41+3.14
+    columns=column_ledger()
     return {name:{str(n):dict(
         screw_hours=r['seconds']*n/3/3600,
         whole_pair_hours=(pair_without_screw_s+r['seconds'])*n/3/3600,
         whole_pair_liters=(pair_without_screw_cm3+r['filament_cm3'])*n/3/1000,
+        column_components_and_handling=columns[str(n)],
+        # Deposition proxy, not adhesion points or physical release operations.
+        support_interface_segments_three_copy_repetition=
+            r['roles'].get('Support material interface',{}).get('segments',0)*n/3,
+        screws_exposed_to_thread_support=n if
+            r.get('interface_under_screw',{}).get('segments',0)>0 else 0,
+        individual_screw_release_inspection_duties=n,
+        assumed_16_screw_groups=math.ceil(n/16),
         additional_cleanup_hours=[n*s/3600 for s in [10,30,60]],
         group_release_hours_at_30s_per_16=math.ceil(n/16)*30/3600)
         for n in [1024,4096,6400]}
@@ -155,11 +173,14 @@ def main():
     for name in ['a90-upright-s0','a90-upright-s1']:
         assert not {'Overhang perimeter','Bridge infill','Support material',
                     'Support material interface'} & slices[name]['roles'].keys()
-    assert slices['a90-upright-s0']['seconds']==slices['a90-upright-s1']['seconds']
+    # No support paths is the witness, not identical travel/time estimates:
+    # repeated slicing gave 640..650 s while all deposited roles stayed equal.
+    assert slices['a90-upright-s0']['filament_cm3']==slices['a90-upright-s1']['filament_cm3']
     assert slices['a30-upright-s1']['roles']['Support material interface']['segments']>0
     for angle in [30,90]:
         r=slices[f'a{angle}-horizontal-s1']
         assert len(r['interface_under_screw']['axial_1mm_bins'])==64
+        assert all(len(p['axial_1mm_bins'])==64 for p in r['interface_under_each_screw'])
     assert slices['a90-horizontal-raft']['first_layer_support_gap_crossings']>0
     assert slices['a90-horizontal-s1']['first_layer_support_gap_crossings']==0
     assert slices['a90-horizontal-raft']['seconds']>slices['a90-horizontal-s1']['seconds']

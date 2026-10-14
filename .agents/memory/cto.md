@@ -103,8 +103,8 @@ not selected or ready to print. E-279's nine long-shank slices show upright90°
 likewise has no support/overhang/bridge paths, but64-mm growing-span stability is
 unmeasured; end ties form too late to brace earlier layers. Horizontal support
 occupies all64 axial1-mm bins; common raft creates a shared carrier,not clean
-release. Three90° shanks:upright10m47s/.76cm³,supported horizontal16m17s/1.21,
-raft30m53s/3.41. Whole channel/nut/bare-shank repetition at1024 is594.96/626.25/
+release. Three90° shanks:upright10m40–50s/.76cm³,supported horizontal16m17s/1.21,
+raft30m53s/3.41. Whole channel/nut/bare-shank repetition at1024 is594.30–595.25/626.25/
 709.31h;still excludes journals/collar/socket/frame/scrap. Retain comparisons,
 select no owner print. Avoid another tie/angle/fit or support-label sweep. Next
 useful discriminator must change whole-pair manufacture (e.g. actual external

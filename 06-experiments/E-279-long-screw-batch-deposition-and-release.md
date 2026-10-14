@@ -18,16 +18,21 @@ the original comparator is 5.08 mm/~6400 cells, ~40-mm travel and ~30-s updates.
 |---|---|---:|---:|---:|
 |30° horizontal|off|.87|12m54s|126 /0|
 |30° horizontal|on|1.25|16m32s|126 /3617|
-|30° upright|off|.92|14m18s|2040 /0|
+|30° upright|off|.92|14m18–25s|2040 /0|
 |30° upright|on|5.09|55m42s|2040 /29755|
 |90° horizontal|off|.83|11m35s|126 /0|
 |90° horizontal|on|1.21|16m17s|126 /4783|
-|90° upright|off/on, identical|.76|10m47s|0 /0|
+|90° upright|off/on|.76|10m40–50s|0 /0|
 |90° horizontal|on, three-layer common raft|3.41|30m53s|126 /7005|
 
+Fresh replay reproduced segment counts and material;upright time estimates varied
+by seconds across exports/runs. Ranges include both runs,not calibrated timing
+uncertainty. Exact support-off/on time equality was an invalid regression check;
+checks now require absence of support roles and equal reported material.
 No bridge roles in these slices. Upright 90° has no support roles, including when
 support is enabled. In both supported horizontal profiles, interface-path
-midpoints beneath the projected thread occupy every 1-mm axial bin over 64 mm.
+midpoints beneath each of the three projected threads occupy every 1-mm axial
+bin over64 mm (checked per screw,not just their union).
 **Segments/bins are deposition evidence, not counts of physical adhesion contacts
 or measured scars.** The nut sweeps screw-local 2..62 mm over S50, so supports are
 not confined to unused ends. No fit, strength, straightness, creep or yield measurements.
@@ -53,19 +58,35 @@ cylinders gives compliance 16.98–463.38 mm/N at assumed E=1000 MPa, 5.66–154
 Assumed isotropic stiffness, not nozzle force, hot-polymer data, dynamics or a
 predicted failure rate. Support-free paths do not establish growing-span stability.
 
-**Whole-pair accounting:** adding the 90° shank to the existing three-channel/nut
-slices gives repeated 1024-pair estimates: upright 594.96h/4.543 L; plain supported
-horizontal 626.25h/4.697 L; raft 709.31h/5.448 L. Excludes screw ends, frame, fixtures, scrap, joints; three-copy repetition, not an
-optimized-plate/X1C forecast. 1024 channels/nuts/screws and 1024 joints
-remain. At 4096/6400 the supported-horizontal repetition is 2505.01/3914.07h;
-this is replication burden, not dimensional compatibility of coarse columns.
+**Whole-pair accounting:** channel4057s/9.41cm³ +90° nut1571s/3.14cm³ +
+screw slice,each for three copies. Excludes journals,collar,socket,frame,fixtures,
+scrap and joining;not optimized plates or an X1C forecast.4096/6400 are replication
+controls,not fine-grid compatibility.
 
-At 1024, assumed 10/30/60-s screw cleanup adds 2.84/8.53/17.07 maker-hours to the
-existing 23.39–53.21h baseline, which excluded cleanup. One minute adds 68.27/106.67h
-at 4096/6400. Assumed 30s per 16-piece group adds.533/2.133/3.333h respectively,
-**before individual cleanup**; common raft deposition does not earn that rate.
-No purchased-cost, RPM, retention, readback or~30s gameplay improvement follows.
-Keep the earlier~$500/~$1000/$1000–1500 and40-mm/finer-grid comparators unchanged.
+|Cells|Upright whole pair h/L|Supported horizontal h/L|Common raft h/L|
+|---:|---:|---:|---:|
+|1024|594.30–595.25 /4.543|626.25 /4.697|709.31 /5.448|
+|4096|2377.20–2380.99 /18.173|2505.01 /18.787|2837.24 /21.791|
+|6400|3714.37–3720.30 /28.395|3914.07 /29.355|4433.19 /34.048|
+
+AtN cells,retainN channels+nuts+screws,N joins,2N guide apertures andN individual
+screw release/inspection duties. Supported horizontal/raft exposesN working
+threads to support. Exact adhesion-contact count,release force and scars remain
+unknown;segment replication is a deposition proxy,not a physical contact count.
+Hypothetical16-screw grouping gives64/256/400 groups:assumed30s/group adds
+.533/2.133/3.333h **before** individual duties.16-up slicing,release and its setup
+rate are unqualified;do not substitute them for three-copy machine estimates.
+
+Channel/nut handling and joining at three10–30s operations per cell,plus5min per
+assumed24-channel/289-nut plate,are12.45–29.52,49.63–117.90,77.50–184.17h.
+These exclude E-276 installation base (10.94–23.69h at1024),screw cleanup,tooling,
+cure,scrap and commissioning. Additional10/30/60s screw cleanup gives
+2.84/8.53/17.07h at1024,11.38/34.13/68.27h at4096,and17.78/53.33/106.67h at6400.
+Labor scenarios,not observations;correlated batch failure can add whole-plate
+rework. The source reuses E-277's component/handling ledger rather than dropping
+it when adding screws. No purchased-cost,RPM,retention,readback or~30s gameplay
+improvement follows. Earlier~$500/~$1000/$1000–1500 and40-mm/finer-grid comparators
+remain unchanged.
 
 **Decision:** retain upright 90° as least-support control; horizontal support/raft
 as removal comparators. None earns owner printing. Stop tie/angle/fit sweeps:
@@ -76,7 +97,7 @@ stability from horizontal thread damage;another support-label audit cannot.
 ## Verification and scope
 
 Three-component manifold/dimension/volume checks; nine actual slices; positive
-extrusion totals cross-checked against slicer footers; support-role and raft-gap
+extrusion totals cross-checked against slicer footers; support-role,per-screw64-bin exposure and raft-gap
 witnesses; generated toolpaths visually inspected. Self-review only. Slicer 2.7.2,
 OpenSCAD 2023.09.11, BOSL2 `136e6367e65d52196a3ea51d03156f8b622c60fc`,
 E-277's explicit-slop matched profiles. Python needs numpy, trimesh, manifold3d,
