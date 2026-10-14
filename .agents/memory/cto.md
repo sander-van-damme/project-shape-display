@@ -151,8 +151,15 @@ nuts+bare screws before caps/finished ends. Hand folding owes8192 operations,
 versus15. External lap loses the existing guide separation bound; closed-section
 stiffness requires an actual seam. A16-seat/3h adhesive-cure scenario occupies209h.
 Retain shared forming/cut-to-length as a conditional process escape,not individual
-fold/seam refinement. Next useful construction must show low-touch forming and
-end joining; mere sheet price or elimination of printer hours is insufficient.
+fold/seam refinement. E-282 closed-stock extension finds listed10×10×1 aluminium
+52×2.6m/€256.36 at1024,retaining printed lead3 rather than E-278 metal threads.
+This reopens body cost,not qualification:calculated12.34kg tubes/.118N each,
+2048 end joins,26.63–70.76 maker hours,partial bought$1154–2602 with tooling.
+Seven8-bar gang groups cut in140 strokes but do not automate joining.10mm ends
+need new geometry/slices;old nut/shank209.64h is accounting only. RPVC13mm stock
+does not fit12.7mm pitch;KIPP10mm option is solid,not hollow. Next useful
+construction must show shared low-touch end joining with seated load path,
+fixture occupancy and repair; cheap stock/cutting alone is insufficient.
 No new print request,physical result or purchase; E-281 remains optional.
 
 ## Actuation, observation and scale boundaries
