@@ -161,6 +161,13 @@ does not fit12.7mm pitch;KIPP10mm option is solid,not hollow. Next useful
 construction must show shared low-touch end joining with seated load path,
 fixture occupancy and repair; cheap stock/cutting alone is insufficient.
 No new print request,physical result or purchase; E-281 remains optional.
+E-283 end-assembly extension screens seated adhesive carriers versus shared inward
+staking. At1024 explicit manual touches give31.48–83.29/28.99–75.82 maker hours.
+256 cure seats hide operator waiting but retain14.22–42.67 hands-on joining hours;
+staking adds8192 unqualified deformation sites. Seats carry compression,capture
+still owes descent/torque;repair may scrap a complete single-cell body. Park local
+plug/stake details. Reopen through multi-part feed/seat/gauge,assembled supply,or
+eliminating an end joint;extra carriers/press and process prep remain unpriced.
 
 ## Actuation, observation and scale boundaries
 

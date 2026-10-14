@@ -43,3 +43,82 @@ Removing channels eliminates384.66 comparison print-hours;retained nut/bare-shan
 Lead3 preserves only the *kinematic* S40/S50 comparison:local26.84/31.07 s,scene~201/223 s,paid neutral271/332 s,dense392/452 s at assumed850 rpm. Manufacture earns no loaded speed,holding,power-loss arrest,readback or~30-s gameplay qualification. Coarse pitch/62% coverage remain unapproved play choices;unchanged neighbors retain their resident pairs but isolation is unqualified.
 
 **Decision:** reopen body-cost comparison,not E-278's fine-lead pair or individual plug/fit CAD. Next useful independent construction:shared end joining with explicit seating/load path,cycle,fixture occupancy and repair route that reduces repeated handling. Cheap stock and fewer saw strokes alone are insufficient. E-281 stays optional/unprinted. Finite cut replay,gang coverage,material conservation,replication,yield sensitivity and invariant end-join checks passed;not hardware proof.
+
+### Shared end-assembly screen
+
+`python3 tools/curated-experiment-checks/E-283/end_assembly.py` adds a finite
+single-operator/carrier schedule. **Calculated scenarios, not measured production
+rates or CAD/contact proof.** Two constructions keep the resident screw/height
+memory and replace neither the thread nor the drive:
+
+- **Seated adhesive ends:** top cap bears on the upper tube annulus; bottom nut
+  has a lower flange bearing under the tube annulus. Both flanges stay within the
+  10-mm outer envelope, with square spigots entering the nominal 8-mm bore.
+  Compression passes through seats rather than adhesive alone. Adhesive still
+  owes capture during commanded descent against guide drag, eccentric lifting,
+  and rotational clearance take-up. A shared carrier locates 16 tubes; a platen
+  seats ends before the carrier leaves for cure. No adhesive, bond thickness,
+  substrate preparation or cure strength is qualified. Opposed rigid platens do
+  not accommodate unequal cut lengths automatically; shared seating compliance
+  or individually floating tooling would need construction and accounting.
+- **Shared inward staking:** retain those seats, replace bonding by indenting
+  tube walls into recesses in each end spigot. Four indent sites per end mean
+  eight plastic-deformation sites/body,8192/1024,not two magically shared joints.
+  Process bodies outside the display at wider fixture spacing, then install them.
+  Two end operations each use opposed tooling; square spigots react torque.
+  Inward displacement must preserve the screw cavity; outward bulging must clear
+  guides. Unspecified stock alloy/temper, springback, wall splitting, polymer
+  crushing/creep and correlated die-height errors prevent a capture/force pass.
+  Shared press force sums simultaneous sites and cannot be inferred from the
+  small miniature load. No press selection or purchase is justified.
+
+Both preserve four resident parts, two joins and independent resident support.
+A bonded or staked tube/nut unit is replaceable **as one cell**, not promised
+reusable: accessing the failed unit requires the still-unconstructed openable
+bed/guides and removal of its screw. Neighbor support cannot depend on removing
+an entire loaded row. Destructive release can scrap tube and ends; thread failure
+is not fixed by resetting software. E-281's short loose pairs cannot qualify
+these joints.
+
+Explicit manual work: deburr twice; load tube,cap,nut; seat; unload; gauge = eight
+per-body touches. Adhesive adds two doses. Staking adds two shared press/reorient
+operations,20–60 seconds **total per 16-body batch**. Each touch takes an assumed
+5–15 seconds; assume three-hour carrier dwell for adhesive and zero for staking.
+These are competing bounds,not calibrated distributions; cleaning, glue mixing,
+full proof testing, rework and automation are excluded. E-283 cutting/setup and
+E-276 installation stay charged; joining fixture setup adds2–4 hours.
+
+|Bodies|Adhesive maker h|Stake maker h|Adhesive touches|Stake touches|
+|---:|---:|---:|---:|---:|
+|1024|31.48–83.29|28.99–75.82|10240|8192|
+|4096|81.81–230.89|71.86–201.02|40960|32768|
+|6400|119.56–341.56|104.00–294.89|64000|51200|
+
+Only1024 at12.7-mm pitch is geometrically contemplated; the larger counts remain
+replication diagnostics,not fits at6.35/5.08mm. At1024,one16-seat adhesive carrier
+occupies206.22–234.67 hours for this joining sequence. Sixteen carriers/256 seats
+reduce that to17.22–45.67 hours,including the final three-hour dwell,**without
+changing14.22–42.67 hands-on joining hours**. That is extra carrier inventory and
+space,not free automation. Charging unload time before dwell conservatively
+withholds carrier reuse. These are uninterrupted station schedules,not a calendar
+promise; retained printing and other production stages are not overlapped here.
+
+The optimistic adhesive total leaves only0.52 hour against an illustrative32-hour
+maker weekend; the stake case leaves3.01 hours before exclusions. The upper bounds
+exceed it substantially. The earlier26.63–70.76-hour coarse estimate used four
+aggregate10–30-second body operations; this explicit sequence is a changed
+process assumption,not evidence that workers actually got slower. Tooling money
+is not newly quoted: the previous$1154–2602 partial bought allocation excludes
+these extra cure carriers/press/dies/consumables. No~$500 or$1000 finished-price
+pass; a$1000–1500 research allowance does not authorize purchasing.
+
+**Decision:** shared seating/cure management alone does not establish low-touch
+assembly; park individual bonded/staked plug refinement. Staking trades2.49–7.47
+maker hours at1024 for thousands of unqualified deformation sites. Reopen through
+actual multi-part feeding/seating/gauging evidence, a supplied assembled body/end
+route, or a construction that eliminates an end joint. Do not presume a faster
+adhesive cures the handling problem. Retained lead3/S40–50/N30 and assumed850-rpm
+local26.84–31.07s,scene201–223s,neutral271–332s,dense392–452s remain unchanged;
+no~30-second gameplay,loaded speed,retention or isolation qualification follows.
+No new owner print. Checks cover partial batches,serial closed-form limits,
+unlimited-carrier limit,monotonic carrier benefit,and invariant manual work.
