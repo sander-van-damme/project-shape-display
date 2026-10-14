@@ -373,6 +373,17 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   Acquisition614.4/2457.6/3840s at1024/4096/6400;local2.4/9.6/19.2s for1/4/8 groups.
   Retain direct-dominant control;park pattern/threshold tuning without calibrated
   images or physically discriminated paths and earned optics. No new print.
+- E-291 finite-field screen parks stock optics and small-baseline full-board
+  absolute pixels; pixel cropping does not improve angular sampling. E-292 adds
+  fixed circular-pupil depth/diffraction: selected S50 fine-field apertures give
+  finest-bit peak contrasts .0047–.1894, below the existing .5 criterion even
+  with a perfect camera. Coarse dq.0005 retains .746 fundamental transfer but
+  gives5.52mm height bins. These are bounded paraxial scenarios,not a universal
+  optical impossibility or measured error. No aperture/threshold sweep or lens
+  purchase. A useful independent escape is larger baseline with coarser patterns,
+  but it must earn low-cap visibility beside high terrain and full frame/cost
+  accounting. Focus stacking similarly owes real preparation and exposure.
+  No new print; E-281 remains optional. Canonical methods/limits are in E-292.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
