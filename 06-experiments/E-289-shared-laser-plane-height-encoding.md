@@ -1,0 +1,111 @@
+---
+status: complete
+builds-on: [E-270, E-288]
+---
+
+# Shared laser-plane height encoding
+
+**Retain a small-field active-light comparator; do not select a sensor or call it
+final verification.** A shared vertical light sheet changes the observable from
+matching passive texture to intersecting a calibrated plane. This is a distinct
+escape from the failed central-patch matcher, with no per-column marks, bores or
+witness parts. Reproduce `python3 tools/curated-experiment-checks/E-289.py`.
+Evidence is ideal projected coordinates, ray/box visibility, bounded error
+propagation and counterexamples—not rendered images, an image decoder, actual
+laser/PLA behavior or physical accuracy. No print is needed.
+
+[Micro-Epsilon's scanCONTROL manual, sections 6.5.4–6.5.7](https://www.micro-epsilon.com/fileadmin/download/manuals/man--scanCONTROL-29xx--en.pdf)
+(accessed2026-10-14) identifies receiver and illumination shadowing separately,
+and warns about reflections, rough surfaces and vibration. It supports the
+principle and failure categories, not the following dimensions, error allocations,
+scan rates or affordable sensor availability. Missing terrain returns must remain
+unknown; interpolating across a missing cap is not independent verification.
+
+Proposed transaction: stop/undock/settle, register the upper optical head against
+independent frame references, acquire illumination-off/on observations, decode
+only exposed identified caps, then accept/reject/unknown. Retain the opaque
+support and all screw/guide/thrust/capture functions. Nothing contacts or releases
+a column. A shared camera at(0,b,D) looks downward at a light sheet y=0 from a
+source at(0,0,D); D is above the lowest cap and the sheet spans a short row segment.
+For focal length f in pixels, `u=f*x/(D-z)`, `v=f*(y-b)/(D-z)`.
+On the ideal plane, `z=D+f*b/v`, `x=-b*u/v`. Thus uniform caps need no stereo
+correspondence or commanded height. Wrong sheet location, calibration, identity,
+reflections or a prop can nevertheless produce the wrong surface result.
+
+The source checks108 exact round trips, separate source/receiver shadows,
+covered-cap ambiguity, and a calibration witness. A pin at z0/y0 and a pin at
+z1/y.026667 produce identical pixels at x0 for D300/b8. The latter decodes as0.
+A finite stripe with uneven return can shift its effective centroid; this witness
+does not claim the actual line has that width or that PLA produces that bias.
+A common sheet translation can be calibrated as an effective baseline. A
+cap-dependent centroid shift cannot be removed by one shared constant. No
+manufacturing micrometre tolerance is imposed on resident parts: the missing
+quantity is an earned optical centroid/calibration error bound.
+
+Assume1920×1080 pixels with10% reserve, favorably centered field, focal length
+chosen to fit full caps at maximum height and stripe displacement over travel.
+This is an abstract pinhole instrument, not a sourced lens/camera assembly.
+Use a.4-mm central cap patch and.2-mm aggregate ray/solid placement reserve.
+For field width W=(k−1)p and cap width w, sufficient adjacent-column/row margins
+at the tallest S neighbor are `p−w/2−(W*S/(2D)+.2*(1−S/D))−.2` and
+`p−w/2−b*S/D−.4`. Finite pupils, sheet thickness, yaw/lean, roughness, focus,
+distortion, indirect reflections and housing are not qualified by these margins.
+Nominal ray tests include three rows and two extra end neighbors, separately
+putting each target at0 and every other cap at S; these are adverse local scenes,
+not one simultaneously realized whole map. Negative sufficient margin alone is
+not a nominal collision; ray tests distinguish the two.
+
+|Pitch/cap, mm; S50|k /D /b, mm|X /Y margin, mm|Nominal hidden centers|Max height error, mm: pixel only /+centroid±.005 /±.02|
+|---|---|---|---|---|
+|5.08 /4.4|4 /300 /8|1.243 /1.147|0/4|.051 /.239 /.803|
+|6.35 /4.4|4 /300 /8|2.196 /2.417|0/4|.061 /.249 /.813|
+|12.7 /10.3|4 /300 /8|4.008 /5.817|0/4|.126 /.314 /.879|
+|5.08 /4.4|16 /600 /40|−.678 /−.853|14/16|.076 /.151 /.377|
+|6.35 /4.4|16 /600 /40|−.202 /.417|0/16|.094 /.169 /.395|
+|12.7 /10.3|16 /600 /40|−.771 /3.817|2/16|.190 /.265 /.491|
+
+Errors are exact maxima of sampled z0/S/2/S and independent signed centroid/pixel
+error corners, granting known D/b/f and±.1-pixel localization. They are not
+confidence intervals, precision specifications or proof of centroid extraction.
+The favorable.25-mm diagnostic comparison is inherited, not an approved product
+tolerance. Larger b improves triangulation but loses low-cap sightlines. S40
+results are emitted by the source: k4 retains positive margins; k16 quarter-grid
+has.588/1.083mm margins while the fine grid lacks the sufficient reserve.
+Eight-cap fields at D600/b16 retain positive margins at all three pitches but
+centroid±.005 already produces.282/.303/.423mm S50 error. No fine-margin tuning
+follows. Missed motion/post-release slip can change an exposed cap return; hidden
+caps at28/29 under the same opaque base remain indistinguishable. Later creep,
+broken support and unchanged-neighbor isolation still require separate evidence.
+
+**Scale and economics:** allocate.1s light-off+.1s light-on per group, one camera
+and one sheet source, without claiming that exposure or settling is sufficient.
+Full scans at k4/k8/k16 cost51.2/25.6/12.8s for1024 cells,
+204.8/102.4/51.2s for4096, and320/160/80s for6400, **before** upper XY routing,
+reference checks, undocking, settling, writing or retries. Failed wide-field
+geometry cannot earn its cheaper time. Local1/4/8 groups add.2/.8/1.6s acquisition
+only, not total gameplay waits. Reuse the earlier map schedules as conditional
+controls; these counts do not claim a new representative map benchmark. Real
+raised neutral/downward travel, S40/S50 and cold preparation remain paid. A
+miniature obstruction has no finite automatic scan-to-accept time.
+
+No resident hardware is removed: there are still1024/4096/6400 threaded pairs
+and their guide/retention duties. Compared with passive two-camera stereo, the
+shared equipment changes to one camera, sheet source, mounting, illumination
+control/filtering, reference targets and an upper XY carrier; no claim that this
+costs less. As **unsourced screening allocations only**, camera/lens$50–200,
+source/driver$30–150, carrier/reference/guarding$100–300 and electronics$20–80
+add$200–730. Adding E-276's optimistic$798 base gives$998–1528 before omitted
+integration and qualification, not a BOM quote or selected$1000 product. The
+~$500 reference remains unmet; a$1000–1500 demonstrator is not purchase authority.
+Any real emitter selection owes an accessible-emission assessment appropriate to
+players' eyes, interlocks/guarding and cost; no open laser installation is proposed.
+Shared machined optical fixtures could reduce per-site work; no cap coating,
+marking or individual finishing is credited as free.
+
+**Decision:** the ideal plane encoder merits retention because it removes passive
+texture correspondence without modifying repeated columns. The next discriminating
+optical evidence would be actual or independently modeled stripe formation and
+segmentation on exposed unmarked caps, with reference correction and scene-dependent
+centroid/shadow errors; another ray-margin or pixel-error sweep is not sufficient.
+It cannot solve hidden-cap verification. No physical accuracy, safety, speed,
+sensor selection, purchase, print or full-machine qualification follows.
