@@ -104,12 +104,8 @@ Shared machined optical fixtures could reduce per-site work; no cap coating,
 marking or individual finishing is credited as free.
 
 **Decision:** the ideal plane encoder merits retention because it removes passive
-texture correspondence without modifying repeated columns. The next discriminating
-optical evidence would be actual or independently modeled stripe formation and
-segmentation on exposed unmarked caps, with reference correction and scene-dependent
-centroid/shadow errors; another ray-margin or pixel-error sweep is not sufficient.
-It cannot solve hidden-cap verification. No physical accuracy, safety, speed,
-sensor selection, purchase, print or full-machine qualification follows.
+texture correspondence without modifying repeated columns. The following extensions test optical encoding; hidden caps and physical
+qualification remain unresolved.
 
 
 ## Finite stripe and pixel decoder extension
