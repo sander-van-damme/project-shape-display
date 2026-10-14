@@ -77,6 +77,56 @@ def decode(data, ray=RAY, stroke=50.):
                 min_normalized_contrast=min(margins))
 
 
+def finite_optics_screen():
+    """Finite field/address accounting; ideal pinholes, not calibrated optics.
+
+    Stock control: TI DLPU011F table 1-1, throw 1.2, focus >=500 mm.
+    Grant 2048 independent horizontal positions (optimistic, NOT native diamond
+    mapping). Custom 1920x1080 rectangular sampling is a scenario, not hardware.
+    """
+    def interval(distance, dq, baseline=8.):
+        # A bin beginning at z=0; independent differential upper bound below.
+        exact = distance - baseline/(baseline/distance+dq)
+        upper = distance*distance*dq/baseline
+        assert 0 < exact <= upper
+        assert math.isclose(baseline/(distance-exact)-baseline/distance,
+                            dq, rel_tol=1e-11)
+        return dict(z0_bin_mm=exact, differential_upper_mm=upper)
+
+    stock_dq = 1/1.2/2048
+    stock = dict(distance_mm=550., closest_surface_distance_mm=500.,
+                 angular_pixel=stock_dq, old_bin_ratio=stock_dq/DQ,
+                 coding_field_at_z50_mm=500/1.2,
+                 **interval(550., stock_dq))
+    local=[]
+    for pitch, cap in ((5.08,4.4),(6.35,4.4),(12.7,10.3)):
+        # Long image axis serves four caps. Short axis covers one cap.
+        cross=3*pitch+cap
+        field=max(cap, cross*1080/1920)
+        dq=field/250/1080
+        local.append(dict(pitch_mm=pitch, cross_field_mm=cross,
+                          coding_field_mm=field, angular_pixel=dq,
+                          projector_only=interval(300.,dq),
+                          projector_and_camera_pixels=interval(300.,2*dq),
+                          old_bin_required_cross_pixels=math.ceil(cross/250/DQ)))
+    board_dq=406.4/250/1080
+    # 0.5mm is an illustrative quantization allocation, NOT a product gate.
+    allowed_dq=8*.5/(300*(300-.5))
+    full=dict(coding_field_mm=406.4, angular_pixel=board_dq,
+              projector_only=interval(300.,board_dq),
+              required_coding_pixels_for_half_mm=math.ceil(406.4/250/allowed_dq))
+    assert stock['z0_bin_mm']>10
+    assert full['projector_only']['z0_bin_mm']>10
+    assert local[0]['projector_only']['z0_bin_mm']<.5
+    assert local[-1]['projector_only']['z0_bin_mm']>1
+    # Cropping a projected image changes active count and field together:
+    # it does not change angular pixel pitch or recover optical magnification.
+    for fraction in (.1,.25,.5):
+        assert math.isclose((1/1.2*fraction)/(2048*fraction),stock_dq)
+    return dict(stock_optimistic=stock, custom_local=local, custom_full_board=full,
+                half_mm_angular_allocation_rad_slope=allowed_dq)
+
+
 def geometry_screen():
     """Opaque, flat caps; central point; point source; no material inference.
 
@@ -294,7 +344,8 @@ def main():
                        required_y_span_at_z50_mm=w,
                        available_y_span_mm=WIDTH*250)
            for p,w in ((5.08,4.4),(6.35,4.4),(12.7,10.3))}
-    print(json.dumps(dict(radiometry=radiometry_screen(),geometry=geometry_screen(),
+    print(json.dumps(dict(finite_optics=finite_optics_screen(),
+        radiometry=radiometry_screen(),geometry=geometry_screen(),
         controls=controls,max_control_midpoint_error_mm=max_error,
         address_roundtrips=CELLS,bits=BITS,frames=2+2*BITS,
         projector_bin_mm_at_z25=DQ*275,max_height_bin_mm=max_interval,

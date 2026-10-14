@@ -55,38 +55,15 @@ label the same transport distribution's direct component. A stronger contrast
 threshold can reject this example, but cannot establish directness: a sufficiently
 weak direct return can leave an arbitrarily confident reflected address.
 
-## Optical and whole-machine obligations
+## Finite footprint control
 
-One bin projects to.006714mm at z25; the coding-axis field spans12.5mm at z50.
-Four caps run across the *other* axis, requiring19.64/23.45/48.40mm field widths
-at5.08/6.35/12.7mm pitch. Thus2048 independently resolved stripe positions across
-one row are assumed; no lens, projector pixel pitch, focus or camera footprint
-qualifies them. Uniform finite-footprint controls at a bin center preserve the
-result at0/1-bin width and return unknown at2/4 bins;128/256 midpoint quadratures
-agree. At a bin boundary even a one-bin direct-only footprint returns unknown.
-These box averages are sensitivity controls, not a measured optical PSF. Missing
-visibility, prop identity, camera sampling, calibration, noise, drift and motion
-remain unqualified. No guarantee of finite scan-to-accept time for covered caps.
-
-No resident parts are added or removed:1024/4096/6400 threaded pairs retain their
-manufacture, guides, thrust, capture and holding duties. Shared projector/camera,
-references and upper carrier replace no mechanical support. E-290's unsourced
-base-plus-optics$1068–1778 allocation is inherited only for comparison; it does
-**not** price the fine-pattern capability. Retain ~$500 original case, possible
-~$1000 finished value and separate$1000–1500 demonstrator, without purchase.
-At assumed.1s/frame and four caps/group, acquisition alone costs614.4/2457.6/3840s
-at1024/4096/6400. Local1/4/8 groups add2.4/9.6/19.2s before writing, routing,
-undocking, settling, calibration and retries. E-270/E-276 conditional gameplay
-schedules, S40/S50, minimum/raised neutral and paid preparation remain unchanged;
-these are sensing increments versus~30s, not new representative-map results.
-
-**Decision:** retain the direct-dominant absolute-code control; park optical
-pattern refinement. A next optical investment needs actual calibrated cap images
-or a physically constructed path discriminator and earned resolution/exposure,
-not another code-count or threshold sweep. The positive result removes a specific
-weak-reflection alias; it does not close actual-height acceptance. No hardware,
-print, holding or manufacturing qualification. E-281 remains optional/unprinted.
-
+The original field assumes 2048 independent stripe positions: one bin is
+0.006714 mm at z25 and the coding field spans 12.5 mm at z50. Uniform box
+footprints at a bin center retain the result at 0/1-bin width, return unknown at
+2/4 bins, and agree at 128/256 quadrature points. At a boundary even a one-bin
+direct footprint returns unknown. These are synthetic controls, not optical PSFs;
+there are no captured images or qualified scan-to-accept times. The finite-field
+screen below replaces the assumption of freely available optical resolution.
 
 ## Finite terrain geometry: stripe plane versus a single ray
 
@@ -133,15 +110,6 @@ paths stay unobstructed. Positive cosines admit diffuse reflection geometrically
 but the grazing incident angles caution against assigning strong weights without
 radiometry. This is a point-path construction; integrating finite wall area,
 projector pixels, BRDF, cap return and camera footprint is still owed.
-
-**Decision:** retain shared optical readback conditionally, with the3D side-wall
-path as the relevant falsification scene. Do not infer direct-path dominance from
-small baseline or a clear central ray, and do not infer dominant reflection from
-path existence. The next decision-changing optical check is finite-area
-radiometric bounding or calibrated images of a low cap beside a high wall,
-including source-address spread; further pattern/threshold sweeps remain parked.
-This extension adds no resident/shared hardware or scan frames: the preceding
-pitch, S40/S50/neutral, timing, cost, retention and optional-print limits stand.
 
 ## Finite-wall radiometry: path existence does not earn dominant return
 
@@ -197,14 +165,78 @@ amplifying this broad distribution does not concentrate it into the false45 bin.
 These factors are sensitivity ratios, not permissible BRDF multipliers or proof
 against glossy materials, props, multiple walls/bounces or a suppressed direct path.
 
-**Decision:** retain the direct-dominant control with a physically normalized
-one-wall example; stop presenting the abstract dominant path as a likely diffuse
-neighbor failure. Keep it as a conditional identifiability counterexample. A
-reader still needs earned finite optical resolution, exposure, calibration,
-material response and accessible cap identity; this result supplies none of those.
-Do not start another pattern/threshold sweep or request another print. Existing
-24-frame, ~30-s comparison, pitch/cell counts, S40/S50/neutral preparation,
-~$500/$1000/$1000–1500 cost comparisons, manufacture, retention and repair limits
-above are unchanged; no hardware is added or removed. Next useful optical work
-must earn a real finite projector/camera capability or calibrated material images,
-rather than replace these bounded weights with another arbitrary strong reflector.
+The abstract dominant-path witness remains conditional, not a likely result for
+this diffuse neighbor. Retain direct-dominant coding, with finite optics still
+owed. Material response, exposure, identity and covered-cap visibility remain
+unqualified; no further threshold or arbitrary-reflector sweep is justified.
+
+## Finite projector field: a working code is not a working optical reader
+
+**Sourced specification plus ideal-pinhole calculations, not hardware tests.**
+[TI's LightCrafter 4500 guide, revision F, table 1-1 and section 1.2.1](https://www.ti.com/lit/ug/dlpu011f/dlpu011f.pdf)
+(accessed 2026-10-14) gives throw ratio 1.2, focus range 0.5–2 m and a
+912-column × 1140-row diamond array. Revision F explicitly changes the older
+1.4 throw figure. Native diamond pixels are not the model's rectangular stripes.
+The stock engine does not earn focus at D300 (250–300 mm surface distance).
+
+Even **granting 2048 independent positions across its full horizontal field**,
+without claiming this native mapping, angular bin width is
+`dq=1/(1.2*2048)=0.000406901`, 16.67 times the earlier assumed bin.
+Put its closest surface at the specified 500-mm focus limit: D550 for S50.
+The field at the highest terrain is 416.67 mm. With the unchanged 8-mm baseline,
+a height bin beginning at zero spans **14.967 mm**. Cropping the active image
+reduces field and active pixels together; it does not improve angular sampling.
+This is a scoped failure of stock optics as a substitute for the fine-field
+model, not a rejection of structured light or a claim about measured accuracy.
+Focus range also does not establish simultaneous depth of field over 50 mm.
+
+The executable uses `dz=D-b/(b/D+dq)` for that zero-start bin, checks the inverse
+projection independently, and bounds any in-range bin by `D²*dq/b`. It separately
+screens an **unpriced custom 1920×1080 square-pixel projector/lens scenario** at
+D300/b8. Put four caps across the long axis and one across the short coding axis;
+cover them at z50. Required short-axis field is
+`max(cap_width,(3*pitch+cap_width)*1080/1920)`. Ideal sharp pixels, perfect focus,
+calibration and unoccluded direct return are granted; these are favorable
+necessary accounting controls, not selected hardware.
+
+| Pitch mm | Four-cap width mm | Coding field mm | Zero-start projector bin mm | With one same-size camera pixel mm |
+|---|---:|---:|---:|---:|
+|5.08|19.64|11.048|0.460|0.918|
+|6.35|23.45|13.191|0.549|1.095|
+|12.7|48.40|27.225|1.130|2.252|
+
+The last column adds projector and camera angular interval widths, then applies
+the same inverse relation; it is interval uncertainty, not RMS error or a claim
+that subpixel estimation is impossible. The previous exact camera ray was free
+calibration. Preserving the old angular bin while spanning all four caps would
+require at least **3218/3843/7930 cross-axis square pixels**, respectively.
+Coarser mechanics need fewer cells but wider four-cap optics; they do not
+inherently improve optical sampling.
+
+A custom full-board 406.4-mm square field at z50 on the same 1080 coding rows
+has a **16.029-mm** zero-start projector bin, before camera uncertainty. Achieving
+an illustrative 0.5-mm bin requires at least **36,516 coding rows** at this
+baseline and distance. The 0.5-mm allocation is a diagnostic, not a new product
+gate. Larger baseline, subpixel inference or another lens/topology changes the
+problem and must re-establish occlusion and calibration; none is supplied here.
+The full-board idealization grants framing without extra edge/offset margins.
+
+**Decision:** park the stock-engine substitution and the small-baseline
+whole-board absolute-pixel reader. Retain local optics only as a conditional
+construction requiring a priced lens/projector/camera with earned focus, spatial
+transfer and synchronization. Do not buy an engine or tune code thresholds from
+these numbers. The concrete next optical discriminator is whether a finite local
+lens can preserve useful contrast through the entire S40/S50 depth, rather than
+another ideal code. Covered caps still return unknown; optical verification does
+not establish load retention or repair.
+
+No resident parts change: 1024/4096/6400 threaded pairs and their manufacturing,
+support and service burdens remain. No camera/projector BOM or quote was earned;
+the inherited $1068–1778 allocation cannot price these custom optics against the
+~$500 reference, ~$1000 finished value or $1000–1500 demonstrator. The 24-frame
+sequence is retained for comparison: at assumed 0.1 s/frame, local 1/4/8 groups
+owe 2.4/9.6/19.2 s, and four-cap dense scans owe 614.4/2457.6/3840 s before motion,
+exposure qualification and retries. A full-board 2.4-s acquisition would have the
+coarse bins above, so it is not a proven shortcut to the ~30-s gameplay reference.
+Minimum/raised neutral and paid preparation remain as previously modeled. No
+new print, purchase, physical evidence or change to optional E-281.
