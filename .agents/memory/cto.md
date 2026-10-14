@@ -384,6 +384,15 @@ versus2048 array transfers is potential only. No fixture-fit sweep or new print.
   but it must earn low-cap visibility beside high terrain and full frame/cost
   accounting. Focus stacking similarly owes real preparation and exposure.
   No new print; E-281 remains optional. Canonical methods/limits are in E-292.
+- E-293 tests larger baseline rather than more aperture tuning. D300/dq.0005
+  b45/90 gives .997/.499mm bottom bins,not accuracy. Coarse b90 diagonal retains
+  23.63% central clear rectangle (16.05% under labelled .2/.2mm bounds),18.14%
+  at worst of four fixed grid-row caps. Fine b45 diagonal leaves only .163mm
+  square and loses the bounded reserve.2916 segment-box checks confirm sufficient
+  rectangles;58 gap escapes prohibit calling zero rectangle universal occlusion.
+  Retain coarse diagonal conditionally; next earn finite four-cap imagery,
+  camera sampling/calibration and decoding,not another baseline/angle sweep.
+ 24-frame timing/custom optics cost remain unearned; no new print or purchase.
 - E-271/E-272: routed16-output head is costly/complex; few direct spaced spindles
   remove belts/risers and remain the simple actuation control. Fine routed hardware
   collides. Coarse four/eight-spindle whole waits still depend on physical rate,
