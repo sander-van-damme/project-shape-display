@@ -301,9 +301,38 @@ def single_pair_service_check():
     print('service STOP: shared opening needs restraint transfer; cell closure repeats locks')
 
 
+
+def detachable_shank_check():
+    """Rigid axial envelope and explicitly allocated labor, not joint design."""
+    # Original thread is ABOVE keeper. Only the released lower tail crosses it.
+    # Common diametric errors may take opposite extremes; no process PDF.
+    margins=[]
+    for bore_error,tail_error,ecc in product((-.1,.1),(-.1,.1),(0,.1)):
+        margins.append((3.2+bore_error-(2.8+tail_error))/2-ecc)
+    assert isclose(min(margins),0,abs_tol=1e-12)
+    assert isclose((3.2-2.8)/2,.2)
+    # Collar/driver remains captured: this does not repair its faults.
+    assert 4.4-.1 > 3.2+.1 and 4.4-.1 > 2.8+.1
+    faults={'body':True,'threaded_shank':True,'driver_socket':False,
+            'driver_thrust_face':False,'keeper':False,'bottom_plate':False}
+    assert sum(faults.values())==2  # enumerated classes, NOT reliability coverage
+    # At minimum nut bottom2, tip64 must withdraw62mm relative to a held body.
+    assert isclose((64-2)/LEAD,62/3)
+    for n in (1024,4096,6400):
+        print('detachable N',n,'resident pieces',4*n,'extra pieces',2*n,
+              'added join+proof hours',[round(n*t/3600,2) for t in (15,45)],
+              'optimistic 32h budget minus prior low whole maker',
+              round(32-(22.97 if n==1024 else 65.71 if n==4096 else 97.72),2))
+        # Seven distinct added actions, no credit for automatic feed/gauging.
+        assert 7*n > n
+    print('detachable nominal/min bounded radial margin',.2,round(min(margins),9))
+    print('detachable: only body/shank extraction; captive driver faults unresolved')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
     installed_runin_check()
     bottom_thrust_service_check()
     single_pair_service_check()
+    detachable_shank_check()

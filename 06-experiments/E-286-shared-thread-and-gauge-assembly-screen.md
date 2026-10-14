@@ -14,24 +14,17 @@ or hardware measurements. Earlier detailed protocols remain in Git.
 
 ## Separate station: construction, detection and cost
 
-Control geometry: E-277 integral136×10.3-mm closed column with10-mm nut; E-280
-finished64-mm lead-3/90° screw,4-mm pilot, lower journal,4.4-mm collar/driver/socket.
-Two side-opening nests restrain the body; a clamp reacts load without squeezing
-the bore. A split collar cup and counterbalanced floating slide support the screw.
-A reversible spindle seeks backward at most one turn, then threads under limited
-preload/torque. No forced lead-matched Z: it could fake stripped-thread advance.
-Measure actual collar-to-nut displacement, downstream angle and torque. Read2 then
-16 turns; reverse2/return2; finish at nut bottom Z2. Full insertion owes62mm/20.67
-turns plus pilot approach, not just pickup. Withdraw without rotation, open nests
-laterally and transfer to operator. Catch falling parts; quarantine jams/unreadable
-states, with at most one low-torque reverse. Stop repeated lot failures.
-
-Per station: nests, clamp, cup, spindle/angle sensor, float/counterbalance, position
-and torque channels, guard/controller/catch. Per cell remain body+screw, thread,
-socket, collar support and two guide apertures:2048/12800 pieces at1024/6400.
-Feeding would add two oriented streams, transfers, escapements and reject diversion;
-none is credited. [DEPRAG's process overview](https://www.deprag.com/en/screwdriving-technology/deprag-apps/)
-supports torque/angle/depth instrumentation, not this polymer application or accuracy.
+E-277 integral136×10.3-mm body/10-mm nut; E-280 finished64-mm lead-3 screw.
+Two side nests hold body; split collar cup/counterbalanced slide support screw.
+Spindle seeks backward≤1turn then threads with limited torque/preload. Measure
+actual collar/nut displacement, downstream angle and torque; never impose Z feed.
+Read2/16turns, reverse2/return2, finish nut bottomZ2:62mm/20.67turn insertion.
+Catch parts; quarantine jams/unreadable states; at most one low-torque reverse.
+Station owes nests/clamp/cup/spindle, angle/position/torque sensors, float,
+guard/controller/catch; automated oriented feed/reject handling is unconstructed.
+Body+screw still2048/12800 pieces at1024/6400; threads/sockets/collar/two guides
+remain. [DEPRAG](https://www.deprag.com/en/screwdriving-technology/deprag-apps/)
+supports instrumentation concepts, not polymer qualification.
 
 **Assumed bounds:** lead3±.06mm/turn, gain±.2%, datum±.15mm, reading±.10mm,
 lost motion±.30mm. Common datum cancels within segments, not final position.
@@ -43,13 +36,11 @@ identical travel/low torque to good threads: these channels cannot distinguish t
 Entry burrs, tilt, offset and shared shrinkage remain unmodeled. Safe torque needs
 `good maximum + error < trip < damage minimum − overshoot`; no measured window.
 
-Manual allocations: three3-s handling actions +5/15/30s threading +4s gauge
-=18/28/43s, five operations. Station: same handling +1s start =10s, four operations;
-dwell19.33s from24.67 turns at assumed120rpm +7s overhead. Serial123 attempts/h
-versus manual200/129/84. Dwell is maker time unless useful work overlaps it.
-Station setup4–12h; table uses4h. Common work: frame/electrical8–16h, four channels
-10–30min each, removal/gauge10–30s/component, install8–20s/pair,5min/plate in two
-assumed289-up streams. Packing, yield, cleanup and repair are unqualified.
+Allocated manual handling9s+thread5/15/30s+gauge4s=18/28/43s, five actions.
+Station10s/four actions plus19.33s dwell at120rpm:123 attempts/h versus200/129/84.
+Dwell counts as maker time unless overlapped. Setup4–12h (table4).
+Common frame/electrical8–16h, four channels10–30min each, removal/gauge10–30s/part,
+install8–20s/pair,5min/plate in two assumed289-up streams; yield/packing unqualified.
 
 |N; all usable|Manual fast/mid/slow assembly h|Station active/serial h|Whole maker manual-mid/station-active h|
 |---|---:|---:|---:|
@@ -66,11 +57,10 @@ before exclusions. Reusing a spindle does not supply free gauges/calibration.
 
 ## Axial proof improves observation, not qualification
 
-Add force applicator/load cell and differential nut-to-collar probe; react through
-cup/frame, not spindle. Catch stays clear during measurement. Load/unload with
-angle locked, then spindle withdrawn/screw free; independently observe collar
-angle. Cup friction, frame flex, seating and drift need bounds. Unload into catch
-on power loss; quarantine failures. No constructed fixture or physical proof.
+Force applicator/load cell and differential nut/collar probe react through cup/frame,
+not spindle. Test angle-locked then free, observing collar angle. Cup friction,
+frame flex/seating/drift need bounds; clear catch during test, catch on power loss.
+Fixture unconstructed.
 
 Illustrative0.40±.02N, displacement error±.04mm, good stiffness10–40N/mm and
 weak.5–2N/mm give bands−.0305….082/.150….880mm: threshold.116 separates corners;
@@ -183,13 +173,10 @@ restraint. Enumerating all targets gives worst-case15/39 neighbors even choosing
 the nearer end of32/80-site rows; one fixed end gives31/79. Continuity covers travel
 between centers. Lifting the keeper instead also releases restraint.
 
-Segment repair sequence: isolate writer; record height/clear target miniature;
-secure pair; engage/prove temporary neighbor restraints; unlock4/open2 half-rails;
-extract; insert supported replacement; close2/lock4; prove permanent restraints
-before removing temporary ones; release target support; run in/verify only target;
-restore play. Eight common coarse actions +12 keeper actions =20; each neighbor
-adds4 (engage/prove temporary/prove permanent/release). Actions may require multiple
-touches; times, fragment/jam recovery and fixture setup are unpaid.
+Repair: disable writer; clear/secure target; engage/prove neighbor bypass;
+open keeper; replace; close/prove permanent restraints before releasing bypass;
+verify target. Eight common+12 keeper actions; each neighbor adds4 bypass/proof/
+release actions. Fragment recovery/setup unpaid; actions may need multiple touches.
 
 |Sites; segment width|Halves / allocated locks|Neighbors needing bypass|Actions/repair; all-site-once diagnostic|
 |---|---:|---:|---:|
@@ -216,18 +203,49 @@ fit. Neutral height cannot remove capture. Retain empty-board run-in; park windo
 row-service and per-site closure refinement. Reopen with changed removable ends
 preserving neighbor constraints or qualified bypass contacts. No new print/purchase.
 
-## Product boundary and decision
+## Detachable shank with captive driver
 
-E-276's$798–1768 coarse allocation does not price this new support/lock/inspection
-stack. Preserve~$500 reference/~$1000 finished/$1000–1500 demonstrator comparisons;
-no new price or purchase claim. S40/S50 local26.84/31.07s,scene201/223s,paid neutral
-271/332s,dense392/452s remain inherited conditional comparisons versus~30s; new thrust
-friction has not earned their speed. Minimum/elevated neutral and real bidirectional
-travel remain kinematic possibilities, not support qualification.
+**Conditional body/shank repair, not complete single-cell service.** Split the
+screw above its collar; leave4.4-mm collar/driver captive between unchanged keeper
+and bottom plate. A2.8-mm keyed tail enters from above: key transmits reversible
+torque, internal shoulder transmits gravity, axial fastener resists upward loads.
+Access fastener through bottom aperture while independently counter-holding driver.
+Wall/key/tail strength, access, anti-loosening and joint manufacture are unknown;
+a simple threaded coupling is not credited for reversing drive.
 
-**New result:** opening a row need not transfer gravity load, but complete neighbor
-restraint and damaged-pair extraction are unresolved. The single-pair extension
-rejects a translating service window and quantifies the segmentation/closure cost. Reopen through a concrete
-constraint-preserving service path or actual support/handling evidence. Closed-bore
-failure, open-row control, finite corners, settlement and ledger checks are self-review.
-No new owner print/purchase; E-281 remains optional.
+Disable/park writer; clear target miniature; secure body/shank; counter-hold driver,
+remove/capture retainer; lift whole pair; insert/seat/key replacement; secure and
+prove retention; verify target height/holding. Neighbor restraints stay closed.
+Thread already lies ABOVE keeper; only released tail crosses its bore. Nominal
+radial clearance.20mm becomes zero with assumed±.10-mm diametric errors and.10-mm
+eccentricity (eight corners). Not a process tolerance or clearance-tuning mandate.
+Tall-pair extraction, terrain/tool access and fragment recovery remain unconstructed.
+Removing only screw from held minimum-height body instead owes62mm/20.67turns.
+
+Driver cannot exit3.2/2.8-mm keeper/plate apertures. Socket/thrust/driver/keeper/plate
+faults retain prior service problem. Two repairable classes (body/shank) are not a
+failure-rate fraction; prevalence unknown. New joint can jam/strip too.
+Body+shank+driver+retainer doubles pieces to4096/25600 at1024/6400 sites. New
+functions/site: key, compression seat, tensile retention and proof. Seven allocated
+assembly actions: present driver, orient tail, seat, present retainer, counter-hold,
+tighten, verify. Assumed15–45s adds4.27–12.80h/1024,17.07–51.20h/4096,26.67–80h/6400.
+At1024 optimistic22.97h installed-run-in becomes27.24–35.77h before tooling/rejects
+and previous exclusions;32h reference leaves9.03h for all additions. Cost increment
+is N times delivered driver/retainer/joint cost plus tools; unquoted. Previous
+integral-screw print hours do not qualify split/keyed fabrication. Machining/molding
+may change cost/yield, not count. No automated feeding credited.
+
+**Park local joint CAD.** This changes release topology by leaving driver faults
+unresolved and adding1024/6400 joints. Reopen with robust reversible joint/access,
+fault prevalence and whole-process evidence. Executable interval/count checks are
+self-review, not contact simulation or physical repair. No print/purchase.
+
+## Product boundary
+
+E-276 coarse$798–1768 excludes new support/joint/inspection costs; compare~$500,
+~$1000 finished/$1000–1500 demonstrator without purchase authority. Inherited
+S40/S50 local26.84/31.07s,scene201/223s,neutral271/332s,dense392/452s are conditional
+versus~30s; new thrust drag has not earned speed. Minimum/elevated neutral and
+signed travel remain unqualified. Retain empty-board run-in; parked service
+variants require concrete restraint-preserving access/process evidence.
+E-281 remains the only optional print; no new purchase or print request.
