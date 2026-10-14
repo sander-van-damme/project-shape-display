@@ -192,50 +192,102 @@ change cost/yield, not counts. No automated feed credited.
 
 Park local joint CAD pending robust reversible access and whole-process evidence.
 
-## Offline bench repair control
+## Offline repair versus detachable shanks
 
-**Preserved play during repair need not be mandatory; safe support remains so.**
-Compare integral screws with offline row service before adding per-cell joints.
-Record desired terrain/miniature positions, clear miniatures, disable/park writer,
-place board upright on a bench stand, secure the entire affected row, open keeper,
-replace pair, close/prove restraints, remove fixture, verify/re-reference terrain
-and restore miniatures. Never drive a jammed pair home or transport an unsupported
-board. Saved commands are not actual height; uncertain unaffected state owes full
-recommissioning. Manual fallback setup/acceptability untested.
-Normal gameplay updates still owe unchanged-neighbor isolation.
+For body/shank faults only, avoiding15–45s/site split-joint assembly saves
+4.27–12.80h/1024 before bench-fixture setup. Extra10/30/60 hands-on minutes per
+bench episode erase this after25.6–76.8/8.53–25.6/4.27–12.8 episodes;
+at6400 and30min:53.33–160. Identity: N*assembly_seconds/(60*extra_minutes).
+Driver/socket faults are excluded: split shanks never solved them. No fault rates.
+The source retains reconstruction-only S50 stress: four ideal spindles,2s/visit,
+lead3,120/850rpm give44.09/13.55min per1024 cells before reset/proof/routing.
+The following closure comparison adds explicit affected-row work and reset.
 
-Removing miniatures leaves body weight/lean/handling loads. Reusable bench tooling
-still owes32/80 radial+capture functions and accessible frame reaction; no contacts
-or extraction construction are proven. Resident64/160 half-rails and128/320 locks
-remain at1024/6400. Omitting split shanks avoids2048/12800 added pieces and1024/6400
-joints, not ordinary threads/journals/thrust. Fixture setup and cost remain unpaid.
+## Bench versus repeated cell closures: operation and restoration ledger
 
-For **body/shank faults only**, avoided15–45s/site split-joint assembly equals
-4.27–12.80h/1024. Assumed extra10/30/60 hands-on minutes per bench episode versus
-local repair erase that saving after25.6–76.8/8.53–25.6/4.27–12.8 episodes;
-at6400 and30min:53.33–160. Identity: `episodes=N*assembly_seconds/(60*extra_minutes)`.
-Subtract additional fixture setup first. Driver/socket faults are excluded: split
-shanks never solved them. No fault rates assumed; eight faults
-in one32-site row disturb32 cells versus256 across eight rows. One repair episode
-need not equal one failed cell. Assembly hours cannot price interrupted play.
+**Offline repair can remove resident closures, but a saved map does not remove
+recommissioning.** Compare the same integral pair and bottom thrust with row
+keepers versus independently opening cell keepers (not detachable shanks).
+This extension is analytical; no closure/fit CAD, measured timings or fault rates.
+Both routes still owe extraction access and actual load/capture qualification.
 
-Ideal four-spindle batches,2s/visit,lead3,S50 travel and assumed120/850rpm give
-**stress restoration**, excluding repair/homing/routing/height proof/miniatures:
+Bench sequence: save cell-addressed absolute heights, datum/calibration version
+and miniature locations; clear all pieces; disable/park; secure board on stand;
+engage and verify row restraint before unlocking. Support the target independently,
+withdraw the entire pair upward, seat replacement onto bottom thrust, close/lock
+and prove keeper before releasing fixture. Re-home only after damaged parts and
+fragments are removed. No forced homing of a jam. The 136-mm body needs overhead
+withdrawal of its guide engagement plus handling clearance; collars must traverse
+all intervening layers. This is an owed access envelope, not a constructed path.
+If access requires removing a shared guide layer, expand affected cells to that
+layer's entire footprint; the row-only case then ceases to apply.
 
-|Affected cells|120rpm min|850rpm min|
+Count each unlock/open/close/lock as one allocated action: 4+2+2+4=12 per
+opened keeper; extraction/reinsertion adds2 per failed pair. Bench restraint adds
+4 actions per affected site (engage, verify, prove permanent restraint, release).
+These include healthy neighbors: a monolithic fixture earns no free gang proof.
+Common diagnosis, pair manufacture, target testing and general access work remain
+unpriced on BOTH routes. Additional bench-only recording/unloading/stand/reloading
+is a **600-s scenario**, not a measured workflow. At5s/action:
+
+|32² board; faults in one episode|Rows / disturbed cells|Bench / local actions|Extra bench hands-on min|
+|---|---:|---:|---:|
+|One|1 /32|142 /14|20.67|
+|Eight in same row|1 /32|156 /112|13.67|
+|Eight in different rows|8 /256|1136 /112|95.33|
+
+Local controls retain healthy neighbors but still require tool/extraction access;
+miniatures may need removal in that access footprint. Neither route promises
+in-session service. Counts above separate target extraction from the earlier
+20-action schematic; do not add both ledgers together. Eight co-repaired faults
+are one episode; eight separate calls pay setup eight times.
+
+Initial cell closures have2N halves/4N locks versus2w/4w for w rows (N=w²).
+Avoided placement/locking is6(N−w) actions:5952/24192/37920 at1024/4096/6400.
+At10–30s/initial action, less an assumed4h extra bench-fixture setup, net saving
+is12.53–45.60/63.20–197.60/101.33–312h. This is an allocation comparison, **not
+savings from demonstrated closures**; cell closure manufacture may add more burden.
+With the above service times,1024-cell break-even is36.39–132.39 single-fault
+**episodes**,55.02–200.20 clustered-eight episodes or7.89–28.70 scattered-eight
+episodes. At6400:165.82–510.55/204.94–631.01/27.22–83.82. No service frequency
+or lifetime winner follows. Recompute as
+`[6(N−w)*initial_action_s − extra_fixture_setup_s] / extra_bench_hands_s`;
+nonpositive numerator means no initial labor advantage. Changing5s/action or600s
+setup changes the denominator directly. Correlated failures change affected rows,
+not just fault count. These closure savings must NOT be added to avoided
+split-shank assembly: those are alternative hardware comparisons.
+
+Save commanded geometry separately from proven physical state. After restraint
+loss, assume affected cells unknown; after uncertain transport/guide disturbance,
+assume whole board unknown. Require valid saved datum/address identity and safe
+homing/actual-height checks. A stale map or unreadable height stops restoration.
+A fault-free saved command cannot certify damaged hardware or miniature positions.
+
+Executable replay uses fixed four-site row groups, assumed2s per phase visit,
+lead3, S50 maximum reset then saved absolute height h: each group owes
+`4+(50+max(h))*60/(3*rpm)` seconds. This adds reset to the earlier reconstruction-
+only table. Conditional bounded safe homing is assumed; routing, retries, settling,
+proof and manual work remain additional. Restoring N30 (h=30):
+
+|32² faults|Bench reset+restore min at120 /850rpm|Local min at120 /850rpm|
 |---|---:|---:|
-|32-site row|1.38|0.42|
-|1024 board|44.09|13.55|
-|80-site row|3.44|1.06|
-|6400 board|275.56|84.71|
+|One|2.31 /0.78|0.29 /0.10|
+|Eight same row|2.31 /0.78|0.58 /0.20|
+|Eight rows|18.49 /6.27|2.31 /0.78|
 
-Verified smaller travel reduces time; unknown state earns no credit. Minimum versus
-elevated neutral changes signed travel, not verification. Fine/quarter grids remain
-count controls;10.3-mm bodies do not fit. Not a30s update pass or scene benchmark.
-**Retain offline service as a conditional simpler control, not approved product UX.**
-Next construct accessible shared bench restraint/extraction and count setup; do not
-refine split joints. Owner choice belongs after a credible interruption/complexity
-trade exists. No new print, purchase or question. Checks are analytical self-review.
+Whole1024 unknown at850rpm takes22.09/24.09/25.10/27.11min for saved
+minimum/N20/N30/S50;6400 takes138.04/150.59/156.86/169.41min. N30 is a flat
+restoration diagnostic, not typical D&D terrain. Arbitrary maps use actual batch
+maxima; true bidirectional hardware and paid neutral are still owed. These times
+are separate from extra hands-on labor; unattended time is still interruption,
+attended time must also enter the labor denominator. Fine/quarter grids are count
+controls, not a claim10.3-mm bodies fit. Slower120rpm further increases downtime.
+
+**Decision:** retain bench repair as the simpler conditional control, not accepted
+repair UX. Saved-map recovery does not justify discarding regional isolation during
+ordinary gameplay. A preference requires demonstrated shared restraint/access and
+measured complete service labor/interruption; closure CAD and fault-frequency
+assumptions would not resolve those gaps. No print or purchase.
 
 ## Product boundary
 

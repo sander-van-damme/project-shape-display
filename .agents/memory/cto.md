@@ -237,7 +237,13 @@ still owes32/80 radial+capture functions; no constructed access. At30min extra
 hands-on/event,8.53–25.6 body/shank repair episodes erase avoided split-joint
 assembly at1024; fault rates unknown. Ideal full1024 S50 restoration13.55–44.09min
 at assumed850/120rpm excludes routing/proof/repair. Session interruption cannot be
-traded against assembly hours without owner evidence. Next useful service work
+traded against assembly hours without owner evidence. Closure comparison now counts row extraction/reassembly versus per-cell locks:
+at1024 assumed5s/action+10min bench overhead gives20.67min extra/single repair;
+avoided closure labor less4h fixture setup breaks even36.39–132.39 episodes.
+Eight faults in one/eight rows give13.67/95.33min extra,not fault-rate predictions.
+Saved N30 after unknown-state reset owes25.10min/1024 at850rpm before proof/routing;
+commands are not verified state. Do not add closure savings to split-shank savings.
+Next useful service work
 must construct accessible shared bench restraint/extraction and price setup,not
 another split joint or assumed fault-frequency sweep. E-281 remains optional.
 

@@ -373,6 +373,71 @@ def bench_repair_check():
           'if complete affected rows must be recommissioned')
 
 
+def offline_closure_comparison():
+    """Explicit service actions and saved-map replay; all times are allocations."""
+    def ledger(side, faults, local=False):
+        assert faults and all(0 <= r < side and 0 <= c < side for r,c in faults)
+        rows = len({r for r,c in faults})
+        cells = len(faults) if local else side*rows
+        # 12 = unlock4/open2/close2/lock4; extraction+reinsertion2 per fault.
+        # Bench: engage/prove/release/prove permanent =4 per affected site.
+        return rows, cells, 12*(len(faults) if local else rows)+2*len(faults)+(0 if local else 4*cells)
+
+    def replay(side, faults, saved, rpm, whole=False, local=False):
+        rows = {r for r,c in faults}
+        affected = set(faults) if local else ({(r,c) for r in range(side) for c in range(side)}
+                    if whole else {(r,c) for r in rows for c in range(side)})
+        seconds=0
+        # Conservative unknown initial state: bounded safe S50 homing, then
+        # restore absolute saved heights from minimum. Neither phase is proof.
+        # Fixed four-site row groups disallow free packing of scattered cells.
+        for r in range(side):
+            for start in range(0,side,4):
+                group=[(r,c) for c in range(start,min(start+4,side)) if (r,c) in affected]
+                if group:
+                    seconds += 4+(50+max(saved[x] for x in group))*60/(LEAD*rpm)
+        return seconds
+
+    for side in (32,64,80):
+        n=side**2
+        saved={(r,c):30 for r in range(side) for c in range(side)}
+        for label,faults in [('single',{(0,0)}),('cluster8',{(0,c) for c in range(8)}),
+                             ('scatter8',{(r,0) for r in range(8)})]:
+            rows,cells,bench=ledger(side,faults)
+            _,_,local=ledger(side,faults,True)
+            # Extra bench-only record/unload/stand/reload work600s;5s/action.
+            # Common diagnosis/replacement manufacture excluded from BOTH sides.
+            extra=600+5*(bench-local)
+            # Initial row vs per-cell closure placement:2 halves+4 locks each.
+            # Bench fixture setup4h subtracted;10--30s per initial operation.
+            savings=[6*(n-side)*t-4*3600 for t in (10,30)]
+            crossings=[max(0,x)/extra for x in savings]
+            assert extra>0
+            for saving,crossing in zip(savings,crossings):
+                assert isclose(crossing*extra,max(0,saving))
+            print('offline closure',n,label,'rows/cells/actions bench/local',rows,cells,bench,local,
+                  'extra hands min',round(extra/60,2),'break-even episodes',[round(x,2) for x in crossings])
+            for rpm in (120,850):
+                a=replay(side,faults,saved,rpm)
+                b=replay(side,faults,saved,rpm,local=True)
+                assert a>=b
+                print('reset+saved N30 min bench/local',rpm,round(a/60,2),round(b/60,2))
+        for height in (0,20,30,50):
+            targets={x:height for x in saved}
+            t=replay(side,{(0,0)},targets,850,whole=True)
+            assert isclose(t,n/4*(4+(50+height)*60/(LEAD*850)))
+            print('whole-state unknown',n,'saved absolute mm',height,'850rpm min',round(t/60,2))
+        assert ledger(side,{(0,0)})[2]==12+4*side+2
+        # Same row batched repair opens one keeper, not eight episodes.
+        assert ledger(side,{(0,c) for c in range(8)})[0]==1
+    # Hand-derived corner: row32, N30,120rpm =8*(4+80/6) seconds.
+    saved={(0,c):30 for c in range(32)}
+    assert isclose(replay(32,{(0,0)},saved,120),8*(4+80/6))
+    # A zero-height saved map still owes reset and a verification visit.
+    assert replay(32,{(0,0)},{(0,c):0 for c in range(32)},120)>0
+    print('offline closure: no rates, measured times, accessible fixture or height-proof pass')
+
+
 if __name__ == '__main__':
     check()
     proof_check()
@@ -381,3 +446,4 @@ if __name__ == '__main__':
     single_pair_service_check()
     detachable_shank_check()
     bench_repair_check()
+    offline_closure_comparison()
