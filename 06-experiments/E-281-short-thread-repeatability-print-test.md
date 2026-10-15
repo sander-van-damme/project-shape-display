@@ -9,7 +9,7 @@ One optional small physical discriminator follows E-277's support-free 90°
 profile. It asks whether unmodified nominal threads actually mate consistently;
 CAD and slicer paths cannot measure this. It does **not** restart local fit
 optimization or qualify the parked long-screw manufacturing routes. No physical
-results exist. Owner handoff: `owner-print-tests/short-thread-fit/test.md`.
+results exist. Owner handoff: `owner-print-tests/2026-10-14-short-thread-fit/test.md`.
 
 ## Changed specimen and decision
 
@@ -93,7 +93,7 @@ Owner reports printing the five screw/nut pairs on a Bambu Lab X1 Carbon and man
 
 This supports manual thread-fit feasibility and suggests subjective repeat-to-repeat variation within nominal pairs, without establishing its cause. The easiest-feeling pair is **not** a proven production clearance: backlash, loading, wear, driven performance and long-array yield are untested.
 
-**Critical geometry boundary:** the coupon nuts are **10.3 mm wide** and do not establish suitability at a fine pin pitch. The owner independently recalls previously printing a functioning narrow Trial 5 threaded-column family, based on archived CAD showing **4.4-mm outer width**, though exact successful print parameters remain unidentified. A recent attempt to print the shortened Trial 5 replica with supports filled the hollow threaded bore; supports were left in place, so the new replica has **no valid fit test** (not a demonstrated thread failure). See `owner-print-tests/trial5-short-replica/test.md`.
+**Critical geometry boundary:** the coupon nuts are **10.3 mm wide** and do not establish suitability at a fine pin pitch. The owner independently recalls previously printing a functioning narrow Trial 5 threaded-column family, based on archived CAD showing **4.4-mm outer width**, though exact successful print parameters remain unidentified. A recent attempt to print the shortened Trial 5 replica with supports filled the hollow threaded bore; supports were left in place, so the new replica has **no valid fit test** (not a demonstrated thread failure). See `owner-print-tests/2026-10-14-trial5-short-replica/test.md`.
 
 **Decision:** complete this short-fit test; retain compact integrated-thread geometry as an unresolved prerequisite to any independently moving dense pin array. Do not assume the 0.20-mm coupon clearance transfers to the narrow Trial 5 geometry.
 

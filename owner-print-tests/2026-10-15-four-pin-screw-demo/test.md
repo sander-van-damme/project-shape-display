@@ -1,12 +1,14 @@
 # Printtest — vier onafhankelijk aangedreven schroefpinnen
 
-> Voorwaardelijke mechanische vervolgproef. Nog niet geprint of fysiek bewezen. Eerst de [compacte passingplaat](../compact-screw-fit/test.md); kies daarna hoogstens **één** van onderstaande alternatieve platen.
+> **Update bestandsformaat (2026-10-15):** dit E-295-pakket bevat momenteel geometrie als STL en slechts tekstuele slicerinstellingen. Een opnieuw in Bambu Studio gecontroleerd `.3mf`-project met opgeslagen X1 Carbon-instellingen is **nog niet aangeleverd**. Reeds gestarte eigenaarprints blijven observaties; noteer de daadwerkelijk gebruikte instellingen. Voor nieuwe volledig printklare handoffs geldt [owner-print-tests/AGENTS.md](../AGENTS.md).
+
+> Voorwaardelijke mechanische vervolgproef. Nog niet geprint of fysiek bewezen. Eerst de [compacte passingplaat](../2026-10-15-compact-screw-fit/test.md); kies daarna hoogstens **één** van onderstaande alternatieve platen.
 
 **Status:** DEFERRED\
 **Prioriteit:** geen\
 **Laatst beoordeeld:** 2026-10-15\
 **Reden:** de compacte draadpassing moet eerst soepel en reproduceerbaar blijken; deze uitgewerkte demonstratie is geen tweede actieve printopdracht.\
-**Technische bron:** [E-295](../../06-experiments/E-295-compact-screw-drive-development.md), [CAD-bron](demo.scad), gedeelde [draadbron](../compact-screw-fit/thread-kernel.scad).
+**Technische bron:** [E-295](../../06-experiments/E-295-compact-screw-drive-development.md), [CAD-bron](demo.scad), gedeelde [draadbron](../2026-10-15-compact-screw-fit/thread-kernel.scad).
 
 ## 1. Waarom deze test? — CTO
 

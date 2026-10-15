@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild three alternative complete plates; owners select one, no compilation.
 Example from repository root:
-  python owner-print-tests/four-pin-screw-demo/generate.py \
+  python owner-print-tests/2026-10-15-four-pin-screw-demo/generate.py \
     --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
 Requires OpenSCAD, git, and Python trimesh. Then run validate.py.
 """

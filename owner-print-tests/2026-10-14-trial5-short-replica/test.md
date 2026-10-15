@@ -1,6 +1,6 @@
 # Trial 5 — verkorte printtest
 
-**Status: DEFERRED (printpoging met supports, geen functionele passingtest).** Deze compacte test blijft inhoudelijk relevant ondanks de geslaagde grotere [short-thread-fit](../short-thread-fit/test.md). Geen herprintverplichting.
+**Status: DEFERRED (printpoging met supports, geen functionele passingtest).** Deze compacte test blijft inhoudelijk relevant ondanks de geslaagde grotere [short-thread-fit](../2026-10-14-short-thread-fit/test.md). Geen herprintverplichting.
 
 ## Doel en herkomst
 

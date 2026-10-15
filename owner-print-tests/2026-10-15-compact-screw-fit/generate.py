@@ -3,7 +3,7 @@
 
 Requires OpenSCAD, pinned BOSL2, Python numpy/trimesh/manifold3d/matplotlib.
 Example (from repository root):
-  python owner-print-tests/compact-screw-fit/generate.py \
+  python owner-print-tests/2026-10-15-compact-screw-fit/generate.py \
     --bosl2 work/compact-screw-fit/BOSL2 --scratch work/compact-screw-fit
 No printer G-code is generated. The supplied STL can be imported directly.
 """

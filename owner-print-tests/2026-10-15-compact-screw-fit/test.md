@@ -1,12 +1,14 @@
 # Printtest — vijf compacte schroefstaafjes van 4,4 mm
 
+> **Update bestandsformaat (2026-10-15):** dit E-295-pakket bevat momenteel geometrie als STL en slechts tekstuele slicerinstellingen. Een opnieuw in Bambu Studio gecontroleerd `.3mf`-project met opgeslagen X1 Carbon-instellingen is **nog niet aangeleverd**. Reeds gestarte eigenaarprints blijven observaties; noteer de daadwerkelijk gebruikte instellingen. Voor nieuwe volledig printklare handoffs geldt [owner-print-tests/AGENTS.md](../AGENTS.md).
+
 > **Nog niet fysiek getest.** Deze kleine plaat toetst of de succesvolle recente draad ook soepel werkt in een slanke pin. De meegeleverde buitenvoetjes zijn tijdelijke handtest-/printsteunen en passen zelf niet in een 5,08-mm raster.
 
 **Status:** READY\
 **Prioriteit:** P1\
 **Laatst beoordeeld:** 2026-10-15\
 **Reden:** één kleine plaat combineert aantoonbaar bewegende schroefgeometrie met de compacte Trial 5-doorsnede; bron, meshes en echte slicerpaden zijn gecontroleerd. Fysieke passing en hechting blijven onbekend.\
-**Technische bron:** [E-295 — compacte geometrie en bewijs](../../tools/curated-experiment-checks/E-295/research/compact-geometry.md), voortbouwend op [short-thread-fit](../short-thread-fit/test.md) en het originele Trial 5.
+**Technische bron:** [E-295 — compacte geometrie en bewijs](../../tools/curated-experiment-checks/E-295/research/compact-geometry.md), voortbouwend op [short-thread-fit](../2026-10-14-short-thread-fit/test.md) en het originele Trial 5.
 
 ## 1. Waarom deze test? — CTO
 

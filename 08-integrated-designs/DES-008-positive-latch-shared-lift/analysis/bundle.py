@@ -34,8 +34,8 @@ def main():
     for name in ['AGENTS.md', '01-project-description/shape-display-mission.md',
                  '02-design-criteria/current-prototype-priorities.md',
                  'owner-print-tests/AGENTS.md',
-                 'owner-print-tests/short-thread-fit/test.md',
-                 'owner-print-tests/trial5-short-replica/test.md',
+                 'owner-print-tests/2026-10-14-short-thread-fit/test.md',
+                 'owner-print-tests/2026-10-14-trial5-short-replica/test.md',
                  'owner-print-tests/radial-pinch-four-pin/test.md']:
         files.add(Path(name))
     for path in files:

@@ -62,9 +62,9 @@ Het ontbreken van slicersupport is op zichzelf geen bewijs van goede printstabil
 De eigenaar gebruikt uitsluitend de geleverde STL. Voor CAD-onderhoud zijn OpenSCAD, git, trimesh, numpy en manifold3d nodig; voor de doorsnede ook matplotlib. De gepinde BOSL2-checkout moet schoon zijn en exact revision `136e6367e65d52196a3ea51d03156f8b622c60fc` hebben.
 
 ```sh
-python owner-print-tests/four-pin-screw-demo/generate.py --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
-python owner-print-tests/four-pin-screw-demo/validate.py
-python owner-print-tests/four-pin-screw-demo/render-section.py
+python owner-print-tests/2026-10-15-four-pin-screw-demo/generate.py --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
+python owner-print-tests/2026-10-15-four-pin-screw-demo/validate.py
+python owner-print-tests/2026-10-15-four-pin-screw-demo/render-section.py
 ```
 
 `generate.py` bewaart de bestaande `OPENSCADPATH`, controleert de libraryversie, vangt OpenSCAD-output op en faalt bij waarschuwingen/fouten. De drie platen zijn alternatieven; na een fysieke beslissing wordt hoogstens één gekozen. Er ontstaat geen autonome printwachtrij of vervolgtakenketen.

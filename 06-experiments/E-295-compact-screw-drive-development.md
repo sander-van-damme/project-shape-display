@@ -11,8 +11,8 @@ builds-on: [E-281, E-277]
 
 ## Voor Sander: wat eerst printen
 
-1. **Eerst alleen [compact-five-pairs.stl](../owner-print-tests/compact-screw-fit/compact-five-pairs.stl)** — de [korte instructies en het resultatenformulier](../owner-print-tests/compact-screw-fit/test.md) zijn leidend. Vijf schroeven en vijf 4,4-mm staafjes; radiale spelingen 0,15 / 0,175 / 0,20 mm, met drie exemplaren van 0,175. Geleverde oriëntatie behouden, supports uit, externe voeten zijn al ontworpen. Circa 42 minuten / 3,2 g PLA in het vastgelegde vergelijkingsprofiel, geen gemeten X1C-tijd.
-2. **Daarna eventueel [vierpins-demonstratie](../owner-print-tests/four-pin-screw-demo/test.md)**, status DEFERRED tot een compacte passing bruikbaar blijkt. Complete STL-platen voor de drie spelingen zijn inbegrepen; kies precies één passende variant. Eén handkop selecteert vier aangrenzende schroeven op 5,08 mm pitch, met op/neerbeweging en werkelijke verhoogde middenstand. Er hoeft niets gecompileerd te worden.
+1. **Eerst alleen [compact-five-pairs.stl](../owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.stl)** — de [korte instructies en het resultatenformulier](../owner-print-tests/2026-10-15-compact-screw-fit/test.md) zijn leidend. Vijf schroeven en vijf 4,4-mm staafjes; radiale spelingen 0,15 / 0,175 / 0,20 mm, met drie exemplaren van 0,175. Geleverde oriëntatie behouden, supports uit, externe voeten zijn al ontworpen. Circa 42 minuten / 3,2 g PLA in het vastgelegde vergelijkingsprofiel, geen gemeten X1C-tijd.
+2. **Daarna eventueel [vierpins-demonstratie](../owner-print-tests/2026-10-15-four-pin-screw-demo/test.md)**, status DEFERRED tot een compacte passing bruikbaar blijkt. Complete STL-platen voor de drie spelingen zijn inbegrepen; kies precies één passende variant. Eén handkop selecteert vier aangrenzende schroeven op 5,08 mm pitch, met op/neerbeweging en werkelijke verhoogde middenstand. Er hoeft niets gecompileerd te worden.
 
 Er is één actieve READY-printproef, geen groeiende printwachtrij en geen deadline. Slecht passende of beschadigde onderdelen niet met een tang, boormachine of schuren passend maken: juist die uitkomst bepaalt de volgende ontwerpkeuze.
 
@@ -32,7 +32,7 @@ De externe dunne printvoeten verankeren de korte holle staafjes zonder materiaal
 - **Nieuwe resultaten:** gesloten CAD-meshes, botsingsberekeningen en echte slicerpaden. Passing, hechting, sterkte en buurvrijloop blijven fysiek onbekend. Handmatig koppelen bewijst nog geen automatische uitlijning.
 - **Aandrijfstudie:** technische bronnen en reproduceerbare scenario's, geen gemeten machinesnelheden of leveranciersgaranties.
 
-Details: [compacte geometrie](../tools/curated-experiment-checks/E-295/research/compact-geometry.md), [onafhankelijke review](../tools/curated-experiment-checks/E-295/research/independent-review.md), [bestaande fysieke resultaten](../owner-print-tests/short-thread-fit/test.md). Historische experimenten zijn niet herschreven.
+Details: [compacte geometrie](../tools/curated-experiment-checks/E-295/research/compact-geometry.md), [onafhankelijke review](../tools/curated-experiment-checks/E-295/research/independent-review.md), [bestaande fysieke resultaten](../owner-print-tests/2026-10-14-short-thread-fit/test.md). Historische experimenten zijn niet herschreven.
 
 ## Aandrijvingen op systeemniveau
 
