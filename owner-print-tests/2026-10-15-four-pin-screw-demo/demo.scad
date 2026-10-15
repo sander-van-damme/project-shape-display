@@ -1,6 +1,6 @@
 // E-295 conditional 2x2 screw demo. Millimetres. Not a physically proven rig.
-// Reuse exactly the compact coupon thread; see ../compact-screw-fit/thread-kernel.scad.
-include <../compact-screw-fit/thread-kernel.scad>
+// Reuse exactly the compact coupon thread; see ../2026-10-15-compact-screw-fit/thread-kernel.scad.
+include <../2026-10-15-compact-screw-fit/thread-kernel.scad>
 part="plate";
 relief=.175;
 pitch=5.08;

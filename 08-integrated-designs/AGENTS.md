@@ -1,1 +1,2 @@
 Retain one ID-bearing engineering document per integrated design and its reusable CAD/calculation source. Do not confuse simulations or meshes with measured validation; generated renders/STLs usually remain scratch. Explicitly requested ready-to-slice owner packages are an exception and live under `owner-print-tests/`. Change only to answer an assigned decision.
+Owner print packages must follow the configured X1 Carbon 3MF handoff standard in `owner-print-tests/AGENTS.md`. STLs remain useful geometry sources but are not a complete printer profile.

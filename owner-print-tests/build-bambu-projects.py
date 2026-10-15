@@ -140,15 +140,15 @@ def main():
                      'filament_settings_id': ['Generic PLA - owner X1C 220C'],
                      'name': 'Generic PLA - owner X1C 220C'})
     printer['printer_settings_id'] = 'Bambu Lab X1 Carbon 0.4 nozzle'
-    jobs = [('compact-screw-fit', 'compact-five-pairs')]
-    jobs += [('four-pin-screw-demo', f'four-pin-demo-{label}-plate') for label in ['015', '0175', '020']]
+    jobs = [('2026-10-15-compact-screw-fit', 'compact-five-pairs')]
+    jobs += [('2026-10-15-four-pin-screw-demo', f'four-pin-demo-{label}-plate') for label in ['015', '0175', '020']]
     for folder, stem in jobs:
-        target = HERE / ('2026-10-15-' + folder)
+        target = HERE / folder
         target.mkdir(exist_ok=True)
         job = scratch / stem
         job.mkdir(exist_ok=True)
-        p = dict(process, brim_type='no_brim' if folder == 'compact-screw-fit' else 'outer_only',
-                 brim_width='0' if folder == 'compact-screw-fit' else '3', brim_object_gap='0')
+        p = dict(process, brim_type='no_brim' if folder == '2026-10-15-compact-screw-fit' else 'outer_only',
+                 brim_width='0' if folder == '2026-10-15-compact-screw-fit' else '3', brim_object_gap='0')
         for name, config in [('printer', printer), ('filament', filament), ('process', p)]:
             (job / (name + '.json')).write_text(json.dumps(config, indent=2) + '\n')
         provenance = input_project(HERE / folder / (stem + '.stl'), job / 'input.3mf')

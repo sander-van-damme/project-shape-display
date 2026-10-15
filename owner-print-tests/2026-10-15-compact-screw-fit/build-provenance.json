@@ -5,7 +5,7 @@
   "preview_environment": "Official unmodified Bambu binary; headless Weston/OSMesa with Xvfb and a GLX/OSMesa function-lookup preload bridge. This renders geometry previews; toolpath evidence is separately reconstructed from embedded G-code.",
   "projects": [
     {
-      "stl": "compact-screw-fit/compact-five-pairs.stl",
+      "stl": "2026-10-15-compact-screw-fit/compact-five-pairs.stl",
       "stl_sha256": "478d9087e4f566126f7ec21d8f4b9ac374546707f80fec7272b699bb4b83b56c",
       "body_count": 10,
       "translation_mm": [
@@ -101,7 +101,8 @@
       "bambu_cli_exit_code": 0,
       "builder": "owner-print-tests/build-bambu-projects.py",
       "builder_sha256": "c631008ba06595a13c4d33e603dabeaa95696bdaf799b640aad11a2261a8487f",
-      "gcode_sha256": "aac985b7ba353a503b0b282dc8cd17e20584cef53d5a059e18f793c7af02ff75"
+      "gcode_sha256": "aac985b7ba353a503b0b282dc8cd17e20584cef53d5a059e18f793c7af02ff75",
+      "stl_path_at_generation": "compact-screw-fit/compact-five-pairs.stl"
     }
   ],
   "python_packages": {
@@ -111,5 +112,6 @@
     "matplotlib": "3.11.2",
     "scipy": "1.18.1",
     "networkx": "3.7"
-  }
+  },
+  "path_migration_note": "STL paths now follow the date-prefixed canonical directories. stl_path_at_generation and builder_sha256 preserve the original build provenance; project and G-code bytes are unchanged by the directory merge."
 }

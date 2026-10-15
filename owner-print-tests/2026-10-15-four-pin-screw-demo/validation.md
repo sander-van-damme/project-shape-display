@@ -51,7 +51,7 @@ De [doorsnede](assembly-section.png) is uit de geleverde nominale STL-lichamen g
 
 ## Slicercontrole en ontworpen ondersteuning
 
-**Actuele Bambu-oplevering (2026-10-15):** de drie [complete X1C/0,4/PLA-projecten](../2026-10-15-four-pin-screw-demo/test.md) bewaren printer-, filament- en procesinstellingen plus daadwerkelijke Bambu Studio 02.08.02.61-paden. Die pagina bevat exacte instellingen, nieuwe tijd-/materiaalramingen en onafhankelijke rapporten van alle varianten. De hieronder beschreven PrusaSlicer-uitvoer blijft historisch vergelijkingsbewijs. De Bambu-controle vindt maximaal 8,985 mm vrije brug en 2,823 mm ankerafstand tot vorige-laagmateriaal; doorhang blijft onbekend. De status blijft DEFERRED tot fysiek bewezen compacte passing.
+**Actuele Bambu-oplevering (2026-10-15):** de drie [complete X1C/0,4/PLA-projecten](bambu-settings.md) bewaren printer-, filament- en procesinstellingen plus daadwerkelijke Bambu Studio 02.08.02.61-paden. Die pagina bevat exacte instellingen, nieuwe tijd-/materiaalramingen en onafhankelijke rapporten van alle varianten. De hieronder beschreven PrusaSlicer-uitvoer blijft historisch vergelijkingsbewijs. De Bambu-controle vindt maximaal 8,985 mm vrije brug en 2,823 mm ankerafstand tot vorige-laagmateriaal; doorhang blijft onbekend. De status blijft DEFERRED tot fysiek bewezen compacte passing.
 
 De onderdelen hebben bewuste bedcontacten: brede kooiwand liggend, onderplaat vlak, schroeven op hun kraag en pinnen op hun vierkante rand. Een 3 mm **buitenbrim met nul spleet** vergroot het contact van de schroef tot circa 10,4 mm diameter en de pin tot een vergelijkbare buitenmaat. Binnenbrim en automatische supports blijven uit. Deze 18–21,5 mm korte delen plus brim beperken het eerdere lange-staafrisico; dat is nog geen fysieke hechtingsgarantie.
 
@@ -64,9 +64,9 @@ Het ontbreken van slicersupport is op zichzelf geen bewijs van goede printstabil
 De eigenaar opent bij voorkeur het gekozen complete 3MF-project; de oorspronkelijke STLs blijven behouden. Voor CAD-onderhoud zijn OpenSCAD, git, trimesh, numpy en manifold3d nodig; voor de doorsnede ook matplotlib. De gepinde BOSL2-checkout moet schoon zijn en exact revision `136e6367e65d52196a3ea51d03156f8b622c60fc` hebben.
 
 ```sh
-python owner-print-tests/four-pin-screw-demo/generate.py --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
-python owner-print-tests/four-pin-screw-demo/validate.py
-python owner-print-tests/four-pin-screw-demo/render-section.py
+python owner-print-tests/2026-10-15-four-pin-screw-demo/generate.py --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
+python owner-print-tests/2026-10-15-four-pin-screw-demo/validate.py
+python owner-print-tests/2026-10-15-four-pin-screw-demo/render-section.py
 ```
 
 `generate.py` bewaart de bestaande `OPENSCADPATH`, controleert de libraryversie, vangt OpenSCAD-output op en faalt bij waarschuwingen/fouten. De drie platen zijn alternatieven; na een fysieke beslissing wordt hoogstens één gekozen. Er ontstaat geen autonome printwachtrij of vervolgtakenketen.

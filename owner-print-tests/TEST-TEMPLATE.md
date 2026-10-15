@@ -1,12 +1,14 @@
 # Printtest — [korte titel]
 
-> **CTO:** vul de voorbereiding, STL-bestanden, instructies en afkeurcriteria in. **Sander:** vul pas na een eventuele print de resultaten in. Een leeg resultatenvak betekent *nog niet getest*, niet *mislukt*.
+> **CTO:** vul de voorbereiding, een gevalideerd Bambu Studio `.3mf` met X1 Carbon-instellingen, instructies en afkeurcriteria in. **Sander:** vul pas na een eventuele print de resultaten in. Een leeg resultatenvak betekent *nog niet getest*, niet *mislukt*.
 
 **Status:** DRAFT / READY / DEFERRED / COMPLETED / RETIRED (kies één)  
 **Prioriteit:** P1 / P2 / P3 / geen (alleen READY krijgt P1–P3)  
 **Laatst beoordeeld:** [datum]  
 **Reden voor huidige prioriteit/status:** [één zin]  
 **Technische bron:** [link naar relevante GitHub-code/experiment/beslissing]
+
+**Mapnaam:** `owner-print-tests/YYYY-MM-DD-korte-omschrijving/` (datum eerste introductie, daarna stabiel). Een READY-test heeft altijd een echt opgeslagen en opnieuw gesliced Bambu Studio 3MF-project; STL-only en mesh-only 3MF zijn niet voldoende.
 
 ## 1. Waarom deze test? — CTO
 
@@ -17,20 +19,21 @@
 
 ## 2. Printklaar — CTO
 
-| STL-bestand (exacte bestandsnaam, in deze map) | Wat is het? / aantal | Variante / herkenbaar label |
+| Bambu Studio `.3mf` (exacte bestandsnaam, in deze map) | Wat is het? / aantal | Variante / herkenbaar label |
 |---|---|---|
-| `[voorbeeld-bestandsnaam].stl` | [functie en hoeveelheid] | [A/B/...] |
+| `[voorbeeld-bestandsnaam].3mf` | [functie en hoeveelheid] | [A/B/...] |
 
 - **Printjobs:** [1 kleine plaat; alleen indien verantwoord 2 of 3]
 - **Materiaal:** [bijv. PLA; geen onaangekondigde aankopen]
-- **Printer/profiel:** [indien relevant; nozzle, laaghoogte, schaal 100%]
+- **Printer/profiel:** **Bambu Lab X1 Carbon**; [nozzle, Bambu Studio-versie, filament/bed/temperatuur]
+- **Werkelijk opgeslagen procesinstellingen in 3MF:** [laaghoogte + eerste laag, Arachne/Classic, wandlijnen/lijnbreedte, infill, buitenwand-/eerste-laagsnelheid, acceleratie, supports, brim/raft, XY-/gat-/elephant-footcompensatie en koeling]
 - **Oriëntatie en supports/brim:** [concreet]
 - **Verwachte printtijd en materiaal:** [schatting of slicerwaarde, als zodanig gelabeld]
 - **Extra benodigdheden:** [liefst geen; anders vooraf duidelijk vermelden]
-- **STL-controle door CTO:** [datum; mm-afmetingen, mesh/printbaarheid en visuele verificatie]
+- **3MF-validatie door CTO (reopenen in Bambu Studio op X1C, opnieuw slicen en kritische toolpaths controleren):** [datum; mm-afmetingen, mesh/printbaarheid en visuele verificatie]
 - **Let op / veilig gebruik:** [bijv. geen scherpe randen, niet forceren]
 
-**Voor Sander:** download de vermelde `.stl`-bestanden, open ze rechtstreeks in je slicer en print ze met bovenstaande instellingen. **Je hoeft geen OpenSCAD, Python of CAD-bestanden te compileren.** Dit is volledig vrijblijvend; er staat geen deadline op.
+**Voor Sander:** open het vermelde `.3mf`-project rechtstreeks in Bambu Studio; controleer dat X1 Carbon en het opgeslagen procesprofiel geladen zijn en print zonder instellingen te moeten overtypen. **Je hoeft geen OpenSCAD, Python of CAD-bestanden te compileren.** Dit is volledig vrijblijvend; er staat geen deadline op.
 
 ## 3. Test in enkele stappen — CTO
 
@@ -45,6 +48,7 @@
 ## 4. Mijn resultaten — Sander
 
 **Testdatum:** [invullen, of leeg laten]  
+**Werkelijk gebruikt 3MF-bestand en eventuele wijzigingen aan het opgeslagen profiel:** [invullen]  
 **Printer / filament / gebruikte slicerinstellingen (indien anders):** [invullen]  
 **Print gelukt?** [ ] ja  [ ] deels  [ ] nee  [ ] nog niet geprint
 
@@ -64,4 +68,4 @@
 **GO / NO-GO / vervolgactie:** [nog open]  
 **Nieuwe prioriteit/status, datum en reden:** [nog open]
 
-> Uitblijvende feedback is geen meetresultaat en geen blokkade. Bij achterhaald ontwerp: zet status op RETIRED, leg de reden vast en verwijder verouderde STL-bestanden.
+> Uitblijvende feedback is geen meetresultaat en geen blokkade. Bij achterhaald ontwerp: zet status op RETIRED, leg de reden vast en archiveer niet meer actieve printprojecten en bewaar relevante historische CAD-/STL-bronnen.

@@ -98,8 +98,8 @@ Het [vergelijkingsprofiel](../validation/comparison-012.ini) gebruikt 0,4-mm noz
 Vanuit de repositoryroot, met een beschikbare PrusaSlicer 2.7.2:
 
 ```sh
-prusa-slicer --load tools/curated-experiment-checks/E-295/validation/comparison-012.ini --threads 2 --perimeter-generator arachne --export-gcode --output work/compact-comparison.gcode owner-print-tests/compact-screw-fit/compact-five-pairs.stl
-python tools/curated-experiment-checks/E-295/independent_toolpath_review.py --stl owner-print-tests/compact-screw-fit/compact-five-pairs.stl --gcode work/compact-comparison.gcode --output work/compact-review
+prusa-slicer --load tools/curated-experiment-checks/E-295/validation/comparison-012.ini --threads 2 --perimeter-generator arachne --export-gcode --output work/compact-comparison.gcode owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.stl
+python tools/curated-experiment-checks/E-295/independent_toolpath_review.py --stl owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.stl --gcode work/compact-comparison.gcode --output work/compact-review
 python tools/curated-experiment-checks/E-295/compact_wall_review.py --gcode work/compact-comparison.gcode --output work/compact-wall-review.json
 ```
 

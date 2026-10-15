@@ -1,37 +1,82 @@
-# Compacte passing — Bambu Studio-project
+# Printtest — vijf compacte schroefstaafjes van 4,4 mm
 
-**Status:** READY · **Prioriteit:** P1 · **Beoordeeld:** 2026-10-15. Dit is de 3MF-uitvoering van [de bestaande compacte passingtest](../compact-screw-fit/test.md), dezelfde ene plaat. Fysieke passing is nog onbekend.
+> **Bambu-oplevering (2026-10-15):** complete X1 Carbon/0,4-mm/PLA-projecten met opgeslagen instellingen en daadwerkelijk gecontroleerde slicerpaden zijn aangeleverd. Zie [exact profiel en validatie](bambu-settings.md). Fysieke passing blijft onbekend; noteer bij een print de werkelijk gebruikte instellingen.
 
-Open [**compact-five-pairs.3mf**](compact-five-pairs.3mf) in Bambu Studio als **project**, met de projectinstellingen. Het bestand bevat tien afzonderlijk benoemde delen, het volledige printer-/filament-/procesprofiel, de geslicede G-code en Bambu-previews. Je hoeft geen STL te importeren of CAD te compileren.
+> **Nog niet fysiek getest.** Deze kleine plaat toetst of de succesvolle recente draad ook soepel werkt in een slanke pin. De meegeleverde buitenvoetjes zijn tijdelijke handtest-/printsteunen en passen zelf niet in een 5,08-mm raster.
 
-| In het project opgeslagen instelling | Exacte waarde |
-|---|---|
-| Slicer / printer | Bambu Studio **02.08.02.61**; **Bambu Lab X1 Carbon**, hardened-steel **0,4 mm**, Standard hotend |
-| Filament | **Generic PLA**, 1,75 mm; dichtheid 1,24 g/cm³; flowratio **0,98**; max. volumestroom **12 mm³/s** |
-| Temperatuur / plaat | Nozzle **220 °C** eerste en overige lagen; **Textured PEI Plate 55 °C** eerste en overige lagen |
-| Koeling | Partfan **100%**, eerste laag uit; auxfan **0%**; korte-laagvertraging aan, **8 s**, minimum **10 mm/s** |
-| Lagen / plaatsing | **0,12 mm**, ook eerste laag; **100% schaal**; per laag printen; bronoriëntatie behouden, complete plaat naar bedmidden verplaatst |
-| Wanden / vulling | **Arachne**, **2 wanden**, **100% rectilinear** infill; 5 boven-/onderlagen, bovenschaaldikte 0,6 mm |
-| Lijnbreedten | **0,45 mm** nominaal voor eerste laag, buiten-/binnenwand, top, infill en support; Arachne varieert de werkelijke breedte |
-| Arachne-details | Minimale wandbreedte **85%** nozzle; minimale feature **25%**; overgangslengte **100%**, filtermarge **25%**, overgangshoek **10°**, verdeling **1** |
-| Snelheden | Buiten-/binnen-/kleine wanden, gap fill en alle normale infill/top **30 mm/s**; kleine-perimeterdrempel **20 mm**; eerste laag en bruggen **20 mm/s**; overhangstappen **30/20/10/10 mm/s** |
-| Reizen / acceleratie | Travel **150 mm/s**; model/travel maximaal **1000 mm/s²**; eerste-laagextrusie **500 mm/s²**. De officiële X1C-start-/eindbewegingen hebben hun eigen printerwaarden |
-| Supports / bedhechting | **Supports uit; brim uit; skirt 0; raft 0; prime tower uit**. De bestaande 0,24-mm CAD-voetjes blijven behouden |
-| Maatcorrecties | XY-contour **0**, XY-gat **0**, elephant foot **0 mm**; circle compensation uit; filamentkrimp **100%** |
-| Overig | Arc fitting uit voor directe padcontrole; scarf seam uit; seam aligned; geen automatische oriëntatie of schaling |
+**Status:** READY\
+**Prioriteit:** P1\
+**Laatst beoordeeld:** 2026-10-15\
+**Reden:** één kleine plaat combineert aantoonbaar bewegende schroefgeometrie met de compacte Trial 5-doorsnede; bron, meshes en echte slicerpaden zijn gecontroleerd. Fysieke passing en hechting blijven onbekend.\
+**Technische bron:** [E-295 — compacte geometrie en bewijs](../../tools/curated-experiment-checks/E-295/research/compact-geometry.md), voortbouwend op [short-thread-fit](../2026-10-14-short-thread-fit/test.md) en het originele Trial 5.
 
-**Varianten op dezelfde plaat:** pin 1–3 hebben **0,175 mm radiale CAD-relief**, pin 4 **0,15 mm**, pin 5 **0,20 mm**. De schroeven zijn functioneel gelijk. Dotlabels en de plaatindeling blijven behouden. Dit zijn geometrische spelingen, geen gemeten passingcorrecties. Wanddikten blijven 0,400–0,450 mm in de draadzone en 0,44 mm bovenaan.
+## 1. Waarom deze test? — CTO
 
-**Bambu-raming uit de ingebedde G-code:** **1 uur 1 min 40 s totaal**, waarvan **50 min 25 s modelprinttijd**; **3,37 g / 1,128 m PLA**, **153 lagen**. De totale slicerraming bevat de X1C-start-/eindroutine; de werkelijke opwarm-, kalibratie-, purge- en printduur en het werkelijke verbruik zijn niet gemeten.
+**Vraag:** kunnen 4,4-mm vierkante pinnen met 6 mm binnendraad onderaan even prettig heen en terug bewegen als de eerdere brede testmoeren, zonder binnendraad-supports of schuren? Drie nominale exemplaren tonen eventuele printspreiding.
 
-**Voor het printen:** controleer in de Preview dat alle tien delen op het bed staan, de vijf bovenbuizen een wand hebben en de boringen open zijn. Gebruik de ingestelde Textured PEI Plate en PLA. Wijzig je plaat, filament of profiel, slice dan opnieuw en controleer dezelfde plaatsen. Laat de dunne buitenvoetjes tijdens de passingtest zitten.
+**Beslissing:** drie bruikbare nominale paren rechtvaardigen een kleine onafhankelijke bewegingsdemonstratie. Wisselende nominale resultaten vragen eerst verklaring; alleen succes van de ruimste variant is geen bewijs voor betrouwbare productie. De plaat bewijst geen 40-mm slag, draagkracht of levensduur.
 
-**Uitgevoerde controle:** echte Bambu-slice en Bambu-heropening/her-slice van het opgeslagen project zonder externe profielen; onafhankelijke controle van instellingen, behouden brongeometrie en alle 153 lagen. Zie [rapport](validation.json), [heropening](roundtrip.json), [herkomst](build-provenance.json) en [werkelijke padbeelden](toolpaths.png). De oorspronkelijke [STL](../compact-screw-fit/compact-five-pairs.stl) en CAD-bronnen zijn ongewijzigd.
+**Afkeur/stop:** harde blokkade, scheuren, loskomende lagen, scheefgeprinte schroef of functionele draad die gevijld/gesneden moet worden. Geen tang, boormachine of krachtproef; stop zodra het blokkeert. Een mislukte variant is een bruikbaar resultaat, geen reden om haar passend te forceren.
 
-Alle 495 gecontroleerde bovenbuis-/laagcombinaties vormen een gesloten wand; de centrale Ø1,2-mm doorgang blijft in alle 750 pin-/laagchecks vrij. Er zijn geen support-, brug- of overhangpaden en geen losse laagcomponenten zonder overlap met de vorige laag. In de onderste draadzone blijven lokale lijnonderbrekingen aanwezig: maximaal **0,224 mm** op een nominale wandmiddellijn bij pin 5, Z=0,48 mm ([detail](local-gap.png), [methode](local-gap.json)); dit is geen gemeten fysiek gat. Inspecteer die na het printen op gaatjes of zwakte. De padanalyse bewijst geen bedhechting, laagsterkte of draadpassing.
+## 2. Printklaar — CTO
 
-Volg [montage, vijf handcycli, stopcriteria en resultatenformulier](../compact-screw-fit/test.md#3-test-in-enkele-stappen--cto). Geen tang of draadnabewerking. Drie bruikbare nominale paren zijn de fysieke voorwaarde vóór de vierpins-proef; een slicercontrole vervangt die niet.
+| Bestand / verwijzing | Inhoud | Herkenning |
+|---|---|---|
+| [**Bambu Studio-project**](compact-five-pairs.3mf) | Compleet X1C/0,4/PLA-project met opgeslagen instellingen en geslicede paden | Zie [exact profiel en Bambu-controle](bambu-settings.md) |
+| [**compact-five-pairs.stl**](compact-five-pairs.stl) | Complete plaat: vijf schroeven en vijf holle pinnen, tien losse delen | 1–5 stippen op beide voeten; behoud de plaatvolgorde |
+| [plate-preview.png](plate-preview.png) | Afbeelding van exact dezelfde STL | Geen montagepositie: alle delen staan apart op het bed |
+| [coupon.scad](coupon.scad), [thread-kernel.scad](thread-kernel.scad), [generate.py](generate.py) | Reproduceerbare bron; pinned BOSL2 vermeld in bron | **Niet nodig om te printen** |
+| [geometry-validation.json](geometry-validation.json) | Maatvoering, mesh-, volume- en passingchecks | CAD-bewijs, geen fysieke test |
 
-Controle gebeurde met de Bambu Studio-CLI en onafhankelijke inspectie van de daadwerkelijke G-code, inclusief visueel bekeken laagbeelden. Bambu-geometriepreviews zijn met software-rendering gegenereerd. Geen interactieve GUI-handcontrole, printerverbinding of fysieke print is uitgevoerd.
+- **Printjobs:** één plaat; geen extra kopieën of brede moeren nodig.
+- **Varianten:** 1, 2, 3 identiek: **0,175 mm radiale CAD-relief**; 4: **0,15 mm**; 5: **0,20 mm**. Alle buitenschroeven zijn functioneel identiek. Dit is geen gemeten printercorrectie. Minimale wand bij de drie toleranties: 0,425/0,450/0,400 mm; bovenholtewand 0,44 mm.
+- **Geometrie:** buitenschroef d 3,2 mm, spoed 3, diepte 0,9, 90°-profiel uit de recente geslaagde test; draad 16 mm boven een 10 × 10 × 2,4-mm handgreep. Pin 4,4 × 4,4 × 18 mm, binnendraad onderste 6 mm, overige holte 3,52-mm vierkant; bovenkant open voor inspectie. Buitenvoet 12 × 12 × 0,24 mm, geen support in het gat. Hele plaat **72 × 27 × 18,4 mm**.
+- **Materiaal/printer:** gewone PLA die je al hebt; Bambu Lab X1 Carbon, **0,4-mm nozzle**, schaal 100%. Geen aankoop nodig.
+- **Slicer:** Bambu Studio met **Arachne-wandgenerator**; laaghoogte én eerste laag **0,12 mm**. Twee wanden, 100% infill voor de kleine massieve delen. Nominale lijnbreedte 0,45 mm; laat Arachne dunne wanden variabel vullen. Buitenste/kleine perimeters maximaal 30 mm/s; eerste laag 20 mm/s; acceleratie maximaal 1000 mm/s². Opgeslagen PLA-profiel: 220 °C nozzle, 55 °C Textured PEI Plate, flowratio 0,98, partfan 100% na de eerste laag, auxfan 0%; korte-laagvertraging aan (8 s, minimaal 10 mm/s). Geen XY-/gat- of elephant-foot-compensatie toevoegen voor deze vergelijking; noteer aanwezige compensaties.
+- **Oriëntatie:** rechtop zoals geleverd; niet automatisch draaien. Print per laag, niet object-na-object. Alle tien delen moeten het bed raken.
+- **Supports/brim:** **alle supports UIT, automatisch brim UIT, geen raft.** De ontworpen 0,24-mm pinvoet is al de buitenbrim. Er hoeft niets uit het gat te worden verwijderd. Laat de voet tijdens de passingtest zitten; dit voorkomt beschadiging van de dunne wand bij losknippen.
+- **Preview:** controleer dat de bovenste vierkante buiswanden aanwezig zijn, alle schroefdraden worden geprint en alle vijf binnengaten open blijven. Geen enkel supportpad hoort in de holte. In de onderste draadzone blijven lokale Arachne-lijnonderbrekingen; de Bambu-padcontrole vindt maximaal circa 0,224 mm langs een nominale wandmiddellijn (geen gemeten fysiek gat): die zijn op de vorige laag ondersteund, maar kunnen kleine gaatjes of zwakke plekken geven. Inspecteer en noteer die na het printen; geen draad nabewerken. Ontbreekt een groot wanddeel of begint een eiland zonder ondersteuning, print dan niet met dat profiel en bewaar de preview. De meegeleverde bron hoeft niet opnieuw geëxporteerd te worden.
+- **Bambu Studio 02.08.02.61:** **1 uur 1 min 40 s totaal geraamd / 3,37 g / 1,128 m PLA**, waarvan 50 min 25 s modelprinttijd; 153 lagen. De raming komt uit de daadwerkelijk meegeleverde X1C-G-code met officiële startprocedure, niet uit een fysieke print. Werkelijke opwarm-/kalibratietijd, purge en verbruik kunnen afwijken. Het eerdere PrusaSlicer-resultaat (42 min / 3,17 g) blijft uitsluitend een historische vergelijking. Zie [Bambu-validatie](bambu-settings.md).
+- **Extra:** handen en liefst een gewone liniaal. Bewaarde onderdelen van short-thread-fit zijn optioneel voor vergelijking, geen nieuwe brede print.
+- **Eerdere CAD-/PrusaSlicer-controle:** 2026-10-15: tien gesloten afzonderlijke meshes; 305 coaxiale montagestanden zonder CAD-botsing. Exacte plaat met supports uit én aan gesliced: geen support-, brug- of overhangpaden. Onafhankelijke controle van 153 lagen: geen nieuw los deel zonder overlap met de vorige laag. De bovenste buiswand is doorlopend in de paden; onderin blijven de genoemde kleine lijnonderbrekingen. Dat onderbouwt de ontworpen korte print, maar bewijst geen fysieke hechting, laagsterkte of passing. Zie [exacte sliceruitvoer en profiel](../../tools/curated-experiment-checks/E-295/validation/compact-arachne.json), [laagbeelden](../../tools/curated-experiment-checks/E-295/validation/compact-toolpaths.png) en [detail van een lokale lijnonderbreking](../../tools/curated-experiment-checks/E-295/validation/compact-local-bead-gap.png).
 
-Voor onderhoud: [generator](../build-bambu-projects.py) gebruikt de officiële 02.08.02.61-resources en ongewijzigde STLs; [onafhankelijke padchecker](../validate-bambu-project.py) leest de ingebedde G-code en 3MF-transformaties. Versies en SHA-256-herkomst staan in `build-provenance.json`. Scratchuitvoer hoort in `work/`.
+**Voor Sander:** open [**compact-five-pairs.3mf**](compact-five-pairs.3mf) als **project** in Bambu Studio en behoud het meegeleverde profiel. Het oorspronkelijke STL blijft beschikbaar. Je hoeft geen CAD of Python te compileren. Deze proef is vrijblijvend, zonder deadline. De bestaande grote test is afgerond; deze plaat stelt de nieuwe vraag naar compactheid.
+
+## 3. Test in enkele stappen — CTO
+
+1. Laat afkoelen en neem alle delen rustig van de plaat. Houd paren 1–5 bij elkaar. **Laat de brede dunne pinvoetjes zitten.** Kijk door de open buis en noteer losse voet, scheefstand, ontbrekende draad, gaten, scheuren of stringing. Alleen loshangende draadjes verwijderen; geen draad bijschuren of uitboren. Noteer iedere nabewerking.
+2. Houd de pin bij haar printvoet, zodat je de dunne buis niet samenknijpt. Steek de schroefpunt vanaf de voetkant recht in de binnendraad. Draai voorzichtig; even terugdraaien om de draadstart te vinden mag. Niet drukken of een verkeerde draadstart doordraaien.
+3. Draai tot de vrije axiale afstand tussen **bovenkant schroefhandgreep en onderkant pinvoet ongeveer 6 mm** is. De schroef steekt dan circa 10 mm in de pin. Draai één omwenteling uit tot ongeveer 9 mm afstand, en terug. Dat is circa 3-mm beweging met de volledige 6-mm binnendraad nog in aangrijping. Draai niet tegen de voet en niet bijna volledig los. Herhaal **vijfmaal heen en terug**. Houd de pin tegen rotatie en draai de schroef: zo blijft het gekozen schroef-staafprincipe zichtbaar.
+4. Noteer per paar start, soepel/lichte weerstand/stroef/vast, voelbare speling en schade. Bij verschillen tussen 1–3: probeer pin 1 op schroef 2 en 3. Zo wordt zichtbaar of weerstand vooral met de pin of de schroef meeverhuist. Geen belastings- of breuktest.
+5. **Optioneel, als de oude onderdelen bewaard zijn:** probeer compacte pin 5 op dezelfde oude schroef waarop de brede 0,20-mm moer zo soepel liep. Vergelijk ook die brede moer op diezelfde schroef. Noteer richting en gevoel. De draadprofielen zijn nominale matches; de contactlengtes 6 tegenover 10 mm en handgrepen verschillen, dus dit is een nuttige kwalitatieve vergelijking, geen wrijvingsmeting of bewijs dat alleen de compactheid een verschil veroorzaakt.
+
+**Succes:** alle drie nominale paren starten zonder kracht, bewegen vijfmaal heen/terug op volle draadgrijping en blijven intact zonder nabewerking van de draad. Voelbare variatie mag worden gerapporteerd; zij wordt niet gemiddeld weggeschreven. “Even soepel als het oude paar 5” is een waarneming, geen gemeten motorbelasting.
+
+**Onbekend:** gesloten top, externe geleiding, buurbeweging, belasting, zelfremming, lange-schroefstabiliteit, 40-mm slag, snelheid, slijtage en opbrengst van duizenden onderdelen. De tijdelijke 12-mm pinvoeten passen niet in het raster. Eventueel **na** alle passingtesten alleen aan de buitenkant vlak afknippen is een afzonderlijke observatie over verwijderbaarheid; trimmen is niet nodig voor deze proef en succes ervan wordt niet verondersteld.
+
+## 4. Mijn resultaten — Sander
+
+**Testdatum:**\
+**Printer / PLA / nozzle / laaghoogte / wandgenerator:**\
+**XY-/gat-/elephant-footcompensatie, indien gebruikt:**\
+**Werkelijke printtijd / materiaal:**\
+**Print gelukt?** [ ] ja [ ] deels [ ] nee **[x] nog niet geprint**
+
+| Paar | Print intact en gat vrij? | Start zonder kracht? | Vijf cycli 6↔9-mm afstand? | Gevoel / speling / schade / nabewerking |
+|---|---|---|---|---|
+| 1 — 0,175 | niet getest | niet getest | niet getest | |
+| 2 — 0,175 | niet getest | niet getest | niet getest | |
+| 3 — 0,175 | niet getest | niet getest | niet getest | |
+| 4 — 0,15 | niet getest | niet getest | niet getest | |
+| 5 — 0,20 | niet getest | niet getest | niet getest | |
+
+**Kruisproef pin 1 op schroef 2/3 (indien nodig):**\
+**Vergelijking met bewaarde brede test (optioneel, welke onderdelen?):**\
+**Voet bleef vast op het bed? Dunne wanden intact?**\
+**Foto / video / opmerking (optioneel):**
+
+## 5. Interpretatie en vervolg — CTO, pas na feedback
+
+**Fysiek resultaat:** onbekend; alle vakken hierboven zijn nog open.\
+**GO / NO-GO / keuze tolerantie:** nog open.\
+**Status na feedback:** nog open. Geen automatische nieuwe print of grotere serie. Uitblijvende feedback is geen meetresultaat.

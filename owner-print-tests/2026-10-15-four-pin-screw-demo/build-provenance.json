@@ -5,7 +5,7 @@
   "preview_environment": "Official unmodified Bambu binary; headless Weston/OSMesa with Xvfb and a GLX/OSMesa function-lookup preload bridge. This renders geometry previews; toolpath evidence is separately reconstructed from embedded G-code.",
   "projects": [
     {
-      "stl": "four-pin-screw-demo/four-pin-demo-015-plate.stl",
+      "stl": "2026-10-15-four-pin-screw-demo/four-pin-demo-015-plate.stl",
       "stl_sha256": "4198ca22483ab9a370b7006f3647f5ec6994f48a7f45e19903aa80f91f563142",
       "body_count": 12,
       "translation_mm": [
@@ -101,10 +101,11 @@
       "bambu_cli_exit_code": 0,
       "builder": "owner-print-tests/build-bambu-projects.py",
       "builder_sha256": "c631008ba06595a13c4d33e603dabeaa95696bdaf799b640aad11a2261a8487f",
-      "gcode_sha256": "ef70ba9d656402f2c9ccd21eb5d24d6bb5bdcc01bf5416fd74f518d95c539809"
+      "gcode_sha256": "ef70ba9d656402f2c9ccd21eb5d24d6bb5bdcc01bf5416fd74f518d95c539809",
+      "stl_path_at_generation": "four-pin-screw-demo/four-pin-demo-015-plate.stl"
     },
     {
-      "stl": "four-pin-screw-demo/four-pin-demo-0175-plate.stl",
+      "stl": "2026-10-15-four-pin-screw-demo/four-pin-demo-0175-plate.stl",
       "stl_sha256": "9c6cb2402bd494cf028ec13353b2a0ca2df32d3ac5e6938b8c4240670fb763cc",
       "body_count": 12,
       "translation_mm": [
@@ -200,10 +201,11 @@
       "bambu_cli_exit_code": 0,
       "builder": "owner-print-tests/build-bambu-projects.py",
       "builder_sha256": "c631008ba06595a13c4d33e603dabeaa95696bdaf799b640aad11a2261a8487f",
-      "gcode_sha256": "7b9420db26a3b669d22d039170fb9f84f789160835a9e92bf06b15473ba3d833"
+      "gcode_sha256": "7b9420db26a3b669d22d039170fb9f84f789160835a9e92bf06b15473ba3d833",
+      "stl_path_at_generation": "four-pin-screw-demo/four-pin-demo-0175-plate.stl"
     },
     {
-      "stl": "four-pin-screw-demo/four-pin-demo-020-plate.stl",
+      "stl": "2026-10-15-four-pin-screw-demo/four-pin-demo-020-plate.stl",
       "stl_sha256": "ad53ba20d710ee06724462af2f314526140c9d88975454c4b375db76a51d3981",
       "body_count": 12,
       "translation_mm": [
@@ -299,7 +301,8 @@
       "bambu_cli_exit_code": 0,
       "builder": "owner-print-tests/build-bambu-projects.py",
       "builder_sha256": "c631008ba06595a13c4d33e603dabeaa95696bdaf799b640aad11a2261a8487f",
-      "gcode_sha256": "3a995d9ec5dedb647975d785c3934e53ff74afd487738ddbaaa356be6a5abb93"
+      "gcode_sha256": "3a995d9ec5dedb647975d785c3934e53ff74afd487738ddbaaa356be6a5abb93",
+      "stl_path_at_generation": "four-pin-screw-demo/four-pin-demo-020-plate.stl"
     }
   ],
   "python_packages": {
@@ -309,5 +312,6 @@
     "matplotlib": "3.11.2",
     "scipy": "1.18.1",
     "networkx": "3.7"
-  }
+  },
+  "path_migration_note": "STL paths now follow the date-prefixed canonical directories. stl_path_at_generation and builder_sha256 preserve the original build provenance; project and G-code bytes are unchanged by the directory merge."
 }
