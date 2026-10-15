@@ -1,0 +1,17 @@
+{
+  "scope": "Delivery integrity only; not a physical or continuous tolerance proof",
+  "checks": 174,
+  "errors": [],
+  "projects": [
+    {
+      "file": "owner-print-tests/2026-10-16-two-half-clutch-fit/clutch-fit.3mf",
+      "sha256": "fc1bb16a9595861d0bd9e50a8e28925f8a4676cca81d700e077f62d268a214db",
+      "layers": 72
+    },
+    {
+      "file": "owner-print-tests/2026-10-16-two-half-clutch-matrix/clutch-matrix.3mf",
+      "sha256": "3011118591b7b1d052a6c68da39be35150c57ed1af7ff5a1a89098c462317be3",
+      "layers": 219
+    }
+  ]
+}

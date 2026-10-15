@@ -1,0 +1,182 @@
+{
+  "rotor": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 49.073336318752304,
+    "watertight": true,
+    "sha256": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe"
+  },
+  "row-selector": {
+    "extents_mm": [
+      37.68,
+      4.6,
+      2.88
+    ],
+    "volume_mm3": 311.1647647646023,
+    "watertight": true,
+    "sha256": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42"
+  },
+  "single-comb": {
+    "extents_mm": [
+      10.600000000000001,
+      4.6,
+      2.88
+    ],
+    "volume_mm3": 77.43070238230119,
+    "watertight": true,
+    "sha256": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b"
+  },
+  "rotor-tight": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 50.30128423032769,
+    "watertight": true,
+    "sha256": "421adb493a5bb00e69b1a8fff1d3ead07e1534e99378ea1581fcc59825632db8"
+  },
+  "comb-tight": {
+    "extents_mm": [
+      10.600000000000001,
+      4.6,
+      2.8200000000000003
+    ],
+    "volume_mm3": 76.77631083105231,
+    "watertight": true,
+    "sha256": "86220a56e842b6b43e5fd80b97070b11f5b50187b97e5e817ed98f82f28a7631"
+  },
+  "rotor-nominal": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 49.073336318752304,
+    "watertight": true,
+    "sha256": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe"
+  },
+  "comb-nominal": {
+    "extents_mm": [
+      10.600000000000001,
+      4.6,
+      2.88
+    ],
+    "volume_mm3": 77.43070238230119,
+    "watertight": true,
+    "sha256": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b"
+  },
+  "rotor-loose": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 46.956846880847706,
+    "watertight": true,
+    "sha256": "c4d5aad6072c49e1cb0ec444c9d55d40a6f5cd1fd6bdb114b66bbf1764f60ed4"
+  },
+  "comb-loose": {
+    "extents_mm": [
+      10.600000000000001,
+      4.6,
+      2.94
+    ],
+    "volume_mm3": 77.71729443129618,
+    "watertight": true,
+    "sha256": "ce30fb769c3b2067bc860a6a595f40d905c547f14e1c215e5ba81e0c2b2cfeb0"
+  },
+  "coupon-shaft": {
+    "extents_mm": [
+      8.0,
+      7.9984186381605245,
+      7.1899999999999995
+    ],
+    "volume_mm3": 79.33984803716156,
+    "watertight": true,
+    "sha256": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c"
+  },
+  "frame-left": {
+    "extents_mm": [
+      13.26,
+      27.0,
+      52.400000000000006
+    ],
+    "volume_mm3": 4153.303368698321,
+    "watertight": true,
+    "sha256": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0"
+  },
+  "frame-center": {
+    "extents_mm": [
+      5.08,
+      27.0,
+      52.400000000000006
+    ],
+    "volume_mm3": 1801.1126322444136,
+    "watertight": true,
+    "sha256": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573"
+  },
+  "frame-right": {
+    "extents_mm": [
+      13.260000000000002,
+      27.0,
+      52.400000000000006
+    ],
+    "volume_mm3": 4170.525080099962,
+    "watertight": true,
+    "sha256": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3"
+  },
+  "input-shaft": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      10.719999999999999
+    ],
+    "volume_mm3": 49.39302714877641,
+    "watertight": true,
+    "sha256": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79"
+  },
+  "hand-key": {
+    "extents_mm": [
+      10.0,
+      9.998023297700655,
+      10.99
+    ],
+    "volume_mm3": 206.4290143013549,
+    "watertight": true,
+    "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+  },
+  "stop-spacer": {
+    "extents_mm": [
+      9.0,
+      4.0,
+      2.4
+    ],
+    "volume_mm3": 77.7744,
+    "watertight": true,
+    "sha256": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a"
+  },
+  "screw": {
+    "extents_mm": [
+      4.300000190734863,
+      4.299149990081787,
+      26.31999969482422
+    ],
+    "volume_mm3": 128.81304163474206,
+    "watertight": true,
+    "sha256": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0"
+  },
+  "pin": {
+    "extents_mm": [
+      4.399999618530273,
+      4.400001525878906,
+      18.0
+    ],
+    "volume_mm3": 174.42593806935324,
+    "watertight": true,
+    "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110"
+  }
+}

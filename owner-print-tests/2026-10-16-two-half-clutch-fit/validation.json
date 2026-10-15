@@ -1,0 +1,1228 @@
+{
+  "project": "clutch-fit.3mf",
+  "project_sha256": "fc1bb16a9595861d0bd9e50a8e28925f8a4676cca81d700e077f62d268a214db",
+  "source_stl": "clutch-fit.stl",
+  "source_stl_sha256": "62fa84fe5991fa4fb6b349242fc10beb9988895f4eaded669aebe79d1f5a174b",
+  "gcode_sha256": "202605e178f9b1f16e5d454236997ef2f81fd979f6ad4be14dcf86f6efd4b7c5",
+  "archive_entries": [
+    "[Content_Types].xml",
+    "Metadata/plate_1.png",
+    "Metadata/plate_1_small.png",
+    "Metadata/plate_no_light_1.png",
+    "Metadata/top_1.png",
+    "Metadata/pick_1.png",
+    "Metadata/plate_1.json",
+    "3D/3dmodel.model",
+    "3D/_rels/3dmodel.model.rels",
+    "3D/Objects/object_1.model",
+    "3D/Objects/object_3.model",
+    "3D/Objects/object_11.model",
+    "3D/Objects/object_12.model",
+    "3D/Objects/object_2.model",
+    "3D/Objects/object_13.model",
+    "3D/Objects/object_14.model",
+    "3D/Objects/object_8.model",
+    "3D/Objects/object_6.model",
+    "3D/Objects/object_4.model",
+    "3D/Objects/object_5.model",
+    "3D/Objects/object_10.model",
+    "3D/Objects/object_7.model",
+    "3D/Objects/object_15.model",
+    "3D/Objects/object_18.model",
+    "3D/Objects/object_17.model",
+    "3D/Objects/object_9.model",
+    "3D/Objects/object_20.model",
+    "3D/Objects/object_16.model",
+    "3D/Objects/object_19.model",
+    "Metadata/project_settings.config",
+    "Metadata/plate_1.gcode.md5",
+    "Metadata/plate_1.gcode",
+    "Metadata/_rels/model_settings.config.rels",
+    "Metadata/model_settings.config",
+    "Metadata/cut_information.xml",
+    "Metadata/slice_info.config",
+    "Metadata/filament_sequence.json",
+    "_rels/.rels"
+  ],
+  "settings": {
+    "printer_model": "Bambu Lab X1 Carbon",
+    "printer_variant": "0.4",
+    "printer_settings_id": "Bambu Lab X1 Carbon 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "extruder_offset": [
+      "0x2"
+    ],
+    "filament_settings_id": [
+      "Generic PLA"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "filament_vendor": [
+      "Generic"
+    ],
+    "filament_diameter": [
+      "1.75"
+    ],
+    "filament_density": [
+      "1.24"
+    ],
+    "filament_flow_ratio": [
+      "0.98"
+    ],
+    "nozzle_temperature": [
+      "220"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "hot_plate_temp": [
+      "55"
+    ],
+    "hot_plate_temp_initial_layer": [
+      "55"
+    ],
+    "textured_plate_temp": [
+      "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "55"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.12",
+    "wall_generator": "arachne",
+    "wall_loops": "2",
+    "sparse_infill_density": "100%",
+    "line_width": "0.45",
+    "initial_layer_line_width": "0.45",
+    "outer_wall_line_width": "0.45",
+    "inner_wall_line_width": "0.45",
+    "top_surface_line_width": "0.45",
+    "internal_solid_infill_line_width": "0.45",
+    "outer_wall_speed": [
+      "30",
+      "30"
+    ],
+    "inner_wall_speed": [
+      "30",
+      "30"
+    ],
+    "small_perimeter_speed": [
+      "30",
+      "30"
+    ],
+    "small_perimeter_threshold": [
+      "20",
+      "20"
+    ],
+    "initial_layer_speed": [
+      "20",
+      "20"
+    ],
+    "initial_layer_infill_speed": [
+      "20",
+      "20"
+    ],
+    "bridge_speed": [
+      "20",
+      "20"
+    ],
+    "internal_bridge_speed": "MISSING",
+    "default_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "outer_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "inner_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "initial_layer_acceleration": [
+      "500",
+      "500"
+    ],
+    "enable_support": "0",
+    "brim_type": "no_brim",
+    "brim_width": "0",
+    "brim_object_gap": "0.12",
+    "raft_layers": "0",
+    "print_sequence": "by layer",
+    "xy_contour_compensation": "0",
+    "xy_hole_compensation": "0",
+    "elefant_foot_compensation": "0",
+    "detect_thin_wall": "0",
+    "slow_down_for_layer_cooling": [
+      "1"
+    ],
+    "slow_down_min_speed": [
+      "10"
+    ],
+    "fan_min_speed": [
+      "100"
+    ],
+    "fan_max_speed": [
+      "100"
+    ],
+    "slow_down_layer_time": [
+      "8"
+    ],
+    "fan_cooling_layer_time": [
+      "100"
+    ],
+    "overhang_fan_speed": [
+      "100"
+    ],
+    "close_fan_the_first_x_layers": [
+      "1"
+    ]
+  },
+  "source_geometry": {
+    "bodies": 20,
+    "watertight": true,
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        142.60000610351562,
+        25.996837615966797,
+        8.600000381469727
+      ]
+    ],
+    "bodies_bounds_mm": [
+      [
+        [
+          5.0,
+          5.0,
+          0.0
+        ],
+        [
+          9.300000190734863,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          13.300000190734863,
+          5.0,
+          0.0
+        ],
+        [
+          17.600000381469727,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          21.600000381469727,
+          5.0,
+          0.0
+        ],
+        [
+          32.20000076293945,
+          7.820000171661377,
+          4.599999904632568
+        ]
+      ],
+      [
+        [
+          36.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          44.20000076293945,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          48.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          56.20000076293945,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          60.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          64.5,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          68.5,
+          5.0,
+          0.0
+        ],
+        [
+          72.80000305175781,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          76.80000305175781,
+          5.0,
+          0.0
+        ],
+        [
+          87.4000015258789,
+          7.880000114440918,
+          4.599999904632568
+        ]
+      ],
+      [
+        [
+          91.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          99.4000015258789,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          103.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          111.4000015258789,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          115.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          119.69999694824219,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          123.69999694824219,
+          5.0,
+          0.0
+        ],
+        [
+          128.0,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          132.0,
+          5.0,
+          0.0
+        ],
+        [
+          142.60000610351562,
+          7.880000114440918,
+          4.599999904632568
+        ]
+      ],
+      [
+        [
+          5.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          13.0,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          17.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          25.0,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          29.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          33.29999923706055,
+          22.297569274902344,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          37.29999923706055,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          41.599998474121094,
+          22.297569274902344,
+          8.600000381469727
+        ]
+      ],
+      [
+        [
+          45.599998474121094,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          56.20000076293945,
+          20.938419342041016,
+          4.599999904632568
+        ]
+      ],
+      [
+        [
+          60.20000076293945,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          68.19999694824219,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      [
+        [
+          72.19999694824219,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          80.19999694824219,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ]
+    ]
+  },
+  "project_geometry": {
+    "bounds_mm": [
+      [
+        59.19999507,
+        117.50157583,
+        0.0
+      ],
+      [
+        196.80000305,
+        138.49841354,
+        8.60000038
+      ]
+    ],
+    "mesh_instances": [
+      {
+        "model": "3D/Objects/object_1.model",
+        "object_id": "1",
+        "bounds_mm": [
+          [
+            75.79999928,
+            117.50158297,
+            0.0
+          ],
+          [
+            86.39999775,
+            120.32158266,
+            4.5999999
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_2.model",
+        "object_id": "3",
+        "bounds_mm": [
+          [
+            131.00000721,
+            117.50157956,
+            0.0
+          ],
+          [
+            141.59999804999998,
+            120.38158444,
+            4.5999999
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_3.model",
+        "object_id": "5",
+        "bounds_mm": [
+          [
+            186.19999695,
+            117.50157956,
+            0.0
+          ],
+          [
+            196.80000305,
+            120.38158444,
+            4.5999999
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_4.model",
+        "object_id": "7",
+        "bounds_mm": [
+          [
+            59.19999507,
+            117.50158272,
+            0.0
+          ],
+          [
+            63.49999431,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_5.model",
+        "object_id": "9",
+        "bounds_mm": [
+          [
+            67.5000038,
+            117.50158272,
+            0.0
+          ],
+          [
+            71.79999923,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_6.model",
+        "object_id": "11",
+        "bounds_mm": [
+          [
+            114.39999747,
+            117.50158272,
+            0.0
+          ],
+          [
+            118.6999929,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_7.model",
+        "object_id": "13",
+        "bounds_mm": [
+          [
+            122.69999647,
+            117.50158272,
+            0.0
+          ],
+          [
+            126.99999953,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_8.model",
+        "object_id": "15",
+        "bounds_mm": [
+          [
+            169.59998284,
+            117.50158272,
+            0.0
+          ],
+          [
+            173.8999859,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_9.model",
+        "object_id": "17",
+        "bounds_mm": [
+          [
+            177.9000011,
+            117.50158272,
+            0.0
+          ],
+          [
+            182.20000416,
+            121.80073890999999,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_10.model",
+        "object_id": "19",
+        "bounds_mm": [
+          [
+            90.3999939,
+            117.50157583,
+            0.0
+          ],
+          [
+            98.3999939,
+            125.49999654,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_11.model",
+        "object_id": "21",
+        "bounds_mm": [
+          [
+            102.400002,
+            117.50157583,
+            0.0
+          ],
+          [
+            110.400002,
+            125.49999654,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_12.model",
+        "object_id": "23",
+        "bounds_mm": [
+          [
+            145.599991,
+            117.50157583,
+            0.0
+          ],
+          [
+            153.599991,
+            125.49999654,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_13.model",
+        "object_id": "25",
+        "bounds_mm": [
+          [
+            157.599991,
+            117.50157583,
+            0.0
+          ],
+          [
+            165.599991,
+            125.49999654,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_14.model",
+        "object_id": "27",
+        "bounds_mm": [
+          [
+            99.79999495,
+            130.49999978,
+            0.0
+          ],
+          [
+            110.40000105,
+            133.44000222,
+            4.5999999
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_15.model",
+        "object_id": "29",
+        "bounds_mm": [
+          [
+            83.19999697,
+            130.50000735,
+            0.0
+          ],
+          [
+            87.50000003,
+            134.79915591,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_16.model",
+        "object_id": "31",
+        "bounds_mm": [
+          [
+            91.5000038,
+            130.50000735,
+            0.0
+          ],
+          [
+            95.79999923,
+            134.79915591,
+            8.60000038
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_17.model",
+        "object_id": "33",
+        "bounds_mm": [
+          [
+            59.1999969,
+            130.50000046000002,
+            0.0
+          ],
+          [
+            67.1999969,
+            138.49841354,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_18.model",
+        "object_id": "35",
+        "bounds_mm": [
+          [
+            71.1999969,
+            130.50000046000002,
+            0.0
+          ],
+          [
+            79.1999969,
+            138.49841354,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_19.model",
+        "object_id": "37",
+        "bounds_mm": [
+          [
+            114.40000563,
+            130.50000046000002,
+            0.0
+          ],
+          [
+            122.399998,
+            138.49841354,
+            7.19000006
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_20.model",
+        "object_id": "39",
+        "bounds_mm": [
+          [
+            126.39999399999999,
+            130.50000046000002,
+            0.0
+          ],
+          [
+            134.399994,
+            138.49841354,
+            7.19000006
+          ]
+        ]
+      }
+    ],
+    "extents_equal_source": true,
+    "source_rigid_translation_mm": [
+      54.19999507,
+      112.50157583,
+      0.0
+    ],
+    "max_bidirectional_vertex_distance_after_translation_mm": 2.2452985410362363e-05,
+    "facets_and_winding_match_source_within_00003mm": true,
+    "max_bidirectional_oriented_facet_distance_mm": 2.2452985410362363e-05,
+    "source_facet_count": 42768,
+    "project_facet_count": 42768
+  },
+  "layer_count": 72,
+  "layer_heights_mm": [
+    0.12,
+    0.120001
+  ],
+  "roles": {
+    "Inner wall": 7011,
+    "Outer wall": 30997,
+    "Bottom surface": 380,
+    "Internal solid infill": 3812,
+    "Top surface": 252,
+    "Gap infill": 181,
+    "Bridge": 121
+  },
+  "role_max_speeds_mm_s": {
+    "Inner wall": 30.0,
+    "Outer wall": 30.0,
+    "Bottom surface": 20.0,
+    "Internal solid infill": 30.0,
+    "Top surface": 30.0,
+    "Gap infill": 30.0,
+    "Bridge": 20.0
+  },
+  "role_max_accelerations_mm_s2": {
+    "Inner wall": 1000.0,
+    "Outer wall": 1000.0,
+    "Bottom surface": 500.0,
+    "Internal solid infill": 1000.0,
+    "Top surface": 1000.0,
+    "Gap infill": 1000.0,
+    "Bridge": 1000.0
+  },
+  "actual_line_width_percentiles_mm": [
+    0.0802021,
+    0.365752,
+    0.449992,
+    0.615682,
+    0.678332
+  ],
+  "unsupported_layer_components": [],
+  "max_bridge_free_centerline_mm": 1.4930000000000234,
+  "max_bridge_anchor_distance_mm": 0.4988339308716565,
+  "gcode_estimates": [
+    "; model printing time: 32m 54s; total estimated time: 44m 8s",
+    "; total filament length [mm] : 651.14",
+    "; total filament volume [cm^3] : 1566.18",
+    "; total filament weight [g] : 1.94"
+  ],
+  "caveats": [
+    "Nominal deposited footprints use slicer LINE_WIDTH comments, not measured bead flow or motion.",
+    "A connected footprint with previous-layer overlap does not prove bed adhesion, stiffness, bridge quality or physical stability.",
+    "Physical fit, PLA temperature suitability, friction, load capacity and repeatability remain unknown."
+  ],
+  "startup_check": {
+    "official_x1_04_marker_present": true,
+    "last_nozzle_temperature_command_before_first_model_layer": "M109 S220",
+    "nozzle_temperature_commands_before_first_model_layer": [
+      "M104 S75",
+      "M104 S220",
+      "M109 S250",
+      "M104 S220",
+      "M109 S200",
+      "M109 S200",
+      "M104 S140",
+      "M109 S140",
+      "M104 S220",
+      "M109 S220",
+      "M104 S140",
+      "M109 S220",
+      "M109 S220"
+    ]
+  },
+  "model_to_gcode_translation_xy_mm": [
+    54.19999507,
+    110.50157583
+  ],
+  "part_toolpath_screens": [
+    {
+      "index": 1,
+      "source_bounds_mm": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ],
+        [
+          9.300000190734863,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.02625852869248,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 2,
+      "source_bounds_mm": [
+        [
+          13.300000190734863,
+          5.0,
+          0.0
+        ],
+        [
+          17.600000381469727,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.035287311991652,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 3,
+      "source_bounds_mm": [
+        [
+          21.600000381469727,
+          5.0,
+          0.0
+        ],
+        [
+          32.20000076293945,
+          7.820000171661377,
+          4.599999904632568
+        ]
+      ],
+      "first_layer_contact_area_mm2": 25.34983536196228,
+      "layers_with_extrusion": 38,
+      "top_layer_with_extrusion_mm": 4.56
+    },
+    {
+      "index": 4,
+      "source_bounds_mm": [
+        [
+          36.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          44.20000076293945,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.7631853683574,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 5,
+      "source_bounds_mm": [
+        [
+          48.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          56.20000076293945,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.763379797347106,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 6,
+      "source_bounds_mm": [
+        [
+          60.20000076293945,
+          5.0,
+          0.0
+        ],
+        [
+          64.5,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.25138654799736,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 7,
+      "source_bounds_mm": [
+        [
+          68.5,
+          5.0,
+          0.0
+        ],
+        [
+          72.80000305175781,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.26954659335202,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 8,
+      "source_bounds_mm": [
+        [
+          76.80000305175781,
+          5.0,
+          0.0
+        ],
+        [
+          87.4000015258789,
+          7.880000114440918,
+          4.599999904632568
+        ]
+      ],
+      "first_layer_contact_area_mm2": 25.70031200595558,
+      "layers_with_extrusion": 38,
+      "top_layer_with_extrusion_mm": 4.56
+    },
+    {
+      "index": 9,
+      "source_bounds_mm": [
+        [
+          91.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          99.4000015258789,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.76419502366111,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 10,
+      "source_bounds_mm": [
+        [
+          103.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          111.4000015258789,
+          12.998418807983398,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.764195023661124,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 11,
+      "source_bounds_mm": [
+        [
+          115.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          119.69999694824219,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.270464194991053,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 12,
+      "source_bounds_mm": [
+        [
+          123.69999694824219,
+          5.0,
+          0.0
+        ],
+        [
+          128.0,
+          9.299150466918945,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 10.266695942153522,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 13,
+      "source_bounds_mm": [
+        [
+          132.0,
+          5.0,
+          0.0
+        ],
+        [
+          142.60000610351562,
+          7.880000114440918,
+          4.599999904632568
+        ]
+      ],
+      "first_layer_contact_area_mm2": 25.70031200595556,
+      "layers_with_extrusion": 38,
+      "top_layer_with_extrusion_mm": 4.56
+    },
+    {
+      "index": 14,
+      "source_bounds_mm": [
+        [
+          5.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          13.0,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.76501597261591,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 15,
+      "source_bounds_mm": [
+        [
+          17.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          25.0,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.763733698545174,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 16,
+      "source_bounds_mm": [
+        [
+          29.0,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          33.29999923706055,
+          22.297569274902344,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 9.860726171746649,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 17,
+      "source_bounds_mm": [
+        [
+          37.29999923706055,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          41.599998474121094,
+          22.297569274902344,
+          8.600000381469727
+        ]
+      ],
+      "first_layer_contact_area_mm2": 9.831009154785953,
+      "layers_with_extrusion": 72,
+      "top_layer_with_extrusion_mm": 8.64
+    },
+    {
+      "index": 18,
+      "source_bounds_mm": [
+        [
+          45.599998474121094,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          56.20000076293945,
+          20.938419342041016,
+          4.599999904632568
+        ]
+      ],
+      "first_layer_contact_area_mm2": 26.063276647626985,
+      "layers_with_extrusion": 38,
+      "top_layer_with_extrusion_mm": 4.56
+    },
+    {
+      "index": 19,
+      "source_bounds_mm": [
+        [
+          60.20000076293945,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          68.19999694824219,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.76302510818425,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    },
+    {
+      "index": 20,
+      "source_bounds_mm": [
+        [
+          72.19999694824219,
+          17.9984188079834,
+          0.0
+        ],
+        [
+          80.19999694824219,
+          25.996837615966797,
+          7.190000057220459
+        ]
+      ],
+      "first_layer_contact_area_mm2": 49.763848052284914,
+      "layers_with_extrusion": 60,
+      "top_layer_with_extrusion_mm": 7.2
+    }
+  ]
+}

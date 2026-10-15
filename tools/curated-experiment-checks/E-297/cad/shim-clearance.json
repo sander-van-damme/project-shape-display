@@ -1,0 +1,46 @@
+[
+  {
+    "rows": [
+      0,
+      0
+    ],
+    "columns": [
+      0,
+      0
+    ],
+    "collisions": []
+  },
+  {
+    "rows": [
+      1,
+      0
+    ],
+    "columns": [
+      1,
+      0
+    ],
+    "collisions": []
+  },
+  {
+    "rows": [
+      1,
+      1
+    ],
+    "columns": [
+      0,
+      0
+    ],
+    "collisions": []
+  },
+  {
+    "rows": [
+      1,
+      1
+    ],
+    "columns": [
+      1,
+      1
+    ],
+    "collisions": []
+  }
+]

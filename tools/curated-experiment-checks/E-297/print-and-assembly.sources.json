@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "path": "owner-print-tests/2026-10-16-two-half-clutch-fit/test.md",
+      "sha256": "fc8179aba54dfd05a4d166b516506f47d984084d0a6b64c46df90f1aafe93238"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-two-half-clutch-matrix/test.md",
+      "sha256": "76fea6464e1b66116183736868504bf639963157471da0e64eab607445923652"
+    }
+  ],
+  "method": "Pandoc GFM AST to ReportLab; original instruction text, original figure files and complete tables; pages added for result forms."
+}

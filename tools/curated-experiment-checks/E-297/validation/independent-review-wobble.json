@@ -1,0 +1,140 @@
+{
+  "kind": "finite actual mesh wobble checks, not a proof of all friction/print tolerances",
+  "cad_sha256": {
+    "rotor.stl": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+    "single-comb.stl": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b",
+    "input-shaft.stl": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79"
+  },
+  "old_negative_case_replay": [
+    {
+      "state": 0,
+      "deg": 3,
+      "dx": 0.06,
+      "comb_overlap": 0.0,
+      "shaft_overlap": 0.2706195386085447,
+      "new_fixed_guide_overlap": 0.34551165649469373
+    },
+    {
+      "state": 0,
+      "deg": 3.1,
+      "dx": 0.06,
+      "comb_overlap": 0.0,
+      "shaft_overlap": 0.2935558423778704,
+      "new_fixed_guide_overlap": 0.377874136117897
+    },
+    {
+      "state": 1,
+      "deg": 3,
+      "dx": 0.06,
+      "comb_overlap": 0.0,
+      "shaft_overlap": 0.002838786253715065,
+      "new_fixed_guide_overlap": 0.010904818290938981
+    },
+    {
+      "state": 1,
+      "deg": 3.1,
+      "dx": 0.06,
+      "comb_overlap": 0.0,
+      "shaft_overlap": 0.004043111353071121,
+      "new_fixed_guide_overlap": 0.01583197329205567
+    }
+  ],
+  "samples": [
+    {
+      "guide_diameter_mm": 4.0,
+      "state_fraction": 0,
+      "checked_orientations": 840,
+      "legal_sample_count": 377,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.09009449188981795,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    },
+    {
+      "guide_diameter_mm": 4.0,
+      "state_fraction": 0.5,
+      "checked_orientations": 840,
+      "legal_sample_count": 377,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.12149606563558424,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    },
+    {
+      "guide_diameter_mm": 4.0,
+      "state_fraction": 1,
+      "checked_orientations": 840,
+      "legal_sample_count": 388,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.15289763938135056,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    },
+    {
+      "guide_diameter_mm": 4.1,
+      "state_fraction": 0,
+      "checked_orientations": 840,
+      "legal_sample_count": 449,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.09009449188981795,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    },
+    {
+      "guide_diameter_mm": 4.1,
+      "state_fraction": 0.5,
+      "checked_orientations": 840,
+      "legal_sample_count": 460,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.12149606563558424,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    },
+    {
+      "guide_diameter_mm": 4.1,
+      "state_fraction": 1,
+      "checked_orientations": 840,
+      "legal_sample_count": 472,
+      "worst": {
+        "deg": 3,
+        "azimuth_deg": 0,
+        "offset_mm": -0.2,
+        "z_offset_mm": 0,
+        "selector_offset_mm": -0.2,
+        "shaft_offset_mm": -0.15289763938135056,
+        "max_radius_mm": 2.3658945392065274
+      },
+      "conservative_pair_gap_of_sampled_envelopes_mm": 0.34821092158694533
+    }
+  ]
+}

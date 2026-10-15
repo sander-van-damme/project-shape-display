@@ -1,0 +1,45 @@
+{
+  "source": "owner-print-tests/2026-10-15-four-pin-screw-demo/four-pin-demo-0175-plate.stl",
+  "source_sha256": "9c6cb2402bd494cf028ec13353b2a0ca2df32d3ac5e6938b8c4240670fb763cc",
+  "thread_operation": "source screw centered x8 y39, cropped source z5.5..21.5 then translated z-5.5; exact original triangulated thread phase, no rescale",
+  "pin_operation": "source closed-top pin translated x-8 y-52; unchanged geometry",
+  "qualification": "E295 closed-top demo pin uses physically successful 0.175 radial thread relief; closed cap itself and guide assembly are not yet physically tested",
+  "outputs": {
+    "e295-thread": {
+      "sha256": "d08e4d5c1bbe36a946ac744bf71bd49a0a431c17fe990d1b554eea2b4d8b6c11",
+      "bounds_mm": [
+        [
+          -1.5999999046325684,
+          -1.5999984741210938,
+          0.0
+        ],
+        [
+          1.6000003814697266,
+          1.5999984741210938,
+          16.0
+        ]
+      ],
+      "faces": 3528,
+      "volume_mm3": 71.92371545840007,
+      "watertight": true
+    },
+    "e295-pin": {
+      "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110",
+      "bounds_mm": [
+        [
+          -2.1999998092651367,
+          -2.200000762939453,
+          0.0
+        ],
+        [
+          2.1999998092651367,
+          2.200000762939453,
+          18.0
+        ]
+      ],
+      "faces": 1492,
+      "volume_mm3": 174.42593806935324,
+      "watertight": true
+    }
+  }
+}

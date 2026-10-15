@@ -1,0 +1,50 @@
+[
+  {
+    "part": 20,
+    "model_firstlayer_area_mm2": 3.102485580284745,
+    "brim_gap_from_model_mm": 0.0,
+    "brim_contact_area_mm2": 0.04264480380292347,
+    "firstlayer_model_bounds_mm": [
+      101.82517718839075,
+      154.50000406823614,
+      103.99496045350216,
+      156.099996
+    ]
+  },
+  {
+    "part": 21,
+    "model_firstlayer_area_mm2": 3.1029315266010964,
+    "brim_gap_from_model_mm": 0.0,
+    "brim_contact_area_mm2": 0.04447192320218474,
+    "firstlayer_model_bounds_mm": [
+      110.12517718839075,
+      154.500004,
+      112.29496045350216,
+      156.099996
+    ]
+  },
+  {
+    "part": 22,
+    "model_firstlayer_area_mm2": 3.102178200628428,
+    "brim_gap_from_model_mm": 0.0,
+    "brim_contact_area_mm2": 0.04269443387579921,
+    "firstlayer_model_bounds_mm": [
+      118.42517718839075,
+      154.50000406823614,
+      120.59496045350217,
+      156.099996
+    ]
+  },
+  {
+    "part": 23,
+    "model_firstlayer_area_mm2": 3.1018438743961627,
+    "brim_gap_from_model_mm": 0.0,
+    "brim_contact_area_mm2": 0.042045586896122485,
+    "firstlayer_model_bounds_mm": [
+      126.72517718839075,
+      154.50000406823614,
+      128.89496045350214,
+      156.099996
+    ]
+  }
+]

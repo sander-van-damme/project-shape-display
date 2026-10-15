@@ -1,0 +1,23 @@
+{
+  "project": "owner-print-tests/2026-10-16-two-half-clutch-fit/clutch-fit.3mf",
+  "sha256": "fc1bb16a9595861d0bd9e50a8e28925f8a4676cca81d700e077f62d268a214db",
+  "zip_test": null,
+  "object_model_count": 20,
+  "machine": "Bambu Lab X1 Carbon",
+  "variant": "0.4",
+  "material": [
+    "PLA"
+  ],
+  "layer": "0.12",
+  "first_layer": "0.12",
+  "wall_generator": "arachne",
+  "support": "0",
+  "nozzle": [
+    "0.4"
+  ],
+  "gcode_bytes": 2661350,
+  "motion_line_count": 71880,
+  "support_role_present": false,
+  "gcode_md5_actual": "57a4bb0b34021f114c316ff818ffdeda",
+  "gcode_md5_embedded": "57A4BB0B34021F114C316FF818FFDEDA"
+}

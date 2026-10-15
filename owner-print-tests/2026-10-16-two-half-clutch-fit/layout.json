@@ -1,0 +1,322 @@
+[
+  {
+    "name": "rotor-tight",
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        9.3,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-tight-print.stl"
+  },
+  {
+    "name": "rotor-tight",
+    "bounds_mm": [
+      [
+        13.3,
+        5.0,
+        0.0
+      ],
+      [
+        17.6,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-tight-print.stl"
+  },
+  {
+    "name": "comb-tight",
+    "bounds_mm": [
+      [
+        21.6,
+        5.0,
+        0.0
+      ],
+      [
+        32.2,
+        7.82,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/comb-tight-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        36.2,
+        5.0,
+        0.0
+      ],
+      [
+        44.2,
+        12.998418638160526,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        48.2,
+        5.0,
+        0.0
+      ],
+      [
+        56.2,
+        12.998418638160526,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "rotor-nominal",
+    "bounds_mm": [
+      [
+        60.2,
+        5.0,
+        0.0
+      ],
+      [
+        64.5,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-nominal-print.stl"
+  },
+  {
+    "name": "rotor-nominal",
+    "bounds_mm": [
+      [
+        68.5,
+        5.0,
+        0.0
+      ],
+      [
+        72.80000000000001,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-nominal-print.stl"
+  },
+  {
+    "name": "comb-nominal",
+    "bounds_mm": [
+      [
+        76.8,
+        5.0,
+        0.0
+      ],
+      [
+        87.39999999999999,
+        7.88,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/comb-nominal-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        91.4,
+        5.0,
+        0.0
+      ],
+      [
+        99.4,
+        12.998418638160526,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        103.4,
+        5.0,
+        0.0
+      ],
+      [
+        111.4,
+        12.998418638160526,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "rotor-nominal",
+    "bounds_mm": [
+      [
+        115.4,
+        5.0,
+        0.0
+      ],
+      [
+        119.70000000000002,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-nominal-print.stl"
+  },
+  {
+    "name": "rotor-nominal",
+    "bounds_mm": [
+      [
+        123.7,
+        5.0,
+        0.0
+      ],
+      [
+        128.0,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-nominal-print.stl"
+  },
+  {
+    "name": "comb-nominal",
+    "bounds_mm": [
+      [
+        132.0,
+        5.0,
+        0.0
+      ],
+      [
+        142.60000000000002,
+        7.88,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/comb-nominal-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        5.0,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        13.0,
+        25.996837276321045,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        17.0,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        25.0,
+        25.996837276321045,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "rotor-loose",
+    "bounds_mm": [
+      [
+        29.0,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        33.3,
+        22.297568656171805,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-loose-print.stl"
+  },
+  {
+    "name": "rotor-loose",
+    "bounds_mm": [
+      [
+        37.3,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        41.599999999999994,
+        22.297568656171805,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-loose-print.stl"
+  },
+  {
+    "name": "comb-loose",
+    "bounds_mm": [
+      [
+        45.599999999999994,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        56.19999999999999,
+        20.938418638160524,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/comb-loose-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        60.19999999999999,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        68.19999999999999,
+        25.996837276321045,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft",
+    "bounds_mm": [
+      [
+        72.19999999999999,
+        17.998418638160523,
+        0.0
+      ],
+      [
+        80.19999999999999,
+        25.996837276321045,
+        7.1899999999999995
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/coupon-shaft-print.stl"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "project_sha256": "3011118591b7b1d052a6c68da39be35150c57ed1af7ff5a1a89098c462317be3",
+  "source_stl_sha256": "2ef6d54bbcd1be2271ff135120281e9732c128eb28b667373603a385583b2dfe",
+  "body_count": 36,
+  "maximum_volume_difference_mm3": 0.0028732190239679767,
+  "maximum_sorted_extent_difference_mm": 1.5251757812251299e-05,
+  "all_closed": true,
+  "all_facet_counts_equal": true,
+  "all_project_meshes_closed_after_coordinate_merge": false,
+  "topology_note": "Project watertightness preserves the 3MF vertex indices. Coordinate welding can merge distinct indexed vertices after decimal export rounding; that diagnostic is recorded separately.",
+  "scope": "Independent volume/extents/facet-count check, complements exact transformed vertex comparison in primary slicer validation."
+}

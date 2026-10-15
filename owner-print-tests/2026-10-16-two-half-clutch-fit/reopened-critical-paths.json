@@ -1,0 +1,5740 @@
+{
+  "dog_root_mm": 6.2,
+  "summary": {
+    "rotor-loose": {
+      "central_radius_060_free": {
+        "samples": 88,
+        "failed": 0
+      },
+      "neck_is_closed_wall": {
+        "samples": 20,
+        "failed": 0
+      },
+      "two_dog_components": {
+        "samples": 40,
+        "failed": 0
+      },
+      "dog_arc_min_coverage": 1.0,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    "rotor-nominal": {
+      "central_radius_060_free": {
+        "samples": 176,
+        "failed": 0
+      },
+      "neck_is_closed_wall": {
+        "samples": 40,
+        "failed": 0
+      },
+      "two_dog_components": {
+        "samples": 80,
+        "failed": 0
+      },
+      "dog_arc_min_coverage": 1.0,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    "rotor-tight": {
+      "central_radius_060_free": {
+        "samples": 88,
+        "failed": 0
+      },
+      "neck_is_closed_wall": {
+        "samples": 20,
+        "failed": 3
+      },
+      "two_dog_components": {
+        "samples": 40,
+        "failed": 0
+      },
+      "dog_arc_min_coverage": 1.0,
+      "neck_nominal_midwall_max_gap_mm": 0.35786668433975244
+    }
+  },
+  "details": [
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.12,
+      "area_mm2": 10.375858515223117,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.24,
+      "area_mm2": 10.171151967720572,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.36,
+      "area_mm2": 10.284219353971272,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.48,
+      "area_mm2": 10.295098102773574,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.6,
+      "area_mm2": 10.291257934805104,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.72,
+      "area_mm2": 10.29358495372238,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.84,
+      "area_mm2": 4.079545627249626,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 0.96,
+      "area_mm2": 4.073656547998629,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.08,
+      "area_mm2": 4.0752421177523495,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.2,
+      "area_mm2": 4.072510199575364,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.32,
+      "area_mm2": 4.066500967478406,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.44,
+      "area_mm2": 3.8025226908333107,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": false,
+      "neck_nominal_midwall_max_gap_mm": 0.3516062040973942
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.56,
+      "area_mm2": 4.092215737045881,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.68,
+      "area_mm2": 4.079740063472089,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.8,
+      "area_mm2": 4.049088849447833,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 1.92,
+      "area_mm2": 3.7866453559993345,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": false,
+      "neck_nominal_midwall_max_gap_mm": 0.35786668433975244
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.04,
+      "area_mm2": 4.091317497377534,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.16,
+      "area_mm2": 5.065584433999183,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.28,
+      "area_mm2": 6.20747749722603,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.4,
+      "area_mm2": 6.198541575424201,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.52,
+      "area_mm2": 6.216464186254285,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.64,
+      "area_mm2": 6.225160334921453,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.76,
+      "area_mm2": 6.210538796764832,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 2.88,
+      "area_mm2": 6.200742880111051,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.0,
+      "area_mm2": 6.18928311146891,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.12,
+      "area_mm2": 6.229529534477498,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.24,
+      "area_mm2": 6.197802722890184,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.36,
+      "area_mm2": 6.199807996040896,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.48,
+      "area_mm2": 6.199474567023702,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.6,
+      "area_mm2": 6.198742052067788,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.72,
+      "area_mm2": 6.198836899934646,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.84,
+      "area_mm2": 6.198312883751086,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 3.96,
+      "area_mm2": 6.197717792885054,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.08,
+      "area_mm2": 6.197689459229608,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.2,
+      "area_mm2": 6.1977233353889645,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.32,
+      "area_mm2": 6.197805833297814,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.44,
+      "area_mm2": 6.198200879339229,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.56,
+      "area_mm2": 6.1981358875548835,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.68,
+      "area_mm2": 6.197321565337575,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.8,
+      "area_mm2": 6.197850101319359,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 4.92,
+      "area_mm2": 6.197202870489395,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.04,
+      "area_mm2": 6.202659637189772,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.16,
+      "area_mm2": 6.204801671383961,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.28,
+      "area_mm2": 6.204558779200618,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.4,
+      "area_mm2": 6.2038332571011505
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.52,
+      "area_mm2": 6.2053124083884565
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.64,
+      "area_mm2": 9.9992001840286
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.76,
+      "area_mm2": 10.00207625564325
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 5.88,
+      "area_mm2": 10.00216995303082
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.0,
+      "area_mm2": 10.00132687302313
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.12,
+      "area_mm2": 9.995356579211498
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.24,
+      "area_mm2": 10.001465831097498
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.36,
+      "area_mm2": 3.6607516440553693,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.48,
+      "area_mm2": 3.610759482186259,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.6,
+      "area_mm2": 3.611864907319964,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.72,
+      "area_mm2": 3.5914552627600353,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.84,
+      "area_mm2": 3.5950823465349124,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 6.96,
+      "area_mm2": 3.5932346322944553,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.08,
+      "area_mm2": 3.6000132129762323,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.2,
+      "area_mm2": 3.5998369183453534,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.32,
+      "area_mm2": 3.612157716378234,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.44,
+      "area_mm2": 3.6072889505163834,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.56,
+      "area_mm2": 3.6312693353315986,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.68,
+      "area_mm2": 3.6072519489728183,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.8,
+      "area_mm2": 3.598544695517739,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 7.92,
+      "area_mm2": 3.623629192835586,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.04,
+      "area_mm2": 3.598981466260482,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.16,
+      "area_mm2": 3.598023686952248,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.28,
+      "area_mm2": 3.607593123773185,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.4,
+      "area_mm2": 3.628779826919697,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.52,
+      "area_mm2": 3.1998250967067774,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 1,
+      "name": "rotor-tight",
+      "z_mm": 8.64,
+      "area_mm2": 2.702551923446511,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.12,
+      "area_mm2": 10.273293722921876,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.24,
+      "area_mm2": 10.183121642336474,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.36,
+      "area_mm2": 10.285344252442059,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.48,
+      "area_mm2": 10.285585934711213,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.6,
+      "area_mm2": 10.291882261559287,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.72,
+      "area_mm2": 10.296114423930357,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.84,
+      "area_mm2": 4.084497956731434,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 0.96,
+      "area_mm2": 4.081417104317399,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.08,
+      "area_mm2": 4.0910922807718,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.2,
+      "area_mm2": 4.085063685289212,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.32,
+      "area_mm2": 4.093116380995991,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.44,
+      "area_mm2": 3.8145473004319297,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": false,
+      "neck_nominal_midwall_max_gap_mm": 0.35160376575195107
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.56,
+      "area_mm2": 4.0957490318923035,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.68,
+      "area_mm2": 4.09294752790273,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.8,
+      "area_mm2": 4.045784625674856,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 1.92,
+      "area_mm2": 4.08415790036571,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.04,
+      "area_mm2": 4.025759165384473,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.16,
+      "area_mm2": 5.050281496758972,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.28,
+      "area_mm2": 6.185374623577701,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.4,
+      "area_mm2": 6.18600351948901,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.52,
+      "area_mm2": 6.221533331805636,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.64,
+      "area_mm2": 6.215669623136607,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.76,
+      "area_mm2": 6.1989807818778715,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 2.88,
+      "area_mm2": 6.214987712958589,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.0,
+      "area_mm2": 6.2076542600301,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.12,
+      "area_mm2": 6.204955563196143,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.24,
+      "area_mm2": 6.197199433655325,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.36,
+      "area_mm2": 6.19988378308399,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.48,
+      "area_mm2": 6.198968146001054,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.6,
+      "area_mm2": 6.1992731432908,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.72,
+      "area_mm2": 6.199130712558183,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.84,
+      "area_mm2": 6.198203242185554,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 3.96,
+      "area_mm2": 6.197639112667312,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.08,
+      "area_mm2": 6.1982796333821755,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.2,
+      "area_mm2": 6.197233893521569,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.32,
+      "area_mm2": 6.197601751226384,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.44,
+      "area_mm2": 6.19801552834968,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.56,
+      "area_mm2": 6.198123474624834,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.68,
+      "area_mm2": 6.196195308100737,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.8,
+      "area_mm2": 6.196695654428449,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 4.92,
+      "area_mm2": 6.197195158667115,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.04,
+      "area_mm2": 6.204855931930591,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.16,
+      "area_mm2": 6.205082316653632,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.28,
+      "area_mm2": 6.204377705295814,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.4,
+      "area_mm2": 6.2033839364684145
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.52,
+      "area_mm2": 6.204837737636431
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.64,
+      "area_mm2": 9.99825512806664
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.76,
+      "area_mm2": 10.002023297198916
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 5.88,
+      "area_mm2": 10.002378732763466
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.0,
+      "area_mm2": 10.00237019688417
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.12,
+      "area_mm2": 9.995121056790394
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.24,
+      "area_mm2": 10.00163429065618
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.36,
+      "area_mm2": 3.6284190906579314,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.48,
+      "area_mm2": 3.6172290644710126,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.6,
+      "area_mm2": 3.5939034816904223,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.72,
+      "area_mm2": 3.613486550277168,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.84,
+      "area_mm2": 3.608295441748446,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 6.96,
+      "area_mm2": 3.5977003480718617,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.08,
+      "area_mm2": 3.6102161344372115,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.2,
+      "area_mm2": 3.609394514312698,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.32,
+      "area_mm2": 3.607857689508978,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.44,
+      "area_mm2": 3.608762252362811,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.56,
+      "area_mm2": 3.6014443482264067,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.68,
+      "area_mm2": 3.6065826627621065,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.8,
+      "area_mm2": 3.6053241490973695,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 7.92,
+      "area_mm2": 3.603145113319215,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.04,
+      "area_mm2": 3.5973070625295875,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.16,
+      "area_mm2": 3.5949983682490454,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.28,
+      "area_mm2": 3.613361604498602,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.4,
+      "area_mm2": 3.624545109114255,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.52,
+      "area_mm2": 3.1841264036120513,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 2,
+      "name": "rotor-tight",
+      "z_mm": 8.64,
+      "area_mm2": 2.7021578006481435,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.12,
+      "area_mm2": 25.34983536196228
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.24,
+      "area_mm2": 25.655960330100186
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.36,
+      "area_mm2": 25.655960330100186
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.48,
+      "area_mm2": 25.655960330100186
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.6,
+      "area_mm2": 25.655960330100186
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.72,
+      "area_mm2": 24.605189194642747
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.84,
+      "area_mm2": 24.05419468200826
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 0.96,
+      "area_mm2": 23.69208243717578
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.08,
+      "area_mm2": 23.40261244221395
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.2,
+      "area_mm2": 22.387146547218247
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.32,
+      "area_mm2": 21.697861071955845
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.44,
+      "area_mm2": 21.23338617471779
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.56,
+      "area_mm2": 20.888870361402514
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.68,
+      "area_mm2": 20.606167212443452
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.8,
+      "area_mm2": 20.383808108124438
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 1.92,
+      "area_mm2": 20.142674601412853
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.04,
+      "area_mm2": 20.02024361341255
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.16,
+      "area_mm2": 19.9398238016626
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.28,
+      "area_mm2": 19.896967551066737
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.4,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.52,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.64,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.76,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 2.88,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.0,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.12,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.24,
+      "area_mm2": 19.88975324015334
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.36,
+      "area_mm2": 19.793302824253786
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.48,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.6,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.72,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.84,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 3.96,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 4.08,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 4.2,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 4.32,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 4.44,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 3,
+      "name": "comb-tight",
+      "z_mm": 4.56,
+      "area_mm2": 2.916424101508227
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 10.279801463682464,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 10.271128738720325,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 10.280672619003465,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 10.2708533015133,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 10.27400977498817,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 10.270254688593589,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 3.925842225665453,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 3.9008232598330963,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 3.9294009805583556,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 3.942140252411149,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 3.9064389300726043,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 3.9145130419631595,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 3.934159174160812,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 3.9343718521615765,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 3.9259346056695588,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 3.9376089175385607,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 3.92698370581964,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 4.823268252373537,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 5.94400267924396,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 5.952205221124468,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 5.968925161580963,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 5.96992371472228,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 5.959989404320803,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 5.97452645372628,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 5.949896840472727,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 5.972075156300793,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 5.970711416788818,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 5.97500621665846,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 5.972597211178215,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 5.972935191527259,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 5.973365516200817,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 5.9734160800184455,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 5.971911391600413,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 5.973125946094173,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 5.971836907769679,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 5.9725601933908266,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 5.972285688948636,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 5.971774711745436,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.68,
+      "area_mm2": 5.9719617494059,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.8,
+      "area_mm2": 5.971309877531783,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 4.92,
+      "area_mm2": 5.970671069683963,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.04,
+      "area_mm2": 5.971569236430825,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.16,
+      "area_mm2": 5.969802093228811,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.28,
+      "area_mm2": 5.971740129756564,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.4,
+      "area_mm2": 5.980114952946106
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.52,
+      "area_mm2": 5.962109059887907
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.64,
+      "area_mm2": 9.999900388755993
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.76,
+      "area_mm2": 10.002744073389488
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 5.88,
+      "area_mm2": 10.001943397245919
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.0,
+      "area_mm2": 10.002528097029712
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.12,
+      "area_mm2": 9.995369162211185
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.24,
+      "area_mm2": 10.002813230533556
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.36,
+      "area_mm2": 3.649289696062305,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.48,
+      "area_mm2": 3.6123129501031768,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.6,
+      "area_mm2": 3.609025964267036,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.72,
+      "area_mm2": 3.59503243541221,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.84,
+      "area_mm2": 3.5944892697746047,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 6.96,
+      "area_mm2": 3.63231408088895,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.08,
+      "area_mm2": 3.6031729015459057,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.2,
+      "area_mm2": 3.603313491561753,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.32,
+      "area_mm2": 3.6416838911208735,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.44,
+      "area_mm2": 3.6028520754673816,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.56,
+      "area_mm2": 3.631320156982683,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.68,
+      "area_mm2": 3.5999619157784277,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.8,
+      "area_mm2": 3.6207827463788362,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 7.92,
+      "area_mm2": 3.6038463913099243,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.04,
+      "area_mm2": 3.6237383199621567,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.16,
+      "area_mm2": 3.6249234765928167,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.28,
+      "area_mm2": 3.631451086114426,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.4,
+      "area_mm2": 3.627017896343391,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.52,
+      "area_mm2": 3.184366340074054,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 6,
+      "name": "rotor-nominal",
+      "z_mm": 8.64,
+      "area_mm2": 2.70270743650559,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 10.283582115049462,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 10.27570190296942,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 10.284014201731328,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 10.27807162918101,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 10.27619910891384,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 10.272411960060783,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 3.90099131827201,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 3.8886568074093297,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 3.915398069770747,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 3.9011163243836275,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 3.9362928686488123,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 3.9335581376902127,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 3.938637190002188,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 3.931285406297998,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 3.9120530351337095,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 3.90973562378214,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 3.94197281313821,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 4.8304982171619875,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 5.970524981275341,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 5.966675492886384,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 5.98249249715274,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 5.9772714767467034,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 5.960451100829328,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 5.974306015422527,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 5.948129719361148,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 5.960214874175396,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 5.976194858097067,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 5.97289504967879,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 5.9727008444827945,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 5.972540673327177,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 5.973153024993393,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 5.973352267811013,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 5.972143114358175,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 5.973215476106363,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 5.972061675178208,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 5.970786083656409,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 5.9723630052673045,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 5.971645367189913,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.68,
+      "area_mm2": 5.972219241879316,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.8,
+      "area_mm2": 5.971441928191921,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 4.92,
+      "area_mm2": 5.970664119226959,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.04,
+      "area_mm2": 5.970484178621636,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.16,
+      "area_mm2": 5.970743351650516,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.28,
+      "area_mm2": 5.971782005797905,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.4,
+      "area_mm2": 5.979827653494031
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.52,
+      "area_mm2": 5.96352449668126
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.64,
+      "area_mm2": 9.998791061022448
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.76,
+      "area_mm2": 10.00145981794728
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 5.88,
+      "area_mm2": 10.002003073699534
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.0,
+      "area_mm2": 9.995256678907486
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.12,
+      "area_mm2": 9.996200884988362
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.24,
+      "area_mm2": 10.001950112984467
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.36,
+      "area_mm2": 3.6585133794089235,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.48,
+      "area_mm2": 3.62496146489322,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.6,
+      "area_mm2": 3.60898390344902,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.72,
+      "area_mm2": 3.6276175536749515,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.84,
+      "area_mm2": 3.608676054991935,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 6.96,
+      "area_mm2": 3.5909434841137573,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.08,
+      "area_mm2": 3.597848780499447,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.2,
+      "area_mm2": 3.5996938197230275,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.32,
+      "area_mm2": 3.613236378331127,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.44,
+      "area_mm2": 3.637563356503672,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.56,
+      "area_mm2": 3.6102265951534633,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.68,
+      "area_mm2": 3.60706319332912,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.8,
+      "area_mm2": 3.6068758622687804,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 7.92,
+      "area_mm2": 3.59867880899494,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.04,
+      "area_mm2": 3.606683022267213,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.16,
+      "area_mm2": 3.6226291581591417,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.28,
+      "area_mm2": 3.6180936308886884,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.4,
+      "area_mm2": 3.6305133513452588,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.52,
+      "area_mm2": 3.1844027453694226,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 7,
+      "name": "rotor-nominal",
+      "z_mm": 8.64,
+      "area_mm2": 2.702841448803779,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 25.700312005955563
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 26.010639695051132
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 26.010639695051132
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 26.010639695051132
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 26.010639695051132
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 24.78325119677926
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 24.289850224144775
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 23.94834844298845
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 23.672408256287415
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 22.49568831973774
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 21.8759986045456
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 21.43860174126157
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 21.104002483138405
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 20.830663610001046
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 20.543096514947045
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 20.384112266789188
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 20.26507905050301
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 20.186584271902767
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 20.143742132109974
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 20.136500150304506
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 20.01206487269744
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 8,
+      "name": "comb-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 2.817139244391475
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 10.262045401069361,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 10.273645022011193,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 10.281519355292218,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 10.278366770230505,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 10.276855204188386,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 10.270475885179657,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 3.929922033517502,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 3.9122028347023186,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 3.922470092358857,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 3.9293570027477625,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 3.9333351871524345,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 3.9306627668815004,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 3.91295761944912,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 3.9290773746570453,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 3.9356975467280026,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 3.914163666116357,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 3.9308601019661182,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 4.813334144444001,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 5.960572511435335,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 5.9666611729268775,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 5.962783262960237,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 5.975749770492946,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 5.965879243266057,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 5.956317431387982,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 5.97161971962359,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 5.968594471600058,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 5.970453017941308,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 5.973063244267378,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 5.971775679428931,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 5.971435828686247,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 5.973150982188576,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 5.973521781151455,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 5.972015708019052,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 5.971585930406975,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 5.972227223338598,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 5.972603147929698,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 5.972156679303317,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 5.971775936663656,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.68,
+      "area_mm2": 5.972138600787959,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.8,
+      "area_mm2": 5.971491980145072,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 4.92,
+      "area_mm2": 5.971222576934471,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.04,
+      "area_mm2": 5.970672185356487,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.16,
+      "area_mm2": 5.970793954366499,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.28,
+      "area_mm2": 5.971709383927451,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.4,
+      "area_mm2": 5.9794489862470614
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.52,
+      "area_mm2": 5.964222463619881
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.64,
+      "area_mm2": 9.997389948200961
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.76,
+      "area_mm2": 10.00168863519019
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 5.88,
+      "area_mm2": 10.002168773275644
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.0,
+      "area_mm2": 9.993700166150594
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.12,
+      "area_mm2": 9.995005439815314
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.24,
+      "area_mm2": 10.002828327123103
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.36,
+      "area_mm2": 3.634934484630291,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.48,
+      "area_mm2": 3.6108786234048003,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.6,
+      "area_mm2": 3.6057001993592275,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.72,
+      "area_mm2": 3.5940057193168236,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.84,
+      "area_mm2": 3.5930225388668253,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 6.96,
+      "area_mm2": 3.5997003360565865,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.08,
+      "area_mm2": 3.6003035960069893,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.2,
+      "area_mm2": 3.602887643184676,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.32,
+      "area_mm2": 3.6086425176531227,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.44,
+      "area_mm2": 3.6083057177190074,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.56,
+      "area_mm2": 3.6104448802407374,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.68,
+      "area_mm2": 3.606730935292849,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.8,
+      "area_mm2": 3.601155052519624,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 7.92,
+      "area_mm2": 3.6042988607834636,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.04,
+      "area_mm2": 3.6020253940868345,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.16,
+      "area_mm2": 3.602686728452402,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.28,
+      "area_mm2": 3.6062334256035427,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.4,
+      "area_mm2": 3.5999877835932033,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.52,
+      "area_mm2": 3.1977743158687693,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 11,
+      "name": "rotor-nominal",
+      "z_mm": 8.64,
+      "area_mm2": 2.701726221123846,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 10.255137985991396,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 10.26430527323431,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 10.282976442267096,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 10.278254431548634,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 10.275782902104789,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 10.27276675449508,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 3.9368690450773443,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 3.931275342196198,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 3.9129501153587842,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 3.9284090092057777,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 3.933622520387936,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 3.9406346065354763,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 3.94064119812972,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 3.938418758949842,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 3.936389687748104,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 3.909261851678366,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 3.917013222525407,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 4.8127604566947255,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 5.955203608650916,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 5.960491680966223,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 5.990680694737287,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 5.973460518601907,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 5.9722797530419784,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 5.961439539626695,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 5.937230001309495,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 5.968397888528045,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 5.972336323538634,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 5.972896707792532,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 5.972031074117331,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 5.973212145700296,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 5.9730567163017305,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 5.973491458713283,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 5.9720467454424675,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 5.97165750796978,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 5.972427821712983,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 5.972669673131712,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 5.972078733506394,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 5.971684478894584,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.68,
+      "area_mm2": 5.971907291874751,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.8,
+      "area_mm2": 5.971507217018146,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 4.92,
+      "area_mm2": 5.971403850110429,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.04,
+      "area_mm2": 5.970378252568298,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.16,
+      "area_mm2": 5.970734401337199,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.28,
+      "area_mm2": 5.971767782570402,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.4,
+      "area_mm2": 5.979646028856732
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.52,
+      "area_mm2": 5.9638551388655
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.64,
+      "area_mm2": 9.997363026225365
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.76,
+      "area_mm2": 10.002404802466744
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 5.88,
+      "area_mm2": 10.002265923848794
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.0,
+      "area_mm2": 9.9947547245664
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.12,
+      "area_mm2": 9.997647855163185
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.24,
+      "area_mm2": 9.99996120692427
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.36,
+      "area_mm2": 3.659721286294457,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.48,
+      "area_mm2": 3.6127553119932876,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.6,
+      "area_mm2": 3.6034900220031396,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.72,
+      "area_mm2": 3.5932311883724086,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.84,
+      "area_mm2": 3.593907582214185,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 6.96,
+      "area_mm2": 3.593374976493703,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.08,
+      "area_mm2": 3.5971481148983306,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.2,
+      "area_mm2": 3.5974108769958733,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.32,
+      "area_mm2": 3.6047982094530027,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.44,
+      "area_mm2": 3.6370129811743768,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.56,
+      "area_mm2": 3.6140941695099436,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.68,
+      "area_mm2": 3.6085071910798874,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.8,
+      "area_mm2": 3.601388123797496,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 7.92,
+      "area_mm2": 3.5982349133792226,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.04,
+      "area_mm2": 3.601310187059596,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.16,
+      "area_mm2": 3.6040582504689427,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.28,
+      "area_mm2": 3.6079705822517285,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.4,
+      "area_mm2": 3.602491627836326,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.52,
+      "area_mm2": 3.184410966901188,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 12,
+      "name": "rotor-nominal",
+      "z_mm": 8.64,
+      "area_mm2": 2.702973858154701,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.12,
+      "area_mm2": 25.700312005955546
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.24,
+      "area_mm2": 26.01063969505112
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.36,
+      "area_mm2": 26.01063969505112
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.48,
+      "area_mm2": 26.01063969505112
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.6,
+      "area_mm2": 26.01063969505112
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.72,
+      "area_mm2": 24.783251196779275
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.84,
+      "area_mm2": 24.289850224144757
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 0.96,
+      "area_mm2": 23.948348442988472
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.08,
+      "area_mm2": 23.67240825628743
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.2,
+      "area_mm2": 22.495705514372226
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.32,
+      "area_mm2": 21.8759822360745
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.44,
+      "area_mm2": 21.438601741261508
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.56,
+      "area_mm2": 21.10400248313844
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.68,
+      "area_mm2": 20.830683414635562
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.8,
+      "area_mm2": 20.543096514947003
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 1.92,
+      "area_mm2": 20.38411226678919
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.04,
+      "area_mm2": 20.26507905050294
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.16,
+      "area_mm2": 20.18654114339349
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.28,
+      "area_mm2": 20.14373488677056
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.4,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.52,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.64,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.76,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 2.88,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.0,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.12,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.24,
+      "area_mm2": 20.1365251884367
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.36,
+      "area_mm2": 20.01208991082965
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.48,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.6,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.72,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.84,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 3.96,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 4.08,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 4.2,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 4.32,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 4.44,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 13,
+      "name": "comb-nominal",
+      "z_mm": 4.56,
+      "area_mm2": 2.817121449756944
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.12,
+      "area_mm2": 9.843046133711423,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.24,
+      "area_mm2": 9.829593580688119,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.36,
+      "area_mm2": 9.861564685570157,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.48,
+      "area_mm2": 9.86482605768234,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.6,
+      "area_mm2": 9.868169514669383,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.72,
+      "area_mm2": 9.865357901515894,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.84,
+      "area_mm2": 3.819058229279249,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 0.96,
+      "area_mm2": 3.8258028548520855,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.08,
+      "area_mm2": 3.8171191511002647,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.2,
+      "area_mm2": 3.8273973823561116,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.32,
+      "area_mm2": 3.8370670791321055,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.44,
+      "area_mm2": 3.8256349287343987,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.56,
+      "area_mm2": 3.83704900054319,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.68,
+      "area_mm2": 3.828273834938006,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.8,
+      "area_mm2": 3.8358709516529883,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 1.92,
+      "area_mm2": 3.8201444100810757,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.04,
+      "area_mm2": 3.830774710502701,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.16,
+      "area_mm2": 4.460637162305481,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.28,
+      "area_mm2": 5.537701463468558,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.4,
+      "area_mm2": 5.557277225154147,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.52,
+      "area_mm2": 5.552990430936857,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.64,
+      "area_mm2": 5.601641189012451,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.76,
+      "area_mm2": 5.587660877419277,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 2.88,
+      "area_mm2": 5.554333929383223,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.0,
+      "area_mm2": 5.588964057283817,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.12,
+      "area_mm2": 5.571790823992412,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.24,
+      "area_mm2": 5.601713459406506,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.36,
+      "area_mm2": 5.600572525663426,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.48,
+      "area_mm2": 5.599669219795997,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.6,
+      "area_mm2": 5.582434794418902,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.72,
+      "area_mm2": 5.590263568067308,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.84,
+      "area_mm2": 5.584957979830068,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 3.96,
+      "area_mm2": 5.583829088834229,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.08,
+      "area_mm2": 5.5752691919210715,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.2,
+      "area_mm2": 5.5787497208731,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.32,
+      "area_mm2": 5.563608429598287,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.44,
+      "area_mm2": 5.565298616090337,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.56,
+      "area_mm2": 5.562481068051955,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.68,
+      "area_mm2": 5.5668348146188436,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.8,
+      "area_mm2": 5.5674155928574764,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 4.92,
+      "area_mm2": 5.56697529528424,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.04,
+      "area_mm2": 5.569540837814971,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.16,
+      "area_mm2": 5.5670085936811855,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.28,
+      "area_mm2": 5.570324429292269,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.4,
+      "area_mm2": 5.539860607720294
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.52,
+      "area_mm2": 5.548080102849046
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.64,
+      "area_mm2": 9.99735770368747
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.76,
+      "area_mm2": 10.00015488305199
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 5.88,
+      "area_mm2": 10.001453548302663
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.0,
+      "area_mm2": 9.995464169962151
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.12,
+      "area_mm2": 10.001286182701403
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.24,
+      "area_mm2": 9.993577373163289
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.36,
+      "area_mm2": 3.638724077343962,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.48,
+      "area_mm2": 3.6285963685077745,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.6,
+      "area_mm2": 3.610564276895766,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.72,
+      "area_mm2": 3.5956758103804525,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.84,
+      "area_mm2": 3.6429146625461084,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 6.96,
+      "area_mm2": 3.598730891757096,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.08,
+      "area_mm2": 3.616549764494226,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.2,
+      "area_mm2": 3.6377678228271306,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.32,
+      "area_mm2": 3.614362470454903,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.44,
+      "area_mm2": 3.614283352658735,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.56,
+      "area_mm2": 3.6195681076515362,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.68,
+      "area_mm2": 3.614911037822706,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.8,
+      "area_mm2": 3.6098002683364783,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 7.92,
+      "area_mm2": 3.6321589456195515,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.04,
+      "area_mm2": 3.6053156182319466,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.16,
+      "area_mm2": 3.6020117427425973,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.28,
+      "area_mm2": 3.617262156150304,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.4,
+      "area_mm2": 3.6070848693496633,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.52,
+      "area_mm2": 3.198214310050846,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 16,
+      "name": "rotor-loose",
+      "z_mm": 8.64,
+      "area_mm2": 2.7030399147319635,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.12,
+      "area_mm2": 9.832453234250215,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.24,
+      "area_mm2": 9.85301674909097,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.36,
+      "area_mm2": 9.866888061656876,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.48,
+      "area_mm2": 9.86598055265555,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.6,
+      "area_mm2": 9.863393480294253,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.72,
+      "area_mm2": 9.856358251825103,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.84,
+      "area_mm2": 3.8037583842716822,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 0.96,
+      "area_mm2": 3.8400474486822427,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.08,
+      "area_mm2": 3.83392678018052,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.2,
+      "area_mm2": 3.844109882355059,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.32,
+      "area_mm2": 3.8215263521802996,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.44,
+      "area_mm2": 3.831971565810451,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.56,
+      "area_mm2": 3.8278300225442115,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.68,
+      "area_mm2": 3.818559222458884,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.8,
+      "area_mm2": 3.8117823364184353,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 1.92,
+      "area_mm2": 3.8130122063346104,
+      "central_radius_060_free": true,
+      "neck_is_closed_wall": true,
+      "neck_nominal_midwall_max_gap_mm": 0.0
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.04,
+      "area_mm2": 3.820926015616685,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.16,
+      "area_mm2": 4.463737747052232,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.28,
+      "area_mm2": 5.536199380011739,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.4,
+      "area_mm2": 5.596444406912388,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.52,
+      "area_mm2": 5.5558559533089005,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.64,
+      "area_mm2": 5.579517576217557,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.76,
+      "area_mm2": 5.571146611920709,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 2.88,
+      "area_mm2": 5.565521228209195,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.0,
+      "area_mm2": 5.585006583816753,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.12,
+      "area_mm2": 5.559832654702225,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.24,
+      "area_mm2": 5.566383627884624,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.36,
+      "area_mm2": 5.58195333294307,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.48,
+      "area_mm2": 5.582578710399721,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.6,
+      "area_mm2": 5.581852374530201,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.72,
+      "area_mm2": 5.578853601890083,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.84,
+      "area_mm2": 5.584504363210681,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 3.96,
+      "area_mm2": 5.5803369019654205,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.08,
+      "area_mm2": 5.574065481047148,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.2,
+      "area_mm2": 5.555877788167982,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.32,
+      "area_mm2": 5.571704053749405,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.44,
+      "area_mm2": 5.563862593874881,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.56,
+      "area_mm2": 5.556377155753751,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.68,
+      "area_mm2": 5.56332750212912,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.8,
+      "area_mm2": 5.5641813900266,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 4.92,
+      "area_mm2": 5.558588171519253,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.04,
+      "area_mm2": 5.566812571879605,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.16,
+      "area_mm2": 5.564317405056696,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.28,
+      "area_mm2": 5.562312906270083,
+      "central_radius_060_free": true
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.4,
+      "area_mm2": 5.562977970077582
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.52,
+      "area_mm2": 5.548059700813208
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.64,
+      "area_mm2": 9.997185468731784
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.76,
+      "area_mm2": 10.001069670522577
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 5.88,
+      "area_mm2": 10.00086591675324
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.0,
+      "area_mm2": 10.002370524128246
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.12,
+      "area_mm2": 9.995472339052656
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.24,
+      "area_mm2": 9.992450187408823
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.36,
+      "area_mm2": 3.6597470171109348,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.48,
+      "area_mm2": 3.6173324214047744,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.6,
+      "area_mm2": 3.609277804892681,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.72,
+      "area_mm2": 3.6123946565509866,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.84,
+      "area_mm2": 3.6466476269382797,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 6.96,
+      "area_mm2": 3.5921304615568497,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.08,
+      "area_mm2": 3.6002259573939166,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.2,
+      "area_mm2": 3.6105552209212615,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.32,
+      "area_mm2": 3.6079090200699993,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.44,
+      "area_mm2": 3.6080398897047177,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.56,
+      "area_mm2": 3.59992135400294,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.68,
+      "area_mm2": 3.634353905883491,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.8,
+      "area_mm2": 3.5968262467226255,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 7.92,
+      "area_mm2": 3.6018936684635166,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.04,
+      "area_mm2": 3.5981529739400746,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.16,
+      "area_mm2": 3.5956233539442284,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.28,
+      "area_mm2": 3.6081842332952085,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.4,
+      "area_mm2": 3.6224156040069153,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.52,
+      "area_mm2": 3.1973574146425507,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 17,
+      "name": "rotor-loose",
+      "z_mm": 8.64,
+      "area_mm2": 2.7041180544527927,
+      "two_dog_components": true,
+      "dog_midradius_48deg_arc_coverage": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.12,
+      "area_mm2": 26.063276647626992
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.24,
+      "area_mm2": 26.37533626151032
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.36,
+      "area_mm2": 26.37533626151032
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.48,
+      "area_mm2": 26.37533626151032
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.6,
+      "area_mm2": 25.59449989260403
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.72,
+      "area_mm2": 24.893063332604054
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.84,
+      "area_mm2": 24.47704670689255
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 0.96,
+      "area_mm2": 24.154417296280847
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.08,
+      "area_mm2": 23.401084979395936
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.2,
+      "area_mm2": 22.500923965042475
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.32,
+      "area_mm2": 21.959549738031452
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.44,
+      "area_mm2": 21.56142559848244
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.56,
+      "area_mm2": 21.237918011808148
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.68,
+      "area_mm2": 20.906192723483905
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.8,
+      "area_mm2": 20.707818497798016
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 1.92,
+      "area_mm2": 20.554112523465953
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.04,
+      "area_mm2": 20.43912440281195
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.16,
+      "area_mm2": 20.360841426187186
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.28,
+      "area_mm2": 20.320439437638537
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.4,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.52,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.64,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.76,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 2.88,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.0,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.12,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.24,
+      "area_mm2": 20.31327754920833
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.36,
+      "area_mm2": 20.161484661280202
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.48,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.6,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.72,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.84,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 3.96,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 4.08,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 4.2,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 4.32,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 4.44,
+      "area_mm2": 2.651813688846586
+    },
+    {
+      "part": 18,
+      "name": "comb-loose",
+      "z_mm": 4.56,
+      "area_mm2": 2.651813688846586
+    }
+  ],
+  "caveats": [
+    "Nominal buffered toolpaths, not measured extrusion.",
+    "Closed wall and connected layer do not establish stiffness or adhesion.",
+    "0.60 mm bore disk is a blockage screen; it does not prove full DD/thread clearance."
+  ]
+}
