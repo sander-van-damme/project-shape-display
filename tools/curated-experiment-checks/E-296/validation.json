@@ -1,0 +1,598 @@
+{
+  "evidence": "nominal analytical and BREP checks; NOT physical validation",
+  "truth": [
+    {
+      "row": 0.0,
+      "column": 0.0,
+      "sleeve_q": 0.0,
+      "coil_length": 3.4,
+      "coil_force_N": 0.019713738574220693,
+      "full_hex_overlap": 0,
+      "first_tip_overlap": 0,
+      "off_tip_gap": 0.6,
+      "input_overlap": 3.9,
+      "engaged": false
+    },
+    {
+      "row": 0.0,
+      "column": 1.4,
+      "sleeve_q": 0.2,
+      "coil_length": 3.6,
+      "coil_force_N": 0.0072366888437012675,
+      "full_hex_overlap": 0,
+      "first_tip_overlap": 0,
+      "off_tip_gap": 0.39999999999999997,
+      "input_overlap": 3.6999999999999997,
+      "engaged": false
+    },
+    {
+      "row": 1.4,
+      "column": 0.0,
+      "sleeve_q": 0.0,
+      "coil_length": 2.0,
+      "coil_force_N": 0.1070530866878566,
+      "full_hex_overlap": 0,
+      "first_tip_overlap": 0,
+      "off_tip_gap": 0.6,
+      "input_overlap": 3.9,
+      "engaged": false
+    },
+    {
+      "row": 1.4,
+      "column": 1.4,
+      "sleeve_q": 1.4,
+      "coil_length": 3.4,
+      "coil_force_N": 0.019713738574220693,
+      "full_hex_overlap": 0.42499999999999993,
+      "first_tip_overlap": 0.7999999999999999,
+      "off_tip_gap": 0,
+      "input_overlap": 2.5,
+      "engaged": true
+    }
+  ],
+  "brep_states": [
+    {
+      "state": "matrix_R10_C10",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 82,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 1.4,
+          "output_phase": 0,
+          "output_overlap": 0.7999999999999999
+        },
+        "1_0": {
+          "row": 1.4,
+          "column": 0,
+          "q": 0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "0_1": {
+          "row": 0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_1": {
+          "row": 0,
+          "column": 0,
+          "q": 0,
+          "output_phase": 0,
+          "output_overlap": 0
+        }
+      }
+    },
+    {
+      "state": "matrix_phase_blocked",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 81,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 0.9107695154586735,
+          "output_phase": 30,
+          "output_overlap": 0.3107695154586735
+        },
+        "1_0": {
+          "row": 1.4,
+          "column": 0,
+          "q": 0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "0_1": {
+          "row": 0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_1": {
+          "row": 0,
+          "column": 0,
+          "q": 0,
+          "output_phase": 0,
+          "output_overlap": 0
+        }
+      }
+    },
+    {
+      "state": "truth_R0C0",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 80,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 0.0,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_0": {
+          "row": 0.0,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "0_1": {
+          "row": 0.0,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_1": {
+          "row": 0.0,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        }
+      }
+    },
+    {
+      "state": "truth_R0C1",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 80,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 0.0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_0": {
+          "row": 0.0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "0_1": {
+          "row": 0.0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_1": {
+          "row": 0.0,
+          "column": 1.4,
+          "q": 0.2,
+          "output_phase": 0,
+          "output_overlap": 0
+        }
+      }
+    },
+    {
+      "state": "truth_R1C0",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 80,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 1.4,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_0": {
+          "row": 1.4,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "0_1": {
+          "row": 1.4,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        },
+        "1_1": {
+          "row": 1.4,
+          "column": 0.0,
+          "q": 0.0,
+          "output_phase": 0,
+          "output_overlap": 0
+        }
+      }
+    },
+    {
+      "state": "truth_R1C1",
+      "parts": 53,
+      "invalid_parts": [],
+      "boolean_pairs_checked_after_aabb": 88,
+      "unexpected_intersections": [],
+      "poses": {
+        "0_0": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 1.4,
+          "output_phase": 0,
+          "output_overlap": 0.7999999999999999
+        },
+        "1_0": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 1.4,
+          "output_phase": 0,
+          "output_overlap": 0.7999999999999999
+        },
+        "0_1": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 1.4,
+          "output_phase": 0,
+          "output_overlap": 0.7999999999999999
+        },
+        "1_1": {
+          "row": 1.4,
+          "column": 1.4,
+          "q": 1.4,
+          "output_phase": 0,
+          "output_overlap": 0.7999999999999999
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Spring transition end geometry is schematic; no elastic contact solve.",
+    "Screw/pin interfaces are clearance envelopes; E-295 contains functional threads.",
+    "Journal clearance does not establish mating-axis accuracy; measure axes at hex engagement zone.",
+    "Finite state sweeps cannot certify dynamics, wear, contamination or loaded release.",
+    "Exterior comb clamp fasteners and precision bushing manufacture remain fixture details."
+  ],
+  "continuous_coordinate_sweep": {
+    "samples": 10201,
+    "sleeve_q_range_mm": [
+      0.0,
+      1.4
+    ],
+    "spring_length_range_mm": [
+      2.0,
+      3.6000000000000005
+    ],
+    "solid_height_mm": 1.4,
+    "minimum_solid_reserve_mm": 0.6,
+    "warning": "Both coordinates may overlap during a simultaneous crossing transition; use stopped-bus break-before-make."
+  },
+  "negative_control_crossing_transition": {
+    "r": 0.7,
+    "c": 0.7,
+    "q": 0.7,
+    "tip_overlap_mm": 0.09999999999999998,
+    "result": "output contact possible during OFF-to-OFF simultaneous crossing"
+  },
+  "analytical_clearances_mm": {
+    "neighbor_pin_face": 0.6799999999999997,
+    "neighbor_row_ring": 0.3799999999999999,
+    "neighbor_sleeve_upper_flange": 0.8799999999999999,
+    "row_bore_to_sleeve_radial": 0.10000000000000009,
+    "lower_flange_retention_land_nominal": 0.09999999999999987,
+    "spring_installation_radial": 0.050000000000000044,
+    "roof_to_male_corner_radial": 0.16076951545867368,
+    "sleeve_min_wall_at_hex_corner": 0.3741669750802299,
+    "journal_radial_nominal": 0.01,
+    "minimum_crossing_comb_z_gap": 2.3999999999999995,
+    "selector_shoe_bushing_each_side": 0.02
+  },
+  "spring_envelope_check": {
+    "method": "analytical, excluded from pairwise BREP Booleans",
+    "inner_diameter_mm": 3.5,
+    "sleeve_body_diameter_mm": 3.0,
+    "radial_body_gap_mm": 0.25,
+    "seat_contact": "zero nominal axial penetration",
+    "neighbor_spring_gap_mm": 1.1800000000000002
+  },
+  "rotor_phase": {
+    "centered_half_window_degrees": 9.750472040735598,
+    "period_degrees": 60,
+    "worst_phase_degrees": 30,
+    "blocked_q_mm": 0.9107695154586735,
+    "blocked_coil_length_mm": 2.9107695154586737,
+    "mouth_minimum_all_phase_capture_radius_mm": 0.3107695154586736,
+    "full_flank_length_ON_mm": 0.42500000000000004
+  },
+  "full_insertion_phase_probes": [
+    {
+      "degrees": 0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "degrees": 5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "degrees": 9,
+      "intersection_mm3": 0.0
+    },
+    {
+      "degrees": 9.740472040735598,
+      "intersection_mm3": 0.0
+    },
+    {
+      "degrees": 9.760472040735598,
+      "intersection_mm3": 3.337284209364043e-08
+    },
+    {
+      "degrees": 15,
+      "intersection_mm3": 0.005124384186605931
+    },
+    {
+      "degrees": 30,
+      "intersection_mm3": 0.01913940077094393
+    }
+  ],
+  "blocked_phase_contact": {
+    "at_contact_volume_mm3": 0.0,
+    "after_10um_extra_travel_mm3": 3.463470433399613e-06,
+    "q_mm": 0.9107695154586735
+  },
+  "axial_retention_sweep": [
+    {
+      "shaft": "input",
+      "travel_mm": [
+        -0.02,
+        0,
+        0.02
+      ],
+      "intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "after_10um_beyond_stop_mm3": 0.06974021531704228
+    },
+    {
+      "shaft": "output",
+      "travel_mm": [
+        -0.02,
+        0,
+        0.02
+      ],
+      "intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "after_10um_beyond_stop_mm3": 0.06974021531704226
+    }
+  ],
+  "axial_float_to_selector_probes": [
+    {
+      "row": 0.0,
+      "column": 0.0,
+      "shaft": "input",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 0.0,
+      "shaft": "input",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 0.0,
+      "shaft": "output",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 0.0,
+      "shaft": "output",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 1.4,
+      "shaft": "input",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 1.4,
+      "shaft": "input",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 1.4,
+      "shaft": "output",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 0.0,
+      "column": 1.4,
+      "shaft": "output",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 0.0,
+      "shaft": "input",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 0.0,
+      "shaft": "input",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 0.0,
+      "shaft": "output",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 0.0,
+      "shaft": "output",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 1.4,
+      "shaft": "input",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 1.4,
+      "shaft": "input",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 1.4,
+      "shaft": "output",
+      "axial_float_mm": -0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "row": 1.4,
+      "column": 1.4,
+      "shaft": "output",
+      "axial_float_mm": 0.02,
+      "selector_intersection_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "phase_degrees": 30,
+      "output_float_mm": -0.02,
+      "adapted_blocked_q_mm": 0.8907695154586734,
+      "intersection_mm3": 0.0
+    },
+    {
+      "phase_degrees": 30,
+      "output_float_mm": 0.02,
+      "adapted_blocked_q_mm": 0.9307695154586735,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "binary_matrix_isolation": {
+    "selections": 16,
+    "cells_checked": 64,
+    "max_unselected_q_mm": 0.2,
+    "minimum_unselected_tip_gap_mm": 0.4,
+    "condition": "rigid stops and guide position; no flexible comb load redistribution model"
+  },
+  "pass": true
+}

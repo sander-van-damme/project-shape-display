@@ -1,0 +1,256 @@
+{
+  "dimensions_mm": {
+    "pitch": 5.08,
+    "pin_width": 4.4,
+    "screw_diameter": 3.2,
+    "male_af": 1.8,
+    "female_af": 1.95,
+    "sleeve_od": 3.0,
+    "sleeve_bottom": -0.6,
+    "sleeve_top": 4.1,
+    "sleeve_flange_bottom": 3.7,
+    "sleeve_flange_od": 4.2,
+    "mouth_chamfer": 0.375,
+    "mouth_af": 2.7,
+    "lower_flange_top": -0.2,
+    "lower_flange_bottom": -0.6,
+    "lower_flange_od": 3.4,
+    "row_id": 3.2,
+    "row_od": 4.7,
+    "row_thickness": 0.3,
+    "column_id": 2.4,
+    "column_od": 4.7,
+    "column_thickness": 0.4,
+    "roof_z": 4.1,
+    "selector_stroke": 1.4,
+    "row_return_lash": 0.2,
+    "input_hex_bottom": -1.9,
+    "input_hex_top": 3.3,
+    "output_hex_bottom": 4.7,
+    "output_hex_top": 7.4,
+    "spring_od": 3.9,
+    "spring_wire": 0.2,
+    "spring_active_turns": 5,
+    "spring_total_turns": 7,
+    "spring_free_length": 3.716,
+    "spring_G": 79000.0,
+    "journal_od": 2.0,
+    "journal_bore": 2.02,
+    "journal_length": 4.0,
+    "axial_gap_each_face": 0.02,
+    "axial_endplay_total": 0.04
+  },
+  "states": {
+    "matrix_R10_C10": {
+      "0_0": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "output_phase": 0,
+        "output_overlap": 0.7999999999999999
+      },
+      "1_0": {
+        "row": 1.4,
+        "column": 0,
+        "q": 0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "0_1": {
+        "row": 0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_1": {
+        "row": 0,
+        "column": 0,
+        "q": 0,
+        "output_phase": 0,
+        "output_overlap": 0
+      }
+    },
+    "matrix_phase_blocked": {
+      "0_0": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 0.9107695154586735,
+        "output_phase": 30,
+        "output_overlap": 0.3107695154586735
+      },
+      "1_0": {
+        "row": 1.4,
+        "column": 0,
+        "q": 0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "0_1": {
+        "row": 0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_1": {
+        "row": 0,
+        "column": 0,
+        "q": 0,
+        "output_phase": 0,
+        "output_overlap": 0
+      }
+    },
+    "truth_R0C0": {
+      "0_0": {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_0": {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "0_1": {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_1": {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      }
+    },
+    "truth_R0C1": {
+      "0_0": {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_0": {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "0_1": {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_1": {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "output_phase": 0,
+        "output_overlap": 0
+      }
+    },
+    "truth_R1C0": {
+      "0_0": {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_0": {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "0_1": {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      },
+      "1_1": {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "output_phase": 0,
+        "output_overlap": 0
+      }
+    },
+    "truth_R1C1": {
+      "0_0": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "output_phase": 0,
+        "output_overlap": 0.7999999999999999
+      },
+      "1_0": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "output_phase": 0,
+        "output_overlap": 0.7999999999999999
+      },
+      "0_1": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "output_phase": 0,
+        "output_overlap": 0.7999999999999999
+      },
+      "1_1": {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "output_phase": 0,
+        "output_overlap": 0.7999999999999999
+      }
+    }
+  },
+  "cadquery_version": "2.7.0",
+  "evidence": "engineering BREP CAD only; no physical qualification",
+  "assembly_sequence": [
+    "Place input shafts into split lower journal plates; close plate halves.",
+    "Place coils over the 3.4-mm integral lower flanges from below (3.5-mm coil ID, .05-mm nominal radial installation clearance).",
+    "Slide sleeve-and-spring pairs onto permanent input hex splines.",
+    "Close two row-comb halves radially around each row between integral lower flanges and coil lower seats.",
+    "Clamp both comb halves together at both outside ends, using rigid exterior bridge clamps; fixture fastener detail remains to be specified.",
+    "Install column roof combs above sleeve flanges.",
+    "Insert output shafts downward through roofs, then close split upper journals.",
+    "Install terrain pins and guide frame; use established E-295 functional threads."
+  ],
+  "full_fixture_envelope_mm": {
+    "x": [
+      -5.8,
+      10.000000000000002
+    ],
+    "y": [
+      -5.8,
+      10.0
+    ],
+    "z": [
+      -6.42,
+      45.0
+    ],
+    "size": [
+      15.8,
+      15.8,
+      51.42
+    ]
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "evidence": "Nominal finite BREP packaging and interference checks only; no physical qualification",
+  "cadquery_version": "2.7.0",
+  "length_unit": "mm",
+  "volume_unit": "mm^3",
+  "limitations": [
+    "Alternative layouts are one-cell studies, not complete guided 2x2 fixtures.",
+    "No friction, compliance, forces, fatigue, loaded withdrawal or assembly-yield qualification.",
+    "C selector rings indicate reserved cassette geometry; external connections, guides and assembly remain unqualified.",
+    "B2 input sliding hex remains a precision interface; face dogs do not remove this manufacturing burden.",
+    "Aligned positive torque graphs and interference-free solids do not establish physical phase seating.",
+    "Face-dog slots open at the outer circumference; rotational retention requires the independent shaft supports."
+  ],
+  "B2": {
+    "dimensions": {
+      "dog_radii": [
+        1.2,
+        1.7
+      ],
+      "dog_width_degrees": 35,
+      "dog_z_off": [
+        4.1,
+        4.9
+      ],
+      "slot_radii": [
+        1.1,
+        1.8
+      ],
+      "slot_width_degrees": 50,
+      "output_bottom": 5.65,
+      "slot_roof": 6.5,
+      "output_top": 6.9,
+      "roof_id": 3.6,
+      "roof_od": 4.7
+    },
+    "states": [
+      {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "brep_pair_tests": 4,
+        "collisions": [],
+        "tip_gap": 0.75,
+        "straight_flank_overlap": 0.0,
+        "input_key_overlap": 3.9
+      },
+      {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "brep_pair_tests": 4,
+        "collisions": [],
+        "tip_gap": 0.5499999999999998,
+        "straight_flank_overlap": 0.0,
+        "input_key_overlap": 3.6999999999999997
+      },
+      {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "brep_pair_tests": 4,
+        "collisions": [],
+        "tip_gap": 0.75,
+        "straight_flank_overlap": 0.0,
+        "input_key_overlap": 3.9
+      },
+      {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "brep_pair_tests": 6,
+        "collisions": [],
+        "tip_gap": 0.0,
+        "straight_flank_overlap": 0.6500000000000004,
+        "input_key_overlap": 2.5
+      }
+    ],
+    "phase_probes": [
+      {
+        "degrees": -7.6,
+        "interference_volume": 0.002467459230008555,
+        "fits": false
+      },
+      {
+        "degrees": -7.4,
+        "interference_volume": 0.0,
+        "fits": true
+      },
+      {
+        "degrees": 0,
+        "interference_volume": 0.0,
+        "fits": true
+      },
+      {
+        "degrees": 7.4,
+        "interference_volume": 0.0,
+        "fits": true
+      },
+      {
+        "degrees": 7.6,
+        "interference_volume": 0.0024674592300088557,
+        "fits": false
+      }
+    ],
+    "clearances": {
+      "dog_inner_radial": 0.1,
+      "dog_outer_slot_cut_radial": 0.1,
+      "roof_to_output_radial": 0.1,
+      "roof_to_dogs_radial": 0.1,
+      "roof_stop_radial_land": 0.3,
+      "on_tip_to_slot_roof": 0.2,
+      "on_straight_flank": 0.65,
+      "adjacent_roof_gap": 0.3799999999999999
+    }
+  },
+  "C": {
+    "mirror_plane_z": 8.4,
+    "states": [
+      {
+        "row": 0.0,
+        "column": 0.0,
+        "lower_sleeve_z": [
+          -0.6,
+          4.1
+        ],
+        "upper_sleeve_z": [
+          12.7,
+          17.4
+        ],
+        "lower_gap": 0.6,
+        "upper_gap": 0.6,
+        "lower_overlap": 0.0,
+        "upper_overlap": 0.0,
+        "lower_straight_flank": 0.0,
+        "upper_straight_flank": 0.0,
+        "input_key_overlap": 3.9,
+        "output_key_overlap": 3.9,
+        "complete_torque_path": false,
+        "brep_pair_tests": 9,
+        "collisions": []
+      },
+      {
+        "row": 0.0,
+        "column": 1.4,
+        "lower_sleeve_z": [
+          -0.6,
+          4.1
+        ],
+        "upper_sleeve_z": [
+          11.299999999999999,
+          15.999999999999998
+        ],
+        "lower_gap": 0.6,
+        "upper_gap": 0.0,
+        "lower_overlap": 0.0,
+        "upper_overlap": 0.7999999999999999,
+        "lower_straight_flank": 0.0,
+        "upper_straight_flank": 0.42499999999999993,
+        "input_key_overlap": 3.9,
+        "output_key_overlap": 2.5,
+        "complete_torque_path": false,
+        "brep_pair_tests": 11,
+        "collisions": []
+      },
+      {
+        "row": 1.4,
+        "column": 0.0,
+        "lower_sleeve_z": [
+          0.7999999999999999,
+          5.5
+        ],
+        "upper_sleeve_z": [
+          12.7,
+          17.4
+        ],
+        "lower_gap": 0.0,
+        "upper_gap": 0.6,
+        "lower_overlap": 0.7999999999999999,
+        "upper_overlap": 0.0,
+        "lower_straight_flank": 0.42499999999999993,
+        "upper_straight_flank": 0.0,
+        "input_key_overlap": 2.5,
+        "output_key_overlap": 3.9,
+        "complete_torque_path": false,
+        "brep_pair_tests": 11,
+        "collisions": []
+      },
+      {
+        "row": 1.4,
+        "column": 1.4,
+        "lower_sleeve_z": [
+          0.7999999999999999,
+          5.5
+        ],
+        "upper_sleeve_z": [
+          11.299999999999999,
+          15.999999999999998
+        ],
+        "lower_gap": 0.0,
+        "upper_gap": 0.0,
+        "lower_overlap": 0.7999999999999999,
+        "upper_overlap": 0.7999999999999999,
+        "lower_straight_flank": 0.42499999999999993,
+        "upper_straight_flank": 0.42499999999999993,
+        "input_key_overlap": 2.5,
+        "output_key_overlap": 2.5,
+        "complete_torque_path": true,
+        "brep_pair_tests": 13,
+        "collisions": []
+      }
+    ],
+    "dimensions": {
+      "lower_intermediate_hex_z": [
+        4.7,
+        7.7
+      ],
+      "upper_intermediate_hex_z": [
+        9.1,
+        12.1
+      ],
+      "upper_output_hex_z": [
+        13.5,
+        18.7
+      ],
+      "cassette_return_lash": 0.0,
+      "maximum_one_cell_xy_envelope": [
+        4.7,
+        4.7
+      ]
+    },
+    "intermediate_journal": {
+      "diameter": 2.0,
+      "bore": 2.02,
+      "plate_z": [
+        7.92,
+        8.88
+      ],
+      "collars_z": [
+        [
+          7.7,
+          7.9
+        ],
+        [
+          8.9,
+          9.1
+        ]
+      ],
+      "radial_gap": 0.01,
+      "axial_gap_each": 0.02
+    },
+    "selector_cassette": "Zero return lash: lower ring bottom=-.2+command; roof underside=4.1+command. Upper cassette is mirrored. Spring geometry/force not solved.",
+    "journal_axial_probes": [
+      {
+        "shift": -0.03,
+        "interference_volume": 0.06974021531703833
+      },
+      {
+        "shift": -0.02,
+        "interference_volume": 0.0
+      },
+      {
+        "shift": 0.0,
+        "interference_volume": 0.0
+      },
+      {
+        "shift": 0.02,
+        "interference_volume": 0.0
+      },
+      {
+        "shift": 0.03,
+        "interference_volume": 0.06974021531704341
+      }
+    ],
+    "neighbor_envelope": {
+      "max_selector_diameter": 4.7,
+      "pitch": 5.08,
+      "nominal_gap": 0.3799999999999999,
+      "check": "Independent one-cell solids translated to neighboring cell centers",
+      "brep_adjacent_ring_interference": 0.0
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Native CAD exports are reviewed by opening the geometry, not line diffs.
+cad/*.step binary linguist-generated=true
+# Matplotlib emits intentional spaces inside SVG path data.
+drawings/*.svg -whitespace linguist-generated=true
+figures/*.svg -whitespace linguist-generated=true
+drawings/*.png binary linguist-generated=true
+figures/*.png binary linguist-generated=true
