@@ -1,0 +1,82 @@
+{
+  "scope": "CAD meshes and ideal coaxial poses; no physical qualification",
+  "packages": {
+    "numpy": "2.3.5",
+    "trimesh": "5.1.1",
+    "manifold3d": "3.5.4"
+  },
+  "variants": {
+    "015": {
+      "bodies": 12,
+      "sha256": "4198ca22483ab9a370b7006f3647f5ec6994f48a7f45e19903aa80f91f563142",
+      "bounds_mm": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          61.0,
+          66.0,
+          24.0
+        ]
+      ],
+      "solid_volume_mm3": 7250.868878373476,
+      "coaxial_screw_pin_poses": 50,
+      "max_thread_intersection_mm3": 0.0,
+      "max_frame_intersection_mm3": 0.0,
+      "max_docked_tool_intersection_mm3": 0.0
+    },
+    "0175": {
+      "bodies": 12,
+      "sha256": "9c6cb2402bd494cf028ec13353b2a0ca2df32d3ac5e6938b8c4240670fb763cc",
+      "bounds_mm": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          61.0,
+          66.0,
+          24.0
+        ]
+      ],
+      "solid_volume_mm3": 7245.927524178735,
+      "coaxial_screw_pin_poses": 50,
+      "max_thread_intersection_mm3": 0.0,
+      "max_frame_intersection_mm3": 0.0,
+      "max_docked_tool_intersection_mm3": 0.0
+    },
+    "020": {
+      "bodies": 12,
+      "sha256": "ad53ba20d710ee06724462af2f314526140c9d88975454c4b375db76a51d3981",
+      "bounds_mm": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          61.0,
+          66.0,
+          24.0
+        ]
+      ],
+      "solid_volume_mm3": 7240.894590602241,
+      "coaxial_screw_pin_poses": 50,
+      "max_thread_intersection_mm3": 0.0,
+      "max_frame_intersection_mm3": 0.0,
+      "max_docked_tool_intersection_mm3": 0.0
+    }
+  },
+  "analytic_nominal_clearances_mm": {
+    "head_to_neighbor_min_at_opposed_journal_float": 0.3799999999999997,
+    "journal_radial": 0.1499999999999999,
+    "head_axial": 0.2999999999999998,
+    "guide_per_side": 0.09999999999999964,
+    "guide_web": 0.4800000000000004,
+    "top_gap_aligned": 0.6799999999999997,
+    "conservative_top_gap_with_guidance_tilt": 0.19764705882353084
+  }
+}

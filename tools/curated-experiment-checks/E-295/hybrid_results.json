@@ -1,0 +1,1121 @@
+{
+  "assumptions": {
+    "approach_s": 0.15,
+    "bank_direction_change_s": 0.15,
+    "bank_release_s": 0.05,
+    "command_settle_s": 0.15,
+    "failed_attempt_s": 0.6,
+    "grid": 80,
+    "home_overrun_s": 0.5,
+    "home_rpm": 120.0,
+    "lead_mm_rev": 3.0,
+    "missed_dock_probability": 0.02,
+    "neutral_mm": 20.0,
+    "phase_search_s": 0.2,
+    "pitch_mm": 5.08,
+    "range_mm": 40.0,
+    "rotary_rpm_s": 3000.0,
+    "rpm": 600.0,
+    "seating_s": 0.1,
+    "seed": 295,
+    "withdraw_s": 0.15,
+    "xy_mm_s": 150.0,
+    "xy_mm_s2": 1500.0
+  },
+  "cost_and_scale": {
+    "assembly_hours_at_seconds_per_pair": {
+      "20": 35.55555555555556,
+      "45": 80.0,
+      "90": 160.0
+    },
+    "bank_allowance_components_usd": {
+      "each_cup_bearing_slip_module": [
+        4,
+        12
+      ],
+      "each_selector": [
+        6,
+        18
+      ],
+      "motion_and_rotary_bus": [
+        130,
+        300
+      ]
+    },
+    "common_bus_bank_usd": {
+      "16": [
+        538.843294117647,
+        1384.2955294117646
+      ],
+      "8": [
+        458.843294117647,
+        1144.2955294117646
+      ],
+      "80": [
+        1178.843294117647,
+        3304.2955294117646
+      ]
+    },
+    "common_frame_guides_capture_electronics_plus_filament_usd": [
+      248.84329411764705,
+      604.2955294117646
+    ],
+    "each_extra_0_10_usd_per_pin_adds_usd": 640.0,
+    "each_extra_10_seconds_per_pin_adds_hours": 17.77777777777778,
+    "filament_kg_with_added_features_and_85pct_yield": [
+      6.442164705882353,
+      8.122729411764706
+    ],
+    "filament_usd": [
+      128.84329411764705,
+      284.2955294117647
+    ],
+    "independent_XY_head_axes": 4,
+    "independent_XY_head_usd": [
+      116,
+      272
+    ],
+    "independent_XY_system_usd": {
+      "1": [
+        364.843294117647,
+        876.2955294117646
+      ],
+      "16": [
+        2104.843294117647,
+        4956.295529411765
+      ],
+      "4": [
+        712.843294117647,
+        1692.2955294117646
+      ]
+    },
+    "label": "2026-10 design allowances in USD; no supplier quotes, tax/shipping/labor excluded",
+    "pins": 6400,
+    "projected_pair_mass_g": 0.744,
+    "projected_pair_solid_cm3": 0.6,
+    "torque_power_illustration_at_2_mNm_each": {
+      "1": {
+        "mechanical_power_W_120_rpm": 0.025132741228718343,
+        "mechanical_power_W_600_rpm": 0.12566370614359174,
+        "summed_contact_torque_Nm": 0.002
+      },
+      "16": {
+        "mechanical_power_W_120_rpm": 0.4021238596594935,
+        "mechanical_power_W_600_rpm": 2.0106192982974678,
+        "summed_contact_torque_Nm": 0.032
+      },
+      "6400": {
+        "mechanical_power_W_120_rpm": 160.8495438637974,
+        "mechanical_power_W_600_rpm": 804.2477193189869,
+        "summed_contact_torque_Nm": 12.8
+      },
+      "8": {
+        "mechanical_power_W_120_rpm": 0.20106192982974674,
+        "mechanical_power_W_600_rpm": 1.0053096491487339,
+        "summed_contact_torque_Nm": 0.016
+      },
+      "80": {
+        "mechanical_power_W_120_rpm": 2.0106192982974678,
+        "mechanical_power_W_600_rpm": 10.053096491487338,
+        "summed_contact_torque_Nm": 0.16
+      }
+    },
+    "volume_only_extrusion_hours_at_5_to_12_mm3_s": [
+      88.88888888888889,
+      213.33333333333334
+    ]
+  },
+  "evidence": "Reproducible analytical scenario calculations; all machine rates and costs unmeasured",
+  "lead_sensitivity_dense_scene": {
+    "1.5": {
+      "1": 12485.005633396213,
+      "16": 800.9254166203369,
+      "4": 3164.4549838396156
+    },
+    "2": {
+      "1": 11070.93999255886,
+      "16": 707.7071392449577,
+      "4": 2800.4722792953266
+    },
+    "3": {
+      "1": 9646.577734666636,
+      "16": 613.8329061779698,
+      "4": 2433.8010720331417
+    }
+  },
+  "scenarios": {
+    "dense_random_scene": {
+      "changed_pins": 6400,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 400,
+          "components": {
+            "direction_and_release_s": 99.99999999999915,
+            "dock_s": 600.0,
+            "expected_retry_s": 72.85510147009612,
+            "rotation_s": 891.0144370765073,
+            "travel_s": 214.59215506443002
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 1878.4616936110326
+        },
+        "8": {
+          "address_groups": 800,
+          "components": {
+            "direction_and_release_s": 199.2000000000072,
+            "dock_s": 1197.0,
+            "expected_retry_s": 75.73158996354302,
+            "rotation_s": 1527.7505486579473,
+            "travel_s": 276.26682173109987
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 3275.9489603525976
+        },
+        "80": {
+          "address_groups": 80,
+          "components": {
+            "direction_and_release_s": 20.000000000000053,
+            "dock_s": 120.0,
+            "expected_retry_s": 54.56212051046998,
+            "rotation_s": 213.63652186823168,
+            "travel_s": 9.194821731097722
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 417.3934641097994
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 400,
+          "components": {
+            "direction_and_release_s": 1340.000000000164,
+            "dock_s": 480.00000000000676,
+            "expected_retry_s": 72.85510147009612,
+            "rotation_s": 1732.0872636262936,
+            "travel_s": 214.59215506443002
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 3839.5345201609903
+        },
+        "8": {
+          "address_groups": 800,
+          "components": {
+            "direction_and_release_s": 1399.4000000001759,
+            "dock_s": 957.6000000000248,
+            "expected_retry_s": 75.73158996354302,
+            "rotation_s": 2307.3717947633463,
+            "travel_s": 276.26682173109987
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 5016.37020645819
+        },
+        "80": {
+          "address_groups": 80,
+          "components": {
+            "direction_and_release_s": 1292.0000000001558,
+            "dock_s": 95.9999999999998,
+            "expected_retry_s": 54.56212051046998,
+            "rotation_s": 835.0301002520114,
+            "travel_s": 9.194821731097722
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 2286.7870424937346
+        }
+      },
+      "mean_absolute_delta_mm": 13.158564309110066,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 6400,
+          "critical_head_components": {
+            "dock_s": 4800.0,
+            "expected_retry_s": 78.36734693877443,
+            "rotation_s": 4023.429827508869,
+            "travel_s": 744.7805602189935
+          },
+          "head_changed_pin_counts": [
+            6400
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 9646.577734666636
+        },
+        "16": {
+          "critical_head_changed_pins": 400,
+          "critical_head_components": {
+            "dock_s": 300.0,
+            "expected_retry_s": 4.897959183673467,
+            "rotation_s": 262.4952777448281,
+            "travel_s": 46.43966924946825
+          },
+          "head_changed_pin_counts": [
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 1.018299397911719,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 613.8329061779698
+        },
+        "4": {
+          "critical_head_changed_pins": 1600,
+          "critical_head_components": {
+            "dock_s": 1200.0,
+            "expected_retry_s": 19.59183673469404,
+            "rotation_s": 1028.1013878550973,
+            "travel_s": 186.1078474433503
+          },
+          "head_changed_pin_counts": [
+            1600,
+            1600,
+            1600,
+            1600
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 1.0092238871719823,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 2433.8010720331417
+        }
+      }
+    },
+    "known_scene_to_neutral": {
+      "changed_pins": 6400,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 400,
+          "components": {
+            "direction_and_release_s": 99.99999999999915,
+            "dock_s": 600.0,
+            "expected_retry_s": 72.81648435964775,
+            "rotation_s": 630.2218128157132,
+            "travel_s": 214.59215506443002
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 1617.63045223979
+        },
+        "8": {
+          "address_groups": 800,
+          "components": {
+            "direction_and_release_s": 197.80000000000706,
+            "dock_s": 1191.75,
+            "expected_retry_s": 75.70197470212082,
+            "rotation_s": 1144.9319788847295,
+            "travel_s": 276.26682173109987
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 2886.4507753179573
+        },
+        "80": {
+          "address_groups": 80,
+          "components": {
+            "direction_and_release_s": 20.000000000000053,
+            "dock_s": 120.0,
+            "expected_retry_s": 54.628102555431404,
+            "rotation_s": 136.17102752909668,
+            "travel_s": 9.194821731097722
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 339.99395181562585
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 400,
+          "components": {
+            "direction_and_release_s": 1340.000000000164,
+            "dock_s": 480.00000000000676,
+            "expected_retry_s": 72.81648435964775,
+            "rotation_s": 1383.4782648707862,
+            "travel_s": 214.59215506443002
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 3490.8869042950346
+        },
+        "8": {
+          "address_groups": 800,
+          "components": {
+            "direction_and_release_s": 1398.350000000176,
+            "dock_s": 953.4000000000246,
+            "expected_retry_s": 75.70197470212082,
+            "rotation_s": 1871.4755174440725,
+            "travel_s": 276.26682173109987
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 4575.194313877494
+        },
+        "80": {
+          "address_groups": 80,
+          "components": {
+            "direction_and_release_s": 1292.0000000001558,
+            "dock_s": 95.9999999999998,
+            "expected_retry_s": 54.628102555431404,
+            "rotation_s": 649.4298728374483,
+            "travel_s": 9.194821731097722
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 2101.252797124133
+        }
+      },
+      "mean_absolute_delta_mm": 10.037498532159391,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 6400,
+          "critical_head_components": {
+            "dock_s": 4800.0,
+            "expected_retry_s": 78.36734693877443,
+            "rotation_s": 3353.8749350963176,
+            "travel_s": 744.7805602189935
+          },
+          "head_changed_pin_counts": [
+            6400
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 8977.022842254086
+        },
+        "16": {
+          "critical_head_changed_pins": 400,
+          "critical_head_components": {
+            "dock_s": 300.0,
+            "expected_retry_s": 4.897959183673467,
+            "rotation_s": 216.76885125532985,
+            "travel_s": 46.43966924946825
+          },
+          "head_changed_pin_counts": [
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 1.0127490978959335,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 568.1064796884716
+        },
+        "4": {
+          "critical_head_changed_pins": 1600,
+          "critical_head_components": {
+            "dock_s": 1200.0,
+            "expected_retry_s": 19.59183673469404,
+            "rotation_s": 849.4218668340372,
+            "travel_s": 186.1078474433503
+          },
+          "head_changed_pin_counts": [
+            1600,
+            1600,
+            1600,
+            1600
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 1.0048807090289398,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 2255.1215510120815
+        }
+      }
+    },
+    "local_100_clustered": {
+      "changed_pins": 100,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 10,
+          "components": {
+            "direction_and_release_s": 2.4999999999999996,
+            "dock_s": 15.0,
+            "expected_retry_s": 1.1707758419786094,
+            "rotation_s": 9.701246398739833,
+            "travel_s": 1.3168446697875027
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 29.688866910505944
+        },
+        "8": {
+          "address_groups": 20,
+          "components": {
+            "direction_and_release_s": 4.399999999999997,
+            "dock_s": 27.75,
+            "expected_retry_s": 1.194726759397202,
+            "rotation_s": 16.459102831303206,
+            "travel_s": 5.127778003120837
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 54.93160759382124
+        },
+        "80": {
+          "address_groups": 10,
+          "components": {
+            "direction_and_release_s": 2.4999999999999996,
+            "dock_s": 15.0,
+            "expected_retry_s": 1.1707758419786094,
+            "rotation_s": 9.701246398739833,
+            "travel_s": 1.3168446697875027
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 29.688866910505944
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 10,
+          "components": {
+            "direction_and_release_s": 21.499999999999957,
+            "dock_s": 11.999999999999996,
+            "expected_retry_s": 1.1707758419786094,
+            "rotation_s": 19.43056784363335,
+            "travel_s": 1.3168446697875027
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 55.418188355399415
+        },
+        "8": {
+          "address_groups": 20,
+          "components": {
+            "direction_and_release_s": 22.549999999999958,
+            "dock_s": 22.20000000000001,
+            "expected_retry_s": 1.194726759397202,
+            "rotation_s": 25.116387872472927,
+            "travel_s": 5.127778003120837
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 76.18889263499094
+        },
+        "80": {
+          "address_groups": 10,
+          "components": {
+            "direction_and_release_s": 21.499999999999957,
+            "dock_s": 11.999999999999996,
+            "expected_retry_s": 1.1707758419786094,
+            "rotation_s": 19.43056784363335,
+            "travel_s": 1.3168446697875027
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 55.418188355399415
+        }
+      },
+      "mean_absolute_delta_mm": 5.738105665482974,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 100,
+          "critical_head_components": {
+            "dock_s": 75.0,
+            "expected_retry_s": 1.2244897959183672,
+            "rotation_s": 38.521240927029154,
+            "travel_s": 12.096758034329214
+          },
+          "head_changed_pin_counts": [
+            100
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 126.84248875727674
+        },
+        "16": {
+          "critical_head_changed_pins": 100,
+          "critical_head_components": {
+            "dock_s": 75.0,
+            "expected_retry_s": 1.2244897959183672,
+            "rotation_s": 38.521240927029154,
+            "travel_s": 12.096758034329214
+          },
+          "head_changed_pin_counts": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 16.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 126.84248875727674
+        },
+        "4": {
+          "critical_head_changed_pins": 100,
+          "critical_head_components": {
+            "dock_s": 75.0,
+            "expected_retry_s": 1.2244897959183672,
+            "rotation_s": 38.521240927029154,
+            "travel_s": 12.096758034329214
+          },
+          "head_changed_pin_counts": [
+            100,
+            0,
+            0,
+            0
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 4.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 126.84248875727674
+        }
+      }
+    },
+    "local_25_clustered": {
+      "changed_pins": 25,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 1.2500000000000002,
+            "dock_s": 7.5,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 4.63314763058645,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 14.52005431037941
+        },
+        "8": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 1.2500000000000002,
+            "dock_s": 7.5,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 4.63314763058645,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 14.52005431037941
+        },
+        "80": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 1.2500000000000002,
+            "dock_s": 7.5,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 4.63314763058645,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 14.52005431037941
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 5.750000000000003,
+            "dock_s": 5.999999999999999,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 6.6599496888439385,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 19.5468563686369
+        },
+        "8": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 5.750000000000003,
+            "dock_s": 5.999999999999999,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 6.6599496888439385,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 19.5468563686369
+        },
+        "80": {
+          "address_groups": 5,
+          "components": {
+            "direction_and_release_s": 5.750000000000003,
+            "dock_s": 5.999999999999999,
+            "expected_retry_s": 0.3004127524799956,
+            "rotation_s": 6.6599496888439385,
+            "travel_s": 0.8364939273129641
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 19.5468563686369
+        }
+      },
+      "mean_absolute_delta_mm": 5.984181119656784,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 25,
+          "critical_head_components": {
+            "dock_s": 18.75,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.857679942144259,
+            "travel_s": 3.1642968972111203
+          },
+          "head_changed_pin_counts": [
+            25
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 32.07809928833497
+        },
+        "16": {
+          "critical_head_changed_pins": 25,
+          "critical_head_components": {
+            "dock_s": 18.75,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.857679942144259,
+            "travel_s": 3.1642968972111203
+          },
+          "head_changed_pin_counts": [
+            25,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 16.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 32.07809928833497
+        },
+        "4": {
+          "critical_head_changed_pins": 25,
+          "critical_head_components": {
+            "dock_s": 18.75,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.857679942144259,
+            "travel_s": 3.1642968972111203
+          },
+          "head_changed_pin_counts": [
+            25,
+            0,
+            0,
+            0
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 4.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 32.07809928833497
+        }
+      }
+    },
+    "local_25_distributed": {
+      "changed_pins": 25,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 24,
+          "components": {
+            "direction_and_release_s": 1.2000000000000004,
+            "dock_s": 18.0,
+            "expected_retry_s": 0.30588235294117644,
+            "rotation_s": 9.50993670551147,
+            "travel_s": 22.12257097201284
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 51.13839003046549
+        },
+        "8": {
+          "address_groups": 25,
+          "components": {
+            "direction_and_release_s": 1.2500000000000004,
+            "dock_s": 18.75,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.818777109637258,
+            "travel_s": 23.273524008356357
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 53.39842356697321
+        },
+        "80": {
+          "address_groups": 23,
+          "components": {
+            "direction_and_release_s": 1.3500000000000008,
+            "dock_s": 18.0,
+            "expected_retry_s": 0.30588235294117644,
+            "rotation_s": 9.50993670551147,
+            "travel_s": 4.480877383471482
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 33.64669644192413
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 24,
+          "components": {
+            "direction_and_release_s": 5.000000000000002,
+            "dock_s": 14.399999999999995,
+            "expected_retry_s": 0.30588235294117644,
+            "rotation_s": 9.671802519831736,
+            "travel_s": 22.12257097201284
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 51.50025584478575
+        },
+        "8": {
+          "address_groups": 25,
+          "components": {
+            "direction_and_release_s": 5.000000000000002,
+            "dock_s": 14.999999999999995,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.818777109637258,
+            "travel_s": 23.273524008356357
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 53.39842356697321
+        },
+        "80": {
+          "address_groups": 23,
+          "components": {
+            "direction_and_release_s": 5.150000000000002,
+            "dock_s": 14.399999999999995,
+            "expected_retry_s": 0.30588235294117644,
+            "rotation_s": 9.671802519831736,
+            "travel_s": 4.480877383471482
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 34.00856225624439
+        }
+      },
+      "mean_absolute_delta_mm": 5.93606499149588,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 25,
+          "critical_head_components": {
+            "dock_s": 18.75,
+            "expected_retry_s": 0.3061224489795918,
+            "rotation_s": 9.818777109637258,
+            "travel_s": 22.918467193194783
+          },
+          "head_changed_pin_counts": [
+            25
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 51.79336675181163
+        },
+        "16": {
+          "critical_head_changed_pins": 5,
+          "critical_head_components": {
+            "dock_s": 3.75,
+            "expected_retry_s": 0.061224489795918345,
+            "rotation_s": 2.1292616822083743,
+            "travel_s": 2.0917333333333334
+          },
+          "head_changed_pin_counts": [
+            2,
+            1,
+            5,
+            5,
+            2,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0,
+            1,
+            2,
+            0,
+            1,
+            0
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 3.287399443012834,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 8.032219505337626
+        },
+        "4": {
+          "critical_head_changed_pins": 11,
+          "critical_head_components": {
+            "dock_s": 8.25,
+            "expected_retry_s": 0.13469387755102036,
+            "rotation_s": 4.49312114599358,
+            "travel_s": 6.51553385986145
+          },
+          "head_changed_pin_counts": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 1.742751107421238,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 19.393348883406052
+        }
+      }
+    },
+    "neutral_to_one_hill": {
+      "changed_pins": 305,
+      "common_bus_bank": {
+        "16": {
+          "address_groups": 36,
+          "components": {
+            "direction_and_release_s": 1.800000000000001,
+            "dock_s": 27.0,
+            "expected_retry_s": 3.3948755147095464,
+            "rotation_s": 14.485916583443949,
+            "travel_s": 14.174099191080106
+          },
+          "heads": 16,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 60.8548912892336
+        },
+        "8": {
+          "address_groups": 55,
+          "components": {
+            "direction_and_release_s": 2.7499999999999982,
+            "dock_s": 41.25,
+            "expected_retry_s": 3.5426237578493485,
+            "rotation_s": 21.210637743879737,
+            "travel_s": 16.61596585774677
+          },
+          "heads": 8,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 85.36922735947586
+        },
+        "80": {
+          "address_groups": 19,
+          "components": {
+            "direction_and_release_s": 0.9500000000000003,
+            "dock_s": 14.25,
+            "expected_retry_s": 3.210679540157044,
+            "rotation_s": 8.658505747976788,
+            "travel_s": 2.567556006241673
+          },
+          "heads": 80,
+          "scope": "Optimistic continuous-release bound; anticipatory release and rotating withdrawal unproven",
+          "seconds": 29.636741294375504
+        }
+      },
+      "common_bus_bank_stopped_release": {
+        "16": {
+          "address_groups": 36,
+          "components": {
+            "direction_and_release_s": 45.80000000000011,
+            "dock_s": 21.60000000000001,
+            "expected_retry_s": 3.3948755147095464,
+            "rotation_s": 36.18827540126059,
+            "travel_s": 14.174099191080106
+          },
+          "heads": 16,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 121.15725010705036
+        },
+        "8": {
+          "address_groups": 55,
+          "components": {
+            "direction_and_release_s": 49.600000000000165,
+            "dock_s": 33.000000000000036,
+            "expected_retry_s": 3.5426237578493485,
+            "rotation_s": 42.912996561696374,
+            "travel_s": 16.61596585774677
+          },
+          "heads": 8,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 145.67158617729268
+        },
+        "80": {
+          "address_groups": 19,
+          "components": {
+            "direction_and_release_s": 32.39999999999992,
+            "dock_s": 11.399999999999997,
+            "expected_retry_s": 3.210679540157044,
+            "rotation_s": 24.36995213987674,
+            "travel_s": 2.567556006241673
+          },
+          "heads": 80,
+          "scope": "Bus stops at every distinct release target; safe axial withdrawal still unproven",
+          "seconds": 73.94818768627538
+        }
+      },
+      "mean_absolute_delta_mm": 5.14639918921063,
+      "xy": {
+        "1": {
+          "critical_head_changed_pins": 305,
+          "critical_head_components": {
+            "dock_s": 228.75,
+            "expected_retry_s": 3.7346938775510363,
+            "rotation_s": 106.88252672196869,
+            "travel_s": 36.39182589851842
+          },
+          "head_changed_pin_counts": [
+            305
+          ],
+          "head_count": 1,
+          "load_imbalance_vs_even_division": 1.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 375.7590464980381
+        },
+        "16": {
+          "critical_head_changed_pins": 86,
+          "critical_head_components": {
+            "dock_s": 64.5,
+            "expected_retry_s": 1.0530612244897968,
+            "rotation_s": 31.22488455448053,
+            "travel_s": 9.89316262206717
+          },
+          "head_changed_pin_counts": [
+            67,
+            76,
+            0,
+            0,
+            76,
+            86,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "head_count": 16,
+          "load_imbalance_vs_even_division": 4.536956469979821,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 106.6711084010375
+        },
+        "4": {
+          "critical_head_changed_pins": 305,
+          "critical_head_components": {
+            "dock_s": 228.75,
+            "expected_retry_s": 3.7346938775510363,
+            "rotation_s": 106.88252672196869,
+            "travel_s": 36.39182589851842
+          },
+          "head_changed_pin_counts": [
+            305,
+            0,
+            0,
+            0
+          ],
+          "head_count": 4,
+          "load_imbalance_vs_even_division": 4.0,
+          "scope": "Independent static square domains; no common-carriage packing claim",
+          "seconds": 375.7590464980381
+        }
+      }
+    }
+  },
+  "speed_sensitivity_dense_scene": {
+    "cautious_unproven": {
+      "1": 17593.503842430702,
+      "16": 1120.1613574555877,
+      "4": 4441.5433783147255
+    },
+    "fast_unproven": {
+      "1": 6045.059255422674,
+      "16": 383.82241505847645,
+      "4": 1522.8273712348955
+    },
+    "planning_unproven": {
+      "1": 9646.577734666636,
+      "16": 613.8329061779698,
+      "4": 2433.8010720331417
+    }
+  },
+  "unknown_state_to_neutral": {
+    "1": {
+      "groups": 6400,
+      "parallel_contacts": 1,
+      "scope": "Conditional slip-at-each-contact homing; includes full downward sweep then +20 mm",
+      "seconds": 58252.481240491106
+    },
+    "16": {
+      "groups": 400,
+      "parallel_contacts": 16,
+      "scope": "Conditional slip-at-each-contact homing; includes full downward sweep then +20 mm",
+      "seconds": 3871.7767811409003
+    },
+    "6400": {
+      "groups": 1,
+      "parallel_contacts": 6400,
+      "scope": "Conditional slip-at-each-contact homing; includes full downward sweep then +20 mm",
+      "seconds": 10.157547798035852
+    },
+    "8": {
+      "groups": 800,
+      "parallel_contacts": 8,
+      "scope": "Conditional slip-at-each-contact homing; includes full downward sweep then +20 mm",
+      "seconds": 7528.132434956256
+    },
+    "80": {
+      "groups": 80,
+      "parallel_contacts": 80,
+      "scope": "Conditional slip-at-each-contact homing; includes full downward sweep then +20 mm",
+      "seconds": 767.0696624870482
+    }
+  }
+}

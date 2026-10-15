@@ -1,0 +1,279 @@
+{
+  "stl_sha256": "478d9087e4f566126f7ec21d8f4b9ac374546707f80fec7272b699bb4b83b56c",
+  "gcode_sha256": "3dfd9730b02409167a11d1168db244622555cfbb9a868c330060c3b7b8453805",
+  "stl_file": "compact-five-pairs.stl",
+  "gcode_file": "compact-classic.gcode",
+  "watertight": true,
+  "winding_consistent": true,
+  "body_count": 10,
+  "bounds_mm": [
+    [
+      1.0,
+      2.0,
+      0.0
+    ],
+    [
+      73.0,
+      29.0,
+      18.399999618530273
+    ]
+  ],
+  "volume_mm3": 2538.161777350168,
+  "bodies": [
+    {
+      "extents_mm": [
+        10.0,
+        10.0,
+        18.399999618530273
+      ],
+      "bounds_mm": [
+        [
+          2.0,
+          2.0,
+          0.0
+        ],
+        [
+          12.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      "volume_mm3": 312.1293296678271,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        12.0,
+        12.0,
+        18.0
+      ],
+      "bounds_mm": [
+        [
+          1.0,
+          17.0,
+          0.0
+        ],
+        [
+          13.0,
+          29.0,
+          18.0
+        ]
+      ],
+      "volume_mm3": 194.5441743893855,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        10.0,
+        10.0,
+        18.399999618530273
+      ],
+      "bounds_mm": [
+        [
+          17.0,
+          2.0,
+          0.0
+        ],
+        [
+          27.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      "volume_mm3": 312.3702238762969,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        12.0,
+        12.0,
+        18.0
+      ],
+      "bounds_mm": [
+        [
+          16.0,
+          17.0,
+          0.0
+        ],
+        [
+          28.0,
+          29.0,
+          18.0
+        ]
+      ],
+      "volume_mm3": 194.78520421790094,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        10.0,
+        10.0,
+        18.399999618530273
+      ],
+      "bounds_mm": [
+        [
+          32.0,
+          2.0,
+          0.0
+        ],
+        [
+          42.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      "volume_mm3": 312.6111004217375,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        12.0,
+        12.0,
+        18.0
+      ],
+      "bounds_mm": [
+        [
+          31.0,
+          17.0,
+          0.0
+        ],
+        [
+          43.0,
+          29.0,
+          18.0
+        ]
+      ],
+      "volume_mm3": 195.02625244850378,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        10.0,
+        10.0,
+        18.399999618530273
+      ],
+      "bounds_mm": [
+        [
+          47.0,
+          2.0,
+          0.0
+        ],
+        [
+          57.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      "volume_mm3": 312.85198707688943,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        12.0,
+        12.0,
+        18.0
+      ],
+      "bounds_mm": [
+        [
+          46.0,
+          17.0,
+          0.0
+        ],
+        [
+          58.0,
+          29.0,
+          18.0
+        ]
+      ],
+      "volume_mm3": 196.5021860237157,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        10.0,
+        10.0,
+        18.399999618530273
+      ],
+      "bounds_mm": [
+        [
+          62.0,
+          2.0,
+          0.0
+        ],
+        [
+          72.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      "volume_mm3": 313.0928819736902,
+      "watertight": true,
+      "winding_consistent": true
+    },
+    {
+      "extents_mm": [
+        12.0,
+        12.0,
+        18.0
+      ],
+      "bounds_mm": [
+        [
+          61.0,
+          17.0,
+          0.0
+        ],
+        [
+          73.0,
+          29.0,
+          18.0
+        ]
+      ],
+      "volume_mm3": 194.24843725422275,
+      "watertight": true,
+      "winding_consistent": true
+    }
+  ],
+  "layer_count": 153,
+  "roles": {
+    "Perimeter": 16287,
+    "External perimeter": 41071,
+    "Solid infill": 2978,
+    "Top solid infill": 747,
+    "Gap fill": 2996,
+    "Internal infill": 3195
+  },
+  "footer": [
+    "; filament used [mm] = 1045.55",
+    "; filament used [cm3] = 2.51",
+    "; filament used [g] = 3.12",
+    "; estimated printing time (normal mode) = 41m 16s",
+    "; estimated printing time (silent mode) = 42m 21s"
+  ],
+  "extrusion_width_range_mm": [
+    0.0816098550830074,
+    0.14787598172450256,
+    0.4500510970865735,
+    0.5410704459202228,
+    0.5790968571373253
+  ],
+  "unsupported_layer_components": [],
+  "caveats": [
+    "Swept deposition is reconstructed from nominal E and XY, not printer motion or flow measurements.",
+    "A connected overlap with the previous layer does not prove adequate bed adhesion, stiffness or physical print stability.",
+    "No finite-mesh CAD or toolpath result proves thread fit, friction, load capacity or repeatability."
+  ],
+  "record_scope": "Summary of every audited layer; full layer records remain reproducible scratch.",
+  "layer_audit_summary": {
+    "layers_audited": 153,
+    "orphan_components_total": 0,
+    "max_midpoint_outside_previous_mm": 0.3687
+  }
+}
