@@ -1,0 +1,131 @@
+{
+  "classification": "computational screen with unqualified assumptions",
+  "mechanics": {
+    "assumed_E_MPa": 2000.0,
+    "leaf_dimensions_mm": [
+      3.8,
+      0.6,
+      20.0
+    ],
+    "transverse_release_mm": 0.8,
+    "leaf_force_N": 0.04103999999999999,
+    "leaf_outer_fiber_stress_MPa": 3.6,
+    "unsupported_vertical_cantilever_euler_N": 0.84385117629314,
+    "tooth_load_N": 0.5,
+    "tooth_bearing_MPa_3p8_by_0p6": 0.2192982456140351,
+    "tooth_root_stress_MPa_1mm_thick_0p6_projection": 0.47368421052631576,
+    "row_lift_load_N_at_64_times_0p5": 32.0,
+    "row_motor_torque_Nm_at_8mm_radius_80pct_efficiency": 0.32,
+    "common_rack_tooth_span_mm_for_40mm_terrain_and_40mm_shuttle": 86
+  },
+  "continuous_release_two_sweep_timing": [
+    {
+      "banks": 1,
+      "selectors": 64,
+      "speed_mm_s": 40,
+      "row_seconds": 2.5293737745050926,
+      "full_64_row_seconds": 161.87992156832593,
+      "one_mm_latch_window_ms": 25.0,
+      "0p8_mm_compliance_ms": 20.0
+    },
+    {
+      "banks": 1,
+      "selectors": 64,
+      "speed_mm_s": 80,
+      "row_seconds": 1.6093737745050922,
+      "full_64_row_seconds": 102.9999215683259,
+      "one_mm_latch_window_ms": 12.5,
+      "0p8_mm_compliance_ms": 10.0
+    },
+    {
+      "banks": 1,
+      "selectors": 64,
+      "speed_mm_s": 120,
+      "row_seconds": 1.3560404411717588,
+      "full_64_row_seconds": 86.78658823499256,
+      "one_mm_latch_window_ms": 8.333333333333334,
+      "0p8_mm_compliance_ms": 6.666666666666667
+    },
+    {
+      "banks": 2,
+      "selectors": 128,
+      "speed_mm_s": 40,
+      "row_seconds": 2.5293737745050926,
+      "full_64_row_seconds": 80.93996078416296,
+      "one_mm_latch_window_ms": 25.0,
+      "0p8_mm_compliance_ms": 20.0
+    },
+    {
+      "banks": 2,
+      "selectors": 128,
+      "speed_mm_s": 80,
+      "row_seconds": 1.6093737745050922,
+      "full_64_row_seconds": 51.49996078416295,
+      "one_mm_latch_window_ms": 12.5,
+      "0p8_mm_compliance_ms": 10.0
+    },
+    {
+      "banks": 2,
+      "selectors": 128,
+      "speed_mm_s": 120,
+      "row_seconds": 1.3560404411717588,
+      "full_64_row_seconds": 43.39329411749628,
+      "one_mm_latch_window_ms": 8.333333333333334,
+      "0p8_mm_compliance_ms": 6.666666666666667
+    },
+    {
+      "banks": 4,
+      "selectors": 256,
+      "speed_mm_s": 40,
+      "row_seconds": 2.5293737745050926,
+      "full_64_row_seconds": 40.46998039208148,
+      "one_mm_latch_window_ms": 25.0,
+      "0p8_mm_compliance_ms": 20.0
+    },
+    {
+      "banks": 4,
+      "selectors": 256,
+      "speed_mm_s": 80,
+      "row_seconds": 1.6093737745050922,
+      "full_64_row_seconds": 25.749980392081476,
+      "one_mm_latch_window_ms": 12.5,
+      "0p8_mm_compliance_ms": 10.0
+    },
+    {
+      "banks": 4,
+      "selectors": 256,
+      "speed_mm_s": 120,
+      "row_seconds": 1.3560404411717588,
+      "full_64_row_seconds": 21.69664705874814,
+      "one_mm_latch_window_ms": 8.333333333333334,
+      "0p8_mm_compliance_ms": 6.666666666666667
+    },
+    {
+      "banks": 8,
+      "selectors": 512,
+      "speed_mm_s": 40,
+      "row_seconds": 2.5293737745050926,
+      "full_64_row_seconds": 20.23499019604074,
+      "one_mm_latch_window_ms": 25.0,
+      "0p8_mm_compliance_ms": 20.0
+    },
+    {
+      "banks": 8,
+      "selectors": 512,
+      "speed_mm_s": 80,
+      "row_seconds": 1.6093737745050922,
+      "full_64_row_seconds": 12.874990196040738,
+      "one_mm_latch_window_ms": 12.5,
+      "0p8_mm_compliance_ms": 10.0
+    },
+    {
+      "banks": 8,
+      "selectors": 512,
+      "speed_mm_s": 120,
+      "row_seconds": 1.3560404411717588,
+      "full_64_row_seconds": 10.84832352937407,
+      "one_mm_latch_window_ms": 8.333333333333334,
+      "0p8_mm_compliance_ms": 6.666666666666667
+    }
+  ]
+}

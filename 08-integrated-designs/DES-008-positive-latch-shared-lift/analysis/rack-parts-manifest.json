@@ -1,0 +1,332 @@
+{
+  "source_sha256": "0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964",
+  "evidence": "Nominal connected oriented mesh geometry only; no assembly, slicer or physical qualification",
+  "part_count": 46,
+  "material_solid_volume_mm3": 39445.906709183066,
+  "solid_PLA_g_at_1_24": 48.912924319387,
+  "parts": {
+    "pin": {
+      "quantity": 8,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.5,
+          7.62939e-07
+        ],
+        [
+          97.0,
+          5.5,
+          5.0
+        ]
+      ],
+      "volume_mm3": 940.6717894288354,
+      "stl_sha256": "b9a1931bb119665913f0dd43f693d9acfc81ceb12c6a5ec6acac5815ae01de85"
+    },
+    "ground_comb": {
+      "quantity": 2,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.450001,
+          1.90735e-07,
+          1.90735e-07
+        ],
+        [
+          24.6,
+          28.2,
+          2.5
+        ]
+      ],
+      "volume_mm3": 305.46034388451125,
+      "stl_sha256": "ad5c285deff01b306b80c4c07594ac1aaf1c4dfab080df8fd02970ee42c18a2a"
+    },
+    "drive_key": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          5.72205e-07,
+          0.0,
+          7.62939e-07
+        ],
+        [
+          7.2,
+          11.5,
+          2.6
+        ]
+      ],
+      "volume_mm3": 63.33597896004724,
+      "stl_sha256": "a0ffa4907ac08711f793b0b3190c6c70fd47e200544a919f0edc94a598128878"
+    },
+    "carriage_base": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          3.8147e-07
+        ],
+        [
+          73.05,
+          17.675,
+          18.4
+        ]
+      ],
+      "volume_mm3": 5774.171048949087,
+      "stl_sha256": "b9558c8e000eda8ac05d2466f6e864525daee05b061f6b358385b991dfb51629"
+    },
+    "carriage_lid": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          4.77853,
+          -7.62939e-07
+        ],
+        [
+          73.05,
+          13.85,
+          6.0
+        ]
+      ],
+      "volume_mm3": 1421.585116663974,
+      "stl_sha256": "46d9f54e4c312f565f602938a9049c1e7ac56e65e8a8c1507572f956275978fe"
+    },
+    "root_clamp_active": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          7.62939e-07,
+          0.9,
+          0.0
+        ],
+        [
+          54.65,
+          5.4,
+          5.7
+        ]
+      ],
+      "volume_mm3": 310.96944230107664,
+      "stl_sha256": "3099080f55272cdafe6e4137d3b0d6a7575e904faac563bf924e190621992abb"
+    },
+    "root_clamp_witness": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          7.62939e-07,
+          0.9,
+          0.0
+        ],
+        [
+          54.65,
+          5.4,
+          5.7
+        ]
+      ],
+      "volume_mm3": 310.96944230107664,
+      "stl_sha256": "1027f22044fd1efe1a3724801b448ef4a0dab5e8e9a5e4f318271e36e893a949"
+    },
+    "lower_guide": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          70.05,
+          22.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 3880.0264954752133,
+      "stl_sha256": "4d2c61607c364dbc9d52134e6832ba659d65eef101d91cb07cd9a1f0ceeda9e4"
+    },
+    "upper_guide": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          70.05,
+          22.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 3601.7954450592138,
+      "stl_sha256": "dd27e8ce9c9f523a015b7cb00385324829cd6c7ca4b74a95483fa0b2f6ccfb87"
+    },
+    "ground_seat": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          70.05,
+          22.0,
+          8.0
+        ]
+      ],
+      "volume_mm3": 5134.29884388132,
+      "stl_sha256": "a3abe27b95d7bda394a2c0c348924c57230d51106f20763d0d062fd7a18ac5af"
+    },
+    "bottom_guide": {
+      "quantity": 1,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          0.0,
+          -0.25,
+          0.0
+        ],
+        [
+          70.05,
+          22.25,
+          5.0
+        ]
+      ],
+      "volume_mm3": 2906.3803225741444,
+      "stl_sha256": "81922931d2b6c4f963625d58e5e3243f07eea7effbbe6d0460b4e92fd623f140"
+    },
+    "frame_foot": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          -4.5,
+          -4.5,
+          0.0
+        ],
+        [
+          4.5,
+          4.5,
+          17.0
+        ]
+      ],
+      "volume_mm3": 939.2423691927198,
+      "stl_sha256": "dbf379dac461431235a19b32411bb76b298de0d5156a5290f4801317a65b841f"
+    },
+    "spacer_long": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          -2.75,
+          -2.75,
+          0.0
+        ],
+        [
+          2.75,
+          2.75,
+          16.0
+        ]
+      ],
+      "volume_mm3": 249.84025434688002,
+      "stl_sha256": "f3a3e14d9892a69a4e144a4280f6ff561a10da9a2d3e408886748243a71fb718"
+    },
+    "spacer_bottom": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          -2.75,
+          -2.75,
+          0.0
+        ],
+        [
+          2.75,
+          2.75,
+          38.0
+        ]
+      ],
+      "volume_mm3": 593.3706040738399,
+      "stl_sha256": "1653f63c15e1aa71e13702c74edee00b53cfcc4b2b08011efedb08a41b2c2ad0"
+    },
+    "spacer_short": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          -2.75,
+          -2.75,
+          0.0
+        ],
+        [
+          2.75,
+          2.75,
+          7.0
+        ]
+      ],
+      "volume_mm3": 109.30511127676,
+      "stl_sha256": "f157702bbdd2e17d264a74505a1ac26b7635cd7395ea3412c97485e2d857ba7f"
+    },
+    "dog_keeper": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          3.5,
+          5.72205e-07,
+          7.62939e-07
+        ],
+        [
+          7.4,
+          1.4,
+          4.05
+        ]
+      ],
+      "volume_mm3": 12.47098574643536,
+      "stl_sha256": "11783e6aee7bf6aea96550f482d969cd62fd734b06e543f3c8b1561c1420d810"
+    },
+    "ground_keeper": {
+      "quantity": 4,
+      "body_count": 1,
+      "watertight": true,
+      "bounds_mm": [
+        [
+          7.62939e-07,
+          2.9,
+          7.62939e-07
+        ],
+        [
+          3.6,
+          8.5,
+          2.7
+        ]
+      ],
+      "volume_mm3": 24.78858359788094,
+      "stl_sha256": "edf574b4c83f36e90b9aa96017f9fd00b1f392ed227699a44ab93cec12df528e"
+    }
+  }
+}

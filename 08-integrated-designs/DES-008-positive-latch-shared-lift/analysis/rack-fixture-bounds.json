@@ -1,0 +1,138 @@
+{
+  "scope": "Simply supported rectangular-beam screens; cutouts, bolted joints, layer anisotropy, torsion, actual loads and support compliance are not qualified.",
+  "span_mm": 64.05,
+  "young_modulus_MPa_sensitivity": [
+    1000,
+    2000,
+    3000
+  ],
+  "beam_screens": {
+    "old_single_rail": {
+      "width_mm": 2.45,
+      "thickness_mm": 1.2,
+      "inertia_mm4": 0.3528,
+      "central_point_load_deflection_mm": {
+        "1000": {
+          "0.05": 0.7758139648437499,
+          "0.1": 1.5516279296874997,
+          "0.5": 7.758139648437498
+        },
+        "2000": {
+          "0.05": 0.38790698242187494,
+          "0.1": 0.7758139648437499,
+          "0.5": 3.879069824218749
+        },
+        "3000": {
+          "0.05": 0.2586046549479167,
+          "0.1": 0.5172093098958334,
+          "0.5": 2.5860465494791667
+        }
+      }
+    },
+    "new_floor_net_section": {
+      "width_mm": 12.75,
+      "thickness_mm": 3.6,
+      "inertia_mm4": 49.572,
+      "central_point_load_deflection_mm": {
+        "1000": {
+          "0.05": 0.005521406576230029,
+          "0.1": 0.011042813152460059,
+          "0.5": 0.055214065762300285
+        },
+        "2000": {
+          "0.05": 0.0027607032881150147,
+          "0.1": 0.005521406576230029,
+          "0.5": 0.027607032881150143
+        },
+        "3000": {
+          "0.05": 0.001840468858743343,
+          "0.1": 0.003680937717486686,
+          "0.5": 0.018404688587433427
+        }
+      }
+    },
+    "new_lid_rail": {
+      "width_mm": 2.45,
+      "thickness_mm": 6,
+      "inertia_mm4": 44.1,
+      "central_point_load_deflection_mm": {
+        "1000": {
+          "0.05": 0.00620651171875,
+          "0.1": 0.0124130234375,
+          "0.5": 0.06206511718749999
+        },
+        "2000": {
+          "0.05": 0.003103255859375,
+          "0.1": 0.00620651171875,
+          "0.5": 0.031032558593749995
+        },
+        "3000": {
+          "0.05": 0.0020688372395833332,
+          "0.1": 0.0041376744791666665,
+          "0.5": 0.02068837239583333
+        }
+      }
+    },
+    "new_ground_seat_net_section": {
+      "width_mm": 10.55,
+      "thickness_mm": 4,
+      "inertia_mm4": 56.26666666666667,
+      "central_point_load_deflection_mm": {
+        "1000": {
+          "0.05": 0.00486446386487337,
+          "0.1": 0.00972892772974674,
+          "0.5": 0.048644638648733696
+        },
+        "2000": {
+          "0.05": 0.002432231932436685,
+          "0.1": 0.00486446386487337,
+          "0.5": 0.024322319324366848
+        },
+        "3000": {
+          "0.05": 0.0016214879549577902,
+          "0.1": 0.0032429759099155803,
+          "0.5": 0.0162148795495779
+        }
+      }
+    }
+  },
+  "leaf_screen": {
+    "tip_shift_mm": 1.05,
+    "force_N_at_E2GPa": 0.06236999999999999,
+    "root_surface_strain": 0.0023625,
+    "root_stress_MPa_at_E2GPa": 4.725,
+    "deflection_at_first_4mm": 0.05880000000000001,
+    "caveat": "Prescribed ideal cantilever shape; head rotation, keeper moment, ledge contact, root fit, creep and fatigue remain physical tests."
+  },
+  "nominal_clearance": {
+    "sleeve_OD_mm": 5.5,
+    "carriage_bore_mm": 5.9,
+    "bearing_length_mm": 18.4,
+    "pitch_slope_screen": 0.02173913043478261,
+    "dog_nose_offset_from_axis_mm": 6.95,
+    "dog_phase_screen_mm": 0.15108695652173915,
+    "keeper_combined_Y_play_mm": 0.4,
+    "ground_release_min_before_other_errors_mm": 0.65,
+    "ground_tip_clearance_after_keeper_play_mm": 0.2,
+    "ground_tip_clearance_after_keeper_play_and_pin_Y_mm": 0.1
+  },
+  "root_clamp": {
+    "non_root_underside_relief_mm": 0.3,
+    "root_pad_area_mm2": 3.21,
+    "backbone_section_mm": [
+      0.85,
+      3.7
+    ],
+    "approx_force_N_to_deflect_one_13_55mm_anchor_span_by_relief_at_E2GPa": 2.5959568619256133,
+    "caveat": "Cantilever estimate only; no tightening torque specified. Confirm actual root preload before non-root faces bottom."
+  },
+  "hardware": {
+    "frame_bolt_mm": 80,
+    "frame_stack_mm": 76,
+    "nut_mm": 2.4,
+    "frame_thread_protrusion_mm": 1.6,
+    "carrier_bolt_mm": 16,
+    "carrier_stack_mm": 12.45,
+    "carrier_thread_protrusion_mm": 1.15
+  }
+}

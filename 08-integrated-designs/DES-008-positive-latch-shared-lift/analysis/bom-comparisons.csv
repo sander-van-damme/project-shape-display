@@ -1,0 +1,109 @@
+heads,architecture,item,qty,unit,low,high,basis
+4,retained,Selector solenoids,32,piece,142.72,142.72,catalog Adafruit2776; no force/speed/duty qualification
+4,retained,Eight-channel solenoid driver boards,4,board,59.8,59.8,catalog Adafruit6318; shared current/heat needs qualification
+4,retained,Motion motors,16,motor,201.6,400.0,low catalog Adafruit324 price anchor only; high procurement allowance
+4,retained,Motion drivers,16,driver,100.16,192.0,low catalog Adafruit6109; high allowance
+4,retained,Z guide/drive stock,4,axis,72.0,160.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+4,retained,Row guide/drive stock,4,axis,60.0,140.0,allowance shafts/guides/belts/bearings; not quoted
+4,retained,Sequencer shaft/cam/link stock,4,head,40.0,120.0,allowance; fabricated precise cam surfaces extra below
+4,retained,Writer traverse hardware,4,axis,48.0,120.0,allowance; motor/driver counted above
+4,retained,Head polymer beyond terrain columns,4,head,24.0,72.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+4,retained,Head common precision/load-path fabrication,4,head,60.0,240.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+4,retained,Memory-specific custom fabrication,4,head,120.0,600.0,Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers
+4,retained,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+4,retained,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+4,retained,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+4,retained,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+4,retained,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+4,retained,Power conversion/distribution,1,display,88.0,180.0,allowance; direct coils need huge peak current; no selected PSU
+4,retained,"Wiring, connectors, fusing",1,display,65.0,148.0,explicit allowance for coil and motion channels
+4,retained,"Fasteners, shims, spares",1,display,55.0,110.0,allowance
+4,direct,Selector solenoids,256,piece,1013.76,1013.76,catalog Adafruit2776; no force/speed/duty qualification
+4,direct,Eight-channel solenoid driver boards,32,board,430.72,430.72,catalog Adafruit6318; shared current/heat needs qualification
+4,direct,Motion motors,12,motor,151.2,300.0,low catalog Adafruit324 price anchor only; high procurement allowance
+4,direct,Motion drivers,12,driver,75.12,144.0,low catalog Adafruit6109; high allowance
+4,direct,Z guide/drive stock,4,axis,72.0,160.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+4,direct,Row guide/drive stock,4,axis,60.0,140.0,allowance shafts/guides/belts/bearings; not quoted
+4,direct,Sequencer shaft/cam/link stock,4,head,40.0,120.0,allowance; fabricated precise cam surfaces extra below
+4,direct,Head polymer beyond terrain columns,4,head,24.0,72.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+4,direct,Head common precision/load-path fabrication,4,head,60.0,240.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+4,direct,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+4,direct,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+4,direct,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+4,direct,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+4,direct,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+4,direct,Power conversion/distribution,1,display,220.0,440.0,allowance; direct coils need huge peak current; no selected PSU
+4,direct,"Wiring, connectors, fusing",1,display,113.0,300.0,explicit allowance for coil and motion channels
+4,direct,"Fasteners, shims, spares",1,display,55.0,110.0,allowance
+6,retained,Selector solenoids,48,piece,214.08,214.08,catalog Adafruit2776; no force/speed/duty qualification
+6,retained,Eight-channel solenoid driver boards,6,board,89.7,89.7,catalog Adafruit6318; shared current/heat needs qualification
+6,retained,Motion motors,24,motor,302.4,600.0,low catalog Adafruit324 price anchor only; high procurement allowance
+6,retained,Motion drivers,24,driver,150.24,288.0,low catalog Adafruit6109; high allowance
+6,retained,Z guide/drive stock,6,axis,108.0,240.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+6,retained,Row guide/drive stock,6,axis,90.0,210.0,allowance shafts/guides/belts/bearings; not quoted
+6,retained,Sequencer shaft/cam/link stock,6,head,60.0,180.0,allowance; fabricated precise cam surfaces extra below
+6,retained,Writer traverse hardware,6,axis,72.0,180.0,allowance; motor/driver counted above
+6,retained,Head polymer beyond terrain columns,6,head,36.0,108.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+6,retained,Head common precision/load-path fabrication,6,head,90.0,360.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+6,retained,Memory-specific custom fabrication,6,head,180.0,900.0,Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers
+6,retained,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+6,retained,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+6,retained,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+6,retained,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+6,retained,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+6,retained,Power conversion/distribution,1,display,112.0,230.0,allowance; direct coils need huge peak current; no selected PSU
+6,retained,"Wiring, connectors, fusing",1,display,85.0,192.0,explicit allowance for coil and motion channels
+6,retained,"Fasteners, shims, spares",1,display,65.0,130.0,allowance
+6,direct,Selector solenoids,384,piece,1520.64,1520.64,catalog Adafruit2776; no force/speed/duty qualification
+6,direct,Eight-channel solenoid driver boards,48,board,646.08,646.08,catalog Adafruit6318; shared current/heat needs qualification
+6,direct,Motion motors,18,motor,226.8,450.0,low catalog Adafruit324 price anchor only; high procurement allowance
+6,direct,Motion drivers,18,driver,112.68,216.0,low catalog Adafruit6109; high allowance
+6,direct,Z guide/drive stock,6,axis,108.0,240.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+6,direct,Row guide/drive stock,6,axis,90.0,210.0,allowance shafts/guides/belts/bearings; not quoted
+6,direct,Sequencer shaft/cam/link stock,6,head,60.0,180.0,allowance; fabricated precise cam surfaces extra below
+6,direct,Head polymer beyond terrain columns,6,head,36.0,108.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+6,direct,Head common precision/load-path fabrication,6,head,90.0,360.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+6,direct,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+6,direct,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+6,direct,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+6,direct,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+6,direct,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+6,direct,Power conversion/distribution,1,display,310.0,620.0,allowance; direct coils need huge peak current; no selected PSU
+6,direct,"Wiring, connectors, fusing",1,display,157.0,420.0,explicit allowance for coil and motion channels
+6,direct,"Fasteners, shims, spares",1,display,65.0,130.0,allowance
+8,retained,Selector solenoids,64,piece,285.44,285.44,catalog Adafruit2776; no force/speed/duty qualification
+8,retained,Eight-channel solenoid driver boards,8,board,119.6,119.6,catalog Adafruit6318; shared current/heat needs qualification
+8,retained,Motion motors,32,motor,403.2,800.0,low catalog Adafruit324 price anchor only; high procurement allowance
+8,retained,Motion drivers,32,driver,200.32,384.0,low catalog Adafruit6109; high allowance
+8,retained,Z guide/drive stock,8,axis,144.0,320.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+8,retained,Row guide/drive stock,8,axis,120.0,280.0,allowance shafts/guides/belts/bearings; not quoted
+8,retained,Sequencer shaft/cam/link stock,8,head,80.0,240.0,allowance; fabricated precise cam surfaces extra below
+8,retained,Writer traverse hardware,8,axis,96.0,240.0,allowance; motor/driver counted above
+8,retained,Head polymer beyond terrain columns,8,head,48.0,144.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+8,retained,Head common precision/load-path fabrication,8,head,120.0,480.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+8,retained,Memory-specific custom fabrication,8,head,240.0,1200.0,Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers
+8,retained,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+8,retained,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+8,retained,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+8,retained,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+8,retained,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+8,retained,Power conversion/distribution,1,display,136.0,280.0,allowance; direct coils need huge peak current; no selected PSU
+8,retained,"Wiring, connectors, fusing",1,display,105.0,236.0,explicit allowance for coil and motion channels
+8,retained,"Fasteners, shims, spares",1,display,75.0,150.0,allowance
+8,direct,Selector solenoids,512,piece,2027.52,2027.52,catalog Adafruit2776; no force/speed/duty qualification
+8,direct,Eight-channel solenoid driver boards,64,board,861.44,861.44,catalog Adafruit6318; shared current/heat needs qualification
+8,direct,Motion motors,24,motor,302.4,600.0,low catalog Adafruit324 price anchor only; high procurement allowance
+8,direct,Motion drivers,24,driver,150.24,288.0,low catalog Adafruit6109; high allowance
+8,direct,Z guide/drive stock,8,axis,144.0,320.0,allowance rails/belts or screws/pulleys/bearings; not quoted
+8,direct,Row guide/drive stock,8,axis,120.0,280.0,allowance shafts/guides/belts/bearings; not quoted
+8,direct,Sequencer shaft/cam/link stock,8,head,80.0,240.0,allowance; fabricated precise cam surfaces extra below
+8,direct,Head polymer beyond terrain columns,8,head,48.0,144.0,0.3-0.9kg at assumed$20/kg; source CAD not available
+8,direct,Head common precision/load-path fabrication,8,head,120.0,480.0,Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams
+8,direct,Terrain column material,1,display,126.06,210.33,"5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+8,direct,Fixed guide/support polymer,1,display,25.0,60.0,1.25-3kg at assumed$20/kg; not CAD volume
+8,direct,Fixed 4096-pawl fabrication,1,display,150.0,650.0,Q_ground UNQUOTED allowance; does not certify an actual supplier price
+8,direct,"Frame, feet, covers",1,display,80.0,180.0,"material allowance, no woodworking/metal fabrication labor"
+8,direct,Controller / communications / limit switches,1,display,30.0,75.0,"allowance; local checks only, no vision system"
+8,direct,Power conversion/distribution,1,display,400.0,800.0,allowance; direct coils need huge peak current; no selected PSU
+8,direct,"Wiring, connectors, fusing",1,display,201.0,540.0,explicit allowance for coil and motion channels
+8,direct,"Fasteners, shims, spares",1,display,75.0,150.0,allowance

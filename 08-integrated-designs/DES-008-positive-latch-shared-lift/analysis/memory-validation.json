@@ -1,0 +1,318 @@
+{
+  "revision": 3,
+  "source_sha256": "c6bd26a5f29215c4c34e9e8b53471034562b58a0cf65c35863cc9377d86f89fd",
+  "base": {
+    "watertight": true,
+    "volume_mm3": 5506.8665347088,
+    "bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        36.0,
+        32.0,
+        16.6
+      ]
+    ],
+    "components": 1
+  },
+  "cassette": {
+    "watertight": true,
+    "volume_mm3": 643.3467944319602,
+    "bounds_mm": [
+      [
+        -5.72205e-07,
+        0.0,
+        1.90735e-07
+      ],
+      [
+        33.3,
+        10.0,
+        5.4
+      ]
+    ],
+    "components": 1
+  },
+  "flag": {
+    "watertight": true,
+    "volume_mm3": 31.055999084472006,
+    "bounds_mm": [
+      [
+        1.90735e-07,
+        0.0,
+        0.0
+      ],
+      [
+        3.4,
+        8.0,
+        4.0
+      ]
+    ],
+    "components": 1
+  },
+  "flag_support": {
+    "watertight": true,
+    "volume_mm3": 4.6943969599979996,
+    "bounds_mm": [
+      [
+        0.7,
+        -1.5,
+        0.0
+      ],
+      [
+        2.7,
+        9.5,
+        0.959999
+      ]
+    ],
+    "components": 2
+  },
+  "supported_flag": {
+    "watertight": true,
+    "volume_mm3": 35.75039604447,
+    "bounds_mm": [
+      [
+        1.90735e-07,
+        -1.5,
+        0.0
+      ],
+      [
+        3.4,
+        9.5,
+        4.0
+      ]
+    ],
+    "components": 1
+  },
+  "codebar": {
+    "watertight": true,
+    "volume_mm3": 293.579989151085,
+    "bounds_mm": [
+      [
+        3.8147e-07,
+        0.0,
+        0.0
+      ],
+      [
+        3.8,
+        27.0,
+        3.5
+      ]
+    ],
+    "components": 1
+  },
+  "shim": {
+    "watertight": true,
+    "volume_mm3": 138.77998661040297,
+    "bounds_mm": [
+      [
+        0.0,
+        3.8147e-07,
+        0.0
+      ],
+      [
+        13.0,
+        5.8,
+        2.7
+      ]
+    ],
+    "components": 1
+  },
+  "keeper": {
+    "watertight": true,
+    "volume_mm3": 219.7759624023548,
+    "bounds_mm": [
+      [
+        -3.8147e-07,
+        7.62939e-07,
+        1.90735e-07
+      ],
+      [
+        27.2,
+        5.6,
+        4.2
+      ]
+    ],
+    "components": 1
+  },
+  "key": {
+    "watertight": true,
+    "volume_mm3": 20.879998626709803,
+    "bounds_mm": [
+      [
+        7.62939e-07,
+        0.0,
+        0.0
+      ],
+      [
+        3.6,
+        9.0,
+        1.2
+      ]
+    ],
+    "components": 1
+  },
+  "plate": {
+    "watertight": true,
+    "volume_mm3": 8601.912012470375,
+    "bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        82.6,
+        99.6,
+        16.6
+      ]
+    ],
+    "components": 19
+  },
+  "solid_PLA_g_at_1p24": 10.666370895463265,
+  "nominal_collision_checks": {
+    "count": 83,
+    "all_no_positive_overlap": true,
+    "intersection_volume_mm3": 0.0,
+    "case_names": [
+      "flag_old0_lift0",
+      "cassette_lift0_code0",
+      "flag_old0_lift0.4",
+      "cassette_lift0.4_code0",
+      "flag_old0_lift0.8",
+      "cassette_lift0.8_code0",
+      "flag_old0_lift1.2",
+      "cassette_lift1.2_code0",
+      "flag_old0_lift1.6",
+      "cassette_lift1.6_code0",
+      "flag_old0_lift2",
+      "cassette_lift2_code0",
+      "flag_old0_lift2.1",
+      "cassette_lift2.1_code0",
+      "flag_old0_lift2.4",
+      "cassette_lift2.4_code0",
+      "flag_old0_lift2.7",
+      "cassette_lift2.7_code0",
+      "flag_old1_lift0",
+      "cassette_lift0_code1",
+      "flag_old1_lift0.4",
+      "cassette_lift0.4_code1",
+      "flag_old1_lift0.8",
+      "cassette_lift0.8_code1",
+      "flag_old1_lift1.2",
+      "cassette_lift1.2_code1",
+      "flag_old1_lift1.6",
+      "cassette_lift1.6_code1",
+      "flag_old1_lift2",
+      "cassette_lift2_code1",
+      "flag_old1_lift2.1",
+      "cassette_lift2.1_code1",
+      "flag_old1_lift2.4",
+      "cassette_lift2.4_code1",
+      "flag_old1_lift2.7",
+      "cassette_lift2.7_code1",
+      "flag_write0",
+      "flag_write0.25",
+      "flag_write0.5",
+      "flag_write0.75",
+      "flag_write1",
+      "neighbor0_code0",
+      "neighbor0_code0.5",
+      "neighbor0_code1",
+      "neighbor1_code0",
+      "neighbor1_code0.5",
+      "neighbor1_code1",
+      "adjacent_bars00",
+      "adjacent_flags00",
+      "adjacent_bars01",
+      "adjacent_flags01",
+      "adjacent_bars10",
+      "adjacent_flags10",
+      "adjacent_bars11",
+      "adjacent_flags11",
+      "bar12_state0_fixed",
+      "bar12_state0.5_fixed",
+      "bar12_state1_fixed",
+      "bar18.35_state0_fixed",
+      "bar18.35_state0.5_fixed",
+      "bar18.35_state1_fixed",
+      "cassette_neighbor_lift0",
+      "cassette_neighbor_lift1.35",
+      "cassette_neighbor_lift2.7",
+      "keeper4_base",
+      "key5_4",
+      "key27_4",
+      "keeper28_base",
+      "key5_28",
+      "key27_28",
+      "load_port_z-2.5",
+      "load_port_z-1.5",
+      "load_port_z0",
+      "load_port_z1.5",
+      "load_port_z3",
+      "load_slide_x25.35",
+      "load_slide_x24",
+      "load_slide_x22.5",
+      "load_slide_x20.35",
+      "load_slide_x18.35",
+      "load_slide_x16",
+      "load_slide_x14",
+      "load_slide_x12"
+    ],
+    "note": "Zero-thickness seating contact may remain; no positive volume allowed. Samples, not a continuum or tolerance proof."
+  },
+  "wrong_old_blocked": {
+    "intersection_mm3": 2.112000000000004,
+    "blocked": true
+  },
+  "restricted_planar_screen": {
+    "nominal_mm": 1.6,
+    "maximum_diametral_post_hole_gap_mm": 0.6,
+    "minimum_effective_guide_length_mm": 9.8,
+    "maximum_cassette_tilt_deg": 3.5035316447844576,
+    "minimum_shoulder_inplane_width_mm": 3.3,
+    "minimum_shoulder_thickness_mm": 1.1,
+    "maximum_shoulder_slot_vertical_clearance_mm": 0.3,
+    "maximum_independent_flag_tilt_deg": 5.297838904073446,
+    "maximum_combined_tilt_deg": 8.801370548857903,
+    "minimum_flag_height_mm": 7.9,
+    "maximum_lug_width_mm": 1.2,
+    "maximum_foot_and_lug_depth_mm": 2.6,
+    "maximum_lug_or_foot_transverse_diagonal_mm": 2.8635642126552705,
+    "maximum_floor_to_channel_gap_without_lift_mm": 6.5,
+    "maximum_measured_local_codebar_vertical_lift_mm": 0.5,
+    "calculated_planar_full_face_overlap_mm": 0.3688228435409071,
+    "nominal_key_and_keeper_vertical_lift_mm": 0.4,
+    "statement": "Restricted planar screen only: zero shoulder yaw and all extreme shoulder points remain beneath the floor/roof retaining rails. Adds cassette tilt and independent flag tilt, with hypothetical measured dimensional limits. NOT a general tolerance or configuration-space guarantee: coupled yaw/translation/tilt and elastic deflection remain unqualified. Codebar play must be measured locally at BOTH rows."
+  },
+  "release_and_idle_nominal_mm": {
+    "row_lift": 2.7,
+    "foot_engagement": 2.1,
+    "raised_foot_floor_clearance": 0.6,
+    "idle_lug_channel_clearance": 0.5,
+    "raised_lug_roof_clearance": 0.4,
+    "cassette_to_bar_raised_clearance": 0.3,
+    "cassette_to_neighbor_clearance": 0.95
+  },
+  "loading_port": {
+    "x_center_mm": 25.35,
+    "roof_window_bounds_x_mm": [
+      23.2,
+      27.5
+    ],
+    "second_flag_max_operating_right_edge_mm": 22.05,
+    "nominal_separation_mm": 1.15,
+    "note": "Load flags off the base. Slide first flag to left column; then load second. Only codebar/pocket-controlled positions are operational."
+  },
+  "print_process_review": {
+    "base": "pockets upward",
+    "cassette": "long side down; 2.9 mm guide-hole roof bridges",
+    "flag": "wide shoulder side down; two sacrificial end towers anchor 3.6 / 3.8 mm bridges. Clip one-layer necks only at the foot bottom and lug top. No support contacts functional side walls; bridged side surfaces require inspection and measurement.",
+    "keeper": "inverted, sockets upward",
+    "codebar": "inverted closed roof down; no channel bridge",
+    "transverse_key_holes": "2 mm bridge span",
+    "slicer_revision_3": "Separate PrusaSlicer 2.7.4 comparison: 11.02 g, 2h 1m 24s, 1 mm brim, supports off, no warnings. Flag first spanning layer at Z=0.96 mm is anchored to its shoulder and end towers; slicer labels these thin paths Overhang perimeter, not Bridge infill. Physical bridging remains untested."
+  }
+}

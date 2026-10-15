@@ -1,0 +1,31 @@
+{
+  "source_sha256": "0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964",
+  "evidence": "nominal rigid CAD poses only; ideal elastic-leaf visualization",
+  "cases": 240,
+  "masks": 16,
+  "pulses": [
+    -5,
+    5
+  ],
+  "phases": {
+    "park": 32,
+    "capture": 32,
+    "unloaded": 32,
+    "move": 32,
+    "restored": 32,
+    "forced_lower": 16,
+    "forced_restored": 16,
+    "seated_lower": 16,
+    "returned": 32
+  },
+  "forced_down_model": {
+    "groove_reversal_mm": 0.6000000000000001,
+    "key_slot_reversal_mm": 0.25,
+    "seat_mm": 0.3,
+    "description": "Selected key at upper slot bearing; lower tooth flank pulls resisted pin. Return state is a separate collision endpoint, not a demonstrated continuous transition."
+  },
+  "unique_intersection_queries": 10951,
+  "invalid": [],
+  "collisions": [],
+  "excluded": "Continuous motion, nonideal deformation/tolerances, key pitch under load, forces, print fit, instructions and physical tests remain separate"
+}

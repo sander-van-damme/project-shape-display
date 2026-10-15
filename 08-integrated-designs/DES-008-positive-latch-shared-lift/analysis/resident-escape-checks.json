@@ -1,0 +1,1479 @@
+{
+  "source_sha256": "24eb609bdb034dccbd72d93b6ee8af8cca14b333965516dce820bfd237af07e9",
+  "scope": "Nominal rigid geometry; no tolerance/yield, contact-force, or full handoff proof",
+  "results": [
+    {
+      "name": "dog_channel_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_channel_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_guide_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_guide_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "channel_pin_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_dog_neighbor_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_B_neighbor_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "upper_register_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "lower_register_b0_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_dog_b0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_B_b0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_register_b0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_channel_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_channel_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_guide_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_guide_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "channel_pin_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_dog_neighbor_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_B_neighbor_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "upper_register_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "lower_register_b0_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h15",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h25",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h30",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h35",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h40",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h45",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b0_h50",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_channel_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_channel_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_guide_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_guide_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "channel_pin_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_dog_neighbor_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_B_neighbor_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "upper_register_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "lower_register_b1_A0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_dog_b1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_B_b1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "raised_channel_register_b1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_channel_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_channel_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "dog_guide_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_guide_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "channel_pin_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_dog_neighbor_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "far_B_neighbor_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "upper_register_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "lower_register_b1_A0.85",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h15",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h25",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h30",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h35",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h40",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h45",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "acquire_b1_h50",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h0_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h0_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h0_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h0_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h0_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h0_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h0_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h0_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h0_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h5_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h5_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h5_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h5_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h5_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h5_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h5_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h5_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h5_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h5_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h5_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h5_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h5_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h10_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h10_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h10_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h10_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h10_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h10_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h10_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h10_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h10_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h10_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h10_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h10_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h10_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h10_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h10_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h10_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h10_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h15_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h15_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h15_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h15_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h15_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h15_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h15_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h15_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h15_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h15_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h15_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h15_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h15_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h15_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h15_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h15_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h15_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h20_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h20_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h20_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h20_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h20_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h20_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h25_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h25_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h25_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h25_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h25_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h25_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h30_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h30_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h30_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h30_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h30_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h30_d20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h35_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h35_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h35_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h35_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h35_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h35_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h35_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h35_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h35_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h35_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h35_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h35_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h35_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h35_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h35_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h35_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h35_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h35_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h40_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h40_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h40_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h40_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h40_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h40_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h40_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h40_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h40_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h40_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h40_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h40_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h40_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h40_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h40_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h40_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h40_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h40_d10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h45_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h45_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h45_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h45_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h45_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h45_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h45_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h45_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h45_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h45_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h45_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h45_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h45_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h45_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h45_d5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h50_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h50_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h50_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h50_d-20",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h50_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h50_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h50_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h50_d-10",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_h50_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "loaded_channel_h50_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "sticky_down_h50_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "final_seat_h50_d-5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "disabled_row_data0_stored0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "OLD_acquisition0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "disabled_row_data0_stored1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "wrong_OLD0_1",
+      "intersection_mm3": 0.5119997558591715,
+      "expected": "must obstruct"
+    },
+    {
+      "name": "disabled_row_data1_stored0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "wrong_OLD1_0",
+      "intersection_mm3": 0.5119997558591715,
+      "expected": "must obstruct"
+    },
+    {
+      "name": "disabled_row_data1_stored1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "OLD_acquisition1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b0_stroke0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b0_stroke0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b0_stroke0.2",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b0_stroke0.2",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b0_stroke0.5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b0_stroke0.5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b0_stroke1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b0_stroke1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b1_stroke0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b1_stroke0",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b1_stroke0.2",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b1_stroke0.2",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b1_stroke0.5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b1_stroke0.5",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "B_ramp_b1_stroke1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    },
+    {
+      "name": "pawl_pin_b1_stroke1",
+      "intersection_mm3": 0.0,
+      "nominal_clear": true
+    }
+  ],
+  "failures": [],
+  "mechanics": {
+    "channel_I_yload_mm4": 1.408783333333333,
+    "channel_solid_area_mm2": 1.8399999999999996,
+    "channel_steel_mass_g": 1.9643839999999995,
+    "all4096_channel_kg": 8.046116863999998,
+    "channel_deflection_mm_per_N": {
+      "3000": 11.86062835938024,
+      "200000": 0.1779094253907036
+    },
+    "channel_complete_steel_mass_g": 2.014561199999999,
+    "channel_complete_all4096_kg": 8.251642675199996,
+    "pin_volume_mm3": 2939.487910239945,
+    "pin_PLA_mass_g": 3.6449650086975316,
+    "rail_deflection_mm_at_1N_each": 0.0613156294748413,
+    "pawl_leaf_force_N_at_085": 0.05100000000000002,
+    "geometry": {
+      "pitch": 6.35,
+      "height_range": 50,
+      "A_home": -30.4,
+      "A_take_up": 0.4,
+      "A_up_seat": 0.7,
+      "A_up_center": 0.3,
+      "A_down_backlash_compensation": 0,
+      "A_down_seat": 0.7,
+      "A_down_center": 0.3,
+      "A_pulse_max": 20,
+      "B_stroke": 1.2,
+      "B_approach": 0.35,
+      "pawl_release": 0.85,
+      "common_A": 0.85,
+      "data_motion": 1.6,
+      "row_lift": 2,
+      "pin_low_cap_top": 136.2,
+      "pin_high_cap_top": 186.2,
+      "memory_bottom": -107,
+      "total_envelope": 293.2,
+      "ground_rack_interval": [
+        -50.4,
+        -0.4
+      ],
+      "A_acquisition_rack_interval": [
+        -80.4,
+        -30.4
+      ],
+      "same_face_union": [
+        -80.4,
+        -0.4
+      ]
+    }
+  },
+  "mesh_parts": {
+    "pin": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 2939.487910239945
+    },
+    "channel": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 256.6319999999999
+    },
+    "dog": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 11.556997919999992
+    },
+    "dog_guide": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 0.7549999999999985
+    },
+    "rail": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 150.10299999999995
+    },
+    "b_dog": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 7.3497915680000006
+    },
+    "b_rail": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 146.80000000000004
+    },
+    "ground_seat": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 0.36000000000000004
+    },
+    "channel_top": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 7.647501575000006
+    },
+    "pockets": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 42.29999219999999
+    },
+    "cassette": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 35.53498745000001
+    },
+    "codebar": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 77.538
+    },
+    "lower_codebar": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 61.72800000000004
+    },
+    "writer_pair": {
+      "watertight": true,
+      "bodies": 1,
+      "volume": 2447.166
+    }
+  }
+}

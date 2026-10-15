@@ -1,0 +1,27 @@
+{
+  "review_date": "2026-10-15",
+  "python": "3.12.14",
+  "openscad": "OpenSCAD version 2021.01",
+  "source_sha256": {
+    "resident_cell.scad": "780423514ddddcf11fb456d94cdb64d852cbc42908f92bf5494faaf326dda157",
+    "resident_cell_guide_escape.scad": "24eb609bdb034dccbd72d93b6ee8af8cca14b333965516dce820bfd237af07e9"
+  },
+  "checks": {
+    "counterexample": {
+      "stored_record_matches_replay": true,
+      "replay_file": "counterexample/counterexample.json",
+      "replay_sha256": "46882a58e9ed085c7f20ec1db254293c001ec7f0088ef19f05b0d45e5950fb12"
+    },
+    "original_nominal": {
+      "stored_record_matches_replay": true,
+      "replay_file": "integration-review-frozen/independent-checks.json",
+      "replay_sha256": "6a7e45774a2205f5d1f80b3d3de5354c0c66b3a4cae11dc5bea30aa0a5f87e1a"
+    },
+    "guide_escape": {
+      "stored_record_matches_replay": true,
+      "replay_file": "guide-escape-review/result.json",
+      "replay_sha256": "181ec37308ce99bbcf7f5e57132bdfb4c1a36da77f2c7bfef5efa41385d2121c"
+    }
+  },
+  "scope": "Independent rerun of frozen scripts and sources; finite sampled nominal/planar geometry only, no physical or manufacturing qualification."
+}

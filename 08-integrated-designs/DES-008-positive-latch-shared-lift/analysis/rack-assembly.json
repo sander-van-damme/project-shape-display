@@ -1,0 +1,19 @@
+{
+  "source_sha256": "0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964",
+  "states_by_stage": {
+    "clamp_over_comb_0": 121,
+    "clamp_over_comb_1": 121,
+    "comb_raise_1": 107,
+    "comb_shift_1": 44,
+    "comb_seat_1": 5,
+    "comb_raise_0": 107,
+    "comb_shift_0": 44,
+    "comb_seat_0": 5,
+    "bundle_into_lower_guide": 81,
+    "keeper_slide_above_wall": 22,
+    "keeper_drop_into_anchor": 29
+  },
+  "total_states": 686,
+  "collisions": [],
+  "limits": "Nominal rigid sample paths only. Keeper leaf manipulation, hand/tool access, actual fits, screw threading and clamping preload require physical verification. Witness comb installed first; preinsert root bolts; root nuts installed after lower-guide seating."
+}
