@@ -1,0 +1,14 @@
+{
+  "candidate_count": 1954,
+  "valid_counts": {
+    "(0, 0)": 369,
+    "(0, 1)": 561,
+    "(0.85, 0)": 455,
+    "(0.85, 1)": 539
+  },
+  "own_collision_count": 0,
+  "own_examples": [],
+  "neighbor_examples": [],
+  "scope": "Bounded planar yaw search, not all3D or manufacturing tolerance proof",
+  "source_sha256": "24eb609bdb034dccbd72d93b6ee8af8cca14b333965516dce820bfd237af07e9"
+}

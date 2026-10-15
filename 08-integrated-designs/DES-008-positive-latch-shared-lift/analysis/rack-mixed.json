@@ -1,0 +1,34 @@
+{
+  "source_sha256": "0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964",
+  "cases": 648,
+  "drag_combinations": 81,
+  "modes": {
+    "0": "unselected",
+    "1": "free following",
+    "2": "resists descent"
+  },
+  "stages": [
+    "main_move",
+    "all_pawls_restored",
+    "seat_0.30",
+    "free_dogs_centered",
+    "free_dogs_retired",
+    "sticky_pins_seated",
+    "sticky_dogs_centered",
+    "all_dogs_retired"
+  ],
+  "main_downward_head_stroke_mm": 5,
+  "height_above_target_when_ground_restored_mm": {
+    "free": 0.3,
+    "sticky": 1.1500000000000001
+  },
+  "ground_insertion_window_mm": [
+    0,
+    2.0
+  ],
+  "nominal_final_seating_head_travel_mm": 1.1500000000000001,
+  "retirement_sequence": "Free-following dogs are centered and withdrawn after0.60mm seating. Remaining sticky pins seat after1.15mm total; head then rises0.55mm to center their dogs before withdrawal. These nominal distances do not replace observed manual fit/support checks.",
+  "unique_intersections": 8809,
+  "collisions": [],
+  "limits": "Exact nominal backlash/slot dimensions and rigid parts. Restoring ground support before final seating is essential. Does not qualify friction, force, print variation, manually observed individual dog retirement or blind automatic overtravel."
+}

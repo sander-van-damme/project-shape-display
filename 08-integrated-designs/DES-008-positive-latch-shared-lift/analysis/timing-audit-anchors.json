@@ -1,0 +1,14 @@
+{
+  "B8_W8_indexed_dirty": {
+    "seconds": 62.32143998145917,
+    "worst": "40mm:road>40mm:ruins"
+  },
+  "B8_W8_continuous_full": {
+    "seconds": 48.384329813007064,
+    "worst": "40mm:ruins>40mm:road"
+  },
+  "B16_W32_indexed_dirty": {
+    "seconds": 26.326176422309185,
+    "worst": "40mm:ravine>40mm:ruins"
+  }
+}

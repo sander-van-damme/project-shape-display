@@ -1,12 +1,14 @@
 # Printtest — four independent radial pinch outputs
 
-**Status:** READY
+**Status:** DEFERRED
 
-**Priority:** P2
+**Priority:** unranked; optional historical experiment
 
-**Last reviewed:** 2026-10-14
+**Last reviewed:** 2026-10-15
 
-**Reason:** smallest constructed shared-strip discriminator: four active pins and four physical unchanged neighbors. Existing P1 short-thread fit remains unchanged. READY means files/instructions supplied, not demonstrated fit.
+**2026-10-15 disposition:** DES-008 independently reproduced the full-machine timing/selector-cost limitations. Its positive-latch support-transfer test now has higher decision value; the separate memory test is also deferred. Preserve these untested files; no new print is requested and this is not a physical failure result.
+
+**Original reason:** smallest constructed shared-strip discriminator: four active pins and four physical unchanged neighbors. Existing P1 short-thread fit remains unchanged. READY means files/instructions supplied, not demonstrated fit.
 
 **Technical source:** [DES-007](../../08-integrated-designs/DES-007-radial-pinch-belt-row-head/DES-007-radial-pinch-belt-row-head.md), especially its CAD and verification.txt.
 

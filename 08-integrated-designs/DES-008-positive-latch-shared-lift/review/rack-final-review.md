@@ -1,0 +1,43 @@
+# Independent review of the DES-008 manual handoff experiment
+
+Reviewed 2026-10-15. This disposition applies only to source SHA-256 **`0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964`**.
+
+**Disposition: a geometrically credible manual experiment, conditional on the final print/instruction checks; not a physically qualified mechanism.** Four active pins and four unchanged witness pins can test positive load transfer and independent retention. The allowed pin heights are 0, 5 and 10 mm, with single pulses of **±5 mm only**. This experiment does not establish full-display cost, speed, life, resolution or automated coupling.
+
+## What the independent checks establish
+
+| Check | Scope | Result |
+|---|---|---|
+| Operation | 240 rigid poses: all 16 masks, ±5-mm pulses, five ordinary phases, plus resisted descent, restored/seated lower-flank poses and return endpoints | No volume intersections; all exported component meshes valid |
+| Mixed descent | 648 poses: all 81 combinations of unselected/free-following/sticky pins, ground restoration before final seating, then free-dog retirement before sticky-pin completion | No volume intersections at nominal dimensions |
+| Guide play | 2,048 cases: all eight pins, extreme pin centerlines across the Z−14…62 guide span, independent ±0.20-mm carriage translations, own/neighboring keys and the carrier floor/lid | No tested key/pin intersections |
+| Assembly | 686 sampled poses: clamp over free comb, witness then active comb/bolt/clamp insertion into seat, seating on lower guide, keeper sliding/drop path | No tested volume intersections |
+
+The operation audit includes all 10 bolt/nut pairs, 12 spacers, four feet, both combs, both keeper families and all frame parts. These are rigid nominal-geometry rejection tests. They do not qualify continuous motion under force, actual printer tolerances, friction, spring return, key pitch or hand access. The cubic displaced-leaf shape is an ideal cantilever visualization, not an elastic contact solution.
+
+The repaired defects are material: the earlier floating frame and rocking comb root now have positive bearing paths and defined root-clamping pads; non-root faces have 0.30-mm relief so screw preload reaches the root first; unsupported selector overtravel now has stops and keeper blocks; a lower pin guide removes amplification below the former guides; continuous edge lands retain guidance throughout each rack pitch; the seat is 4 mm thick; front frame sleeves provide an installable carriage guide; the effective carriage bearing is 18.4 mm long; a continuous 3.6-mm carrier floor and 6-mm lid provide both signed force paths; and widened assembly slots plus bolt access holes make the comb/seat assembly possible. The earlier ±10-mm rig is not being released. Its fixed-post/carriage bolt collision and other failed checks remain in the historical review.
+
+## Actual operating sequence
+
+1. Keep all ground pawls engaged. Hold the stationary frame down on its gravity feet. Align the carriage while inserting the selected drive dogs; fit ON keepers and leave unselected dogs positively OFF.
+2. Lift until every selected pin visibly unloads its ground pawl. Do not infer unloading from a commanded 0.3-mm head displacement. Fit only the selected ground-release keepers and verify that their teeth clear the moving stems.
+3. Move while observing every selected target groove. For resisted descent, the dog transfers from the groove's upper flank to its **lower flank**. The nominal reversal obligation is **0.60 mm groove backlash + up to 0.25 mm key-slot take-up**, before angular/compliance effects. With the initial 0.30-mm unload, a nominal −5-mm main head stroke puts free-following pins 0.30 mm above target and sticky pins 1.15 mm above target. Both admit the 1.2-mm ground pawl in the 3.2-mm groove: the nominal insertion window is 0…2.0 mm above target. **Restore every selected ground pawl while all target grooves still admit it. Do not apply an extra blind −0.85-mm precompensation while ground support is open:** free-following pins would fall below the insertion window.
+4. Seat the pins with the ground pawls already inserted. Observe each actual pin; center and withdraw each dog only after that pin is supported. Keep unfinished pins captured. The nominal mixed model first seats/centers free-following dogs, withdraws them, then finishes sticky-pin seating and centers/withdraws those dogs. It does not force an already retired pin through a closed pawl. Its illustrative additional head travels (0.60 mm to center free dogs; 1.15 mm total to finish sticky seating; 0.55 mm upward to center the remaining dogs) are **not** fixed commands for printed parts. Stop if an individual seated dog cannot be freed without disturbing supported pins. Return only after all dogs are OFF. Gravity following alone is not a downward-drive test.
+
+
+## Assembly and physical boundaries
+
+The root clamps must first slide over free combs. Preinsert their M3×10 bolts. Insert the **witness** comb/clamp/bolt unit first, then the active unit: translate each 2.15 mm toward the front, raise the heads through the enlarged slots to 0.20 mm above the ledges, translate back and seat. Lower this bundle onto the lower-guide pockets, fit the root nuts and use the coaxial access holes to tighten the clamps. The roots must not rock. The designed 0.30-mm relief under the other clamp faces must remain: tighten only until the root cannot rock, never torque those faces flush or crush the small PLA pads. Check actual capture and free leaf return. Pins enter shaft-first from above; their 5×5-mm caps cannot pass through the 5×3-mm guide holes, and the normally engaged pawls must be retracted during insertion.
+
+The following are legitimate physical qualification boundaries, not demonstrated passes:
+
+- Printed sleeve/bore and rack/dog fit; short pocket-ceiling bridges; burrs and layer texture. The nominal internal groove/nose side clearance is 0.50 mm per side, while combined pin/carriage translation can consume 0.40 mm before yaw and manufacturing variation.
+- Manual engagement phase. The 18.4-mm carrier bearing still admits approximately 0.022 rad pitch from 0.40-mm diametral play, producing roughly 0.2 mm tooth-height variation at its offset from the guide axis. Key-slot and key-pitch motion add to the fit problem. An operator must find actual engagement, not force a key to an assumed datum.
+- Ground keeper play. A 1.6-mm peg in a 2.0-mm hole and a 0.6-mm tab in a 1.0-mm slot can together relax the nominal 1.05-mm release by about 0.40 mm. At the resulting 0.65-mm release the tooth has about 0.20-mm nominal stem clearance, reduced to about 0.10 mm by admitted pin Y movement before twist/print error. Observe clearance throughout motion.
+- Flexure return and common-root stability. The ideal cubic leaf leaves only approximately 0.09 mm clearance from the revised front backbone near Z36 when fully released. Real fit or rubbing can change return behavior. PLA fatigue and creep remain unmeasured.
+- Fixture stiffness. The fixed seat is substantially stiffer after thickening, but its perforated compliance is not measured. The former 1.2-mm carrier rails were also too compliant for an unqualified force test. The continuous 3.6-mm floor and 6-mm lid now provide much stronger upward and downward load paths. A 6-mm × 2.45-mm solid PLA lid-rail beam over 64.05 mm at E=2 GPa gives about 0.062 mm/N with simple supports; this is a screening calculation, not measured stiffness or contact behavior. Record actual pin endpoints and carrier flex during resisted descent.
+- The feet provide downward bearing only. Hold the fixed frame down while moving the carriage, and distinguish movement of the whole fixture from pin slip. Record the measurement resolution. Keep first tests unloaded, then add a gentle resisted-descent test and measured static loads only after free operation is established.
+
+## Reproduction
+
+The four independent scripts are `E-prototype-check.py`, `E-mixed-descent-check.py`, `E-guide-play-check.py` and `E-assembly-path-check.py`; their JSON results accompany this review. They require OpenSCAD, NumPy, trimesh and the Manifold Boolean backend. They accept explicit `--source`, `--scratch`/`--meshes`, `--nominal-results` and `--output` paths. Their canonical defaults place scratch products under `work/des008-handoff-review/`; source defaults to the adjacent package's `cad/rack_handoff.scad` when installed in an `analysis` folder. Run the pose exporter first, then the mixed-descent, guide and assembly scripts against those exported meshes and its result JSON. Each result records the source hash; no result qualifies another revision.

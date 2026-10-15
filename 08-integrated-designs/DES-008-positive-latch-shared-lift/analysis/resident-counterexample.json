@@ -1,0 +1,29 @@
+{
+  "source_sha256": "780423514ddddcf11fb456d94cdb64d852cbc42908f92bf5494faaf326dda157",
+  "claim": "The current dog-guide embodiment fails clearance-based engagement isolation.",
+  "rotation_degrees_about_Z": -4.0,
+  "rotation_origin_mm": [
+    3.0,
+    -2.2,
+    -30.4
+  ],
+  "translation_mm": [
+    -0.08175086979335999,
+    0.04879836891098147,
+    0.0
+  ],
+  "nominal_intersection_mm3": {
+    "channel": 0.0,
+    "dog_guide": 0.0,
+    "pin": 0.0
+  },
+  "admitted_play_intersection_mm3": {
+    "channel": 0.0,
+    "dog_guide": 0.0,
+    "pin": 0.10135090413044212
+  },
+  "toe_max_Y_mm": -0.4734887239645564,
+  "groove_back_Y_mm": -0.55,
+  "abutting_unmirrored_bank_next_pin_intersection_mm3": 14.688053878776069,
+  "limits": "No claim of physical testing or universal topology failure. Self-alignment, preload, longer guides, changed slots or mirrored banks require their own design and qualification."
+}

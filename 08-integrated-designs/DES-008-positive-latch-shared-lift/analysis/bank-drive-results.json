@@ -1,0 +1,622 @@
+{
+  "inputs": {
+    "sites": 2048,
+    "g_m_s2": 9.81,
+    "v_m_s": 0.08,
+    "a_m_s2": 0.8,
+    "force_service_factor": 1.5
+  },
+  "mass_scenarios": {
+    "light_hollow_80": {
+      "columns": 3.531659673599999,
+      "moving_frame": 1.5,
+      "terrain": 1.0
+    },
+    "root_2kg_frame": {
+      "columns": 3.531659673599999,
+      "moving_frame": 2.0,
+      "terrain": 5.0
+    },
+    "nominal_3kg_frame": {
+      "columns": 3.531659673599999,
+      "moving_frame": 3.0,
+      "terrain": 5.0
+    },
+    "heavy_solid_100": {
+      "columns": 5.25826916352,
+      "moving_frame": 5.0,
+      "terrain": 5.0
+    }
+  },
+  "transmissions": {
+    "TR8x8_direct": {
+      "effective_lead": 0.008,
+      "efficiency": 0.3
+    },
+    "1605_ball_direct": {
+      "effective_lead": 0.005,
+      "efficiency": 0.9
+    },
+    "1610_ball_direct": {
+      "effective_lead": 0.01,
+      "efficiency": 0.9
+    },
+    "belt_3mm_20T_4p8reduction": {
+      "effective_lead": 0.0125,
+      "efficiency": 0.9
+    }
+  },
+  "cases": [
+    {
+      "scenario": "light_hollow_80",
+      "moving_mass_kg": 6.031659673599999,
+      "drag_N_site": 0.01,
+      "up_steady_N": 79.650581398016,
+      "up_peak_N": 84.475909136896,
+      "design_force_N": 126.71386370534398,
+      "steady_power_W": 6.372046511841281,
+      "down_steady_drive_N": -38.69058139801599,
+      "four_corner_design_force_N": 31.678465926335996,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 0.5377903404527521
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.11203965426099002
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.22407930852198005
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.2800991356524751
+        }
+      }
+    },
+    {
+      "scenario": "light_hollow_80",
+      "moving_mass_kg": 6.031659673599999,
+      "drag_N_site": 0.03,
+      "up_steady_N": 120.610581398016,
+      "up_peak_N": 125.43590913689599,
+      "design_force_N": 188.15386370534398,
+      "steady_power_W": 9.64884651184128,
+      "down_steady_drive_N": 2.2694186019840004,
+      "four_corner_design_force_N": 47.038465926335995,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 0.7985497992145134
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.16636454150302366
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.3327290830060473
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.41591135375755905
+        }
+      }
+    },
+    {
+      "scenario": "light_hollow_80",
+      "moving_mass_kg": 6.031659673599999,
+      "drag_N_site": 0.1,
+      "up_steady_N": 263.970581398016,
+      "up_peak_N": 268.795909136896,
+      "design_force_N": 403.19386370534403,
+      "steady_power_W": 21.117646511841283,
+      "down_steady_drive_N": 145.629418601984,
+      "four_corner_design_force_N": 100.79846592633601,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 1.7112079048806783
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.35650164685014135
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.7130032937002827
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.8912541171253533
+        }
+      }
+    },
+    {
+      "scenario": "light_hollow_80",
+      "moving_mass_kg": 6.031659673599999,
+      "drag_N_site": 0.5,
+      "up_steady_N": 1083.170581398016,
+      "up_peak_N": 1087.995909136896,
+      "design_force_N": 1631.993863705344,
+      "steady_power_W": 86.65364651184129,
+      "down_steady_drive_N": 964.829418601984,
+      "four_corner_design_force_N": 407.998465926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 6.926397080115905
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 1.4429993916908135
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 2.885998783381627
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 3.6074984792270337
+        }
+      }
+    },
+    {
+      "scenario": "root_2kg_frame",
+      "moving_mass_kg": 10.5316596736,
+      "drag_N_site": 0.01,
+      "up_steady_N": 123.79558139801601,
+      "up_peak_N": 132.220909136896,
+      "design_force_N": 198.33136370534402,
+      "steady_power_W": 9.90364651184128,
+      "down_steady_drive_N": -82.835581398016,
+      "four_corner_design_force_N": 49.582840926336004,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 0.841744450769654
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.17536342724367793
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.35072685448735585
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.4384085681091948
+        }
+      }
+    },
+    {
+      "scenario": "root_2kg_frame",
+      "moving_mass_kg": 10.5316596736,
+      "drag_N_site": 0.03,
+      "up_steady_N": 164.755581398016,
+      "up_peak_N": 173.180909136896,
+      "design_force_N": 259.771363705344,
+      "steady_power_W": 13.18044651184128,
+      "down_steady_drive_N": -41.87558139801601,
+      "four_corner_design_force_N": 64.942840926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 1.1025039095314153
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.22968831448571153
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.45937662897142306
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.5742207862142789
+        }
+      }
+    },
+    {
+      "scenario": "root_2kg_frame",
+      "moving_mass_kg": 10.5316596736,
+      "drag_N_site": 0.1,
+      "up_steady_N": 308.11558139801605,
+      "up_peak_N": 316.540909136896,
+      "design_force_N": 474.811363705344,
+      "steady_power_W": 24.649246511841284,
+      "down_steady_drive_N": 101.484418601984,
+      "four_corner_design_force_N": 118.702840926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 2.0151620151975798
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.41982541983282917
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.8396508396656583
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 1.0495635495820728
+        }
+      }
+    },
+    {
+      "scenario": "root_2kg_frame",
+      "moving_mass_kg": 10.5316596736,
+      "drag_N_site": 0.5,
+      "up_steady_N": 1127.315581398016,
+      "up_peak_N": 1135.740909136896,
+      "design_force_N": 1703.611363705344,
+      "steady_power_W": 90.18524651184129,
+      "down_steady_drive_N": 920.684418601984,
+      "four_corner_design_force_N": 425.902840926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 7.230351190432807
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 1.5063231646735014
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 3.0126463293470027
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 3.7658079116837535
+        }
+      }
+    },
+    {
+      "scenario": "nominal_3kg_frame",
+      "moving_mass_kg": 11.5316596736,
+      "drag_N_site": 0.01,
+      "up_steady_N": 133.605581398016,
+      "up_peak_N": 142.83090913689603,
+      "design_force_N": 214.24636370534404,
+      "steady_power_W": 10.68844651184128,
+      "down_steady_drive_N": -92.645581398016,
+      "four_corner_design_force_N": 53.56159092633601,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 0.9092898086178546
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.18943537679538636
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.3788707535907727
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.4735884419884659
+        }
+      }
+    },
+    {
+      "scenario": "nominal_3kg_frame",
+      "moving_mass_kg": 11.5316596736,
+      "drag_N_site": 0.03,
+      "up_steady_N": 174.565581398016,
+      "up_peak_N": 183.790909136896,
+      "design_force_N": 275.686363705344,
+      "steady_power_W": 13.965246511841281,
+      "down_steady_drive_N": -51.68558139801601,
+      "four_corner_design_force_N": 68.921590926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 1.1700492673796157
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.2437602640374199
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.4875205280748398
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.6094006600935498
+        }
+      }
+    },
+    {
+      "scenario": "nominal_3kg_frame",
+      "moving_mass_kg": 11.5316596736,
+      "drag_N_site": 0.1,
+      "up_steady_N": 317.925581398016,
+      "up_peak_N": 327.150909136896,
+      "design_force_N": 490.72636370534406,
+      "steady_power_W": 25.43404651184128,
+      "down_steady_drive_N": 91.674418601984,
+      "four_corner_design_force_N": 122.68159092633601,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 2.0827073730457806
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.4338973693845376
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.8677947387690752
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 1.0847434234613442
+        }
+      }
+    },
+    {
+      "scenario": "nominal_3kg_frame",
+      "moving_mass_kg": 11.5316596736,
+      "drag_N_site": 0.5,
+      "up_steady_N": 1137.125581398016,
+      "up_peak_N": 1146.350909136896,
+      "design_force_N": 1719.526363705344,
+      "steady_power_W": 90.97004651184129,
+      "down_steady_drive_N": 910.874418601984,
+      "four_corner_design_force_N": 429.881590926336,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 7.297896548281007
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 1.5203951142252097
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 3.0407902284504194
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 3.8009877855630245
+        }
+      }
+    },
+    {
+      "scenario": "heavy_solid_100",
+      "moving_mass_kg": 15.25826916352,
+      "drag_N_site": 0.01,
+      "up_steady_N": 170.16362049413118,
+      "up_peak_N": 182.3702358249472,
+      "design_force_N": 273.5553537374208,
+      "steady_power_W": 13.613089639530495,
+      "down_steady_drive_N": -129.2036204941312,
+      "four_corner_design_force_N": 68.3888384343552,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 1.1610049801750002
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.24187603753645834
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.4837520750729167
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.6046900938411459
+        }
+      }
+    },
+    {
+      "scenario": "heavy_solid_100",
+      "moving_mass_kg": 15.25826916352,
+      "drag_N_site": 0.03,
+      "up_steady_N": 211.1236204941312,
+      "up_peak_N": 223.3302358249472,
+      "design_force_N": 334.9953537374208,
+      "steady_power_W": 16.889889639530494,
+      "down_steady_drive_N": -88.24362049413119,
+      "four_corner_design_force_N": 83.7488384343552,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 1.4217644389367616
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.296200924778492
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.592401849556984
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 0.7405023119462301
+        }
+      }
+    },
+    {
+      "scenario": "heavy_solid_100",
+      "moving_mass_kg": 15.25826916352,
+      "drag_N_site": 0.1,
+      "up_steady_N": 354.4836204941312,
+      "up_peak_N": 366.6902358249472,
+      "design_force_N": 550.0353537374208,
+      "steady_power_W": 28.358689639530496,
+      "down_steady_drive_N": 55.11637950586882,
+      "four_corner_design_force_N": 137.5088384343552,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 2.3344225446029263
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 0.4863380301256096
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 0.9726760602512192
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 1.2158450753140242
+        }
+      }
+    },
+    {
+      "scenario": "heavy_solid_100",
+      "moving_mass_kg": 15.25826916352,
+      "drag_N_site": 0.5,
+      "up_steady_N": 1173.6836204941312,
+      "up_peak_N": 1185.8902358249472,
+      "design_force_N": 1778.835353737421,
+      "steady_power_W": 93.8946896395305,
+      "down_steady_drive_N": 874.3163795058688,
+      "four_corner_design_force_N": 444.70883843435524,
+      "drive": {
+        "TR8x8_direct": {
+          "rpm": 600.0,
+          "torque_Nm_excluding_rotation": 7.549611719838154
+        },
+        "1605_ball_direct": {
+          "rpm": 960.0,
+          "torque_Nm_excluding_rotation": 1.572835774966282
+        },
+        "1610_ball_direct": {
+          "rpm": 480.0,
+          "torque_Nm_excluding_rotation": 3.145671549932564
+        },
+        "belt_3mm_20T_4p8reduction": {
+          "rpm": 383.99999999999994,
+          "torque_Nm_excluding_rotation": 3.9320894374157054
+        }
+      }
+    }
+  ],
+  "1605_rotation_sensitivity": {
+    "screws": 4,
+    "steel_screw_mass_each_kg": 0.3156672298327024,
+    "screw_inertia_each_kg_m2": 1.0101351354646477e-05,
+    "assumed_rotor_inertia_kg_m2": 2.8e-05,
+    "angular_acceleration_rad_s2": 1005.3096491487338,
+    "additional_torque_Nm_without_service_factor": 0.06876861412123549,
+    "additional_torque_Nm_with_service_factor": 0.10315292118185324
+  },
+  "travel_time_seconds": {
+    "5": 0.15811388300841897,
+    "40": 0.6,
+    "50": 0.725
+  },
+  "memory_gate_deflection_mm_per_N": {
+    "10": 0.038752480158730146,
+    "15": 0.13078962053571425,
+    "20": 0.31001984126984117,
+    "84": 22.968749999999993
+  },
+  "drive_cost_per_bank_rows": [
+    {
+      "item": "NEMA23 motor",
+      "qty": 1,
+      "unit_low": 18.26,
+      "unit_high": 18.26,
+      "basis": "catalog current 23HS30-2804S"
+    },
+    {
+      "item": "DM542T driver",
+      "qty": 1,
+      "unit_low": 19.65,
+      "unit_high": 19.65,
+      "basis": "catalog"
+    },
+    {
+      "item": "36V ~200W supply",
+      "qty": 1,
+      "unit_low": 19.96,
+      "unit_high": 35.0,
+      "basis": "catalog low; preorder, no qualified SKU"
+    },
+    {
+      "item": "1605 screw with ballnut",
+      "qty": 4,
+      "unit_low": 42.95,
+      "unit_high": 55.0,
+      "basis": "family displayed price low; exact short SKU/options unconfirmed"
+    },
+    {
+      "item": "BF12/BK12 support pairs",
+      "qty": 4,
+      "unit_low": 16.8,
+      "unit_high": 22.0,
+      "basis": "catalog low; currently out of stock"
+    },
+    {
+      "item": "Ballnut mounting blocks",
+      "qty": 4,
+      "unit_low": 9.95,
+      "unit_high": 14.0,
+      "basis": "catalog low; custom plate alternative not free"
+    },
+    {
+      "item": "Synchronization belts/pulleys/idlers",
+      "qty": 1,
+      "unit_low": 35.0,
+      "unit_high": 70.0,
+      "basis": "unquoted provision"
+    },
+    {
+      "item": "Independent anti-rack guide sets",
+      "qty": 1,
+      "unit_low": 30.0,
+      "unit_high": 70.0,
+      "basis": "unquoted provision"
+    },
+    {
+      "item": "Brake/positive catch and release",
+      "qty": 1,
+      "unit_low": 20.0,
+      "unit_high": 60.0,
+      "basis": "unquoted, essential unpowered support"
+    },
+    {
+      "item": "Mounting/leveling/fastener stock",
+      "qty": 1,
+      "unit_low": 20.0,
+      "unit_high": 50.0,
+      "basis": "unquoted provision"
+    },
+    {
+      "item": "Axis wiring/limit/fusing provision",
+      "qty": 1,
+      "unit_low": 10.0,
+      "unit_high": 25.0,
+      "basis": "unquoted provision"
+    }
+  ],
+  "drive_cost_per_bank": {
+    "low": 451.67,
+    "high": 711.91
+  },
+  "drive_cost_two_banks": {
+    "low": 903.34,
+    "high": 1423.82
+  }
+}

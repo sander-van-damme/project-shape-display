@@ -1,0 +1,27 @@
+{
+  "source_sha256": "0d75dbccb58f0134b698a23b19b4550c2cabab21a4e8aa852bce8a03ef6c3964",
+  "cases": 2048,
+  "tested_pins": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "moving_parts": "Own and preceding drive keys, carrier base and lid",
+  "guide_span_mm": [
+    -14.0,
+    62.0
+  ],
+  "guide_translations_mm": {
+    "pin_x": 0.2,
+    "pin_y": 0.1,
+    "head_x": 0.2,
+    "head_y": 0.2
+  },
+  "collisions": [],
+  "limits": "Rigid parts at nominal dimensions. No twist about pin axis, carriage angular play, key pitch, extrusion variation, friction or elasticity. Capture tested clear of load flanks; moving selected-pin force contact is in separate pose audit. Guide centerline extremes approximate finite rigid rotation and are conservative enough only for first-order clearance screening."
+}

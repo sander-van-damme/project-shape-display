@@ -1,0 +1,1206 @@
+{
+  "price_date": "2026-10-14",
+  "scenarios": [
+    {
+      "heads": 4,
+      "retained": true,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 256,
+        "A_keys": 256,
+        "A_vertical_guides": 256,
+        "B_keys": 256,
+        "reader_rods": 512,
+        "mask_flags": 256,
+        "keepers": 8,
+        "reader_platens": 8,
+        "writer_actuators": 32,
+        "direct_actuators": 0,
+        "motion_motors": 16,
+        "motion_drivers": 16,
+        "coil_driver_boards": 4,
+        "coil_wires": 64,
+        "motor_wires": 64
+      },
+      "catalog_electronics_floor": 504.28,
+      "full_allocated_total": {
+        "low": 1547.34,
+        "high": 3859.85
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 1217.34,
+        "high": 2369.85
+      },
+      "peak_coil_w": 176.0,
+      "peak_coil_A_5V": 35.2,
+      "coil_mass_kg": 0.403,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 32,
+          "unit": "piece",
+          "low": 142.72,
+          "high": 142.72,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 4,
+          "unit": "board",
+          "low": 59.8,
+          "high": 59.8,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 16,
+          "unit": "motor",
+          "low": 201.6,
+          "high": 400.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 16,
+          "unit": "driver",
+          "low": 100.16,
+          "high": 192.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 4,
+          "unit": "axis",
+          "low": 72.0,
+          "high": 160.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 4,
+          "unit": "axis",
+          "low": 60.0,
+          "high": 140.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 4,
+          "unit": "head",
+          "low": 40.0,
+          "high": 120.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Writer traverse hardware",
+          "qty": 4,
+          "unit": "axis",
+          "low": 48.0,
+          "high": 120.0,
+          "basis": "allowance; motor/driver counted above"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 4,
+          "unit": "head",
+          "low": 24.0,
+          "high": 72.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 4,
+          "unit": "head",
+          "low": 60.0,
+          "high": 240.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Memory-specific custom fabrication",
+          "qty": 4,
+          "unit": "head",
+          "low": 120.0,
+          "high": 600.0,
+          "basis": "Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 88.0,
+          "high": 180.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 65.0,
+          "high": 148.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 55.0,
+          "high": 110.0,
+          "basis": "allowance"
+        }
+      ]
+    },
+    {
+      "heads": 4,
+      "retained": false,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 256,
+        "A_keys": 256,
+        "A_vertical_guides": 256,
+        "B_keys": 256,
+        "reader_rods": 0,
+        "mask_flags": 0,
+        "keepers": 0,
+        "reader_platens": 0,
+        "writer_actuators": 0,
+        "direct_actuators": 256,
+        "motion_motors": 12,
+        "motion_drivers": 12,
+        "coil_driver_boards": 32,
+        "coil_wires": 512,
+        "motor_wires": 48
+      },
+      "catalog_electronics_floor": 1670.8,
+      "full_allocated_total": {
+        "low": 2725.86,
+        "high": 4645.81
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 2515.86,
+        "high": 3755.81
+      },
+      "peak_coil_w": 1408.0,
+      "peak_coil_A_5V": 281.6,
+      "coil_mass_kg": 3.226,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 256,
+          "unit": "piece",
+          "low": 1013.76,
+          "high": 1013.76,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 32,
+          "unit": "board",
+          "low": 430.72,
+          "high": 430.72,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 12,
+          "unit": "motor",
+          "low": 151.2,
+          "high": 300.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 12,
+          "unit": "driver",
+          "low": 75.12,
+          "high": 144.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 4,
+          "unit": "axis",
+          "low": 72.0,
+          "high": 160.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 4,
+          "unit": "axis",
+          "low": 60.0,
+          "high": 140.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 4,
+          "unit": "head",
+          "low": 40.0,
+          "high": 120.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 4,
+          "unit": "head",
+          "low": 24.0,
+          "high": 72.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 4,
+          "unit": "head",
+          "low": 60.0,
+          "high": 240.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 220.0,
+          "high": 440.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 113.0,
+          "high": 300.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 55.0,
+          "high": 110.0,
+          "basis": "allowance"
+        }
+      ]
+    },
+    {
+      "heads": 6,
+      "retained": true,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 384,
+        "A_keys": 384,
+        "A_vertical_guides": 384,
+        "B_keys": 384,
+        "reader_rods": 768,
+        "mask_flags": 384,
+        "keepers": 12,
+        "reader_platens": 12,
+        "writer_actuators": 48,
+        "direct_actuators": 0,
+        "motion_motors": 24,
+        "motion_drivers": 24,
+        "coil_driver_boards": 6,
+        "coil_wires": 96,
+        "motor_wires": 96
+      },
+      "catalog_electronics_floor": 756.42,
+      "full_allocated_total": {
+        "low": 2065.48,
+        "high": 5097.11
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 1645.48,
+        "high": 3187.11
+      },
+      "peak_coil_w": 264.0,
+      "peak_coil_A_5V": 52.8,
+      "coil_mass_kg": 0.605,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 48,
+          "unit": "piece",
+          "low": 214.08,
+          "high": 214.08,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 6,
+          "unit": "board",
+          "low": 89.7,
+          "high": 89.7,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 24,
+          "unit": "motor",
+          "low": 302.4,
+          "high": 600.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 24,
+          "unit": "driver",
+          "low": 150.24,
+          "high": 288.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 6,
+          "unit": "axis",
+          "low": 108.0,
+          "high": 240.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 6,
+          "unit": "axis",
+          "low": 90.0,
+          "high": 210.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 6,
+          "unit": "head",
+          "low": 60.0,
+          "high": 180.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Writer traverse hardware",
+          "qty": 6,
+          "unit": "axis",
+          "low": 72.0,
+          "high": 180.0,
+          "basis": "allowance; motor/driver counted above"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 6,
+          "unit": "head",
+          "low": 36.0,
+          "high": 108.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 6,
+          "unit": "head",
+          "low": 90.0,
+          "high": 360.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Memory-specific custom fabrication",
+          "qty": 6,
+          "unit": "head",
+          "low": 180.0,
+          "high": 900.0,
+          "basis": "Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 112.0,
+          "high": 230.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 85.0,
+          "high": 192.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 65.0,
+          "high": 130.0,
+          "basis": "allowance"
+        }
+      ]
+    },
+    {
+      "heads": 6,
+      "retained": false,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 384,
+        "A_keys": 384,
+        "A_vertical_guides": 384,
+        "B_keys": 384,
+        "reader_rods": 0,
+        "mask_flags": 0,
+        "keepers": 0,
+        "reader_platens": 0,
+        "writer_actuators": 0,
+        "direct_actuators": 384,
+        "motion_motors": 18,
+        "motion_drivers": 18,
+        "coil_driver_boards": 48,
+        "coil_wires": 768,
+        "motor_wires": 72
+      },
+      "catalog_electronics_floor": 2506.2,
+      "full_allocated_total": {
+        "low": 3833.26,
+        "high": 6276.05
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 3593.26,
+        "high": 5266.05
+      },
+      "peak_coil_w": 2112.0,
+      "peak_coil_A_5V": 422.4,
+      "coil_mass_kg": 4.838,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 384,
+          "unit": "piece",
+          "low": 1520.64,
+          "high": 1520.64,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 48,
+          "unit": "board",
+          "low": 646.08,
+          "high": 646.08,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 18,
+          "unit": "motor",
+          "low": 226.8,
+          "high": 450.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 18,
+          "unit": "driver",
+          "low": 112.68,
+          "high": 216.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 6,
+          "unit": "axis",
+          "low": 108.0,
+          "high": 240.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 6,
+          "unit": "axis",
+          "low": 90.0,
+          "high": 210.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 6,
+          "unit": "head",
+          "low": 60.0,
+          "high": 180.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 6,
+          "unit": "head",
+          "low": 36.0,
+          "high": 108.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 6,
+          "unit": "head",
+          "low": 90.0,
+          "high": 360.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 310.0,
+          "high": 620.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 157.0,
+          "high": 420.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 65.0,
+          "high": 130.0,
+          "basis": "allowance"
+        }
+      ]
+    },
+    {
+      "heads": 8,
+      "retained": true,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 512,
+        "A_keys": 512,
+        "A_vertical_guides": 512,
+        "B_keys": 512,
+        "reader_rods": 1024,
+        "mask_flags": 512,
+        "keepers": 16,
+        "reader_platens": 16,
+        "writer_actuators": 64,
+        "direct_actuators": 0,
+        "motion_motors": 32,
+        "motion_drivers": 32,
+        "coil_driver_boards": 8,
+        "coil_wires": 128,
+        "motor_wires": 128
+      },
+      "catalog_electronics_floor": 1008.56,
+      "full_allocated_total": {
+        "low": 2583.62,
+        "high": 6334.37
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 2073.62,
+        "high": 4004.37
+      },
+      "peak_coil_w": 352.0,
+      "peak_coil_A_5V": 70.4,
+      "coil_mass_kg": 0.806,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 64,
+          "unit": "piece",
+          "low": 285.44,
+          "high": 285.44,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 8,
+          "unit": "board",
+          "low": 119.6,
+          "high": 119.6,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 32,
+          "unit": "motor",
+          "low": 403.2,
+          "high": 800.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 32,
+          "unit": "driver",
+          "low": 200.32,
+          "high": 384.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 8,
+          "unit": "axis",
+          "low": 144.0,
+          "high": 320.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 8,
+          "unit": "axis",
+          "low": 120.0,
+          "high": 280.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 8,
+          "unit": "head",
+          "low": 80.0,
+          "high": 240.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Writer traverse hardware",
+          "qty": 8,
+          "unit": "axis",
+          "low": 96.0,
+          "high": 240.0,
+          "basis": "allowance; motor/driver counted above"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 8,
+          "unit": "head",
+          "low": 48.0,
+          "high": 144.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 8,
+          "unit": "head",
+          "low": 120.0,
+          "high": 480.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Memory-specific custom fabrication",
+          "qty": 8,
+          "unit": "head",
+          "low": 240.0,
+          "high": 1200.0,
+          "basis": "Q_memory UNQUOTED allowance; flags/rods/compliance/keepers/readers"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 136.0,
+          "high": 280.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 105.0,
+          "high": 236.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 75.0,
+          "high": 150.0,
+          "basis": "allowance"
+        }
+      ]
+    },
+    {
+      "heads": 8,
+      "retained": false,
+      "counts": {
+        "terrain_columns": 4096,
+        "ground_pawls": 4096,
+        "moving_dogs": 512,
+        "A_keys": 512,
+        "A_vertical_guides": 512,
+        "B_keys": 512,
+        "reader_rods": 0,
+        "mask_flags": 0,
+        "keepers": 0,
+        "reader_platens": 0,
+        "writer_actuators": 0,
+        "direct_actuators": 512,
+        "motion_motors": 24,
+        "motion_drivers": 24,
+        "coil_driver_boards": 64,
+        "coil_wires": 1024,
+        "motor_wires": 96
+      },
+      "catalog_electronics_floor": 3341.6,
+      "full_allocated_total": {
+        "low": 4940.66,
+        "high": 7906.29
+      },
+      "subtotal_excluding_unknown_custom_fabrication": {
+        "low": 4670.66,
+        "high": 6776.29
+      },
+      "peak_coil_w": 2816.0,
+      "peak_coil_A_5V": 563.2,
+      "coil_mass_kg": 6.451,
+      "rows": [
+        {
+          "item": "Selector solenoids",
+          "qty": 512,
+          "unit": "piece",
+          "low": 2027.52,
+          "high": 2027.52,
+          "basis": "catalog Adafruit2776; no force/speed/duty qualification"
+        },
+        {
+          "item": "Eight-channel solenoid driver boards",
+          "qty": 64,
+          "unit": "board",
+          "low": 861.44,
+          "high": 861.44,
+          "basis": "catalog Adafruit6318; shared current/heat needs qualification"
+        },
+        {
+          "item": "Motion motors",
+          "qty": 24,
+          "unit": "motor",
+          "low": 302.4,
+          "high": 600.0,
+          "basis": "low catalog Adafruit324 price anchor only; high procurement allowance"
+        },
+        {
+          "item": "Motion drivers",
+          "qty": 24,
+          "unit": "driver",
+          "low": 150.24,
+          "high": 288.0,
+          "basis": "low catalog Adafruit6109; high allowance"
+        },
+        {
+          "item": "Z guide/drive stock",
+          "qty": 8,
+          "unit": "axis",
+          "low": 144.0,
+          "high": 320.0,
+          "basis": "allowance rails/belts or screws/pulleys/bearings; not quoted"
+        },
+        {
+          "item": "Row guide/drive stock",
+          "qty": 8,
+          "unit": "axis",
+          "low": 120.0,
+          "high": 280.0,
+          "basis": "allowance shafts/guides/belts/bearings; not quoted"
+        },
+        {
+          "item": "Sequencer shaft/cam/link stock",
+          "qty": 8,
+          "unit": "head",
+          "low": 80.0,
+          "high": 240.0,
+          "basis": "allowance; fabricated precise cam surfaces extra below"
+        },
+        {
+          "item": "Head polymer beyond terrain columns",
+          "qty": 8,
+          "unit": "head",
+          "low": 48.0,
+          "high": 144.0,
+          "basis": "0.3-0.9kg at assumed$20/kg; source CAD not available"
+        },
+        {
+          "item": "Head common precision/load-path fabrication",
+          "qty": 8,
+          "unit": "head",
+          "low": 120.0,
+          "high": 480.0,
+          "basis": "Q_head UNQUOTED allowance; dogs/keys/carriers finishing/cams"
+        },
+        {
+          "item": "Terrain column material",
+          "qty": 1,
+          "unit": "display",
+          "low": 126.06,
+          "high": 210.33,
+          "basis": "5.4x3.8 stem, rack-wall-preserving hollow low; solid high; $20/kg assumption"
+        },
+        {
+          "item": "Fixed guide/support polymer",
+          "qty": 1,
+          "unit": "display",
+          "low": 25.0,
+          "high": 60.0,
+          "basis": "1.25-3kg at assumed$20/kg; not CAD volume"
+        },
+        {
+          "item": "Fixed 4096-pawl fabrication",
+          "qty": 1,
+          "unit": "display",
+          "low": 150.0,
+          "high": 650.0,
+          "basis": "Q_ground UNQUOTED allowance; does not certify an actual supplier price"
+        },
+        {
+          "item": "Frame, feet, covers",
+          "qty": 1,
+          "unit": "display",
+          "low": 80.0,
+          "high": 180.0,
+          "basis": "material allowance, no woodworking/metal fabrication labor"
+        },
+        {
+          "item": "Controller / communications / limit switches",
+          "qty": 1,
+          "unit": "display",
+          "low": 30.0,
+          "high": 75.0,
+          "basis": "allowance; local checks only, no vision system"
+        },
+        {
+          "item": "Power conversion/distribution",
+          "qty": 1,
+          "unit": "display",
+          "low": 400.0,
+          "high": 800.0,
+          "basis": "allowance; direct coils need huge peak current; no selected PSU"
+        },
+        {
+          "item": "Wiring, connectors, fusing",
+          "qty": 1,
+          "unit": "display",
+          "low": 201.0,
+          "high": 540.0,
+          "basis": "explicit allowance for coil and motion channels"
+        },
+        {
+          "item": "Fasteners, shims, spares",
+          "qty": 1,
+          "unit": "display",
+          "low": 75.0,
+          "high": 150.0,
+          "basis": "allowance"
+        }
+      ]
+    }
+  ],
+  "labor": [
+    {
+      "heads": 4,
+      "retained": true,
+      "low_hours": 35.8,
+      "high_hours": 100.7,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    },
+    {
+      "heads": 4,
+      "retained": false,
+      "low_hours": 33.4,
+      "high_hours": 95.0,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    },
+    {
+      "heads": 6,
+      "retained": true,
+      "low_hours": 43.5,
+      "high_hours": 123.1,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    },
+    {
+      "heads": 6,
+      "retained": false,
+      "low_hours": 39.9,
+      "high_hours": 114.5,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    },
+    {
+      "heads": 8,
+      "retained": true,
+      "low_hours": 51.1,
+      "high_hours": 145.6,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    },
+    {
+      "heads": 8,
+      "retained": false,
+      "low_hours": 46.3,
+      "high_hours": 134.1,
+      "additional_fitting_one_min_per_terrain_site_hours": 68.27
+    }
+  ],
+  "mass_kg": {
+    "80mm_solid": 8.432,
+    "80mm_symmetric0p8": 5.086,
+    "80mm_rack_backed": 6.303,
+    "80mm_two_sided_rack_backed": 7.063,
+    "100mm_solid": 10.517,
+    "100mm_symmetric0p8": 6.321,
+    "100mm_rack_backed": 7.847,
+    "100mm_two_sided_rack_backed": 8.8
+  },
+  "break_even_catalog_saving_per_head": 291.63,
+  "global_platen_screen": {
+    "display_sites": 4096,
+    "bank_sites": 2048,
+    "ground_pawls": 4096,
+    "positive_transport_dogs": 4096,
+    "resident_mask_bits": 4096,
+    "additional_keys_range": [
+      4096,
+      8192
+    ],
+    "selector_actuators": 128,
+    "coil_driver_boards": 16,
+    "motion_axes_assigned": 6,
+    "motion_axes_reserve": 2,
+    "electronics_price_anchor": 889.84,
+    "max_remaining_per_site_before_all_common_hardware": 0.149,
+    "common_low_allowances": {
+      "terrain_column_polymer": 141.26638694399998,
+      "frame": 80.0,
+      "controller": 30.0,
+      "power": 100.0,
+      "wire_fuse_connectors": 50.0
+    },
+    "remaining_for_all_other_passive_parts_at_1500": 208.89,
+    "remaining_per_site_after_common_low_allowances": 0.051,
+    "peak_coil_W": 704,
+    "peak_coil_A_5V": 140.8,
+    "force_sensitivity": [
+      {
+        "drag_N_per_moving_site": 0.01,
+        "simultaneous_sites": 2048,
+        "bank_static_force_N": 104.18,
+        "torque_Nm_8mm_lead_0p3eff": 0.442
+      },
+      {
+        "drag_N_per_moving_site": 0.03,
+        "simultaneous_sites": 2048,
+        "bank_static_force_N": 145.14,
+        "torque_Nm_8mm_lead_0p3eff": 0.616
+      },
+      {
+        "drag_N_per_moving_site": 0.1,
+        "simultaneous_sites": 2048,
+        "bank_static_force_N": 288.5,
+        "torque_Nm_8mm_lead_0p3eff": 1.224
+      },
+      {
+        "drag_N_per_moving_site": 0.25,
+        "simultaneous_sites": 2048,
+        "bank_static_force_N": 595.7,
+        "torque_Nm_8mm_lead_0p3eff": 2.528
+      },
+      {
+        "drag_N_per_moving_site": 0.5,
+        "simultaneous_sites": 2048,
+        "bank_static_force_N": 1107.7,
+        "torque_Nm_8mm_lead_0p3eff": 4.701
+      }
+    ]
+  }
+}
