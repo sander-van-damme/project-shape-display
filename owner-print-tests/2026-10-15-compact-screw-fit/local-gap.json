@@ -1,0 +1,11 @@
+{
+  "method": "Uncovered arcs of a rounded 1.98mm-half-width nominal midwall skeleton against nominal LINE_WIDTH bead footprints buffered by 0.01mm. This is a toolpath diagnostic, not a measured hole size.",
+  "worst": {
+    "pin": 5,
+    "z_mm": 0.48,
+    "max_individual_midwall_gap_mm": 0.22399084016882398,
+    "total_uncovered_midwall_mm": 0.22399084016882398
+  },
+  "all_samples": 245,
+  "samples_with_gap_over_001mm": 87
+}

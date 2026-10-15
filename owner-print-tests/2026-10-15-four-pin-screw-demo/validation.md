@@ -51,6 +51,8 @@ De [doorsnede](assembly-section.png) is uit de geleverde nominale STL-lichamen g
 
 ## Slicercontrole en ontworpen ondersteuning
 
+**Actuele Bambu-oplevering (2026-10-15):** de drie [complete X1C/0,4/PLA-projecten](bambu-settings.md) bewaren printer-, filament- en procesinstellingen plus daadwerkelijke Bambu Studio 02.08.02.61-paden. Die pagina bevat exacte instellingen, nieuwe tijd-/materiaalramingen en onafhankelijke rapporten van alle varianten. De hieronder beschreven PrusaSlicer-uitvoer blijft historisch vergelijkingsbewijs. De Bambu-controle vindt maximaal 8,985 mm vrije brug en 2,823 mm ankerafstand tot vorige-laagmateriaal; doorhang blijft onbekend. De status blijft DEFERRED tot fysiek bewezen compacte passing.
+
 De onderdelen hebben bewuste bedcontacten: brede kooiwand liggend, onderplaat vlak, schroeven op hun kraag en pinnen op hun vierkante rand. Een 3 mm **buitenbrim met nul spleet** vergroot het contact van de schroef tot circa 10,4 mm diameter en de pin tot een vergelijkbare buitenmaat. Binnenbrim en automatische supports blijven uit. Deze 18–21,5 mm korte delen plus brim beperken het eerdere lange-staafrisico; dat is nog geen fysieke hechtingsgarantie.
 
 Alle drie definitieve STL-bestanden zijn onafhankelijk gesliced met PrusaSlicer 2.7.2, 0,12 mm lagen, Arachne en 3 mm buitenbrim: 200 lagen en circa 1 uur 42 minuten; 0,15 / 0,175 / 0,20 respectievelijk 9,39 / 9,38 / 9,37 g. Het [vergelijkingsprofiel](../../tools/curated-experiment-checks/E-295/validation/comparison-012.ini), [nominale mesh-/padanalyse](../../tools/curated-experiment-checks/E-295/validation/demo-0175.json), [brugdetails](../../tools/curated-experiment-checks/E-295/validation/demo-bridge-details.json) en [padbeelden](../../tools/curated-experiment-checks/E-295/validation/demo-toolpaths.png) zijn bewaard. De rapporten bevatten hashes van de exact geslicede STLs. De slice bevat geen niet-ondersteunde losse laagcomponenten. Er zijn **waarschuwingen over floating bridge anchors, loose extrusions en long bridging extrusions**; die mogen niet als een schone fysieke printkwalificatie worden weggepoetst. Een doorlopende bruglijn van circa 18,34 mm in de kooi heeft tussensteun op de middelste plaat; de grootste daadwerkelijk vrije overspanning is 8,98 mm. Bij het pindak is de vrije centerlijnoverspanning 2,64 mm, binnen de 3,52 mm CAD-holte. Sommige brugankers beginnen op een overbruggende perimeter van dezelfde laag, tot 1,515 mm van materiaal in de vorige laag. Daarom worden de ankers niet als volledig ondersteund gekwalificeerd: lokale doorhang blijft een echte fysieke onzekerheid. De eigenaar controleert dezelfde kritieke plaatsen in Bambu Studio, in het daadwerkelijk gebruikte profiel.
@@ -59,7 +61,7 @@ Het ontbreken van slicersupport is op zichzelf geen bewijs van goede printstabil
 
 ## Reproductie
 
-De eigenaar gebruikt uitsluitend de geleverde STL. Voor CAD-onderhoud zijn OpenSCAD, git, trimesh, numpy en manifold3d nodig; voor de doorsnede ook matplotlib. De gepinde BOSL2-checkout moet schoon zijn en exact revision `136e6367e65d52196a3ea51d03156f8b622c60fc` hebben.
+De eigenaar opent bij voorkeur het gekozen complete 3MF-project; de oorspronkelijke STLs blijven behouden. Voor CAD-onderhoud zijn OpenSCAD, git, trimesh, numpy en manifold3d nodig; voor de doorsnede ook matplotlib. De gepinde BOSL2-checkout moet schoon zijn en exact revision `136e6367e65d52196a3ea51d03156f8b622c60fc` hebben.
 
 ```sh
 python owner-print-tests/2026-10-15-four-pin-screw-demo/generate.py --bosl2 work/compact-screw-fit/BOSL2 --scratch work/four-pin-demo
