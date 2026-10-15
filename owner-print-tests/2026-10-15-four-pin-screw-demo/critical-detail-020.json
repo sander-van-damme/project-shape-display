@@ -1,0 +1,217 @@
+{
+  "method": "Nominal LINE_WIDTH footprints: central radius0.8mm hex /0.6mm pin. Presence of roof paths is not bridge-strength evidence. Brim centerlines are tested against the circular/square body outline inset0.10mm:0 intersecting segments excludes brim in internal holes.",
+  "bore_samples": 644,
+  "all_central_bore_samples_free": true,
+  "roof_samples": [
+    {
+      "part": "hex",
+      "index": 1,
+      "z_mm": 2.52,
+      "bridge_extrusion_segments": 22,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 2,
+      "z_mm": 2.52,
+      "bridge_extrusion_segments": 19,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 3,
+      "z_mm": 2.52,
+      "bridge_extrusion_segments": 19,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 4,
+      "z_mm": 2.52,
+      "bridge_extrusion_segments": 19,
+      "deposited_central_area_mm2": 2.007391033949428
+    },
+    {
+      "part": "hex",
+      "index": 1,
+      "z_mm": 2.64,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 2,
+      "z_mm": 2.64,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 3,
+      "z_mm": 2.64,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 4,
+      "z_mm": 2.64,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.007391033949428
+    },
+    {
+      "part": "hex",
+      "index": 1,
+      "z_mm": 2.76,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 2,
+      "z_mm": 2.76,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 3,
+      "z_mm": 2.76,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.0073910339494105
+    },
+    {
+      "part": "hex",
+      "index": 4,
+      "z_mm": 2.76,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 2.007391033949428
+    },
+    {
+      "part": "pin",
+      "index": 1,
+      "z_mm": 17.28,
+      "bridge_extrusion_segments": 11,
+      "deposited_central_area_mm2": 1.1291574565965385
+    },
+    {
+      "part": "pin",
+      "index": 2,
+      "z_mm": 17.28,
+      "bridge_extrusion_segments": 11,
+      "deposited_central_area_mm2": 1.1291574565965385
+    },
+    {
+      "part": "pin",
+      "index": 3,
+      "z_mm": 17.28,
+      "bridge_extrusion_segments": 11,
+      "deposited_central_area_mm2": 1.1291574565965385
+    },
+    {
+      "part": "pin",
+      "index": 4,
+      "z_mm": 17.28,
+      "bridge_extrusion_segments": 11,
+      "deposited_central_area_mm2": 1.129157456596524
+    },
+    {
+      "part": "pin",
+      "index": 1,
+      "z_mm": 17.4,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 2,
+      "z_mm": 17.4,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 3,
+      "z_mm": 17.4,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 4,
+      "z_mm": 17.4,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633137
+    },
+    {
+      "part": "pin",
+      "index": 1,
+      "z_mm": 17.52,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 2,
+      "z_mm": 17.52,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 3,
+      "z_mm": 17.52,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633237
+    },
+    {
+      "part": "pin",
+      "index": 4,
+      "z_mm": 17.52,
+      "bridge_extrusion_segments": 0,
+      "deposited_central_area_mm2": 1.1276363333633137
+    }
+  ],
+  "inner_brim_samples": [
+    {
+      "part": "hex",
+      "index": 1,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "pin",
+      "index": 1,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "hex",
+      "index": 2,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "pin",
+      "index": 2,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "hex",
+      "index": 3,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "pin",
+      "index": 3,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "hex",
+      "index": 4,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    },
+    {
+      "part": "pin",
+      "index": 4,
+      "brim_centerlines_intersect_body_inset_010mm": 0
+    }
+  ]
+}

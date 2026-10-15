@@ -20,7 +20,7 @@ De proef combineert dezelfde 90°-draadfamilie als de recente geslaagde brede pa
 
 ## 2. Printklaar — CTO
 
-**Kies exact één bestand op basis van de compacte passingproef.** Bij goed resultaat met meerdere toleranties is de herhaalbaar soepelste, intacte variant een kandidaat; de grootste speling is niet automatisch de beste. Als alleen een incidenteel exemplaar werkt, is deze demonstratie nog niet de volgende print.
+**Kies pas na fysiek geslaagde compacte passing exact één [Bambu Studio 3MF-variant](../2026-10-15-four-pin-screw-demo/test.md). DEFERRED blijft van kracht.** Bij goed resultaat met meerdere toleranties is de herhaalbaar soepelste, intacte variant een kandidaat; de grootste speling is niet automatisch de beste. Als alleen een incidenteel exemplaar werkt, is deze demonstratie nog niet de volgende print.
 
 | Alternatieve complete plaat | Radiale CAD-speling van alle vier pinnen |
 |---|---:|
@@ -32,17 +32,17 @@ Iedere plaat bevat **12 losse delen**: 4 identieke schroeven, 4 identieke holle 
 
 - **Printjob:** één plaat, circa **60 × 65 × 24 mm** exclusief brim.
 - **Materiaal/printer:** gewone PLA die al beschikbaar is; X1 Carbon, 0,4 mm nozzle. Geen aankoop nodig.
-- **Profiel:** 100% schaal; 0,12 mm lagen inclusief eerste laag, 2 wanden, 100% infill, nominale lijnbreedte 0,45 mm, **Arachne/variabele lijnbreedte**. Kleine/buitenste perimeters maximaal 30 mm/s, eerste laag 20 mm/s, bruggen 20 mm/s, acceleratie maximaal 1000 mm/s²; PLA-koeling en vertragen voor korte lagen aan. Geen extra XY-/gatcompensatie voor de eerste vergelijking; noteer bestaande compensatie.
+- **Profiel:** 100% schaal; 0,12 mm lagen inclusief eerste laag, 2 wanden, 100% infill, nominale lijnbreedte 0,45 mm, **Arachne/variabele lijnbreedte**. Kleine/buitenste perimeters maximaal 30 mm/s, eerste laag 20 mm/s, bruggen 20 mm/s, acceleratie maximaal 1000 mm/s²; 220 °C nozzle, 55 °C Textured PEI Plate, flowratio 0,98, partfan 100% na de eerste laag, auxfan 0%; korte-laagvertraging aan (8 s, minimaal 10 mm/s). Geen extra XY-/gatcompensatie voor de eerste vergelijking; noteer bestaande compensatie.
 - **Oriëntatie:** geleverd behouden. Schroeven staan op de vlakke 4,4 mm kraag met hexopening op het bed; pinnen staan met open draadzijde op het bed. De kooi ligt op één volledige buitenwand, zodat de twee geleidingen als korte bruggen worden geprint. Niet automatisch heroriënteren; print per laag.
 - **Supports:** **uit**, ook geen automatische/tree-supports of raft. De binnendraad en hex blijven leeg. De gesloten pintop heeft een korte brug van 3,52 mm; hex-dak circa 2,54 mm. De kooi bevat bewust korte dwarsbruggen. Supports in deze openingen zouden de test ongeldig maken.
 - **Bedhechting:** **3 mm buitenbrim**, afstand tot onderdeel 0 mm; geen binnenbrim in de gaten. De schroef is 21,5 mm hoog op een 4,4 mm kraag; de pin 18 mm hoog op een dunne vierkante rand. Daarom niet zonder buitenbrim printen. Controleer de buitenbrim op schroeven én pinnen. Brimverwijdering is alleen aan buitenste bedranden, nooit door de functionele draad snijden.
-- **Slicerwaarde:** nominale plaat in PrusaSlicer 2.7.2, 0,12 mm/Arachne/buitenbrim 3 mm: **ongeveer 1 uur 42 minuten en 9,38 g PLA**. Dit is een vergelijkingsslice, geen gemeten X1C-printtijd. Bambu's korte-laagkoeling en profiel kunnen de tijd veranderen.
+- **Bambu Studio 02.08.02.61:** 0,15 / 0,175 / 0,20 mm respectievelijk **2 uur 9 min 28 s / 9,23 g**, **2 uur 9 min 16 s / 9,22 g**, **2 uur 9 min 17 s / 9,22 g**; 200 lagen per alternatief. Dit zijn de ramingen uit de meegeleverde echte X1C-G-code met officiële startprocedure, geen gemeten printwaarden. [Exact profiel, filamentlengte en padcontrole](../2026-10-15-four-pin-screw-demo/test.md). De eerdere PrusaSlicer-raming blijft uitsluitend vergelijkingsbewijs.
 - **Extra benodigdheden:** handen; twee kleine stroken gewone tape voor de gezamenlijke frameverbinding of die verbinding tijdens de proef stevig vasthouden. Een reeds aanwezige **2 mm metalen inbussleutel** is optioneel als alternatief voor de meegeprinte handkop. Liniaal en pen zijn handig. Geen vier afzonderlijke lagers, motoren, veren, moeren of bevestigers nodig.
 - **STL-controle:** alle drie platen hebben 12 gesloten, afzonderlijke lichamen. [CAD-controle](cad-validation.json): 50 ideale schroef-pinposities per variant over de volledige slag inclusief twee axiale standen; geen berekende doorsnijding met elkaar, frame of correct gefaseerde handkop. Dat is geen passing-, kracht- of slijtagebewijs.
 
 Controleer in de Bambu-preview de dunne pinwanden en de 0,48 mm brede geleidewebben, de eerste laag/buitenbrim, en de daken van hex en pin. De onafhankelijke vergelijkingsslice meldt brugwaarschuwingen; de [controle-uitleg](validation.md) onderscheidt echte vrije overspanningen van een lange doorlopende extrusielijn. Print niet als de eigen preview ontbrekende webben, losse draad-eilandjes, een ontbrekende buitenbrim of support in de draad toont.
 
-**Voor Sander:** open het gekozen STL rechtstreeks in je slicer. Je hoeft geen CAD of Python te compileren. De andere twee STLs zijn alternatieven, geen extra opdrachten. Deze vervolgproef is vrijblijvend en heeft geen deadline.
+**Voor Sander:** open het gekozen [3MF-project](../2026-10-15-four-pin-screw-demo/test.md) als **project** in Bambu Studio en behoud het opgeslagen profiel. De oorspronkelijke STLs blijven beschikbaar. Je hoeft geen CAD of Python te compileren. De andere twee STLs zijn alternatieven, geen extra opdrachten. Deze vervolgproef is vrijblijvend en heeft geen deadline.
 
 ## 3. Montage en test — CTO
 

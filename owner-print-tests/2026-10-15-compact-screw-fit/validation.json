@@ -1,0 +1,588 @@
+{
+  "project": "compact-five-pairs.3mf",
+  "project_sha256": "c3d95fe674aa3ccd868b14cca0e880d00dd9a9250ba3ba6640100bf60e0bd29c",
+  "source_stl": "compact-five-pairs.stl",
+  "source_stl_sha256": "478d9087e4f566126f7ec21d8f4b9ac374546707f80fec7272b699bb4b83b56c",
+  "gcode_sha256": "aac985b7ba353a503b0b282dc8cd17e20584cef53d5a059e18f793c7af02ff75",
+  "archive_entries": [
+    "[Content_Types].xml",
+    "Metadata/plate_1.png",
+    "Metadata/plate_1_small.png",
+    "Metadata/plate_no_light_1.png",
+    "Metadata/top_1.png",
+    "Metadata/pick_1.png",
+    "Metadata/plate_1.json",
+    "3D/3dmodel.model",
+    "3D/_rels/3dmodel.model.rels",
+    "3D/Objects/object_6.model",
+    "3D/Objects/object_7.model",
+    "3D/Objects/object_1.model",
+    "3D/Objects/object_2.model",
+    "3D/Objects/object_3.model",
+    "3D/Objects/object_8.model",
+    "3D/Objects/object_9.model",
+    "3D/Objects/object_4.model",
+    "3D/Objects/object_10.model",
+    "3D/Objects/object_5.model",
+    "Metadata/project_settings.config",
+    "Metadata/plate_1.gcode.md5",
+    "Metadata/plate_1.gcode",
+    "Metadata/_rels/model_settings.config.rels",
+    "Metadata/model_settings.config",
+    "Metadata/cut_information.xml",
+    "Metadata/slice_info.config",
+    "Metadata/filament_sequence.json",
+    "_rels/.rels"
+  ],
+  "settings": {
+    "printer_model": "Bambu Lab X1 Carbon",
+    "printer_variant": "0.4",
+    "printer_settings_id": "Bambu Lab X1 Carbon 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "extruder_offset": [
+      "0x2"
+    ],
+    "filament_settings_id": [
+      "Generic PLA - owner X1C 220C"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "filament_vendor": [
+      "Generic"
+    ],
+    "filament_diameter": [
+      "1.75"
+    ],
+    "filament_density": [
+      "1.24"
+    ],
+    "filament_flow_ratio": [
+      "0.98"
+    ],
+    "nozzle_temperature": [
+      "220"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "hot_plate_temp": [
+      "55"
+    ],
+    "hot_plate_temp_initial_layer": [
+      "55"
+    ],
+    "textured_plate_temp": [
+      "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "55"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.12",
+    "wall_generator": "arachne",
+    "wall_loops": "2",
+    "sparse_infill_density": "100%",
+    "line_width": "0.45",
+    "initial_layer_line_width": "0.45",
+    "outer_wall_line_width": "0.45",
+    "inner_wall_line_width": "0.45",
+    "top_surface_line_width": "0.45",
+    "internal_solid_infill_line_width": "0.45",
+    "outer_wall_speed": [
+      "30",
+      "30"
+    ],
+    "inner_wall_speed": [
+      "30",
+      "30"
+    ],
+    "small_perimeter_speed": [
+      "30",
+      "30"
+    ],
+    "small_perimeter_threshold": [
+      "20",
+      "20"
+    ],
+    "initial_layer_speed": [
+      "20",
+      "20"
+    ],
+    "initial_layer_infill_speed": [
+      "20",
+      "20"
+    ],
+    "bridge_speed": [
+      "20",
+      "20"
+    ],
+    "internal_bridge_speed": "MISSING",
+    "default_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "outer_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "inner_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "initial_layer_acceleration": [
+      "500",
+      "500"
+    ],
+    "enable_support": "0",
+    "brim_type": "no_brim",
+    "brim_width": "0",
+    "brim_object_gap": "0",
+    "raft_layers": "0",
+    "print_sequence": "by layer",
+    "xy_contour_compensation": "0",
+    "xy_hole_compensation": "0",
+    "elefant_foot_compensation": "0",
+    "detect_thin_wall": "0",
+    "slow_down_for_layer_cooling": [
+      "1"
+    ],
+    "slow_down_min_speed": [
+      "10"
+    ],
+    "fan_min_speed": [
+      "100"
+    ],
+    "fan_max_speed": [
+      "100"
+    ],
+    "slow_down_layer_time": [
+      "8"
+    ],
+    "fan_cooling_layer_time": [
+      "100"
+    ],
+    "overhang_fan_speed": [
+      "100"
+    ],
+    "close_fan_the_first_x_layers": [
+      "1"
+    ]
+  },
+  "source_geometry": {
+    "bodies": 10,
+    "watertight": true,
+    "bounds_mm": [
+      [
+        1.0,
+        2.0,
+        0.0
+      ],
+      [
+        73.0,
+        29.0,
+        18.399999618530273
+      ]
+    ],
+    "bodies_bounds_mm": [
+      [
+        [
+          2.0,
+          2.0,
+          0.0
+        ],
+        [
+          12.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      [
+        [
+          1.0,
+          17.0,
+          0.0
+        ],
+        [
+          13.0,
+          29.0,
+          18.0
+        ]
+      ],
+      [
+        [
+          17.0,
+          2.0,
+          0.0
+        ],
+        [
+          27.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      [
+        [
+          16.0,
+          17.0,
+          0.0
+        ],
+        [
+          28.0,
+          29.0,
+          18.0
+        ]
+      ],
+      [
+        [
+          32.0,
+          2.0,
+          0.0
+        ],
+        [
+          42.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      [
+        [
+          31.0,
+          17.0,
+          0.0
+        ],
+        [
+          43.0,
+          29.0,
+          18.0
+        ]
+      ],
+      [
+        [
+          47.0,
+          2.0,
+          0.0
+        ],
+        [
+          57.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      [
+        [
+          46.0,
+          17.0,
+          0.0
+        ],
+        [
+          58.0,
+          29.0,
+          18.0
+        ]
+      ],
+      [
+        [
+          62.0,
+          2.0,
+          0.0
+        ],
+        [
+          72.0,
+          12.0,
+          18.399999618530273
+        ]
+      ],
+      [
+        [
+          61.0,
+          17.0,
+          0.0
+        ],
+        [
+          73.0,
+          29.0,
+          18.0
+        ]
+      ]
+    ]
+  },
+  "project_geometry": {
+    "bounds_mm": [
+      [
+        92.0,
+        114.5,
+        0.0
+      ],
+      [
+        164.0,
+        141.5,
+        18.39999962
+      ]
+    ],
+    "mesh_instances": [
+      {
+        "model": "3D/Objects/object_1.model",
+        "object_id": "1",
+        "bounds_mm": [
+          [
+            93.0,
+            114.5,
+            0.0
+          ],
+          [
+            103.0,
+            124.5,
+            18.39999962
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_2.model",
+        "object_id": "3",
+        "bounds_mm": [
+          [
+            108.0,
+            114.5,
+            0.0
+          ],
+          [
+            118.0,
+            124.5,
+            18.39999962
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_3.model",
+        "object_id": "5",
+        "bounds_mm": [
+          [
+            123.0,
+            114.5,
+            0.0
+          ],
+          [
+            133.0,
+            124.5,
+            18.39999962
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_4.model",
+        "object_id": "7",
+        "bounds_mm": [
+          [
+            138.0,
+            114.5,
+            0.0
+          ],
+          [
+            148.0,
+            124.5,
+            18.39999962
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_5.model",
+        "object_id": "9",
+        "bounds_mm": [
+          [
+            153.0,
+            114.5,
+            0.0
+          ],
+          [
+            163.0,
+            124.5,
+            18.39999962
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_6.model",
+        "object_id": "11",
+        "bounds_mm": [
+          [
+            92.0,
+            129.5,
+            0.0
+          ],
+          [
+            104.0,
+            141.5,
+            18.0
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_7.model",
+        "object_id": "13",
+        "bounds_mm": [
+          [
+            107.0,
+            129.5,
+            0.0
+          ],
+          [
+            119.0,
+            141.5,
+            18.0
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_8.model",
+        "object_id": "15",
+        "bounds_mm": [
+          [
+            122.0,
+            129.5,
+            0.0
+          ],
+          [
+            134.0,
+            141.5,
+            18.0
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_9.model",
+        "object_id": "17",
+        "bounds_mm": [
+          [
+            137.0,
+            129.5,
+            0.0
+          ],
+          [
+            149.0,
+            141.5,
+            18.0
+          ]
+        ]
+      },
+      {
+        "model": "3D/Objects/object_10.model",
+        "object_id": "19",
+        "bounds_mm": [
+          [
+            152.0,
+            129.5,
+            0.0
+          ],
+          [
+            164.0,
+            141.5,
+            18.0
+          ]
+        ]
+      }
+    ],
+    "extents_equal_source": true,
+    "source_rigid_translation_mm": [
+      91.0,
+      112.5,
+      0.0
+    ],
+    "max_bidirectional_vertex_distance_after_translation_mm": 1.0793676737046563e-05,
+    "facets_and_winding_match_source_within_00003mm": true,
+    "max_bidirectional_oriented_facet_distance_mm": 1.0793676737046563e-05,
+    "source_facet_count": 33078,
+    "project_facet_count": 33078
+  },
+  "layer_count": 153,
+  "layer_heights_mm": [
+    0.119999,
+    0.12,
+    0.120001
+  ],
+  "roles": {
+    "Inner wall": 14032,
+    "Outer wall": 46707,
+    "Bottom surface": 739,
+    "Top surface": 410,
+    "Gap infill": 61,
+    "Internal solid infill": 2988,
+    "Sparse infill": 2600
+  },
+  "role_max_speeds_mm_s": {
+    "Inner wall": 30.0,
+    "Outer wall": 30.0,
+    "Bottom surface": 20.0,
+    "Top surface": 30.0,
+    "Gap infill": 30.0,
+    "Internal solid infill": 30.0,
+    "Sparse infill": 30.0
+  },
+  "role_max_accelerations_mm_s2": {
+    "Inner wall": 1000.0,
+    "Outer wall": 1000.0,
+    "Bottom surface": 500.0,
+    "Top surface": 1000.0,
+    "Gap infill": 1000.0,
+    "Internal solid infill": 1000.0,
+    "Sparse infill": 1000.0
+  },
+  "actual_line_width_percentiles_mm": [
+    0.0838606,
+    0.3876864,
+    0.449992,
+    0.6065594399999995,
+    0.685992
+  ],
+  "unsupported_layer_components": [],
+  "max_bridge_free_centerline_mm": 0.0,
+  "max_bridge_anchor_distance_mm": 0.0,
+  "gcode_estimates": [
+    "; model printing time: 50m 25s; total estimated time: 1h 1m 40s",
+    "; total filament length [mm] : 1128.25",
+    "; total filament volume [cm^3] : 2713.76",
+    "; total filament weight [g] : 3.37"
+  ],
+  "caveats": [
+    "Nominal deposited footprints use slicer LINE_WIDTH comments, not measured bead flow or motion.",
+    "A connected footprint with previous-layer overlap does not prove bed adhesion, stiffness, bridge quality or physical stability.",
+    "Physical fit, PLA temperature suitability, friction, load capacity and repeatability remain unknown."
+  ],
+  "startup_check": {
+    "official_x1_04_marker_present": true,
+    "last_nozzle_temperature_command_before_first_model_layer": "M109 S220",
+    "nozzle_temperature_commands_before_first_model_layer": [
+      "M104 S75",
+      "M104 S220",
+      "M109 S250",
+      "M104 S220",
+      "M109 S200",
+      "M109 S200",
+      "M104 S140",
+      "M109 S140",
+      "M104 S220",
+      "M109 S220",
+      "M104 S140",
+      "M109 S220",
+      "M109 S220"
+    ]
+  },
+  "model_to_gcode_translation_xy_mm": [
+    91.0,
+    110.5
+  ],
+  "compact_wall_screen": {
+    "inferred_translation_xy": [
+      91.0,
+      110.5
+    ],
+    "samples": 750,
+    "upper_tube_samples": 495,
+    "upper_tube_enclosed_all_layers": true,
+    "lower_thread_samples_with_local_wall_breaks": 116,
+    "central_bore_radius_060_free_all_layers": true
+  }
+}
