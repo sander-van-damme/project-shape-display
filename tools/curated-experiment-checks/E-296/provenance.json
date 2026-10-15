@@ -1,0 +1,129 @@
+{
+  "task": "E-296 compact mechanical matrix clutch",
+  "date": "2026-10-15",
+  "base_commit": "9ce86488ee6b9bec7250793dd2e5944f42ad02d3",
+  "evidence": "Analysis, nominal CAD and finite BREP/interval checks; no new physical experiment",
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0",
+    "matplotlib": "3.10.8"
+  },
+  "commands_from_package": [
+    "python generate.py",
+    "python validation.py",
+    "python independent_geometry.py --output independent-geometry.json",
+    "python alternative_checks.py",
+    "python cad_drawings.py",
+    "python drawings.py",
+    "python verify_package.py"
+  ],
+  "optional_raster_command": "inkscape drawings/assembly-brep-projection.svg --export-type=png --export-area-drawing --export-background=white --export-width=900 --export-filename=drawings/assembly-brep-projection.png",
+  "verification": {
+    "main_brep_states": 6,
+    "rigid_boolean_pairs": 491,
+    "axial_float_probes": 18,
+    "axial_retention_sweeps": 2,
+    "independent_interval_checks": "pass",
+    "alternative_one_cell_brep_checks": "pass",
+    "python_compilation": "pass",
+    "repo_check_exit": 1,
+    "repo_check_preexisting_findings": [
+      "Oversized atomic object: E-266",
+      "Oversized atomic object: E-283",
+      "Oversized atomic object: E-286",
+      "Oversized atomic object: E-288",
+      "Oversized atomic object: E-293",
+      "Oversized instructions: AGENTS.md",
+      "Oversized instructions: owner-print-tests/AGENTS.md"
+    ],
+    "baseline_findings_confirmed_against_base": [
+      {
+        "path": "06-experiments/E-266-slower-axial-writing-bank-and-waiting-frontier.md",
+        "bytes": 15855,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "06-experiments/E-283-closed-stock-bodies-with-retained-printed-screws.md",
+        "bytes": 15840,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "06-experiments/E-286-shared-thread-and-gauge-assembly-screen.md",
+        "bytes": 22709,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "06-experiments/E-288-shared-underside-contact-height-readback.md",
+        "bytes": 19181,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "06-experiments/E-293-baseline-sensitivity-versus-terrain-visibility.md",
+        "bytes": 16928,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 3063,
+        "unchanged_from_base": true
+      },
+      {
+        "path": "owner-print-tests/AGENTS.md",
+        "bytes": 4717,
+        "unchanged_from_base": true
+      }
+    ]
+  },
+  "limitations": [
+    "Functional E-295 threads are represented by clearance envelopes; manufacture of new integral output+screw is unqualified.",
+    "Fixture clamp fasteners and external inversion are reserved principles, not a manufacturing release.",
+    "Friction, phase seating, impact, loaded withdrawal, spring end forms, wear and production cost have no new physical evidence.",
+    "491 pairs exclude springs and fixed frame/frame joints; spring packaging is analytical.",
+    "Arbitrary simultaneous selector crossfades can couple unintended intersections; stopped/unloaded break-before-make is required."
+  ],
+  "sha256": {
+    "06-experiments/E-296-compact-matrix-clutch-selection.md": "331c6b1a8e1bd554d9cb8d35cad7ce9cdedecc2a15b10bd78bab3306e1b7816d",
+    "tools/curated-experiment-checks/E-296/.gitattributes": "79d44eb070fd58b30055168580031cadc7ecdabc843ac385e21454c31ba8fb5b",
+    "tools/curated-experiment-checks/E-296/CAD-README.md": "6df853437f53f1d8261262181347c6968c745f9de1f40497f1d950541d58a940",
+    "tools/curated-experiment-checks/E-296/alternative-geometry.json": "f9b19579d50e5aa31b694fe2cae2b3cc5170cc529b030c1df92c81068df623c3",
+    "tools/curated-experiment-checks/E-296/alternative_checks.py": "cd898ce21602e98b1f90e24915dcb12445bac150f6de0d174b7b80b658274198",
+    "tools/curated-experiment-checks/E-296/cad/alternative_B2_one_cell_ON.step": "867f7f4bd57c2171c0d3a320d597243defcd8fb8279e3e8867ab79da8a7d80f9",
+    "tools/curated-experiment-checks/E-296/cad/alternative_C_one_cell_ON.step": "a24b54e8f3dd02b2c6261e3c9ad892224bb2abff101e8596205113e70b887277",
+    "tools/curated-experiment-checks/E-296/cad/matrix_R10_C10.step": "1c836cf042a170073d8abb1165e7b36dab1bc1e25eda1b6b51e1961f275d3561",
+    "tools/curated-experiment-checks/E-296/cad/matrix_phase_blocked.step": "e52457c663f7bd4f7607300e9cc2b7ebd2a3bfee37fc5fbdcba5854d507f678b",
+    "tools/curated-experiment-checks/E-296/cad/part_column_roof.step": "f4bce6765124877f72a36b724250c9321917d67817c1f3c0479f49cc6b25d37e",
+    "tools/curated-experiment-checks/E-296/cad/part_input_head.step": "3c2b6e5d82caed590917c703ff513770ba1496f29ebde9f9be7844a1202588aa",
+    "tools/curated-experiment-checks/E-296/cad/part_integral_output_screw_envelope.step": "59f64e0f03e3b319c7da3d5a97f08a2f4e8164a63dd9c3cf689e8d819480dec9",
+    "tools/curated-experiment-checks/E-296/cad/part_sliding_sleeve.step": "1c5c91e7176904c18ce92babcc207cbdaa9c0c0359f0d6ca34728e0a1380619b",
+    "tools/curated-experiment-checks/E-296/cad/part_split_row_comb.step": "4101ba6de4f84866d0b4dce7e73bafe6fbd25a9cf6c7ac476f8abc1b12f9d295",
+    "tools/curated-experiment-checks/E-296/cad/truth_R0C0.step": "1be3f10081c9724a17e3cfd7c7bdd08b223015d04f394e5283ed701cd5264954",
+    "tools/curated-experiment-checks/E-296/cad/truth_R0C1.step": "66ce6b1a51295985f83098cf5787bff10df1fbf4a8e6614724735216662ad733",
+    "tools/curated-experiment-checks/E-296/cad/truth_R1C0.step": "4bb886144cfae59b90f3326154cc00f4fcda7e8b27f5bd4c7ab1dd075c757eb3",
+    "tools/curated-experiment-checks/E-296/cad/truth_R1C1.step": "207d3d39561cd1c3a6a5e456c71cc5e18b2db55aae9c1eeac297010ef84941e6",
+    "tools/curated-experiment-checks/E-296/cad_drawings.py": "81a22c70220cdfcb43e44b0228e116de6070fd65fbbb984d7c45c77401b7e4b9",
+    "tools/curated-experiment-checks/E-296/cad_manifest.json": "a9806580bdd9bbf8a4796d580a3b25993346287932272eb6f08e6964f87116da",
+    "tools/curated-experiment-checks/E-296/design-report.md": "40a6d20bd272848a80552fe7eb14060fecdb880d752cf54a713a69f8fb8a21b6",
+    "tools/curated-experiment-checks/E-296/drawings/assembly-brep-projection.png": "d67d336b7d04317ba12eefd56d53c40bb917717db0597ee35cc399c4cec86c15",
+    "tools/curated-experiment-checks/E-296/drawings/assembly-brep-projection.svg": "9b01f8f63ea8c2d5901c90689eeca36f0518411a1994851355646764beb592da",
+    "tools/curated-experiment-checks/E-296/drawings/layer-plans.png": "af940485c5f2918c93d107d227ec8c58d7e6b46bd0015beaa8d71f58a9977126",
+    "tools/curated-experiment-checks/E-296/drawings/layer-plans.svg": "82a1b4dc85e33360ac7dfd4c9c58f60de20f5e7deb247f4456868b8ac2a04401",
+    "tools/curated-experiment-checks/E-296/drawings/truth-sections.png": "abee73f549e7fc23da40308cfb0c73d626f5294addbdf84f8188074e3f6827a0",
+    "tools/curated-experiment-checks/E-296/drawings/truth-sections.svg": "06438d72384d3c9e71c45b9a97e719c382d90ab3896177d94fb65f969d12f38d",
+    "tools/curated-experiment-checks/E-296/drawings.py": "9a09f69d0a75a501583661d530e47eca02f6f2bb0166a74eeb6a5bc458548c2b",
+    "tools/curated-experiment-checks/E-296/figures/01-four-states.png": "41775eb49fb2fb7c3d9fb5c344c74bcd897fd57124f3f7e2a9670153d11b4de9",
+    "tools/curated-experiment-checks/E-296/figures/01-four-states.svg": "7767f1a2a2846eeed62c6be75d5df4ea5503d35f197948579e5770254921989f",
+    "tools/curated-experiment-checks/E-296/figures/02-packing.png": "cd8e209907c757d26376c2af0cabb335c87b81b03558a3c7b89da693a494f34c",
+    "tools/curated-experiment-checks/E-296/figures/02-packing.svg": "b2b83e31c2d43a7ecffa4ea8e977c9a6342c817845aaf8b1c78399e39deaf5a5",
+    "tools/curated-experiment-checks/E-296/figures/03-alternatives.png": "bdeb54ffbd88734f035462a08573927acf897ddc888eac8d30f24090a3adafbf",
+    "tools/curated-experiment-checks/E-296/figures/03-alternatives.svg": "cbf7db1d963a2f60c6fb1baac9262505a6dc865e12c8dd51e47d228ac5742243",
+    "tools/curated-experiment-checks/E-296/figures/04-inverter.png": "ee539dd05599ae8733bd2c8c1d13209484eb2adc7a162bc3d342875fe6f4afbb",
+    "tools/curated-experiment-checks/E-296/figures/04-inverter.svg": "45f50202e321eb53f83f82b825e1fe774c18709b1313cbbba5e17a698c2cef5d",
+    "tools/curated-experiment-checks/E-296/generate.py": "0e41ff9494258239642c85ba52f8fecfec8e1fff149bf38151062bb2914acb2f",
+    "tools/curated-experiment-checks/E-296/independent-geometry.json": "6cb3b33ed21bc1f82baf818cabc84cceb96121e35801a12218d775d39f7ab0c2",
+    "tools/curated-experiment-checks/E-296/independent_geometry.py": "260f3e8bf878339e54b77678909c98f4cf5af6b9294ac74c54c77627464983b4",
+    "tools/curated-experiment-checks/E-296/review.md": "ac4317ceea37a50c58da451dafd1bf52ab80bd1bb9fa52fc4ca63c484d14778e",
+    "tools/curated-experiment-checks/E-296/validation.json": "5e1f1eaa61da2678ff4fbc8f6ccda2cdeeeba10d5b0144cf029c1bf49ff3b06b",
+    "tools/curated-experiment-checks/E-296/validation.py": "5a9e5c14e40b8395d3a83ce14483ae2a070e3a7a605f6865a40637fc90da4b19",
+    "tools/curated-experiment-checks/E-296/verify_package.py": "f00c744208978526a5230d359419ffc41340c9a301e476317517fd84dcbb9d18"
+  }
+}

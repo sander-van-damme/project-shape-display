@@ -1,0 +1,893 @@
+{
+  "evidence": "Independent analytical geometry/kinematics; no physical qualification",
+  "units": "mm unless stated",
+  "states": {
+    "four_single_cell_states": [
+      {
+        "row": 0.0,
+        "column": 0.0,
+        "q": 0.0,
+        "geometric_overlap": 0.0,
+        "expected_selected": false
+      },
+      {
+        "row": 0.0,
+        "column": 1.4,
+        "q": 0.2,
+        "geometric_overlap": 0.0,
+        "expected_selected": false
+      },
+      {
+        "row": 1.4,
+        "column": 0.0,
+        "q": 0.0,
+        "geometric_overlap": 0.0,
+        "expected_selected": false
+      },
+      {
+        "row": 1.4,
+        "column": 1.4,
+        "q": 1.4,
+        "geometric_overlap": 0.8,
+        "expected_selected": true
+      }
+    ],
+    "held_off_maximum_q": {
+      "column_closed": 0.0,
+      "row_retracted": 0.2
+    },
+    "exact_continuous_crossfade_negative_control": {
+      "start": [
+        1.4,
+        0.0
+      ],
+      "end": [
+        0.0,
+        1.4
+      ],
+      "maximum_q": 0.8,
+      "at_fraction": 0.571428571,
+      "unwanted_overlap": 0.2
+    },
+    "all_2x2_command_masks": [
+      {
+        "rows": [
+          0,
+          0
+        ],
+        "columns": [
+          0,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          0
+        ],
+        "columns": [
+          0,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.2
+          ],
+          [
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          0
+        ],
+        "columns": [
+          1,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.2,
+            0.0
+          ],
+          [
+            0.2,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          0
+        ],
+        "columns": [
+          1,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.2,
+            0.2
+          ],
+          [
+            0.2,
+            0.2
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          1
+        ],
+        "columns": [
+          0,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          1
+        ],
+        "columns": [
+          0,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            true
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.2
+          ],
+          [
+            0.0,
+            1.4
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          1
+        ],
+        "columns": [
+          1,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            true,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.2,
+            0.0
+          ],
+          [
+            1.4,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          0,
+          1
+        ],
+        "columns": [
+          1,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            true,
+            true
+          ]
+        ],
+        "q": [
+          [
+            0.2,
+            0.2
+          ],
+          [
+            1.4,
+            1.4
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          0
+        ],
+        "columns": [
+          0,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          0
+        ],
+        "columns": [
+          0,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            true
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            1.4
+          ],
+          [
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          0
+        ],
+        "columns": [
+          1,
+          0
+        ],
+        "selected": [
+          [
+            true,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            1.4,
+            0.0
+          ],
+          [
+            0.2,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          0
+        ],
+        "columns": [
+          1,
+          1
+        ],
+        "selected": [
+          [
+            true,
+            true
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            1.4,
+            1.4
+          ],
+          [
+            0.2,
+            0.2
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          1
+        ],
+        "columns": [
+          0,
+          0
+        ],
+        "selected": [
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          1
+        ],
+        "columns": [
+          0,
+          1
+        ],
+        "selected": [
+          [
+            false,
+            true
+          ],
+          [
+            false,
+            true
+          ]
+        ],
+        "q": [
+          [
+            0.0,
+            1.4
+          ],
+          [
+            0.0,
+            1.4
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          1
+        ],
+        "columns": [
+          1,
+          0
+        ],
+        "selected": [
+          [
+            true,
+            false
+          ],
+          [
+            true,
+            false
+          ]
+        ],
+        "q": [
+          [
+            1.4,
+            0.0
+          ],
+          [
+            1.4,
+            0.0
+          ]
+        ]
+      },
+      {
+        "rows": [
+          1,
+          1
+        ],
+        "columns": [
+          1,
+          1
+        ],
+        "selected": [
+          [
+            true,
+            true
+          ],
+          [
+            true,
+            true
+          ]
+        ],
+        "q": [
+          [
+            1.4,
+            1.4
+          ],
+          [
+            1.4,
+            1.4
+          ]
+        ]
+      }
+    ],
+    "unique_static_masks": 10,
+    "simultaneous_diagonal": {
+      "possible": false,
+      "requested": [
+        [
+          true,
+          false
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "both_rows_and_columns": [
+        [
+          true,
+          true
+        ],
+        [
+          true,
+          true
+        ]
+      ],
+      "ghost_cells": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "arbitrary_linear_2x2_crossfades": {
+      "checked": 256,
+      "transitions_with_interior_only_ghost": 94,
+      "first_counterexample": {
+        "start": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "end": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "ghosts": [
+          {
+            "cell": [
+              1,
+              1
+            ],
+            "maximum_q": 0.8,
+            "t": 0.428571429
+          }
+        ]
+      }
+    },
+    "required_sequence": "Retract all rows, set columns, then raise selected rows; or stop input during crossed handoffs."
+  },
+  "envelope": {
+    "pitch": 5.08,
+    "ring_outer_diameter": 4.7,
+    "nominal_ring_neighbor_gap": 0.38,
+    "row_full_sweep": [
+      0.0,
+      1.7
+    ],
+    "column_full_sweep": [
+      4.1,
+      5.9
+    ],
+    "crossing_minimum_z_gap": 2.4,
+    "bridge": {
+      "width": 0.8,
+      "thickness": 0.3,
+      "ring_to_ring_length": 0.38,
+      "inside_ring_xy_envelope": true
+    },
+    "two_by_two_ring_xy_envelope": 9.78,
+    "external_tolerance_corners": [
+      {
+        "independent_center_bound": 0.02,
+        "independent_diameter_bound": 0.02,
+        "worst_neighbor_gap": 0.32
+      },
+      {
+        "independent_center_bound": 0.05,
+        "independent_diameter_bound": 0.05,
+        "worst_neighbor_gap": 0.23
+      },
+      {
+        "independent_center_bound": 0.1,
+        "independent_diameter_bound": 0.1,
+        "worst_neighbor_gap": 0.08
+      }
+    ],
+    "pin": {
+      "width": 4.4,
+      "guide": 4.6,
+      "guide_web": 0.48,
+      "center_error": 0.05,
+      "twist_deg": 1.0,
+      "rotated_width": 4.476120447,
+      "guide_per_side_reserve": 0.011939776,
+      "neighbor_pin_gap": 0.503879553,
+      "center_error_point1_negative_control_reserve": -0.038060224
+    },
+    "radial_interfaces": {
+      "row_ring_to_sleeve": 0.1,
+      "column_ring_to_male_hex": 0.160769515,
+      "integral_lower_flange_to_row_ring_capture": 0.1,
+      "spring_installation_over_lower_flange": 0.05,
+      "sleeve_minimum_wall": 0.374166975
+    },
+    "axial_supports": {
+      "journal_diameter": 2.0,
+      "journal_bore": 2.02,
+      "plate_length": 4.0,
+      "diametrical_clearance": 0.02,
+      "nominal_journal_only_tilt_deg": 0.28647651,
+      "input_plate_z": [
+        -6.0,
+        -2.0
+      ],
+      "input_collars_z": [
+        [
+          -6.5,
+          -6.1
+        ],
+        [
+          -1.9,
+          -1.5
+        ]
+      ],
+      "output_plate_z": [
+        7.5,
+        11.5
+      ],
+      "output_collars_z": [
+        [
+          7.0,
+          7.4
+        ],
+        [
+          11.6,
+          12.0
+        ]
+      ],
+      "per_face_axial_clearance": 0.1,
+      "axial_load_path": "Output screw -> captive output collar -> stationary plate; sleeve not required for pin axial support.",
+      "caveat": "Nominal journal clearance does not fix shaft-axis registration or sleeve float; split-plate clamping and supports require measurement."
+    }
+  },
+  "spring": {
+    "assumptions": {
+      "material": "hypothetical steel",
+      "shear_modulus_N_mm2": 79000.0,
+      "wire": 0.2,
+      "mean_diameter": 3.7,
+      "inner_diameter": 3.5,
+      "outer_diameter": 3.9,
+      "active_coils": 5,
+      "total_coils": 7,
+      "free_length": 3.716
+    },
+    "rate_N_mm": 0.062385249,
+    "solid_height": 1.4,
+    "states": {
+      "normal": {
+        "length": 3.4,
+        "force": 0.019713739,
+        "solid_reserve": 2.0
+      },
+      "row_on_ceiling_closed": {
+        "length": 2.0,
+        "force": 0.107053087,
+        "solid_reserve": 0.6
+      },
+      "centered_30deg_hex_phase_wait": {
+        "length": 2.910769515,
+        "force": 0.050234504,
+        "solid_reserve": 1.510769515
+      },
+      "row_off_ceiling_open": {
+        "length": 3.6,
+        "force": 0.007236689,
+        "solid_reserve": 2.2
+      }
+    },
+    "centered_30deg_phase_wait_q": 0.910769515,
+    "radial_clearance_to_sleeve": 0.25,
+    "radial_flange_support": 0.15,
+    "coil_centerline_seat_width": 0.75,
+    "caveat": "Ideal coil equations; end seating, buckling, friction, fatigue and supplier capability unqualified."
+  },
+  "hex": {
+    "nominal": {
+      "male_af": 1.8,
+      "female_af": 1.95,
+      "total_flat_clearance": 0.15,
+      "torque_capture_diameter_margin": 0.128460969,
+      "all_angles_fit_without_positive_hex_capture": false,
+      "half_free_angle_deg": 9.750472041
+    },
+    "AF_tolerance_corners": [
+      {
+        "independent_AF_error_bound": 0.02,
+        "minimum_flat_clearance": 0.11,
+        "minimum_torque_capture_margin": 0.085366958,
+        "all_corners_assemble_and_capture": true,
+        "corners": [
+          {
+            "male_af": 1.78,
+            "female_af": 1.93,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.125366958,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 9.885137053
+          },
+          {
+            "male_af": 1.78,
+            "female_af": 1.97,
+            "total_flat_clearance": 0.19,
+            "torque_capture_diameter_margin": 0.085366958,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 13.428852562
+          },
+          {
+            "male_af": 1.82,
+            "female_af": 1.93,
+            "total_flat_clearance": 0.11,
+            "torque_capture_diameter_margin": 0.17155498,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 6.688590744
+          },
+          {
+            "male_af": 1.82,
+            "female_af": 1.97,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.13155498,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 9.619591465
+          }
+        ]
+      },
+      {
+        "independent_AF_error_bound": 0.05,
+        "minimum_flat_clearance": 0.05,
+        "minimum_torque_capture_margin": 0.020725942,
+        "all_corners_assemble_and_capture": true,
+        "corners": [
+          {
+            "male_af": 1.75,
+            "female_af": 1.9,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.120725942,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 10.094618488
+          },
+          {
+            "male_af": 1.75,
+            "female_af": 2.0,
+            "total_flat_clearance": 0.25,
+            "torque_capture_diameter_margin": 0.020725942,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 21.786789298
+          },
+          {
+            "male_af": 1.85,
+            "female_af": 1.9,
+            "total_flat_clearance": 0.05,
+            "torque_capture_diameter_margin": 0.236195996,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 2.801895617
+          },
+          {
+            "male_af": 1.85,
+            "female_af": 2.0,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.136195996,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 9.430007908
+          }
+        ]
+      },
+      {
+        "independent_AF_error_bound": 0.1,
+        "minimum_flat_clearance": -0.05,
+        "minimum_torque_capture_margin": -0.087009085,
+        "all_corners_assemble_and_capture": false,
+        "corners": [
+          {
+            "male_af": 1.7,
+            "female_af": 1.85,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.112990915,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 10.465343689
+          },
+          {
+            "male_af": 1.7,
+            "female_af": 2.05,
+            "total_flat_clearance": 0.35,
+            "torque_capture_diameter_margin": -0.087009085,
+            "all_angles_fit_without_positive_hex_capture": true,
+            "half_free_angle_deg": 30.0
+          },
+          {
+            "male_af": 1.9,
+            "female_af": 1.85,
+            "total_flat_clearance": -0.05,
+            "torque_capture_diameter_margin": 0.343931023,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": null
+          },
+          {
+            "male_af": 1.9,
+            "female_af": 2.05,
+            "total_flat_clearance": 0.15,
+            "torque_capture_diameter_margin": 0.143931023,
+            "all_angles_fit_without_positive_hex_capture": false,
+            "half_free_angle_deg": 9.130755365
+          }
+        ]
+      }
+    ],
+    "minimum_permanent_input_overlap": 2.5,
+    "maximum_selected_output_overlap": 0.8,
+    "free_tilt_bound": {
+      "tilt_deg": 3.433630362,
+      "assumed_differential_flat_play": 0.15,
+      "output_tip_extension_beyond_input": 1.4,
+      "extrapolated_tip_center_offset": 0.159,
+      "full_hex_aligned_per_side_gap": 0.075,
+      "conclusion": "Unconstrained clearance permits more tilt than full-hex entry gap; lead-in and real guides must center it. No anti-jam proof."
+    },
+    "enlarged_mouth_capture": {
+      "mouth_AF": 2.7,
+      "chamfer_axial_height": 0.375,
+      "independent_AF_feature_error": 0.02,
+      "measured_hub_axis_offset_prerequisite": 0.03,
+      "loose_input_sleeve_total_flat_play": 0.19,
+      "loose_sleeve_tip_offset_bound": 0.2014,
+      "all_phase_capture_radial_budget": 0.28922251,
+      "residual_initial_capture_margin": 0.05782251,
+      "smallest_final_flat_half_gap": 0.055,
+      "final_axis_fit_reserve": 0.025,
+      "nominal_straight_output_overlap": 0.425,
+      "straight_output_overlap_after_point1_axial_error": 0.325,
+      "interpretation": "A continuous centered assembly path is geometrically available within this measured alignment prerequisite. Friction, impact, flank loading and physical self-centering remain unqualified."
+    },
+    "nominal_hex_reversal_free_angle_deg": 19.500944081,
+    "equivalent_pin_height_backlash_at_3mm_lead": 0.162507867
+  }
+}
