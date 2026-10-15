@@ -1,0 +1,9 @@
+{
+  "pin_layer_samples": 750,
+  "upper_tube_samples": 495,
+  "upper_tube_enclosed_all_layers": true,
+  "lower_thread_layers_with_local_wall_breaks": 110,
+  "max_rounded_midwall_skeleton_gap_mm": 0.25452795352023827,
+  "central_bore_radius_060_free_all_layers": true,
+  "method": "Nominal E/XY bead footprints at exact centered STL positions. Wall closure topology and rounded midwall skeleton (1.98mmhalfwidth) are process diagnostics, not physical hole measurements. Central0.60mm radius test excludes deposited material but doesnot prove a full nominal helical profile."
+}

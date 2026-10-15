@@ -1,0 +1,128 @@
+{
+  "bosl2": "136e6367e65d52196a3ea51d03156f8b622c60fc",
+  "openscad": "OpenSCAD version 2021.01",
+  "python_packages": {
+    "numpy": "2.3.5",
+    "trimesh": "5.1.1",
+    "manifold3d": "3.5.4"
+  },
+  "plate_mm": [
+    72.0,
+    27.0,
+    18.399999618530273
+  ],
+  "part_count": 10,
+  "watertight": true,
+  "degenerate_float32_export_facets_removed": 88,
+  "total_solid_mm3": 2538.161777350168,
+  "pla_mass_at_1_24_g_cm3": 3.147320603914208,
+  "parts": [
+    {
+      "part": "screw",
+      "label": 1,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        7,
+        7
+      ],
+      "solid_mm3": 312.1293215129005
+    },
+    {
+      "part": "pin",
+      "label": 1,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        7,
+        23
+      ],
+      "solid_mm3": 194.5441274934495
+    },
+    {
+      "part": "screw",
+      "label": 2,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        22,
+        7
+      ],
+      "solid_mm3": 312.37020789528134
+    },
+    {
+      "part": "pin",
+      "label": 2,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        22,
+        23
+      ],
+      "solid_mm3": 194.78501366491105
+    },
+    {
+      "part": "screw",
+      "label": 3,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        37,
+        7
+      ],
+      "solid_mm3": 312.611094120991
+    },
+    {
+      "part": "pin",
+      "label": 3,
+      "radial_relief_mm": 0.175,
+      "center_xy_mm": [
+        37,
+        23
+      ],
+      "solid_mm3": 195.02589967972588
+    },
+    {
+      "part": "screw",
+      "label": 4,
+      "radial_relief_mm": 0.15,
+      "center_xy_mm": [
+        52,
+        7
+      ],
+      "solid_mm3": 312.85198050337186
+    },
+    {
+      "part": "pin",
+      "label": 4,
+      "radial_relief_mm": 0.15,
+      "center_xy_mm": [
+        52,
+        23
+      ],
+      "solid_mm3": 196.5018267811074
+    },
+    {
+      "part": "screw",
+      "label": 5,
+      "radial_relief_mm": 0.2,
+      "center_xy_mm": [
+        67,
+        7
+      ],
+      "solid_mm3": 313.0928665401719
+    },
+    {
+      "part": "pin",
+      "label": 5,
+      "radial_relief_mm": 0.2,
+      "center_xy_mm": [
+        67,
+        23
+      ],
+      "solid_mm3": 194.2490027415914
+    }
+  ],
+  "mating_pose_count": 305,
+  "max_mating_overlap_mm3": 0.0,
+  "wrong_phase_overlap_mm3": 6.472396021901745,
+  "retained_broad_pair5_cross_pose_count": 6,
+  "retained_broad_pair5_max_overlap_mm3": 0.0,
+  "sha256": "478d9087e4f566126f7ec21d8f4b9ac374546707f80fec7272b699bb4b83b56c",
+  "scope": "CAD only; no print, load, wear or production-yield result"
+}
