@@ -1,0 +1,152 @@
+{
+  "point48": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 48.12970236445247,
+    "watertight": true,
+    "sha256": "faf83f1df353935c5fe3c0b4d4f3d7a4ec94e413c5f4905b0d0c12e8c57cfc63"
+  },
+  "point60": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 47.86318707961337,
+    "watertight": true,
+    "sha256": "a519c3e91ce53ac8fb446b9bb3bbaa3fe465bbb77264946d074b72701367b325"
+  },
+  "point60skew": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 47.860137085808816,
+    "watertight": true,
+    "sha256": "b0bf91765f38978ad429f46eac7be4e47515d2920312a859b830068d92683ebe"
+  },
+  "frame-left": {
+    "extents_mm": [
+      13.259999990463257,
+      27.0,
+      52.400001525878906
+    ],
+    "volume_mm3": 4153.303779122532,
+    "watertight": true,
+    "sha256": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0"
+  },
+  "frame-center": {
+    "extents_mm": [
+      5.079999923706055,
+      27.0,
+      52.400001525878906
+    ],
+    "volume_mm3": 1801.1126929102072,
+    "watertight": true,
+    "sha256": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573"
+  },
+  "frame-right": {
+    "extents_mm": [
+      13.259999990463257,
+      27.0,
+      52.400001525878906
+    ],
+    "volume_mm3": 4170.525488723067,
+    "watertight": true,
+    "sha256": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3"
+  },
+  "row-selector": {
+    "extents_mm": [
+      37.68000030517578,
+      4.599999904632568,
+      2.8799999952316284
+    ],
+    "volume_mm3": 311.1647631158002,
+    "watertight": true,
+    "sha256": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42"
+  },
+  "single-comb": {
+    "extents_mm": [
+      10.600000143051147,
+      4.599999904632568,
+      2.8799999952316284
+    ],
+    "volume_mm3": 77.43070273231461,
+    "watertight": true,
+    "sha256": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b"
+  },
+  "input-shaft": {
+    "extents_mm": [
+      4.300000190734863,
+      4.299149990081787,
+      10.720000267028809
+    ],
+    "volume_mm3": 49.39302764262087,
+    "watertight": true,
+    "sha256": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79"
+  },
+  "screw": {
+    "extents_mm": [
+      4.300000190734863,
+      4.299149990081787,
+      26.31999969482422
+    ],
+    "volume_mm3": 128.81304163474206,
+    "watertight": true,
+    "sha256": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0"
+  },
+  "pin": {
+    "extents_mm": [
+      4.399999618530273,
+      4.400001525878906,
+      18.0
+    ],
+    "volume_mm3": 174.42593806935324,
+    "watertight": true,
+    "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110"
+  },
+  "hand-key": {
+    "extents_mm": [
+      10.0,
+      9.99802303314209,
+      10.989999771118164
+    ],
+    "volume_mm3": 206.42901284526474,
+    "watertight": true,
+    "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+  },
+  "stop-spacer": {
+    "extents_mm": [
+      9.0,
+      4.0,
+      2.4000000953674316
+    ],
+    "volume_mm3": 77.77440444774633,
+    "watertight": true,
+    "sha256": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a"
+  },
+  "coupon-shaft": {
+    "extents_mm": [
+      8.0,
+      7.998418807983398,
+      7.190000057220459
+    ],
+    "volume_mm3": 79.33985064911185,
+    "watertight": true,
+    "sha256": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c"
+  },
+  "reaction-jig": {
+    "extents_mm": [
+      12.0,
+      12.0,
+      4.39
+    ],
+    "volume_mm3": 318.38318971096226,
+    "watertight": true,
+    "sha256": "cbb58b1ca951b87be2806bf050aa11336e3e3a18c110df619c05d464c8f5963c"
+  }
+}

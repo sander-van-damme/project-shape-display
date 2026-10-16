@@ -1,0 +1,290 @@
+[
+  {
+    "name": "point48#1",
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        9.3,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#2",
+    "bounds_mm": [
+      [
+        13.3,
+        5.0,
+        0.0
+      ],
+      [
+        17.6,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#3",
+    "bounds_mm": [
+      [
+        21.6,
+        5.0,
+        0.0
+      ],
+      [
+        25.9,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#4",
+    "bounds_mm": [
+      [
+        29.900000000000006,
+        5.0,
+        0.0
+      ],
+      [
+        34.2,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point60#1",
+    "bounds_mm": [
+      [
+        38.2,
+        5.0,
+        0.0
+      ],
+      [
+        42.5,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60-print.stl"
+  },
+  {
+    "name": "point60#2",
+    "bounds_mm": [
+      [
+        46.5,
+        5.0,
+        0.0
+      ],
+      [
+        50.8,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60-print.stl"
+  },
+  {
+    "name": "point60#3",
+    "bounds_mm": [
+      [
+        54.8,
+        5.0,
+        0.0
+      ],
+      [
+        59.099999999999994,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60-print.stl"
+  },
+  {
+    "name": "point60#4",
+    "bounds_mm": [
+      [
+        63.1,
+        5.0,
+        0.0
+      ],
+      [
+        67.4,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60-print.stl"
+  },
+  {
+    "name": "point60skew#1",
+    "bounds_mm": [
+      [
+        71.39999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        75.7,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60skew-print.stl"
+  },
+  {
+    "name": "point60skew#2",
+    "bounds_mm": [
+      [
+        79.69999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        84.0,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60skew-print.stl"
+  },
+  {
+    "name": "point60skew#3",
+    "bounds_mm": [
+      [
+        87.99999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        92.3,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60skew-print.stl"
+  },
+  {
+    "name": "point60skew#4",
+    "bounds_mm": [
+      [
+        96.29999999999998,
+        5.0,
+        0.0
+      ],
+      [
+        100.6,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point60skew-print.stl"
+  },
+  {
+    "name": "coupon-shaft#1",
+    "bounds_mm": [
+      [
+        104.59999999999998,
+        5.0,
+        0.0
+      ],
+      [
+        112.59999999999998,
+        12.998418807983398,
+        7.190000057220459
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft#2",
+    "bounds_mm": [
+      [
+        116.59999999999998,
+        5.0,
+        0.0
+      ],
+      [
+        124.59999999999998,
+        12.998418807983398,
+        7.190000057220459
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft#3",
+    "bounds_mm": [
+      [
+        128.59999999999997,
+        5.0,
+        0.0
+      ],
+      [
+        136.59999999999997,
+        12.998418807983398,
+        7.190000057220459
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "coupon-shaft#4",
+    "bounds_mm": [
+      [
+        5.0,
+        17.9984188079834,
+        0.0
+      ],
+      [
+        13.0,
+        25.996837615966797,
+        7.190000057220459
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft-print.stl"
+  },
+  {
+    "name": "single-comb#1",
+    "bounds_mm": [
+      [
+        17.0,
+        17.9984188079834,
+        0.0
+      ],
+      [
+        27.600000143051147,
+        20.878418803215027,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/single-comb-print.stl"
+  },
+  {
+    "name": "single-comb#2",
+    "bounds_mm": [
+      [
+        31.600000143051147,
+        17.9984188079834,
+        0.0
+      ],
+      [
+        42.200000286102295,
+        20.878418803215027,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/single-comb-print.stl"
+  }
+]

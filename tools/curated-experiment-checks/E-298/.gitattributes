@@ -1,0 +1,5 @@
+*.step binary linguist-generated=true
+*.stl binary linguist-generated=true
+*.svg -whitespace linguist-generated=true
+*.png binary linguist-generated=true
+*.pdf binary linguist-generated=true

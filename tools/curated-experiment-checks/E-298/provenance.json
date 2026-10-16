@@ -1,0 +1,527 @@
+{
+  "base_commit": "f7721f3abbf2cc35fb59dd5440c5d0b1c42d1315",
+  "date": "2026-10-16",
+  "evidence": "CAD, independent geometry, actual Bambu slice/reopen; no physical results",
+  "commands": [
+    "python tools/curated-experiment-checks/E-298/cad/generate.py",
+    "python tools/curated-experiment-checks/E-298/cad/validate.py",
+    "python tools/curated-experiment-checks/E-298/contact_analysis.py",
+    "python tools/curated-experiment-checks/E-298/mesh_contact_envelope.py",
+    "python tools/curated-experiment-checks/E-298/cad/mixed_phase_path.py",
+    "python tools/curated-experiment-checks/E-298/independent_review.py",
+    "python tools/curated-experiment-checks/E-298/independent_review_archives.py",
+    "python tools/curated-experiment-checks/E-298/make_manual.py",
+    "python tools/curated-experiment-checks/E-298/verify_delivery.py"
+  ],
+  "slicer_reproduction": "printing/build-project.py --help; see printability.md for pinned binary, parameters, and validation scripts",
+  "files": [
+    {
+      "path": "06-experiments/E-298-self-aligning-point-clutch.md",
+      "sha256": "82fa3033de3cd4ca599f3a015adca9b528fad0bfb400ce39d31fdaa69ffdea9c"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/bambu-settings.md",
+      "sha256": "310344c4da476b52651aec9debca458d4b21a5305df770d9fbcb14d1dc5e2f9c"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/critical-paths.json",
+      "sha256": "9d36f9f862f970bbf4fa2e007f22701bffb1798d027ff91377edc9269e824725"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/critical-toolpaths.png",
+      "sha256": "8a629775a01a182373185d683d0352a4eea57626a6eb30c92957ab19a9bcccc3"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/layout.json",
+      "sha256": "b6db3d0ab66767050cca107cc7ba90ab7b3b6553b651514c3d4bfa37bea8ca4a"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-fit-build.json",
+      "sha256": "f048dea8cebaa2042fc248692fd0f7b5d2b5920f430a8c330264eb983a9247c8"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-fit.3mf",
+      "sha256": "4ad4a9676153487920186dcb9d3e14201015777cd3911b15a5880334514bccb8"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-fit.stl",
+      "sha256": "d452650bb74b9babad2edfe232160fb6d99304a4b53d91b7c8d48dcd97411046"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-paths.json",
+      "sha256": "338ab17a63c82c9a09325d484a34af572e9286ecb445c2474973a72a6bff935b"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-toolpaths.png",
+      "sha256": "a8bba563ec456d4f99e4ec130572706f6b53a5d4a558eba4f7b9e9e5bce8a5b9"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/reopened-critical-paths.json",
+      "sha256": "6f123f02a0db832e23cca34ec29c0f2c3408a5744f095b605dbb6ab104607b54"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/reopened-point-paths.json",
+      "sha256": "d97a3d7fc75c9f6be43fc9b805dd8036495529db3336656bcc2ff92e05a3efc7"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/reslice-comparison.json",
+      "sha256": "e31ee8295d537d5a7f4e8f0346b6986cb0f69071fcc5727918ffc8dceabc1b68"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/roundtrip.json",
+      "sha256": "c0cd3174a74f9e129f1097785871bb7ddb2e629126d9beaf784d717e03079db9"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/slicer-review.json",
+      "sha256": "52b24aa6074ef07b878b7dd2b4eea92a2fc014d83e2706c45a0a315c1e5fad22"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/test.md",
+      "sha256": "1a09b9d71e374031c79ad24d51ef5a29e6d6dbb188f3ef971c2bd7df3e5ec016"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/toolpaths.png",
+      "sha256": "9610a962500b3ff3c1ee97791693985f828844193c423b9e7b79e50d0d936257"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/bambu-settings.md",
+      "sha256": "539f415c7b4f74f5784c90a0f2ea9a839b23df09449ec9fd9a178fac7ab0b37b"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/brim-contact.json",
+      "sha256": "f4a13c3d1deeba34a15fd4ddbbcdb9c385a3e0cbcee2d406cba4969a54b5d2a9"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/critical-paths.json",
+      "sha256": "b2198680cc360395f3a945a8a900f028c57c7251d058162e3224ad1ad0d09ce8"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/critical-toolpaths.png",
+      "sha256": "e7cef51384c920190cb27f1247f0d94761eb65f2cba564bcf9be8d64c20d3b1e"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/layout.json",
+      "sha256": "5061603242a388507904299ab7455fb40c4605037eda2fb9af1d54b236f49058"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-matrix-build.json",
+      "sha256": "146eedc8fc69477fe2c9361d77588f7a803df136e3b0b879a4c23f7b3a89518a"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-matrix.3mf",
+      "sha256": "96de28b188c713cb7e65653ef5ae8ac92786874de85732b6510f4eb27b24c688"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-matrix.stl",
+      "sha256": "a4ed12a15540805c10775ea3a842a4558e58e240e0b0783af9a66d5ec4f90a66"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-paths.json",
+      "sha256": "02e565ab1d421b515c18d0689971247b2d42d148344d87f9f841802031515323"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-toolpaths.png",
+      "sha256": "266569b9e0206dc71e2ece1ec057d43026fa9e18b56fc40a1280572542f63f29"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/reopened-critical-paths.json",
+      "sha256": "c1ba722664866aa54319756243a0e9989d17c9a80471f065a3f91018f522ef57"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/reslice-comparison.json",
+      "sha256": "08a0c13c42102c05c0eafa83a5697a96899f943755d82e2e6716e6b0445fc17e"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/roundtrip.json",
+      "sha256": "c0cd3174a74f9e129f1097785871bb7ddb2e629126d9beaf784d717e03079db9"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/slicer-review.json",
+      "sha256": "818da7a0c21983abdcb9279ce2610c3af606149abac49b7387d4b14fb6ecaf78"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/test.md",
+      "sha256": "322f380a06dbecd6b170f222c0aa67812b8f9002917ec9adea7fe9085aee1725"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/toolpaths.png",
+      "sha256": "f466ec8e1519c5844f4e36fbf5c0c702822f889b2844da32b333e3ef6c88dd9f"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/.gitattributes",
+      "sha256": "fe7f736377bd594b9dd5dfce652a70cc1a8a8bf286b45588aca6c3cdfb9b5534"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/assembly-all-on.stl",
+      "sha256": "155a5a65e4c9aa88ef60285a1067b036b30e199baae2888730f76d1f7ab51177"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/assembly-off.stl",
+      "sha256": "399e1115b4788e1e0b05cb4e90b448da6c1814271da627c489d992e998357732"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/assembly-r0-c0.stl",
+      "sha256": "1f04aca5ae46abc76f63e3022284bae521cde6f71a1abd246d74b49fc48818a3"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/cad-guide.md",
+      "sha256": "5a6b96b612d372d41e18d2f44264789c3638915d12323fad53054f9eb5549555"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/drawings.py",
+      "sha256": "b0ef70059eec40f8910b35006fcdfc666f470d23e7261f52ccb57102b1220ef6"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/generate.py",
+      "sha256": "4405beed78faf9bf031b4bef9e431affa39b869fb5dae7c2243c8886a64bef27"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/mesh-validation.json",
+      "sha256": "1e9af196e2a275b685340563c61bc6831fb298961ae4cd30e8d46394bd13c88b"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/mixed-phase-path.json",
+      "sha256": "efd12d53616feafdec32c997c86a664221bc8077362f8ee0c45693abdad532df"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/mixed_phase_path.py",
+      "sha256": "7f8b52dc85722a2b5dcfe7c64342aea8b6a00c0a7e6f3aed0a1aa5f6fcd87d17"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parameters.json",
+      "sha256": "6e0367927389e4bb657fbeae68b6b6447b03741b3cfa545197c8e0f136aaeb1d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft-print.stl",
+      "sha256": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft.step",
+      "sha256": "0b6c9067f2fb99d266c3832df0cb8ad3465d2d6e99b0841ee349175697bd2f6c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/coupon-shaft.stl",
+      "sha256": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-center-print.stl",
+      "sha256": "af811eb3a3ea8352455072cd52bf42a4d4b3cfd97cbb74aa634fca672a83bdb4"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-center.step",
+      "sha256": "6b37d11f389cee72cad190050e9171a1eca15397d26e16aa85dd5cd99c8d9a23"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-center.stl",
+      "sha256": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-left-print.stl",
+      "sha256": "6ddf1567744052a3ac8d6dea1a671e290488c8a11398ca25a669c2459a71d18d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-left.step",
+      "sha256": "9e974801c9b11321408d79862dbd50e8ee191fa004f0a4f0254ecffd6a8700fa"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-left.stl",
+      "sha256": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-right-print.stl",
+      "sha256": "b445fd75e82e548a6864f1b3df06075687baeea9e04381e9cf9f8b0109ec0bd6"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-right.step",
+      "sha256": "fb5bb988e1bfac1fd4de987c0af4e44680a63b585445f0c7cde88e4097b04284"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/frame-right.stl",
+      "sha256": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/hand-key-print.stl",
+      "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/hand-key.step",
+      "sha256": "bb6d568c53f4a78cbf7f9ba4d4d3c3d39988577c4f4a6c5821296ae84a1fe167"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/hand-key.stl",
+      "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft-print.stl",
+      "sha256": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft.step",
+      "sha256": "9ad04d334b701ade9d51815fdd904c3f434b16d96d277880296ef846a1990f2b"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft.stl",
+      "sha256": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/pin-print.stl",
+      "sha256": "0f8e5f0cd0a17f8eea9d3b9e588b4aa918fd6f91d8794fcb7e88e9ae5889d7db"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/pin.stl",
+      "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl",
+      "sha256": "faf83f1df353935c5fe3c0b4d4f3d7a4ec94e413c5f4905b0d0c12e8c57cfc63"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point48.step",
+      "sha256": "de79c968cbf979169579e75d44d02f28c98ef37760c0b61fe17c5c22dcbd71f7"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point48.stl",
+      "sha256": "faf83f1df353935c5fe3c0b4d4f3d7a4ec94e413c5f4905b0d0c12e8c57cfc63"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60-print.stl",
+      "sha256": "a519c3e91ce53ac8fb446b9bb3bbaa3fe465bbb77264946d074b72701367b325"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60.step",
+      "sha256": "8b6c021f760accc000ce43d6fe9b658322d2014eda36384077dee1cbf5b80521"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60.stl",
+      "sha256": "a519c3e91ce53ac8fb446b9bb3bbaa3fe465bbb77264946d074b72701367b325"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60skew-print.stl",
+      "sha256": "b0bf91765f38978ad429f46eac7be4e47515d2920312a859b830068d92683ebe"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60skew.step",
+      "sha256": "e769c174fe8132ac43fe59533d77e856f2018d60445128b311e1c6fabb4e0e1c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/point60skew.stl",
+      "sha256": "b0bf91765f38978ad429f46eac7be4e47515d2920312a859b830068d92683ebe"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/reaction-jig-print.stl",
+      "sha256": "cbb58b1ca951b87be2806bf050aa11336e3e3a18c110df619c05d464c8f5963c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/reaction-jig.step",
+      "sha256": "0748a26aef37053eccdc473c9be8b059d8f57a0a0be10c62b4088adbee124a21"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/reaction-jig.stl",
+      "sha256": "cbb58b1ca951b87be2806bf050aa11336e3e3a18c110df619c05d464c8f5963c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/row-selector-print.stl",
+      "sha256": "636d96a5e03fd778c59fdec7bafd7e32a8fd65bc54529c5b50b358c305778064"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/row-selector.step",
+      "sha256": "87271fd462268a4aa34884d472646fe4589bdc0c4caa13a229794a0ba5e36f3c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/row-selector.stl",
+      "sha256": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/screw-print.stl",
+      "sha256": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/screw.stl",
+      "sha256": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/single-comb-print.stl",
+      "sha256": "77473ca324aa2c8c83fa8ada104ff597d6e6283a963e5b30751712eed488feb8"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/single-comb.step",
+      "sha256": "ef46a23dd841aa03f98627c2dbe931631ba677a6a544912f30cbedf2a0e4f64c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/single-comb.stl",
+      "sha256": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl",
+      "sha256": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer.step",
+      "sha256": "443b6d76a39f54e7a13519e444fce766e6d953eb849cfbf41ecaaed8dd4c133c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer.stl",
+      "sha256": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/validate.py",
+      "sha256": "8eda9acf155d8016a1c88ef3a2cbde022ef4e1d7898b0218cef9d36b3aff43b3"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/cad/validation.json",
+      "sha256": "eebff19af5aa07e662d8d2456dfaa1220e92bad371700fe041d62a7ace102e87"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/contact-analysis.json",
+      "sha256": "568915075f3d5977cc37c024431ce8ea91959a417e083689f71626eab0109f65"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/contact-analysis.md",
+      "sha256": "a97da6231ea41f25a40dfae973cda6f270e04ca1f67b46feab68675085bdc402"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/contact-envelope.png",
+      "sha256": "877912864ae4e9a1e216918d14d94eba44496835914df2dc5a37d49739d90105"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/contact-envelope.svg",
+      "sha256": "96bf07e361f85bf151d29aae82e956ee73536b8b7f174691181998794e0f87c0"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/contact_analysis.py",
+      "sha256": "6c420bd6f535b789e22d9fa80f92c14a5fc1db63a3afff596e237022906dfc93"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/design-report.md",
+      "sha256": "81d488e019ce6ecba4a10d92737d4ed12c6953faf25543f87d9ddd78c2c2d17d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/engagement-section.png",
+      "sha256": "ece26b6b3b43460f323f0f6403b7016f9f9b1f030ca3b65d0a3f63eec546bd1e"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/engagement-section.svg",
+      "sha256": "fc6551a4ffec6080d56eb85cc92f2d69c004349e42f0adcf7681f7a6eb5848d0"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/matrix-assembly.png",
+      "sha256": "b534672708e24c97b12142c986ca0723e7d90b4cac8f8c0d6283bf2569369c2c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/matrix-assembly.svg",
+      "sha256": "708ba89224569066b48cd9426a6ca8d8c6e102d71958c7ee7eea3615f77d44d2"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/plate-fit.png",
+      "sha256": "c185ab13ec4cfec23b0dadf7e2ca9614485eef05bd83bea7bf94f4cc0392943c"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/plate-fit.svg",
+      "sha256": "0b4f7f3b43fed913adf0f60a1ba07b1143190e42b126e448d7c90acf52070522"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/plate-matrix.png",
+      "sha256": "cf60573c290cf4163674149ff63b9f066f2c3d5c9a3d0c25ce6b45bc5fd33160"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/plate-matrix.svg",
+      "sha256": "fa5e1ded86169d6425e45ba69235dda9aa8400fc6424c5d80df5aef90378f836"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/point-variants.png",
+      "sha256": "d4c973dc053480e6d7190a5c89ef7dfa37cd664b9b293150f2c3c42730580458"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/point-variants.svg",
+      "sha256": "320b0a12a808c27b63ec91ee8cdd2585d17e795ed53e79dbe3a6d6da4f5611a8"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/drawings/source-manifest.json",
+      "sha256": "6558f4d1d0820a865ca0aca7fe9eff1a6322baf4b3d24a6a777a9733fe8b243d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/independent-review-archive-geometry-A.json",
+      "sha256": "e74e6175f6e2a165ef872c13c51d0ef6a794734386d1bb2188984e2c11e9e65a"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/independent-review-archive-geometry-B.json",
+      "sha256": "3390c100d40bf902c6b1227212e73c38eb2fa172b6f06038131544b80d12d0c6"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/independent-review.json",
+      "sha256": "3bf861fc0df4182697166e663f4393c2f953f273f25b12f568d0e37d55d4f4af"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/independent_review.py",
+      "sha256": "38386125c09d585ee44f2f903efe0b3a06936d3701e2aa7eafeb62dc4b38948d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/independent_review_archives.py",
+      "sha256": "a450caf464c92b3ae26db143e597baee2ec98a8ea9935a7233f1934adaf5bbe5"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/make_manual.py",
+      "sha256": "7b10e7e670da41e6ac8e3ad89c1675f9344a9b390a0e0aca93b7d535fc6cfd6a"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/mesh-contact-envelope.json",
+      "sha256": "8295c7c2a09ae27dc9830dee72fcd641cf2bc09a7d088b14e74148527a171d64"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/mesh_contact_envelope.py",
+      "sha256": "e1c1d2e75d3580653ff4e37e94fc1e9a73d4a3498f0b39e23a83e431f19685c1"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/print-and-assembly.pdf",
+      "sha256": "049d883335bb7fe4b2bc6031552681acfdb55de28dc46732aa0761c27e5c4f24"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/print-and-assembly.sources.json",
+      "sha256": "fcd390e46c21bb8275243c09e362ae18e8d33ff391720bb17ed3b442b6d9cee6"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printability.md",
+      "sha256": "2a07fb35ac1f7ef9ce7fdb1996736bcc5712e977d775c24d8faefa775d97a31b"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/build-project.py",
+      "sha256": "2495ece3f09cd4cd9f568fdd349a41dea3e71c564e27a827e507a7ac97d16d1d"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/check-brim.py",
+      "sha256": "a60936c46339870953d9a6f4b6b5c8248ee46ff282677065bc1d2386a6bf6152"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/compare-reslice.py",
+      "sha256": "4fc857a69ea8dfe082ea007c43ac717d691958c1aa1d8c80b2ecfe01df82d643"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/critical-paths.py",
+      "sha256": "34f07b16f92b4977adf42f1347da0d7def80406aa2c1e4114cb499e020d12931"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/point-paths.py",
+      "sha256": "9466a7dd6b6fc31ea217e2fcd29e2a0538e4e5bc70e53791e4101ad9d5ee7a56"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/rejected-016-tip-result.json",
+      "sha256": "2d7b953ad82f4f9e2b4c5fbe7d5dc214accbe95960717a0bf2451b2e6648474f"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/printing/validate-project.py",
+      "sha256": "3911ceee9fb02512655cfa330a3cc6169d0a84e3b81cadb557a5297ca5b580fd"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/review.md",
+      "sha256": "257e0a4ca2311fbe1f037087356679d6c078799a411309c4cee3a16259ffca86"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/validation/repository-check.json",
+      "sha256": "e505db1bf9de0c0ee4fcb70489dd26d21e16aa377ca3fe1da9431b985231bf0e"
+    },
+    {
+      "path": "tools/curated-experiment-checks/E-298/verify_delivery.py",
+      "sha256": "fa33fb1d359f22063290eec7227a4a31d7196ce5094bb8c077f63308be4d08de"
+    }
+  ]
+}

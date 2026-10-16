@@ -1,0 +1,594 @@
+[
+  {
+    "name": "frame-left#1",
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        57.400001525878906,
+        32.0,
+        13.260000228881836
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/frame-left-print.stl"
+  },
+  {
+    "name": "frame-right#1",
+    "bounds_mm": [
+      [
+        61.400001525878906,
+        5.0,
+        0.0
+      ],
+      [
+        113.80000305175781,
+        32.0,
+        13.260000228881836
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/frame-right-print.stl"
+  },
+  {
+    "name": "frame-center#1",
+    "bounds_mm": [
+      [
+        5.0,
+        37.0,
+        0.0
+      ],
+      [
+        57.400001525878906,
+        64.0,
+        5.079999923706055
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/frame-center-print.stl"
+  },
+  {
+    "name": "row-selector#1",
+    "bounds_mm": [
+      [
+        61.400001525878906,
+        37.0,
+        0.0
+      ],
+      [
+        99.08000183105469,
+        39.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector#2",
+    "bounds_mm": [
+      [
+        103.08000183105469,
+        37.0,
+        0.0
+      ],
+      [
+        140.76000213623047,
+        39.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector#3",
+    "bounds_mm": [
+      [
+        5.0,
+        69.0,
+        0.0
+      ],
+      [
+        42.68000030517578,
+        71.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector#4",
+    "bounds_mm": [
+      [
+        46.68000030517578,
+        69.0,
+        0.0
+      ],
+      [
+        84.36000061035156,
+        71.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "point48#1",
+    "bounds_mm": [
+      [
+        88.36000061035156,
+        69.0,
+        0.0
+      ],
+      [
+        92.66000061035157,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#2",
+    "bounds_mm": [
+      [
+        96.66000061035156,
+        69.0,
+        0.0
+      ],
+      [
+        100.96000061035157,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#3",
+    "bounds_mm": [
+      [
+        104.96000061035156,
+        69.0,
+        0.0
+      ],
+      [
+        109.26000061035157,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#4",
+    "bounds_mm": [
+      [
+        113.26000061035155,
+        69.0,
+        0.0
+      ],
+      [
+        117.56000061035157,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#5",
+    "bounds_mm": [
+      [
+        121.56000061035155,
+        69.0,
+        0.0
+      ],
+      [
+        125.86000061035156,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#6",
+    "bounds_mm": [
+      [
+        129.86000061035156,
+        69.0,
+        0.0
+      ],
+      [
+        134.16000061035157,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#7",
+    "bounds_mm": [
+      [
+        138.16000061035157,
+        69.0,
+        0.0
+      ],
+      [
+        142.46000061035159,
+        73.29915001801129,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "point48#8",
+    "bounds_mm": [
+      [
+        5.0,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        9.3,
+        82.59830003602258,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/point48-print.stl"
+  },
+  {
+    "name": "input-shaft#1",
+    "bounds_mm": [
+      [
+        13.3,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        17.600000190734864,
+        82.59830000809308,
+        10.720000267028809
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft#2",
+    "bounds_mm": [
+      [
+        21.600000190734864,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        25.900000381469727,
+        82.59830000809308,
+        10.720000267028809
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft#3",
+    "bounds_mm": [
+      [
+        29.900000381469724,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        34.20000057220459,
+        82.59830000809308,
+        10.720000267028809
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft#4",
+    "bounds_mm": [
+      [
+        38.20000057220459,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        42.50000076293945,
+        82.59830000809308,
+        10.720000267028809
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "screw#1",
+    "bounds_mm": [
+      [
+        46.50000076293945,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        50.800000953674314,
+        82.59830000809308,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw#2",
+    "bounds_mm": [
+      [
+        54.800000953674314,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        59.10000114440918,
+        82.59830000809308,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw#3",
+    "bounds_mm": [
+      [
+        63.10000114440918,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        67.40000133514404,
+        82.59830000809308,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw#4",
+    "bounds_mm": [
+      [
+        71.40000133514404,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        75.7000015258789,
+        82.59830000809308,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "pin#1",
+    "bounds_mm": [
+      [
+        79.7000015258789,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        84.10000114440918,
+        82.6991515438902,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin#2",
+    "bounds_mm": [
+      [
+        88.10000114440918,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        92.50000076293945,
+        82.6991515438902,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin#3",
+    "bounds_mm": [
+      [
+        96.50000076293945,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        100.90000038146972,
+        82.6991515438902,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin#4",
+    "bounds_mm": [
+      [
+        104.90000038146972,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        109.3,
+        82.6991515438902,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "hand-key#1",
+    "bounds_mm": [
+      [
+        113.3,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        123.3,
+        88.29717305115338,
+        10.989999771118164
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/hand-key-print.stl"
+  },
+  {
+    "name": "stop-spacer#1",
+    "bounds_mm": [
+      [
+        127.30000000000001,
+        78.29915001801129,
+        0.0
+      ],
+      [
+        136.3,
+        82.29915001801129,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#2",
+    "bounds_mm": [
+      [
+        5.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        14.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#3",
+    "bounds_mm": [
+      [
+        18.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        27.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#4",
+    "bounds_mm": [
+      [
+        31.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        40.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#5",
+    "bounds_mm": [
+      [
+        44.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        53.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#6",
+    "bounds_mm": [
+      [
+        57.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        66.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#7",
+    "bounds_mm": [
+      [
+        70.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        79.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer#8",
+    "bounds_mm": [
+      [
+        83.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        92.0,
+        97.29717305115338,
+        2.4000000953674316
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "reaction-jig#1",
+    "bounds_mm": [
+      [
+        96.0,
+        93.29717305115338,
+        0.0
+      ],
+      [
+        108.0,
+        105.29717305115338,
+        4.39
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-298/cad/parts/reaction-jig-print.stl"
+  }
+]

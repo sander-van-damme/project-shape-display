@@ -1,0 +1,16 @@
+{
+  "command": "./repo check",
+  "return_code": 1,
+  "output": "Oversized atomic object: E-266\nOversized atomic object: E-283\nOversized atomic object: E-286\nOversized atomic object: E-288\nOversized atomic object: E-293\nOversized instructions: AGENTS.md\nOversized instructions: owner-print-tests/AGENTS.md\n",
+  "existing_warning_sources_identical_to_base": {
+    "AGENTS.md": true,
+    "owner-print-tests/AGENTS.md": true,
+    "06-experiments/E-266-slower-axial-writing-bank-and-waiting-frontier.md": true,
+    "06-experiments/E-283-closed-stock-bodies-with-retained-printed-screws.md": true,
+    "06-experiments/E-286-shared-thread-and-gauge-assembly-screen.md": true,
+    "06-experiments/E-288-shared-underside-contact-height-readback.md": true,
+    "06-experiments/E-293-baseline-sensitivity-versus-terrain-visibility.md": true
+  },
+  "base_commit": "f7721f3abbf2cc35fb59dd5440c5d0b1c42d1315",
+  "new_findings": []
+}

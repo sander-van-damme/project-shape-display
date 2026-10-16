@@ -1,0 +1,28 @@
+{
+  "saved_settings_checked": {
+    "printer_model": "Bambu Lab X1 Carbon",
+    "printer_settings_id": "Bambu Lab X1 Carbon 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "layer_height": "0.08",
+    "initial_layer_print_height": "0.12",
+    "wall_generator": "arachne",
+    "wall_loops": "2",
+    "filament_type": [
+      "PLA"
+    ]
+  },
+  "gcode_md5_matches": true,
+  "gcode_bytes": 4349462,
+  "project_sha256": "4ad4a9676153487920186dcb9d3e14201015777cd3911b15a5880334514bccb8",
+  "source_stl_sha256": "d452650bb74b9babad2edfe232160fb6d99304a4b53d91b7c8d48dcd97411046",
+  "body_count": 18,
+  "maximum_volume_difference_mm3": 0.00013199199351277002,
+  "maximum_sorted_extent_difference_mm": 7.63763671862705e-06,
+  "all_closed": true,
+  "all_facet_counts_equal": true,
+  "all_project_meshes_closed_after_coordinate_merge": true,
+  "topology_note": "Project watertightness preserves the 3MF vertex indices. Coordinate welding can merge distinct indexed vertices after decimal export rounding; that diagnostic is recorded separately.",
+  "scope": "Independent volume/extents/facet-count check, complements exact transformed vertex comparison in primary slicer validation."
+}
