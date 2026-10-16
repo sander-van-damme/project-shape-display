@@ -1,0 +1,22 @@
+{
+  "scope": "Saved package integrity and existing-file preservation; not physical validation",
+  "base_commit": "f7721f3abbf2cc35fb59dd5440c5d0b1c42d1315",
+  "checks": 512,
+  "errors": [],
+  "preserved_old_file_count": 194,
+  "preserved_all_checked": true,
+  "projects": [
+    {
+      "file": "owner-print-tests/2026-10-16-self-aligning-point-fit/point-fit.3mf",
+      "sha256": "4ad4a9676153487920186dcb9d3e14201015777cd3911b15a5880334514bccb8",
+      "embedded_gcode_sha256": "6a7f5b1c83a40dc904302bdf409ca7d389cb5c1c69427b750364ed071be8f9ef",
+      "reopen_verified": true
+    },
+    {
+      "file": "owner-print-tests/2026-10-16-self-aligning-point-matrix/point-matrix.3mf",
+      "sha256": "96de28b188c713cb7e65653ef5ae8ac92786874de85732b6510f4eb27b24c688",
+      "embedded_gcode_sha256": "dce590c323a39a2c969f000b1c3ba5637f9169c870dcf5071f7651e681e77d59",
+      "reopen_verified": true
+    }
+  ]
+}

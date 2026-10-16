@@ -1,0 +1,491 @@
+{
+  "evidence": "Finite prescribed kinematic path through actual printed-part source meshes; NOT automatic phase selection, force, friction or physical multi-pin proof.",
+  "poses": [
+    {
+      "name": "open",
+      "row_fraction": 0.0,
+      "column_fraction": 0.0,
+      "upper_phases_deg": [
+        30.0,
+        60.0,
+        120.0,
+        150.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.5,
+        0.25,
+        -0.25,
+        -0.5
+      ],
+      "required_sampled_root_separation_mm": 4.6004436,
+      "actual_root_separation_mm": 8.16,
+      "candidate_pair_checks": 87
+    },
+    {
+      "name": "rows-half",
+      "row_fraction": 0.5,
+      "column_fraction": 0.0,
+      "upper_phases_deg": [
+        30.0,
+        60.0,
+        120.0,
+        150.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.5,
+        0.25,
+        -0.25,
+        -0.5
+      ],
+      "required_sampled_root_separation_mm": 4.6004436,
+      "actual_root_separation_mm": 6.96,
+      "candidate_pair_checks": 87
+    },
+    {
+      "name": "rows-on",
+      "row_fraction": 1.0,
+      "column_fraction": 0.0,
+      "upper_phases_deg": [
+        30.0,
+        60.0,
+        120.0,
+        150.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.5,
+        0.25,
+        -0.25,
+        -0.5
+      ],
+      "required_sampled_root_separation_mm": 4.6004436,
+      "actual_root_separation_mm": 5.76,
+      "candidate_pair_checks": 87
+    },
+    {
+      "name": "columns-approach",
+      "row_fraction": 1.0,
+      "column_fraction": 0.23532424999999987,
+      "upper_phases_deg": [
+        30.0,
+        60.0,
+        120.0,
+        150.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.5,
+        0.25,
+        -0.25,
+        -0.5
+      ],
+      "required_sampled_root_separation_mm": 4.6004436,
+      "actual_root_separation_mm": 5.195221800000001,
+      "candidate_pair_checks": 87
+    },
+    {
+      "name": "prescribed-0.000",
+      "row_fraction": 1.0,
+      "column_fraction": 0.47064849999999975,
+      "upper_phases_deg": [
+        30.0,
+        60.0,
+        120.0,
+        150.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.5,
+        0.25,
+        -0.25,
+        -0.5
+      ],
+      "required_sampled_root_separation_mm": 4.6004436,
+      "actual_root_separation_mm": 4.630443600000001,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.083",
+      "row_fraction": 1.0,
+      "column_fraction": 0.49904008333333305,
+      "upper_phases_deg": [
+        35.0,
+        62.5,
+        117.5,
+        145.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.4583333333333333,
+        0.22916666666666666,
+        -0.22916666666666666,
+        -0.4583333333333333
+      ],
+      "required_sampled_root_separation_mm": 4.5323038,
+      "actual_root_separation_mm": 4.5623038000000005,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.167",
+      "row_fraction": 1.0,
+      "column_fraction": 0.5285679166666665,
+      "upper_phases_deg": [
+        40.0,
+        65.0,
+        115.0,
+        140.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.4166666666666667,
+        0.20833333333333334,
+        -0.20833333333333334,
+        -0.4166666666666667
+      ],
+      "required_sampled_root_separation_mm": 4.461437,
+      "actual_root_separation_mm": 4.491437000000001,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.250",
+      "row_fraction": 1.0,
+      "column_fraction": 0.5581917916666664,
+      "upper_phases_deg": [
+        45.0,
+        67.5,
+        112.5,
+        135.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.375,
+        0.1875,
+        -0.1875,
+        -0.375
+      ],
+      "required_sampled_root_separation_mm": 4.3903397,
+      "actual_root_separation_mm": 4.420339700000001,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.333",
+      "row_fraction": 1.0,
+      "column_fraction": 0.589650875,
+      "upper_phases_deg": [
+        50.0,
+        70.0,
+        110.0,
+        130.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.3333333333333333,
+        0.16666666666666666,
+        -0.16666666666666666,
+        -0.3333333333333333
+      ],
+      "required_sampled_root_separation_mm": 4.3148379,
+      "actual_root_separation_mm": 4.3448379,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.417",
+      "row_fraction": 1.0,
+      "column_fraction": 0.6230531666666665,
+      "upper_phases_deg": [
+        55.0,
+        72.5,
+        107.5,
+        125.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.2916666666666667,
+        0.14583333333333334,
+        -0.14583333333333334,
+        -0.2916666666666667
+      ],
+      "required_sampled_root_separation_mm": 4.2346724,
+      "actual_root_separation_mm": 4.2646724,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.500",
+      "row_fraction": 1.0,
+      "column_fraction": 0.6583829999999998,
+      "upper_phases_deg": [
+        60.0,
+        75.0,
+        105.0,
+        120.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.25,
+        0.125,
+        -0.125,
+        -0.25
+      ],
+      "required_sampled_root_separation_mm": 4.1498808,
+      "actual_root_separation_mm": 4.179880800000001,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.583",
+      "row_fraction": 1.0,
+      "column_fraction": 0.6955132499999999,
+      "upper_phases_deg": [
+        65.0,
+        77.5,
+        102.5,
+        115.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.20833333333333334,
+        0.10416666666666667,
+        -0.10416666666666667,
+        -0.20833333333333334
+      ],
+      "required_sampled_root_separation_mm": 4.0607682,
+      "actual_root_separation_mm": 4.0907682,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.667",
+      "row_fraction": 1.0,
+      "column_fraction": 0.735199625,
+      "upper_phases_deg": [
+        70.0,
+        80.0,
+        100.0,
+        110.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.16666666666666666,
+        0.08333333333333333,
+        -0.08333333333333333,
+        -0.16666666666666666
+      ],
+      "required_sampled_root_separation_mm": 3.9655209,
+      "actual_root_separation_mm": 3.9955209000000007,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.750",
+      "row_fraction": 1.0,
+      "column_fraction": 0.77721025,
+      "upper_phases_deg": [
+        75.0,
+        82.5,
+        97.5,
+        105.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.125,
+        0.0625,
+        -0.0625,
+        -0.125
+      ],
+      "required_sampled_root_separation_mm": 3.8646954,
+      "actual_root_separation_mm": 3.8946954000000007,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.833",
+      "row_fraction": 1.0,
+      "column_fraction": 1.0,
+      "upper_phases_deg": [
+        80.0,
+        85.0,
+        95.0,
+        100.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.08333333333333333,
+        0.041666666666666664,
+        -0.041666666666666664,
+        -0.08333333333333333
+      ],
+      "required_sampled_root_separation_mm": 2.4000004,
+      "actual_root_separation_mm": 3.3600000000000003,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-0.917",
+      "row_fraction": 1.0,
+      "column_fraction": 1.0,
+      "upper_phases_deg": [
+        85.0,
+        87.5,
+        92.5,
+        95.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        0.041666666666666664,
+        0.020833333333333332,
+        -0.020833333333333332,
+        -0.041666666666666664
+      ],
+      "required_sampled_root_separation_mm": 2.4000004,
+      "actual_root_separation_mm": 3.3600000000000003,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "prescribed-1.000",
+      "row_fraction": 1.0,
+      "column_fraction": 1.0,
+      "upper_phases_deg": [
+        90.0,
+        90.0,
+        90.0,
+        90.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "required_sampled_root_separation_mm": 2.4000004,
+      "actual_root_separation_mm": 3.3600000000000003,
+      "candidate_pair_checks": 91
+    },
+    {
+      "name": "full-closure",
+      "row_fraction": 1.0,
+      "column_fraction": 1.0,
+      "upper_phases_deg": [
+        90.0,
+        90.0,
+        90.0,
+        90.0
+      ],
+      "fixed_input_phases_deg": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pin_travel_from_90deg_reference_mm": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "required_sampled_root_separation_mm": 2.4000004,
+      "actual_root_separation_mm": 3.3600000000000003,
+      "candidate_pair_checks": 91
+    }
+  ],
+  "total_candidate_pair_checks": 1622,
+  "unique_boolean_checks": 759,
+  "unexpected_intersections": [],
+  "pass_nominal": true,
+  "source_envelope_sha256": "8295c7c2a09ae27dc9830dee72fcd641cf2bc09a7d088b14e74148527a171d64",
+  "pin_height_change_start_to_end_mm": [
+    -0.5,
+    -0.25,
+    0.25,
+    0.5
+  ],
+  "limitations": [
+    "Phases are externally prescribed independently, not solved by contact forces.",
+    "Small positive clearance above sampled contact envelope avoids claiming actual contact trajectories.",
+    "Only these 18 nominal poses; not all simultaneous initial phases, tolerances or continuous path.",
+    "One jammed pair can still block a shared selector.",
+    "Input DD backlash may permit small real input rotation despite reaction tool."
+  ]
+}

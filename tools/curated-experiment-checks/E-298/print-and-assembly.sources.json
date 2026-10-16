@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-fit/test.md",
+      "sha256": "1a09b9d71e374031c79ad24d51ef5a29e6d6dbb188f3ef971c2bd7df3e5ec016"
+    },
+    {
+      "path": "owner-print-tests/2026-10-16-self-aligning-point-matrix/test.md",
+      "sha256": "322f380a06dbecd6b170f222c0aa67812b8f9002917ec9adea7fe9085aee1725"
+    }
+  ]
+}

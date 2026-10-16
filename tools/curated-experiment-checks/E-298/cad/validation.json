@@ -1,0 +1,464 @@
+{
+  "evidence": "CAD and finite rigid mesh intersections only; no physical qualification",
+  "states": [
+    {
+      "mask": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 95
+    },
+    {
+      "mask": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 91
+    },
+    {
+      "mask": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 91
+    },
+    {
+      "mask": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 87
+    },
+    {
+      "mask": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 97
+    },
+    {
+      "mask": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 94
+    },
+    {
+      "mask": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 94
+    },
+    {
+      "mask": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 91
+    },
+    {
+      "mask": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 97
+    },
+    {
+      "mask": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 94
+    },
+    {
+      "mask": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 94
+    },
+    {
+      "mask": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 91
+    },
+    {
+      "mask": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 99
+    },
+    {
+      "mask": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 97
+    },
+    {
+      "mask": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "bounding_box_candidate_boolean_count": 97
+    },
+    {
+      "mask": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "bounding_box_candidate_boolean_count": 95
+    }
+  ],
+  "new_rotor_within_original_envelope": {
+    "point48": {
+      "volume_outside_E297_mm3": 0.0015587470165434425,
+      "strict_mesh_subset": false,
+      "note": "Different polygonal arc sampling: old 24 vs new 25 vertices per arc; not a literal mesh subset. Same nominal radial envelope, separately collision checked."
+    },
+    "point60": {
+      "volume_outside_E297_mm3": 0.0014707130695562616,
+      "strict_mesh_subset": false,
+      "note": "Different polygonal arc sampling: old 24 vs new 25 vertices per arc; not a literal mesh subset. Same nominal radial envelope, separately collision checked."
+    },
+    "point60skew": {
+      "volume_outside_E297_mm3": 0.001470705626389535,
+      "strict_mesh_subset": false,
+      "note": "Different polygonal arc sampling: old 24 vs new 25 vertices per arc; not a literal mesh subset. Same nominal radial envelope, separately collision checked."
+    }
+  },
+  "intersection_checks": 1504,
+  "unexpected_intersections": [],
+  "phase_tests": [
+    {
+      "variant": "point48",
+      "phase_deg": 0,
+      "full_command_collision_volume_mm3": 3.367750471555585,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 7.64,
+      "full_command_collision_volume_mm3": 3.139532943796092,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 12,
+      "full_command_collision_volume_mm3": 2.975665830920989,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 24,
+      "full_command_collision_volume_mm3": 2.4306135746295574,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 45,
+      "full_command_collision_volume_mm3": 1.305512525261443,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 75,
+      "full_command_collision_volume_mm3": 0.025031016309412964,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 76,
+      "full_command_collision_volume_mm3": 3.797444295679261e-09,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 77,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 90,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 103,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 104,
+      "full_command_collision_volume_mm3": 1.8987221595340206e-09,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 105,
+      "full_command_collision_volume_mm3": 0.024935288341250368,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 135,
+      "full_command_collision_volume_mm3": 1.3028892656603641,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point48",
+      "phase_deg": 180,
+      "full_command_collision_volume_mm3": 3.367750471555585,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 0,
+      "full_command_collision_volume_mm3": 2.834720866368281,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 7.64,
+      "full_command_collision_volume_mm3": 2.687898842735751,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 12,
+      "full_command_collision_volume_mm3": 2.561753704655862,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 24,
+      "full_command_collision_volume_mm3": 2.0976314106046936,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 45,
+      "full_command_collision_volume_mm3": 1.0709440172663973,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 75,
+      "full_command_collision_volume_mm3": 0.013203848796904186,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 76,
+      "full_command_collision_volume_mm3": 1.8987230732965187e-09,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 77,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 90,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 103,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 104,
+      "full_command_collision_volume_mm3": 9.49361563676412e-10,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 105,
+      "full_command_collision_volume_mm3": 0.013084189457064646,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 135,
+      "full_command_collision_volume_mm3": 1.0679893980873143,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60",
+      "phase_deg": 180,
+      "full_command_collision_volume_mm3": 2.834720866368281,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 0,
+      "full_command_collision_volume_mm3": 2.8286208339075403,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 7.64,
+      "full_command_collision_volume_mm3": 2.6938436028641473,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 12,
+      "full_command_collision_volume_mm3": 2.5852720427170164,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 24,
+      "full_command_collision_volume_mm3": 2.192606151510359,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 45,
+      "full_command_collision_volume_mm3": 1.2567429976641282,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 75,
+      "full_command_collision_volume_mm3": 0.013854273993611766,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 76,
+      "full_command_collision_volume_mm3": 1.8987231447080442e-09,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 77,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 90,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 103,
+      "full_command_collision_volume_mm3": 0.0,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 104,
+      "full_command_collision_volume_mm3": 2.271874703941872e-17,
+      "full_command_possible": true
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 105,
+      "full_command_collision_volume_mm3": 0.012896209483593575,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 135,
+      "full_command_collision_volume_mm3": 0.917333321254524,
+      "full_command_possible": false
+    },
+    {
+      "variant": "point60skew",
+      "phase_deg": 180,
+      "full_command_collision_volume_mm3": 2.8286208339075407,
+      "full_command_possible": false
+    }
+  ],
+  "unchanged_E297_source_sha256": {
+    "frame-left.stl": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0",
+    "frame-left-print.stl": "6ddf1567744052a3ac8d6dea1a671e290488c8a11398ca25a669c2459a71d18d",
+    "frame-left.step": "9e974801c9b11321408d79862dbd50e8ee191fa004f0a4f0254ecffd6a8700fa",
+    "frame-center.stl": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573",
+    "frame-center-print.stl": "af811eb3a3ea8352455072cd52bf42a4d4b3cfd97cbb74aa634fca672a83bdb4",
+    "frame-center.step": "6b37d11f389cee72cad190050e9171a1eca15397d26e16aa85dd5cd99c8d9a23",
+    "frame-right.stl": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3",
+    "frame-right-print.stl": "b445fd75e82e548a6864f1b3df06075687baeea9e04381e9cf9f8b0109ec0bd6",
+    "frame-right.step": "fb5bb988e1bfac1fd4de987c0af4e44680a63b585445f0c7cde88e4097b04284",
+    "row-selector.stl": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42",
+    "row-selector-print.stl": "636d96a5e03fd778c59fdec7bafd7e32a8fd65bc54529c5b50b358c305778064",
+    "row-selector.step": "87271fd462268a4aa34884d472646fe4589bdc0c4caa13a229794a0ba5e36f3c",
+    "single-comb.stl": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b",
+    "single-comb-print.stl": "77473ca324aa2c8c83fa8ada104ff597d6e6283a963e5b30751712eed488feb8",
+    "single-comb.step": "ef46a23dd841aa03f98627c2dbe931631ba677a6a544912f30cbedf2a0e4f64c",
+    "input-shaft.stl": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+    "input-shaft-print.stl": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+    "input-shaft.step": "9ad04d334b701ade9d51815fdd904c3f434b16d96d277880296ef846a1990f2b",
+    "screw.stl": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0",
+    "screw-print.stl": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0",
+    "pin.stl": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110",
+    "pin-print.stl": "0f8e5f0cd0a17f8eea9d3b9e588b4aa918fd6f91d8794fcb7e88e9ae5889d7db",
+    "hand-key.stl": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb",
+    "hand-key-print.stl": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb",
+    "hand-key.step": "bb6d568c53f4a78cbf7f9ba4d4d3c3d39988577c4f4a6c5821296ae84a1fe167",
+    "stop-spacer.stl": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a",
+    "stop-spacer-print.stl": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a",
+    "stop-spacer.step": "443b6d76a39f54e7a13519e444fce766e6d953eb849cfbf41ecaaed8dd4c133c",
+    "coupon-shaft.stl": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c",
+    "coupon-shaft-print.stl": "44f2e8d44a1f2d48a46cebd63f61196de56a7820a40ded0d99b17f83371c6b0c",
+    "coupon-shaft.step": "0b6c9067f2fb99d266c3832df0cb8ad3465d2d6e99b0841ee349175697bd2f6c"
+  },
+  "reaction_jig": {
+    "assembled_plate_top_z": -0.2,
+    "plug_top_z": 2.19,
+    "input_socket_bottom_z": 1.19,
+    "nominal_socket_engagement_mm": 1.0,
+    "radial_clearance": 0.15,
+    "positive_end_clearance_mm": 0.21
+  },
+  "pass_nominal": true
+}
