@@ -1,0 +1,578 @@
+[
+  {
+    "name": "frame-left",
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        57.400000000000006,
+        32.0,
+        13.260000000000003
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/frame-left-print.stl"
+  },
+  {
+    "name": "frame-right",
+    "bounds_mm": [
+      [
+        61.400000000000006,
+        5.0,
+        0.0
+      ],
+      [
+        113.80000000000001,
+        32.0,
+        13.260000000000005
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/frame-right-print.stl"
+  },
+  {
+    "name": "frame-center",
+    "bounds_mm": [
+      [
+        5.0,
+        37.0,
+        0.0
+      ],
+      [
+        57.400000000000006,
+        64.0,
+        5.080000000000004
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/frame-center-print.stl"
+  },
+  {
+    "name": "row-selector",
+    "bounds_mm": [
+      [
+        61.400000000000006,
+        37.0,
+        0.0
+      ],
+      [
+        99.08000030517579,
+        39.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector",
+    "bounds_mm": [
+      [
+        103.08000030517579,
+        37.0,
+        0.0
+      ],
+      [
+        140.76000061035157,
+        39.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector",
+    "bounds_mm": [
+      [
+        5.0,
+        69.0,
+        0.0
+      ],
+      [
+        42.68000030517578,
+        71.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "row-selector",
+    "bounds_mm": [
+      [
+        46.68000030517578,
+        69.0,
+        0.0
+      ],
+      [
+        84.36000061035156,
+        71.87999999523163,
+        4.599999904632568
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        88.36000061035156,
+        69.0,
+        0.0
+      ],
+      [
+        92.66000080108643,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        96.66000080108643,
+        69.0,
+        0.0
+      ],
+      [
+        100.96000099182129,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        104.96000099182129,
+        69.0,
+        0.0
+      ],
+      [
+        109.26000118255615,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        113.26000118255615,
+        69.0,
+        0.0
+      ],
+      [
+        117.56000137329102,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        121.56000137329102,
+        69.0,
+        0.0
+      ],
+      [
+        125.86000156402588,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        129.86000156402588,
+        69.0,
+        0.0
+      ],
+      [
+        134.16000175476074,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        138.16000175476074,
+        69.0,
+        0.0
+      ],
+      [
+        142.4600019454956,
+        73.29914999008179,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        5.0,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        9.300000190734863,
+        82.59829998016357,
+        8.600000381469727
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        13.300000190734863,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        17.600000190734864,
+        82.59830000809308,
+        10.719999999999999
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        21.600000190734864,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        25.90000019073486,
+        82.59830000809308,
+        10.719999999999999
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        29.900000190734865,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        34.20000019073486,
+        82.59830000809308,
+        10.719999999999999
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        38.20000019073487,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        42.500000190734866,
+        82.59830000809308,
+        10.719999999999999
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "screw",
+    "bounds_mm": [
+      [
+        46.500000190734866,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        50.80000038146973,
+        82.59829998016357,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw",
+    "bounds_mm": [
+      [
+        54.80000038146973,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        59.10000057220459,
+        82.59829998016357,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw",
+    "bounds_mm": [
+      [
+        63.10000057220459,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        67.40000076293946,
+        82.59829998016357,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "screw",
+    "bounds_mm": [
+      [
+        71.40000076293946,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        75.70000095367432,
+        82.59829998016357,
+        26.31999969482422
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/screw-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        79.70000095367432,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        84.10000057220459,
+        82.6991515159607,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        88.10000057220459,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        92.50000019073487,
+        82.6991515159607,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        96.50000019073487,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        100.89999980926514,
+        82.6991515159607,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        104.89999980926514,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        109.29999942779541,
+        82.6991515159607,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "hand-key",
+    "bounds_mm": [
+      [
+        113.29999942779541,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        123.29999942779541,
+        88.29717328778244,
+        10.99
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/hand-key-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        127.2999994277954,
+        78.29914999008179,
+        0.0
+      ],
+      [
+        136.2999994277954,
+        82.29914999008179,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        5.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        14.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        18.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        27.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        31.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        40.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        44.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        53.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        57.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        66.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        70.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        79.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  },
+  {
+    "name": "stop-spacer",
+    "bounds_mm": [
+      [
+        83.0,
+        93.29717328778244,
+        0.0
+      ],
+      [
+        92.0,
+        97.29717328778244,
+        2.4
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-297/cad/parts/stop-spacer-print.stl"
+  }
+]

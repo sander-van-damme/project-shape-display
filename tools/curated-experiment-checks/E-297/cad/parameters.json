@@ -1,0 +1,22 @@
+{
+  "pitch": 5.08,
+  "stroke": 2.4,
+  "tip_gap": 3.36,
+  "tooth_height": 2.4,
+  "tooth_width_deg": 76,
+  "tooth_inner_radius": 0.6,
+  "tooth_outer_radius": 1.8,
+  "tip_chamfer": 0.24,
+  "lower_base": 7.0,
+  "upper_base": 27.56,
+  "flange_thickness": 0.72,
+  "flange_diameter": 4.3,
+  "comb_blade": 0.96,
+  "comb_gap": 0.96,
+  "axial_capture_play": 0.24,
+  "shaft_diameter": 2.2,
+  "shaft_flats": 1.6,
+  "socket_diameter": 2.5,
+  "socket_flats": 1.9,
+  "socket_depth": 5.48
+}

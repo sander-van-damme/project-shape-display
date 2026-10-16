@@ -1,0 +1,739 @@
+{
+  "tested": 39000,
+  "guide_clear": 14664,
+  "feasible_count": 7741,
+  "maximum_tilt_deg": 3.5,
+  "worst": [
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.6122810538161554,
+      "shaft_overlap_mm3": 1.512197175010886
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.6122810538161554,
+      "shaft_overlap_mm3": 1.512197175010886
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.6122810538161554,
+      "shaft_overlap_mm3": 1.512197175010886
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798116
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798116
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798116
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.1987455915569656
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.1987455915569656
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.1987455915569656
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798114
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798114
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.0,
+      "phi": 270,
+      "dx": 0.1,
+      "dy": 0.1,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.561069237179997,
+      "shaft_overlap_mm3": 1.3347415951798114
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.7752170506323621
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.7752170506323621
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": -0.1,
+      "dy": 0,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.7752170506323621
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.6764027169072195
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.6764027169072195
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0,
+      "combshift": 0.2,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.6764027169072195
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0.1,
+      "dy": 0,
+      "dz": 0,
+      "combshift": -0.2,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.7752170506323619
+    },
+    {
+      "selector_fraction": 0,
+      "theta": 3.5,
+      "phi": 270,
+      "dx": 0.1,
+      "dy": 0,
+      "dz": 0,
+      "combshift": 0,
+      "round_reach": 2.5122810538161553,
+      "shaft_overlap_mm3": 0.7752170506323619
+    }
+  ],
+  "shaft_clear_worst": {
+    "selector_fraction": 0,
+    "theta": 2.0,
+    "phi": 45,
+    "dx": 0.1,
+    "dy": 0,
+    "dz": 0,
+    "combshift": -0.2,
+    "round_reach": 2.2974112634768273,
+    "shaft_overlap_mm3": 0.0
+  },
+  "by_state": [
+    {
+      "selector_fraction": 0,
+      "worst": {
+        "selector_fraction": 0,
+        "theta": 3.5,
+        "phi": 270,
+        "dx": 0,
+        "dy": 0.1,
+        "dz": 0,
+        "combshift": -0.2,
+        "round_reach": 2.6122810538161554,
+        "shaft_overlap_mm3": 1.512197175010886
+      },
+      "shaft_clear_worst": {
+        "selector_fraction": 0,
+        "theta": 2.0,
+        "phi": 45,
+        "dx": 0.1,
+        "dy": 0,
+        "dz": 0,
+        "combshift": -0.2,
+        "round_reach": 2.2974112634768273,
+        "shaft_overlap_mm3": 0.0
+      }
+    },
+    {
+      "selector_fraction": 0.5,
+      "worst": {
+        "selector_fraction": 0.5,
+        "theta": 3.0,
+        "phi": 90,
+        "dx": -0.1,
+        "dy": -0.1,
+        "dz": 0,
+        "combshift": -0.2,
+        "round_reach": 2.4982660896884643,
+        "shaft_overlap_mm3": 0.776144059148291
+      },
+      "shaft_clear_worst": {
+        "selector_fraction": 0.5,
+        "theta": 2.5,
+        "phi": 45,
+        "dx": 0.1,
+        "dy": 0,
+        "dz": 0,
+        "combshift": -0.2,
+        "round_reach": 2.297026191838939,
+        "shaft_overlap_mm3": 0.0
+      }
+    },
+    {
+      "selector_fraction": 1,
+      "worst": {
+        "selector_fraction": 1,
+        "theta": 3.0,
+        "phi": 90,
+        "dx": -0.1,
+        "dy": -0.1,
+        "dz": 0,
+        "combshift": -0.2,
+        "round_reach": 2.4354629421969314,
+        "shaft_overlap_mm3": 0.3713022151806112
+      },
+      "shaft_clear_worst": {
+        "selector_fraction": 1,
+        "theta": 1.0,
+        "phi": 45,
+        "dx": -0.1,
+        "dy": 0,
+        "dz": -0.06,
+        "combshift": -0.2,
+        "round_reach": 2.294262852311103,
+        "shaft_overlap_mm3": 8.593769557184924e-06
+      }
+    }
+  ],
+  "scope": "Finite sampled geometry; full 3.6 mm circular tooth/body envelope includes every rotation phase. Actual frame guide and two-cell selector, including +/-0.2 mm transverse selector offset. Shaft is deliberately omitted from acceptance for a conservative superset; overlap with the nominal vertical shaft is separately recorded. Mirroring/quarter-turn maps to upper rotors. No print errors, friction, compliance or continuous-pose proof.",
+  "dense_search_source_mesh_sha256": {
+    "rotor": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+    "row-selector": "d29645427ee291ae8d8dad962d29794439035c119dbb6760eb9652b7411ddc31",
+    "input-shaft": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+    "frame-left": "e60f786afd6d9fae6402b8047da9b7d4bd00ac64f61e8a763883862cb86bca13",
+    "frame-center": "1c01beef55ecad1ef1f545f96b4371f43e441ffeddbff09810ba8906cd602028",
+    "frame-right": "ae60f921920674066b935602123cf3cf141e04c018ac92c12c50aa27a3fa40b6"
+  },
+  "final_geometry_replay": {
+    "source_mesh_sha256": {
+      "rotor": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+      "row-selector": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42",
+      "input-shaft": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+      "frame-left": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0",
+      "frame-center": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573",
+      "frame-right": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3"
+    },
+    "cases": [
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.6122810538161554,
+          "shaft_overlap_mm3": 1.512197175010886
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.087171577714507e-09,
+        "vertical_shaft_intersection_mm3": 1.512197175010886
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.6122810538161554,
+          "shaft_overlap_mm3": 1.512197175010886
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.087171577714507e-09,
+        "vertical_shaft_intersection_mm3": 1.512197175010886
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.6122810538161554,
+          "shaft_overlap_mm3": 1.512197175010886
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.087171577714507e-09,
+        "vertical_shaft_intersection_mm3": 1.512197175010886
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798116
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798116
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798116
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798116
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798116
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798116
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.1987455915569656
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.1987455915569656
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.1987455915569656
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.1987455915569656
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.1987455915569656
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.1987455915569656
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798114
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798114
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798114
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798114
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.0,
+          "phi": 270,
+          "dx": 0.1,
+          "dy": 0.1,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.561069237179997,
+          "shaft_overlap_mm3": 1.3347415951798114
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 1.3347415951798114
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.7752170506323621
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715776963488e-09,
+        "vertical_shaft_intersection_mm3": 0.7752170506323621
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.7752170506323621
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715776963488e-09,
+        "vertical_shaft_intersection_mm3": 0.7752170506323621
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": -0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.7752170506323621
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715777099013e-09,
+        "vertical_shaft_intersection_mm3": 0.7752170506323621
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.6764027169072195
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715776999487e-09,
+        "vertical_shaft_intersection_mm3": 0.6764027169072195
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.6764027169072195
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715776999487e-09,
+        "vertical_shaft_intersection_mm3": 0.6764027169072195
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0,
+          "dy": 0,
+          "dz": 0,
+          "combshift": 0.2,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.6764027169072195
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715776999487e-09,
+        "vertical_shaft_intersection_mm3": 0.6764027169072195
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.7752170506323619
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715777035486e-09,
+        "vertical_shaft_intersection_mm3": 0.7752170506323619
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 3.5,
+          "phi": 270,
+          "dx": 0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": 0,
+          "round_reach": 2.5122810538161553,
+          "shaft_overlap_mm3": 0.7752170506323619
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 1.0871715777035486e-09,
+        "vertical_shaft_intersection_mm3": 0.7752170506323619
+      },
+      {
+        "pose": {
+          "selector_fraction": 0,
+          "theta": 2.0,
+          "phi": 45,
+          "dx": 0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.2974112634768273,
+          "shaft_overlap_mm3": 0.0
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 0.0
+      },
+      {
+        "pose": {
+          "selector_fraction": 0.5,
+          "theta": 3.0,
+          "phi": 90,
+          "dx": -0.1,
+          "dy": -0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.4982660896884643,
+          "shaft_overlap_mm3": 0.776144059148291
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 0.776144059148291
+      },
+      {
+        "pose": {
+          "selector_fraction": 0.5,
+          "theta": 2.5,
+          "phi": 45,
+          "dx": 0.1,
+          "dy": 0,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.297026191838939,
+          "shaft_overlap_mm3": 0.0
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 0.0
+      },
+      {
+        "pose": {
+          "selector_fraction": 1,
+          "theta": 3.0,
+          "phi": 90,
+          "dx": -0.1,
+          "dy": -0.1,
+          "dz": 0,
+          "combshift": -0.2,
+          "round_reach": 2.4354629421969314,
+          "shaft_overlap_mm3": 0.3713022151806112
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 0.3713022151806112
+      },
+      {
+        "pose": {
+          "selector_fraction": 1,
+          "theta": 1.0,
+          "phi": 45,
+          "dx": -0.1,
+          "dy": 0,
+          "dz": -0.06,
+          "combshift": -0.2,
+          "round_reach": 2.294262852311103,
+          "shaft_overlap_mm3": 8.593769557184924e-06
+        },
+        "actual_guide_intersection_mm3": 0.0,
+        "actual_comb_intersection_mm3": 0.0,
+        "vertical_shaft_intersection_mm3": 8.593769557184924e-06
+      }
+    ],
+    "conclusion": "All recorded limiting poses remain admissible to the final guide and selector meshes. Only external grips and remote frame spines changed after the dense search; the constrained guide/capture regions are unchanged. This local replay is not a new exhaustive dense search.",
+    "physical_limitation": "The OFF-state guide/comb-only superset includes flange envelopes beyond the cell midplane. Those recorded poses intersect the nominal vertical shaft. Combined input-shaft tilt, printing errors, friction and compliance remain physically unqualified; do not claim global neighbor isolation from this finite sampling."
+  }
+}

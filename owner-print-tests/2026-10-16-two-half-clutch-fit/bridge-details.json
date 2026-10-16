@@ -1,0 +1,849 @@
+[
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9919999999999902,
+    "start_distance_mm": 0.1937254534641939,
+    "end_distance_mm": 0.2131642763841359
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15864740779477654,
+    "start_distance_mm": 0.2131642763841359,
+    "end_distance_mm": 0.2996314700783906
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15148597294798194,
+    "start_distance_mm": 0.2996314700783906,
+    "end_distance_mm": 0.3950338796586005
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17380736463108212,
+    "start_distance_mm": 0.3950338796586005,
+    "end_distance_mm": 0.4290300296294208
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16623477373883444,
+    "start_distance_mm": 0.4290300296294208,
+    "end_distance_mm": 0.43672682148699227
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4919999999999902,
+    "start_distance_mm": 0.43672682148699227,
+    "end_distance_mm": 0.4314627480970103
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1808258831030497,
+    "start_distance_mm": 0.4314627480970103,
+    "end_distance_mm": 0.4205322319329674
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1741034175425695,
+    "start_distance_mm": 0.4205322319329674,
+    "end_distance_mm": 0.4296690225083757
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12757742747053213,
+    "start_distance_mm": 0.4296690225083757,
+    "end_distance_mm": 0.4341819614989131
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.492999999999995,
+    "start_distance_mm": 0.4341819614989131,
+    "end_distance_mm": 0.42631016653504084
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.25625378045992164,
+    "start_distance_mm": 0.42631016653504084,
+    "end_distance_mm": 0.43234895189156597
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17618456232029958,
+    "start_distance_mm": 0.43234895189156597,
+    "end_distance_mm": 0.32777768819873165
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.22313448859378726,
+    "start_distance_mm": 0.32777768819873165,
+    "end_distance_mm": 0.22452661511885735
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9829999999999757,
+    "start_distance_mm": 0.22452661511885735,
+    "end_distance_mm": 0.212735445683649
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9830000000000041,
+    "start_distance_mm": 0.21703206659945046,
+    "end_distance_mm": 0.2266655260471329
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.22261176967986743,
+    "start_distance_mm": 0.2266655260471329,
+    "end_distance_mm": 0.32386532053093237
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1769180601295411,
+    "start_distance_mm": 0.32386532053093237,
+    "end_distance_mm": 0.4356629476839714
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.25625378045992164,
+    "start_distance_mm": 0.4356629476839714,
+    "end_distance_mm": 0.43145274809695777
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4930000000000234,
+    "start_distance_mm": 0.43145274809695777,
+    "end_distance_mm": 0.4354850715850152
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1266056870760532,
+    "start_distance_mm": 0.4354850715850152,
+    "end_distance_mm": 0.419749941790662
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17310401497364442,
+    "start_distance_mm": 0.419749941790662,
+    "end_distance_mm": 0.43032282304218306
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1827840255602198,
+    "start_distance_mm": 0.43032282304218306,
+    "end_distance_mm": 0.42657889255823983
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4930000000000234,
+    "start_distance_mm": 0.42657889255823983,
+    "end_distance_mm": 0.4345334421721535
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16662832892399213,
+    "start_distance_mm": 0.4345334421721535,
+    "end_distance_mm": 0.4217261336354345
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17300289014927067,
+    "start_distance_mm": 0.4217261336354345,
+    "end_distance_mm": 0.3911256863377934
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15148597294799152,
+    "start_distance_mm": 0.3911256863377934,
+    "end_distance_mm": 0.2977093179386494
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15915401345866406,
+    "start_distance_mm": 0.2977093179386494,
+    "end_distance_mm": 0.20907891959658995
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9920005040321487,
+    "start_distance_mm": 0.20907891959658995,
+    "end_distance_mm": 0.20264548416241582
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9920000000000044,
+    "start_distance_mm": 0.19372213544818973,
+    "end_distance_mm": 0.21313460108883522
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15864740779477654,
+    "start_distance_mm": 0.21313460108883522,
+    "end_distance_mm": 0.2996014700783859
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15081445554057027,
+    "start_distance_mm": 0.2996014700783859,
+    "end_distance_mm": 0.394004524144983
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17380736463108212,
+    "start_distance_mm": 0.394004524144983,
+    "end_distance_mm": 0.4287786075445602
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16754700832900363,
+    "start_distance_mm": 0.4287786075445602,
+    "end_distance_mm": 0.43614064326668517
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4930000000000092,
+    "start_distance_mm": 0.43614064326668517,
+    "end_distance_mm": 0.43103274809696507
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.18082588310304681,
+    "start_distance_mm": 0.43103274809696507,
+    "end_distance_mm": 0.42053223193292405
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1741034175425695,
+    "start_distance_mm": 0.42053223193292405,
+    "end_distance_mm": 0.4296690225083448
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12757742747053213,
+    "start_distance_mm": 0.4296690225083448,
+    "end_distance_mm": 0.43410270743578816
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.492999999999995,
+    "start_distance_mm": 0.43410270743578816,
+    "end_distance_mm": 0.4263001665350584
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.2562537804599153,
+    "start_distance_mm": 0.4263001665350584,
+    "end_distance_mm": 0.4323289518915553
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17618456232031895,
+    "start_distance_mm": 0.4323289518915553,
+    "end_distance_mm": 0.32777118819873835
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.22313448859376303,
+    "start_distance_mm": 0.32777118819873835,
+    "end_distance_mm": 0.22452016588859883
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9830000000000041,
+    "start_distance_mm": 0.22452016588859883,
+    "end_distance_mm": 0.21274044568365313
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9919999999999902,
+    "start_distance_mm": 0.19375193685312853,
+    "end_distance_mm": 0.21313212814755594
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15864740779477654,
+    "start_distance_mm": 0.21313212814755594,
+    "end_distance_mm": 0.29959897007838443
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15081445554058082,
+    "start_distance_mm": 0.29959897007838443,
+    "end_distance_mm": 0.39399954800585196
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1738073646310737,
+    "start_distance_mm": 0.39399954800585196,
+    "end_distance_mm": 0.42859682121580644
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16754700832900363,
+    "start_distance_mm": 0.42859682121580644,
+    "end_distance_mm": 0.4358255277111722
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4930000000000092,
+    "start_distance_mm": 0.4358255277111722,
+    "end_distance_mm": 0.43146274809696705
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1827840255602227,
+    "start_distance_mm": 0.43146274809696705,
+    "end_distance_mm": 0.4205482982115095
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17210461934532434,
+    "start_distance_mm": 0.4205482982115095,
+    "end_distance_mm": 0.4296490225083421
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12757742747053213,
+    "start_distance_mm": 0.4296490225083421,
+    "end_distance_mm": 0.4341127074357904
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.492999999999995,
+    "start_distance_mm": 0.4341127074357904,
+    "end_distance_mm": 0.42630016653505676
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.2562537804599153,
+    "start_distance_mm": 0.42630016653505676,
+    "end_distance_mm": 0.4323189518915467
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17618456232031895,
+    "start_distance_mm": 0.4323189518915467,
+    "end_distance_mm": 0.32776768819873786
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.22313448859376303,
+    "start_distance_mm": 0.32776768819873786,
+    "end_distance_mm": 0.22451669322736395
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.9830000000000041,
+    "start_distance_mm": 0.22451669322736395,
+    "end_distance_mm": 0.2127304456836443
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8766829529539102,
+    "start_distance_mm": 0.3020106262266731,
+    "end_distance_mm": 0.28690294016145784
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.14194717327231524,
+    "start_distance_mm": 0.28690294016145784,
+    "end_distance_mm": 0.238740871044809
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15478048972658862,
+    "start_distance_mm": 0.238740871044809,
+    "end_distance_mm": 0.20730784117724407
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15402921800748973,
+    "start_distance_mm": 0.20730784117724407,
+    "end_distance_mm": 0.20572334927944647
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16341664541900244,
+    "start_distance_mm": 0.20572334927944647,
+    "end_distance_mm": 0.21226739301854472
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.11423221962300836,
+    "start_distance_mm": 0.21226739301854472,
+    "end_distance_mm": 0.25503600362092876
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.488672563057437,
+    "start_distance_mm": 0.25503600362092876,
+    "end_distance_mm": 0.4988339308716565
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1908821626030094,
+    "start_distance_mm": 0.4988339308716565,
+    "end_distance_mm": 0.4507469363886275
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15148597294799152,
+    "start_distance_mm": 0.4507469363886275,
+    "end_distance_mm": 0.3447134107078273
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16174362429474107,
+    "start_distance_mm": 0.3447134107078273,
+    "end_distance_mm": 0.2586403064457843
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4872592242107554,
+    "start_distance_mm": 0.2586403064457843,
+    "end_distance_mm": 0.48197146902767135
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12886038956947915,
+    "start_distance_mm": 0.48197146902767135,
+    "end_distance_mm": 0.4875151003549856
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.14819244245238125,
+    "start_distance_mm": 0.4875151003549856,
+    "end_distance_mm": 0.4846638301072683
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17210461934532434,
+    "start_distance_mm": 0.4846638301072683,
+    "end_distance_mm": 0.47950000715313584
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1491106971347331,
+    "start_distance_mm": 0.47950000715313584,
+    "end_distance_mm": 0.48399198067685567
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1278123624693402,
+    "start_distance_mm": 0.48399198067685567,
+    "end_distance_mm": 0.4891006116098002
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8667392918288799,
+    "start_distance_mm": 0.4891006116098002,
+    "end_distance_mm": 0.027073101619223463
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.879459493097888,
+    "start_distance_mm": 0.017155431863800072,
+    "end_distance_mm": 0.4895943940623108
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.13729530217745003,
+    "start_distance_mm": 0.4895943940623108,
+    "end_distance_mm": 0.4831681137339169
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1389172415505023,
+    "start_distance_mm": 0.4831681137339169,
+    "end_distance_mm": 0.4793154340599847
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1741034175425695,
+    "start_distance_mm": 0.4793154340599847,
+    "end_distance_mm": 0.4738336080655361
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.14722092242613125,
+    "start_distance_mm": 0.4738336080655361,
+    "end_distance_mm": 0.47651623324610404
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12976902558006298,
+    "start_distance_mm": 0.47651623324610404,
+    "end_distance_mm": 0.4924514499672056
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.488672563057437,
+    "start_distance_mm": 0.4924514499672056,
+    "end_distance_mm": 0.2550485036209249
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1613846337170853,
+    "start_distance_mm": 0.2550485036209249,
+    "end_distance_mm": 0.3366819457862172
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15148597294799152,
+    "start_distance_mm": 0.3366819457862172,
+    "end_distance_mm": 0.4233383745581434
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1900657780874827,
+    "start_distance_mm": 0.4233383745581434,
+    "end_distance_mm": 0.4813061470411881
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4879909273916923,
+    "start_distance_mm": 0.4813061470411881,
+    "end_distance_mm": 0.258685921534288
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1514892735476718,
+    "start_distance_mm": 0.258685921534288,
+    "end_distance_mm": 0.2089227622717919
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.2784600509947433,
+    "start_distance_mm": 0.2089227622717919,
+    "end_distance_mm": 0.20732284117722988
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15478048972658862,
+    "start_distance_mm": 0.20732284117722988,
+    "end_distance_mm": 0.23993359611806173
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.14235167719418684,
+    "start_distance_mm": 0.23993359611806173,
+    "end_distance_mm": 0.2907171243728066
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8759509118666515,
+    "start_distance_mm": 0.2907171243728066,
+    "end_distance_mm": 0.29297949569350645
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8745495983647765,
+    "start_distance_mm": 0.21249520862539895,
+    "end_distance_mm": 0.40238822501915206
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1306789960169523,
+    "start_distance_mm": 0.40238822501915206,
+    "end_distance_mm": 0.3898943538514005
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17380736463108212,
+    "start_distance_mm": 0.3898943538514005,
+    "end_distance_mm": 0.362864940357482
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15081445554057027,
+    "start_distance_mm": 0.362864940357482,
+    "end_distance_mm": 0.26964734301201504
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15469324484281802,
+    "start_distance_mm": 0.26964734301201504,
+    "end_distance_mm": 0.1833845379954275
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.11765202930676992,
+    "start_distance_mm": 0.1833845379954275,
+    "end_distance_mm": 0.15341151154037752
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4839113854944341,
+    "start_distance_mm": 0.15341151154037752,
+    "end_distance_mm": 0.17511222280833774
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.18506755523321872,
+    "start_distance_mm": 0.17511222280833774,
+    "end_distance_mm": 0.12647206790267312
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.16302760502442196,
+    "start_distance_mm": 0.12647206790267312,
+    "end_distance_mm": 0.12197684423164983
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15728954192824982,
+    "start_distance_mm": 0.12197684423164983,
+    "end_distance_mm": 0.15179342144065905
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4849107717300676,
+    "start_distance_mm": 0.15179342144065905,
+    "end_distance_mm": 0.17494324957702773
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12488794977897784,
+    "start_distance_mm": 0.17494324957702773,
+    "end_distance_mm": 0.21245566622450596
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15008331019804746,
+    "start_distance_mm": 0.21245566622450596,
+    "end_distance_mm": 0.2898358954624286
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1769180601295411,
+    "start_distance_mm": 0.2898358954624286,
+    "end_distance_mm": 0.39952769926842285
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.147665161768106,
+    "start_distance_mm": 0.39952769926842285,
+    "end_distance_mm": 0.3892086923189932
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1281600561797545,
+    "start_distance_mm": 0.3892086923189932,
+    "end_distance_mm": 0.40453073487122204
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8795822872250266,
+    "start_distance_mm": 0.40453073487122204,
+    "end_distance_mm": 0.20884783751513106
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8745495983647905,
+    "start_distance_mm": 0.21573717773955536,
+    "end_distance_mm": 0.4023296994338673
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.12976902558006298,
+    "start_distance_mm": 0.4023296994338673,
+    "end_distance_mm": 0.3905639708324105
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1738073646310779,
+    "start_distance_mm": 0.3905639708324105,
+    "end_distance_mm": 0.3588857014333385
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15081445554057027,
+    "start_distance_mm": 0.3588857014333385,
+    "end_distance_mm": 0.2670138577922797
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.27369508581631896,
+    "start_distance_mm": 0.2670138577922797,
+    "end_distance_mm": 0.14905311817443445
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4879442193845793,
+    "start_distance_mm": 0.14905311817443445,
+    "end_distance_mm": 0.17494524790761598
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.18481612483763785,
+    "start_distance_mm": 0.17494524790761598,
+    "end_distance_mm": 0.12731359399468362
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.31732790611605743,
+    "start_distance_mm": 0.12731359399468362,
+    "end_distance_mm": 0.1534285429348572
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 1.4839467645437998,
+    "start_distance_mm": 0.1534285429348572,
+    "end_distance_mm": 0.17511222280834932
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1244829305567598,
+    "start_distance_mm": 0.17511222280834932,
+    "end_distance_mm": 0.2117100111257474
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.15065855435388234,
+    "start_distance_mm": 0.2117100111257474,
+    "end_distance_mm": 0.2947310596731816
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.17618456232031413,
+    "start_distance_mm": 0.2947310596731816,
+    "end_distance_mm": 0.3990371523246697
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.14851935900749955,
+    "start_distance_mm": 0.3990371523246697,
+    "end_distance_mm": 0.38917869231899993
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.1272242115322398,
+    "start_distance_mm": 0.38917869231899993,
+    "end_distance_mm": 0.40404018792746466
+  },
+  {
+    "z_mm": 5.64,
+    "role": "Bridge",
+    "max_free_centerline_mm": 0.8795822872250262,
+    "start_distance_mm": 0.40404018792746466,
+    "end_distance_mm": 0.20861429348042712
+  }
+]

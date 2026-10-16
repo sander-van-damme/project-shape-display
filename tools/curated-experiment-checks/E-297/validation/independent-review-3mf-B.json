@@ -1,0 +1,25 @@
+{
+  "project": "owner-print-tests/2026-10-16-two-half-clutch-matrix/clutch-matrix.3mf",
+  "sha256": "3011118591b7b1d052a6c68da39be35150c57ed1af7ff5a1a89098c462317be3",
+  "zip_test": null,
+  "object_model_count": 36,
+  "machine": "Bambu Lab X1 Carbon",
+  "variant": "0.4",
+  "material": [
+    "PLA"
+  ],
+  "layer": "0.12",
+  "first_layer": "0.12",
+  "wall_generator": "arachne",
+  "support": "0",
+  "nozzle": [
+    "0.4"
+  ],
+  "brim_type": "outer_only",
+  "brim_gap": "0",
+  "gcode_bytes": 11498354,
+  "motion_line_count": 338807,
+  "support_role_present": false,
+  "gcode_md5_actual": "8b35720e103cd2ae102ed1efb4e6a394",
+  "gcode_md5_embedded": "8B35720E103CD2AE102ED1EFB4E6A394"
+}

@@ -1,0 +1,10 @@
+{
+  "command": "./repo check",
+  "method": "Clean git archive plus only requested deliverable paths; excludes scratch work",
+  "base_commit": "8511bb21b6c358a295d286cab2194ef0f37f7520",
+  "baseline_exit_code": 1,
+  "delivery_exit_code": 1,
+  "baseline_output": "Oversized atomic object: E-266\nOversized atomic object: E-283\nOversized atomic object: E-286\nOversized atomic object: E-288\nOversized atomic object: E-293\nOversized instructions: AGENTS.md\nOversized instructions: owner-print-tests/AGENTS.md\n",
+  "delivery_output": "Oversized atomic object: E-266\nOversized atomic object: E-283\nOversized atomic object: E-286\nOversized atomic object: E-288\nOversized atomic object: E-293\nOversized instructions: AGENTS.md\nOversized instructions: owner-print-tests/AGENTS.md\n",
+  "same_existing_findings": true
+}

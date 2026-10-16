@@ -1,0 +1,10 @@
+{
+  "evidence": "actual STL intersection, before fixed radial guide correction; not physical test",
+  "part_sha256": {
+    "input-shaft.stl": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+    "rotor.stl": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+    "single-comb.stl": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b"
+  },
+  "transform": "both rotors tilt about local flange center z=.36; neighboring input axes at x0,5.08; opposing y-axis angles and x translations. Input-shaft translated z1.2-9.4 to selected rotor frame.",
+  "cases": []
+}

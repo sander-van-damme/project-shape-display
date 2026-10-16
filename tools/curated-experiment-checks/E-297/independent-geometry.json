@@ -1,0 +1,627 @@
+{
+  "kinematics": {
+    "evidence": "Analytical geometry, not manufacturing or friction qualification",
+    "four_states": [
+      {
+        "row": 0,
+        "column": 0,
+        "tip_gap_mm": 3.36,
+        "nominal_interdigitation_mm": 0,
+        "nominal_straight_flank_overlap_mm": 0
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "tip_gap_mm": 0.96,
+        "nominal_interdigitation_mm": 0,
+        "nominal_straight_flank_overlap_mm": 0
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "tip_gap_mm": 0.96,
+        "nominal_interdigitation_mm": 0,
+        "nominal_straight_flank_overlap_mm": 0
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "tip_gap_mm": -1.44,
+        "nominal_interdigitation_mm": 1.44,
+        "nominal_straight_flank_overlap_mm": 0.96
+      }
+    ],
+    "all_16_selector_masks": [
+      {
+        "mask": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          3.36,
+          3.36,
+          3.36,
+          3.36
+        ]
+      },
+      {
+        "mask": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          3.36,
+          0.96,
+          3.36,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          3.36,
+          0.96,
+          3.36
+        ]
+      },
+      {
+        "mask": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          0.96,
+          0.96,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          3.36,
+          3.36,
+          0.96,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "cell_tip_gaps_mm": [
+          3.36,
+          0.96,
+          0.96,
+          -1.44
+        ]
+      },
+      {
+        "mask": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          3.36,
+          -1.44,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          0.96,
+          -1.44,
+          -1.44
+        ]
+      },
+      {
+        "mask": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          0.96,
+          3.36,
+          3.36
+        ]
+      },
+      {
+        "mask": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          -1.44,
+          3.36,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "engaged_cells": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          -1.44,
+          0.96,
+          0.96,
+          3.36
+        ]
+      },
+      {
+        "mask": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "engaged_cells": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          -1.44,
+          -1.44,
+          0.96,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "engaged_cells": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          0.96,
+          0.96,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "engaged_cells": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "cell_tip_gaps_mm": [
+          0.96,
+          -1.44,
+          0.96,
+          -1.44
+        ]
+      },
+      {
+        "mask": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "engaged_cells": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "cell_tip_gaps_mm": [
+          -1.44,
+          0.96,
+          -1.44,
+          0.96
+        ]
+      },
+      {
+        "mask": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "engaged_cells": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "cell_tip_gaps_mm": [
+          -1.44,
+          -1.44,
+          -1.44,
+          -1.44
+        ]
+      }
+    ],
+    "one_sided_sweep": {
+      "samples": 202,
+      "minimum_gap_mm": 0.96
+    },
+    "break_before_make": {
+      "transition_count": 256,
+      "sample_count": 103424,
+      "all_intermediate_contacts_subset_of_source_or_destination": true,
+      "all_routes_pass_through_fully_open": true,
+      "instruction": "Stop input rotation and unload torque before changing selectors; release old selection completely before making the new one."
+    },
+    "contact_boundary": {
+      "sum_normalized_strokes": 1.4,
+      "final_axis_travel_before_contact_mm": 0.96,
+      "interpretation": "Two partly moved selectors CAN touch once their combined closure reaches 3.36 mm. One selector alone cannot. This is a geometric AND for hard-stop states, not a position-independent digital latch."
+    },
+    "capture_play_budget": {
+      "axial_play_each_mm": 0.24,
+      "centered_axial_error_each_mm": 0.12,
+      "centered_two_half_error_stack_mm": 0.24,
+      "worst_full_play_stack_mm": 0.48,
+      "single_clearance_after_full_play_stack_mm": 0.48,
+      "full_interdigitation_after_full_play_stack_mm": 0.96,
+      "note": "These are residual budgets, before stop error, tip error, deflection and assembly error; no X1C tolerance distribution is assumed."
+    },
+    "bounded_axial_error": {
+      "total_adverse_stack_mm": 0.72,
+      "single_selection_gap_after_stack_mm": 0.24,
+      "straight_flank_overlap_after_stack_mm": 0.24,
+      "tip_to_opposite_hub_root_gap_after_stack_mm": 0.24,
+      "interpretation": "The .72 mm bound is an acceptance budget, not a measured printer capability. It includes capture play, stop error, printed tip error and deflection. All three residuals must remain positive."
+    },
+    "envelope": {
+      "pin_to_pin_face_gap_mm": 0.6799999999999997,
+      "rotating_half_to_half_gap_mm": 0.7800000000000002
+    }
+  },
+  "phase": {
+    "dog_count_each_half": 2,
+    "dog_sector_deg": 76.0,
+    "centered_complement_phase_deg": 90,
+    "straight_flank_fit_phase_interval_deg": [
+      76.0,
+      104.0
+    ],
+    "unloaded_reversal_lash_deg": 28.0,
+    "screw_height_equivalent_at_3mm_lead_mm": 0.23333333333333334,
+    "caveat": "This is straight-flank angular geometry. Lead-in chamfers permit a wider initial capture but do not guarantee autonomous seating from every phase. Tooth-on-tooth alignment is a blocked state; gently rock the input while applying light selector force, never force the selector home."
+  },
+  "dd": {
+    "male_diameter_mm": 2.2,
+    "male_af_mm": 1.6,
+    "minimum_permanent_axial_overlap_mm": 2.52,
+    "nominal_two_DD_plus_dog_reversal_lash_deg": 80.27646763325144,
+    "nominal_total_screw_height_equivalent_mm": 0.6689705636104286,
+    "including_removable_hand_key_reversal_lash_deg": 106.41470144987716,
+    "including_hand_key_height_equivalent_mm": 0.8867891787489763,
+    "variants": [
+      {
+        "radial_and_per_flat_relief_mm": 0.12,
+        "bore_diameter_mm": 2.4400000000000004,
+        "bore_af_mm": 1.84,
+        "positive_capture_diameter_margin_mm": 0.3600000000000001,
+        "unloaded_profile_reversal_lash_deg": 20.199711383910703,
+        "feature_error_corners": [
+          {
+            "independent_diameter_or_AF_error_mm": 0.025,
+            "worst_torque_capture_diameter_margin_mm": 0.3100000000000003,
+            "worst_aligned_total_flat_clearance_mm": 0.19000000000000017,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.05,
+            "worst_torque_capture_diameter_margin_mm": 0.26000000000000023,
+            "worst_aligned_total_flat_clearance_mm": 0.1399999999999999,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.1,
+            "worst_torque_capture_diameter_margin_mm": 0.15999999999999992,
+            "worst_aligned_total_flat_clearance_mm": 0.039999999999999813,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          }
+        ]
+      },
+      {
+        "radial_and_per_flat_relief_mm": 0.15,
+        "bore_diameter_mm": 2.5,
+        "bore_af_mm": 1.9000000000000001,
+        "positive_capture_diameter_margin_mm": 0.30000000000000004,
+        "unloaded_profile_reversal_lash_deg": 26.13823381662572,
+        "feature_error_corners": [
+          {
+            "independent_diameter_or_AF_error_mm": 0.025,
+            "worst_torque_capture_diameter_margin_mm": 0.2500000000000002,
+            "worst_aligned_total_flat_clearance_mm": 0.2500000000000002,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.05,
+            "worst_torque_capture_diameter_margin_mm": 0.20000000000000018,
+            "worst_aligned_total_flat_clearance_mm": 0.19999999999999996,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.1,
+            "worst_torque_capture_diameter_margin_mm": 0.10000000000000009,
+            "worst_aligned_total_flat_clearance_mm": 0.09999999999999987,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          }
+        ]
+      },
+      {
+        "radial_and_per_flat_relief_mm": 0.2,
+        "bore_diameter_mm": 2.6,
+        "bore_af_mm": 2.0,
+        "positive_capture_diameter_margin_mm": 0.20000000000000018,
+        "unloaded_profile_reversal_lash_deg": 37.443561797130556,
+        "feature_error_corners": [
+          {
+            "independent_diameter_or_AF_error_mm": 0.025,
+            "worst_torque_capture_diameter_margin_mm": 0.15000000000000036,
+            "worst_aligned_total_flat_clearance_mm": 0.3500000000000001,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.05,
+            "worst_torque_capture_diameter_margin_mm": 0.10000000000000053,
+            "worst_aligned_total_flat_clearance_mm": 0.2999999999999998,
+            "robust_positive_capture": true,
+            "guaranteed_positive_aligned_clearance": true
+          },
+          {
+            "independent_diameter_or_AF_error_mm": 0.1,
+            "worst_torque_capture_diameter_margin_mm": 0.0,
+            "worst_aligned_total_flat_clearance_mm": 0.19999999999999973,
+            "robust_positive_capture": false,
+            "guaranteed_positive_aligned_clearance": true
+          }
+        ]
+      }
+    ],
+    "interpretation": "DD is a positive bidirectional torsion connection in ideal geometry for all three variants. The .20 variant loses guaranteed positive capture at adverse +/-0.10 mm independent feature-size errors. Clearance does not establish friction, strength, coaxiality or FDM repeatability."
+  },
+  "support": {
+    "lower_guide_z_mm": [
+      42,
+      43.2
+    ],
+    "upper_guide_z_mm": [
+      51.2,
+      52.4
+    ],
+    "pin_bottom_range_mm": [
+      35.21,
+      41.21
+    ],
+    "pin_top_range_mm": [
+      53.21,
+      59.21
+    ],
+    "minimum_pin_guide_axial_overlap_mm": 1.1999999999999957,
+    "conservative_pin_tilt": {
+      "guide_hole_width_mm": 4.6,
+      "pin_width_mm": 4.4,
+      "closest_guide_face_separation_mm": 8.0,
+      "maximum_tip_overhang_including_output_float_mm": 7.050000000000004,
+      "maximum_per_pin_face_half_envelope_mm": 2.47625,
+      "nominal_pair_neighbor_reserve_mm": 0.1275000000000004,
+      "note": "Ideal rigid guides only. Hole enlargement, frame-half misalignment, bending and print error consume this small reserve. Square yaw uses some of the same guide clearance and does not increase this bound; no physical neighbor-isolation qualification."
+    },
+    "shaft_support": {
+      "input_collar_z_mm": [
+        1.2,
+        3.0
+      ],
+      "input_keeper_z_mm": 3.24,
+      "input_journal_z_mm": [
+        3.24,
+        5.6
+      ],
+      "output_cone_seat_z_mm": 30.22,
+      "output_flange_top_z_mm": 31.97,
+      "output_keeper_z_mm": 32.21,
+      "axial_thrust_float_mm": 0.24,
+      "socket_tip_clearance_off_mm": 0.56,
+      "worst_input_roof_clearance_after_shaft_and_capture_float_mm": 0.20000000000000007,
+      "input_roof_clearance_with_additional_point12_selector_stop_error_mm": 0.08000000000000007,
+      "worst_output_roof_clearance_after_capture_float_mm": 0.44000000000000006,
+      "nominal_minimum_DD_overlap_mm": 2.52,
+      "worst_minimum_DD_overlap_after_output_and_capture_float_mm": 2.16,
+      "minimum_DD_overlap_with_additional_point12_selector_stop_error_mm": 2.04,
+      "note": "Axial shaft float can cause a pin-height transient; it is not automatically part of the dog-gap stack while DD heads remain clear of blind socket roofs."
+    }
+  },
+  "calculated_only": true,
+  "source_sha256": "0344f8ab3677b80b7d0896c3c2cdfa32ec1cb362ff5402605cb436386e85d382",
+  "actual_meshes": {
+    "source_mesh_sha256": {
+      "frame-left": "939accda4eaac4387901a7f1e5cb3018a35c3623563350a81d9db51bb44ca8a0",
+      "frame-center": "32a10e01357aeced3b4fa7abe605dd41f1476d2c9e705e9476912c6f6bbf2573",
+      "frame-right": "3aa560eb1bf9291e936c932f24bc14f4466f4fd3256f0b5e6da770a9770171a3",
+      "row-selector": "e77b53ac03ef99ac3e2c74cb99f0cddb2fc9b80bd6eaa85ca523c9604c817a42",
+      "input-shaft": "c4daa7ca763f59dada8cc8f12c69cf676d49c8a184409c3b87c760e97a8b5d79",
+      "rotor": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+      "screw": "243ee68d23daca7ce2115f6a0201a77baf773d0220e4f3ea29b39257f21c34f0",
+      "pin": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110",
+      "stop-spacer": "ec48d1ce8c275508e845edbdb7c12ca82f3f0a625356eec40363e3a6dbbe5b5a",
+      "rotor-tight": "421adb493a5bb00e69b1a8fff1d3ead07e1534e99378ea1581fcc59825632db8",
+      "comb-tight": "86220a56e842b6b43e5fd80b97070b11f5b50187b97e5e817ed98f82f28a7631",
+      "rotor-nominal": "4b297897e8b0375423e7f2cba37c2b614b14c7a0f2c282d483f0561c5ea708fe",
+      "comb-nominal": "47aa0055525e232b9f6be67542a3bc9b67d7e64c7168f523627c7173ff5bc79b",
+      "rotor-loose": "c4d5aad6072c49e1cb0ec444c9d55d40a6f5cd1fd6bdb114b66bbf1764f60ed4",
+      "comb-loose": "ce30fb769c3b2067bc860a6a595f40d905c547f14e1c215e5ba81e0c2b2cfeb0"
+    },
+    "intersection_tolerance_mm3": 1e-05,
+    "checks": {
+      "poses": 1071,
+      "pair_candidates": 49754,
+      "intersection_evaluations": 7653
+    },
+    "unexpected_intersections": [],
+    "all_nominal_and_sampled_states_clear": true,
+    "negative_controls": {
+      "tooth_on_tooth_forced_closure_mm3": 5.2552712075896775,
+      "wrong_thread_travel_sign_mm3": 10.83361287654383
+    },
+    "coupon_full_rotation_and_axial_capture": [
+      {
+        "variant": "tight",
+        "samples": 72,
+        "max_intersection_mm3": 4.34361510936195e-09
+      },
+      {
+        "variant": "nominal",
+        "samples": 72,
+        "max_intersection_mm3": 8.083510821208098e-09
+      },
+      {
+        "variant": "loose",
+        "samples": 72,
+        "max_intersection_mm3": 2.568764381615262e-09
+      }
+    ],
+    "assembly": {
+      "steps": [
+        "far-left-lower",
+        "far-right-lower",
+        "far-row-fork-stage",
+        "far-row-fork",
+        "near-left-lower",
+        "near-right-lower",
+        "near-row-fork-stage",
+        "near-row-fork",
+        "left-upper-column",
+        "right-upper-column",
+        "left-frame-close",
+        "right-frame-close"
+      ],
+      "samples": 668,
+      "maximum_translation_step_mm": 0.25
+    },
+    "scope": "Actual exported tessellated meshes, independently placed. Finite intermediate mesh sampling plus continuous analytical axial-gap bounds; not a friction, load, physical print or automatic engagement proof."
+  }
+}

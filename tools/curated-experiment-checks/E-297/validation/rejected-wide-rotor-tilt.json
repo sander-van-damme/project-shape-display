@@ -1,0 +1,23 @@
+{
+  "feasible_count": 205,
+  "worst_reach": {
+    "angle": 3.2,
+    "dx": 0.04999999999999999,
+    "dz": 0,
+    "comb_mm3": 0.0,
+    "shaft_mm3": 0.0,
+    "neighbor_mm3": 0.03514110724967168,
+    "reach": 2.600310765694497
+  },
+  "worst_collision": {
+    "angle": 3.2,
+    "dx": 0.04999999999999999,
+    "dz": 0,
+    "comb_mm3": 0.0,
+    "shaft_mm3": 0.0,
+    "neighbor_mm3": 0.03514110724967168,
+    "reach": 2.600310765694497
+  },
+  "rotor_sha256": "8f799303c0dc89a1caadad3e37216a6f79ff5336e35bc775debd84beaef615c1",
+  "evidence": "Rejected earlier wide rotor: actual allowed tilt produced neighboring-rotor collision. Retained negative evidence; not the released rotor."
+}
