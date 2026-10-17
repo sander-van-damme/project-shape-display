@@ -1,0 +1,102 @@
+{
+  "bosl2": "136e6367e65d52196a3ea51d03156f8b622c60fc",
+  "print_body_count": 5,
+  "plate_bounds_mm": [
+    [
+      2.0,
+      -20.0,
+      0.0
+    ],
+    [
+      105.5,
+      53.0,
+      18.4
+    ]
+  ],
+  "parts": [
+    {
+      "name": "half",
+      "volume_mm3": 3624.47804982557,
+      "bounds_mm": [
+        [
+          -18.0,
+          -44.0,
+          0.0
+        ],
+        [
+          18.0,
+          0.0,
+          10.0
+        ]
+      ],
+      "watertight": true
+    },
+    {
+      "name": "cup",
+      "volume_mm3": 546.9959792358113,
+      "bounds_mm": [
+        [
+          -6.5,
+          -6.5,
+          7.62939e-07
+        ],
+        [
+          6.5,
+          6.5,
+          13.6
+        ]
+      ],
+      "watertight": true
+    },
+    {
+      "name": "screw",
+      "volume_mm3": 311.8884354761005,
+      "bounds_mm": [
+        [
+          -5.0,
+          -5.0,
+          0.0
+        ],
+        [
+          5.0,
+          5.0,
+          18.4
+        ]
+      ],
+      "watertight": true
+    },
+    {
+      "name": "pin",
+      "volume_mm3": 194.30324166756796,
+      "bounds_mm": [
+        [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          18.0
+        ]
+      ],
+      "watertight": true
+    }
+  ],
+  "mating_positions": 41,
+  "max_overlap_mm3": 0.0,
+  "stroke_mm": 3,
+  "washer": {
+    "ID_mm": 3.2,
+    "OD_mm": 7,
+    "thickness_mm": 0.5,
+    "Z_bottom_mm": 23.7
+  },
+  "journal_radial_clearance_mm": 0.25,
+  "cup_radial_socket_clearance_mm": 0.2,
+  "motor_radial_cradle_clearance_mm": 0.25,
+  "guide_side_clearance_mm": 0.2,
+  "axial_keeper_clearance_mm": 0.3,
+  "scope": "Nominal CAD only. No measured torque, fit, wear or load result.",
+  "stl_sha256": "3f92a15b6fc5d071141ca35735d34f252368c560d39f4426ed6d3d722d929b27"
+}

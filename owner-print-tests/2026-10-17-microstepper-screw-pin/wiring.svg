@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750"><rect width="100%" height="100%" fill="white"/><style>text{font-family:Arial,sans-serif;font-size:14px} .title{font-size:21px;font-weight:bold} path,line,rect{stroke-linejoin:round}</style><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<text x="25" y="32" class="title">Uno R3 + TMC2208 — aansluitnamen en Uno-pinnummers</text>
+<text x="25" y="55" class="">TMC-headerposities verschillen per PCB. Alleen een punt betekent een elektrische verbinding.</text>
+<rect x="40" y="90" width="220" height="350" fill="#e5ecf0" stroke="#394854"/>
+<text x="65" y="118" class="">Arduino Uno R3 / USB</text>
+<rect x="500" y="90" width="200" height="390" fill="#e5ecf0" stroke="#394854"/>
+<text x="520" y="118" class="">TMC2208 / R110</text>
+<text x="170" y="138" class="">D2</text>
+<text x="170" y="178" class="">D3</text>
+<text x="170" y="218" class="">D4</text>
+<text x="170" y="278" class="">D8 RX</text>
+<text x="170" y="318" class="">D9 TX</text>
+<text x="170" y="368" class="">5V</text>
+<text x="170" y="408" class="">GND</text>
+<text x="510" y="138" class="">STEP</text>
+<text x="510" y="178" class="">DIR</text>
+<text x="510" y="218" class="">EN</text>
+<text x="510" y="298" class="">PDN_UART</text>
+<text x="510" y="368" class="">VIO</text>
+<text x="510" y="408" class="">GND</text>
+<polyline points="260,145 500,145" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="260,185 500,185" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="260,225 500,225" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="260,375 500,375" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="260,285 390,285 390,305 500,305" fill="none" stroke="#34495e" stroke-width="2"/>
+<circle cx="450" cy="305" r="4" fill="#34495e"/>
+<polyline points="260,325 310,325" fill="none" stroke="#34495e" stroke-width="2"/>
+<rect x="310" y="317" width="65" height="16" fill="#fff1cd" stroke="#394854"/>
+<text x="318" y="312" class="">1 kΩ</text>
+<polyline points="375,325 450,325 450,305" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="460,225 460,130" fill="none" stroke="#34495e" stroke-width="2"/>
+<rect x="452" y="100" width="16" height="30" fill="#fff1cd" stroke="#394854"/>
+<text x="385" y="115" class="">10 kΩ</text>
+<polyline points="460,100 460,85" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="423" y="81" class="">Uno 5V</text>
+<circle cx="460" cy="225" r="4" fill="#34495e"/>
+<polyline points="260,415 340,415 340,675" fill="none" stroke="#34495e" stroke-width="2"/>
+<polyline points="500,415 480,415 480,675" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="610" y="148" class="">1A / A1</text>
+<polyline points="700,155 830,155" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="610" y="188" class="">1B / A2</text>
+<polyline points="700,195 830,195" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="610" y="268" class="">2A / B1</text>
+<polyline points="700,275 830,275" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="610" y="308" class="">2B / B2</text>
+<polyline points="700,315 830,315" fill="none" stroke="#34495e" stroke-width="2"/>
+<rect x="830" y="115" width="140" height="245" fill="#f5e7c9" stroke="#394854"/>
+<text x="845" y="140" class="">Motor 8×8,2</text>
+<polyline points="830,155 920,155 920,195 830,195" fill="none" stroke="#ad672a" stroke-width="2"/>
+<text x="840" y="180" class="">fase A ≈40 Ω</text>
+<polyline points="830,275 920,275 920,315 830,315" fill="none" stroke="#ad672a" stroke-width="2"/>
+<text x="840" y="300" class="">fase B ≈40 Ω</text>
+<text x="515" y="447" class="">MS1, MS2 → GND</text>
+<text x="515" y="468" class="">UART via PCB-brug</text>
+<rect x="40" y="520" width="235" height="105" fill="#e9f4e8" stroke="#394854"/>
+<text x="55" y="548" class="">Geregelde 6,0 V DC</text>
+<text x="55" y="572" class="">stroomlimiet 0,25 A</text>
+<text x="55" y="600" class="">− naar gemeenschappelijke GND</text>
+<polyline points="275,555 370,555" fill="none" stroke="#b73b31" stroke-width="2"/>
+<rect x="370" y="547" width="65" height="16" fill="#fff1cd" stroke="#394854"/>
+<text x="367" y="535" class="">250 mA</text>
+<polyline points="435,555 465,555" fill="none" stroke="#b73b31" stroke-width="2"/>
+<polyline points="490,555 510,555" fill="none" stroke="#b73b31" stroke-width="2"/>
+<text x="448" y="585" class="">UIT / AAN</text>
+<circle cx="465" cy="555" r="3" fill="white" stroke="#b73b31"/><circle cx="490" cy="555" r="3" fill="white" stroke="#b73b31"/><path d="M465 555L488 542" fill="none" stroke="#b73b31" stroke-width="3"/>
+<polyline points="510,555 550,555" fill="none" stroke="#b73b31" stroke-width="2"/>
+<path d="M550 544L570 555L550 566z M572 542V568" fill="#b73b31" stroke="#b73b31"/>
+<text x="530" y="535" class="">SS14, band → VM</text>
+<polyline points="572,555 780,555 780,430 700,430" fill="none" stroke="#b73b31" stroke-width="2"/>
+<text x="652" y="425" class="">VM</text>
+<polyline points="710,555 710,595" fill="none" stroke="#b73b31" stroke-width="2"/>
+<circle cx="710" cy="555" r="4" fill="#34495e"/>
+<path d="M695 595H725 M695 604H725" stroke="#34495e" stroke-width="3"/>
+<polyline points="710,604 710,675" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="730" y="600" class="">100 µF / ≥16 V</text>
+<text x="730" y="620" class="">+ aan VM; − aan GND</text>
+<polyline points="650,555 650,632" fill="none" stroke="#b73b31" stroke-width="2"/>
+<circle cx="650" cy="555" r="4" fill="#34495e"/>
+<path d="M638 632H662 M638 641H662" stroke="#34495e" stroke-width="3"/>
+<polyline points="650,641 650,675" fill="none" stroke="#34495e" stroke-width="2"/>
+<text x="550" y="635" class="">100 nF</text>
+<polyline points="150,625 150,675 780,675" fill="none" stroke="#34495e" stroke-width="2"/>
+<circle cx="340" cy="675" r="4" fill="#34495e"/>
+<circle cx="480" cy="675" r="4" fill="#34495e"/>
+<circle cx="650" cy="675" r="4" fill="#34495e"/>
+<circle cx="710" cy="675" r="4" fill="#34495e"/>
+<text x="375" y="699" class="">Gemeenschappelijke GND — 6 V nooit naar Uno 5V/VIO</text>
+<text x="25" y="732" class="">Vref eerst 0,80 V zonder motor instellen. Motorstekker alleen spanningsloos aansluiten. Zie electronics.md.</text>
+</svg>

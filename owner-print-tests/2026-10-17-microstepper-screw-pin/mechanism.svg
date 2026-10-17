@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="610" viewBox="0 0 920 610"><rect width="100%" height="100%" fill="white"/><style>text{font-family:Arial,sans-serif;font-size:14px} .title{font-size:21px;font-weight:bold} path,line,rect{stroke-linejoin:round}</style><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<text x="25" y="32" class="title">Eén schroefpin — schematische doorsnede en lastpad</text>
+<text x="25" y="54" class="">Millimeters; nominale middenstand. Draad getekend als symbool; rig.scad bevat de echte geometrie.</text>
+<rect x="94" y="466" width="252" height="14" fill="#95aebd" stroke="#394854"/>
+<rect x="115" y="172" width="21" height="294" fill="#b8cad5" stroke="#394854"/>
+<rect x="304" y="172" width="21" height="294" fill="#b8cad5" stroke="#394854"/>
+<rect x="192" y="408.6" width="56" height="57.39999999999999" fill="#8a9c9e" stroke="#394854"/>
+<text x="365" y="429" class="">Motorhuis Ø8 × 8,2; bodem op Z2</text>
+<rect x="214.75" y="387.6" width="10.5" height="21" fill="#777" stroke="#394854"/>
+<rect x="212.3" y="380.6" width="15.400000000000002" height="14" fill="#d7b15a" stroke="#394854"/>
+<rect x="206" y="343.5" width="28" height="45.5" fill="#a4ddcf" stroke="#394854"/>
+<rect x="211.6" y="338.6" width="16.8" height="35" fill="#e7ad55" stroke="#394854"/>
+<rect x="209.5" y="310.6" width="21" height="28" fill="#e7ad55" stroke="#394854"/>
+<rect x="115" y="314.1" width="92.75" height="24.5" fill="#95aebd" stroke="#394854"/>
+<rect x="232.25" y="314.1" width="92.75" height="24.5" fill="#95aebd" stroke="#394854"/>
+<rect x="195.5" y="310.6" width="13.299999999999999" height="3.5" fill="#555" stroke="#394854"/>
+<rect x="231.2" y="310.6" width="13.299999999999999" height="3.5" fill="#555" stroke="#394854"/>
+<rect x="174.5" y="296.6" width="91" height="14" fill="#e7ad55" stroke="#394854"/>
+<rect x="174.5" y="278.4" width="9.1" height="18.2" fill="#e7ad55" stroke="#394854"/>
+<rect x="256.4" y="278.4" width="9.1" height="18.2" fill="#e7ad55" stroke="#394854"/>
+<rect x="185" y="279.8" width="70" height="16.8" fill="#64ad89" stroke="#394854"/>
+<rect x="115" y="263.0" width="90.3" height="14.700000000000001" fill="#95aebd" stroke="#394854"/>
+<rect x="234.7" y="263.0" width="90.3" height="14.700000000000001" fill="#95aebd" stroke="#394854"/>
+<rect x="215.1" y="167.8" width="9.799999999999999" height="112" fill="#64ad89" stroke="#394854"/>
+<polyline points="231.2,279.79999999999995 208.8,276.29999999999995 231.2,272.79999999999995 208.8,269.29999999999995 231.2,265.79999999999995 208.8,262.29999999999995 231.2,258.79999999999995 208.8,255.29999999999998 231.2,251.79999999999998 208.8,248.29999999999998 231.2,244.79999999999998 208.8,241.29999999999998 231.2,237.79999999999998 208.8,234.29999999999998 231.2,230.79999999999998 208.8,227.29999999999998 231.2,223.8 208.8,220.3 231.2,216.8 208.8,213.3 231.2,209.8 208.8,206.3 231.2,202.8 208.8,199.3 231.2,195.8 208.8,192.3 231.2,188.8 208.8,185.3 231.2,181.8 208.8,178.3 231.2,174.8 208.8,171.3 231.2,167.8" fill="none" stroke="#39795d" stroke-width="2"/>
+<rect x="204.6" y="122.30000000000001" width="3.08" height="126" fill="#ca8064" stroke="#394854"/>
+<rect x="232.32" y="122.30000000000001" width="3.08" height="126" fill="#ca8064" stroke="#394854"/>
+<rect x="178" y="246.61999999999998" width="84" height="1.68" fill="#ca8064" stroke="#394854"/>
+<rect x="185" y="172" width="18.2" height="56" fill="#95aebd" stroke="#394854"/>
+<rect x="236.8" y="172" width="18.2" height="56" fill="#95aebd" stroke="#394854"/>
+<text x="365" y="110" class="">Pin 4,4 mm; midden: top Z51,1</text>
+<text x="365" y="132" class="">7,1 mm boven frame; veilige uitersten 5,6 / 8,6</text>
+<polyline points="238,122 350,122" fill="none" stroke="#444" stroke-width="2"/>
+<text x="365" y="176" class="">Vierkante geleiding 4,8 × 4,8; Z36–44</text>
+<text x="365" y="210" class="">Bestaande .175-mm-passing; spoed 3</text>
+<text x="365" y="249" class="">Keeper Z28,9: 0,3 mm boven schroefvoet</text>
+<text x="365" y="277" class="">Vierkante voet 10 × 10 × 2,4 in socket 10,4</text>
+<text x="365" y="304" class="">M3-ring 3,2 / 7 / 0,50; steunvlak Z23,7</text>
+<text x="365" y="328" class="">Lagerhals Ø3 in Ø3,5; geen motorlast</text>
+<text x="365" y="355" class="">Slang ID2 / OD4; lengte 6,5; 1:1</text>
+<text x="365" y="378" class="">≈1 mm lucht tussen tandwiel en geprinte stift</text>
+<polyline points="268,308 350,308" fill="none" stroke="#444" stroke-width="2"/>
+<polyline points="235,374 350,374" fill="none" stroke="#444" stroke-width="2"/>
+<polyline points="310,268 310,311 328,311 328,338" fill="none" stroke="#9e3328" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="365" y="478" class="">Lastpad: pin → draad → voet → houder → ring → frame</text>
+<text x="25" y="535" class="">Framehelften sluiten met drie kabelbinders; motorhuis krijgt een dunne papierpakking.</text>
+<text x="25" y="560" class="">Printproject: vijf delen op één plaat. Geen draadnabewerking, smering of destructieve motoraanpassing.</text>
+<text x="25" y="585" class="">Werkelijke slanggrip, lagerwrijving, motorstroom en bewegingssnelheid moeten nog fysiek worden getest.</text>
+</svg>

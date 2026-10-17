@@ -1,8 +1,8 @@
 # Test A — twee koppelingshelften, schuifpassing en meenemer
 
-**Status:** READY  
-**Prioriteit:** P1  
-**Laatst beoordeeld:** 2026-10-16  
+**Status:** DEFERRED\
+**Prioriteit:** geen — printaanbod geparkeerd voor de gerichte [micro-motorproef](../2026-10-17-microstepper-screw-pin/test.md); geen nieuw resultaat of CAD-wijziging\
+**Laatst beoordeeld:** 2026-10-17\
 **Reden:** complete X1C-3MF opgeslagen, opnieuw geopend en gesliced; kritische paden gecontroleerd. Fysieke passing is nog onbekend.  
 **Technische bron:** [E-297](../../06-experiments/E-297-two-half-row-column-clutch-print-tests.md).
 

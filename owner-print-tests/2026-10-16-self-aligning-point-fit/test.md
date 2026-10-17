@@ -1,8 +1,8 @@
 # Test A — scherpe puntkoppeling: zelfstandig uitlijnen
 
-**Status:** READY  
-**Prioriteit:** P3 — derde beschikbare READY-positie; oudere tests blijven op verzoek ongewijzigd  
-**Laatst beoordeeld:** 2026-10-16  
+**Status:** DEFERRED\
+**Prioriteit:** geen — printaanbod geparkeerd voor de gerichte [micro-motorproef](../2026-10-17-microstepper-screw-pin/test.md); geen nieuw resultaat of CAD-wijziging\
+**Laatst beoordeeld:** 2026-10-17\
 **Technische bron:** [E-298](../../06-experiments/E-298-self-aligning-point-clutch.md). E-297 en alle oudere proeven blijven ongewijzigd.
 
 ## 1. Vraag en beslissing

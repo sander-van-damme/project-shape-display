@@ -1,8 +1,8 @@
 # Test B — werkelijke rij-/kolomselectie in een 2×2-raster
 
-**Status:** READY  
-**Prioriteit:** P2 — na geslaagde nominale passing in Test A  
-**Laatst beoordeeld:** 2026-10-16  
+**Status:** DEFERRED\
+**Prioriteit:** geen — printaanbod geparkeerd voor de gerichte [micro-motorproef](../2026-10-17-microstepper-screw-pin/test.md); geen nieuw resultaat of CAD-wijziging\
+**Laatst beoordeeld:** 2026-10-17\
 **Reden:** definitieve CAD en montagepaden gecontroleerd; X1C-project opgeslagen, heropend en opnieuw gesliced. Fysieke werking is nog onbekend.  
 **Technische bron:** [E-297](../../06-experiments/E-297-two-half-row-column-clutch-print-tests.md), [Test A](../2026-10-16-two-half-clutch-fit/test.md).
 

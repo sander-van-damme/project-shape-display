@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-17",
+  "target": "arduino:avr:uno",
+  "core": "arduino:avr@1.8.8",
+  "library": "TMCStepper@0.7.3",
+  "compile_exit_code": 0,
+  "compile_output": "Sketch uses 11922 bytes (36%) of program storage space. Maximum is 32256 bytes.\nGlobal variables use 484 bytes (23%) of dynamic memory, leaving 1564 bytes for local variables. Maximum is 2048 bytes.\n",
+  "source_sha256": {
+    "controller/controller.ino": "14d74ee00dd013e28ae51cdc42203ff63b749a6040a2755449005894bfcae0d7",
+    "controller/motion_policy.h": "926e02d29eb337d396db28dc9cf10346bae7904e78700cdcd6d13b51d6078e38",
+    "test_motion.cpp": "e19480cbd0054be3ed23dd037cae5124ed0c508d016297c16dac25df2af4231d"
+  },
+  "travel_policy_host_test_exit_code": 0,
+  "hardware_upload_and_uart_test": "not performed; no physical board attached"
+}
