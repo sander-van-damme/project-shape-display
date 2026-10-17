@@ -128,6 +128,27 @@ Onderstaande punten zijn een zakelijke registratie van de eigen observaties, ver
 - Eigenaar verkiest **weinig losse, kleine extra onderdelen** voor eenvoudiger printen en monteren.
 - Extra geleiding voor wiebelen is een wens voor later, **niet voor de eerstvolgende proef**.
 
+### Aanvullende feedback: montagegemak, schaalbaarheid en onderhoud
+
+- **Ervaring tijdens montage:** de kleine testopstelling in elkaar zetten was **prutswerk**: veel kleine onderdelen, die bovendien gemakkelijk verschuiven bij het plaatsen.
+- **Zorg van eigenaar bij opschaling:** dit lijkt een uitdaging wanneer zeer veel pinnen/koppelingen moeten worden gemonteerd; de beperkte fysieke montage was al omslachtig.
+- **Mogelijke richting 1 — minder en gemakkelijker te plaatsen onderdelen:**
+  - Ontwerp zo eenvoudig mogelijk houden, met **zo weinig mogelijk losse onderdelen** die afzonderlijk geplaatst moeten worden.
+  - Onderdelen bij de montage zo veel mogelijk **vanzelf in de juiste positie laten vallen**.
+  - Een goed vormgegeven frame zou onderdelen bij het plaatsen meteen kunnen **opvangen, positioneren en op hun plaats houden**.
+- **Mogelijke richting 2 — vaste centrale staaf als montage- en structuurhulp:**
+  - Een **statische centrale staaf** voorzien, met de koppelingsonderdelen **rond die staaf** in plaats van los gepositioneerd.
+  - De koppeling zou in het midden een **doorgaand gat** hebben en over de centrale staaf geschoven kunnen worden, terwijl ze **om de stilstaande staaf kan blijven draaien** en verder hetzelfde koppelingsprincipe behoudt.
+  - De centrale staaf dient alleen voor **structuur/positionering**, niet als bewegende aandrijving.
+  - **Twijfel van eigenaar:** er is hiervoor mogelijk te weinig beschikbare ruimte binnen de compacte geometrie. Haalbaarheid niet onderzocht of getest.
+- **Mogelijke richting 3 — uitneembare modules:**
+  - Een **enkele pin**, of groepen van bijvoorbeeld **vier of zestien pinnen**, zouden als afzonderlijke modules opgebouwd kunnen worden.
+  - Zulke modules kunnen vooraf geassembleerd worden en vervolgens **in het Shape Display geschoven** worden.
+  - Gewenst onderhoudsvoordeel: bij vervanging van één pin hoeft **niet het hele display gedemonteerd** te worden.
+  - Dat moet vermijden dat bij reparatie onbedoeld veel andere pinnen verschuiven of dat er fouten in de montage ontstaan.
+  - **Twijfel van eigenaar:** modules kunnen extra breedte/ruimte vergen en nieuwe **tolerantieproblemen** meebrengen. Haalbaarheid niet onderzocht of getest.
+- Deze richtingen zijn **ideeën van de eigenaar voor latere evaluatie**; geen keuze voor een nieuwe constructie of opdracht om ze nu te ontwikkelen.
+
 ### Niet vastgesteld in deze gedeeltelijke uitvoering
 
 - Geen volledige montage / gelijktijdige zelfuitlijning van twee of vier verschillende koppelingen.
