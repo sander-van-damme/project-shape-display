@@ -1,0 +1,1681 @@
+{
+  "project": "cone-friction-selector.3mf",
+  "project_sha256": "d0d82881f5a56485b6e79375471f452b46620eee910037644c5d8466eb991b33",
+  "source_stl_sha256": "99a716c7b5d4aa23a6d87a46672901dcbf87a3f5d98a11eed9388f99dce46d51",
+  "gcode_sha256": "513a94bb446b101b84a665ce7f1a78db739fcc8c4f95d65a33e2027a3cd87067",
+  "settings": {
+    "printer_model": "Bambu Lab X1 Carbon",
+    "printer_variant": "0.4",
+    "printer_settings_id": "Bambu Lab X1 Carbon 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "filament_settings_id": [
+      "Generic PLA"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "filament_diameter": [
+      "1.75"
+    ],
+    "filament_density": [
+      "1.24"
+    ],
+    "filament_flow_ratio": [
+      "0.98"
+    ],
+    "nozzle_temperature": [
+      "220"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "textured_plate_temp": [
+      "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "55"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.12",
+    "wall_generator": "arachne",
+    "min_bead_width": "75%",
+    "min_feature_size": "10%",
+    "wall_loops": "2",
+    "sparse_infill_density": "100%",
+    "sparse_infill_pattern": "zig-zag",
+    "line_width": "0.45",
+    "initial_layer_line_width": "0.45",
+    "outer_wall_line_width": "0.45",
+    "inner_wall_line_width": "0.45",
+    "top_surface_line_width": "0.45",
+    "sparse_infill_line_width": "0.45",
+    "internal_solid_infill_line_width": "0.45",
+    "support_line_width": "0.45",
+    "outer_wall_speed": [
+      "15",
+      "15"
+    ],
+    "inner_wall_speed": [
+      "20",
+      "20"
+    ],
+    "small_perimeter_speed": [
+      "15",
+      "15"
+    ],
+    "small_perimeter_threshold": [
+      "20",
+      "20"
+    ],
+    "initial_layer_speed": [
+      "15",
+      "15"
+    ],
+    "initial_layer_infill_speed": [
+      "15",
+      "15"
+    ],
+    "bridge_speed": [
+      "15",
+      "15"
+    ],
+    "default_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "outer_wall_acceleration": [
+      "500",
+      "500"
+    ],
+    "inner_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "initial_layer_acceleration": [
+      "500",
+      "500"
+    ],
+    "enable_support": "0",
+    "brim_type": "no_brim",
+    "brim_width": "0",
+    "brim_object_gap": "0.12",
+    "raft_layers": "0",
+    "print_sequence": "by layer",
+    "xy_contour_compensation": "0",
+    "xy_hole_compensation": "0",
+    "elefant_foot_compensation": "0",
+    "fan_min_speed": [
+      "100"
+    ],
+    "fan_max_speed": [
+      "100"
+    ],
+    "slow_down_min_speed": [
+      "10"
+    ],
+    "slow_down_for_layer_cooling": [
+      "1"
+    ],
+    "close_fan_the_first_x_layers": [
+      "1"
+    ],
+    "additional_cooling_fan_speed": [
+      "0"
+    ]
+  },
+  "geometry": {
+    "body_count": 17,
+    "watertight": true,
+    "bounds_mm": [
+      [
+        61.999999970000005,
+        93.00098039,
+        0.0
+      ],
+      [
+        194.0000081,
+        162.99900818,
+        27.709999
+      ]
+    ],
+    "source_to_project_translation_mm": [
+      56.999999970000005,
+      88.00098039,
+      0.0
+    ],
+    "source_to_gcode_translation_xy_mm": [
+      56.999999970000005,
+      86.00098039
+    ],
+    "max_bidirectional_vertex_error_mm": 2.1942896290422483e-05,
+    "source_facet_count": 55748,
+    "archive_facet_count": 55748
+  },
+  "layer_count": 231,
+  "actual_layer_heights_mm": [
+    0.119999,
+    0.12,
+    0.120001
+  ],
+  "roles": {
+    "Outer wall": 73194,
+    "Inner wall": 37125,
+    "Bottom surface": 291,
+    "Internal solid infill": 16681,
+    "Sparse infill": 10182,
+    "Top surface": 1002,
+    "Gap infill": 165,
+    "Overhang wall": 533,
+    "Bridge": 839,
+    "Floating vertical shell": 497
+  },
+  "role_max_speeds_mm_s": {
+    "Outer wall": 30.0,
+    "Inner wall": 30.0,
+    "Bottom surface": 15.0,
+    "Internal solid infill": 30.0,
+    "Sparse infill": 30.0,
+    "Top surface": 30.0,
+    "Gap infill": 30.0,
+    "Overhang wall": 15.0,
+    "Bridge": 15.0,
+    "Floating vertical shell": 24.0
+  },
+  "role_max_acceleration_mm_s2": {
+    "Outer wall": 500.0,
+    "Inner wall": 1000.0,
+    "Bottom surface": 500.0,
+    "Internal solid infill": 1000.0,
+    "Sparse infill": 1000.0,
+    "Top surface": 1000.0,
+    "Gap infill": 1000.0,
+    "Overhang wall": 500.0,
+    "Bridge": 1000.0,
+    "Floating vertical shell": 1000.0
+  },
+  "part_toolpath_screens": [
+    {
+      "name": "frame-back",
+      "source_bounds_mm": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ],
+        [
+          29.399999618530273,
+          60.0,
+          7.199999809265137
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 190.91,
+      "layers_with_extrusion": 60,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 7.2,
+      "line_width_range_mm": [
+        0.101839,
+        0.645072
+      ],
+      "line_width_percentiles_mm": [
+        0.101839,
+        0.335422,
+        0.449992,
+        0.645072,
+        0.645072
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 434,
+      "max_free_bridge_overhang_centerline_mm": 21.98000799999999,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Bridge",
+          "free_centerline_mm": 21.98000799999999,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        }
+      ]
+    },
+    {
+      "name": "frame-front",
+      "source_bounds_mm": [
+        [
+          33.400001525878906,
+          5.0,
+          0.0
+        ],
+        [
+          57.79999923706055,
+          60.0,
+          7.199999809265137
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 190.778,
+      "layers_with_extrusion": 60,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 7.2,
+      "line_width_range_mm": [
+        0.0722894,
+        0.645072
+      ],
+      "line_width_percentiles_mm": [
+        0.0722894,
+        0.335412,
+        0.449992,
+        0.645072,
+        0.645072
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 664,
+      "max_free_bridge_overhang_centerline_mm": 19.641999999999996,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.641999999999996,
+          "start_anchor_distance_mm": 0.5894990000000178,
+          "end_anchor_distance_mm": 0.5888290000000325
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.62599999999999,
+          "start_anchor_distance_mm": 0.5410039999999867,
+          "end_anchor_distance_mm": 0.5410039999999867
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.62599999999999,
+          "start_anchor_distance_mm": 0.9650039999999934,
+          "end_anchor_distance_mm": 0.9650039999999934
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.62599999999999,
+          "start_anchor_distance_mm": 0.3410039999999981,
+          "end_anchor_distance_mm": 0.3410039999999981
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.62599999999999,
+          "start_anchor_distance_mm": 0.7650039999999905,
+          "end_anchor_distance_mm": 0.7650039999999905
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 19.62599999999999,
+          "start_anchor_distance_mm": 0.36500399999999894,
+          "end_anchor_distance_mm": 0.36500399999999894
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 9.813000000000002,
+          "start_anchor_distance_mm": 0.3410039999999838,
+          "end_anchor_distance_mm": 0.3410039999999838
+        },
+        {
+          "z_mm": 6.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 9.813000000000002,
+          "start_anchor_distance_mm": 0.7650039999999904,
+          "end_anchor_distance_mm": 0.7650039999999904
+        }
+      ]
+    },
+    {
+      "name": "row-selector",
+      "source_bounds_mm": [
+        [
+          61.79999923706055,
+          5.0,
+          0.0
+        ],
+        [
+          85.80000305175781,
+          13.0,
+          15.149999618530273
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 48.475,
+      "layers_with_extrusion": 126,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 15.12,
+      "line_width_range_mm": [
+        0.101868,
+        0.651072
+      ],
+      "line_width_percentiles_mm": [
+        0.101868,
+        0.355672,
+        0.45,
+        0.572549200000001,
+        0.651072
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 60,
+      "max_free_bridge_overhang_centerline_mm": 1.8102099131526614,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8102099131526614,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8100080000000105,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        }
+      ]
+    },
+    {
+      "name": "column-selector",
+      "source_bounds_mm": [
+        [
+          89.80000305175781,
+          5.0,
+          0.0
+        ],
+        [
+          94.4000015258789,
+          13.0,
+          16.149999618530273
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 36.266,
+      "layers_with_extrusion": 135,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 16.2,
+      "line_width_range_mm": [
+        0.20545,
+        0.650192
+      ],
+      "line_width_percentiles_mm": [
+        0.20545,
+        0.327242,
+        0.449992,
+        0.5787637200000002,
+        0.650192
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 0,
+      "max_free_bridge_overhang_centerline_mm": 0.0,
+      "longest_bridge_overhang_segments": []
+    },
+    {
+      "name": "column-selector",
+      "source_bounds_mm": [
+        [
+          98.4000015258789,
+          5.0,
+          0.0
+        ],
+        [
+          103.0,
+          13.0,
+          16.149999618530273
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 36.266,
+      "layers_with_extrusion": 135,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 16.2,
+      "line_width_range_mm": [
+        0.205446,
+        0.650182
+      ],
+      "line_width_percentiles_mm": [
+        0.205446,
+        0.327242,
+        0.449992,
+        0.5787637200000002,
+        0.650182
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 0,
+      "max_free_bridge_overhang_centerline_mm": 0.0,
+      "longest_bridge_overhang_segments": []
+    },
+    {
+      "name": "male-rotor",
+      "source_bounds_mm": [
+        [
+          107.0,
+          5.0,
+          0.0
+        ],
+        [
+          111.30000305175781,
+          9.299150466918945,
+          6.699999809265137
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 9.783,
+      "layers_with_extrusion": 56,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 6.72,
+      "line_width_range_mm": [
+        0.0912595,
+        0.575272
+      ],
+      "line_width_percentiles_mm": [
+        0.0912595,
+        0.3167382,
+        0.368032,
+        0.527662,
+        0.575272
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": {
+        "examined_layers": 39,
+        "layers_without_closed_wall_loop_mm": [],
+        "minimum_axis_clearance_mm": 0.9442081425232284,
+        "nominal_midwall_max_gap_mm": 0.0,
+        "layers_unclosed_after_0005mm_buffer": []
+      },
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 15,
+      "max_free_bridge_overhang_centerline_mm": 1.4489999999999839,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4489999999999839,
+          "start_anchor_distance_mm": 0.45771435339923633,
+          "end_anchor_distance_mm": 0.4475876352736353
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4339999999999975,
+          "start_anchor_distance_mm": 0.45082830229971593,
+          "end_anchor_distance_mm": 0.4500395461455085
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9050000000000011,
+          "start_anchor_distance_mm": 0.20987900000000081,
+          "end_anchor_distance_mm": 0.21565060631617786
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.8979999999999961,
+          "start_anchor_distance_mm": 0.22093509226076607,
+          "end_anchor_distance_mm": 0.22097574160480707
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.2578565492672207,
+          "start_anchor_distance_mm": 0.2495218927826114,
+          "end_anchor_distance_mm": 0.4141906677445557
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.22641775548751863,
+          "start_anchor_distance_mm": 0.31952788480024563,
+          "end_anchor_distance_mm": 0.22093509226076607
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.20081085628022913,
+          "start_anchor_distance_mm": 0.4141906677445557,
+          "end_anchor_distance_mm": 0.4427621097947148
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.1902445794234405,
+          "start_anchor_distance_mm": 0.4500395461455085,
+          "end_anchor_distance_mm": 0.4518002054136799
+        }
+      ]
+    },
+    {
+      "name": "male-rotor",
+      "source_bounds_mm": [
+        [
+          115.30000305175781,
+          5.0,
+          0.0
+        ],
+        [
+          119.5999984741211,
+          9.299150466918945,
+          6.699999809265137
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 9.89,
+      "layers_with_extrusion": 56,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 6.72,
+      "line_width_range_mm": [
+        0.0913055,
+        0.609762
+      ],
+      "line_width_percentiles_mm": [
+        0.0913055,
+        0.31693109999999997,
+        0.368592,
+        0.5386310000000001,
+        0.609762
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": {
+        "examined_layers": 39,
+        "layers_without_closed_wall_loop_mm": [],
+        "minimum_axis_clearance_mm": 0.9394585578853845,
+        "nominal_midwall_max_gap_mm": 0.0,
+        "layers_unclosed_after_0005mm_buffer": []
+      },
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 15,
+      "max_free_bridge_overhang_centerline_mm": 1.4490000000000123,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4490000000000123,
+          "start_anchor_distance_mm": 0.46534499082644787,
+          "end_anchor_distance_mm": 0.44758763527362627
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4339999999999975,
+          "start_anchor_distance_mm": 0.4508183022996811,
+          "end_anchor_distance_mm": 0.4622447955034195
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9110000000000014,
+          "start_anchor_distance_mm": 0.21074899999999272,
+          "end_anchor_distance_mm": 0.21465650750037202
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.8979999999999961,
+          "start_anchor_distance_mm": 0.2209350922607688,
+          "end_anchor_distance_mm": 0.22097574160480812
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.2613694702906387,
+          "start_anchor_distance_mm": 0.21465650750037202,
+          "end_anchor_distance_mm": 0.34630684743476914
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.22641775548751863,
+          "start_anchor_distance_mm": 0.31953288480024417,
+          "end_anchor_distance_mm": 0.2209350922607688
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.1994216638181424,
+          "start_anchor_distance_mm": 0.4152285063152108,
+          "end_anchor_distance_mm": 0.4427521097947088
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.19024457942344827,
+          "start_anchor_distance_mm": 0.4622447955034195,
+          "end_anchor_distance_mm": 0.45310064045023046
+        }
+      ]
+    },
+    {
+      "name": "female-rotor",
+      "source_bounds_mm": [
+        [
+          123.5999984741211,
+          5.0,
+          0.0
+        ],
+        [
+          128.3000030517578,
+          9.699070930480957,
+          9.210000038146973
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 9.932,
+      "layers_with_extrusion": 77,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 9.24,
+      "line_width_range_mm": [
+        0.0876405,
+        0.655592
+      ],
+      "line_width_percentiles_mm": [
+        0.0876405,
+        0.320642,
+        0.449992,
+        0.559392,
+        0.655592
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": {
+        "examined_layers": 39,
+        "layers_without_closed_wall_loop_mm": [],
+        "minimum_axis_clearance_mm": 0.9426924462715954,
+        "nominal_midwall_max_gap_mm": 0.0,
+        "layers_unclosed_after_0005mm_buffer": []
+      },
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 15,
+      "max_free_bridge_overhang_centerline_mm": 1.4519999999999982,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4519999999999982,
+          "start_anchor_distance_mm": 0.45670009140514806,
+          "end_anchor_distance_mm": 0.4419867990267251
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4509999999999934,
+          "start_anchor_distance_mm": 0.4566656904699033,
+          "end_anchor_distance_mm": 0.4431039072172013
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9099999999999966,
+          "start_anchor_distance_mm": 0.21074899999999272,
+          "end_anchor_distance_mm": 0.21265809846854422
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9039999999999964,
+          "start_anchor_distance_mm": 0.22152638525414323,
+          "end_anchor_distance_mm": 0.2211566987408102
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.25964976410542856,
+          "start_anchor_distance_mm": 0.21265809846854422,
+          "end_anchor_distance_mm": 0.3521684496973926
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.2250622136210404,
+          "start_anchor_distance_mm": 0.33114669649575623,
+          "end_anchor_distance_mm": 0.22152638525414323
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.20081085628022913,
+          "start_anchor_distance_mm": 0.4474832321595147,
+          "end_anchor_distance_mm": 0.43355891492202114
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.19859506539690083,
+          "start_anchor_distance_mm": 0.42217121582524714,
+          "end_anchor_distance_mm": 0.4463699212853336
+        }
+      ]
+    },
+    {
+      "name": "female-rotor",
+      "source_bounds_mm": [
+        [
+          132.3000030517578,
+          5.0,
+          0.0
+        ],
+        [
+          137.0,
+          9.699070930480957,
+          9.210000038146973
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 9.904,
+      "layers_with_extrusion": 77,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 9.24,
+      "line_width_range_mm": [
+        0.0874342,
+        0.587522
+      ],
+      "line_width_percentiles_mm": [
+        0.0874342,
+        0.32064159999999997,
+        0.449992,
+        0.559352,
+        0.587522
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": {
+        "examined_layers": 39,
+        "layers_without_closed_wall_loop_mm": [],
+        "minimum_axis_clearance_mm": 0.9426985714456225,
+        "nominal_midwall_max_gap_mm": 0.0,
+        "layers_unclosed_after_0005mm_buffer": []
+      },
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 15,
+      "max_free_bridge_overhang_centerline_mm": 1.4510000000000218,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4510000000000218,
+          "start_anchor_distance_mm": 0.45928053865470675,
+          "end_anchor_distance_mm": 0.44254766127446105
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 1.4470000000000027,
+          "start_anchor_distance_mm": 0.45665569046991383,
+          "end_anchor_distance_mm": 0.44648731885097503
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9380767559213787,
+          "start_anchor_distance_mm": 0.21073899999998955,
+          "end_anchor_distance_mm": 0.22556593995609164
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.907999999999987,
+          "start_anchor_distance_mm": 0.22156951149758383,
+          "end_anchor_distance_mm": 0.22115669874081353
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.24730952266341402,
+          "start_anchor_distance_mm": 0.44648731885097503,
+          "end_anchor_distance_mm": 0.4412350262852693
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.1812456896039285,
+          "start_anchor_distance_mm": 0.444674733787915,
+          "end_anchor_distance_mm": 0.45665569046991383
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.1781937148162189,
+          "start_anchor_distance_mm": 0.4507602470759503,
+          "end_anchor_distance_mm": 0.45928053865470675
+        },
+        {
+          "z_mm": 5.76,
+          "role": "Bridge",
+          "free_centerline_mm": 0.15901257811884775,
+          "start_anchor_distance_mm": 0.22556593995609164,
+          "end_anchor_distance_mm": 0.30859620097946217
+        }
+      ]
+    },
+    {
+      "name": "input-shaft",
+      "source_bounds_mm": [
+        [
+          5.0,
+          65.0,
+          0.0
+        ],
+        [
+          9.300000190734863,
+          69.29914855957031,
+          13.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 7.661,
+      "layers_with_extrusion": 108,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 12.96,
+      "line_width_range_mm": [
+        0.0822853,
+        0.576332
+      ],
+      "line_width_percentiles_mm": [
+        0.0822853,
+        0.344512,
+        0.449992,
+        0.575252,
+        0.576332
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 21,
+      "max_free_bridge_overhang_centerline_mm": 1.873891589357758,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.873891589357758,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8718887270364861,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.00600400000001855
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.867087010705428,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9568300677341585,
+          "start_anchor_distance_mm": 0.18589244919157488,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9568128447012113,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.18149405456285297
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.29510845463997626,
+          "start_anchor_distance_mm": 0.00600400000001855,
+          "end_anchor_distance_mm": 0.18389781600323107
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.2844007640432778,
+          "start_anchor_distance_mm": 0.18185034067217423,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.2010397970552349,
+          "start_anchor_distance_mm": 0.17522153065384707,
+          "end_anchor_distance_mm": 0.19131193649318473
+        }
+      ]
+    },
+    {
+      "name": "input-shaft",
+      "source_bounds_mm": [
+        [
+          13.300000190734863,
+          65.0,
+          0.0
+        ],
+        [
+          17.600000381469727,
+          69.29914855957031,
+          13.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 7.643,
+      "layers_with_extrusion": 108,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 12.96,
+      "line_width_range_mm": [
+        0.323672,
+        0.609092
+      ],
+      "line_width_percentiles_mm": [
+        0.323672,
+        0.34451339999999997,
+        0.449992,
+        0.5731890999999999,
+        0.609092
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 19,
+      "max_free_bridge_overhang_centerline_mm": 1.8745537063917448,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8745537063917448,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.8708953860034072,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0070039999999949015
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 1.866766803329303,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9627913372687462,
+          "start_anchor_distance_mm": 0.0,
+          "end_anchor_distance_mm": 0.18116704642444081
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.9481467423060957,
+          "start_anchor_distance_mm": 0.1846771009330794,
+          "end_anchor_distance_mm": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.32334656330322725,
+          "start_anchor_distance_mm": 0.1838497724359558,
+          "end_anchor_distance_mm": 0.191242265182564
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.29296074822406903,
+          "start_anchor_distance_mm": 0.0070039999999949015,
+          "end_anchor_distance_mm": 0.18389781600323615
+        },
+        {
+          "z_mm": 3.36,
+          "role": "Bridge",
+          "free_centerline_mm": 0.28276858573390146,
+          "start_anchor_distance_mm": 0.1823395238417021,
+          "end_anchor_distance_mm": 0.0
+        }
+      ]
+    },
+    {
+      "name": "hand-key",
+      "source_bounds_mm": [
+        [
+          21.600000381469727,
+          65.0,
+          0.0
+        ],
+        [
+          31.600000381469727,
+          74.9980239868164,
+          10.989999771118164
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 77.916,
+      "layers_with_extrusion": 92,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 11.04,
+      "line_width_range_mm": [
+        0.076902,
+        0.591152
+      ],
+      "line_width_percentiles_mm": [
+        0.076902,
+        0.347492,
+        0.449992,
+        0.476612,
+        0.591152
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 0,
+      "max_free_bridge_overhang_centerline_mm": 0.0,
+      "longest_bridge_overhang_segments": []
+    },
+    {
+      "name": "column-holder",
+      "source_bounds_mm": [
+        [
+          35.599998474121094,
+          65.0,
+          0.0
+        ],
+        [
+          40.20000076293945,
+          71.79000091552734,
+          3.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 25.846,
+      "layers_with_extrusion": 25,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 3.0,
+      "line_width_range_mm": [
+        0.187088,
+        0.507172
+      ],
+      "line_width_percentiles_mm": [
+        0.187088,
+        0.392347,
+        0.449992,
+        0.507172,
+        0.507172
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 0,
+      "max_free_bridge_overhang_centerline_mm": 0.0,
+      "longest_bridge_overhang_segments": []
+    },
+    {
+      "name": "column-holder",
+      "source_bounds_mm": [
+        [
+          44.20000076293945,
+          65.0,
+          0.0
+        ],
+        [
+          48.79999923706055,
+          71.79000091552734,
+          3.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 25.846,
+      "layers_with_extrusion": 25,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 3.0,
+      "line_width_range_mm": [
+        0.187098,
+        0.507172
+      ],
+      "line_width_percentiles_mm": [
+        0.187098,
+        0.392352,
+        0.449992,
+        0.507172,
+        0.507172
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 0,
+      "max_free_bridge_overhang_centerline_mm": 0.0,
+      "longest_bridge_overhang_segments": []
+    },
+    {
+      "name": "pin",
+      "source_bounds_mm": [
+        [
+          52.79999923706055,
+          65.0,
+          0.0
+        ],
+        [
+          57.20000076293945,
+          69.4000015258789,
+          18.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 19.003,
+      "layers_with_extrusion": 150,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 18.0,
+      "line_width_range_mm": [
+        0.0501941,
+        0.615472
+      ],
+      "line_width_percentiles_mm": [
+        0.0501941,
+        0.3287269,
+        0.475552,
+        0.580082,
+        0.615472
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": {
+        "examined_layers": 141,
+        "layers_without_enclosed_open_bore_mm": [
+          12.48,
+          12.72,
+          12.84,
+          12.96,
+          13.08,
+          13.2,
+          13.32,
+          13.44,
+          13.68,
+          13.8,
+          13.92,
+          14.04,
+          14.64,
+          15.48,
+          15.72,
+          15.84,
+          15.96,
+          16.08,
+          16.2,
+          16.32,
+          16.44,
+          16.68,
+          16.8,
+          16.92,
+          17.04,
+          17.64
+        ],
+        "minimum_axis_clearance_mm": 0.839487208844404,
+        "nominal_midwall_max_gap_mm": 0.20726283033707205,
+        "layers_unclosed_after_0005mm_buffer": [
+          12.48,
+          12.72,
+          12.84,
+          13.08,
+          13.2,
+          13.32,
+          13.44,
+          13.68,
+          13.92,
+          14.04,
+          14.64,
+          15.48,
+          15.72,
+          15.84,
+          16.08,
+          16.2,
+          16.32,
+          16.44,
+          16.68,
+          16.92,
+          17.04,
+          17.64
+        ]
+      },
+      "bridge_overhang_segment_count": 39,
+      "max_free_bridge_overhang_centerline_mm": 0.7889999999999873,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.7889999999999873,
+          "start_anchor_distance_mm": 0.2169939999999997,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6689999999999969,
+          "start_anchor_distance_mm": 0.2169939999999997,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6170000000000044,
+          "start_anchor_distance_mm": 0.19799400000002265,
+          "end_anchor_distance_mm": 0.19799399999999423
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6160032467447043,
+          "start_anchor_distance_mm": 0.21899399999999503,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5345886268898828,
+          "start_anchor_distance_mm": 0.8229939999999942,
+          "end_anchor_distance_mm": 0.7519939999999963
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5252237618387077,
+          "start_anchor_distance_mm": 0.43499399999998895,
+          "end_anchor_distance_mm": 0.8229939999999942
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5156558930139553,
+          "start_anchor_distance_mm": 0.8019940000000076,
+          "end_anchor_distance_mm": 0.5679939999999988
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5094869968900075,
+          "start_anchor_distance_mm": 0.3259939999999802,
+          "end_anchor_distance_mm": 0.18999399999998445
+        }
+      ]
+    },
+    {
+      "name": "pin",
+      "source_bounds_mm": [
+        [
+          61.20000076293945,
+          65.0,
+          0.0
+        ],
+        [
+          65.5999984741211,
+          69.4000015258789,
+          18.0
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 19.003,
+      "layers_with_extrusion": 150,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 18.0,
+      "line_width_range_mm": [
+        0.0501181,
+        0.615472
+      ],
+      "line_width_percentiles_mm": [
+        0.0501181,
+        0.3286464,
+        0.475552,
+        0.580082,
+        0.615472
+      ],
+      "all_layers_unsupported_components": [],
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": {
+        "examined_layers": 141,
+        "layers_without_enclosed_open_bore_mm": [
+          12.48,
+          12.72,
+          12.84,
+          12.96,
+          13.08,
+          13.2,
+          13.32,
+          13.44,
+          13.68,
+          13.8,
+          13.92,
+          14.04,
+          14.64,
+          15.48,
+          15.72,
+          15.84,
+          15.96,
+          16.08,
+          16.2,
+          16.32,
+          16.44,
+          16.68,
+          16.8,
+          16.92,
+          17.04,
+          17.64
+        ],
+        "minimum_axis_clearance_mm": 0.8370879892297991,
+        "nominal_midwall_max_gap_mm": 0.20731868007888465,
+        "layers_unclosed_after_0005mm_buffer": [
+          12.48,
+          12.72,
+          12.84,
+          13.08,
+          13.2,
+          13.32,
+          13.44,
+          13.68,
+          13.92,
+          14.04,
+          14.64,
+          15.48,
+          15.72,
+          15.84,
+          16.08,
+          16.2,
+          16.32,
+          16.44,
+          16.68,
+          16.92,
+          17.04,
+          17.64
+        ]
+      },
+      "bridge_overhang_segment_count": 39,
+      "max_free_bridge_overhang_centerline_mm": 0.7889999999999873,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.7889999999999873,
+          "start_anchor_distance_mm": 0.2169939999999997,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6689999999999969,
+          "start_anchor_distance_mm": 0.2169939999999997,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6170000000000044,
+          "start_anchor_distance_mm": 0.19799400000002265,
+          "end_anchor_distance_mm": 0.19799399999999423
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.6160032467447043,
+          "start_anchor_distance_mm": 0.21899399999999503,
+          "end_anchor_distance_mm": 0.2169939999999997
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5345886268898828,
+          "start_anchor_distance_mm": 0.8229939999999942,
+          "end_anchor_distance_mm": 0.7519939999999963
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5252237618387077,
+          "start_anchor_distance_mm": 0.434993999999989,
+          "end_anchor_distance_mm": 0.8229939999999942
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5156558930139553,
+          "start_anchor_distance_mm": 0.8019939999999935,
+          "end_anchor_distance_mm": 0.5679939999999988
+        },
+        {
+          "z_mm": 12.12,
+          "role": "Overhang wall",
+          "free_centerline_mm": 0.5094869968900075,
+          "start_anchor_distance_mm": 0.3259939999999801,
+          "end_anchor_distance_mm": 0.18999399999998443
+        }
+      ]
+    },
+    {
+      "name": "screw-tree",
+      "source_bounds_mm": [
+        [
+          69.5999984741211,
+          65.0,
+          0.0
+        ],
+        [
+          87.5999984741211,
+          74.5999984741211,
+          27.709999084472656
+        ]
+      ],
+      "bed_contact_nominal_area_mm2": 160.385,
+      "layers_with_extrusion": 231,
+      "empty_interior_layers_mm": [],
+      "top_extrusion_z_mm": 27.72,
+      "line_width_range_mm": [
+        0.0825372,
+        0.648112
+      ],
+      "line_width_percentiles_mm": [
+        0.0825372,
+        0.375772,
+        0.449992,
+        0.541312,
+        0.648112
+      ],
+      "all_layers_unsupported_components": "not screened for this part",
+      "rotor_neck_screen": null,
+      "pin_open_bore_screen": null,
+      "bridge_overhang_segment_count": 36,
+      "max_free_bridge_overhang_centerline_mm": 1.1680000000000064,
+      "longest_bridge_overhang_segments": [
+        {
+          "z_mm": 17.28,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1680000000000064,
+          "start_anchor_distance_mm": 0.19000399999998763,
+          "end_anchor_distance_mm": 0.2005672242808972
+        },
+        {
+          "z_mm": 17.28,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1680000000000064,
+          "start_anchor_distance_mm": 0.2005672242808972,
+          "end_anchor_distance_mm": 0.19000399999998763
+        },
+        {
+          "z_mm": 26.16,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1580276335217439,
+          "start_anchor_distance_mm": 0.19000399999998763,
+          "end_anchor_distance_mm": 0.32926721094853395
+        },
+        {
+          "z_mm": 26.16,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1580276335217439,
+          "start_anchor_distance_mm": 0.19000399999998763,
+          "end_anchor_distance_mm": 0.32926721094853395
+        },
+        {
+          "z_mm": 24.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.127999999999986,
+          "start_anchor_distance_mm": 0.28960744472967404,
+          "end_anchor_distance_mm": 0.19000400000001605
+        },
+        {
+          "z_mm": 24.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.127999999999986,
+          "start_anchor_distance_mm": 0.28960744472967404,
+          "end_anchor_distance_mm": 0.19000400000001605
+        },
+        {
+          "z_mm": 12.84,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1099999999999852,
+          "start_anchor_distance_mm": 0.20820785333163655,
+          "end_anchor_distance_mm": 0.19000400000001605
+        },
+        {
+          "z_mm": 12.84,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.1099999999999852,
+          "start_anchor_distance_mm": 0.20820785333163655,
+          "end_anchor_distance_mm": 0.19000400000001605
+        }
+      ]
+    }
+  ],
+  "selected_layer_contact_screens": [
+    {
+      "z_mm": 0.12,
+      "nominal_deposited_area_mm2": 885.5088187320016,
+      "components": 43,
+      "unsupported_components": []
+    },
+    {
+      "z_mm": 1.2,
+      "nominal_deposited_area_mm2": 677.3414417879424,
+      "components": 52,
+      "unsupported_components": []
+    },
+    {
+      "z_mm": 2.4,
+      "nominal_deposited_area_mm2": 725.0959847578929,
+      "components": 40,
+      "unsupported_components": []
+    },
+    {
+      "z_mm": 4.8,
+      "nominal_deposited_area_mm2": 695.9258412247304,
+      "components": 28,
+      "unsupported_components": []
+    },
+    {
+      "z_mm": 7.2,
+      "nominal_deposited_area_mm2": 1678.6177843733174,
+      "components": 18,
+      "unsupported_components": []
+    },
+    {
+      "z_mm": 10.8,
+      "nominal_deposited_area_mm2": 297.7919227253888,
+      "components": 14,
+      "unsupported_components": []
+    }
+  ],
+  "gcode_estimates": [
+    "; model printing time: 3h 32m 8s; total estimated time: 3h 47m 48s",
+    "; total filament length [mm] : 3513.38",
+    "; total filament volume [cm^3] : 8450.66",
+    "; total filament weight [g] : 10.48"
+  ],
+  "caveats": [
+    "Nominal slicer geometry; actual bed adhesion, scaffold strength, print quality, fit and operation remain untested.",
+    "Selected-layer footprint overlap and all-layer per-object extrusion continuity screens do not constitute a full overhang/stability proof."
+  ]
+}

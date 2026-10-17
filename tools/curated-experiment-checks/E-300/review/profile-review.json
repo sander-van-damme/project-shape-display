@@ -1,0 +1,27 @@
+{
+  "evidence": "Section properties calculated from exported mesh; not measured stiffness.",
+  "section_x_mm": 2.5401,
+  "section_note": "0.0001 mm off rotor axis avoids coplanar triangulation degeneracy.",
+  "E299": {
+    "area_mm2": 11.722549209893586,
+    "centroid_z_mm": 0.2726642635739503,
+    "centroid_y_mm": -3.062840255799486,
+    "I_vertical_bending_mm4": 17.85192298485161,
+    "I_lateral_bending_mm4": 8.650316759658182,
+    "product_inertia_yz_mm4": -1.600335755840085,
+    "loop_vertices": 29,
+    "source_sha256": "ffe6664c638a07b43b5c6a454fb8eadd6d750467d02be5a6650af67cd89b5fe7"
+  },
+  "E300": {
+    "area_mm2": 7.088832500577154,
+    "centroid_z_mm": 0.669364807312795,
+    "centroid_y_mm": -2.235793634966562,
+    "I_vertical_bending_mm4": 36.17282546322542,
+    "I_lateral_bending_mm4": 0.869434315389995,
+    "product_inertia_yz_mm4": -1.7040899481703793,
+    "loop_vertices": 55,
+    "source_sha256": "c2d2778012929ac144073ffeaf5c41df4721703ecadc2edf7313f4fad30eb64b"
+  },
+  "ratio_E300_to_E299": 2.026270530850943,
+  "limitations": "E299 and E300 exact rotor-notch sections only. E300 external hand paddle excluded. No FEA, orthotropic material model, creep, torsional stiffness, support-span or strength qualification."
+}

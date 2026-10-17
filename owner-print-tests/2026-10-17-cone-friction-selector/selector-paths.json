@@ -1,0 +1,229 @@
+{
+  "project": "cone-friction-selector.3mf",
+  "project_sha256": "d0d82881f5a56485b6e79375471f452b46620eee910037644c5d8466eb991b33",
+  "nominal_spine_thickness_mm": 0.46,
+  "selector_reviews": [
+    {
+      "name": "row-selector",
+      "source_bounds_mm": [
+        [
+          61.8,
+          4.999999999999999,
+          0.0
+        ],
+        [
+          85.8,
+          13.0,
+          15.15
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 10.32,
+          "layer_center_mm": 10.26,
+          "check_line_xy_mm": [
+            [
+              126.09999996999998,
+              96.0009805235144
+            ],
+            [
+              135.49999996999998,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 0.9965873461739999,
+          "max_gap_mm": 0.03207894596440042,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 10.44,
+          "layer_center_mm": 10.379999999999999,
+          "check_line_xy_mm": [
+            [
+              126.09999996999998,
+              96.0009805235144
+            ],
+            [
+              135.49999996999998,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 0.9690505517441275,
+          "max_gap_mm": 0.1454624068026078,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 10.56,
+          "layer_center_mm": 10.5,
+          "check_line_xy_mm": [
+            [
+              126.09999996999998,
+              96.0009805235144
+            ],
+            [
+              135.49999996999998,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 0.9799760655314128,
+          "max_gap_mm": 0.09461249200236921,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 10.68,
+          "layer_center_mm": 10.62,
+          "check_line_xy_mm": [
+            [
+              126.09999996999998,
+              96.0009805235144
+            ],
+            [
+              135.49999996999998,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 1.0,
+          "max_gap_mm": 0.0,
+          "both_ends_in_same_material_component": true
+        }
+      ]
+    },
+    {
+      "name": "column-selector",
+      "source_bounds_mm": [
+        [
+          89.8,
+          4.999999999999999,
+          0.0
+        ],
+        [
+          94.39999999999999,
+          13.0,
+          16.15
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 11.4,
+          "layer_center_mm": 11.34,
+          "check_line_xy_mm": [
+            [
+              146.99999992231628,
+              96.0009805235144
+            ],
+            [
+              151.19999992231627,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 1.0,
+          "max_gap_mm": 0.0,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 11.52,
+          "layer_center_mm": 11.459999999999999,
+          "check_line_xy_mm": [
+            [
+              146.99999992231628,
+              96.0009805235144
+            ],
+            [
+              151.19999992231627,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 1.0,
+          "max_gap_mm": 0.0,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 11.64,
+          "layer_center_mm": 11.58,
+          "check_line_xy_mm": [
+            [
+              146.99999992231628,
+              96.0009805235144
+            ],
+            [
+              151.19999992231627,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 0.9979236486383017,
+          "max_gap_mm": 0.008720675719132487,
+          "both_ends_in_same_material_component": true
+        }
+      ]
+    },
+    {
+      "name": "column-selector",
+      "source_bounds_mm": [
+        [
+          98.39999999999999,
+          4.999999999999999,
+          0.0
+        ],
+        [
+          102.99999999999999,
+          13.0,
+          16.15
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 11.4,
+          "layer_center_mm": 11.34,
+          "check_line_xy_mm": [
+            [
+              155.5999999223163,
+              96.0009805235144
+            ],
+            [
+              159.7999999223163,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 1.0,
+          "max_gap_mm": 0.0,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 11.52,
+          "layer_center_mm": 11.459999999999999,
+          "check_line_xy_mm": [
+            [
+              155.5999999223163,
+              96.0009805235144
+            ],
+            [
+              159.7999999223163,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 1.0,
+          "max_gap_mm": 0.0,
+          "both_ends_in_same_material_component": true
+        },
+        {
+          "layer_z_mm": 11.64,
+          "layer_center_mm": 11.58,
+          "check_line_xy_mm": [
+            [
+              155.5999999223163,
+              96.0009805235144
+            ],
+            [
+              159.7999999223163,
+              96.0009805235144
+            ]
+          ],
+          "material_fraction": 0.9981460780999024,
+          "max_gap_mm": 0.007786471980409715,
+          "both_ends_in_same_material_component": true
+        }
+      ]
+    }
+  ],
+  "caveat": "Nominal line-width footprints on specific continuous-spine lines only. Does not prove print fusion, layer adhesion, shear capacity, creep or selection-force capacity."
+}

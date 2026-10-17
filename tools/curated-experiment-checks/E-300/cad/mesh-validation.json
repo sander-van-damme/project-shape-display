@@ -1,0 +1,156 @@
+{
+  "row-selector-core": {
+    "extents_mm": [
+      9.68,
+      4.92,
+      8.0
+    ],
+    "volume_mm3": 155.69633572137982,
+    "watertight": true,
+    "components": 1,
+    "sha256": "c2d2778012929ac144073ffeaf5c41df4721703ecadc2edf7313f4fad30eb64b"
+  },
+  "column-selector-core": {
+    "extents_mm": [
+      4.6,
+      4.92,
+      8.0
+    ],
+    "volume_mm3": 59.23736994225768,
+    "watertight": true,
+    "components": 1,
+    "sha256": "d563e0c1a7b09f595dfb2ee708a1c3e391fae93d681277a6aec4f779da1344be"
+  },
+  "male-rotor": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      6.7
+    ],
+    "volume_mm3": 35.96738001301471,
+    "watertight": true,
+    "components": 1,
+    "sha256": "0577e65ef6ee87ac87d4c37e9456f6b129b0ac3ee5a7f851f8e642f14af3aa09"
+  },
+  "female-rotor": {
+    "extents_mm": [
+      4.7,
+      4.699070949919308,
+      9.21
+    ],
+    "volume_mm3": 71.87988488101306,
+    "watertight": true,
+    "components": 1,
+    "sha256": "3079bd5f6eb3cb3e539f7a3a77979d2fcd84dbc7cf773dc070e8254400c6f023"
+  },
+  "row-selector": {
+    "extents_mm": [
+      24.0,
+      15.15,
+      8.0
+    ],
+    "volume_mm3": 1648.1727417848344,
+    "watertight": true,
+    "components": 1,
+    "sha256": "176c327cf3974abc77bf2370862ed13156b2b38ec6abd12447686a6850249407"
+  },
+  "column-selector": {
+    "extents_mm": [
+      4.6,
+      16.15,
+      8.0
+    ],
+    "volume_mm3": 445.19076994225753,
+    "watertight": true,
+    "components": 1,
+    "sha256": "4dea0014781890dabf648b4ff3a9786e4d7a4b189a15da67e8c7d6690c9d38d6"
+  },
+  "input-shaft": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      13.0
+    ],
+    "volume_mm3": 72.41548820528818,
+    "watertight": true,
+    "components": 1,
+    "sha256": "c91f17f808b56e5f674e4248b70021e259ca6b38e84767706d2037b68e3a970c"
+  },
+  "hand-key": {
+    "extents_mm": [
+      10.0,
+      9.998023297700655,
+      10.99
+    ],
+    "volume_mm3": 206.4290143013549,
+    "watertight": true,
+    "components": 1,
+    "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+  },
+  "column-holder": {
+    "extents_mm": [
+      4.6,
+      6.790000000000001,
+      3.0
+    ],
+    "volume_mm3": 78.921,
+    "watertight": true,
+    "components": 1,
+    "sha256": "1c449ba33df5550fc82be72244cdd76b69a7ba7d4854c78583598ac78ff44007"
+  },
+  "frame-back": {
+    "extents_mm": [
+      24.4,
+      7.2,
+      55.0
+    ],
+    "volume_mm3": 1943.4594963464212,
+    "watertight": true,
+    "components": 1,
+    "sha256": "b1bd84130a1347ecee7151ed3f3ebc6b08952f135aeabb81351b168db527c817"
+  },
+  "frame-front": {
+    "extents_mm": [
+      24.4,
+      7.2,
+      55.0
+    ],
+    "volume_mm3": 2229.0032628889526,
+    "watertight": true,
+    "components": 1,
+    "sha256": "7bc9649d0458b750a02d62ac589ee1813197f8b31568aaaf250e25421a607434"
+  },
+  "screw": {
+    "extents_mm": [
+      4.300000190734863,
+      4.299149990081787,
+      25.829999923706055
+    ],
+    "volume_mm3": 127.25572428973213,
+    "watertight": true,
+    "components": 1,
+    "sha256": "0c98f2719bde0b382cf7b0650ff0f805635293253893397dd694d7aead537a04"
+  },
+  "pin": {
+    "extents_mm": [
+      4.399999618530273,
+      4.400001525878906,
+      18.0
+    ],
+    "volume_mm3": 174.42593806935324,
+    "watertight": true,
+    "components": 1,
+    "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110"
+  },
+  "screw-tree": {
+    "extents_mm": [
+      18.0,
+      9.600000381469727,
+      27.709999084472656
+    ],
+    "volume_mm3": 694.5797771297425,
+    "watertight": true,
+    "components": 1,
+    "sha256": "7974ab833dfcb7870d63dd8d79b79ceee26170f79e54d739233cc37a4ef8071a"
+  }
+}

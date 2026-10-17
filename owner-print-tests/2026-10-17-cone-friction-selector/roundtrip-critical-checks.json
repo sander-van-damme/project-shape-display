@@ -1,0 +1,22 @@
+{
+  "delivered": {
+    "project_sha256": "d0d82881f5a56485b6e79375471f452b46620eee910037644c5d8466eb991b33",
+    "cone_layers": 20,
+    "minimum_cone_material_fraction": 1.0,
+    "female_layers_without_enclosed_open_cup": [],
+    "selector_spine_layers": 10,
+    "selector_layers_with_disconnected_endpoints": [],
+    "minimum_selector_check_line_material_fraction": 0.9690505517441275,
+    "all_20_braces_connected": true
+  },
+  "reopened": {
+    "project_sha256": "7b2fa4ddf0b0b57cb68c6f90d2627de13d2296501b88f554d23e91a3cd9924ac",
+    "cone_layers": 20,
+    "minimum_cone_material_fraction": 1.0,
+    "female_layers_without_enclosed_open_cup": [],
+    "selector_spine_layers": 10,
+    "selector_layers_with_disconnected_endpoints": [],
+    "minimum_selector_check_line_material_fraction": 0.9690506122452102,
+    "all_20_braces_connected": true
+  }
+}
