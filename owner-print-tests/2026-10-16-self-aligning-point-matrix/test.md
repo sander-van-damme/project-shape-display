@@ -149,6 +149,19 @@ Onderstaande punten zijn een zakelijke registratie van de eigen observaties, ver
   - **Twijfel van eigenaar:** modules kunnen extra breedte/ruimte vergen en nieuwe **tolerantieproblemen** meebrengen. Haalbaarheid niet onderzocht of getest.
 - Deze richtingen zijn **ideeën van de eigenaar voor latere evaluatie**; geen keuze voor een nieuwe constructie of opdracht om ze nu te ontwikkelen.
 
+### Aanvullende fysieke feedback — stopblokjes en selectiestangen (17 oktober 2026)
+
+**Latere aanvulling op dezelfde gedeeltelijke E-298-printtest; uitsluitend eigenaarsobservaties, opmerkingen en voorstellen.** De eerder als ongebruikt beschreven stop-spacers zijn **nadien alsnog herkend en gebruikt**. De overige oorspronkelijke observaties blijven behouden.
+
+- **Functie van de kleine `stop-spacer`-blokjes:** eigenaar heeft inmiddels zelf ontdekt dat ze de rij- en kolomselectiestangen **tijdelijk in een gekozen positie vasthouden**, zodat de handen vrij zijn om met de manuele aandrijving te testen.
+- **Fysiek getest met die blokjes:** de eigenaar heeft de stangen ermee vastgezet en kon daarna **één pin effectief omhoog en omlaag draaien**.
+- **Gevoel bij draaien:** dit verliep **vrij vlot, niet stroef en aangenaam**; de eigenaar is tevreden over die beweging.
+- **Rij- en kolomselectiestangen:** de eigenaar **ziet ze nu al doorbuigen bij deze kleine testopstelling** en vreest dat langere stangen in een groter display daardoor problemen zullen geven.
+- **Specifiek kwetsbaar punt:** aan één zijde hebben de selectiestangen **uitsparingen / inhammen** om rond de koppelingshelften te grijpen en ze axiaal op en neer te bewegen. De eigenaar begrijpt waarom deze uitsparingen er zijn, maar merkt dat de stangen **juist ter hoogte van deze uitgesneden plaatsen heel gemakkelijk buigen**.
+- **Voorstel van eigenaar:** onderzoek of de uitsparingen of het profiel **steviger of anders gevormd** kunnen worden om doorbuiging te verminderen.
+- **Mogelijke richting van eigenaar:** waar mogelijk **meer materiaal in de hoogte** van de selectiestang gebruiken voor extra stevigheid. **Breder** maken lijkt de eigenaar moeilijk wegens het risico tegen de naastgelegen rij-/kolomonderdelen te botsen. Dit zijn ideeën, geen geteste verbeteringen.
+- **Bewijsgrens:** de nieuwe handmatige op-/neerbeweging toont geen volledige automatische zelfuitlijning, gegarandeerd volledig aangrijpen, gelijktijdige bediening van meerdere pinnen of geschiktheid van lange selectiestangen aan. De eerder gemelde moeilijkheid om de koppelingshelften volledig naar elkaar te bewegen blijft als afzonderlijke eerdere observatie staan.
+
 ### Niet vastgesteld in deze gedeeltelijke uitvoering
 
 - Geen volledige montage / gelijktijdige zelfuitlijning van twee of vier verschillende koppelingen.
