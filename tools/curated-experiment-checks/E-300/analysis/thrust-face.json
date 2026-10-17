@@ -1,0 +1,55 @@
+{
+  "evidence": "CAD geometry and uniform-pressure numerical integration; not physical measurements",
+  "load_path": "Row pushes male rotor upward. Inverted column pushes female rotor downward. Both reactions act through local lower-blade top face z=-0.24 mm. The upper D3.7 fork is not the normal clamping load face.",
+  "grid_spacing_mm": 0.0025,
+  "nominal_model_radius_mm": 1.85,
+  "adverse_model_radii_mm": [
+    2.0,
+    2.15
+  ],
+  "analytic_ideal_u": {
+    "inner_radius_mm": 1.4,
+    "outer_radius_mm": 2.15,
+    "contact_area_mm2": 5.880960921842071,
+    "uniform_pressure_effective_radius_mm": 1.8189211200100035,
+    "rear_half_annulus_only_radius_mm": 1.8014084507042252
+  },
+  "actual_meshes": [
+    {
+      "mesh": "tools/curated-experiment-checks/E-300/cad/parts/row-selector.stl",
+      "sha256": "176c327cf3974abc77bf2370862ed13156b2b38ec6abd12447686a6850249407",
+      "local_bearing_face_z_mm": -0.24,
+      "local_section_z_mm": -0.24001,
+      "flange_radius_mm": 2.15,
+      "entries": [
+        {
+          "center_x_mm": -2.54,
+          "contact_area_mm2": 5.881767796700204,
+          "uniform_pressure_effective_radius_mm": 1.8189199019131987,
+          "integration_points": 940403
+        },
+        {
+          "center_x_mm": 2.54,
+          "contact_area_mm2": 5.881767796700273,
+          "uniform_pressure_effective_radius_mm": 1.8189199019131987,
+          "integration_points": 940403
+        }
+      ]
+    },
+    {
+      "mesh": "tools/curated-experiment-checks/E-300/cad/parts/column-selector.stl",
+      "sha256": "4dea0014781890dabf648b4ff3a9786e4d7a4b189a15da67e8c7d6690c9d38d6",
+      "local_bearing_face_z_mm": -0.24,
+      "local_section_z_mm": -0.24001,
+      "flange_radius_mm": 2.15,
+      "entries": [
+        {
+          "center_x_mm": 0.0,
+          "contact_area_mm2": 5.8817679690212135,
+          "uniform_pressure_effective_radius_mm": 1.8187154113513588,
+          "integration_points": 941709
+        }
+      ]
+    }
+  ]
+}

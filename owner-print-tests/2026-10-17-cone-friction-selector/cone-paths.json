@@ -1,0 +1,295 @@
+{
+  "project": "cone-friction-selector.3mf",
+  "project_sha256": "d0d82881f5a56485b6e79375471f452b46620eee910037644c5d8466eb991b33",
+  "cone_reviews": [
+    {
+      "name": "male-rotor",
+      "source_bounds_mm": [
+        [
+          106.99999999999999,
+          5.0,
+          0.0
+        ],
+        [
+          111.3,
+          9.299150018011282,
+          6.7
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 6.36,
+          "layer_center_mm": 6.300000000000001,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.6799999999999993,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.48,
+          "layer_center_mm": 6.420000000000001,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.5599999999999992,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.6,
+          "layer_center_mm": 6.54,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.44,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.2260435865906841,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.72,
+          "layer_center_mm": 6.66,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.3199999999999998,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        }
+      ]
+    },
+    {
+      "name": "male-rotor",
+      "source_bounds_mm": [
+        [
+          115.29999999999998,
+          5.0,
+          0.0
+        ],
+        [
+          119.6,
+          9.299150018011282,
+          6.7
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 6.36,
+          "layer_center_mm": 6.300000000000001,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.6799999999999993,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.48,
+          "layer_center_mm": 6.420000000000001,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.5599999999999992,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.6,
+          "layer_center_mm": 6.54,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.44,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 6.72,
+          "layer_center_mm": 6.66,
+          "expected_inner_radius_mm": 0.0,
+          "checked_ring_radius_mm": 1.3199999999999998,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 0.0,
+          "axis_enclosed_by_open_hole": false,
+          "component_count": 1
+        }
+      ]
+    },
+    {
+      "name": "female-rotor",
+      "source_bounds_mm": [
+        [
+          123.59999999999998,
+          5.0,
+          0.0
+        ],
+        [
+          128.29999999999998,
+          9.699070949919308,
+          9.21
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 8.64,
+          "layer_center_mm": 8.58,
+          "expected_inner_radius_mm": 1.3200000000000003,
+          "checked_ring_radius_mm": 1.8350000000000002,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.2901819565390593,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 8.76,
+          "layer_center_mm": 8.7,
+          "expected_inner_radius_mm": 1.4399999999999995,
+          "checked_ring_radius_mm": 1.8949999999999998,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.4132404446847464,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 8.88,
+          "layer_center_mm": 8.82,
+          "expected_inner_radius_mm": 1.5600000000000005,
+          "checked_ring_radius_mm": 1.9550000000000003,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.5312172447906727,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.0,
+          "layer_center_mm": 8.94,
+          "expected_inner_radius_mm": 1.6799999999999997,
+          "checked_ring_radius_mm": 2.0149999999999997,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.6530253829194563,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.12,
+          "layer_center_mm": 9.059999999999999,
+          "expected_inner_radius_mm": 1.799999999999999,
+          "checked_ring_radius_mm": 2.0749999999999993,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.7708152354959978,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.24,
+          "layer_center_mm": 9.18,
+          "expected_inner_radius_mm": 1.92,
+          "checked_ring_radius_mm": 2.135,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.887126588206126,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        }
+      ]
+    },
+    {
+      "name": "female-rotor",
+      "source_bounds_mm": [
+        [
+          132.29999999999998,
+          5.0,
+          0.0
+        ],
+        [
+          136.99999999999997,
+          9.699070949919308,
+          9.21
+        ]
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 8.64,
+          "layer_center_mm": 8.58,
+          "expected_inner_radius_mm": 1.3200000000000003,
+          "checked_ring_radius_mm": 1.8350000000000002,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.2928149174067984,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 8.76,
+          "layer_center_mm": 8.7,
+          "expected_inner_radius_mm": 1.4399999999999995,
+          "checked_ring_radius_mm": 1.8949999999999998,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.4132404446847118,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 8.88,
+          "layer_center_mm": 8.82,
+          "expected_inner_radius_mm": 1.5600000000000005,
+          "checked_ring_radius_mm": 1.9550000000000003,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.531481310575574,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.0,
+          "layer_center_mm": 8.94,
+          "expected_inner_radius_mm": 1.6799999999999997,
+          "checked_ring_radius_mm": 2.0149999999999997,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.6529489873102343,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.12,
+          "layer_center_mm": 9.059999999999999,
+          "expected_inner_radius_mm": 1.799999999999999,
+          "checked_ring_radius_mm": 2.0749999999999993,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.773901310078807,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        },
+        {
+          "layer_z_mm": 9.24,
+          "layer_center_mm": 9.18,
+          "expected_inner_radius_mm": 1.92,
+          "checked_ring_radius_mm": 2.135,
+          "checked_ring_material_fraction": 1.0,
+          "max_checked_ring_gap_mm": 0.0,
+          "axis_clearance_mm": 1.8890327209159576,
+          "axis_enclosed_by_open_hole": true,
+          "component_count": 1
+        }
+      ]
+    }
+  ],
+  "caveat": "Nominal toolpath footprint and layer centers. Does not prove surface roughness, fit, actual cone contact area, friction, breakaway or release."
+}

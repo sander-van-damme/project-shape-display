@@ -1,0 +1,86 @@
+{
+  "evidence": "Analytical sensitivity, assumed friction and modulus; no physical measurement",
+  "cone": {
+    "r_inner_mm": 1.4,
+    "r_outer_mm": 1.9,
+    "half_angle_deg": 45,
+    "uniform_pressure_R_mm": 1.6626262626262625,
+    "uniform_wear_R_mm": 1.65,
+    "torque_multiplier_mm": 2.351308609763752,
+    "area_mm2": 7.330756847961305,
+    "non_self_locking_condition": "mu_axial < tan(alpha) = 1"
+  },
+  "assumed_effective_upper_thrust_radius_mm": 1.85,
+  "assumed_lower_thrust_radius_mm": 1.8,
+  "force_sensitivity": [
+    {
+      "screw_torque_each_Nmm": 0.1,
+      "assumed_equal_mu": 0.15,
+      "row_force_N": 2.6597056331461855
+    },
+    {
+      "screw_torque_each_Nmm": 0.1,
+      "assumed_equal_mu": 0.25,
+      "row_force_N": 1.5958233798877113
+    },
+    {
+      "screw_torque_each_Nmm": 0.1,
+      "assumed_equal_mu": 0.4,
+      "row_force_N": 0.9973896124298195
+    },
+    {
+      "screw_torque_each_Nmm": 0.25,
+      "assumed_equal_mu": 0.15,
+      "row_force_N": 6.649264082865463
+    },
+    {
+      "screw_torque_each_Nmm": 0.25,
+      "assumed_equal_mu": 0.25,
+      "row_force_N": 3.9895584497192775
+    },
+    {
+      "screw_torque_each_Nmm": 0.25,
+      "assumed_equal_mu": 0.4,
+      "row_force_N": 2.4934740310745487
+    },
+    {
+      "screw_torque_each_Nmm": 0.5,
+      "assumed_equal_mu": 0.15,
+      "row_force_N": 13.298528165730927
+    },
+    {
+      "screw_torque_each_Nmm": 0.5,
+      "assumed_equal_mu": 0.25,
+      "row_force_N": 7.979116899438555
+    },
+    {
+      "screw_torque_each_Nmm": 0.5,
+      "assumed_equal_mu": 0.4,
+      "row_force_N": 4.986948062149097
+    }
+  ],
+  "section_ratios": {
+    "same_width_lower_fork_EI": 3.3749999999999987,
+    "notch_actual_mesh_EI_ratio": 2.0262711237782827,
+    "spine_EI": 1.0348099889352533
+  },
+  "beam_assumptions": {
+    "E_MPa": 1500,
+    "spine_min_width_mm": 0.46,
+    "spine_height_mm": 8,
+    "spine_relieved_kernel_I_mm4": 13.719921666666664,
+    "force_per_pitch_N": 0.5,
+    "pitch_mm": 5.08
+  },
+  "simply_supported_uniform_beam_deflection_mm": {
+    "25": 0.024325524650512412,
+    "50": 0.3892083944081986,
+    "100": 6.227334310531178
+  },
+  "equalizer": {
+    "tilt_deg": 3,
+    "geometric_height_difference_mm": 0.26623151875784934,
+    "flange_projected_height_at_tilt_mm": 0.9440578768679516
+  },
+  "adverse_friction_coefficient_Nmm_per_N": -0.38730370853543733
+}
