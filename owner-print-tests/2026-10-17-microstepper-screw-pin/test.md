@@ -1,5 +1,16 @@
 # Microstappenmotor → één compacte schroefpin
 
+> **E-301 — aanbevolen voor de beschikbare elektronica:** gebruik de
+> [Pico W-handleiding](pico/handleiding.md), het [nieuwe schema](pico/wiring.svg)
+> en [Pico-resultatenformulier](pico/resultaten.md). Dit gebruikt **9V PD en
+> 3,3V-logica**, zonder Uno of nieuwe print. Hardwarecontroles vóór inschakelen
+> zijn nog open; fysieke beweging is niet getest. [E-301](../../06-experiments/E-301-pico-w-motorcontroller.md).
+>
+> De onderstaande print-/montagegegevens blijven geldig als bestaande bron.
+> De oudere elektronische instructies/commando-uitleg hieronder beschrijven de
+> bewaarde **Uno/6V-variant**; volg voor Pico uitsluitend de gekoppelde handleiding.
+
+
 **Status:** READY — printproject en Uno-compilatie gecontroleerd; fysieke proef nog open\
 **Prioriteit:** P1 binnen deze eigenaarsopdracht\
 **Laatst beoordeeld:** 2026-10-17\
