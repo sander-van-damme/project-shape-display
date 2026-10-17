@@ -1,0 +1,1572 @@
+{
+  "project": "two-cell-selector.3mf",
+  "screws": [
+    {
+      "local_screw_x_mm": -5,
+      "examined_layers": 129,
+      "minimum_core_coverage": 0.8414496123619077,
+      "max_components": 1,
+      "minimum_crest_material_radius_mm": 1.5927283680722377,
+      "samples": [
+        {
+          "z_mm": 11.04,
+          "core_radius_045_coverage": 0.8546293983091188,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 11.16,
+          "core_radius_045_coverage": 0.9985191038419593,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5958212890049435
+        },
+        {
+          "z_mm": 11.28,
+          "core_radius_045_coverage": 0.8414556325244956,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965976115498475
+        },
+        {
+          "z_mm": 11.4,
+          "core_radius_045_coverage": 0.8489640425224071,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957073415841612
+        },
+        {
+          "z_mm": 11.52,
+          "core_radius_045_coverage": 0.9987724240453032,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5927283680722377
+        },
+        {
+          "z_mm": 11.64,
+          "core_radius_045_coverage": 0.8521609845891869,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973649234405538
+        },
+        {
+          "z_mm": 11.76,
+          "core_radius_045_coverage": 0.9980749599207123,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.0050379881825884
+        },
+        {
+          "z_mm": 11.88,
+          "core_radius_045_coverage": 0.8449829989412592,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181854092704475
+        },
+        {
+          "z_mm": 12.0,
+          "core_radius_045_coverage": 0.8455741787323909,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177916559801586
+        },
+        {
+          "z_mm": 12.12,
+          "core_radius_045_coverage": 0.8534628273526704,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5928273782382245
+        },
+        {
+          "z_mm": 12.24,
+          "core_radius_045_coverage": 0.9996518106474445,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 12.36,
+          "core_radius_045_coverage": 0.8515737374530661,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 12.48,
+          "core_radius_045_coverage": 0.8503270411216022,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 12.6,
+          "core_radius_045_coverage": 0.8460380084941443,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 12.72,
+          "core_radius_045_coverage": 0.9978086600829552,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5970406687779972
+        },
+        {
+          "z_mm": 12.84,
+          "core_radius_045_coverage": 0.8554427791925737,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.9399865907398635
+        },
+        {
+          "z_mm": 12.96,
+          "core_radius_045_coverage": 0.9969832703924257,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 13.08,
+          "core_radius_045_coverage": 0.8437331272486631,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 13.2,
+          "core_radius_045_coverage": 0.8480616591888348,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962194516331607
+        },
+        {
+          "z_mm": 13.32,
+          "core_radius_045_coverage": 0.9996498348713159,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 13.44,
+          "core_radius_045_coverage": 0.8467586594020566,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 13.56,
+          "core_radius_045_coverage": 0.853087669165486,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 13.68,
+          "core_radius_045_coverage": 0.9983902775784176,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 13.8,
+          "core_radius_045_coverage": 0.8586766535046092,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5966920521021168
+        },
+        {
+          "z_mm": 13.92,
+          "core_radius_045_coverage": 0.9994043249468472,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 14.04,
+          "core_radius_045_coverage": 0.854628961130329,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 14.16,
+          "core_radius_045_coverage": 0.8508369267228472,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 14.28,
+          "core_radius_045_coverage": 0.8414496123619077,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965976115498475
+        },
+        {
+          "z_mm": 14.4,
+          "core_radius_045_coverage": 0.8489589464508648,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957073415841612
+        },
+        {
+          "z_mm": 14.52,
+          "core_radius_045_coverage": 0.9985875928389554,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965600548335515
+        },
+        {
+          "z_mm": 14.64,
+          "core_radius_045_coverage": 0.8521261761303861,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973649234405538
+        },
+        {
+          "z_mm": 14.76,
+          "core_radius_045_coverage": 0.9987887788040919,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 14.88,
+          "core_radius_045_coverage": 0.8545102685147536,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959160470810174
+        },
+        {
+          "z_mm": 15.0,
+          "core_radius_045_coverage": 0.8523330398347043,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955299280650126
+        },
+        {
+          "z_mm": 15.12,
+          "core_radius_045_coverage": 0.8532171191940544,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597328865188766
+        },
+        {
+          "z_mm": 15.24,
+          "core_radius_045_coverage": 0.9996484351953282,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 15.36,
+          "core_radius_045_coverage": 0.8516517002314253,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 15.48,
+          "core_radius_045_coverage": 0.8498143314043488,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 15.6,
+          "core_radius_045_coverage": 0.8501733182729049,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.59721876881627
+        },
+        {
+          "z_mm": 15.72,
+          "core_radius_045_coverage": 0.9978599693401432,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 15.84,
+          "core_radius_045_coverage": 0.9969683019362008,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948158070084573
+        },
+        {
+          "z_mm": 15.96,
+          "core_radius_045_coverage": 0.997726495442684,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5950821874369865
+        },
+        {
+          "z_mm": 16.08,
+          "core_radius_045_coverage": 0.9972582324628751,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5940391376855905
+        },
+        {
+          "z_mm": 16.2,
+          "core_radius_045_coverage": 0.8487126169422822,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.005035123448348
+        },
+        {
+          "z_mm": 16.32,
+          "core_radius_045_coverage": 0.9991497611718739,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 16.44,
+          "core_radius_045_coverage": 0.9994735249554493,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8195288666439653
+        },
+        {
+          "z_mm": 16.56,
+          "core_radius_045_coverage": 0.8530819477375443,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 16.68,
+          "core_radius_045_coverage": 0.9983895404075064,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 16.8,
+          "core_radius_045_coverage": 0.9994820169672247,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597341137427028
+        },
+        {
+          "z_mm": 16.92,
+          "core_radius_045_coverage": 0.9993950972551949,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 17.04,
+          "core_radius_045_coverage": 0.8546293983091119,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 17.16,
+          "core_radius_045_coverage": 0.8499165745639159,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 17.28,
+          "core_radius_045_coverage": 0.8524893622211537,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8820254092702666
+        },
+        {
+          "z_mm": 17.4,
+          "core_radius_045_coverage": 0.8558132905882133,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181754092704443
+        },
+        {
+          "z_mm": 17.52,
+          "core_radius_045_coverage": 0.9990132799451886,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.817231903034918
+        },
+        {
+          "z_mm": 17.64,
+          "core_radius_045_coverage": 0.8520666889275562,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 17.76,
+          "core_radius_045_coverage": 0.9987861663883827,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 17.88,
+          "core_radius_045_coverage": 0.8543968679370632,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959160470810174
+        },
+        {
+          "z_mm": 18.0,
+          "core_radius_045_coverage": 0.8479355699801857,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955299280650126
+        },
+        {
+          "z_mm": 18.12,
+          "core_radius_045_coverage": 0.8534329300709729,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5928273782382245
+        },
+        {
+          "z_mm": 18.24,
+          "core_radius_045_coverage": 0.9996594341078928,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 18.36,
+          "core_radius_045_coverage": 0.8518470232638955,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 18.48,
+          "core_radius_045_coverage": 0.8500329372745978,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962430395789968
+        },
+        {
+          "z_mm": 18.6,
+          "core_radius_045_coverage": 0.8460418155063844,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.59721876881627
+        },
+        {
+          "z_mm": 18.72,
+          "core_radius_045_coverage": 0.9978555374208864,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 18.84,
+          "core_radius_045_coverage": 0.9969482675272023,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948158070084573
+        },
+        {
+          "z_mm": 18.96,
+          "core_radius_045_coverage": 0.9980249909495759,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.593818347408992
+        },
+        {
+          "z_mm": 19.08,
+          "core_radius_045_coverage": 0.8550017257257126,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952227624029514
+        },
+        {
+          "z_mm": 19.2,
+          "core_radius_045_coverage": 0.9987507835939725,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5950008299717002
+        },
+        {
+          "z_mm": 19.32,
+          "core_radius_045_coverage": 0.9996730298758926,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.594136044659098
+        },
+        {
+          "z_mm": 19.44,
+          "core_radius_045_coverage": 0.8466332493443327,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 19.56,
+          "core_radius_045_coverage": 0.8531096112661594,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 19.68,
+          "core_radius_045_coverage": 0.9983895404075064,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 19.8,
+          "core_radius_045_coverage": 0.9994850139155003,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973528942824278
+        },
+        {
+          "z_mm": 19.92,
+          "core_radius_045_coverage": 0.9994061958669636,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 20.04,
+          "core_radius_045_coverage": 0.8546377831522197,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 20.16,
+          "core_radius_045_coverage": 0.8509207503191298,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 20.28,
+          "core_radius_045_coverage": 0.8414554383605906,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5960886749199776
+        },
+        {
+          "z_mm": 20.4,
+          "core_radius_045_coverage": 0.8489663126045665,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959203466822431
+        },
+        {
+          "z_mm": 20.52,
+          "core_radius_045_coverage": 0.9987689407871086,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5927283680722377
+        },
+        {
+          "z_mm": 20.64,
+          "core_radius_045_coverage": 0.8522256216387701,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 20.76,
+          "core_radius_045_coverage": 0.9980678444831053,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.0050379881825884
+        },
+        {
+          "z_mm": 20.88,
+          "core_radius_045_coverage": 0.8451153994237991,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181854092704475
+        },
+        {
+          "z_mm": 21.0,
+          "core_radius_045_coverage": 0.8456764918578249,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177916559801586
+        },
+        {
+          "z_mm": 21.12,
+          "core_radius_045_coverage": 0.8530169906125621,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597729959335816
+        },
+        {
+          "z_mm": 21.24,
+          "core_radius_045_coverage": 0.9996546157957066,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 21.36,
+          "core_radius_045_coverage": 0.8518460195722836,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 21.48,
+          "core_radius_045_coverage": 0.8501612383308703,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 21.6,
+          "core_radius_045_coverage": 0.8498480785506995,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 21.72,
+          "core_radius_045_coverage": 0.9978676257329071,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 21.84,
+          "core_radius_045_coverage": 0.8559226845324904,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.9399865907398635
+        },
+        {
+          "z_mm": 21.96,
+          "core_radius_045_coverage": 0.9969878186725281,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188665907401755
+        },
+        {
+          "z_mm": 22.08,
+          "core_radius_045_coverage": 0.8435823893381881,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 22.2,
+          "core_radius_045_coverage": 0.8479574772660594,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962194516331607
+        },
+        {
+          "z_mm": 22.32,
+          "core_radius_045_coverage": 0.9996498348713162,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 22.44,
+          "core_radius_045_coverage": 0.846660119869133,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 22.56,
+          "core_radius_045_coverage": 0.8531683575545962,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 22.68,
+          "core_radius_045_coverage": 0.9983895404075064,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 22.8,
+          "core_radius_045_coverage": 0.9994850139155003,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973528942824278
+        },
+        {
+          "z_mm": 22.92,
+          "core_radius_045_coverage": 0.9994039888355377,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 23.04,
+          "core_radius_045_coverage": 0.8546354164794244,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 23.16,
+          "core_radius_045_coverage": 0.8499165745639159,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 23.28,
+          "core_radius_045_coverage": 0.8414554383605906,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5960886749199776
+        },
+        {
+          "z_mm": 23.4,
+          "core_radius_045_coverage": 0.848966850627351,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959203466822431
+        },
+        {
+          "z_mm": 23.52,
+          "core_radius_045_coverage": 0.9985972971638496,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965600548335515
+        },
+        {
+          "z_mm": 23.64,
+          "core_radius_045_coverage": 0.8522256216387695,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 23.76,
+          "core_radius_045_coverage": 0.9987853248479249,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 23.88,
+          "core_radius_045_coverage": 0.8545060004506911,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959160470810174
+        },
+        {
+          "z_mm": 24.0,
+          "core_radius_045_coverage": 0.8529897093518498,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952542927053899
+        },
+        {
+          "z_mm": 24.12,
+          "core_radius_045_coverage": 0.8529754754094298,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597729959335816
+        },
+        {
+          "z_mm": 24.24,
+          "core_radius_045_coverage": 0.9996603805190326,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 24.36,
+          "core_radius_045_coverage": 0.8518460195722836,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 24.48,
+          "core_radius_045_coverage": 0.8503566305499226,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 24.6,
+          "core_radius_045_coverage": 0.8502048474372482,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 24.72,
+          "core_radius_045_coverage": 0.9983502516631716,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.9399559010470504
+        },
+        {
+          "z_mm": 24.84,
+          "core_radius_045_coverage": 0.8555340391544991,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.819508943519744
+        },
+        {
+          "z_mm": 24.96,
+          "core_radius_045_coverage": 0.9969792722502804,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188665907401755
+        },
+        {
+          "z_mm": 25.08,
+          "core_radius_045_coverage": 0.9989973001054486,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961811089501134
+        },
+        {
+          "z_mm": 25.2,
+          "core_radius_045_coverage": 0.8485127893366582,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961681812951174
+        },
+        {
+          "z_mm": 25.32,
+          "core_radius_045_coverage": 0.9996498348713162,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 25.44,
+          "core_radius_045_coverage": 0.8464006964599613,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 25.56,
+          "core_radius_045_coverage": 0.853250265232824,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 25.68,
+          "core_radius_045_coverage": 0.9983895404075064,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 25.8,
+          "core_radius_045_coverage": 0.8586963991469171,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5966436125121497
+        },
+        {
+          "z_mm": 25.92,
+          "core_radius_045_coverage": 0.9995551442958688,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 26.04,
+          "core_radius_045_coverage": 0.8546293983091191,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 26.16,
+          "core_radius_045_coverage": 0.9987149393008227,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8701006905729831
+        },
+        {
+          "z_mm": 26.28,
+          "core_radius_045_coverage": 0.8504562729526564,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177917122242164
+        },
+        {
+          "z_mm": 26.4,
+          "core_radius_045_coverage": 0.9999999999999997,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.6935972030155435
+        }
+      ]
+    },
+    {
+      "local_screw_x_mm": 5,
+      "examined_layers": 129,
+      "minimum_core_coverage": 0.8410316975701464,
+      "max_components": 1,
+      "minimum_crest_material_radius_mm": 1.5927283680722377,
+      "samples": [
+        {
+          "z_mm": 11.04,
+          "core_radius_045_coverage": 0.8545525992819818,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 11.16,
+          "core_radius_045_coverage": 0.9984968645034185,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5958212890049435
+        },
+        {
+          "z_mm": 11.28,
+          "core_radius_045_coverage": 0.8414549373461977,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965976115498475
+        },
+        {
+          "z_mm": 11.4,
+          "core_radius_045_coverage": 0.8489663126045733,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957073415841612
+        },
+        {
+          "z_mm": 11.52,
+          "core_radius_045_coverage": 0.9987712649470394,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5927283680722377
+        },
+        {
+          "z_mm": 11.64,
+          "core_radius_045_coverage": 0.8522256216387701,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973649234405538
+        },
+        {
+          "z_mm": 11.76,
+          "core_radius_045_coverage": 0.9980652170969913,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.0050379881825884
+        },
+        {
+          "z_mm": 11.88,
+          "core_radius_045_coverage": 0.8450775524254599,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181854092704475
+        },
+        {
+          "z_mm": 12.0,
+          "core_radius_045_coverage": 0.8456647983364189,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177816640448035
+        },
+        {
+          "z_mm": 12.12,
+          "core_radius_045_coverage": 0.8536473457684373,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5928273782382245
+        },
+        {
+          "z_mm": 12.24,
+          "core_radius_045_coverage": 0.9996493253177956,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 12.36,
+          "core_radius_045_coverage": 0.8517977050391425,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 12.48,
+          "core_radius_045_coverage": 0.8502841352612805,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 12.6,
+          "core_radius_045_coverage": 0.8461494536713798,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 12.72,
+          "core_radius_045_coverage": 0.9978576337628321,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5970406687779972
+        },
+        {
+          "z_mm": 12.84,
+          "core_radius_045_coverage": 0.8557950926754382,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.9399765907398603
+        },
+        {
+          "z_mm": 12.96,
+          "core_radius_045_coverage": 0.9971073882474647,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188865907401535
+        },
+        {
+          "z_mm": 13.08,
+          "core_radius_045_coverage": 0.8434274998875181,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188865907401535
+        },
+        {
+          "z_mm": 13.2,
+          "core_radius_045_coverage": 0.8479728643557572,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962194516331607
+        },
+        {
+          "z_mm": 13.32,
+          "core_radius_045_coverage": 0.9996493181544193,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 13.44,
+          "core_radius_045_coverage": 0.8466919335750613,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 13.56,
+          "core_radius_045_coverage": 0.8531580685681911,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 13.68,
+          "core_radius_045_coverage": 0.9983902775784157,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 13.8,
+          "core_radius_045_coverage": 0.8583688751356835,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596680442938231
+        },
+        {
+          "z_mm": 13.92,
+          "core_radius_045_coverage": 0.9997799649740255,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 14.04,
+          "core_radius_045_coverage": 0.8546173989047782,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 14.16,
+          "core_radius_045_coverage": 0.8508105620643861,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 14.28,
+          "core_radius_045_coverage": 0.8414535670809966,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965976115498475
+        },
+        {
+          "z_mm": 14.4,
+          "core_radius_045_coverage": 0.8489668506273578,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957073415841612
+        },
+        {
+          "z_mm": 14.52,
+          "core_radius_045_coverage": 0.9985997364943906,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965600548335515
+        },
+        {
+          "z_mm": 14.64,
+          "core_radius_045_coverage": 0.8522256216387701,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973649234405538
+        },
+        {
+          "z_mm": 14.76,
+          "core_radius_045_coverage": 0.998783657642636,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 14.88,
+          "core_radius_045_coverage": 0.8544932111399226,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959338938599321
+        },
+        {
+          "z_mm": 15.0,
+          "core_radius_045_coverage": 0.8527499058366252,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955299280650126
+        },
+        {
+          "z_mm": 15.12,
+          "core_radius_045_coverage": 0.8536376661310257,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597386807288183
+        },
+        {
+          "z_mm": 15.24,
+          "core_radius_045_coverage": 0.9996480492923356,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 15.36,
+          "core_radius_045_coverage": 0.8517875126565972,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 15.48,
+          "core_radius_045_coverage": 0.8502803398113884,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 15.6,
+          "core_radius_045_coverage": 0.8501289675877665,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.59721876881627
+        },
+        {
+          "z_mm": 15.72,
+          "core_radius_045_coverage": 0.9978587608186819,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 15.84,
+          "core_radius_045_coverage": 0.996940029839103,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948158070084573
+        },
+        {
+          "z_mm": 15.96,
+          "core_radius_045_coverage": 0.9977257399403395,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5950821874369865
+        },
+        {
+          "z_mm": 16.08,
+          "core_radius_045_coverage": 0.9977960474642371,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5940391376855905
+        },
+        {
+          "z_mm": 16.2,
+          "core_radius_045_coverage": 0.8485477651674623,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.005035123448348
+        },
+        {
+          "z_mm": 16.32,
+          "core_radius_045_coverage": 0.9991506643396589,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188865907401535
+        },
+        {
+          "z_mm": 16.44,
+          "core_radius_045_coverage": 0.9994727724533286,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8195288666439653
+        },
+        {
+          "z_mm": 16.56,
+          "core_radius_045_coverage": 0.8531607360141077,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 16.68,
+          "core_radius_045_coverage": 0.998388803075059,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 16.8,
+          "core_radius_045_coverage": 0.9994891022282936,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597341137427028
+        },
+        {
+          "z_mm": 16.92,
+          "core_radius_045_coverage": 0.9994073924409774,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 17.04,
+          "core_radius_045_coverage": 0.8545960054965372,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 17.16,
+          "core_radius_045_coverage": 0.8499094524679436,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 17.28,
+          "core_radius_045_coverage": 0.8528373108527494,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8820154092702635
+        },
+        {
+          "z_mm": 17.4,
+          "core_radius_045_coverage": 0.8560968970688339,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181754092704443
+        },
+        {
+          "z_mm": 17.52,
+          "core_radius_045_coverage": 0.999019156430442,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.817231903034918
+        },
+        {
+          "z_mm": 17.64,
+          "core_radius_045_coverage": 0.8522256216387701,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 17.76,
+          "core_radius_045_coverage": 0.9987836576426355,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 17.88,
+          "core_radius_045_coverage": 0.854506000450689,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959362054220247
+        },
+        {
+          "z_mm": 18.0,
+          "core_radius_045_coverage": 0.8483955194623112,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955299280650126
+        },
+        {
+          "z_mm": 18.12,
+          "core_radius_045_coverage": 0.8536376661310257,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5930114409785272
+        },
+        {
+          "z_mm": 18.24,
+          "core_radius_045_coverage": 0.999659096521447,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 18.36,
+          "core_radius_045_coverage": 0.8517875126566008,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 18.48,
+          "core_radius_045_coverage": 0.8502803398113884,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962430395789968
+        },
+        {
+          "z_mm": 18.6,
+          "core_radius_045_coverage": 0.8461301621683581,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.59721876881627
+        },
+        {
+          "z_mm": 18.72,
+          "core_radius_045_coverage": 0.9978587608186819,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 18.84,
+          "core_radius_045_coverage": 0.9969387090924544,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948158070084573
+        },
+        {
+          "z_mm": 18.96,
+          "core_radius_045_coverage": 0.9980139409776982,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.593818347408992
+        },
+        {
+          "z_mm": 19.08,
+          "core_radius_045_coverage": 0.8554424723493346,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952227624029514
+        },
+        {
+          "z_mm": 19.2,
+          "core_radius_045_coverage": 0.9987571712370987,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5950008299717002
+        },
+        {
+          "z_mm": 19.32,
+          "core_radius_045_coverage": 0.9996493181544194,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.594136044659098
+        },
+        {
+          "z_mm": 19.44,
+          "core_radius_045_coverage": 0.8467477058592657,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 19.56,
+          "core_radius_045_coverage": 0.8531580685681911,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 19.68,
+          "core_radius_045_coverage": 0.9983920922171712,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 19.8,
+          "core_radius_045_coverage": 0.9994977951777476,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597341137427028
+        },
+        {
+          "z_mm": 19.92,
+          "core_radius_045_coverage": 0.9997619051957661,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 20.04,
+          "core_radius_045_coverage": 0.8542149788176151,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 20.16,
+          "core_radius_045_coverage": 0.8507921749388168,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 20.28,
+          "core_radius_045_coverage": 0.8414567641815496,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5960886749199776
+        },
+        {
+          "z_mm": 20.4,
+          "core_radius_045_coverage": 0.8489668045761887,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959203466822431
+        },
+        {
+          "z_mm": 20.52,
+          "core_radius_045_coverage": 0.9987637250418949,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5927283680722377
+        },
+        {
+          "z_mm": 20.64,
+          "core_radius_045_coverage": 0.852213507505603,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 20.76,
+          "core_radius_045_coverage": 0.9980665309945572,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 2.0050379881825884
+        },
+        {
+          "z_mm": 20.88,
+          "core_radius_045_coverage": 0.8451072179525005,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8181854092704475
+        },
+        {
+          "z_mm": 21.0,
+          "core_radius_045_coverage": 0.8456878022820802,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177816640448035
+        },
+        {
+          "z_mm": 21.12,
+          "core_radius_045_coverage": 0.852971629441998,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597729959335816
+        },
+        {
+          "z_mm": 21.24,
+          "core_radius_045_coverage": 0.9996598172931095,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 21.36,
+          "core_radius_045_coverage": 0.851786508964988,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 21.48,
+          "core_radius_045_coverage": 0.8502803398113884,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 21.6,
+          "core_radius_045_coverage": 0.8501690090901146,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 21.72,
+          "core_radius_045_coverage": 0.9978587608186816,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5973364114931508
+        },
+        {
+          "z_mm": 21.84,
+          "core_radius_045_coverage": 0.8558259435237758,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.9399765907398603
+        },
+        {
+          "z_mm": 21.96,
+          "core_radius_045_coverage": 0.9968865614277246,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 22.08,
+          "core_radius_045_coverage": 0.8436729870093657,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188865907401535
+        },
+        {
+          "z_mm": 22.2,
+          "core_radius_045_coverage": 0.8480782807362731,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5962194516331607
+        },
+        {
+          "z_mm": 22.32,
+          "core_radius_045_coverage": 0.9996498348713159,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 22.44,
+          "core_radius_045_coverage": 0.8468539782575958,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 22.56,
+          "core_radius_045_coverage": 0.853019495009455,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 22.68,
+          "core_radius_045_coverage": 0.9979654516975286,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 22.8,
+          "core_radius_045_coverage": 0.9994949752346445,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597341137427028
+        },
+        {
+          "z_mm": 22.92,
+          "core_radius_045_coverage": 0.9997718144938726,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 23.04,
+          "core_radius_045_coverage": 0.8547326640897202,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 23.16,
+          "core_radius_045_coverage": 0.8499718972669876,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5981361709985509
+        },
+        {
+          "z_mm": 23.28,
+          "core_radius_045_coverage": 0.8410316975701464,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5960886749199776
+        },
+        {
+          "z_mm": 23.4,
+          "core_radius_045_coverage": 0.8485861826735923,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959203466822431
+        },
+        {
+          "z_mm": 23.52,
+          "core_radius_045_coverage": 0.9986211314749472,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5965600548335515
+        },
+        {
+          "z_mm": 23.64,
+          "core_radius_045_coverage": 0.8519123598811223,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597123921132368
+        },
+        {
+          "z_mm": 23.76,
+          "core_radius_045_coverage": 0.9984936767328547,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961990819036913
+        },
+        {
+          "z_mm": 23.88,
+          "core_radius_045_coverage": 0.8544785740781548,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5959160470810174
+        },
+        {
+          "z_mm": 24.0,
+          "core_radius_045_coverage": 0.8530527491457732,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952542927053899
+        },
+        {
+          "z_mm": 24.12,
+          "core_radius_045_coverage": 0.8529646573762509,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.597729959335816
+        },
+        {
+          "z_mm": 24.24,
+          "core_radius_045_coverage": 0.9996602499599101,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5969790429187807
+        },
+        {
+          "z_mm": 24.36,
+          "core_radius_045_coverage": 0.8517881329293894,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952507310246689
+        },
+        {
+          "z_mm": 24.48,
+          "core_radius_045_coverage": 0.8502774413894414,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596228442316965
+        },
+        {
+          "z_mm": 24.6,
+          "core_radius_045_coverage": 0.8499408431588219,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596075656174877
+        },
+        {
+          "z_mm": 24.72,
+          "core_radius_045_coverage": 0.9982863541494389,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.939965865962531
+        },
+        {
+          "z_mm": 24.84,
+          "core_radius_045_coverage": 0.85566133737762,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.819508943519744
+        },
+        {
+          "z_mm": 24.96,
+          "core_radius_045_coverage": 0.9969701097787497,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8188765907401787
+        },
+        {
+          "z_mm": 25.08,
+          "core_radius_045_coverage": 0.9990191216708623,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961811089501134
+        },
+        {
+          "z_mm": 25.2,
+          "core_radius_045_coverage": 0.8480268141092812,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5961681812951174
+        },
+        {
+          "z_mm": 25.32,
+          "core_radius_045_coverage": 0.9996507098660266,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.596591888636259
+        },
+        {
+          "z_mm": 25.44,
+          "core_radius_045_coverage": 0.8468539782575958,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5948469006283426
+        },
+        {
+          "z_mm": 25.56,
+          "core_radius_045_coverage": 0.8528052030739934,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957535960113705
+        },
+        {
+          "z_mm": 25.68,
+          "core_radius_045_coverage": 0.9979221203426006,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5955944493224372
+        },
+        {
+          "z_mm": 25.8,
+          "core_radius_045_coverage": 0.8583879351556797,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5966436125121497
+        },
+        {
+          "z_mm": 25.92,
+          "core_radius_045_coverage": 0.9998498683093344,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5957950436458914
+        },
+        {
+          "z_mm": 26.04,
+          "core_radius_045_coverage": 0.8547322522467422,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.5952252840265941
+        },
+        {
+          "z_mm": 26.16,
+          "core_radius_045_coverage": 0.9989420183082559,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.870095721698195
+        },
+        {
+          "z_mm": 26.28,
+          "core_radius_045_coverage": 0.8505232651553554,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.8177817202868924
+        },
+        {
+          "z_mm": 26.4,
+          "core_radius_045_coverage": 0.9999999999999997,
+          "components_over_002mm2": 1,
+          "max_material_radius_mm": 1.6935774370614736
+        }
+      ]
+    }
+  ],
+  "caveat": "Deposited footprint continuity only. Crest radius may include scaffold contact lips; this does not prove exact thread dimensions or physical fit."
+}

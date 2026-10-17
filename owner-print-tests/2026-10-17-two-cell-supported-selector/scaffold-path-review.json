@@ -1,0 +1,672 @@
+{
+  "project": "two-cell-selector.3mf",
+  "brace_count": 20,
+  "all_braces_have_at_least_one_deposited_connection": true,
+  "brace_reviews": [
+    {
+      "index": 0,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 8.11,
+        "part": "collar",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        9.11,
+        9.51
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 9.24,
+          "nominal_layer_center_mm": 9.18,
+          "connected_thread_to_pillar": true,
+          "segments": 100
+        },
+        {
+          "layer_z_mm": 9.36,
+          "nominal_layer_center_mm": 9.299999999999999,
+          "connected_thread_to_pillar": true,
+          "segments": 31
+        },
+        {
+          "layer_z_mm": 9.48,
+          "nominal_layer_center_mm": 9.42,
+          "connected_thread_to_pillar": true,
+          "segments": 33
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 1,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 11.840000000000009,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        12.660000000000009,
+        13.020000000000008
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 12.84,
+          "nominal_layer_center_mm": 12.78,
+          "connected_thread_to_pillar": true,
+          "segments": 70
+        },
+        {
+          "layer_z_mm": 12.96,
+          "nominal_layer_center_mm": 12.9,
+          "connected_thread_to_pillar": true,
+          "segments": 32
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 2,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 15.260000000000002,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        16.080000000000002,
+        16.44
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 16.2,
+          "nominal_layer_center_mm": 16.14,
+          "connected_thread_to_pillar": true,
+          "segments": 84
+        },
+        {
+          "layer_z_mm": 16.32,
+          "nominal_layer_center_mm": 16.26,
+          "connected_thread_to_pillar": true,
+          "segments": 25
+        },
+        {
+          "layer_z_mm": 16.44,
+          "nominal_layer_center_mm": 16.380000000000003,
+          "connected_thread_to_pillar": true,
+          "segments": 23
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 3,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 20.83999999999998,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        21.65999999999998,
+        22.01999999999998
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 21.84,
+          "nominal_layer_center_mm": 21.78,
+          "connected_thread_to_pillar": true,
+          "segments": 70
+        },
+        {
+          "layer_z_mm": 21.96,
+          "nominal_layer_center_mm": 21.900000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 32
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 4,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 23.799999999999983,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        24.619999999999983,
+        24.979999999999983
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 24.72,
+          "nominal_layer_center_mm": 24.66,
+          "connected_thread_to_pillar": true,
+          "segments": 79
+        },
+        {
+          "layer_z_mm": 24.84,
+          "nominal_layer_center_mm": 24.78,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        },
+        {
+          "layer_z_mm": 24.96,
+          "nominal_layer_center_mm": 24.900000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 32
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 5,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 8.11,
+        "part": "collar",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        9.11,
+        9.51
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 9.24,
+          "nominal_layer_center_mm": 9.18,
+          "connected_thread_to_pillar": true,
+          "segments": 99
+        },
+        {
+          "layer_z_mm": 9.36,
+          "nominal_layer_center_mm": 9.299999999999999,
+          "connected_thread_to_pillar": true,
+          "segments": 33
+        },
+        {
+          "layer_z_mm": 9.48,
+          "nominal_layer_center_mm": 9.42,
+          "connected_thread_to_pillar": true,
+          "segments": 31
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 6,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 10.76,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        11.58,
+        11.94
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 11.76,
+          "nominal_layer_center_mm": 11.7,
+          "connected_thread_to_pillar": true,
+          "segments": 79
+        },
+        {
+          "layer_z_mm": 11.88,
+          "nominal_layer_center_mm": 11.82,
+          "connected_thread_to_pillar": true,
+          "segments": 23
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 7,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 16.34000000000001,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        17.16000000000001,
+        17.52000000000001
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 17.28,
+          "nominal_layer_center_mm": 17.220000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 78
+        },
+        {
+          "layer_z_mm": 17.4,
+          "nominal_layer_center_mm": 17.34,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        },
+        {
+          "layer_z_mm": 17.52,
+          "nominal_layer_center_mm": 17.46,
+          "connected_thread_to_pillar": true,
+          "segments": 28
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 8,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 19.76,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        20.580000000000002,
+        20.94
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 20.76,
+          "nominal_layer_center_mm": 20.700000000000003,
+          "connected_thread_to_pillar": true,
+          "segments": 79
+        },
+        {
+          "layer_z_mm": 20.88,
+          "nominal_layer_center_mm": 20.82,
+          "connected_thread_to_pillar": true,
+          "segments": 23
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 9,
+      "contact": {
+        "screw_x": -5.0,
+        "z": 25.239999999999952,
+        "radial_contact": 1.5934383461107207,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        26.059999999999953,
+        26.419999999999952
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 26.16,
+          "nominal_layer_center_mm": 26.1,
+          "connected_thread_to_pillar": true,
+          "segments": 78
+        },
+        {
+          "layer_z_mm": 26.28,
+          "nominal_layer_center_mm": 26.220000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        },
+        {
+          "layer_z_mm": 26.4,
+          "nominal_layer_center_mm": 26.34,
+          "connected_thread_to_pillar": true,
+          "segments": 29
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 10,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 8.11,
+        "part": "collar",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        9.11,
+        9.51
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 9.24,
+          "nominal_layer_center_mm": 9.18,
+          "connected_thread_to_pillar": true,
+          "segments": 100
+        },
+        {
+          "layer_z_mm": 9.36,
+          "nominal_layer_center_mm": 9.299999999999999,
+          "connected_thread_to_pillar": true,
+          "segments": 32
+        },
+        {
+          "layer_z_mm": 9.48,
+          "nominal_layer_center_mm": 9.42,
+          "connected_thread_to_pillar": true,
+          "segments": 33
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 11,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 11.840000000000009,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        12.660000000000009,
+        13.020000000000008
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 12.84,
+          "nominal_layer_center_mm": 12.78,
+          "connected_thread_to_pillar": true,
+          "segments": 73
+        },
+        {
+          "layer_z_mm": 12.96,
+          "nominal_layer_center_mm": 12.9,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 12,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 15.260000000000002,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        16.080000000000002,
+        16.44
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 16.2,
+          "nominal_layer_center_mm": 16.14,
+          "connected_thread_to_pillar": true,
+          "segments": 82
+        },
+        {
+          "layer_z_mm": 16.32,
+          "nominal_layer_center_mm": 16.26,
+          "connected_thread_to_pillar": true,
+          "segments": 23
+        },
+        {
+          "layer_z_mm": 16.44,
+          "nominal_layer_center_mm": 16.380000000000003,
+          "connected_thread_to_pillar": true,
+          "segments": 21
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 13,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 20.83999999999998,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        21.65999999999998,
+        22.01999999999998
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 21.84,
+          "nominal_layer_center_mm": 21.78,
+          "connected_thread_to_pillar": true,
+          "segments": 73
+        },
+        {
+          "layer_z_mm": 21.96,
+          "nominal_layer_center_mm": 21.900000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 14,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 23.799999999999983,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": -1
+      },
+      "center_z_window_mm": [
+        24.619999999999983,
+        24.979999999999983
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 24.72,
+          "nominal_layer_center_mm": 24.66,
+          "connected_thread_to_pillar": true,
+          "segments": 76
+        },
+        {
+          "layer_z_mm": 24.84,
+          "nominal_layer_center_mm": 24.78,
+          "connected_thread_to_pillar": true,
+          "segments": 28
+        },
+        {
+          "layer_z_mm": 24.96,
+          "nominal_layer_center_mm": 24.900000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 15,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 8.11,
+        "part": "collar",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        9.11,
+        9.51
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 9.24,
+          "nominal_layer_center_mm": 9.18,
+          "connected_thread_to_pillar": true,
+          "segments": 99
+        },
+        {
+          "layer_z_mm": 9.36,
+          "nominal_layer_center_mm": 9.299999999999999,
+          "connected_thread_to_pillar": true,
+          "segments": 32
+        },
+        {
+          "layer_z_mm": 9.48,
+          "nominal_layer_center_mm": 9.42,
+          "connected_thread_to_pillar": true,
+          "segments": 31
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 16,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 10.76,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        11.58,
+        11.94
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 11.76,
+          "nominal_layer_center_mm": 11.7,
+          "connected_thread_to_pillar": true,
+          "segments": 82
+        },
+        {
+          "layer_z_mm": 11.88,
+          "nominal_layer_center_mm": 11.82,
+          "connected_thread_to_pillar": true,
+          "segments": 24
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 17,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 16.34000000000001,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        17.16000000000001,
+        17.52000000000001
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 17.28,
+          "nominal_layer_center_mm": 17.220000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 78
+        },
+        {
+          "layer_z_mm": 17.4,
+          "nominal_layer_center_mm": 17.34,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        },
+        {
+          "layer_z_mm": 17.52,
+          "nominal_layer_center_mm": 17.46,
+          "connected_thread_to_pillar": true,
+          "segments": 28
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 18,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 19.76,
+        "radial_contact": 1.5999984741210938,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        20.580000000000002,
+        20.94
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 20.76,
+          "nominal_layer_center_mm": 20.700000000000003,
+          "connected_thread_to_pillar": true,
+          "segments": 81
+        },
+        {
+          "layer_z_mm": 20.88,
+          "nominal_layer_center_mm": 20.82,
+          "connected_thread_to_pillar": true,
+          "segments": 23
+        }
+      ],
+      "at_least_one_connected_layer": true
+    },
+    {
+      "index": 19,
+      "contact": {
+        "screw_x": 5.0,
+        "z": 25.239999999999952,
+        "radial_contact": 1.5934383461107207,
+        "penetration": 0.14,
+        "part": "threadcrest",
+        "sign": 1
+      },
+      "center_z_window_mm": [
+        26.059999999999953,
+        26.419999999999952
+      ],
+      "layers": [
+        {
+          "layer_z_mm": 26.16,
+          "nominal_layer_center_mm": 26.1,
+          "connected_thread_to_pillar": true,
+          "segments": 78
+        },
+        {
+          "layer_z_mm": 26.28,
+          "nominal_layer_center_mm": 26.220000000000002,
+          "connected_thread_to_pillar": true,
+          "segments": 30
+        },
+        {
+          "layer_z_mm": 26.4,
+          "nominal_layer_center_mm": 26.34,
+          "connected_thread_to_pillar": true,
+          "segments": 28
+        }
+      ],
+      "at_least_one_connected_layer": true
+    }
+  ],
+  "caveat": "Nominal line-width footprints and layer centers only. Does not establish bond strength, scaffold stiffness or scar-free physical removal."
+}

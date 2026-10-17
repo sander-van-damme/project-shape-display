@@ -1,0 +1,134 @@
+{
+  "rotor": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      8.6
+    ],
+    "volume_mm3": 47.79134661645256,
+    "watertight": true,
+    "components": 1,
+    "sha256": "7117072ecb6ea5a3670646c225e42e6b6f795627db90cae94ed9aab93cdaa4ef"
+  },
+  "row-selector": {
+    "extents_mm": [
+      30.0,
+      6.8,
+      4.16
+    ],
+    "volume_mm3": 451.1783092743372,
+    "watertight": true,
+    "components": 1,
+    "sha256": "ffe6664c638a07b43b5c6a454fb8eadd6d750467d02be5a6650af67cd89b5fe7"
+  },
+  "column-selector": {
+    "extents_mm": [
+      4.6,
+      16.3,
+      4.16
+    ],
+    "volume_mm3": 243.40536746490366,
+    "watertight": true,
+    "components": 1,
+    "sha256": "344ca678be2a51841eb17544283bf21f16bfaf3929ff1bc7041cd5f9c55c1a5e"
+  },
+  "input-shaft": {
+    "extents_mm": [
+      4.3,
+      4.299150018011282,
+      13.200000000000001
+    ],
+    "volume_mm3": 73.05111978919955,
+    "watertight": true,
+    "components": 1,
+    "sha256": "e47c5381dfdd6c62c3c0a2857c25fd6cc8af01f6e5ce955d49a91a86c14c08f1"
+  },
+  "hand-key": {
+    "extents_mm": [
+      10.0,
+      9.998023297700655,
+      10.99
+    ],
+    "volume_mm3": 206.4290143013549,
+    "watertight": true,
+    "components": 1,
+    "sha256": "85ba0f0a6a1070784e33b863727c4826b2bb0fe8915cdb60f1f9866a89c5d4bb"
+  },
+  "row-holder": {
+    "extents_mm": [
+      28.4,
+      7.289999999999999,
+      3.0
+    ],
+    "volume_mm3": 196.41599999999994,
+    "watertight": true,
+    "components": 1,
+    "sha256": "435409bc1fa6f1ed57148cdae9ae3d97d5cf548e14b5ae5499cda131af60a658"
+  },
+  "column-holder": {
+    "extents_mm": [
+      4.6,
+      6.790000000000001,
+      3.0
+    ],
+    "volume_mm3": 78.921,
+    "watertight": true,
+    "components": 1,
+    "sha256": "1c449ba33df5550fc82be72244cdd76b69a7ba7d4854c78583598ac78ff44007"
+  },
+  "frame-back": {
+    "extents_mm": [
+      24.4,
+      7.2,
+      55.0
+    ],
+    "volume_mm3": 2339.425607211488,
+    "watertight": true,
+    "components": 1,
+    "sha256": "3d88e56aa8367de386d06ee866577fdbcd08c8f956d8254fa68d2c9199470eff"
+  },
+  "frame-front": {
+    "extents_mm": [
+      24.4,
+      7.200000000000001,
+      55.0
+    ],
+    "volume_mm3": 2339.425607211487,
+    "watertight": true,
+    "components": 1,
+    "sha256": "65ea74d63848f4e8008e562c33fd7337abebe84cd752ee9b0d3faa8cb313895e"
+  },
+  "screw": {
+    "extents_mm": [
+      4.300000190734863,
+      4.299149990081787,
+      25.829999923706055
+    ],
+    "volume_mm3": 127.25572428973213,
+    "watertight": true,
+    "components": 1,
+    "sha256": "0c98f2719bde0b382cf7b0650ff0f805635293253893397dd694d7aead537a04"
+  },
+  "pin": {
+    "extents_mm": [
+      4.399999618530273,
+      4.400001525878906,
+      18.0
+    ],
+    "volume_mm3": 174.42593806935324,
+    "watertight": true,
+    "components": 1,
+    "sha256": "2ca11333ce77f8c835a9b1eaa846ef07488196aa6354b1045db62abcbee6e110"
+  },
+  "screw-tree": {
+    "extents_mm": [
+      18.0,
+      9.600000381469727,
+      27.709999084472656
+    ],
+    "volume_mm3": 694.5797771297425,
+    "watertight": true,
+    "components": 1,
+    "sha256": "7974ab833dfcb7870d63dd8d79b79ceee26170f79e54d739233cc37a4ef8071a"
+  }
+}
