@@ -1,9 +1,9 @@
 # Test B — 2×2 met gelijktijdige zelfuitlijning
 
-**Status:** DEFERRED  
-**Prioriteit:** geen; alleen na kansrijke A1 én A2 uit [Test A](../2026-10-16-self-aligning-point-fit/test.md)  
-**Laatst beoordeeld:** 2026-10-16  
-**Reden:** het concrete printproject is voorbereid; de gekozen puntvorm is nog niet fysiek getest. E-297 en zijn bestaande READY-tests blijven volledig ongewijzigd.  
+**Status:** DEFERRED — gedeeltelijk fysiek beproefd; volledige 2×2-test niet uitgevoerd  
+**Prioriteit:** geen; geen vervolgprint ingepland  
+**Laatst beoordeeld:** 2026-10-17 (eigenaarsrapport ontvangen; exacte printdatum niet opgegeven)  
+**Reden:** eigenaar printte slechts een deel van de onderdelen, monteerde een beperkte opstelling en testte één koppeling en één pin. Dit vervangt de eerdere vermelding dat er nog geen fysieke resultaten waren. E-297 blijft ongewijzigd.  
 **Technische bron:** [E-298](../../06-experiments/E-298-self-aligning-point-clutch.md).
 
 ## 1. Vraag en stopconditie
@@ -56,7 +56,87 @@ De nominale volledig geselecteerde flensbuitenvlakken staan 15,76 mm uiteen; tan
 8. Controleer de vier celtoestanden 00/10/01/11 en de 16 maskers hieronder. In iedere stand worden alle vier inputs met de hand gedraaid; alleen de geselecteerde schroeven mogen worden meegenomen. Bij adreswisselen: input stoppen/ontlasten, rijen terug, gewenste kolommen instellen, zelfuitlijnen met stilstaande inputs, volledige zetting controleren. Als een fase blokkeert, noteer de onuitgevoerde aandrijfproef in plaats van fasehulp te verzwijgen.
 9. Test na beide draairichtingen de twee ontkoppelroutes: eerst alleen rij terug, in een nieuwe cyclus alleen kolom terug. Ontlast torsie vóór terugtrekken. Controleer dat draaien van die input daarna de output niet meeneemt. Eindig met inspectie van alle punten; geen duurtest of zwaardere belastingcampagne.
 
-## 5. Resultaten — nog niet uitgevoerd
+## 5. Eigenaarsrapport — ontvangen 17 oktober 2026
+
+Onderstaande punten zijn een zakelijke registratie van de eigen observaties, vermoedens, voorstellen en beoordeling van de eigenaar. Er is **geen aanvullende technische interpretatie** toegevoegd. De print-/testdatum is niet apart doorgegeven.
+
+### Printinstellingen, oriëntatie en bedbehechting
+
+- Geprint vanuit **point-matrix.3mf** op een Bambu Lab X1 Carbon.
+- Volgens de eigenaar zijn de oorspronkelijke printinstellingen gebruikt, behalve de filamentkeuze: wit, officieel Bambu Lab-filament dat in de printer zat. Het precieze filamenttype is niet opgegeven.
+- De eigenaar heeft ook de **automatische oriëntatie** en **automatische plaatsing** in Bambu gebruikt; de voorgeschreven oriëntatie uit de repository is dus niet noodzakelijk behouden.
+- De onderdelen waren overwegend goed geprint, maar niet alles is gelukt.
+- De eerste-laag-brim / bedhechtingsrand was soms lastig van de onderdelen te verwijderen. Dit komt volgens de eigenaar ook bij andere prints geregeld voor.
+- Vooral wanneer automatisch oriënteren een **schroefgat of schroefopening naar beneden** plaatste, was de brim moeilijk weg te halen.
+- Eigenaar wil dat bij toekomstige 3MF-bestanden de oriëntatie vooraf zo wordt gekozen dat bedhechtingsresten zo weinig mogelijk op functionele vlakken en schroefopeningen terechtkomen.
+- Bij automatisch plaatsen bleven **vier onderdelen buiten het printbed**. De eigenaar heeft daarom niet de volledige set geprint; welke vier onderdelen ontbraken is niet gespecificeerd.
+
+### Mislukte schroeven en voorstel voor printondersteuning
+
+- Het printen van de slanke **schroeven** is mislukt: zonder supports werd dit tijdens het printen een **spaghetti-mislukking**.
+- De eigenaar had problemen met deze onondersteunde schroeven op voorhand verwacht.
+- Voorstel van eigenaar: bij toekomstige schroefprints wel supports voorzien, **of** meerdere schroeven naast elkaar printen en tijdelijk met kleine, afbreekbare verbindingsstukjes aan elkaar koppelen, zodat ze elkaar stabiliseren.
+- De haalbaarheid en het gemakkelijk afbreken van zulke verbindingsstukjes is **nog niet getest**.
+- Eigenaar wil printondersteuning en oriëntatie al tijdens het ontwerpen en aanleveren van de printbestanden laten meewegen, in plaats van alleen op de slicer te vertrouwen.
+
+### Montage en onderdelen
+
+- De daadwerkelijk beschikbare/geprinte onderdelen konden gemonteerd worden; montage vergde wel werk, vooral bij het verwijderen van brims en andere printresten.
+- Het **frame** paste goed. De eigenaar beschouwt het frame vooral als testgereedschap, niet als hoofdzaak.
+- De kleine **assen/pinnetjes waarover de koppelingshelften schuiven** waren goed; eigenaar noemt die een eenvoudig onderdeel.
+- De **rij- en kolomselectiestangen** bewogen op zichzelf soepel.
+- De selectiestangen waren echter **licht verbogen**. Eigenaar vermoedt printwarmte en/of de geringe dikte als mogelijke oorzaak, zonder die oorzaak te hebben vastgesteld.
+- **Belangrijk:** door die verbuiging en de krappe beschikbare beweging konden de rij- en kolomselectoren de koppelingshelften **niet ver genoeg naar elkaar bewegen voor volledig aangrijpen**. Zelfs zo dicht mogelijk bij elkaar kwam de koppeling **maar gedeeltelijk / ongeveer half** in elkaar.
+- De eigenaar vond de slag en de maatvoering op dit punt erg krap en wil dat de selectiestangen voldoende stevig zijn.
+- De **stop-spacers / afstandsblokjes** zijn **niet gebruikt**, omdat de eigenaar niet wist waarvoor ze dienden.
+- De eigenaar vindt de afstandsblokjes erg klein en het handmatig losmaken van zulke vele kleine onderdelen onhandig; voorkeur voor **zo weinig mogelijk losse onderdelen**.
+- De montage van een complete 2×2-set is niet uitgevoerd; de beperkte montage was volgens de eigenaar ook niet bijzonder gemakkelijk.
+
+### Draaisleutel en aandrijfas
+
+- De **manuele draaisleutel** was lastig in de **aandrijfas** te steken.
+- Het insteekpunt / de groef in de aandrijfas was **erg ondiep** en sleet **vrij snel**.
+- Voorstel van eigenaar: de aansluiting dieper maken zodat de sleutel verder kan insteken en beter blijft zitten.
+- Eigenaar merkt op dat deze manuele aansluiting enkel voor de test dient en geen belangrijke eis is voor het uiteindelijke ontwerp.
+
+### Zelfuitlijning, koppeling en speling
+
+- De eigenaar heeft **slechts één koppelingspaar** getest, niet twee of vier gelijktijdig.
+- Wanneer de twee punten **recht tegenover elkaar** stonden, lijnde de koppeling zich **niet** vanzelf uit; de punten **blokkeerden tegen elkaar**.
+- Eigenaar had dit vooraf al verwacht wegens de volgens hem onvoldoende scherp geprinte punten.
+- **Vermoeden van eigenaar:** aanzienlijk scherpere punten zijn nodig om automatische uitlijning mogelijk te maken. Dit is geen bevestigde oorzaak of bewezen oplossing.
+- Eigenaar overweegt eventueel de puntkoppeling iets breder te maken **als er ruimte is**, of anders een andere punt-/koppelingsgeometrie te proberen.
+- Essentiële eis volgens eigenaar: de koppeling moet vanuit **elke willekeurige beginpositie** kunnen aangrijpen.
+- Wanneer de helften wel gunstig tegenover elkaar stonden en in elkaar zaten, leek de koppeling **vrij soepel te draaien**.
+- De koppeling had volgens de eigenaar **behoorlijk veel speling** en wiebelde duidelijk.
+- Idee voor een later eindontwerp: een **passende geleiding rond de koppeling**, afgestemd op de werkelijke pin/staaf, om zijwaartse en voor-achterwaartse beweging te beperken.
+- Die extra geleiding is **nu geen prioriteit**: de eigenaar wil de koppeling tijdens de proef zichtbaar houden.
+- **Afzonderlijke observaties:** het niet volledig kunnen sluiten door de licht verbogen / onvoldoende ver bewegende selectorstangen, en het blokkeren van punt-op-puntcontact. Geen van beide is hier als enige bewezen oorzaak van het andere geregistreerd.
+
+### Pinbeweging
+
+- **Slechts één pin** is handmatig getest.
+- Het **omhoog en omlaag bewegen** van die pin ging **heel vlot**, zonder gemeld probleem.
+- Het gedrag van meerdere pinnen tegelijk, niet-geselecteerde buren en de volledige 2×2-matrix is **niet getest / niet gerapporteerd**.
+
+### Algemene beoordeling en voorkeuren van de eigenaar
+
+- Eigenaar is **vrij tevreden** dat er nu iets concreets te zien en te testen is.
+- Eigenaar heeft **veel vertrouwen in het basisidee met gedeelde rij- en kolomselectoren** en wil daarop verder bouwen.
+- Belangrijkste gewenste verbeteringen volgens eigenaar: **betere zelfuitlijnende puntkoppeling**, **stevigere/rechtere selectiestangen met voldoende sluitbeweging**, **betrouwbaardere schroefprints**, en **zorgvuldig gekozen oriëntatie en bedhechting** in de aangeleverde 3MF.
+- De afbreekbare verbindingen tussen geprinte schroeven zijn een **voorstel van de eigenaar**, nog geen uitgeteste oplossing.
+- Eigenaar verkiest **weinig losse, kleine extra onderdelen** voor eenvoudiger printen en monteren.
+- Extra geleiding voor wiebelen is een wens voor later, **niet voor de eerstvolgende proef**.
+
+### Niet vastgesteld in deze gedeeltelijke uitvoering
+
+- Geen volledige montage / gelijktijdige zelfuitlijning van twee of vier verschillende koppelingen.
+- Geen volledige 16-maskerproef, onafhankelijke selectie van alle vier pinnen of systematische controle op ongewenste buurbeweging.
+- Geen hoek-, hoogte-, kracht-, maat- of duurmetingen opgegeven.
+- Geen volledige, betrouwbare eindsluiting van de geteste koppeling aangetoond; de eigenaar kon de selectiestangen niet ver genoeg samenbrengen.
+- Niet opgegeven: exacte uitvoeringsdatum van de print, filamentproducttype, werkelijke printtijd/filamentmassa, volledige lijst van wel/niet geprinte onderdelen, of resultaat van de voorafgaande Test A.
+
+## 6. Oorspronkelijk testformulier — niet volledig doorlopen
 
 Datum / 3MF / eventuele profielwijzigingen: ______  A1/A2 vooraf geslaagd?: ______  Filament: ______  Tijd/massa: ______  Nabewerking/schade: ______  Hoogte-/hoekresolutie: ______
 
@@ -98,6 +178,7 @@ Datum / 3MF / eventuele profielwijzigingen: ______  A1/A2 vooraf geslaagd?: ____
 
 Bidirectioneel gedragen?: ______  Rij trekt los?: ______  Kolom trekt los?: ______  Punten vóór/na intact?: ______  Teruglopen bij loslaten?: ______
 
-## 6. Interpretatie na feedback
+## 7. Registratienoot
 
-Nog geen fysieke resultaten. GO voor een volgende stap is hier niet vooraf ingevuld. De proef kan zelfstandig invangen buiten dode fases aantonen, of juist laten zien dat één fase de hele selector blokkeert. Zij kwalificeert geen automatische invang vanuit iedere fase, productieopbrengst, levensduur, 40-mm slag of gemeenschappelijke motortransmissie. Stop na deze concrete proef; er is geen automatische vervolgopdracht.
+- De oorspronkelijke proefinstructies en het lege resultaatformulier zijn behouden om niet-uitgevoerde onderdelen niet als fysieke testresultaten voor te stellen.
+- Bovenstaand eigenaarsrapport bevat geen door de assistent toegevoegde diagnose, mechanische oplossing of GO/NO-GO-beslissing.
