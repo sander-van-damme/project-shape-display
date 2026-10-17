@@ -1,0 +1,290 @@
+[
+  {
+    "name": "frame-back",
+    "bounds_mm": [
+      [
+        5.0,
+        5.0,
+        0.0
+      ],
+      [
+        29.4,
+        60.0,
+        7.200000000000004
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/frame-back-print.stl"
+  },
+  {
+    "name": "frame-front",
+    "bounds_mm": [
+      [
+        33.39999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        57.8,
+        60.0,
+        7.200000000000005
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/frame-front-print.stl"
+  },
+  {
+    "name": "row-selector",
+    "bounds_mm": [
+      [
+        61.8,
+        5.0,
+        0.0
+      ],
+      [
+        91.8,
+        9.160000000000002,
+        6.8
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/row-selector-print.stl"
+  },
+  {
+    "name": "column-selector",
+    "bounds_mm": [
+      [
+        95.8,
+        5.0,
+        0.0
+      ],
+      [
+        99.96,
+        21.3,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/column-selector-print.stl"
+  },
+  {
+    "name": "column-selector",
+    "bounds_mm": [
+      [
+        103.96,
+        5.0,
+        0.0
+      ],
+      [
+        108.11999999999999,
+        21.3,
+        4.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/column-selector-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        112.11999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        116.42,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        120.41999999999999,
+        5.0,
+        0.0
+      ],
+      [
+        124.72,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        128.72,
+        5.0,
+        0.0
+      ],
+      [
+        133.02,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "rotor",
+    "bounds_mm": [
+      [
+        137.02,
+        5.0,
+        0.0
+      ],
+      [
+        141.32000000000002,
+        9.299150018011282,
+        8.6
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/rotor-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        5.0,
+        65.0,
+        0.0
+      ],
+      [
+        9.3,
+        69.29915001801129,
+        13.200000000000001
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "input-shaft",
+    "bounds_mm": [
+      [
+        13.3,
+        65.0,
+        0.0
+      ],
+      [
+        17.6,
+        69.29915001801129,
+        13.200000000000001
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/input-shaft-print.stl"
+  },
+  {
+    "name": "hand-key",
+    "bounds_mm": [
+      [
+        21.6,
+        65.0,
+        0.0
+      ],
+      [
+        31.6,
+        74.99802329770066,
+        10.99
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/hand-key-print.stl"
+  },
+  {
+    "name": "row-holder",
+    "bounds_mm": [
+      [
+        35.599999999999994,
+        65.0,
+        0.0
+      ],
+      [
+        64.0,
+        72.28999999999999,
+        3.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/row-holder-print.stl"
+  },
+  {
+    "name": "column-holder",
+    "bounds_mm": [
+      [
+        68.0,
+        65.0,
+        0.0
+      ],
+      [
+        72.6,
+        71.79,
+        3.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/column-holder-print.stl"
+  },
+  {
+    "name": "column-holder",
+    "bounds_mm": [
+      [
+        76.6,
+        65.0,
+        0.0
+      ],
+      [
+        81.19999999999999,
+        71.79,
+        3.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/column-holder-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        85.19999999999999,
+        65.0,
+        0.0
+      ],
+      [
+        89.59999961853026,
+        69.4000015258789,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "pin",
+    "bounds_mm": [
+      [
+        93.59999961853026,
+        65.0,
+        0.0
+      ],
+      [
+        97.99999923706054,
+        69.4000015258789,
+        18.0
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/pin-print.stl"
+  },
+  {
+    "name": "screw-tree",
+    "bounds_mm": [
+      [
+        101.99999923706054,
+        65.0,
+        0.0
+      ],
+      [
+        119.99999923706054,
+        74.60000038146973,
+        27.709999084472656
+      ]
+    ],
+    "source": "tools/curated-experiment-checks/E-299/cad/parts/screw-tree-print.stl"
+  }
+]

@@ -1,0 +1,369 @@
+{
+  "first": {
+    "error_string": "Success.",
+    "export_time": 237,
+    "layer_height": 0.11999999731779099,
+    "plate_index": 0,
+    "prepare_time": 80,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 51.17919921875,
+          "Bridge": 150.61705017089844,
+          "Custom": 927.277587890625,
+          "Flush": 29.0,
+          "Gap infill": 4.217574119567871,
+          "Inner wall": 2285.764892578125,
+          "Internal solid infill": 986.3468627929688,
+          "Outer wall": 6122.35009765625,
+          "Overhang wall": 99.67229461669922,
+          "Sparse infill": 247.1085662841797,
+          "Top surface": 147.2744903564453,
+          "Travel": 1799.7222900390625,
+          "Undefined": 1783.034423828125
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFL99",
+            "id": 1,
+            "main_used_g": 9.37126636505127,
+            "total_used_g": 9.37126636505127
+          }
+        ],
+        "generate_support_material_time": 120,
+        "id": 1,
+        "infill_time": 174,
+        "layer_filament_change": 0,
+        "main_predication": 11867.22265625,
+        "make_perimeters_time": 591,
+        "obj_cached_cnt": 0,
+        "sliced_time": 3680,
+        "sliced_time_with_cache": 2725,
+        "total_predication": 12835.783203125,
+        "triangle_count": 52480,
+        "warning_message": "It seems object 17-pin has floating regions. Please re-orient the object or enable support generation."
+      }
+    ],
+    "sparse_infill_density": 100.0,
+    "wall_loops": 2
+  },
+  "reopened": {
+    "error_string": "Success.",
+    "export_time": 250,
+    "layer_height": 0.11999999731779099,
+    "plate_index": 0,
+    "prepare_time": 106,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 51.17919921875,
+          "Bridge": 150.6533966064453,
+          "Custom": 927.283447265625,
+          "Flush": 29.0,
+          "Gap infill": 4.227504253387451,
+          "Inner wall": 2287.705078125,
+          "Internal solid infill": 990.6720581054688,
+          "Outer wall": 6126.09521484375,
+          "Overhang wall": 99.5089111328125,
+          "Sparse infill": 247.11195373535156,
+          "Top surface": 144.0101776123047,
+          "Travel": 1821.2730712890625,
+          "Undefined": 1804.585205078125
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFL99",
+            "id": 1,
+            "main_used_g": 9.370929718017578,
+            "total_used_g": 9.370929718017578
+          }
+        ],
+        "generate_support_material_time": 200,
+        "id": 1,
+        "infill_time": 273,
+        "layer_filament_change": 0,
+        "main_predication": 11895.259765625,
+        "make_perimeters_time": 1063,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 4.160003662109375,
+              "height": 6.800000190734863,
+              "width": 30.0,
+              "x": 116.63999938964844,
+              "y": 93.00098419189453,
+              "z": 4.632568550988481e-09
+            },
+            "id": 5,
+            "name": "03-row-selector",
+            "triangle_count": 1364
+          },
+          {
+            "bbox": {
+              "depth": 4.299152374267578,
+              "height": 8.600000381469727,
+              "width": 4.299995422363281,
+              "x": 166.9600067138672,
+              "y": 93.00099182128906,
+              "z": -7.34862837248329e-10
+            },
+            "id": 9,
+            "name": "06-rotor",
+            "triangle_count": 4036
+          },
+          {
+            "bbox": {
+              "depth": 4.299152374267578,
+              "height": 8.600000381469727,
+              "width": 4.300010681152344,
+              "x": 175.25997924804688,
+              "y": 93.00099182128906,
+              "z": -7.34862837248329e-10
+            },
+            "id": 13,
+            "name": "07-rotor",
+            "triangle_count": 4036
+          },
+          {
+            "bbox": {
+              "depth": 4.299152374267578,
+              "height": 8.600000381469727,
+              "width": 4.300010681152344,
+              "x": 183.55999755859375,
+              "y": 93.00099182128906,
+              "z": -7.34862837248329e-10
+            },
+            "id": 17,
+            "name": "08-rotor",
+            "triangle_count": 4036
+          },
+          {
+            "bbox": {
+              "depth": 4.299152374267578,
+              "height": 8.600000381469727,
+              "width": 4.300010681152344,
+              "x": 191.8599853515625,
+              "y": 93.00099182128906,
+              "z": -7.34862837248329e-10
+            },
+            "id": 21,
+            "name": "09-rotor",
+            "triangle_count": 4036
+          },
+          {
+            "bbox": {
+              "depth": 16.300003051757812,
+              "height": 4.599999904632568,
+              "width": 4.1599812507629395,
+              "x": 150.63999938964844,
+              "y": 93.00098419189453,
+              "z": -2.3162840534496354e-09
+            },
+            "id": 25,
+            "name": "04-column-selector",
+            "triangle_count": 716
+          },
+          {
+            "bbox": {
+              "depth": 16.300003051757812,
+              "height": 4.599999904632568,
+              "width": 4.160004138946533,
+              "x": 158.79998779296875,
+              "y": 93.00098419189453,
+              "z": -2.3162840534496354e-09
+            },
+            "id": 29,
+            "name": "05-column-selector",
+            "triangle_count": 716
+          },
+          {
+            "bbox": {
+              "depth": 55.0000114440918,
+              "height": 7.199999809265137,
+              "width": 24.400001525878906,
+              "x": 59.84000015258789,
+              "y": 93.0009765625,
+              "z": -4.632568550988481e-09
+            },
+            "id": 33,
+            "name": "01-frame-back",
+            "triangle_count": 4724
+          },
+          {
+            "bbox": {
+              "depth": 55.0000114440918,
+              "height": 7.199999809265137,
+              "width": 24.39999771118164,
+              "x": 88.23999786376953,
+              "y": 93.0009765625,
+              "z": -4.632568550988481e-09
+            },
+            "id": 37,
+            "name": "02-frame-front",
+            "triangle_count": 4724
+          },
+          {
+            "bbox": {
+              "depth": 4.299156188964844,
+              "height": 13.199999809265137,
+              "width": 4.3000030517578125,
+              "x": 59.839996337890625,
+              "y": 153.0009765625,
+              "z": -4.632568106899271e-09
+            },
+            "id": 41,
+            "name": "10-input-shaft",
+            "triangle_count": 2096
+          },
+          {
+            "bbox": {
+              "depth": 4.299156188964844,
+              "height": 13.199999809265137,
+              "width": 4.299999237060547,
+              "x": 68.13999938964844,
+              "y": 153.0009765625,
+              "z": -4.632568106899271e-09
+            },
+            "id": 45,
+            "name": "11-input-shaft",
+            "triangle_count": 2096
+          },
+          {
+            "bbox": {
+              "depth": 4.399993896484375,
+              "height": 18.0,
+              "width": 4.400001525878906,
+              "x": 140.04000854492188,
+              "y": 153.00099182128906,
+              "z": 0.0
+            },
+            "id": 49,
+            "name": "16-pin",
+            "triangle_count": 1492
+          },
+          {
+            "bbox": {
+              "depth": 4.399993896484375,
+              "height": 18.0,
+              "width": 4.399993419647217,
+              "x": 148.44000244140625,
+              "y": 153.00099182128906,
+              "z": 0.0
+            },
+            "id": 53,
+            "name": "17-pin",
+            "triangle_count": 1492
+          },
+          {
+            "bbox": {
+              "depth": 6.7900004386901855,
+              "height": 3.0,
+              "width": 4.599995136260986,
+              "x": 122.83999633789062,
+              "y": 153.0009765625,
+              "z": 0.0
+            },
+            "id": 57,
+            "name": "14-column-holder",
+            "triangle_count": 28
+          },
+          {
+            "bbox": {
+              "depth": 6.7900004386901855,
+              "height": 3.0,
+              "width": 4.599983215332031,
+              "x": 131.4400177001953,
+              "y": 153.0009765625,
+              "z": 0.0
+            },
+            "id": 61,
+            "name": "15-column-holder",
+            "triangle_count": 28
+          },
+          {
+            "bbox": {
+              "depth": 7.2900004386901855,
+              "height": 3.0,
+              "width": 28.39999771118164,
+              "x": 90.43999481201172,
+              "y": 153.0009765625,
+              "z": 0.0
+            },
+            "id": 65,
+            "name": "13-row-holder",
+            "triangle_count": 44
+          },
+          {
+            "bbox": {
+              "depth": 9.599998474121094,
+              "height": 27.709999084472656,
+              "width": 18.0,
+              "x": 156.83999633789062,
+              "y": 153.0009765625,
+              "z": -4.223632998900939e-08
+            },
+            "id": 69,
+            "name": "18-screw-tree",
+            "triangle_count": 14596
+          },
+          {
+            "bbox": {
+              "depth": 9.998016357421875,
+              "height": 10.989999771118164,
+              "width": 10.0,
+              "x": 76.43999481201172,
+              "y": 153.00099182128906,
+              "z": 4.4409178556747975e-09
+            },
+            "id": 73,
+            "name": "12-hand-key",
+            "triangle_count": 2220
+          }
+        ],
+        "sliced_time": 5760,
+        "sliced_time_with_cache": 4120,
+        "total_predication": 12863.826171875,
+        "triangle_count": 52480,
+        "warning_message": "It seems object 17-pin has floating regions. Please re-orient the object or enable support generation."
+      }
+    ],
+    "sparse_infill_density": 100.0,
+    "upward_compatible_machine": [
+      "Bambu Lab P1S 0.4 nozzle",
+      "Bambu Lab P1P 0.4 nozzle",
+      "Bambu Lab X1 0.4 nozzle",
+      "Bambu Lab X1E 0.4 nozzle",
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab X2D 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 2
+  },
+  "startup_nozzle_commands": [
+    "M104 S75 ;set extruder temp to turn on the HB fan and prevent filament oozing from nozzle",
+    "M104 S220 ;set extruder temp",
+    "M109 S250 ;set nozzle to common flush temp",
+    "M104 S220",
+    "M109 S200 ; drop nozzle temp, make filament shink a bit",
+    "M109 S200",
+    "M104 S140 ; set temp down to heatbed acceptable",
+    "M109 S140 ; wait nozzle temp down to heatbed acceptable",
+    "M104 S220 ; set extrude temp earlier, to reduce wait time",
+    "M109 S220",
+    "M104 S140",
+    "M109 S220",
+    "M109 S220"
+  ],
+  "headless_display_messages": "Wayland/glfw display unavailable; both CLI slice/export operations return 0",
+  "project_sha256": "32526470ca517584ea6acfa9368a22a5142ed55c0825b4ddde8f888ef3834fa8"
+}

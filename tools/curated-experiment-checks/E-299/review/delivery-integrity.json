@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "evidence": "Final artifact hashes, archive CRC, reviewed geometry, archived process and reopen checks; no physical claims.",
+  "project_sha256": "32526470ca517584ea6acfa9368a22a5142ed55c0825b4ddde8f888ef3834fa8",
+  "mesh_checks": 7180,
+  "geometry_poses": 173,
+  "print_objects": 18,
+  "plate_bounds_mm": [
+    [
+      59.83999637,
+      93.0009804,
+      0.0
+    ],
+    [
+      196.15999589999998,
+      162.99900818,
+      27.709999
+    ]
+  ],
+  "scaffold_braces": 20,
+  "physical_results": "unknown"
+}

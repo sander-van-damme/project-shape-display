@@ -1,0 +1,23 @@
+{
+  "pitch": 5.08,
+  "stroke": 3.0,
+  "lower_base_off": 8.0,
+  "upper_base_off": 29.36,
+  "rotor_root": 6.2,
+  "tooth_height": 2.4,
+  "tip_chamfer": 0.24,
+  "tooth_width": 76,
+  "fully_on_root_gap": 2.96,
+  "fully_on_total_overlap": 1.84,
+  "fully_on_straight_overlap": 1.36,
+  "tip_to_floor": 0.56,
+  "single_selected_tip_clearance": 1.16,
+  "selector_blade": 1.6,
+  "selector_capture_play": 0.24,
+  "neck_height": 2.6,
+  "rotor_diameter": 3.6,
+  "guide_diameter": 4.0,
+  "input_socket_depth": 3.2,
+  "thread_source": "E-297/cad/e295-thread.stl (E295 exact mesh)",
+  "pin_source": "E-297/cad/e295-pin.stl"
+}

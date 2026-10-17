@@ -1,0 +1,154 @@
+[
+  {
+    "screw_x": -5.0,
+    "z": 8.11,
+    "part": "collar",
+    "sign": -1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 11.840000000000009,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 15.260000000000002,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 20.83999999999998,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 23.799999999999983,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 8.11,
+    "part": "collar",
+    "sign": 1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 10.76,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 16.34000000000001,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 19.76,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": -5.0,
+    "z": 25.239999999999952,
+    "radial_contact": 1.5934383461107207,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 8.11,
+    "part": "collar",
+    "sign": -1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 11.840000000000009,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 15.260000000000002,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 20.83999999999998,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 23.799999999999983,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": -1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 8.11,
+    "part": "collar",
+    "sign": 1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 10.76,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 16.34000000000001,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 19.76,
+    "radial_contact": 1.5999984741210938,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  },
+  {
+    "screw_x": 5.0,
+    "z": 25.239999999999952,
+    "radial_contact": 1.5934383461107207,
+    "penetration": 0.14,
+    "part": "threadcrest",
+    "sign": 1
+  }
+]
