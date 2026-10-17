@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1380" viewBox="0 0 1500 1380">
+<title>E-301 Pico W en TMC2208: 9V motorvoeding, 3,3V logica en voedingsuitval-reset</title>
+<desc>Netnamen verbinden de vier panelen. TMC aansluitingen zijn logische namen, geen ongeverifieerde headerposities.</desc>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#182836;font-size:18px} .title{font-size:30px;font-weight:bold}.head{font-size:23px;font-weight:bold}.small{font-size:15px}.wire{fill:none;stroke-width:3;stroke-linejoin:round} .box{fill:#fff;stroke:#9cabb7;stroke-width:2}</style>
+<rect width="1500" height="1380" fill="#edf2f6"/>
+
+<text x="30" y="44" class="title">E-301  |  Pico W → TMC2208 → bestaande motor</text>
+<text x="30" y="76" class="">9 V PD voor motor • computer-USB voor Pico • géén levelshifter • géén extra print</text>
+<rect x="25" y="98" width="1450" height="66" rx="12" fill="#fff1d0" stroke="#9cabb7" stroke-width="2"/>
+<text x="42" y="124" class="head">VÓÓR INSCHAKELEN: bevestig exact PCB, R110-shunts, UART-brug, motorparen en PD-DIP-tabel.</text>
+<text x="42" y="150" class="small">De TMC- en PD-blokken tonen aansluitnamen, GEEN fysieke pinvolgorde. Lees handleiding.md en wiring.md.</text>
+<rect x="25" y="184" width="1450" height="478" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="45" y="219" class="head">1  Logica en motor — gebruik alleen bevestigde modulelabels</text>
+<rect x="50" y="243" width="292" height="370" rx="12" fill="#e2f2eb" stroke="#9cabb7" stroke-width="2"/>
+<text x="72" y="276" class="head">Pico W (RP2040)</text>
+<text x="72" y="301" class="small">USB → computer; USB boven</text>
+<text x="65" y="332" class="">GP2  / pin 4</text>
+<polyline class="wire" stroke="#8447a0" points="342,340 775,340"/>
+<text x="65" y="377" class="">GP3  / pin 5</text>
+<polyline class="wire" stroke="#8447a0" points="342,385 775,385"/>
+<text x="65" y="422" class="">GP6  / pin 9</text>
+<polyline class="wire" stroke="#8447a0" points="342,430 775,430"/>
+<text x="65" y="487" class="">GP4 TX / pin 6</text>
+<text x="65" y="542" class="">GP5 RX / pin 7</text>
+<rect x="775" y="243" width="330" height="370" rx="12" fill="#fff4e5" stroke="#9cabb7" stroke-width="2"/>
+<text x="795" y="276" class="head">TMC2208 V1.2</text>
+<text x="795" y="301" class="small">Logisch blok; controleer jouw PCB</text>
+<text x="793" y="346" class="">STEP</text>
+<text x="793" y="391" class="">DIR</text>
+<text x="793" y="436" class="">EN / ENN</text>
+<text x="793" y="556" class="">PDN_UART</text>
+<polyline class="wire" stroke="#8447a0" points="342,495 425,495"/>
+<rect x="425" y="481" width="100" height="28" rx="0" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="444" y="502" class="small">1 kΩ</text>
+<polyline class="wire" stroke="#8447a0" points="525,495 690,495 690,550 775,550"/>
+<polyline class="wire" stroke="#8447a0" points="342,550 690,550"/>
+<circle cx="690" cy="550" r="5" fill="#8447a0"/>
+<text x="410" y="579" class="small">TX via 1k; RX direct op dezelfde node</text>
+<circle cx="610" cy="430" r="5" fill="#8447a0"/>
+<polyline class="wire" stroke="#176ab0" points="610,430 610,405"/>
+<text x="495" y="398" class="" style="fill:#176ab0">3V3 — 10kΩ → EN</text>
+<circle cx="610" cy="340" r="5" fill="#8447a0"/>
+<polyline class="wire" stroke="#25313c" points="610,340 610,360"/>
+<text x="405" y="375" class="" style="fill:#25313c">STEP → 10kΩ — GND</text>
+<rect x="1190" y="308" width="250" height="252" rx="12" fill="#e9e7f2" stroke="#9cabb7" stroke-width="2"/>
+<text x="1210" y="343" class="head">Motor Ø8 × 8,2</text>
+<text x="1210" y="370" class="small">Spanningsloos meten!</text>
+<text x="1210" y="408" class="">Spoel A ~40Ω</text>
+<polyline class="wire" stroke="#8447a0" points="1105,393 1190,393"/>
+<polyline class="wire" stroke="#8447a0" points="1105,420 1190,420"/>
+<text x="1210" y="496" class="">Spoel B ~40Ω</text>
+<polyline class="wire" stroke="#8447a0" points="1105,481 1190,481"/>
+<polyline class="wire" stroke="#8447a0" points="1105,508 1190,508"/>
+<text x="1000" y="393" class="small">OA1</text>
+<text x="1000" y="420" class="small">OA2</text>
+<text x="1000" y="481" class="small">OB1</text>
+<text x="1000" y="508" class="small">OB2</text>
+<text x="1190" y="593" class="small">Andere labels: zie PCB-schema.</text>
+<text x="47" y="643" class="">Pico 3V3(OUT), pin 36 → VIO;  GND pin 38 → alle GND.  MS1, MS2 en bevestigd CLK_IN → GND.</text>
+<rect x="25" y="682" width="1450" height="248" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="45" y="716" class="head">2  Motorvoeding — motor nooit rechtstreeks op PD aansluiten</text>
+<rect x="45" y="742" width="280" height="100" rx="12" fill="#efe6fc" stroke="#9cabb7" stroke-width="2"/>
+<text x="65" y="773" class="head">PD-trigger: kies 9 V</text>
+<text x="65" y="800" class="small">DIP-code: eerst bord verifiëren</text>
+<text x="65" y="824" class="small">OUT+ meten vóór aansluiten</text>
+<polyline class="wire" stroke="#b82a31" points="325,775 365,775"/>
+<rect x="365" y="753" width="170" height="44" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="379" y="782" class="">F1 250 mA snel</text>
+<polyline class="wire" stroke="#b82a31" points="535,775 575,775"/>
+<rect x="575" y="753" width="150" height="44" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="589" y="782" class="">S1 AAN/UIT</text>
+<polyline class="wire" stroke="#b82a31" points="725,775 765,775"/>
+<rect x="765" y="753" width="170" height="44" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="779" y="782" class="">SS14  → |</text>
+<polyline class="wire" stroke="#b82a31" points="935,775 1415,775"/>
+<text x="1010" y="758" class="" style="fill:#b82a31">VM → driver VM/VMOT</text>
+<text x="779" y="818" class="small">band naar VM</text>
+<polyline class="wire" stroke="#25313c" points="45,880 1415,880"/>
+<text x="46" y="909" class="" style="fill:#25313c">PD OUT− → GND = Pico GND = driver GND = supervisor GND</text>
+<polyline class="wire" stroke="#b82a31" points="1090,775 1090,802"/>
+<circle cx="1090" cy="775" r="5" fill="#b82a31"/>
+<polyline class="wire" stroke="#25313c" points="1090,853 1090,880"/>
+<circle cx="1090" cy="880" r="5" fill="#25313c"/>
+<rect x="1018" y="802" width="145" height="51" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="1025" y="832" class="small">100µF / 25V</text>
+<polyline class="wire" stroke="#b82a31" points="1290,775 1290,802"/>
+<circle cx="1290" cy="775" r="5" fill="#b82a31"/>
+<polyline class="wire" stroke="#25313c" points="1290,853 1290,880"/>
+<circle cx="1290" cy="880" r="5" fill="#25313c"/>
+<rect x="1218" y="802" width="145" height="51" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="1225" y="832" class="small">100nF / 25V</text>
+<text x="1010" y="865" class="small">Elco: + VM / − GND; vlak bij driver</text>
+<rect x="25" y="950" width="945" height="365" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="45" y="986" class="head">3  Voedingsuitval: hardware-reset, daarna altijd OFF</text>
+<rect x="475" y="1010" width="320" height="250" rx="12" fill="#e0f2f1" stroke="#9cabb7" stroke-width="2"/>
+<text x="492" y="1040" class="head">TPS3808G01DBVR</text>
+<text x="492" y="1064" class="small">SOT23-6 / DBV; adapter controleren</text>
+<text x="44" y="1039" class="" style="fill:#b82a31">VM (na diode)</text>
+<polyline class="wire" stroke="#b82a31" points="45,1055 185,1055"/>
+<rect x="185" y="1037" width="128" height="36" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="196" y="1062" class="">162kΩ 1%</text>
+<polyline class="wire" stroke="#b82a31" points="313,1055 365,1055 365,1110 475,1110"/>
+<circle cx="365" cy="1110" r="5" fill="#b82a31"/>
+<text x="493" y="1116" class="">5  SENSE</text>
+<polyline class="wire" stroke="#b82a31" points="365,1110 365,1140"/>
+<rect x="300" y="1140" width="130" height="36" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="310" y="1165" class="">10kΩ 1%</text>
+<polyline class="wire" stroke="#25313c" points="365,1176 365,1220"/>
+<text x="325" y="1245" class="" style="fill:#25313c">GND</text>
+<text x="493" y="1155" class="">6  VDD → 3V3</text>
+<text x="493" y="1188" class="">2  GND → GND</text>
+<text x="493" y="1222" class="">4  CT: open (20 ms)</text>
+<text x="45" y="1100" class="small">Nominale drempel 6,97 V</text>
+<text x="45" y="1131" class="small">MR pin 3 → 10kΩ → 3V3</text>
+<text x="45" y="1287" class="small">VDD-GND: 100nF bij IC. RESET_N pin 1 → 10kΩ → 3V3; J1 → Pico RUN pin 30.</text>
+<polyline class="wire" stroke="#1a8065" points="795,1100 935,1100"/>
+<text x="808" y="1088" class="small" style="fill:#1a8065">1 RESET_N</text>
+<text x="810" y="1132" class="small" style="fill:#1a8065">J1 → RUN pin 30</text>
+<text x="45" y="1346" class="small">J1 alleen los voor installatie met VM UIT; vóór motorgebruik verplicht terugplaatsen.</text>
+<rect x="990" y="950" width="485" height="365" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
+<text x="1010" y="986" class="head">4  Logicarail en controles</text>
+<text x="1010" y="1022" class="" style="fill:#176ab0">Pico pin 36  3V3(OUT)</text>
+<text x="1010" y="1055" class="" style="fill:#176ab0">→ VIO + 100nF naar GND</text>
+<text x="1010" y="1088" class="" style="fill:#176ab0">→ supervisor VDD + pull-ups</text>
+<text x="1010" y="1121" class="" style="fill:#25313c">Pico pin 38  GND: alle minpolen</text>
+<text x="1010" y="1164" class="">Vref: 0,80 V t.o.v. GND; UART verplicht.</text>
+<text x="1010" y="1197" class="small">R110 + CS5 + VSENSE1: berekend</text>
+<text x="1010" y="1220" class="small">77mA piek / 55mA RMS per fase.</text>
+<text x="1010" y="1256" class="small" style="fill:#b82a31">PD+ NOOIT op Pico, VIO of USB.</text>
+<text x="1010" y="1286" class="small">Niet fysiek getest. Hersteltest verplicht.</text>
+</svg>

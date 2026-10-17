@@ -1,0 +1,47 @@
+{
+  "base_commit": "8cc371dc8a51c2842584a41a9cb5faeffc9038fb",
+  "tests_passed": 14,
+  "evidence": "CPython execution with mocked RP2 hardware; NOT a Pico runtime/hardware test",
+  "mechanical_files_unchanged": [
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/cup.stl",
+      "sha256": "795d79351e9d7f3c59c9a616e98ea2ab4df8e3b51fefb746fc372a86c906b44a"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/drawings.py",
+      "sha256": "a4167e19b0730fb9b80d9eade1fab3148857326af649f3f6ced6e24748f840c6"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/generate.py",
+      "sha256": "59060049d6456590911c26bb2fb7d9a709c2b6fd74a0f5cb8319272181c9c1ce"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/half.stl",
+      "sha256": "5de7115428be28513c4b51d2d61425ad9f385ed4518be41a9e37a7a8074c16b9"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/layout.json",
+      "sha256": "dfe49e021eb468597696b163e5a257095a622a48d2d6b2718d29173385409218"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/microstepper-rig.3mf",
+      "sha256": "bec133b2678d7b044212c3c171a8ec0ba253ebe84b3c2eaf0120e41bc64cacfa"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/microstepper-rig.stl",
+      "sha256": "3f92a15b6fc5d071141ca35735d34f252368c560d39f4426ed6d3d722d929b27"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/pin.stl",
+      "sha256": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/rig.scad",
+      "sha256": "c77cee133695e5fdd5434d8161ab25bcd2379588af067575b97b11571c13ec89"
+    },
+    {
+      "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/screw.stl",
+      "sha256": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243"
+    }
+  ]
+}

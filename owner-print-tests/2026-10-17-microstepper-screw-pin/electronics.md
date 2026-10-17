@@ -1,5 +1,9 @@
 # Bedrading en bediening
 
+> **Historisch Arduino Uno-alternatief.** Voor de beschikbare Pico W en PD-voeding
+> geldt [E-301: Pico W, 9V en hardware-reset bij voedingsuitval](pico/handleiding.md).
+> Gebruik de twee bedradingsschema’s niet door elkaar.
+
 Gebruik één **Arduino Uno R3 (ATmega328P, 5-V logica)** en een **TMC2208**
 StepStick met UART-aansluiting, twee externe **R110** shunts en Vref-trimmer.
 Geen sensoren, homing of automatische hoogtecorrectie. Het programma telt
