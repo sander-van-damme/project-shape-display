@@ -1,7 +1,6 @@
 {
-  "base_commit": "8cc371dc8a51c2842584a41a9cb5faeffc9038fb",
-  "tests_passed": 14,
-  "evidence": "CPython execution with mocked RP2 hardware; NOT a Pico runtime/hardware test",
+  "tests_passed": 17,
+  "evidence": "CPython tests with mocked UART/clock; no physical stop guarantee on total UART loss",
   "mechanical_files_unchanged": [
     {
       "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/cup.stl",
@@ -43,5 +42,8 @@
       "file": "owner-print-tests/2026-10-17-microstepper-screw-pin/screw.stl",
       "sha256": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243"
     }
-  ]
+  ],
+  "previous_e301_base_commit": "8cc371dc8a51c2842584a41a9cb5faeffc9038fb",
+  "revision_base_commit": "c4c21227cb4326aacb09cc8cba8af7f6883f1e7e",
+  "control": "UART-only VACTUAL/TOFF; STEP/DIR/EN unconnected"
 }

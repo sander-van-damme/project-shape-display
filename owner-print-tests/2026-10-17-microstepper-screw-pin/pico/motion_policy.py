@@ -1,4 +1,4 @@
-"""Same limits as the retained Uno trial; all positions are commanded steps."""
+"""Same limits as the retained Uno trial; positions are planned microsteps, not measured motion."""
 import math
 FULL_STEPS = 20  # provisional: verify one actual revolution BEFORE fitting pin
 MICROSTEPS = 8
@@ -28,3 +28,21 @@ def cycles(value):
     if not math.isfinite(value) or not 1 <= value <= 20 or value != int(value):
         raise ValueError('cycles must be integer 1..20')
     return int(value)
+
+
+# TMC2208 datasheet rev1.13, section 12: USC is configured microsteps/fullstep.
+# The internal oscillator is nominally 12 MHz; its actual frequency is unmeasured.
+FCLK_HZ = 12000000
+VELOCITY_HZ = FCLK_HZ / (1 << 24)
+
+
+def uart_motion(steps, rpm):
+    speed(rpm)
+    if not steps:
+        raise ValueError('zero distance')
+    magnitude = int(rpm * STEPS_PER_REV / 60 / VELOCITY_HZ + .5)
+    if not 1 <= magnitude < (1 << 23):
+        raise ValueError('VACTUAL out of range')
+    velocity = magnitude if steps > 0 else -magnitude
+    duration_us = int(abs(steps) / (magnitude * VELOCITY_HZ) * 1000000 + .5)
+    return velocity, duration_us

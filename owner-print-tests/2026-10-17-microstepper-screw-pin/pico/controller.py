@@ -1,15 +1,15 @@
 """Blocking, bounded bench motion with frequent USB/driver checks; no queue."""
 from time import ticks_us, ticks_ms, ticks_diff, sleep_us
-from motion_policy import (plan_move, speed, cycles, STEPS_PER_REV,
+from motion_policy import (plan_move, uart_motion, speed, cycles, STEPS_PER_REV,
                            IDLE_MS, MAX_RUN_MS)
 REVERSE_DIR = False
 
 
 class Controller:
-    def __init__(self, step, direction, enable, driver, receive, report=print):
-        self.step, self.direction, self.enable = step, direction, enable
+    def __init__(self, driver, receive, report=print):
         self.driver, self.receive, self.report = driver, receive, report
         self.rpm = 5
+        self.motion_line = ''
         self.line = ''
         self.discard = False
         self.off()
@@ -18,29 +18,43 @@ class Controller:
         self.last_health = self.last
 
     def off(self):
-        self.enable.value(1)
-        self.step.value(0)
         self.armed = False
         self.pin_mode = False
         self.position = 0
+        try:
+            self.driver.stop()
+            self.stop_confirmed = True
+        except OSError as error:
+            self.stop_confirmed = False
+            self.report('UART STOP UNCONFIRMED: ' + str(error) + '; switch motor power OFF')
+        return self.stop_confirmed
 
     def fault(self, message):
         self.off()
         self.line = ''
         self.discard = False
-        self.report('STOP/OFF: ' + message + '; centre invalid; new ARM required')
+        self.report('STOP/OFF requested: ' + message + '; centre invalid; new ARM required')
 
     def guard(self):
-        # No USB backlog: input during motion is discarded except immediate !.
+        # No USB backlog: input during motion is discarded except ! and OFF.
         data = self.receive()
         if '!' in data:
             self.fault('!')
             return False
+        for char in data:
+            if char == '\n':
+                stop = self.motion_line == 'OFF'
+                self.motion_line = ''
+                if stop:
+                    self.fault('OFF')
+                    return False
+            elif char != '\r':
+                self.motion_line = (self.motion_line + char)[-40:]
         if ticks_diff(ticks_ms(), self.run_start) >= MAX_RUN_MS:
             self.fault('120 s run limit')
             return False
         if ticks_diff(ticks_ms(), self.last_health) >= 100:
-            self.driver.health()  # exception caught by command(), EN high first
+            self.driver.health()  # command() catches errors and attempts UART stop
             self.last_health = ticks_ms()
         return self.armed
 
@@ -56,28 +70,22 @@ class Controller:
         if not self.armed:
             raise ValueError('ARM required')
         steps = plan_move(self.pin_mode, self.position, revs)
-        self.driver.health()  # verify before every segment and before EN low
+        self.motion_line = ''
+        velocity, duration = uart_motion(steps, self.rpm)
+        if REVERSE_DIR:
+            velocity = -velocity
+        # Constant speed: the TMC generator keeps running during USB/UART polls.
+        # No encoder: elapsed time predicts distance, never measures position.
+        start = self.driver.start(velocity)
         self.last_health = ticks_ms()
-        self.direction.value((steps > 0) ^ REVERSE_DIR)
-        sleep_us(10)
-        self.enable.value(0)
-        if not self.wait(5000):
-            return False
-        count = abs(steps)
-        for i in range(count):
+        while ticks_diff(ticks_us(), start) < duration:
             if not self.guard():
                 return False
-            edge = min(i, count - 1 - i, 16)
-            velocity = min(self.rpm, 2 + (self.rpm - 2) * edge / 16)
-            period = int(60000000 / (STEPS_PER_REV * velocity))
-            self.step.value(1)
-            sleep_us(5)
-            self.step.value(0)
-            self.position += 1 if steps > 0 else -1
-            if not self.wait(period - 5):
-                return False
+            sleep_us(100)
+        self.driver.stop()  # TOFF=0 then VACTUAL=0 at every segment end
+        self.position += steps
         self.last = ticks_ms()
-        self.report('DONE commanded rev=%.3f' % (self.position / STEPS_PER_REV))
+        self.report('DONE planned rev=%.3f' % (self.position / STEPS_PER_REV))
         return True
 
     def command(self, text):
@@ -90,13 +98,14 @@ class Controller:
             elif text in ('ARM MOTOR', 'ARM PIN'):
                 if self.armed:
                     raise ValueError('OFF first; detach pin or manually recentre')
-                self.off()
+                if not self.off():
+                    return
                 self.driver.configure()
                 self.pin_mode = text == 'ARM PIN'
                 self.armed = True
                 self.last_health = ticks_ms()
                 self.last = ticks_ms()
-                # EN remains HIGH: first explicit M/C enables bridge.
+                # TOFF remains zero until the first explicit M/C command.
                 self.report('ARMED ' + ('PIN; manual centre declared' if self.pin_mode
                                         else 'MOTOR; pin must be detached'))
             elif text.startswith('S '):

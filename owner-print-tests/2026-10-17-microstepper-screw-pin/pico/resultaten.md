@@ -12,12 +12,13 @@ Status: [ ] niet uitgevoerd [ ] gedeeltelijk [ ] voltooid. Datum: ____
 - Adapterlabel9V-profiel: ____ ; gemeten PD-uitgang: ____ V
 - VM na diode, los/belast: ____ / ____ V ; VIO: ____ V ; Vref: ____ V (doel0,80)
 - TPS3808G01DBVR/adapterpinout gecontroleerd: ____ ; SENSE: ____ V
-- RUN-jumper aanwezig vóór test: ____ ; EN bij boot/OFF: ____ V
+- RUN-jumper aanwezig vóór test: ____ ; STEP/DIR/EN volledig los, zonder weerstanden: ____
 - MicroPython UF2-versie: ____ ; alle vier Python-bestanden geplaatst: ____
-- ARM MOTOR zonder beweging geaccepteerd: ____ ; UART-fout blokkeert ARM: ____
+- ARM MOTOR geaccepteerd met TOFF0: ____ ; UART-fout blokkeert ARM: ____
 - `!` tijdens losse motorbeweging: ____ ;30s idle: ____
-- VM uit/herstel tijdens beweging: ____ ; na herstel OFF/geen hervatten: ____
-- USB los/herstel: ____ ; uitgang blijft OFF na reboot: ____
+- VM uit/herstel tijdens beweging: ____ ; UART-stop na boot bevestigd: ____
+- Eventuele onbedoelde beweging bij opstart/reset/uitval: ____
+- USB los/herstel: ____ ; UART-stop na reboot: ____
 - Werkelijke fasepiek indien instrumenteel gemeten, methode/instrument: ____
   Geen meting? Schrijf **niet gemeten**; nominale berekening77mApiek/55mARMS.
 
@@ -55,7 +56,9 @@ snelheid, zonder vastlopen, zichtbare stapuitval, slangslip of overmatige warmte
 
 
 Doel-rpm hierboven is een instelling. Werkelijke omwentelings-/cyclustijd en
-meetmethode: ____. Ramp/UART-overhead inbegrepen; niet als constante snelheid
+meetmethode: ____. Tijdgebaseerd VACTUAL, oscillator-/UART-stopafwijking inbegrepen; niet als constante snelheid
 presenteren. C-cyclus heeft3mm slag en6mm afgelegde weg, plus3×0,3s pauze.
 
 Hardwarefouten, resets en voortijdige120s-stop apart vermelden: ____
+
+VACTUAL (berekend): ____ ; geplande duur: ____ ; werkelijke positie niet gemeten door firmware.

@@ -1,7 +1,9 @@
-# E-301 — verificatie en beperkingen
+# E-301 — verificatie van de UART-only-revisie
 
-17 oktober2026, basiscommit `8cc371d`. De werkboom was aan het begin schoon;
-E-301 was ongebruikt. Dit pakket bevat geen nieuwe fysieke resultaten.
+17 oktober 2026. Deze revisie voert de vastgelegde eigenaarskeuze uit:
+STEP/DIR/EN volledig los, uitsluitend UART-besturing. De eerdere GPIO-review
+betrof de oorspronkelijke uitvoering en geldt niet als review van deze revisie.
+Er zijn geen fysieke meetresultaten toegevoegd.
 
 ## Uitgevoerd
 
@@ -13,67 +15,53 @@ python3 -m unittest discover -s owner-print-tests/2026-10-17-microstepper-screw-
 ./repo check
 ```
 
-**CPython-bytecompilatie geslaagd;14hosttests geslaagd.** De tests voeren de
-echte geleverde driver/controller/policy uit met vervangen UART, GPIO en klok:
+**CPython-bytecompilatie geslaagd; 17 hosttests geslaagd.** De tests voeren de
+geleverde UART-driver, controller en bewegingspolicy uit met vervangen UART,
+klok en, voor de opstarttest, machine-module:
 
-- CRC vergeleken met vaste protocolvectoren; verkeerde CRC, chip-ID, SEL_A en
-  uitblijvend antwoord weigeren ARM.
-- Iedere van de zeven configuratiewrites apart laten wegvallen: geen ARM of
-  STEP. IFCNT-wrap254→5 correct. Write-only registers niet teruggelezen;
-  OTP_PROG nooit aangeroepen.
-- Alle51.681combinaties van161PIN-posities en321afstanden rond de gehele
-  softwaregrens gecontroleerd; geen toegestane overschrijding.
-- Tien volledige cycli keren naar nul terug met3200pulsen; beide richtingen.
-- Nul/NaN/Inf/te grote beweging, ongeldige snelheid/cycli, overloop van de
-  commandoregel en meerdere regels rond een stop blijven uitgeschakeld.
-- `!` tijdens beweging,30s idle,120s totale beweging en UART-fout tijdens beweging
-  stoppen met EN hoog en STEP laag. Reset/configuratie/IFCNT/temperatuur/short/CRC
-  tijdens gewapende idle schakelen eveneens uit; geen automatische herarming.
-- `main.py` gestart met vervangen hardwaremodules; een geïnjecteerde
-  KeyboardInterrupt bij actieve uitgangen voert `finally: app.off()` uit.
-- Nieuwe Controller na gemodelleerde harde reset start OFF; oude beweging vervalt.
-  Dit model bewijst niet de analoge detectietijd van de supervisor.
+- Vaste CRC-vectoren, onjuiste CRC/chip-ID/SEL_A en UART-timeout.
+- Lage stroominstelling ongewijzigd: R110/Vref0,80/VSENSE1/IRUN=IHOLD5;
+  configuratie met TOFF0, alle writes IFCNT-bevestigd inclusief tellerwrap.
+  Iedere configuratieregisterwrite afzonderlijk laten wegvallen: geen ARM.
+- VACTUAL +447=`0x000001BF`, −447=`0x00FFFE41`; 120rpm geeft nominaal
+  0,500439s per omwenteling bij20 hele stappen en8 microstappen. Afgeronde
+  snelheid bepaalt de duur; bij2rpm waarde7 en31,956602s. Grenzen signed24-bit.
+- Startvolgorde nonzero VACTUAL met uitgeschakelde brug → TOFF4. Stopvolgorde
+  TOFF0 → VACTUAL0; TOFF-readback en eigen IFCNT-bevestiging van VACTUAL0.
+  Write-only registers worden niet teruggelezen; geen OTP-writes.
+- Healthchecks accepteren bewust wisselende TOFF4/TOFF0 en runtime-IFCNT;
+  onverwachte configuratie/reset/teller/foutstatus schakelt de software uit.
+- Vooruit/achteruit, tien cycli, nul/NaN/Inf, invoer-/afstands-/snelheidsgrenzen,
+  overvolle regels, `!`, gefragmenteerde `OFF` tijdens beweging en geen wachtrij.
+- Alle51.681 combinaties van161 softwareposities en321 afstanden rond de
+  PIN-limiet; alleen de geplande afstand wordt begrensd, geen fysieke positie.
+- 30s idle en120s totale run. Iedere stop maakt bij OFF/fout de nul ongeldig;
+  normaal segmenteinde behoudt de geplande nul voor C-cycli.
+- RX-verlies tijdens beweging: TX verstuurt alsnog TOFF0 en VACTUAL0, ook zonder
+  bevestiging; melding `UART STOP UNCONFIRMED`. Volledig UART-verlies: test
+  bevestigt juist dat de software geen fysieke stop kan garanderen.
+- `main.py` initialiseert uitsluitend GP4 en GP5. Opstart en KeyboardInterrupt
+  proberen dezelfde UART-stop; geen toegang tot GP2/GP3/GP6. Geen hervatte opdracht
+  na herinitialisatie van de Controller.
 
-[validation.json](validation.json) legt de mechanische-bestandschecks vast:
-alle bestaande STL/3MF/SCAD, de mechanische generator, tekeningsgenerator en
-layout zijn byte-identiek aan HEAD. Ook de oorspronkelijke Uno-controller en
-bewegingspolicy zijn niet aangepast. Geen CAD/slicer opnieuw uitgevoerd.
-De SVG is gegenereerd, naar PNG gerenderd en visueel gecontroleerd.
+[validation.json](validation.json) bevat het actuele testresultaat en de behouden
+mechanische hashes. De bestaande mechanische bestanden en Uno-code zijn voor
+deze wijziging niet aangepast. Het bijgewerkte SVG is opnieuw gegenereerd en
+visueel gecontroleerd. Geen nieuwe hardwarearchitectuur of experiment toegevoegd.
 
-`./repo check` meldt uitsluitend reeds bestaande omvangsmeldingen voor E-266,
-E-283,E-286,E-288,E-293 en de twee bestaande AGENTS-bestanden. De nieuwe E-301
-veroorzaakt geen nieuwe structuur-/referentiemelding. Niet de hele check als
-succes gerapporteerd; bestaande documenten niet voor deze taak herschreven.
+`./repo check` meldt de bestaande omvangsmeldingen voor E-266,E-283,E-286,
+E-288,E-293 en de twee bestaande AGENTS-bestanden. Geen nieuwe structuurmelding.
 
-## Onafhankelijke controles
+## Grenzen van deze validatie
 
-Op verzoekruimte van de eigenaar twee afgebakende specialistische controles:
+Dit is uitvoering met mocks op CPython, geen RP2040/MicroPython-runtimecontrole.
+Geen fysieke UART-transmissie, oscillatorfrequentie, aspositie, motorwarmte,
+stroom of herhaalbaarheid gemeten. VACTUAL is tijdgebaseerd: oscillatorafwijking,
+UART-latentie, uitlijnbewegingen en niet-vastgehouden pauzes kunnen afstand en
+retourpositie veranderen. Er is geen encoder of terugmelding van echte beweging.
+De eenvoudige beweging heeft constante snelheid, zonder de vroegere STEP-ramp.
 
-1. Elektrisch:9V-keuze,5V-modulebeperking, stroomformule,3,3V-logica,
-   supervisorpinout en herstelveiligheid gecontroleerd. Advies verwerkt:
-   TPS3808G01DBVR→RUN voorkomt hervatting na gedetecteerde voedingsuitval met
-   minder onderdelen dan een aparte latch. Typische detectietijd is geen
-   universele garantie voor elke ultrakorte transient.
-2. Firmware: CRC/echo/IFCNT/readback/foutmaskers, limieten, ENABLE en GPIO-mapping
-   gecontroleerd. Geen concrete blokkerende firmwarefout gevonden. Aanbevelingen
-   verwerkt:115200baud, één commando per keer,120s kan C vroeg afbreken,
-   werkelijke snelheid afzonderlijk meten wegens ramp/UART-overhead.
-
-## Niet uitgevoerd / vrijgave vóór fysiek gebruik
-
-Geen aangesloten Pico/driver/motor/PD-bord. Geen target-upload, MicroPython-
-interpretatie op RP2040, fysieke UART/STEP-timing, gemeten fasepiek of warmte,
-bewezen draairichting/staphoek, belastbaarheid, pinverplaatsing of herhaalbaarheid.
-Er was geen MicroPython-targetcompiler geïnstalleerd; een poging de vastgezette
-mpy-cross1.26.1 te verkrijgen gaf geen beschikbare distributie. Ook directe
-PDF-download via de shellproxy was niet beschikbaar; brononderzoek liep via
-de webtool. De toepassing wordt als `.py` op de officiële Pico W-interpreter
-geïnstalleerd. CPython-compilatie vervangt die fysieke runtimecontrole niet.
-
-De concrete V1.2-pinmapping, tweeR110, bereikbaarheid PDN_UART/soldeerbrug,
-PD-DIP-keuze,9V-profiel, Vref, spoelparen en supervisor-reset/herstel zijn
-**verplichte controles vóór inschakelen of belasten**, uitgewerkt in de
-[handleiding](handleiding.md). Gebruik bij twijfel iemand die de exacte print
-kan identificeren/nameten; geen generieke headerposities gokken. Een succesvolle
-benchproef bewijst alleen deze motor/pin/stroom/snelheid/last, geen volledige
-Shape Display en geen40mm-slag.
+De software kan de zwevende fysieke EN-ingang niet overrulen. Bij volledig
+UART-verlies, opstart of reset is geen fysieke stopgarantie mogelijk.
+`STOP UNCONFIRMED` is geen succesvolle hardwarestop. Deze beperkingen horen bij
+de door de eigenaar vastgelegde aansluiting; geen workaround toegevoegd.

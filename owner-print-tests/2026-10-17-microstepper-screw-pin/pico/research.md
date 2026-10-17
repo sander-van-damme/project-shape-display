@@ -27,7 +27,9 @@ algemene featureclaims die niet voor de2208 gelden (geen StallGuard/CoolStep).
 
 Externe shunts R110: `Rs=0,110Ω`; UART `I_scale_analog=1`, `internal_Rsense=0`,
 SpreadCycle, `VSENSE=1`, `IRUN=IHOLD=5`,8microstappen, geen interpolatie,
-`TPOWERDOWN=0`, `TPWMTHRS=0`, `VACTUAL=0`. Vref-trimmer blijft meebepalen.
+`TPOWERDOWN=0`, `TPWMTHRS=0`. Vref-trimmer blijft meebepalen.
+`VACTUAL` is nul bij stop en signed nonzero tijdens beweging; TOFF is0 bij
+stop/ARM en4 tijdens beweging.
 
 `Ipk=(CS+1)/32 ×0,180/(Rs+0,030) ×Vref/2,5`;
 `Irms=Ipk/√2`. BijVref0,80V:77,14mApiek/54,55mARMS. Ideale totale
@@ -64,14 +66,15 @@ motorstroom en krijgt zelf computer-USB. De1k in TX voorkomt buscontentie.
 
 ## Herstel van motorvoeding
 
-Een ADC en softwarepolling missen mogelijk een korte dip. Driverreset met EN
-nog laag kan de hoge standaardstroom herstellen. De gekozen TPS3808G01 gebruikt
+De bestaande voedingsbewaking blijft behouden; er is geen nieuwe
+veiligheidsarchitectuur toegevoegd. Driverreset kan standaardregisters herstellen. De gekozen TPS3808G01 gebruikt
 VM-spanningsdeler162k/10k en reset de Pico hardwarematig via RUN. Berekening:
 `0,405×(162+10)/10=6,966V`; met weerstanden1% en chipdrempel±2% grofweg6,69–7,25V,
-plus hysterese bij stijgende VM. CT open geeft12–28ms hersteldelay. EN-pullup en
-STEP-pulldown blijven ook tijdens reset werkzaam. Normale uitval wordt zo
-vergrendeld door verlies van alle vluchtige firmwarestatus; herstel start OFF.
-Geen aparte latch of6V-regelaar nodig.
+plus hysterese bij stijgende VM. CT open geeft12–28ms hersteldelay.
+In de UART-only-revisie zijn de EN-pullup en STEP-pulldown verwijderd op
+expliciet verzoek van de eigenaar. Herstel wist de vluchtige firmwarestatus;
+de firmware probeert OFF via UART. Dit blokkeert de driver niet rechtstreeks
+tijdens een Pico-reset. De zwevende EN kan niet door software worden overruled.
 
 [TI TPS3808 datasheet §5–7](https://www.ti.com/lit/ds/symlink/tps3808.pdf)
 geeft typische20µs detectie; er is geen hier bewezen vanggarantie voor elke
@@ -84,5 +87,30 @@ Interpreter/API: [MicroPython v1.26.1 Pico W UF2](https://micropython.org/downlo
 [RP2 API](https://docs.micropython.org/en/v1.26.0/rp2/quickref.html),
 [UART](https://docs.micropython.org/en/v1.26.0/library/machine.UART.html).
 MicroPython is gekozen voor eenvoudige USB-installatie en kleine, inspecteerbare
-firmware bij maximaal320gevraagdeSTEP-pulsen/s. Periodieke UART-controles veroorzaken
-jitter: meet effectieve snelheid, niet alleen ingestelde rpm.
+firmware. De interne UART-generator draait door tijdens healthchecks;
+stoplatentie en oscillatorafwijking beïnvloeden de tijdgebaseerde afstand.
+
+## UART-only-beweging — actuele revisie
+
+Gecontroleerd in [de TMC2208 datasheet rev1.13, §5.2 en §12](https://www.analog.com/media/en/technical-documentation/data-sheets/TMC2202_TMC2208_TMC2224_datasheet_rev1.13.pdf):
+`f_micro = VACTUAL × fCLK / 2^24`, `rpm = f_micro ×60/(USC×FULL_STEPS)`.
+USC is de ingestelde microstapresolutie, hier8; niet stilzwijgend256 aannemen.
+Met nominaal12MHz is één VACTUAL-eenheid0,7152557373 microstappen/s.
+De dichtstbijzijnde gehele snelheidswaarde bepaalt de duur:
+`t = abs(geplande_microstappen)/(abs(VACTUAL)×fCLK/2^24)`.
+
+VACTUAL(0x22) is signed24-bit two's complement in de laagste24bits van de
+UART-data: +447=`0x000001BF`, −447=`0x00FFFE41`. De bovenste8bits zijn nul.
+Richting komt uit het teken; geen DIR-GPIO. Geen ramp in deze eenvoudige
+revisie. Voor ieder segment wordt nonzero VACTUAL geschreven terwijl TOFF0 is,
+dan TOFF4. Bij einde/stop eerst TOFF0, daarna VACTUAL0. Zo wordt de zwevende
+STEP-ingang niet relevant terwijl de uitgangen bewust ingeschakeld staan.
+
+De tijd start bij het versturen van de TOFF4-write, niet pas na IFCNT-bevestiging.
+Dit blijft een benadering van het chip-ontvangstmoment; geen encoderpositie.
+De softwarepositie wordt pas na een voltooid en gestopt segment bijgewerkt.
+Bij afbreken vervalt de nul. Tijdens beweging controleert health de verwachte
+TOFF4-configuratie, na stoppen TOFF0; IFCNT volgt ook runtimewrites. VACTUAL
+blijft write-only: geen verzonnen readback. Bij communicatieverlies worden beide
+stopwrites zonder voorafgaande reads geprobeerd; volledige UART-uitval kan
+niet door software worden opgelost.

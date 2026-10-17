@@ -15,14 +15,16 @@ De andere Pico-pinnen blijven los, inclusief VBUS/VSYS/3V3_EN.
 
 | Pico-signaal | Fysieke pin | Naar |
 |---|---:|---|
-| GP2 | 4 | Driver STEP; dezelfde node via10kΩ naarGND |
-| GP3 | 5 | Driver DIR |
 | GP4 / UART1 TX | 6 | **1kΩ serie** → PDN_UART-node |
 | GP5 / UART1 RX | 7 | Rechtstreeks dezelfde PDN_UART-node |
-| GP6 | 9 | Driver EN/ENN; dezelfde node via10kΩ naar3,3V |
 | 3V3(OUT) | 36 | Driver VIO; supervisor VDD; alle3,3V-pullups |
 | GND | 38 | Driver GND, PD OUT−, supervisor GND, alle GND-labels |
 | RUN, geen GPIO | 30 | Supervisor RESET_N via afneembare J1-jumper |
+
+**TMC STEP, DIR en EN/ENN volledig los laten**, zonder verbinding met Pico,
+GND of3,3V en zonder pull-up/pulldown of andere toegevoegde componenten.
+Bestaande draden/weerstanden voor die drie pinnen verwijderen. Pico GP2
+(fysieke4), GP3(5) en GP6(9) blijven ongebruikt.
 
 VIO krijgt uitsluitend3,3V; **5VOUT van de TMC blijft onaangesloten aan de Pico**.
 Voed de Pico alleen via zijn USB-connector. Verbind PD+ nooit met VBUS/VSYS/VIO.
@@ -35,7 +37,8 @@ Voed de Pico alleen via zijn USB-connector. Verbind PD+ nooit met VBUS/VSYS/VIO.
 | Alle driver GND | Gemeenschappelijke GND |
 | VM-GND | 100µF/25V elco (+naarVM, −naarGND), parallel100nF/25V; vlak bij driver |
 | VIO-GND | 100nF keramisch, vlak bij driver; moduleonderdelen behouden |
-| STEP, DIR, EN, PDN_UART, VIO | Volgens Pico-tabel |
+| PDN_UART, VIO | Volgens Pico-tabel |
+| STEP, DIR, EN/ENN | Volledig los; geen externe weerstanden/verbindingen |
 | MS1, MS2 | GND (UART overschrijft microstapkeuze) |
 | CLK indien aanwezig | GND na bevestiging dat dit CLK_IN is; interne klok |
 | DIAG / INDEX / 5VOUT | Niet extern aansluiten |
@@ -69,9 +72,10 @@ pin1-markering/bovenaanzicht; WSON/DRV gebruikt een andere pinvolgorde.
 
 De spanningsdeler bemonstert **VM ná diode/schakelaar**, niet vóór de schakelaar.
 Supervisor en Pico delen USB3,3V. Bij VM onder ongeveer6,97V trekt RESET_N RUN
-laag: GPIO's worden hoogohmig, EN-pullup schakelt de motor uit en STEP-pulldown
-houdt pulsen tegen. Bij herstel boot de Pico opnieuw in OFF, zonder oude
-beweging of nul. Er is geen automatische herarming. J1 is alleen tijdelijk los
+laag: de Pico reset. De supervisor schakelt de TMC-uitgangen niet rechtstreeks
+uit. Bij herstel probeert de firmware een UART-stop (`TOFF=0`, dan `VACTUAL=0`)
+en start zonder oude opdracht/nul. Dit garandeert geen bewegingsvrije reset
+met zwevende ingangen. Er is geen automatische herarming. J1 is alleen tijdelijk los
 voor installatie met VM uit; maak hem herkenbaar en zet hem terug vóór testen.
 
 Dit is een getekende en berekende benchschakeling, geen gebouwde/gecertificeerde
@@ -79,3 +83,7 @@ veiligheidscontroller. Supervisorvertraging is typisch20µs; willekeurige
 ultrakorte harde VM-kortsluitpulsen zijn niet fysiek gekwalificeerd. De lokale
 100µF en detectie rond7V geven bij normale adapteruitval marge vóór de
 TMC-ondergrens. Verplichte fysieke hersteltest: zie handleiding.
+
+Software kan de fysieke zwevende EN-ingang niet overrulen. UART regelt
+snelheid/richting via VACTUAL en uitschakelen via TOFF; geen hardwareworkaround
+voor STEP/DIR/EN toegevoegd.

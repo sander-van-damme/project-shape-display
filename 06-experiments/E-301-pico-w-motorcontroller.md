@@ -14,12 +14,15 @@ schroefgeometrie zijn ongewijzigd; geen print of aankoop uitgevoerd/opgedragen.
 
 ## Aanbevolen opstelling
 
-Computer-USB→Pico W, directe3,3V STEP/DIR/EN/UART→TMC2208/R110,
+Computer-USB→Pico W, uitsluitend3,3V UART→TMC2208/R110,
 9V USB-C PD→zekering/schakelaar/SS14/ontkoppeling→VM. Start opVref0,80V met
 UART VSENSE1, IRUN=IHOLD5: berekend77mApiek/55mARMS. Geen6V-regelaar of
 levelshifter. Een TPS3808G01 bewaakt VM rond7V en reset de Pico via RUN bij
-uitval; boot is altijd OFF en oude beweging/nul vervallen. Dit is nodig omdat
-softwarepolling alleen een korte voedingsdip kan missen.
+uitval; na boot probeert de firmware OFF via UART en vervallen opdracht/nul.
+Actuele eigenaarskeuze: STEP/DIR/EN volledig los, zonder externe weerstanden.
+VACTUAL regelt beweging/richting; TOFF0 schakelt bij stop de uitgangen uit.
+Zwevende EN kan niet door software worden overruled; volledige UART-uitval
+kan stoppen verhinderen. De eerdere GPIO-uitvoering blijft alleen in Git-historie.
 
 De concrete witte V1.2-module en paarse PD-print zijn niet door kleur/opdruk
 bevestigd. Hun werkelijke pinmapping, R110-shunts, UART-brug en9V-DIP-keuze
@@ -32,13 +35,14 @@ wordt niet ingevuld met een generieke StepStick-pinvolgorde.
 - [Visueel schema](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/wiring.svg) en [exacte aansluitlijst](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/wiring.md).
 - [Complete MicroPython-toepassing](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/main.py), met afzonderlijke UART-driver, controller en gedeelde bewegingspolicy in dezelfde map.
 - [Datasheetafweging en berekeningen](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/research.md).
-- [Reproduceerbare softwarevalidatie en beperkingen](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/verification.md), [14 hosttests](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/tests/test_firmware.py) en [resultatenformulier](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/resultaten.md).
+- [Reproduceerbare softwarevalidatie en beperkingen](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/verification.md), [17 hosttests](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/tests/test_firmware.py) en [resultatenformulier](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/resultaten.md).
 
 Bestaande commando's en limieten behouden:2–120rpm, ±1omw perM,
 PIN ±½omw,1–20cycli,30s idle/120s run, onmiddellijke `!`-verwerking met
 begrensde UART-wachttijd. Ongeldige invoer schakelt nu ook uit. Onafhankelijke
-specialistische elektrische en firmwarecontrole uitgevoerd; bevindingen verwerkt
-in voedingsreset, aansluitcontroles en onderscheid doel-rpm/werkelijke snelheid.
+specialistische controles betroffen de oorspronkelijke GPIO-uitvoering.
+De UART-only-revisie is met aangepaste hosttests gecontroleerd; geen nieuwe
+onafhankelijke of fysieke controle geclaimd. Positie is een tijdgebaseerde planning.
 
 **Niet fysiek getest:** upload/interpretatie op de Pico, echte UART, fasepiek,
 Vref/VM/PD/supervisortiming, reset/herstel, motorwarmte, staphoek, koppel,

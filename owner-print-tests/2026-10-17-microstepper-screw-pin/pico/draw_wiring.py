@@ -25,7 +25,7 @@ def label(x,y,s,color='logic'):
     text(x,y,s,'',C[color])
 
 text(30,44,'E-301  |  Pico W → TMC2208 → bestaande motor','title')
-text(30,76,'9 V PD voor motor • computer-USB voor Pico • géén levelshifter • géén extra print')
+text(30,76,'UART-only via VACTUAL • 9 V PD voor motor • computer-USB voor Pico')
 box(25,98,1450,66,'#fff1d0')
 text(42,124,'VÓÓR INSCHAKELEN: bevestig exact PCB, R110-shunts, UART-brug, motorparen en PD-DIP-tabel.','head')
 text(42,150,'De TMC- en PD-blokken tonen aansluitnamen, GEEN fysieke pinvolgorde. Lees handleiding.md en wiring.md.','small')
@@ -35,7 +35,7 @@ text(45,219,'1  Logica en motor — gebruik alleen bevestigde modulelabels','hea
 box(50,243,292,370,'#e2f2eb')
 text(72,276,'Pico W (RP2040)','head')
 text(72,301,'USB → computer; USB boven','small')
-rows=[(340,'GP2  / pin 4','STEP'),(385,'GP3  / pin 5','DIR'),(430,'GP6  / pin 9','EN / ENN'),(495,'GP4 TX / pin 6',''),(550,'GP5 RX / pin 7','')]
+rows=[(495,'GP4 TX / pin 6',''),(550,'GP5 RX / pin 7','')]
 for y,name,dest in rows:
     text(65,y-8,name)
     if dest:
@@ -46,17 +46,16 @@ text(795,301,'Logisch blok; controleer jouw PCB','small')
 for y,_,dest in rows:
     if dest:text(793,y+6,dest)
 text(793,556,'PDN_UART')
+text(793,341,'STEP / DIR / EN: LOS')
+text(793,366,'Geen draden of weerstanden','small')
+text(65,341,'GP2, GP3, GP6: ongebruikt','small')
+text(65,370,'Snelheid en richting: UART','small')
 # uart 1k and RX node
 wire([(342,495),(425,495)])
 box(425,481,100,28,'#fff',0);text(444,502,'1 kΩ','small')
 wire([(525,495),(690,495),(690,550),(775,550)])
 wire([(342,550),(690,550)]);node(690,550)
 text(410,579,'TX via 1k; RX direct op dezelfde node','small')
-# EN pullup label and step pulldown
-node(610,430);wire([(610,430),(610,405)],'logic')
-label(495,398,'3V3 — 10kΩ → EN')
-node(610,340);wire([(610,340),(610,360)],'gnd')
-label(405,375,'STEP → 10kΩ — GND','gnd')
 # motor
 box(1190,308,250,252,'#e9e7f2')
 text(1210,343,'Motor Ø8 × 8,2','head')
@@ -95,7 +94,7 @@ for x,t in [(1090,'100µF / 25V'),(1290,'100nF / 25V')]:
 text(1010,865,'Elco: + VM / − GND; vlak bij driver','small')
 # supervisor
 box(25,950,945,365)
-text(45,986,'3  Voedingsuitval: hardware-reset, daarna altijd OFF','head')
+text(45,986,'3  Bestaande VM-bewaking: Pico-reset, daarna UART-stop','head')
 box(475,1010,320,250,'#e0f2f1')
 text(492,1040,'TPS3808G01DBVR','head')
 text(492,1064,'SOT23-6 / DBV; adapter controleren','small')
@@ -126,6 +125,7 @@ text(1010,1164,'Vref: 0,80 V t.o.v. GND; UART verplicht.')
 text(1010,1197,'R110 + CS5 + VSENSE1: berekend','small')
 text(1010,1220,'77mA piek / 55mA RMS per fase.','small')
 text(1010,1256,'PD+ NOOIT op Pico, VIO of USB.','small',C['vm'])
-text(1010,1286,'Niet fysiek getest. Hersteltest verplicht.','small')
+text(1010,1286,'OFF = TOFF 0, dan VACTUAL 0.','small')
+text(1010,1310,'Zwevende EN niet softwarematig overruled.','small')
 parts.append('</svg>')
 Path(__file__).with_name('wiring.svg').write_text('\n'.join(parts))

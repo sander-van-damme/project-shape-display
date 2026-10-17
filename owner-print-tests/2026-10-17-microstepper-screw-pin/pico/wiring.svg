@@ -5,7 +5,7 @@
 <rect width="1500" height="1380" fill="#edf2f6"/>
 
 <text x="30" y="44" class="title">E-301  |  Pico W → TMC2208 → bestaande motor</text>
-<text x="30" y="76" class="">9 V PD voor motor • computer-USB voor Pico • géén levelshifter • géén extra print</text>
+<text x="30" y="76" class="">UART-only via VACTUAL • 9 V PD voor motor • computer-USB voor Pico</text>
 <rect x="25" y="98" width="1450" height="66" rx="12" fill="#fff1d0" stroke="#9cabb7" stroke-width="2"/>
 <text x="42" y="124" class="head">VÓÓR INSCHAKELEN: bevestig exact PCB, R110-shunts, UART-brug, motorparen en PD-DIP-tabel.</text>
 <text x="42" y="150" class="small">De TMC- en PD-blokken tonen aansluitnamen, GEEN fysieke pinvolgorde. Lees handleiding.md en wiring.md.</text>
@@ -14,21 +14,16 @@
 <rect x="50" y="243" width="292" height="370" rx="12" fill="#e2f2eb" stroke="#9cabb7" stroke-width="2"/>
 <text x="72" y="276" class="head">Pico W (RP2040)</text>
 <text x="72" y="301" class="small">USB → computer; USB boven</text>
-<text x="65" y="332" class="">GP2  / pin 4</text>
-<polyline class="wire" stroke="#8447a0" points="342,340 775,340"/>
-<text x="65" y="377" class="">GP3  / pin 5</text>
-<polyline class="wire" stroke="#8447a0" points="342,385 775,385"/>
-<text x="65" y="422" class="">GP6  / pin 9</text>
-<polyline class="wire" stroke="#8447a0" points="342,430 775,430"/>
 <text x="65" y="487" class="">GP4 TX / pin 6</text>
 <text x="65" y="542" class="">GP5 RX / pin 7</text>
 <rect x="775" y="243" width="330" height="370" rx="12" fill="#fff4e5" stroke="#9cabb7" stroke-width="2"/>
 <text x="795" y="276" class="head">TMC2208 V1.2</text>
 <text x="795" y="301" class="small">Logisch blok; controleer jouw PCB</text>
-<text x="793" y="346" class="">STEP</text>
-<text x="793" y="391" class="">DIR</text>
-<text x="793" y="436" class="">EN / ENN</text>
 <text x="793" y="556" class="">PDN_UART</text>
+<text x="793" y="341" class="">STEP / DIR / EN: LOS</text>
+<text x="793" y="366" class="small">Geen draden of weerstanden</text>
+<text x="65" y="341" class="small">GP2, GP3, GP6: ongebruikt</text>
+<text x="65" y="370" class="small">Snelheid en richting: UART</text>
 <polyline class="wire" stroke="#8447a0" points="342,495 425,495"/>
 <rect x="425" y="481" width="100" height="28" rx="0" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
 <text x="444" y="502" class="small">1 kΩ</text>
@@ -36,12 +31,6 @@
 <polyline class="wire" stroke="#8447a0" points="342,550 690,550"/>
 <circle cx="690" cy="550" r="5" fill="#8447a0"/>
 <text x="410" y="579" class="small">TX via 1k; RX direct op dezelfde node</text>
-<circle cx="610" cy="430" r="5" fill="#8447a0"/>
-<polyline class="wire" stroke="#176ab0" points="610,430 610,405"/>
-<text x="495" y="398" class="" style="fill:#176ab0">3V3 — 10kΩ → EN</text>
-<circle cx="610" cy="340" r="5" fill="#8447a0"/>
-<polyline class="wire" stroke="#25313c" points="610,340 610,360"/>
-<text x="405" y="375" class="" style="fill:#25313c">STEP → 10kΩ — GND</text>
 <rect x="1190" y="308" width="250" height="252" rx="12" fill="#e9e7f2" stroke="#9cabb7" stroke-width="2"/>
 <text x="1210" y="343" class="head">Motor Ø8 × 8,2</text>
 <text x="1210" y="370" class="small">Spanningsloos meten!</text>
@@ -91,7 +80,7 @@
 <text x="1225" y="832" class="small">100nF / 25V</text>
 <text x="1010" y="865" class="small">Elco: + VM / − GND; vlak bij driver</text>
 <rect x="25" y="950" width="945" height="365" rx="12" fill="#fff" stroke="#9cabb7" stroke-width="2"/>
-<text x="45" y="986" class="head">3  Voedingsuitval: hardware-reset, daarna altijd OFF</text>
+<text x="45" y="986" class="head">3  Bestaande VM-bewaking: Pico-reset, daarna UART-stop</text>
 <rect x="475" y="1010" width="320" height="250" rx="12" fill="#e0f2f1" stroke="#9cabb7" stroke-width="2"/>
 <text x="492" y="1040" class="head">TPS3808G01DBVR</text>
 <text x="492" y="1064" class="small">SOT23-6 / DBV; adapter controleren</text>
@@ -127,5 +116,6 @@
 <text x="1010" y="1197" class="small">R110 + CS5 + VSENSE1: berekend</text>
 <text x="1010" y="1220" class="small">77mA piek / 55mA RMS per fase.</text>
 <text x="1010" y="1256" class="small" style="fill:#b82a31">PD+ NOOIT op Pico, VIO of USB.</text>
-<text x="1010" y="1286" class="small">Niet fysiek getest. Hersteltest verplicht.</text>
+<text x="1010" y="1286" class="small">OFF = TOFF 0, dan VACTUAL 0.</text>
+<text x="1010" y="1310" class="small">Zwevende EN niet softwarematig overruled.</text>
 </svg>
