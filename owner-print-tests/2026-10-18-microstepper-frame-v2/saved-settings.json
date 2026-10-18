@@ -905,7 +905,7 @@
   "print_flow_ratio": "1",
   "print_in_clockwise": "0",
   "print_sequence": "by layer",
-  "print_settings_id": "E-302 frame and gear coupling 0.12 X1C PLA",
+  "print_settings_id": "E-302 revision 2 PCB recess and 50mm pin X1C PLA",
   "printable_area": [
     "0x0",
     "256x0",

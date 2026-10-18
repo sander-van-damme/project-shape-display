@@ -1,7 +1,7 @@
 [
   {
-    "name": "frame-1",
-    "source": "half",
+    "name": "frame-front",
+    "source": "half-front",
     "bounds_mm": [
       [
         2.0,
@@ -20,8 +20,8 @@
     ]
   },
   {
-    "name": "frame-2",
-    "source": "half",
+    "name": "frame-back",
+    "source": "half-back",
     "bounds_mm": [
       [
         42.0,
@@ -117,6 +117,86 @@
     "center_xy": [
       61,
       57
+    ]
+  },
+  {
+    "name": "screw-1",
+    "source": "screw",
+    "bounds_mm": [
+      [
+        5.0,
+        70.0,
+        0.0
+      ],
+      [
+        15.0,
+        80.0,
+        18.4
+      ]
+    ],
+    "center_xy": [
+      10,
+      75
+    ]
+  },
+  {
+    "name": "screw-2",
+    "source": "screw",
+    "bounds_mm": [
+      [
+        22.0,
+        70.0,
+        0.0
+      ],
+      [
+        32.0,
+        80.0,
+        18.4
+      ]
+    ],
+    "center_xy": [
+      27,
+      75
+    ]
+  },
+  {
+    "name": "pin-18",
+    "source": "pin-18",
+    "bounds_mm": [
+      [
+        38.0,
+        69.0,
+        0.0
+      ],
+      [
+        50.0,
+        81.0,
+        18.0
+      ]
+    ],
+    "center_xy": [
+      44,
+      75
+    ]
+  },
+  {
+    "name": "pin-50",
+    "source": "pin-50",
+    "bounds_mm": [
+      [
+        55.0,
+        69.0,
+        0.0
+      ],
+      [
+        67.0,
+        81.0,
+        50.0
+      ]
+    ],
+    "center_xy": [
+      61,
+      75
     ]
   }
 ]

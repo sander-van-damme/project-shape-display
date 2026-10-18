@@ -1,9 +1,12 @@
-# E-302 — Improved Microstepper Test Frame
+# E-302 — Improved Microstepper Test Frame, revisie 2
 
 **Status:** READY — CAD en Bambu-slice gecontroleerd; fysiek nog niet getest.\
 **Prioriteit:** P1 binnen deze eigenaarsopdracht. Geen automatische printopdracht.\
 **Laatst beoordeeld:** 18 oktober 2026.\
 **Technische bron:** [E-302](../../06-experiments/E-302-improved-microstepper-test-frame.md).
+
+**Wijziging op eigenaarfeedback:** één duidelijk open PCB-uitsparing, meer oorspronkelijke
+cilindersteun, plus schroeven en 18-/50-mm pinnen op de plaat. De veren zijn aanvullend.
 
 ## 1. Waarom deze test?
 
@@ -21,13 +24,16 @@ Geen CAD compileren of instellingen overtypen. [Plaatbeeld](plate.png).
 
 | Onderdeel | Aantal | Herkenning / doel |
 |---|---:|---|
-| Identieke framehelft | 2 | Open PCB-vensters, verende huissteun |
+| Complementaire framehelften | 2 | Eén gezamenlijke PCB-uitsparing; veren erbuiten |
 | Koppeling A | 1 | Eén inkeping; ribtipstraal 0,95 mm, diepste aangrijping |
 | Koppeling N | 2 | Twee inkepingen; 1,00 mm, identieke nominale herhalingen N1/N2 |
 | Koppeling C | 1 | Drie inkepingen; 1,05 mm, ruimste passing |
+| Schroef | 2 | Ongewijzigde E-301-schroef |
+| Standaardpin | 1 | 18 mm hoog, bestaande draad en printvoet |
+| Lange pin | 1 | 50 mm hoog; dezelfde draad en printvoet |
 
-- Eén plaat, geometrie **76 × 63,5 × 17,6 mm**. Hergebruik bestaande schroef,
-  pin en ring; geen extra schroef/pin op deze plaat.
+- Eén plaat, geometrie **76 × 81 × 50 mm**. Schroeven en pinnen zitten nu op de plaat;
+  bestaande exemplaren blijven bruikbaar. Hergebruik de bestaande 0,50-mm sluitring.
 - X1 Carbon, 0,4-mm-nozzle, Generic PLA, Textured PEI Plate; Bambu Studio **02.08.02.61**.
 - Laag/eerste laag 0,12/0,12 mm; Arachne, nominale lijnbreedte0,45 mm,
   2 wanden, 100% zigzag-infill; minimum bead75%, minimum feature10%.
@@ -38,9 +44,10 @@ Geen CAD compileren of instellingen overtypen. [Plaatbeeld](plate.png).
 - PLA220°C, bed55°C; onderdeelfan100% na eerste laag; hulpfan0%;
   minimum laagtijd8 s. Volledige waarden: [saved-settings.json](saved-settings.json).
 - Frame op splitvlak; koppelingsvierkant open naar bed, tandwielboring omhoog.
+  Beide pinnen rechtop op hun 12 × 12 × 0,24-mm printvoet; schroeven op vierkante voet.
   Brede frame-/kopvoeten verzorgen hechting. Ondersteuningen blijven uit de boringen.
-- Slicerschatting oorspronkelijke slice: **11,88 g, 3 uur 26 minuten totaal**
-  (model3u11m; opstart inbegrepen in totaal). Geen gemeten printverbruik/tijd.
+- Slicerschatting oorspronkelijke slice: **13,62 g, 4 uur 7 minuten totaal**
+  (model3u51m; opstart inbegrepen in totaal). Geen gemeten printverbruik/tijd.
 - Zelfstandige heropening/reslice geslaagd, zonder externe profielen;
   opgeslagen instellingen identiek. Kleine baanverschillen tussen slices zijn
   apart beoordeeld; geen byte-identieke G-code geclaimd.
@@ -56,7 +63,8 @@ Zie [montage met afbeeldingen](assembly.md) en [verificatie](verification.md).
    Bij klemmen C proberen; bij slip A. Geen kracht, lijm, tape of nabewerking.
 2. Motor in open frame leggen met PCB zijwaarts; draden vrij houden. Ring en
    koppeling plaatsen, axiale ruimte controleren en elastiekjes sluiten.
-3. Controleren dat metalen huis niet kantelt/verdraait en PCB nergens belast wordt.
+3. Kies de 18- of 50-mm pin. De 50 mm is totale hoogte, geen grotere slag.
+   Controleren dat metalen huis niet kantelt/verdraait en PCB nergens belast wordt.
    Met de hand draaien en veilige bestaande slag controleren.
 4. Vijf korte op/neerbewegingen met de bestaande werkende bediening; let op
    markeringen voor slip en op zichtbare beweging van huis/as.

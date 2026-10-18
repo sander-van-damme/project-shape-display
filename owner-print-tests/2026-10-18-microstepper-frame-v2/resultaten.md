@@ -5,13 +5,15 @@
 Datum: ____  3MF-bestand: ____  Filament/printer: ____  Instellingen gewijzigd: ____\
 Werkelijke printtijd / filament: ____  Print gelukt: [ ] ja [ ] deels [ ] nee\
 Bruggen heel, geen losse draden/doorhang in motorvak: ____\
-Bestaande schroef/pin en ring0,50 mm hergebruikt: ____
+Schroef/pin: [ ] meegeprint [ ] hergebruikt; ring 0,50 mm: ____
+Pin: [ ] 18 mm [ ] 50 mm. Rechte lange pin, voet vast tijdens print: ____
+Lange pin: kromming, laagverschuiving, stringing of draadschade: ____
 
 ## Motorzitting
 
 Motor-ID: ____  Huis Ø/lengte, gemeten of bronopgave: ____\
 Zonder snijden/schuren/forceren gemonteerd: ____\
-PCB, vier draden en soldeerpunten overal vrij: ____\
+Uitsparingen beide helften op dezelfde zijde; PCB, vier draden en soldeerpunten vrij: ____\
 Huis kantelt/verdraait bij handrotatie of beweging: ____\
 Elastiekjes gemakkelijk te plaatsen/verwijderen: ____\
 Veerbruggen intact / blijvende vervorming na demontage: ____

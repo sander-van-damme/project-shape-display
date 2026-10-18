@@ -30,20 +30,46 @@ open boring op alle relevante lagen. Dit kwalificeert alleen de digitale slice.
 PLA-samentrekking, stringing, oppervlaktekwaliteit en werkelijke flankpassing
 blijven eigenaarstest. Geen claim van productierijpheid of bewezen herbruikbaarheid.
 
-## Motorsteun
+## Motorsteun — gecorrigeerd op eigenaarfeedback
 
-Behouden: tweedelig frame, Ø3/Ø3,5 lager, ring, keeper, geleiding, schroef en pin.
-Nieuwe volledige zijvensters laten PCB/draden naar buiten. Twee dwarse
-PLA-veerbruggen (vrije span10, dikte0,6, axiale breedte2,4 mm) hebben binnenvlak
-op radius3,9; nominale Ø8 motor geeft0,1-mm uitbuiging per kant. Ruwe ideale
-vast-vast balkberekening ε≈12tδ/L²≈0,72%; geen FEA of gemeten montagekracht.
-Bruggen worden in printoriëntatie vanaf twee einden ondersteund. Een eerdere
-los hangende contactpad is tijdens review verworpen vóór de definitieve slice.
-Resterende cilindervlakken steunen de motor axiaal gespreid. Motorbodem rust
-op framevoet; rubberbanden sluiten harde framevlakken en raken geen printplaatje.
+De vorige E-302-plaat in commit 3d554a3 bevatte twee zijvensters; de eigenaar
+wilde een duidelijke uitsparing aan één zijde en behoud van de oorspronkelijke
+steun. Revisie 2 gebruikt complementaire helften met één gemeenschappelijke,
+naar buiten open uitsparing: X −8…−2,5, Y −3,5…3,5, Z 2…10,5 mm.
+Deze ruimte is na vereniging met de veren uitgesneden en als volledig vrij
+gecontroleerd in de gemonteerde CAD. Het blijft een ontwerp-envelope; de foto
+bevat geen PCB-maten. De tegenoverliggende cilindrische steun blijft behouden.
+
+De vrije ruimte achter de aanvullende veren is verkort tot Z4,5…8,5, zodat
+onder- en bovenaan meer van de cilindrische huiszitting blijft staan. Veren:
+vrije span 10, dikte 0,6, axiale breedte 2,4 mm, binnenvlak op radius 3,9.
+Nominaal Ø8 geeft 0,1-mm uitbuiging. Ideale vast-vast balkberekening
+ε≈12tδ/L²≈0,72%; geen gemeten montagekracht of garantie van klemkracht.
+De veren liggen buiten de PCB-opening. Boordiameter 8,30 blijft parametrisch.
+
+## Pin van 50 mm
+
+De E-301-schroef en standaardpin zijn byte-identiek meegeleverd. De 50-mm pin
+verlengt uitsluitend de rechte bovenbuis van de standaardpin (4,4 mm vierkant,
+3,52 mm binnenruimte); onderste draad, 6-mm aangrijping en 12-mm printvoet blijven
+behouden. Onderste 18 mm geometrisch vergeleken. Hoogte 50 mm betekent geen
+50-mm slag: het frame behoudt de 3-mm proefslag. Printbaarheid van de slanke
+buis wordt afzonderlijk over alle lagen gecontroleerd; fysieke stabiliteit blijft
+te observeren. Geen support in de draad en geen functionele nabewerking.
+
+## Controle overschuifmaten
+
+`review_dimensions.py` rekent de foto-opgave na: m0,2 × 9 geeft steekdiameter
+1,8 mm en standaard tandtopdiameter 2,2 mm. Vrijloopboring 2,5 mm laat 0,15 mm
+radiale ruimte buiten de tandtoppen, behalve de drie aangrijpingsribben.
+Een **aangenomen**, niet gemeten 20° standaard-involuut geeft minimale berekende
+flankboogruimte A≈0,014 / N≈0,070 / C≈0,143 mm. A is dus marginaal; begin met N.
+De werkelijke drukhoek, ondersnijding en tandvorm ontbreken; dit is geen
+gevalideerde maatvoering voor alle motoren. De bestaande drie varianten blijven
+bewust behouden als fysieke passingtest. De 4-mm foto-uitsteking is geen tandlengte.
 
 ## Parameters voor feedback
 
-`rig.scad`: `body_d`, `pcb_half_width`, springvlak3,9/dikte0,6/span10,
+`rig.scad`: `body_d`, `pcb_half_width`, `pin_height`, springvlak3,9/dikte0,6/span10,
 `tip_r`, `socket_bottom`, `socket_top`. Geen wijziging van de schroef/pin nodig.
 Bij aanpassen altijd STL en3MF opnieuw genereren, heropenen en opnieuw controleren.

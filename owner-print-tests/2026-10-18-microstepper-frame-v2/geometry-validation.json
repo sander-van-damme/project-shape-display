@@ -1,5 +1,5 @@
 {
-  "body_count": 6,
+  "body_count": 10,
   "bounds_mm": [
     [
       2.0,
@@ -8,30 +8,50 @@
     ],
     [
       78.0,
-      63.5,
-      17.6
+      81.0,
+      50.0
     ]
   ],
   "parts": {
-    "half": {
-      "volume_mm3": 3452.3742802395977,
+    "half-front": {
+      "volume_mm3": 3566.4471723230768,
       "watertight": true,
-      "sha256": "b770d743562100188c74670d2551035add43006f4382d6b14aa3baed795bc1e8"
+      "sha256": "5253d14fa956a666c03b2a313f2aeab27c1cc0b269b2d031bc20fa3515281517"
+    },
+    "half-back": {
+      "volume_mm3": 3566.4471723230768,
+      "watertight": true,
+      "sha256": "8911541f72d4a145b1ca80680622c6f56fa58c3922d6a4a4e977603cab3023b5"
+    },
+    "screw": {
+      "volume_mm3": 311.8884354761005,
+      "watertight": true,
+      "sha256": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243"
+    },
+    "pin-18": {
+      "volume_mm3": 194.30324166756796,
+      "watertight": true,
+      "sha256": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d"
+    },
+    "pin-50": {
+      "volume_mm3": 417.3304571957931,
+      "watertight": true,
+      "sha256": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19"
     },
     "coupling-A": {
       "volume_mm3": 657.4698745921754,
       "watertight": true,
-      "sha256": "08d0b7a67233b50f136af60ce999f132caca27ad44182af19aa46ff517d2ff85"
+      "sha256": "547a215e209f542d099fc3cda97e82751c65f6fa1d64a692dad8905668f4d1a5"
     },
     "coupling-N": {
-      "volume_mm3": 655.7884060751875,
+      "volume_mm3": 655.7884060751877,
       "watertight": true,
-      "sha256": "66f11c3a7d37589ac34dfb132b953ffc0902137df48e5a7720b7d1c90870a7a3"
+      "sha256": "472dba831428ea196333c7e3bdf4dd0764f500efe093da1c1b071461f27cf6bc"
     },
     "coupling-C": {
       "volume_mm3": 654.1793046517814,
       "watertight": true,
-      "sha256": "ddcb49bb214435c1f2ed5f4a752a15634b5828ae2d5689cc809a43e1d454e79c"
+      "sha256": "1a749b2aa9ec5af3f98a63852cd237d18ae1246df042558bf0402aa121a3265c"
     }
   },
   "scope": "CAD only; physical fitting unknown"

@@ -1,9 +1,9 @@
 {
   "scope": "Nominal G-code widths and layer footprints; not physical bridge quality or fit.",
-  "project_sha256": "6f0b45d276e56c13ead2b2364f4ac6208d334442c03f58b5fdb50c4486f79de1",
+  "project_sha256": "7fa8b5b8a2c74734b7376295752888ea3a63d99fff9ff1a2a69f3bcf5ceadb9a",
   "parts": [
     {
-      "name": "frame-1",
+      "name": "frame-front",
       "layers": 83,
       "unsupported_islands": [],
       "max_free_bridge_overhang_span_mm": 9.980008557973077,
@@ -13,160 +13,6 @@
         "free_span_mm": 9.980008557973077,
         "start_distance_mm": 0.0,
         "end_distance_mm": 0.0,
-        "dx_mm": -11.961999999999989,
-        "dy_mm": 0.003999999999990678
-      },
-      "flexure_bridge_paths": [
-        {
-          "z": 4.08,
-          "role": "Overhang wall",
-          "free_span_mm": 9.599999999999994,
-          "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": 9.599999999999994,
-          "dy_mm": 0.0
-        },
-        {
-          "z": 4.08,
-          "role": "Overhang wall",
-          "free_span_mm": 9.599999999999994,
-          "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": 9.599999999999994,
-          "dy_mm": 0.0
-        },
-        {
-          "z": 4.08,
-          "role": "Overhang wall",
-          "free_span_mm": 9.599999999999994,
-          "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": -9.599999999999994,
-          "dy_mm": 0.0
-        },
-        {
-          "z": 4.08,
-          "role": "Overhang wall",
-          "free_span_mm": 9.599999999999994,
-          "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": -9.599999999999994,
-          "dy_mm": 0.0
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.23199999999999932,
-          "dy_mm": -0.09100000000000819
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.17100000000000648,
-          "dy_mm": -0.030000000000001137
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 9.98000843833959,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 10.122,
-          "dy_mm": -0.002999999999985903
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.2459999999999951,
-          "dy_mm": 0.031999999999982265
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.23499999999999943,
-          "dy_mm": 0.09200000000001296
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 9.980008557973077,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": -11.961999999999989,
-          "dy_mm": 0.003999999999990678
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.2259999999999991,
-          "dy_mm": 0.08899999999999864
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.24500000000000455,
-          "dy_mm": 0.03200000000001069
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 9.98000799999997,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 10.045999999999992,
-          "dy_mm": 0.0
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.24500000000000455,
-          "dy_mm": -0.03200000000001069
-        },
-        {
-          "z": 4.08,
-          "role": "Bridge",
-          "free_span_mm": 0.0,
-          "start_distance_mm": 0.0,
-          "end_distance_mm": 0.0,
-          "dx_mm": 0.2259999999999991,
-          "dy_mm": -0.08899999999999864
-        }
-      ],
-      "square_socket_roof_max_span_mm": 0,
-      "full_width_X_bridge_spans_anchored_at_both_ends": 3
-    },
-    {
-      "name": "frame-2",
-      "layers": 83,
-      "unsupported_islands": [],
-      "max_free_bridge_overhang_span_mm": 9.980008557973106,
-      "max_span_record": {
-        "z": 4.08,
-        "role": "Bridge",
-        "free_span_mm": 9.980008557973106,
-        "start_distance_mm": 0.0,
-        "end_distance_mm": 0.0,
         "dx_mm": 11.961999999999989,
         "dy_mm": -0.003999999999990678
       },
@@ -174,37 +20,37 @@
         {
           "z": 4.08,
           "role": "Overhang wall",
-          "free_span_mm": 9.600000000000023,
-          "start_distance_mm": 0.19000399999998763,
+          "free_span_mm": 9.599999999999994,
+          "start_distance_mm": 0.1900039999999876,
           "end_distance_mm": 0.19000399999998763,
-          "dx_mm": 9.600000000000023,
+          "dx_mm": 9.599999999999994,
           "dy_mm": 0.0
         },
         {
           "z": 4.08,
           "role": "Overhang wall",
-          "free_span_mm": 9.600000000000023,
-          "start_distance_mm": 0.19000399999998763,
+          "free_span_mm": 9.599999999999994,
+          "start_distance_mm": 0.1900039999999876,
           "end_distance_mm": 0.19000399999998763,
-          "dx_mm": 9.600000000000023,
+          "dx_mm": 9.599999999999994,
           "dy_mm": 0.0
         },
         {
           "z": 4.08,
           "role": "Overhang wall",
-          "free_span_mm": 9.600000000000023,
+          "free_span_mm": 9.599999999999994,
           "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": -9.600000000000023,
+          "end_distance_mm": 0.1900039999999876,
+          "dx_mm": -9.599999999999994,
           "dy_mm": 0.0
         },
         {
           "z": 4.08,
           "role": "Overhang wall",
-          "free_span_mm": 9.600000000000023,
+          "free_span_mm": 9.599999999999994,
           "start_distance_mm": 0.19000399999998763,
-          "end_distance_mm": 0.19000399999998763,
-          "dx_mm": -9.600000000000023,
+          "end_distance_mm": 0.1900039999999876,
+          "dx_mm": -9.599999999999994,
           "dy_mm": 0.0
         },
         {
@@ -223,12 +69,12 @@
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -0.24500000000000455,
-          "dy_mm": 0.03200000000001069
+          "dy_mm": 0.031999999999996476
         },
         {
           "z": 4.08,
           "role": "Bridge",
-          "free_span_mm": 9.980007999999998,
+          "free_span_mm": 9.98000799999997,
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -10.045999999999992,
@@ -241,7 +87,161 @@
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -0.24500000000000455,
+          "dy_mm": -0.031999999999996476
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.2259999999999991,
+          "dy_mm": -0.08899999999999864
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 9.980008557973077,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": 11.961999999999989,
+          "dy_mm": -0.003999999999990678
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.23499999999999943,
+          "dy_mm": -0.09199999999999875
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.2459999999999951,
           "dy_mm": -0.03200000000001069
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 9.98000843833959,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -10.122,
+          "dy_mm": 0.0030000000000001137
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.17100000000000648,
+          "dy_mm": 0.030000000000001137
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.23199999999999932,
+          "dy_mm": 0.09100000000000819
+        }
+      ],
+      "square_socket_roof_max_span_mm": 0,
+      "full_width_X_bridge_spans_anchored_at_both_ends": 3
+    },
+    {
+      "name": "frame-back",
+      "layers": 83,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 9.980008557973106,
+      "max_span_record": {
+        "z": 4.08,
+        "role": "Bridge",
+        "free_span_mm": 9.980008557973106,
+        "start_distance_mm": 0.0,
+        "end_distance_mm": 0.0,
+        "dx_mm": 11.961999999999989,
+        "dy_mm": -0.003999999999990678
+      },
+      "flexure_bridge_paths": [
+        {
+          "z": 4.08,
+          "role": "Overhang wall",
+          "free_span_mm": 9.600000000000023,
+          "start_distance_mm": 0.1900039999999876,
+          "end_distance_mm": 0.19000399999998763,
+          "dx_mm": 9.600000000000023,
+          "dy_mm": 0.0
+        },
+        {
+          "z": 4.08,
+          "role": "Overhang wall",
+          "free_span_mm": 9.600000000000023,
+          "start_distance_mm": 0.1900039999999876,
+          "end_distance_mm": 0.19000399999998763,
+          "dx_mm": 9.600000000000023,
+          "dy_mm": 0.0
+        },
+        {
+          "z": 4.08,
+          "role": "Overhang wall",
+          "free_span_mm": 9.600000000000023,
+          "start_distance_mm": 0.19000399999998763,
+          "end_distance_mm": 0.1900039999999876,
+          "dx_mm": -9.600000000000023,
+          "dy_mm": 0.0
+        },
+        {
+          "z": 4.08,
+          "role": "Overhang wall",
+          "free_span_mm": 9.600000000000023,
+          "start_distance_mm": 0.19000399999998763,
+          "end_distance_mm": 0.1900039999999876,
+          "dx_mm": -9.600000000000023,
+          "dy_mm": 0.0
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.2259999999999991,
+          "dy_mm": 0.08899999999999864
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.24600000000000932,
+          "dy_mm": 0.031999999999996476
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 9.980007999999998,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -10.044999999999987,
+          "dy_mm": 0.0
+        },
+        {
+          "z": 4.08,
+          "role": "Bridge",
+          "free_span_mm": 0.0,
+          "start_distance_mm": 0.0,
+          "end_distance_mm": 0.0,
+          "dx_mm": -0.24500000000000455,
+          "dy_mm": -0.031999999999996476
         },
         {
           "z": 4.08,
@@ -268,7 +268,7 @@
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -0.23499999999998522,
-          "dy_mm": -0.09200000000001296
+          "dy_mm": -0.09199999999999875
         },
         {
           "z": 4.08,
@@ -277,7 +277,7 @@
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -0.24600000000000932,
-          "dy_mm": -0.031999999999982265
+          "dy_mm": -0.03200000000001069
         },
         {
           "z": 4.08,
@@ -286,7 +286,7 @@
           "start_distance_mm": 0.0,
           "end_distance_mm": 0.0,
           "dx_mm": -10.121999999999986,
-          "dy_mm": 0.002999999999985903
+          "dy_mm": 0.0030000000000001137
         },
         {
           "z": 4.08,
@@ -377,6 +377,42 @@
       },
       "flexure_bridge_paths": [],
       "square_socket_roof_max_span_mm": 10.380008000000032
+    },
+    {
+      "name": "screw-1",
+      "layers": 153,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 0,
+      "max_span_record": null,
+      "flexure_bridge_paths": [],
+      "square_socket_roof_max_span_mm": 0
+    },
+    {
+      "name": "screw-2",
+      "layers": 153,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 0,
+      "max_span_record": null,
+      "flexure_bridge_paths": [],
+      "square_socket_roof_max_span_mm": 0
+    },
+    {
+      "name": "pin-18",
+      "layers": 150,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 0,
+      "max_span_record": null,
+      "flexure_bridge_paths": [],
+      "square_socket_roof_max_span_mm": 0
+    },
+    {
+      "name": "pin-50",
+      "layers": 417,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 0,
+      "max_span_record": null,
+      "flexure_bridge_paths": [],
+      "square_socket_roof_max_span_mm": 0
     }
   ],
   "gate": "PASS: footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested"

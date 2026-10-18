@@ -1,13 +1,14 @@
-// E-302, mm. Existing E-301 screw/pin STLs reused without modification.
+// E-302 revision 2, mm. E-301 functional thread and foot retained.
 // Source photo dimensions are NOT physical measurements of owner motors.
-part="half";
+part="half-front";
+pin_height=50;
 tip_r=1.00; // A .95, nominal N 1.00, C 1.05; three broad rounded lobes
 $fn=96;
 body_d=8.30;
-pcb_half_width=3.0; // open side envelope, unmeasured PCB: check before closing
+pcb_half_width=3.5; // open side envelope, unmeasured PCB: check before closing
 socket_bottom=11.2;
 socket_top=19.5;
-module frame_half(){
+module cradle_half(){
  difference(){
   union(){
    translate([-18,0,0])cube([36,10,2]);
@@ -21,10 +22,8 @@ module frame_half(){
   }
   translate([0,0,2])cylinder(d=body_d,h=10);
   translate([0,0,9.2])cylinder(d=11.5,h=1.1);
-  // Full-height, outward-open PCB/wire windows on both sides.
-  for(x=[-7.1,3])translate([x,-.01,2])cube([4.1,pcb_half_width+.01,8.3]);
   // Clearance behind transverse flexure; rigid cradle stops frame closure.
-  translate([-5,3.5,3])cube([10,2.7,6.3]);
+  translate([-5,3.5,4.5])cube([10,2.7,4]);
   translate([0,0,19.9])cylinder(d=3.5,h=4.1);
   translate([0,0,28.8])cylinder(d=4.2,h=2.4);
   translate([-2.4,-2.4,35.9])cube([4.8,4.8,8.3]);
@@ -33,7 +32,14 @@ module frame_half(){
  }
  // Transverse two-ended flexure: 10 mm bridge, .6 thick, 2.4 axial width.
  // Flat first bridging layer has anchors at both ends; nominal preload .10.
- translate([-5.2,3.9,6])cube([10.4,.6,2.4]);
+ translate([-5.2,3.9,5])cube([10.4,.6,2.4]);
+}
+// Cut AFTER adding spring: no spring or wall may cross the PCB envelope.
+module frame_half(){
+ difference(){
+  cradle_half();
+  translate([-8,-.01,2])cube([5.5,pcb_half_width+.01,8.5]);
+ }
 }
 module bore_profile(){
  difference(){
@@ -58,6 +64,19 @@ module cup(){
    translate([-3+i*3,6.1,27])cube([1,1,2]);
  }
 }
-if(part=="half")rotate([90,0,0])frame_half();
+if(part=="half-front")rotate([90,0,0])frame_half();
+if(part=="half-back")rotate([90,0,0])mirror([1,0,0])frame_half();
 if(part=="cup")translate([0,0,28.8])rotate([180,0,0])cup();
-if(part=="assembly") {frame_half();rotate([0,0,180])frame_half();cup();}
+if(part=="assembly") {frame_half();mirror([0,1,0])frame_half();cup();}
+
+// Exact supplied E-301 meshes are retained as functional source geometry.
+if(part=="screw")import("../2026-10-17-microstepper-screw-pin/screw.stl");
+if(part=="pin-18")import("../2026-10-17-microstepper-screw-pin/pin.stl");
+if(part=="pin-50")union(){
+ import("../2026-10-17-microstepper-screw-pin/pin.stl");
+ // Overlap only the straight upper tube; threaded bottom and print foot unchanged.
+ translate([0,0,17.9])difference(){
+  translate([-2.2,-2.2,0])cube([4.4,4.4,pin_height-17.9]);
+  translate([-1.76,-1.76,-.01])cube([3.52,3.52,pin_height-17.8]);
+ }
+}

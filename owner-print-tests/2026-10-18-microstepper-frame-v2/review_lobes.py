@@ -12,7 +12,7 @@ layout=json.loads((here/'layout.json').read_text());source_lo=np.min([p['bounds_
 shift=bounds[0,:2]-source_lo[:2]-np.array([float(x) for x in cfg['extruder_offset'][0].split('x')])
 report={'scope':'Independent deposited-path footprint review; nominal line widths are not physical measurements.','parts':[]};plots=[]
 for part in layout:
- if part['source']=='half':continue
+ if not part['source'].startswith('coupling'):continue
  cx,cy=np.array(part['center_xy'])+shift
  layers=collections.defaultdict(list)
  for p in paths:
