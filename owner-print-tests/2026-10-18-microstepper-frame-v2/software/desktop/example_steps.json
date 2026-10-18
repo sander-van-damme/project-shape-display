@@ -1,0 +1,10 @@
+[
+  {
+    "config": {"chopper": "spreadcycle", "microsteps": 8, "irun": 5, "ihold": 5},
+    "move": {"mode": "duration", "rpm": 30, "accel": 100, "decel": 100, "duration_s": 2}
+  },
+  {
+    "config": {"chopper": "stealthchop", "tpowerdown": 20, "microsteps": 8, "irun": 5, "ihold": 5},
+    "move": {"mode": "duration", "rpm": 30, "accel": 200, "decel": 100, "duration_s": 2}
+  }
+]

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" width="1120" height="760">
+<rect width="1120" height="760" fill="#f5f7fa"/>
+<style>text{font-family:Arial,sans-serif;fill:#182433} .head{font-weight:bold;font-size:24px} .label{font-size:17px} .small{font-size:15px} .wire{stroke:#267a68;stroke-width:3;fill:none} .power{stroke:#c24c35;stroke-width:3;fill:none}</style>
+<text x="32" y="42" class="head">E-302 · Pico W ↔ TMC2208</text>
+<text x="32" y="70" class="small">Netnamen controleren op de eigen module. PIO is nog niet fysiek gevalideerd.</text>
+<text x="32" y="128" class="head">A · Eén GPIO / PIO (standaard)</text>
+<rect x="45" y="150" width="235" height="130" rx="10" fill="white" stroke="#94a3b8"/>
+<rect x="820" y="150" width="250" height="130" rx="10" fill="white" stroke="#94a3b8"/>
+<text x="66" y="178" class="label">Raspberry Pi Pico W</text>
+<text x="843" y="178" class="label">TMC2208 · adres 0</text>
+<text x="65" y="210" class="label">GP4 / pin 6</text>
+<text x="843" y="210" class="label">PDN_UART</text>
+<path d="M 280 205 H 430 M 510 205 H 820" class="wire"/>
+<rect x="430" y="195" width="80" height="20" fill="white" stroke="#267a68" stroke-width="2"/>
+<text x="447" y="188" class="small">1 kΩ</text>
+<path d="M 650 205 V 165 H 725" class="wire"/>
+<text x="615" y="152" class="small">10 kΩ → VIO 3,3 V</text>
+<text x="310" y="252" class="small">GP4 wordt input vóór het antwoord; geen aparte RX-draad.</text>
+<text x="32" y="348" class="head">B · Twee GPIO’s / UART1 (fallback)</text>
+<rect x="45" y="370" width="235" height="130" rx="10" fill="white" stroke="#94a3b8"/>
+<rect x="820" y="370" width="250" height="130" rx="10" fill="white" stroke="#94a3b8"/>
+<text x="66" y="398" class="label">Raspberry Pi Pico W</text>
+<text x="843" y="398" class="label">TMC2208 · adres 0</text>
+<text x="65" y="430" class="label">GP4 / pin 6</text>
+<text x="843" y="430" class="label">PDN_UART</text>
+<path d="M 280 425 H 430 M 510 425 H 820" class="wire"/>
+<rect x="430" y="415" width="80" height="20" fill="white" stroke="#267a68" stroke-width="2"/>
+<text x="447" y="408" class="small">1 kΩ</text>
+<text x="65" y="468" class="label">GP5 RX / pin 7</text>
+<path d="M 280 463 H 650 V 425" class="wire"/>
+<text x="310" y="490" class="small">RX ziet TX-echo + driverantwoord. TX altijd via 1 kΩ.</text>
+<rect x="32" y="535" width="1056" height="195" rx="10" fill="white" stroke="#94a3b8"/>
+<text x="52" y="565" class="head">Voor beide varianten</text>
+<text x="52" y="598" class="label">GP6 / pin 9 → ENN; 10 kΩ van ENN naar VIO. ENN laag = uitgangen toegestaan.</text>
+<text x="52" y="628" class="label">STEP → GND · DIR → GND · Pico 3V3 OUT / pin 36 → VIO · alle GND samen</text>
+<text x="52" y="658" class="label">VM ← bestaande ~9 V-voeding via fysieke schakelaar en ontkoppeling. Motor op faseparen.</text>
+<text x="52" y="688" class="label">Vref fysiek instellen/meten (~0,80 V start); nooit motorvoeding via Pico 3V3.</text>
+<text x="52" y="714" class="small">Historische proef: EN aan GND werkte, maar liet bekrachtiging vóór UART-configuratie toe.</text>
+</svg>

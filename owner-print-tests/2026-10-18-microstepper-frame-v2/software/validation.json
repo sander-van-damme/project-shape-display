@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "c1a8a0d",
+  "firmware_sha256": "5ff3e4811882d9f5d4f4fea83dc6261b9af899fab2d858adf6b9e765b925a822",
+  "python": "3.12.14",
+  "unit_integration_tests": 105,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "checks": {
+    "micropython_standard": "passed",
+    "micropython_float32": "passed",
+    "micropython_cross_compile": "passed",
+    "standalone_firmware_import_audit": "passed",
+    "micropython_i386_float32_192k": "passed",
+    "micropython_i386_float32_200k": "passed"
+  },
+  "pio_instructions": 22,
+  "gui_smoke": "Linux Xorg Tkinter, all tabs/basic controls/motion/reversal/STOP/sweep",
+  "physical_validation": false,
+  "windows_runtime_tested": false,
+  "protected_files_changed": false,
+  "repository_check_preexisting_findings": 7,
+  "initial_base_commit": "505bb91",
+  "i386_heap_check": {
+    "pointer_bytes": 4,
+    "object_repr": "A",
+    "float_bits": 32,
+    "heap_bytes": 196608,
+    "post_gc_import_allocated_bytes": 45696,
+    "post_gc_three_simulated_motors_allocated_bytes": 50272,
+    "physical_rp2040_test": false
+  }
+}
