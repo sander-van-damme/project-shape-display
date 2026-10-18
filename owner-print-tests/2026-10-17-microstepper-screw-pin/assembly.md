@@ -7,6 +7,30 @@ De twee framehelften zijn identiek. De rotorhouder neemt de ongewijzigde
 1:1; de vierkante pin wordt over 8 mm geleid. De eigen printvoet van de pin
 blijft zitten en blijft tijdens de 3-mm-proef onder de geleiding.
 
+## Fysieke eigenaarfeedback (18 oktober 2026)
+
+**Bij het daadwerkelijk gemonteerde exemplaar** moest de eigenaar plastic
+uit de motorzitting snijden om het kleine printplaatje/de aansluitingen voor
+de vier motordraden aan één motoruiteinde vrij te maken. Daardoor was de motor
+niet stevig genoeg gefixeerd. De hieronder getekende motorzitting is dus
+**niet ongewijzigd als passend bevestigd**.
+
+De voorgeschreven siliconenslang-koppeling is in deze proef **niet**
+aangetoond: de eigenaar verbond motor en schroef voorlopig met **ducttape**.
+Dat bleek voldoende om een bestaande compacte pin bij **Vref ~0,80 V** op en
+neer te bewegen, maar was onaangenaam en lastig te monteren. De motoren hebben
+al tandwielen; er zijn ten minste twee uitvoeringen met verschillend axiaal
+uitstekende tandwielen. Een volgende variant zou een gemakkelijk te plaatsen
+opsteekkop rond het tandwiel moeten onderzoeken, met tolerantie voor
+verschillende insteekdieptes en framevariatie. Nog niet dimensioneel gemeten.
+
+**Behouden:** tweedelig, toegankelijk frame en de mogelijkheid de helften
+met elastiekjes samen te houden; dit beviel de eigenaar (ook al vraagt de
+eerste montage wat moeite). Ruimte voor twee of drie motoren naast elkaar
+kan nuttig zijn, maar er is **nog maar één motor fysiek getest**. Het
+[volledige proefverslag](pico/resultaten.md) bevat alle waarnemingen.
+Deze feedback vervangt geen nieuwe CAD, print of montagevalidatie.
+
 ## Losse mechanische benodigdheden
 
 - Eén bevestigde Ø8 × 8,2-mm motor. Vier draden, windingen eerst doormeten.

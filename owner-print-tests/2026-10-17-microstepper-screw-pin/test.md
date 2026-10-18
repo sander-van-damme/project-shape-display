@@ -2,18 +2,21 @@
 
 > **E-301 — aanbevolen voor de beschikbare elektronica:** gebruik de
 > [Pico W-handleiding](pico/handleiding.md), het [nieuwe schema](pico/wiring.svg)
-> en [Pico-resultatenformulier](pico/resultaten.md). Dit gebruikt **9V PD en
-> 3,3V-logica**, zonder Uno of nieuwe print. Hardwarecontroles vóór inschakelen
-> zijn nog open; fysieke beweging is niet getest. [E-301](../../06-experiments/E-301-pico-w-motorcontroller.md).
+> en [Pico-resultatenformulier met eerste fysieke verslag (18 oktober 2026)](pico/resultaten.md).
+> Eigenaar heeft **daadwerkelijke op/neerbeweging** van een compacte pin gemeld
+> bij **Vref ~0,80 V en S 100**. De succesvolle bedrading had **EN naar GND**,
+> in afwijking van het oorspronkelijke UART-only-schema met zwevende EN.
+> Kracht, snelheid en nauwkeurigheid zijn niet gekwantificeerd.
+> [E-301](../../06-experiments/E-301-pico-w-motorcontroller.md).
 >
 > De onderstaande print-/montagegegevens blijven geldig als bestaande bron.
 > De oudere elektronische instructies/commando-uitleg hieronder beschrijven de
 > bewaarde **Uno/6V-variant**; volg voor Pico uitsluitend de gekoppelde handleiding.
 
 
-**Status:** READY — printproject en Uno-compilatie gecontroleerd; fysieke proef nog open\
-**Prioriteit:** P1 binnen deze eigenaarsopdracht\
-**Laatst beoordeeld:** 2026-10-17\
+**Status:** COMPLETED voor eerste eigenaarproof van op/neerbeweging; systematische karakterisering nog open\
+**Prioriteit:** eerste fysieke haalbaarheidsvraag beantwoord\
+**Laatst beoordeeld:** 2026-10-18\
 **Vraag:** kan de bestaande Ø8 × 8,2-mm motor de bewezen compacte schroefpin
 droog, betrouwbaar en met bruikbare snelheid in beide richtingen bewegen?\
 **Bron:** [E-295](../../06-experiments/E-295-compact-screw-drive-development.md),
@@ -22,6 +25,27 @@ droog, betrouwbaar en met bruikbare snelheid in beide richtingen bewegen?\
 Voor de limiet van drie READY-aanbiedingen zijn de oudere clutch-fit-,
 clutch-matrix- en point-fit-aanbiedingen administratief DEFERRED; hun CAD/resultaten zijn behouden.
 Er is geen verdere ontwikkeling aan die mechanismen gedaan.
+
+## Fysiek geobserveerde uitkomst (18 oktober 2026)
+
+Bij een **Pico W + TMC2208**, ongeveer **9 V VM**, **3,3 V VIO**,
+**Vref ~0,80 V** en via UART ingestelde **S 100** kon de geprinte
+schroefpin door de motor worden bewogen, zowel omhoog als omlaag.
+De eigenaar gebruikte een **bijgesneden motorvak** en een
+**ducttape-koppeling**. De motor past zonder extra uitsparing bij het
+draadprintje niet goed; de oorspronkelijke slang-koppeling is niet
+beproefd. Het frame is wel prettig toegankelijk en met elastiekjes
+te sluiten. `M 1` leverde op de losse motor niet nauwkeurig 360°
+en de retourfout stapelde zich op. De volledige hoogte, belasting,
+temperatuur, werkelijk toerental en betrouwbare retourhoogte zijn
+niet gemeten.
+
+**Conclusie:** positieve eerste *beweegbaarheidsproef*, niet een
+geslaagde volledige prestatie-/duurproef. Het volledige chronologische
+verslag, bedrading, meetwaarden en suggesties voor de volgende motorzitting
+staan in [pico/resultaten.md](pico/resultaten.md). De onderstaande
+eerder ontwikkelde instructies en geplande meetmatrix blijven historische
+testdocumentatie; ze zijn niet automatisch als uitgevoerd af te vinken.
 
 ## 1. Printklaar
 
@@ -124,7 +148,7 @@ Na stoppen met VM uit: ook `!` sturen of Uno RESET indrukken terwijl VM uit
 blijft. Pas daarna VM herstellen, handmatig centreren en opnieuw ARM: de driver
 moet zijn lage stroominstelling opnieuw krijgen vóór een nieuwe beweging.
 
-## 4. Mijn resultaten — nog in te vullen
+## 4. Oorspronkelijk meetformulier — niet volledig doorlopen
 
 Testdatum: ____  Werkelijk geprint project/instellingswijzigingen: ____\
 Filament: ____  Bestaand paar hergebruikt? ____  Droog, geen nieuwe smering? ____\
@@ -155,7 +179,9 @@ snelheid, zonder vastlopen, zichtbare stapuitval, slangslip of overmatige warmte
 
 ## 5. Interpretatie
 
-Fysieke resultaten blijven open. Een slippend slangetje, scheve montage of
+Eerste fysieke op/neerbeweging is door de eigenaar bevestigd, maar de
+systematische resultaten voor kracht, stabiliteit, herhaalbaarheid en volledige
+slag blijven open. Een slippende tijdelijke koppeling, scheve montage of
 onjuiste staphoek is **geen zuivere afwijzing van motorkoppel**. Een goede droge
 3-mm-proef bewijst uitsluitend deze ene motor/pin/stroom/snelheid/lastcombinatie.
 Er wordt geen 40-mm-slag of complete displayarchitectuur mee gekwalificeerd.

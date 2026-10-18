@@ -8,7 +8,9 @@ builds-on: [E-295]
 **Eigenaarsopdracht, 17 oktober 2026.** Vraag: kan de bestaande Ø8 × 8,2-mm
 stappenmotor de compacte pin betrouwbaar omhoog/omlaag bewegen, bij welke
 werkelijke snelheid? E-301 levert de elektronica/firmware om dat zonder Uno te
-meten; er is geen nieuwe fysieke motoruitslag. Basiscommit `8cc371d`, aanvankelijk
+meten; bij de initiële oplevering op 17 oktober was er nog geen fysieke
+motoruitslag. Op 18 oktober volgde een gedeeltelijk geslaagde eigenaarsproef.
+Basiscommit `8cc371d`, aanvankelijk
 schone repository; E-301 was beschikbaar. Bestaande CAD, STLs,3MF, motorhouder en
 schroefgeometrie zijn ongewijzigd; geen print of aankoop uitgevoerd/opgedragen.
 
@@ -44,11 +46,36 @@ specialistische controles betroffen de oorspronkelijke GPIO-uitvoering.
 De UART-only-revisie is met aangepaste hosttests gecontroleerd; geen nieuwe
 onafhankelijke of fysieke controle geclaimd. Positie is een tijdgebaseerde planning.
 
-**Niet fysiek getest:** upload/interpretatie op de Pico, echte UART, fasepiek,
-Vref/VM/PD/supervisortiming, reset/herstel, motorwarmte, staphoek, koppel,
-slag/herhaalbaarheid en werkelijke snelheid. CPython-bytecompilatie en mocks zijn
-geen Pico-runtime- of hardwarekwalificatie. De bestaande Uno-implementatie blijft
-als historisch alternatief behouden.
+**Status bij oorspronkelijke codeoplevering (17 oktober):** alleen
+hostvalidatie; toen waren alle fysieke controlepunten nog open.
+
+## Fysieke eigenaarupdate — 18 oktober 2026
+
+De eigenaar heeft de Pico W-firmware daadwerkelijk uitgevoerd en via USB/PuTTY
+met de TMC2208 gecommuniceerd. Aanvankelijk stonden **VM ~9 V** en **VIO
+slechts 0,09 V** op de module; na correctie van de VIO-kabel stond **VIO op
+3,3 V**. De UART-selectie is gesoldeerd. `ARM MOTOR` werd daarna bevestigd.
+
+De losgelaten **EN**-ingang stond gemeten op **3,24 V** en de motor bleef
+stilstaan ondanks `DONE planned rev=1.000`. Nadat de eigenaar **EN met GND**
+verbond, draaide de motor via UART met **STEP en DIR los**. Bij **Vref ~0,80 V
+en S 100** kon de gemonteerde compacte schroefpin fysiek **omhoog en omlaag**
+bewegen. Daarmee is de eerste haalbaarheidsvraag positief op het niveau van
+een kwalitatieve eigenaarproef. De montage was **niet volgens de ongewijzigde
+CAD**: motorzitting bij het draadprintje bijgesneden en ducttape in plaats van
+de voorgestelde slang-koppeling. Bij losse-motorbeweging stapelde de
+retourpositioneringsfout zich op; bij opstart zijn ongewenste kleine bewegingen
+met zwevende STEP/DIR gemeld.
+
+**Nog onbekend:** werkelijke stroom, belastbaar koppel, temperatuur, exact
+stappen-/omwentelingenaantal, volledige pinhoogte, betrouwbare retourpositie
+en gemeten snelheid. De berekende fasepiek/RMS blijven berekeningen, geen
+meting. De PIN-bedrading in de oorspronkelijke E-301-handleiding (EN los)
+is *niet* de werkende testconfiguratie.
+
+Zie het [gedetailleerde chronologische eigenaarsverslag en framefeedback](../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/resultaten.md).
+CPython-tests kwalificeren nog steeds geen volledige Pico-runtime,
+supervisor of veilige foutstop. De Uno-variant blijft historisch bewaard.
 
 **Stopconditie:** één aanbevolen bedrade opstelling, volledige software,
 schema/handleiding en zonder hardware uitvoerbare validatie geleverd. Vrijgave

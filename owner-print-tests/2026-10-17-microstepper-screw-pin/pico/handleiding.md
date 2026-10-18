@@ -1,12 +1,25 @@
 # E-301 — Pico W, één bestaande schroefpin
 
+> **Update eigenaarsproef, 18 oktober 2026:** de eigenaar heeft een
+> compacte pin **daadwerkelijk op en neer** bewogen via UART op
+> **S 100 / Vref ~0,80 V**, maar **alleen nadat EN aan GND werd verbonden**.
+> STEP en DIR bleven los; bij het opstarten waren kleine ongewenste
+> bewegingen zichtbaar. De hieronder bewaarde oorspronkelijke
+> UART-only-bedrading met **EN los** is dus **niet** de werkend
+> geobserveerde opstelling. EN permanent aan GND laat de driveruitgangen
+> toe zolang de TMC die niet intern uitschakelt, ook vóór UART-configuratie;
+> schakel de motorvoeding bij onbedoeld gedrag direct uit. De eerste
+> werkende koppeling was ducttape en het motorvak is bijgesneden.
+> Zie het [volledige eigenaarverslag en de mechanische feedback](resultaten.md).
+> Andere automatische veiligheids-/herstelscenario's zijn niet fysiek bevestigd.
+
 **Aanbevolen uitvoering:** Pico W via computer-USB; TMC2208 met VIO 3,3 V;
 PD-trigger **9 V** naar VM via zekering, schakelaar en diode; lage fasestroom via
 Vref én UART. Beweging en richting lopen uitsluitend via `VACTUAL`.
 **STEP, DIR en EN blijven volledig los, zonder weerstanden of verbinding naar
 Pico/GND/3,3 V.** GP2, GP3 en GP6 worden niet gebruikt. **Geen Uno, levelshifter of 6V-regelaar nodig. Geen nieuwe print.**
 
-**Status: software op host gevalideerd; fysiek niet getest.** De precieze witte
+**Oorspronkelijke opleverstatus (17 oktober): software op host gevalideerd, toen nog fysiek niet getest.** De precieze witte
 V1.2-module en paarse PD-print zijn niet eenduidig geïdentificeerd. Er zijn hier
 geen foto's van beide PCB-zijden of metingen beschikbaar. De controles hieronder
 zijn daarom **verplicht vóór inschakelen**; bij onduidelijkheid stoppen en het
