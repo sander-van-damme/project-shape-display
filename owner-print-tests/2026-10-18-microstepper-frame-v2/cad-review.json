@@ -1,0 +1,37 @@
+{
+  "scope": "Independent nominal rigid CAD clearance screen, not physical fit or spring force validation",
+  "source_sha256": {
+    "rig.scad": "009ad80fdb15907eeb87fa9b580a8fa0e27a476a8a6180e94de0b113b0072f5f",
+    "half.stl": "b770d743562100188c74670d2551035add43006f4382d6b14aa3baed795bc1e8",
+    "coupling-A.stl": "08d0b7a67233b50f136af60ce999f132caca27ad44182af19aa46ff517d2ff85",
+    "coupling-N.stl": "66f11c3a7d37589ac34dfb132b953ffc0902137df48e5a7720b7d1c90870a7a3",
+    "coupling-C.stl": "ddcb49bb214435c1f2ed5f4a752a15634b5828ae2d5689cc809a43e1d454e79c"
+  },
+  "rotation_positions": 25,
+  "variants": [
+    "A",
+    "N",
+    "C"
+  ],
+  "pin_travel_mm": 3,
+  "maximum_collision_volume_mm3": {
+    "cup_frame_mm3": 0.0,
+    "cup_screw_mm3": 0.0,
+    "screw_frame_mm3": 0.0,
+    "pin_frame_mm3": 0.0
+  },
+  "nominal_motor_body_contact_interference_mm3": 0.5633525897530334,
+  "nominal_clearances_mm": {
+    "socket_shoulder_to_thrust_deck": 0.49,
+    "journal_diametral": 0.5,
+    "screw_foot_to_keeper": 0.3,
+    "source_photo_gear_tip_to_socket_roof": 5.3
+  },
+  "limitations": [
+    "Motor PCB/flange extent and second gear height are unmeasured.",
+    "Motor compliant contact interference is intentional; actual force and printed deflection unknown.",
+    "No motor tooth profile fabricated for this screen: tooth entry and torque transmission remain physical tests.",
+    "Screw/pin thread meshing not requalified; reused unchanged E301 components.",
+    "Printability requires independent slicer layer support and contour inspection."
+  ]
+}

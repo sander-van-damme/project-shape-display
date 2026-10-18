@@ -1,0 +1,9 @@
+{
+  "objects": 6,
+  "bidirectional_vertex_error_mm": 1.0834678782944411e-05,
+  "printer": "Bambu Lab X1 Carbon",
+  "nozzle": [
+    "0.4"
+  ],
+  "reports_match_project_sha256": true
+}

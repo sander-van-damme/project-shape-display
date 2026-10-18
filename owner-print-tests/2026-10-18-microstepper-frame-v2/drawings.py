@@ -1,0 +1,43 @@
+from pathlib import Path
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle,Circle,Polygon
+H=Path(__file__).resolve().parent
+fig,(a,b)=plt.subplots(1,2,figsize=(12,8))
+a.set_title('1 • Open frame: zijaanzicht X–Z (mm)')
+for x in [-15,12]:a.add_patch(Rectangle((x,2),3,42,color='#9cb3c3'))
+a.add_patch(Rectangle((-18,0),36,2,color='#9cb3c3'))
+for z,h in [(20.2,3.5),(28.9,2.1)]:
+ for x in [-15,2]:a.add_patch(Rectangle((x,z),13,h,color='#9cb3c3'))
+a.add_patch(Rectangle((-4,2),8,8.2,color='#aaa'))
+a.add_patch(Rectangle((-6.5,3),2.5,6,color='#568b67'))
+a.plot([-6,-9,-10],[8,10,16],color='#ba6550',lw=3)
+a.add_patch(Rectangle((-1.1,12.7),2.2,1.5,color='#d3b45c'))
+a.add_patch(Rectangle((-.6,10.2),1.2,2.5,color='#999'))
+a.add_patch(Rectangle((-2.5,11.2),5,8.5,fill=False,edgecolor='#bb872a',lw=2))
+a.add_patch(Rectangle((-1.5,19.7),3,4.5,fill=False,edgecolor='#bb872a',lw=2))
+a.add_patch(Rectangle((-3.5,23.7),7,.5,color='#555'))
+a.add_patch(Rectangle((-6.5,24.2),13,2,color='#d4aa44'))
+a.add_patch(Rectangle((-5,26.2),10,2.4,color='#66aa99'))
+a.add_patch(Rectangle((-1.65,28.6),3.3,16,color='#66aa99'))
+a.add_patch(Rectangle((-2.2,33.1),4.4,18,fill=False,edgecolor='#447788',lw=2))
+a.annotate('Bestaande pin + schroef',xy=(2.2,47),xytext=(6,51),arrowprops=dict(arrowstyle='->'),fontsize=9)
+a.annotate('Sluitring 0,50 mm\nlast naar frame',xy=(3.5,24),xytext=(7,17),arrowprops=dict(arrowstyle='->'),fontsize=9)
+a.annotate('PCB + vier draden\nnaar open zijkant',xy=(-6,7),xytext=(-20,13),arrowprops=dict(arrowstyle='->'),fontsize=9)
+a.annotate('Schuifkop: mond Z11,2\nrechte ribben vanaf Z11,7',xy=(2.5,11.5),xytext=(5,4),arrowprops=dict(arrowstyle='->'),fontsize=9)
+a.text(-19,-5,'Tandwiellengte in tekening illustratief, niet gemeten.\nElastiekjes rondom buitenzijde bij Z21 en Z38.',fontsize=9)
+a.set(xlim=(-22,23),ylim=(-7,56),xlabel='X',ylabel='Z');a.set_aspect('equal');a.grid(alpha=.15)
+b.set_title('2 • Motorvak: doorsnede op Z7 (X–Y)')
+for y in [-6.5,6.2]:b.add_patch(Rectangle((-7,y),14,.3,color='#9cb3c3'))
+for x in [-7,5]:
+ for y in [-6.5,3]:b.add_patch(Rectangle((x,y),2,3.5,color='#9cb3c3'))
+b.add_patch(Circle((0,0),4,color='#aaa',alpha=.7))
+for y in [-4.5,3.9]:b.add_patch(Rectangle((-5.2,y),10.4,.6,color='#d4aa44'))
+b.add_patch(Rectangle((-6.2,-2),2.2,4,color='#568b67'))
+b.annotate('Open zijvenster\nPCB-envelope onbekend',xy=(-6,0),xytext=(-10,-8),arrowprops=dict(arrowstyle='->'),fontsize=9)
+b.annotate('Twee verende bruggen\nalleen tegen metalen huis',xy=(0,4.2),xytext=(-9,8),arrowprops=dict(arrowstyle='->'),fontsize=9)
+b.text(-10,-11,'Niet dichttrekken als PCB, draden of soldeerpunten raken.\nSplitvlakken sluiten; huis mag niet kantelen of verdraaien.',fontsize=9)
+b.set(xlim=(-11,11),ylim=(-12,11));b.set_aspect('equal');b.axis('off')
+fig.suptitle('E-302 • Montage en krachtpad — schematisch, geen pasgarantie',fontsize=15)
+fig.tight_layout();fig.savefig(H/'assembly.png',dpi=160);fig.savefig(H/'assembly.svg')

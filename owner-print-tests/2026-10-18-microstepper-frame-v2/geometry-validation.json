@@ -1,0 +1,38 @@
+{
+  "body_count": 6,
+  "bounds_mm": [
+    [
+      2.0,
+      0.0,
+      0.0
+    ],
+    [
+      78.0,
+      63.5,
+      17.6
+    ]
+  ],
+  "parts": {
+    "half": {
+      "volume_mm3": 3452.3742802395977,
+      "watertight": true,
+      "sha256": "b770d743562100188c74670d2551035add43006f4382d6b14aa3baed795bc1e8"
+    },
+    "coupling-A": {
+      "volume_mm3": 657.4698745921754,
+      "watertight": true,
+      "sha256": "08d0b7a67233b50f136af60ce999f132caca27ad44182af19aa46ff517d2ff85"
+    },
+    "coupling-N": {
+      "volume_mm3": 655.7884060751875,
+      "watertight": true,
+      "sha256": "66f11c3a7d37589ac34dfb132b953ffc0902137df48e5a7720b7d1c90870a7a3"
+    },
+    "coupling-C": {
+      "volume_mm3": 654.1793046517814,
+      "watertight": true,
+      "sha256": "ddcb49bb214435c1f2ed5f4a752a15634b5828ae2d5689cc809a43e1d454e79c"
+    }
+  },
+  "scope": "CAD only; physical fitting unknown"
+}
