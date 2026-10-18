@@ -67,3 +67,33 @@ Bambu-supports onder de draad en lokale3-mm brim. Lokale supportinstellingen
 blijven na heropening behouden; pinboringen blijven supportvrij. De vraag of
 supports zonder draadschade verwijderd kunnen worden is expliciet onderdeel
 van de eigenaarstest. Geen50-mm slag geclaimd; frameproef blijft3 mm.
+
+## E-302-softwareplatform — 18 oktober 2026
+
+Aanvullende eigenaarsopdracht op basis van `c1a8a0d`: de bestaande fysieke
+E-301-proef bruikbaar maken voor systematische motortests, zonder nieuwe
+mechanica of wijziging van historische resultaten. De implementatie staat in
+[de softwaremap van deze test](../owner-print-tests/2026-10-18-microstepper-frame-v2/software/handleiding.md).
+
+Geleverd: één zelfstandige MicroPython `main.py`, één-GPIO PIO-UART plus de
+bestaande tweepins-UART als fallback, gevalideerde TMC2208-registerconfiguratie,
+RPM/rampen/cycli, expliciete pintestgrenzen, desktop-GUI/CLI, lokale profielen,
+fail-fast vergelijkingsreeksen en CSV/JSON met gescheiden meetherkomst.
+Nieuwe standaardbedrading houdt EN hoog tot configuratie en STEP/DIR vast laag.
+Een heartbeat stopt bij verdwenen desktop; volledige UART-uitval heeft zonder
+de EN-draad geen gegarandeerde softwarestop. Meerdere drivers gebruiken
+onafhankelijke communicatiekanalen, want de TMC2208 heeft vast UART-adres 0.
+
+**Bewijs:** unit-/integratiesimulatie, PIO-instructiecyclusmodel en uitvoering
+onder MicroPython 1.26.1 op een host, inclusief float32-variant; details en
+reproduceerbare opdrachten in [softwarevalidatie](../owner-print-tests/2026-10-18-microstepper-frame-v2/software/VALIDATION.md).
+Geen nieuwe fysieke motor-, elektrische of mechanische test uitgevoerd.
+Berekende RPM, fasestroom en positie zijn geen echte metingen. Het doel circa
+40 mm in minder dan één seconde blijft een onderzoeksdoel; 50 mm pinlengte
+wordt niet als slag aangenomen.
+
+Stopconditie van deze aanvulling: geïntegreerde software, tests en praktische
+bedrading/bediening geleverd. Kleinste vervolg is een onbelaste motortest op
+lage snelheid, STOP/heartbeat en vergelijking van PIO met hardware-UART;
+daarna pas een pintest met zelf vastgestelde bruikbare slag. CAD, STL, 3MF en
+E-301-resultaten zijn ongewijzigd.
