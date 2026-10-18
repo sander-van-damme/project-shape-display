@@ -21,9 +21,10 @@ cups={n:rotate(shift(load(H/f'coupling-{n}.stl'),[0,0,-28.8]),180,[1,0,0]) for n
 screw=shift(load(H/'screw.stl'),[0,0,26.2]);pin=shift(load(H/'pin-50.stl'),[0,0,33.1])
 results=[]
 for a in np.linspace(0,360,25):
- s=solid(rotate(screw,a));p=solid(shift(pin,[0,0,3*a/360-1.5]))
+ # Clockwise rotation viewed from above raises the antirotating right-hand nut.
+ s=solid(rotate(screw,-a));p=solid(shift(pin,[0,0,3*a/360-1.5]))
  for name,c in cups.items():
-  rotor=solid(rotate(c,a));results.append(dict(angle_deg=float(a),variant=name,cup_frame_mm3=(rotor^frame).volume(),cup_screw_mm3=(rotor^s).volume(),screw_frame_mm3=(s^frame).volume(),pin_frame_mm3=(p^frame).volume()))
+  rotor=solid(rotate(c,-a));results.append(dict(angle_deg=float(a),variant=name,cup_frame_mm3=(rotor^frame).volume(),cup_screw_mm3=(rotor^s).volume(),screw_frame_mm3=(s^frame).volume(),pin_frame_mm3=(p^frame).volume(),screw_pin_mm3=(s^p).volume()))
 maxima={k:max(r[k] for r in results) for k in results[0] if k.endswith('_mm3')}
 assert max(maxima.values())<1e-4,maxima
 # Rigid nominal body intentionally intersects compliant contacts; quantify, do not treat as fit failure.
@@ -43,5 +44,54 @@ lower_difference=(lower_pin-original_pin).volume()+(original_pin-lower_pin).volu
 assert lower_difference < 1e-4, lower_difference
 assert (H/'screw.stl').read_bytes() == (OLD/'screw.stl').read_bytes()
 assert (H/'pin-18.stl').read_bytes() == (OLD/'pin.stl').read_bytes()
+
+# New long screw: retain the original foot and thread phase up to the old
+# tip taper, then validate the complete shaft inside the existing 50 mm pin.
+long_mesh=load(H/'screw-long.stl')
+assert long_mesh.is_watertight and long_mesh.is_winding_consistent
+assert len(long_mesh.split()) == 1
+assert np.allclose(long_mesh.extents,[10,10,50.4],atol=.001)
+lower_clip=md.Manifold.cube([20,20,17.799]).translate([-10,-10,0])
+short_lower=solid(load(H/'screw.stl')) ^ lower_clip
+long_lower=solid(long_mesh) ^ lower_clip
+long_lower_difference=(short_lower-long_lower).volume()+(long_lower-short_lower).volume()
+assert long_lower_difference < .001, long_lower_difference
+long_screw=shift(long_mesh,[0,0,26.2])
+long_rows=[]
+for a in np.linspace(0,360,25):
+ s=solid(rotate(long_screw,-a))
+ pin_bottom=31.6+3*a/360
+ p=solid(shift(load(H/'pin-50.stl'),[0,0,pin_bottom]))
+ # The 3.52 mm square bore starts 6 mm above the pin's bottom. It must
+ # contain the thread's complete 3.2 mm major diameter throughout travel.
+ upper_region=md.Manifold.cube([20,20,44]).translate([-10,-10,pin_bottom+6])
+ upper_pin=p ^ upper_region
+ row=dict(screw_rotation_deg=float(-a),pin_bottom_z_mm=float(pin_bottom),
+          screw_pin_mm3=(s^p).volume(),screw_upper_pin_mm3=(s^upper_pin).volume(),
+          screw_frame_mm3=(s^frame).volume(),pin_frame_mm3=(p^frame).volume(),
+          screw_tip_below_pin_top_mm=float(pin_bottom+50-76.6),
+          full_thread_engagement_mm=6.0)
+ for name,c in cups.items():
+  row[f'screw_cup_{name}_mm3']=(s^solid(rotate(c,-a))).volume()
+ long_rows.append(row)
+long_maxima={k:max(r[k] for r in long_rows) for k in long_rows[0] if k.endswith('_mm3')}
+assert max(long_maxima.values()) < 1e-4, long_maxima
+long_review=dict(
+ overall_height_mm=50.4,thread_length_mm=48,foot_dimensions_mm=[10,10,2.4],
+ original_lower_screw_symmetric_difference_mm3=long_lower_difference,
+ original_lower_comparison_z_mm=[0,17.799],
+ shaft_nominal_major_diameter_mm=3.2,upper_pin_square_bore_width_mm=3.52,
+ upper_pin_bore_minimum_radial_clearance_mm=.16,
+ screw_tip_assembled_z_mm=76.6,minimum_tip_below_pin_top_mm=min(r['screw_tip_below_pin_top_mm'] for r in long_rows),
+ full_thread_engagement_mm=6,pin_travel_mm=3,sampled_poses=len(long_rows),
+ maximum_collision_volume_mm3=long_maxima,poses=long_rows,
+ limitations=['CAD clearance does not prove thread fit after horizontal supported printing.',
+              'Support removal can mark the thread; hand-fit before motor operation.',
+              'Only the existing 3 mm travel is screened; the longer screw does not qualify additional travel.'])
+(H/'long-screw-cad-review.json').write_text(json.dumps(long_review,indent=2)+'\n')
 report=dict(scope='Independent nominal rigid CAD clearance screen, not physical fit or spring force validation',source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [H/'rig.scad',H/'half-front.stl',H/'half-back.stl',H/'pin-50.stl',H/'pin-18.stl',H/'screw.stl',*[H/f'coupling-{n}.stl' for n in ['A','N','C']]]},rotation_positions=25,variants=['A','N','C'],pin_height_mm=50,pin_lower_18mm_original_symmetric_difference_mm3=lower_difference,pin_travel_mm=3,pin_top_above_frame_mm=[37.6,40.6],maximum_collision_volume_mm3=maxima,pcb_open_design_volume_bounds_mm=[[-8,-3.5,2],[-2.5,3.5,10.5]],pcb_open_design_volume_frame_collision_mm3=pcb_collision,opposite_side_support_mm3=opposite_support,nominal_motor_body_contact_interference_mm3=(body^frame).volume(),nominal_clearances_mm=dict(socket_shoulder_to_thrust_deck=.49,journal_diametral=.5,screw_foot_to_keeper=.3,source_photo_gear_tip_to_socket_roof=5.3),limitations=['Motor PCB/flange extent and second gear height are unmeasured; design open-volume clearance is not evidence that the real PCB fits.','Motor compliant contact interference is intentional; actual force and printed deflection unknown.','No motor tooth profile fabricated for this screen: tooth entry and torque transmission remain physical tests; see conditional dimension-review.json.','Screw/pin thread meshing not requalified; reused unchanged E301 screw and lower pin geometry.','Printability requires independent slicer layer support and contour inspection.'])
+report['long_screw']={k:v for k,v in long_review.items() if k != 'poses'}
+for name in ['screw-long.stl','long-screw.scad']:
+ report['source_sha256'][name]=hashlib.sha256((H/name).read_bytes()).hexdigest()
+report['limitations'][3]='Screw/pin thread meshing screened in rigid CAD at 25 matched helical poses; physical fit and support-removal damage remain unknown.'
 (H/'cad-review.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

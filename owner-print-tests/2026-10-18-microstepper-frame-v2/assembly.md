@@ -1,17 +1,19 @@
-# E-302 — montage, revisie 2
+# E-302 — montage, revisie 3
 
 ![Open frame, krachtpad en motorzitting](assembly.png)
 
 Benodigd: bestaande Ø8 × 8,2-mm motor met messing tandwiel, meegeprinte of bestaande E-301
 schroef en pin (10 × 10 × 2,4-mm schroefvoet), bestaande vlakke M3-ring
 **ID3,2 / OD7 / dikte0,50 mm**, twee elastiekjes en verwijderbare markeerstift.
-De plaat bevat twee schroeven, een standaardpin van 18 mm en een pin van 50 mm.
-Beide pinnen gebruiken dezelfde schroef en dezelfde onderste 6-mm schroefdraad.
+De plaat bevat een korte schroef (16 mm draad) met een standaardpin van 18 mm,
+en een **lange schroef (48 mm draad, 50,4 mm totale hoogte)** met een pin van 50 mm.
+Dezelfde spoed, draaddiameter, onderste 6-mm binnendraad en vierkante schroefvoet blijven behouden.
 50 mm is de totale pinhoogte, **niet** de bewegingsslag.
 Geen tape, lijm, slang, nieuwe elektronica of bewerking van functionele vlakken.
 De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper klemmen.
 
-1. Maak de bestaande opstelling spanningsloos. Neem onderdelen van de afgekoelde
+1. Verwijder eerst de supports van de lange schroef zoals hieronder beschreven.
+   Maak de bestaande opstelling spanningsloos. Neem onderdelen van de afgekoelde
    plaat; herken A aan **één** inkeping in de vierkante kop, N aan **twee**, C
    aan **drie**. N1 en N2 zijn identiek: markeer ze volgens hun plaats op de
    [plaat](plate.png). Inspecteer de twee dunne motorbruggen op losse draden,
@@ -41,7 +43,8 @@ De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper kle
    en minstens **0,5 mm ruimte onder het holtedak**, ook wanneer de schroef licht
    omhoog wordt bewogen. Houd minstens 0,5 mm vrij tussen mond en motorflens/boss.
    De maatfoto geeft alleen totale uitsteking: die bewijst deze voorwaarden niet.
-6. Leg de bestaande schroefvoet in de vierkante kop. Plaats de complementaire tweede framehelft, met de uitsparing aan dezelfde zijde,
+6. Leg de gekozen schroefvoet in de vierkante kop. Gebruik de lange schroef bij de
+   50-mm pin; de korte combinatie blijft beschikbaar als vergelijking. Plaats de complementaire tweede framehelft, met de uitsparing aan dezelfde zijde,
    en twee elastiekjes in de buitenste groeven bij Z21 en Z38. Ze lopen niet over
    PCB, draden of motorbruggen. De harde splitvlakken sluiten zonder de motor
    axiaal vast te persen. Het huis moet stil blijven bij lichte handrotatie
@@ -50,7 +53,9 @@ De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper kle
    draaien; belast de schroef licht op/neer: de ring en keeper dragen de axiale
    kracht. De motoras mag daarbij niet zichtbaar verplaatsen. Nominale vrije
    keeperhoogte is 0,3 mm en ruimte onder het lagerdek 0,49 mm; echt nameten/voelen.
-8. Open opnieuw en monteer de gekozen pin. De veilige proefslag blijft 3 mm:
+8. Open opnieuw en monteer de gekozen combinatie: korte schroef/18-mm pin of
+   lange schroef/50-mm pin. Schroef eerst spanningsloos door de volledige gebruikte
+   draadzone; geen motor gebruiken om supportresten door de binnendraad te persen. De veilige proefslag blijft 3 mm:
    bij de **18-mm pin** is de bovenzijde **5,6–8,6 mm boven het frame**, midden 7,1 mm;
    bij de **50-mm pin** is dat **37,6–40,6 mm boven het frame**, midden 39,1 mm.
    Controleer dit eerst met de hand. Geen eindstop opzoeken met de motor.
@@ -85,3 +90,29 @@ De 4 mm op de foto is de **totale uitsteking boven het huis**, niet de tandlengt
 De foto geeft geen drukhoek of exact tandprofiel. Een controle met een aangenomen
 standaardprofiel toont geen nominale botsing, maar bewijst de werkelijke passing niet.
 Zie [maatcontrole](dimension-review.json). Alle montage moet zonder forceren kunnen.
+
+## Supports van de lange schroef verwijderen
+
+![Werkelijke supportbanen onder de lange schroef](long-screw-review.png)
+
+De lange schroef ligt horizontaal: de as ligt 5 mm boven de plaat en het geheel
+is slechts 10 mm hoog tijdens het printen. Normale, vanaf de plaat opgebouwde
+supports ondersteunen de onderzijde langs de draad; alleen dit object heeft
+supports en een buitenbrim van 3 mm. De pinnen en koppelingen krijgen geen supports.
+Deze plaatsing vermijdt een 50-mm hoge, vrijstaande dunne schroef tijdens de print.
+
+Laat de plaat afkoelen, buig de flexplaat en neem schroef en supports samen los.
+Ondersteun de schroef dicht bij de plaats waar je werkt. Knip zonodig alleen de
+supportbasis/brim in kleine stukken; pel de supports voorzichtig naar beneden weg.
+Gebruik geen lange hefboom op de dunne schroef en snijd/schuur de tanden niet passend.
+De 0,24-mm verticale scheiding en twee interfacelagen zijn opgeslagen in de 3MF.
+
+Bekijk vooral de onderste halve draadomtrek op vastzittende PLA, afgebroken tanden,
+kromming en blijvende ruwe plekken. Controleer de passing eerst zonder motor.
+Bij schade of vastlopen: stoppen en rapporteren. Supportverwijdering zonder
+littekens is **niet fysiek bewezen**; dit is een expliciet onderdeel van de test.
+De dunne printvoeten aan de pinnen blijven zitten.
+
+Met de lange schroef ligt de punt nominaal op Z76,6; de 50-mm pin eindigt bij de
+laagste proefpositie op Z81,6. Er blijft dus 5 mm ruimte boven de schroefpunt.
+De framegeleiding en printvoet begrenzen nog steeds de oorspronkelijke 3-mm proefslag.

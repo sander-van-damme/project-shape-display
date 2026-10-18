@@ -1,4 +1,4 @@
-// E-302 revision 2, mm. E-301 functional thread and foot retained.
+// E-302 revision 3, mm. E-301 functional thread and foot retained.
 // Source photo dimensions are NOT physical measurements of owner motors.
 part="half-front";
 pin_height=50;

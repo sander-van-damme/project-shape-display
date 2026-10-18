@@ -1,6 +1,6 @@
 {
   "scope": "Nominal G-code widths and layer footprints; not physical bridge quality or fit.",
-  "project_sha256": "bad4f718b25d9e456b9dce8bcbd36f1995118b4f2b5c121f7cfb15ef8b231ddb",
+  "project_sha256": "26d90b15b4a74ae8aa2e416788850251f5e49b7c90b921949c999e379001c711",
   "parts": [
     {
       "name": "frame-front",
@@ -388,15 +388,6 @@
       "square_socket_roof_max_span_mm": 0
     },
     {
-      "name": "screw-2",
-      "layers": 153,
-      "unsupported_islands": [],
-      "max_free_bridge_overhang_span_mm": 0,
-      "max_span_record": null,
-      "flexure_bridge_paths": [],
-      "square_socket_roof_max_span_mm": 0
-    },
-    {
       "name": "pin-18",
       "layers": 150,
       "unsupported_islands": [],
@@ -415,5 +406,6 @@
       "square_socket_roof_max_span_mm": 0
     }
   ],
-  "gate": "PASS: footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested"
+  "separate_review": "Horizontal long screw excluded from same-layer contact gate because its supports have a deliberate 0.24 mm release gap; see long-screw-review.json and long-screw-review-reopened.json.",
+  "gate": "PASS: nine unchanged parts have footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested"
 }

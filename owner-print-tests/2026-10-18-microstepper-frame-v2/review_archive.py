@@ -11,8 +11,12 @@ with zipfile.ZipFile(p) as z:
 m=trimesh.load(h/'microstepper-frame-v2.stl',force='mesh');v=m.vertices+(b[0]-m.bounds[0]);error=max(cKDTree(points).query(v)[0].max(),cKDTree(v).query(points)[0].max())
 assert error<.0001 and len(objects)==10
 assert settings['printer_model']=='Bambu Lab X1 Carbon' and settings['nozzle_diameter']==['0.4'] and settings['enable_support']=='0'
+spec2=importlib.util.spec_from_file_location('builder',h/'build_project.py');builder=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(builder)
+with zipfile.ZipFile(p) as z: local=builder.object_settings(z)
+assert len(local)==10 and sum(v.get('enable_support')=='1' for v in local.values())==1
+assert next(k for k,v in local.items() if v.get('enable_support')=='1').endswith('screw-50-supported')
 sha=hashlib.sha256(p.read_bytes()).hexdigest()
-for n in ['lobe-review-original.json','support-review.json','pin-review.json']:
+for n in ['lobe-review-original.json','support-review.json','pin-review.json','long-screw-review.json']:
  assert json.loads((h/n).read_text())['project_sha256']==sha,n
 (h/'archive-validation.json').write_text(json.dumps(dict(objects=len(objects),bidirectional_vertex_error_mm=error,printer=settings['printer_model'],nozzle=settings['nozzle_diameter'],reports_match_project_sha256=True,project_sha256=sha),indent=2)+'\n')
 print('Final geometry/archive match passed',error)

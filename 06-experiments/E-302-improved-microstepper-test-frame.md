@@ -15,10 +15,12 @@ zonder snijwerk/tape monteerbaar en verdraagt verschillende tandwielhoogtes.
 [Printtest](../owner-print-tests/2026-10-18-microstepper-frame-v2/test.md):
 één geconfigureerde X1 Carbon/0,4-mm/PLA Bambu3MF, twee complementaire framehelften en vier
 koppelingen: drie passingen, nominale tweemaal identiek. Revisie op eigenaarfeedback
-voegt twee bestaande schroeven, een18-mm pin en een50-mm pin toe. De onderste
+bevat één korte en één lange schroef, een18-mm pin en een50-mm pin.
+De lange schroef heeft48 mm draad en wordt horizontaal met eigen normale
+supports geprint; de andere negen objecten blijven supportvrij. De onderste
 6-mm draad blijft gelijk;50 mm is hoogte, niet slag. Hergebruik de0,50-mm sluitring. CAD/STLs, geïllustreerde montage, kort
 resultatenformulier en reproduceerbare CAD-/toolpathcontroles meegeleverd.
-Herziene slicerplaat13,62 g /4u07m totaal; geen fysieke print gedaan.
+Herziene slicerplaat14,13 g /4u17m totaal; geen fysieke print gedaan.
 
 ## Bewijs en resultaat
 
@@ -28,7 +30,8 @@ Herziene slicerplaat13,62 g /4u07m totaal; geen fysieke print gedaan.
   PCB/tandlengte/tweede hoogte onbekend. Geen ander motor-PDF-profiel overgenomen.
 - **CAD:** één gezamenlijke PCB-uitsparing7 mm breed over volledige huislengte,
   veren erbuiten en extra cilindrische steun behouden; alle10 plaatmeshes gesloten; drie varianten ×25 standen,3-mm pinverplaatsing,
-  geen nominale botsing van draaiende houder/schroef of50-mm pin met frame. Bewuste verende
+  geen nominale botsing van draaiende houder/lange schroef of50-mm pin met frame;
+  werkelijke draadmeshing ook gecontroleerd met bijpassende draairichting. Bewuste verende
   huiscontact-interferentie is afzonderlijk gerapporteerd, niet als passing bewezen.
 - **Bambu Studio02.08.02.61:** opgeslagen project zelfstandig heropend en geresliced,
   instellingen gelijk. Alle drie lobben blijven aanwezig op64 rechte boringlagen
@@ -58,3 +61,9 @@ op de plaat, inclusief50-mm pin, en een ondubbelzinnige PCB-uitsparing. Deze
 revisie vervangt die plaat en handleiding; de oude toestand blijft in Git-historie.
 De overschuifmaten zijn expliciet opnieuw gecontroleerd; bronmaten zijn geen
 metingen aan individuele motoren. Geen elektronica of firmware gewijzigd.
+
+Revisie3 op vervolgfeedback: lange schroef toegevoegd, horizontale pose met echte
+Bambu-supports onder de draad en lokale3-mm brim. Lokale supportinstellingen
+blijven na heropening behouden; pinboringen blijven supportvrij. De vraag of
+supports zonder draadschade verwijderd kunnen worden is expliciet onderdeel
+van de eigenaarstest. Geen50-mm slag geclaimd; frameproef blijft3 mm.

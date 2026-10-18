@@ -8,20 +8,30 @@
     ],
     [
       78.0,
-      81.0,
+      98.0,
       50.0
     ]
   ],
   "parts": {
-    "half-front": {
-      "volume_mm3": 3566.4471723230768,
+    "screw-long": {
+      "volume_mm3": 457.24537385345474,
       "watertight": true,
-      "sha256": "5253d14fa956a666c03b2a313f2aeab27c1cc0b269b2d031bc20fa3515281517"
+      "sha256": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a"
+    },
+    "screw-long-horizontal": {
+      "volume_mm3": 457.24537385345457,
+      "watertight": true,
+      "sha256": "693e6ff50d6c13dac17c096eea6a7f9b2e4d2526558a20517a584aed4b5c08ad"
+    },
+    "half-front": {
+      "volume_mm3": 3566.4471723230763,
+      "watertight": true,
+      "sha256": "3fee9c2982fd4103e277cb988dfccdcbc9c784d9d02fd2af987bbad5eec84993"
     },
     "half-back": {
       "volume_mm3": 3566.4471723230768,
       "watertight": true,
-      "sha256": "8911541f72d4a145b1ca80680622c6f56fa58c3922d6a4a4e977603cab3023b5"
+      "sha256": "87b25d03bc429654195f21462734ae599c43b7b9dc3a553d316cec776f4d6701"
     },
     "screw": {
       "volume_mm3": 311.8884354761005,
@@ -41,17 +51,17 @@
     "coupling-A": {
       "volume_mm3": 657.4698745921754,
       "watertight": true,
-      "sha256": "547a215e209f542d099fc3cda97e82751c65f6fa1d64a692dad8905668f4d1a5"
+      "sha256": "0cd1be4c2f932e2350bf49d57ff72a28ae657cd34facabb3b7b6630e16fe20ea"
     },
     "coupling-N": {
-      "volume_mm3": 655.7884060751877,
+      "volume_mm3": 655.7884060751875,
       "watertight": true,
-      "sha256": "472dba831428ea196333c7e3bdf4dd0764f500efe093da1c1b071461f27cf6bc"
+      "sha256": "a00e91d855c861ad3c54f409b5fe07183f9f2afef789dea4deed685b477b4150"
     },
     "coupling-C": {
       "volume_mm3": 654.1793046517814,
       "watertight": true,
-      "sha256": "1a749b2aa9ec5af3f98a63852cd237d18ae1246df042558bf0402aa121a3265c"
+      "sha256": "83f6f128c70683a9d2235ea021054997118978cb35696a69b3cdbbfa5b73b33b"
     }
   },
   "scope": "CAD only; physical fitting unknown"

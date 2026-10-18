@@ -1,6 +1,6 @@
 {
   "scope": "Nominal deposited G-code footprint screening; does not prove physical bed adhesion, stiffness or thread fit.",
-  "project_sha256": "bad4f718b25d9e456b9dce8bcbd36f1995118b4f2b5c121f7cfb15ef8b231ddb",
+  "project_sha256": "26d90b15b4a74ae8aa2e416788850251f5e49b7c90b921949c999e379001c711",
   "pins": [
     {
       "name": "pin-18",
@@ -12,7 +12,7 @@
         5.99999600000001,
         5.99999600000001
       ],
-      "bed_contact_area_mm2": 137.13950735756072,
+      "bed_contact_area_mm2": 137.13931426192843,
       "all_layers_open_core": true,
       "upper_closed_contour_all_layers": true,
       "upper_layer_count": 99,
@@ -26,7 +26,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.13950735756072,
+          "footprint_area_mm2": 137.13931426192843,
           "support_paths": 0,
           "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
@@ -36,7 +36,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.7224513799517,
+          "footprint_area_mm2": 137.7224373103449,
           "support_paths": 0,
           "max_speed_mm_s": 30.0,
           "max_acceleration_mm_s2": 1000.0
@@ -46,7 +46,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.379267012147166,
+          "footprint_area_mm2": 13.378544913780077,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -56,7 +56,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.260671911010617,
+          "footprint_area_mm2": 13.260590087644063,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -66,7 +66,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.336696906500979,
+          "footprint_area_mm2": 13.336738615878335,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -76,7 +76,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.28382790884789,
+          "footprint_area_mm2": 13.283837858130784,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -86,7 +86,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354766947553502,
+          "footprint_area_mm2": 13.354762492670844,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -96,7 +96,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357829105692796,
+          "footprint_area_mm2": 13.357726819976506,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -106,7 +106,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.33815979797362,
+          "footprint_area_mm2": 13.338240290667262,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -116,7 +116,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.158713955327485,
+          "footprint_area_mm2": 13.158727524952646,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -126,7 +126,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.37617289028231,
+          "footprint_area_mm2": 13.37626450053846,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -136,7 +136,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.219877337737762,
+          "footprint_area_mm2": 13.219883597635603,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -146,7 +146,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.314469694536939,
+          "footprint_area_mm2": 13.31466769903159,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -156,7 +156,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.29946571255465,
+          "footprint_area_mm2": 13.299470149208219,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -166,7 +166,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.2904604200851,
+          "footprint_area_mm2": 13.290492262264348,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -176,7 +176,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.247244959309663,
+          "footprint_area_mm2": 13.247350426040104,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -186,7 +186,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210292903756956,
+          "footprint_area_mm2": 13.210307852167512,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -196,7 +196,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403587161931693,
+          "footprint_area_mm2": 13.403518571134644,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -206,7 +206,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344403998864466,
+          "footprint_area_mm2": 13.344335253258173,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -216,7 +216,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316111391550503,
+          "footprint_area_mm2": 13.316125696009948,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -226,7 +226,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.3581650433839,
+          "footprint_area_mm2": 13.35814577161969,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -236,7 +236,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.308229588867894,
+          "footprint_area_mm2": 13.308215262127893,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -246,7 +246,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.412407086076756,
+          "footprint_area_mm2": 13.41220221191122,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -256,7 +256,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367834287916855,
+          "footprint_area_mm2": 13.367830618399982,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -266,7 +266,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.331530685275151,
+          "footprint_area_mm2": 13.331511784158565,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -276,7 +276,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.350476510787317,
+          "footprint_area_mm2": 13.350331621184866,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -286,7 +286,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.330480576152421,
+          "footprint_area_mm2": 13.32980935077334,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -296,7 +296,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.473939232874407,
+          "footprint_area_mm2": 13.473994619760308,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -306,7 +306,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.263416847048132,
+          "footprint_area_mm2": 13.263311076004292,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -316,7 +316,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.443466570819664,
+          "footprint_area_mm2": 13.443227702819376,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -326,7 +326,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.282407287212699,
+          "footprint_area_mm2": 13.282326374494119,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -336,7 +336,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354368450967108,
+          "footprint_area_mm2": 13.354351468192817,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -346,7 +346,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357374063550983,
+          "footprint_area_mm2": 13.357162910579678,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -356,7 +356,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.337348801100188,
+          "footprint_area_mm2": 13.337335586271356,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -366,7 +366,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.15932211565173,
+          "footprint_area_mm2": 13.159132420980635,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -376,7 +376,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.376312859231966,
+          "footprint_area_mm2": 13.376289073316983,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -386,7 +386,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.21980603612833,
+          "footprint_area_mm2": 13.21984549797257,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -396,7 +396,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.314672930205575,
+          "footprint_area_mm2": 13.31462284902049,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -406,7 +406,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.29948869781083,
+          "footprint_area_mm2": 13.29910788095184,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -416,7 +416,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290071792415667,
+          "footprint_area_mm2": 13.290233354019012,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -436,7 +436,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210868477990088,
+          "footprint_area_mm2": 13.210934217746518,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -446,7 +446,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403358921088357,
+          "footprint_area_mm2": 13.403237197350935,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -456,7 +456,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344784996314733,
+          "footprint_area_mm2": 13.344742198743338,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -466,7 +466,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316107944044017,
+          "footprint_area_mm2": 13.31623681161744,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -476,7 +476,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.358031429396025,
+          "footprint_area_mm2": 13.358000358751395,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -486,7 +486,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.309038906150514,
+          "footprint_area_mm2": 13.309011275784725,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -496,7 +496,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.401619961816683,
+          "footprint_area_mm2": 13.401017562318051,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -506,7 +506,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367919364422644,
+          "footprint_area_mm2": 13.36753428677987,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -516,7 +516,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.347084608857582,
+          "footprint_area_mm2": 13.347150701168522,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1533,7 +1533,7 @@
         5.99999600000001,
         5.99999600000001
       ],
-      "bed_contact_area_mm2": 137.13976940830378,
+      "bed_contact_area_mm2": 137.1396151041274,
       "all_layers_open_core": true,
       "upper_closed_contour_all_layers": true,
       "upper_layer_count": 366,
@@ -1547,7 +1547,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.13976940830378,
+          "footprint_area_mm2": 137.1396151041274,
           "support_paths": 0,
           "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
@@ -1557,7 +1557,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.7223935052502,
+          "footprint_area_mm2": 137.72237918515515,
           "support_paths": 0,
           "max_speed_mm_s": 30.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1567,7 +1567,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.379291626584152,
+          "footprint_area_mm2": 13.379214215851999,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1577,7 +1577,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.260595709679762,
+          "footprint_area_mm2": 13.26069196081153,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1587,7 +1587,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.336714480994656,
+          "footprint_area_mm2": 13.336677939974084,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1597,7 +1597,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.283901156969703,
+          "footprint_area_mm2": 13.283791898854597,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1607,7 +1607,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354633209109881,
+          "footprint_area_mm2": 13.354812625032048,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1617,7 +1617,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357860993904628,
+          "footprint_area_mm2": 13.35781696392395,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1627,7 +1627,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.337288331951273,
+          "footprint_area_mm2": 13.337380657416748,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1637,7 +1637,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.15852811893668,
+          "footprint_area_mm2": 13.156733051672141,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1647,7 +1647,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.374123263737937,
+          "footprint_area_mm2": 13.376005786738164,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1657,7 +1657,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.219811795861151,
+          "footprint_area_mm2": 13.219784790834133,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1667,7 +1667,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.314131430492196,
+          "footprint_area_mm2": 13.314270167814154,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1677,7 +1677,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.29950172347181,
+          "footprint_area_mm2": 13.299396020111999,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1687,7 +1687,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290378048562093,
+          "footprint_area_mm2": 13.290081120401926,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1697,7 +1697,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.247336243702023,
+          "footprint_area_mm2": 13.247281367829766,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1707,7 +1707,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210158193572662,
+          "footprint_area_mm2": 13.21062102466771,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1717,7 +1717,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403279499333875,
+          "footprint_area_mm2": 13.403594669181878,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1727,7 +1727,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344752198609772,
+          "footprint_area_mm2": 13.344706605664744,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1737,7 +1737,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316117233315701,
+          "footprint_area_mm2": 13.316156566066264,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1747,7 +1747,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357433497568945,
+          "footprint_area_mm2": 13.357422020487842,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1757,7 +1757,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.30818050747416,
+          "footprint_area_mm2": 13.30821084926047,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1767,7 +1767,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.412416483120733,
+          "footprint_area_mm2": 13.41230383635985,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1777,7 +1777,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367959872865978,
+          "footprint_area_mm2": 13.368046289406157,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1787,7 +1787,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.332087398791483,
+          "footprint_area_mm2": 13.331933388850352,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1797,7 +1797,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.350957967393114,
+          "footprint_area_mm2": 13.350850078272329,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1807,7 +1807,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.330563201015071,
+          "footprint_area_mm2": 13.330704351705904,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1817,7 +1817,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.472983924888526,
+          "footprint_area_mm2": 13.473638117331914,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1827,7 +1827,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.262210334166902,
+          "footprint_area_mm2": 13.26246966175426,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1837,7 +1837,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.443372529420625,
+          "footprint_area_mm2": 13.443477369069315,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1847,7 +1847,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.282661560158012,
+          "footprint_area_mm2": 13.282716987378492,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1857,7 +1857,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.35449273382519,
+          "footprint_area_mm2": 13.354450116087742,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1887,7 +1887,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.158901654492578,
+          "footprint_area_mm2": 13.158779892154667,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1897,7 +1897,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.37613942682867,
+          "footprint_area_mm2": 13.376330122732735,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1907,7 +1907,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.274545207220548,
+          "footprint_area_mm2": 13.274559556063243,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1917,7 +1917,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.314009492601095,
+          "footprint_area_mm2": 13.31402938461438,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1927,7 +1927,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.299288013847777,
+          "footprint_area_mm2": 13.298901410394624,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1937,7 +1937,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290214646313249,
+          "footprint_area_mm2": 13.289853041365403,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1947,7 +1947,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.24735894843637,
+          "footprint_area_mm2": 13.2470187770009,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1957,7 +1957,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210820557249482,
+          "footprint_area_mm2": 13.210700617122177,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1967,7 +1967,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403569828199604,
+          "footprint_area_mm2": 13.403740571907813,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1977,7 +1977,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344780518499572,
+          "footprint_area_mm2": 13.344911712545327,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1987,7 +1987,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316107944044017,
+          "footprint_area_mm2": 13.316190683149806,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1997,7 +1997,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357287195982154,
+          "footprint_area_mm2": 13.357277291630416,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2007,7 +2007,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.308505181560713,
+          "footprint_area_mm2": 13.308703698370447,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2017,7 +2017,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.401362352237795,
+          "footprint_area_mm2": 13.401346418374848,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2027,7 +2027,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367752164594615,
+          "footprint_area_mm2": 13.367648345141488,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2037,7 +2037,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.347372586814421,
+          "footprint_area_mm2": 13.34747179976693,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -5717,258 +5717,258 @@
   ],
   "lower_thread_comparison": {
     "layers": 51,
-    "max_symmetric_difference_mm2": 0.05522678131568193,
+    "max_symmetric_difference_mm2": 0.05525971910063254,
     "max_hausdorff_distance_mm": 0.08636593511634486,
     "details": [
       {
         "z_mm": 0.12,
-        "symmetric_difference_mm2": 0.0010153706852236131,
-        "hausdorff_distance_mm": 0.006396902250867883
+        "symmetric_difference_mm2": 0.0006377235220661479,
+        "hausdorff_distance_mm": 0.006351210407655361
       },
       {
         "z_mm": 0.24,
-        "symmetric_difference_mm2": 0.0007422884588817334,
-        "hausdorff_distance_mm": 0.006023111892481805
+        "symmetric_difference_mm2": 0.00042828812572208945,
+        "hausdorff_distance_mm": 0.005852648351043525
       },
       {
         "z_mm": 0.36,
-        "symmetric_difference_mm2": 0.00036302219992124493,
-        "hausdorff_distance_mm": 0.005905918147298376
+        "symmetric_difference_mm2": 0.001198137476267687,
+        "hausdorff_distance_mm": 0.005989287616873385
       },
       {
         "z_mm": 0.48,
-        "symmetric_difference_mm2": 0.00037859287919153053,
-        "hausdorff_distance_mm": 0.00594869301166854
+        "symmetric_difference_mm2": 0.00043889799247147864,
+        "hausdorff_distance_mm": 0.005922553279644179
       },
       {
         "z_mm": 0.6,
-        "symmetric_difference_mm2": 0.00031283326079377036,
-        "hausdorff_distance_mm": 0.006206636247862007
+        "symmetric_difference_mm2": 0.00046066555996541884,
+        "hausdorff_distance_mm": 0.0061662299809352485
       },
       {
         "z_mm": 0.72,
-        "symmetric_difference_mm2": 0.0007713543547314295,
-        "hausdorff_distance_mm": 0.005584607684172197
+        "symmetric_difference_mm2": 0.0008315057871786673,
+        "hausdorff_distance_mm": 0.006308388894425409
       },
       {
         "z_mm": 0.84,
-        "symmetric_difference_mm2": 0.0005715090540162114,
-        "hausdorff_distance_mm": 0.0061304304379852775
+        "symmetric_difference_mm2": 0.0005057695832012359,
+        "hausdorff_distance_mm": 0.0058306750885997564
       },
       {
         "z_mm": 0.96,
-        "symmetric_difference_mm2": 0.0005362299727533527,
-        "hausdorff_distance_mm": 0.005666140311119756
+        "symmetric_difference_mm2": 0.0004627376123150922,
+        "hausdorff_distance_mm": 0.005863119355856051
       },
       {
         "z_mm": 1.08,
-        "symmetric_difference_mm2": 0.001308416784405594,
+        "symmetric_difference_mm2": 0.0013251777501839793,
         "hausdorff_distance_mm": 0.010858950669114938
       },
       {
         "z_mm": 1.2,
-        "symmetric_difference_mm2": 0.0007361540882560064,
-        "hausdorff_distance_mm": 0.00598498994628433
+        "symmetric_difference_mm2": 0.0024451202480188458,
+        "hausdorff_distance_mm": 0.010560379394380086
       },
       {
         "z_mm": 1.32,
-        "symmetric_difference_mm2": 0.0027356820996185145,
-        "hausdorff_distance_mm": 0.011106191479944164
+        "symmetric_difference_mm2": 0.0009753033924631766,
+        "hausdorff_distance_mm": 0.006231937058681008
       },
       {
         "z_mm": 1.44,
-        "symmetric_difference_mm2": 0.0007212291777759303,
-        "hausdorff_distance_mm": 0.006313710102220246
+        "symmetric_difference_mm2": 0.0009480164892653194,
+        "hausdorff_distance_mm": 0.006600634072549373
       },
       {
         "z_mm": 1.56,
-        "symmetric_difference_mm2": 0.0006989926665805057,
-        "hausdorff_distance_mm": 0.0063401567257550815
+        "symmetric_difference_mm2": 0.0008825351078407863,
+        "hausdorff_distance_mm": 0.005945852117948081
       },
       {
         "z_mm": 1.68,
-        "symmetric_difference_mm2": 0.00040103617101185253,
-        "hausdorff_distance_mm": 0.00597964818623381
+        "symmetric_difference_mm2": 0.00044057563309110126,
+        "hausdorff_distance_mm": 0.006264968840302675
       },
       {
         "z_mm": 1.8,
-        "symmetric_difference_mm2": 0.0005347770015844159,
-        "hausdorff_distance_mm": 0.0062394662481184485
+        "symmetric_difference_mm2": 0.0007975245298346108,
+        "hausdorff_distance_mm": 0.0062610150656878605
       },
       {
         "z_mm": 1.92,
-        "symmetric_difference_mm2": 0.0005361774315547661,
-        "hausdorff_distance_mm": 0.00575876305790389
+        "symmetric_difference_mm2": 0.0007971645780391229,
+        "hausdorff_distance_mm": 0.010177598834576095
       },
       {
         "z_mm": 2.04,
-        "symmetric_difference_mm2": 0.0006237117893604453,
-        "hausdorff_distance_mm": 0.006373211654662257
+        "symmetric_difference_mm2": 0.0010966829054124781,
+        "hausdorff_distance_mm": 0.0062849091889876415
       },
       {
         "z_mm": 2.16,
-        "symmetric_difference_mm2": 0.0007298268703169201,
-        "hausdorff_distance_mm": 0.006027725500917793
+        "symmetric_difference_mm2": 0.00044252546386662044,
+        "hausdorff_distance_mm": 0.006234930582332329
       },
       {
         "z_mm": 2.28,
-        "symmetric_difference_mm2": 0.0007374120620806749,
-        "hausdorff_distance_mm": 0.006371712861504588
+        "symmetric_difference_mm2": 0.0008894918632042212,
+        "hausdorff_distance_mm": 0.006505621830198726
       },
       {
         "z_mm": 2.4,
-        "symmetric_difference_mm2": 0.000443948804782035,
-        "hausdorff_distance_mm": 0.005883607557146604
+        "symmetric_difference_mm2": 0.00034568805015278413,
+        "hausdorff_distance_mm": 0.006000889725538533
       },
       {
         "z_mm": 2.52,
-        "symmetric_difference_mm2": 0.0013927180533727071,
-        "hausdorff_distance_mm": 0.005886032565608895
+        "symmetric_difference_mm2": 0.0013732925867026879,
+        "hausdorff_distance_mm": 0.005972069083915907
       },
       {
         "z_mm": 2.64,
-        "symmetric_difference_mm2": 0.0010980487301171474,
-        "hausdorff_distance_mm": 0.006184715483005243
+        "symmetric_difference_mm2": 0.001051222363932842,
+        "hausdorff_distance_mm": 0.006247663089504421
       },
       {
         "z_mm": 2.76,
-        "symmetric_difference_mm2": 0.00028497069759495826,
-        "hausdorff_distance_mm": 0.005013933005913844
+        "symmetric_difference_mm2": 0.0003564347588970388,
+        "hausdorff_distance_mm": 0.002543468470723026
       },
       {
         "z_mm": 2.88,
-        "symmetric_difference_mm2": 0.0008469104089458719,
-        "hausdorff_distance_mm": 0.006386723422379833
+        "symmetric_difference_mm2": 0.0007196446115393785,
+        "hausdorff_distance_mm": 0.00617842771099495
       },
       {
         "z_mm": 3.0,
-        "symmetric_difference_mm2": 0.00095297195658555,
-        "hausdorff_distance_mm": 0.005988501913999222
+        "symmetric_difference_mm2": 0.0008262040341684915,
+        "hausdorff_distance_mm": 0.0062425841120742325
       },
       {
         "z_mm": 3.12,
-        "symmetric_difference_mm2": 0.0010591087856938813,
-        "hausdorff_distance_mm": 0.005963238018304401
+        "symmetric_difference_mm2": 0.0012704240887176166,
+        "hausdorff_distance_mm": 0.006255801782809316
       },
       {
         "z_mm": 3.24,
-        "symmetric_difference_mm2": 0.0006728304303137782,
-        "hausdorff_distance_mm": 0.006062145522652231
+        "symmetric_difference_mm2": 0.0013649106258097107,
+        "hausdorff_distance_mm": 0.009954267779916603
       },
       {
         "z_mm": 3.36,
-        "symmetric_difference_mm2": 0.0014290118995242856,
-        "hausdorff_distance_mm": 0.006198383581851304
+        "symmetric_difference_mm2": 0.0008928914993741519,
+        "hausdorff_distance_mm": 0.006445410447743715
       },
       {
         "z_mm": 3.48,
-        "symmetric_difference_mm2": 0.00215891168426484,
-        "hausdorff_distance_mm": 0.0061964691980896484
+        "symmetric_difference_mm2": 0.0018744903183591315,
+        "hausdorff_distance_mm": 0.006083856248069588
       },
       {
         "z_mm": 3.6,
-        "symmetric_difference_mm2": 0.0004912927147803298,
-        "hausdorff_distance_mm": 0.005617124200030645
+        "symmetric_difference_mm2": 0.0008618398302073156,
+        "hausdorff_distance_mm": 0.0058709839401942234
       },
       {
         "z_mm": 3.72,
-        "symmetric_difference_mm2": 0.000615288505386047,
-        "hausdorff_distance_mm": 0.006338687895523476
+        "symmetric_difference_mm2": 0.0007351319533009956,
+        "hausdorff_distance_mm": 0.005755723808015095
       },
       {
         "z_mm": 3.84,
-        "symmetric_difference_mm2": 0.0009903994074780345,
-        "hausdorff_distance_mm": 0.006152207035207553
+        "symmetric_difference_mm2": 0.001192814912718524,
+        "hausdorff_distance_mm": 0.006062652312401186
       },
       {
         "z_mm": 3.96,
-        "symmetric_difference_mm2": 0.0005236346982879654,
-        "hausdorff_distance_mm": 0.005775395023701821
+        "symmetric_difference_mm2": 0.0007377937673826061,
+        "hausdorff_distance_mm": 0.005970755832159338
       },
       {
         "z_mm": 4.08,
-        "symmetric_difference_mm2": 0.001806348453400644,
+        "symmetric_difference_mm2": 0.0017151756079913996,
         "hausdorff_distance_mm": 0.0059925876936675025
       },
       {
         "z_mm": 4.2,
-        "symmetric_difference_mm2": 0.0011063669970976864,
-        "hausdorff_distance_mm": 0.0057572371856429595
+        "symmetric_difference_mm2": 0.001237205331224424,
+        "hausdorff_distance_mm": 0.0062069661300824
       },
       {
         "z_mm": 4.32,
-        "symmetric_difference_mm2": 0.0018136988630494816,
-        "hausdorff_distance_mm": 0.007847543099191685
+        "symmetric_difference_mm2": 0.0013515995478091856,
+        "hausdorff_distance_mm": 0.006038497114630083
       },
       {
         "z_mm": 4.44,
-        "symmetric_difference_mm2": 0.05522678131568193,
+        "symmetric_difference_mm2": 0.05525971910063254,
         "hausdorff_distance_mm": 0.08636593511634486
       },
       {
         "z_mm": 4.56,
-        "symmetric_difference_mm2": 0.0012605534729389972,
-        "hausdorff_distance_mm": 0.006034388174438616
+        "symmetric_difference_mm2": 0.0012672040112511529,
+        "hausdorff_distance_mm": 0.006019505419250989
       },
       {
         "z_mm": 4.68,
-        "symmetric_difference_mm2": 0.0007609310615609337,
-        "hausdorff_distance_mm": 0.006580469323346581
+        "symmetric_difference_mm2": 0.0007492499136578256,
+        "hausdorff_distance_mm": 0.006401407025933099
       },
       {
         "z_mm": 4.8,
-        "symmetric_difference_mm2": 0.0002827684252241057,
-        "hausdorff_distance_mm": 0.006009250372752692
+        "symmetric_difference_mm2": 0.0009326797809924934,
+        "hausdorff_distance_mm": 0.0061733657549980945
       },
       {
         "z_mm": 4.92,
-        "symmetric_difference_mm2": 0.0007814496741040206,
-        "hausdorff_distance_mm": 0.005438002027330657
+        "symmetric_difference_mm2": 0.0010336032732064862,
+        "hausdorff_distance_mm": 0.006120987543143356
       },
       {
         "z_mm": 5.04,
-        "symmetric_difference_mm2": 0.0005474869874482011,
-        "hausdorff_distance_mm": 0.00608177547567927
+        "symmetric_difference_mm2": 0.0006867123109008759,
+        "hausdorff_distance_mm": 0.006083312337375559
       },
       {
         "z_mm": 5.16,
-        "symmetric_difference_mm2": 0.0005789202157626393,
-        "hausdorff_distance_mm": 0.005967371021398549
+        "symmetric_difference_mm2": 0.0005240898038319669,
+        "hausdorff_distance_mm": 0.0036784269722355558
       },
       {
         "z_mm": 5.28,
-        "symmetric_difference_mm2": 0.0003625200764483061,
-        "hausdorff_distance_mm": 0.005967371021398549
+        "symmetric_difference_mm2": 0.00028350825431902637,
+        "hausdorff_distance_mm": 0.005975371639193838
       },
       {
         "z_mm": 5.4,
-        "symmetric_difference_mm2": 0.0003580422612851761,
-        "hausdorff_distance_mm": 0.005967371021398549
+        "symmetric_difference_mm2": 0.0005079183895858426,
+        "hausdorff_distance_mm": 0.005710788785114624
       },
       {
         "z_mm": 5.52,
-        "symmetric_difference_mm2": 0.0011022756751516408,
-        "hausdorff_distance_mm": 0.005967371021398549
+        "symmetric_difference_mm2": 0.0011572372006857067,
+        "hausdorff_distance_mm": 0.006174809899878974
       },
       {
         "z_mm": 5.64,
-        "symmetric_difference_mm2": 0.0015861599314088352,
-        "hausdorff_distance_mm": 0.005967784328822418
+        "symmetric_difference_mm2": 0.0014404620576728487,
+        "hausdorff_distance_mm": 0.005626383539683427
       },
       {
         "z_mm": 5.76,
-        "symmetric_difference_mm2": 0.00122799351184873,
-        "hausdorff_distance_mm": 0.006904660638187285
+        "symmetric_difference_mm2": 0.0018274837345078024,
+        "hausdorff_distance_mm": 0.012247248001335035
       },
       {
         "z_mm": 5.88,
-        "symmetric_difference_mm2": 0.0011811048489686166,
-        "hausdorff_distance_mm": 0.018525560043534294
+        "symmetric_difference_mm2": 0.001250086379571087,
+        "hausdorff_distance_mm": 0.019238615957219377
       },
       {
         "z_mm": 6.0,
-        "symmetric_difference_mm2": 0.0009480031721047355,
-        "hausdorff_distance_mm": 0.006272050801195906
+        "symmetric_difference_mm2": 0.0005110415231653275,
+        "hausdorff_distance_mm": 0.023665959159232204
       },
       {
         "z_mm": 6.12,
@@ -5980,7 +5980,7 @@
   "stability_limits": [
     "50 mm tall, 4.4 mm wide upper tube; height/body-width ratio 11.36. Integral 12 x 12 x 0.24 mm foot provides bed contact but no lateral support above bed.",
     "Continuous supported footprints only rule out disconnected islands; they do not qualify upright stability, adhesion, nozzle collision or PLA wall stiffness.",
-    "No generated supports touch the bore/thread; remove only the thin external foot after printing, keeping tools away from the female thread.",
+    "No generated supports touch the bore/thread; leave the integral thin foot attached, as it remains below the frame guide during this test.",
     "Confirm clean bed and complete first-layer attachment; stop if the tube wobbles or foot lifts. Actual tall-print stability remains untested."
   ]
 }

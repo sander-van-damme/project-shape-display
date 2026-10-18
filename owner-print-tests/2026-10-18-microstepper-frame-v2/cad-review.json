@@ -1,15 +1,17 @@
 {
   "scope": "Independent nominal rigid CAD clearance screen, not physical fit or spring force validation",
   "source_sha256": {
-    "rig.scad": "8f1691721f389127972bcf9f4f236512916e4bc6e05a90e4753e8a98eceeccf0",
-    "half-front.stl": "5253d14fa956a666c03b2a313f2aeab27c1cc0b269b2d031bc20fa3515281517",
-    "half-back.stl": "8911541f72d4a145b1ca80680622c6f56fa58c3922d6a4a4e977603cab3023b5",
+    "rig.scad": "8db562685a58b48e6e5eee7bc1e602e3b4a2b1d1936de877f1000103a75a8e52",
+    "half-front.stl": "3fee9c2982fd4103e277cb988dfccdcbc9c784d9d02fd2af987bbad5eec84993",
+    "half-back.stl": "87b25d03bc429654195f21462734ae599c43b7b9dc3a553d316cec776f4d6701",
     "pin-50.stl": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19",
     "pin-18.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d",
     "screw.stl": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243",
-    "coupling-A.stl": "547a215e209f542d099fc3cda97e82751c65f6fa1d64a692dad8905668f4d1a5",
-    "coupling-N.stl": "472dba831428ea196333c7e3bdf4dd0764f500efe093da1c1b071461f27cf6bc",
-    "coupling-C.stl": "1a749b2aa9ec5af3f98a63852cd237d18ae1246df042558bf0402aa121a3265c"
+    "coupling-A.stl": "0cd1be4c2f932e2350bf49d57ff72a28ae657cd34facabb3b7b6630e16fe20ea",
+    "coupling-N.stl": "a00e91d855c861ad3c54f409b5fe07183f9f2afef789dea4deed685b477b4150",
+    "coupling-C.stl": "83f6f128c70683a9d2235ea021054997118978cb35696a69b3cdbbfa5b73b33b",
+    "screw-long.stl": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a",
+    "long-screw.scad": "2a1fa4a2ce8f653251822b2cfd609b3ee35ec781a12efb818bfb70b531498c06"
   },
   "rotation_positions": 25,
   "variants": [
@@ -28,7 +30,8 @@
     "cup_frame_mm3": 0.0,
     "cup_screw_mm3": 0.0,
     "screw_frame_mm3": 0.0,
-    "pin_frame_mm3": 0.0
+    "pin_frame_mm3": 0.0,
+    "screw_pin_mm3": 0.0
   },
   "pcb_open_design_volume_bounds_mm": [
     [
@@ -55,7 +58,43 @@
     "Motor PCB/flange extent and second gear height are unmeasured; design open-volume clearance is not evidence that the real PCB fits.",
     "Motor compliant contact interference is intentional; actual force and printed deflection unknown.",
     "No motor tooth profile fabricated for this screen: tooth entry and torque transmission remain physical tests; see conditional dimension-review.json.",
-    "Screw/pin thread meshing not requalified; reused unchanged E301 screw and lower pin geometry.",
+    "Screw/pin thread meshing screened in rigid CAD at 25 matched helical poses; physical fit and support-removal damage remain unknown.",
     "Printability requires independent slicer layer support and contour inspection."
-  ]
+  ],
+  "long_screw": {
+    "overall_height_mm": 50.4,
+    "thread_length_mm": 48,
+    "foot_dimensions_mm": [
+      10,
+      10,
+      2.4
+    ],
+    "original_lower_screw_symmetric_difference_mm3": 0.0003919828789542102,
+    "original_lower_comparison_z_mm": [
+      0,
+      17.799
+    ],
+    "shaft_nominal_major_diameter_mm": 3.2,
+    "upper_pin_square_bore_width_mm": 3.52,
+    "upper_pin_bore_minimum_radial_clearance_mm": 0.16,
+    "screw_tip_assembled_z_mm": 76.6,
+    "minimum_tip_below_pin_top_mm": 5.0,
+    "full_thread_engagement_mm": 6,
+    "pin_travel_mm": 3,
+    "sampled_poses": 25,
+    "maximum_collision_volume_mm3": {
+      "screw_pin_mm3": 0.0,
+      "screw_upper_pin_mm3": 0.0,
+      "screw_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "screw_cup_A_mm3": 0.0,
+      "screw_cup_N_mm3": 0.0,
+      "screw_cup_C_mm3": 0.0
+    },
+    "limitations": [
+      "CAD clearance does not prove thread fit after horizontal supported printing.",
+      "Support removal can mark the thread; hand-fit before motor operation.",
+      "Only the existing 3 mm travel is screened; the longer screw does not qualify additional travel."
+    ]
+  }
 }

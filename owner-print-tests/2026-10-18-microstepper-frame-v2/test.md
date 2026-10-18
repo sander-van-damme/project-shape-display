@@ -1,4 +1,4 @@
-# E-302 — Improved Microstepper Test Frame, revisie 2
+# E-302 — Improved Microstepper Test Frame, revisie 3
 
 **Status:** READY — CAD en Bambu-slice gecontroleerd; fysiek nog niet getest.\
 **Prioriteit:** P1 binnen deze eigenaarsopdracht. Geen automatische printopdracht.\
@@ -6,7 +6,8 @@
 **Technische bron:** [E-302](../../06-experiments/E-302-improved-microstepper-test-frame.md).
 
 **Wijziging op eigenaarfeedback:** één duidelijk open PCB-uitsparing, meer oorspronkelijke
-cilindersteun, plus schroeven en 18-/50-mm pinnen op de plaat. De veren zijn aanvullend.
+cilindersteun, plus korte/lange schroeven en 18-/50-mm pinnen op de plaat. De lange schroef
+ligt horizontaal met eigen supports. De veren zijn aanvullend.
 
 ## 1. Waarom deze test?
 
@@ -28,26 +29,34 @@ Geen CAD compileren of instellingen overtypen. [Plaatbeeld](plate.png).
 | Koppeling A | 1 | Eén inkeping; ribtipstraal 0,95 mm, diepste aangrijping |
 | Koppeling N | 2 | Twee inkepingen; 1,00 mm, identieke nominale herhalingen N1/N2 |
 | Koppeling C | 1 | Drie inkepingen; 1,05 mm, ruimste passing |
-| Schroef | 2 | Ongewijzigde E-301-schroef |
+| Korte schroef | 1 | Ongewijzigd, 16 mm draad; bij 18-mm pin |
+| Lange schroef | 1 | 48 mm draad / 50,4 mm totaal; bij 50-mm pin; horizontaal ondersteund |
 | Standaardpin | 1 | 18 mm hoog, bestaande draad en printvoet |
 | Lange pin | 1 | 50 mm hoog; dezelfde draad en printvoet |
 
-- Eén plaat, geometrie **76 × 81 × 50 mm**. Schroeven en pinnen zitten nu op de plaat;
+- Eén plaat, geometrie **76 × 98 × 50 mm**, exclusief lokale brim/supportuitloop. Schroeven en pinnen zitten nu op de plaat;
   bestaande exemplaren blijven bruikbaar. Hergebruik de bestaande 0,50-mm sluitring.
 - X1 Carbon, 0,4-mm-nozzle, Generic PLA, Textured PEI Plate; Bambu Studio **02.08.02.61**.
 - Laag/eerste laag 0,12/0,12 mm; Arachne, nominale lijnbreedte0,45 mm,
   2 wanden, 100% zigzag-infill; minimum bead75%, minimum feature10%.
 - Buitenwand/kleine omtrek15, binnenwand20, eerste laag15, brug15 mm/s.
   Default/binnenwandacceleratie1000; buitenwand/eerste laag500 mm/s².
-- Supports uit, raft0, geen brim; print per laag. XY-contour-, gat- en
+- Globaal supports uit, raft0, geen brim; print per laag. **Alleen de lange schroef**
+  heeft opgeslagen objectinstellingen: normale snug supports vanaf de plaat,
+  hoek45°, top-/bodemafstand0,24 mm, XY-afstand0,35 mm, twee bovenste
+  interfacelagen met0,2-mm lijnafstand, basisafstand2 mm; buitenbrim3 mm
+  met0,12-mm objectafstand. Support-/interfacesnelheid20/15 mm/s.
+  XY-contour-, gat- en
   elephant-footcompensatie0. Geen automatische oriëntatie of herschikking.
 - PLA220°C, bed55°C; onderdeelfan100% na eerste laag; hulpfan0%;
-  minimum laagtijd8 s. Volledige waarden: [saved-settings.json](saved-settings.json).
+  minimum laagtijd8 s. Globale waarden: [saved-settings.json](saved-settings.json);
+  objectinstellingen: [saved-object-settings.json](saved-object-settings.json).
 - Frame op splitvlak; koppelingsvierkant open naar bed, tandwielboring omhoog.
-  Beide pinnen rechtop op hun 12 × 12 × 0,24-mm printvoet; schroeven op vierkante voet.
-  Brede frame-/kopvoeten verzorgen hechting. Ondersteuningen blijven uit de boringen.
-- Slicerschatting oorspronkelijke slice: **13,62 g, 4 uur 7 minuten totaal**
-  (model3u51m; opstart inbegrepen in totaal). Geen gemeten printverbruik/tijd.
+  Beide pinnen rechtop op hun 12 × 12 × 0,24-mm printvoet; korte schroef op vierkante voet.
+  Lange schroef horizontaal, as5 mm boven plaat; normale supports onder de draad.
+  Brede frame-/kopvoeten verzorgen hechting. Ondersteuningen blijven uit de boringen. Zie [supportcontrole](long-screw-support.md).
+- Slicerschatting oorspronkelijke slice: **14,13 g, 4 uur 17 minuten totaal**
+  (model4u02m; opstart inbegrepen in totaal). Geen gemeten printverbruik/tijd.
 - Zelfstandige heropening/reslice geslaagd, zonder externe profielen;
   opgeslagen instellingen identiek. Kleine baanverschillen tussen slices zijn
   apart beoordeeld; geen byte-identieke G-code geclaimd.
@@ -59,11 +68,13 @@ Zie [montage met afbeeldingen](assembly.md) en [verificatie](verification.md).
 
 ## 3. Test in enkele stappen
 
-1. Spanningsloos N1 en N2 los op hetzelfde tandwiel passen, afnemen en vergelijken.
+1. Lange schroef van supports ontdoen en draad op schade controleren volgens
+   de montagehandleiding. Eerst met de hand door de 50-mm pin draaien.
+   Spanningsloos N1 en N2 los op hetzelfde tandwiel passen, afnemen en vergelijken.
    Bij klemmen C proberen; bij slip A. Geen kracht, lijm, tape of nabewerking.
 2. Motor in open frame leggen met PCB zijwaarts; draden vrij houden. Ring en
    koppeling plaatsen, axiale ruimte controleren en elastiekjes sluiten.
-3. Kies de 18- of 50-mm pin. De 50 mm is totale hoogte, geen grotere slag.
+3. Kies korte schroef/18-mm pin of lange schroef/50-mm pin. De 50 mm is totale hoogte, geen grotere slag.
    Controleren dat metalen huis niet kantelt/verdraait en PCB nergens belast wordt.
    Met de hand draaien en veilige bestaande slag controleren.
 4. Vijf korte op/neerbewegingen met de bestaande werkende bediening; let op

@@ -140,26 +140,6 @@
     ]
   },
   {
-    "name": "screw-2",
-    "source": "screw",
-    "bounds_mm": [
-      [
-        22.0,
-        70.0,
-        0.0
-      ],
-      [
-        32.0,
-        80.0,
-        18.4
-      ]
-    ],
-    "center_xy": [
-      27,
-      75
-    ]
-  },
-  {
     "name": "pin-18",
     "source": "pin-18",
     "bounds_mm": [
@@ -197,6 +177,26 @@
     "center_xy": [
       61,
       75
+    ]
+  },
+  {
+    "name": "screw-50-supported",
+    "source": "screw-long-horizontal",
+    "bounds_mm": [
+      [
+        8.0,
+        88.0,
+        0.0
+      ],
+      [
+        58.4,
+        98.0,
+        10.0
+      ]
+    ],
+    "center_xy": [
+      8,
+      93
     ]
   }
 ]

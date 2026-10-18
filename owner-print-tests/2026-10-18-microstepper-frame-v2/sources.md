@@ -73,3 +73,19 @@ bewust behouden als fysieke passingtest. De 4-mm foto-uitsteking is geen tandlen
 `rig.scad`: `body_d`, `pcb_half_width`, `pin_height`, springvlak3,9/dikte0,6/span10,
 `tip_r`, `socket_bottom`, `socket_top`. Geen wijziging van de schroef/pin nodig.
 Bij aanpassen altijd STL en3MF opnieuw genereren, heropenen en opnieuw controleren.
+
+## Lange schroef met supports — revisie 3
+
+Na de eerdere toevoeging van de 50-mm pin vroeg de eigenaar ook een bijpassende
+lange schroef en supports tegen wiebelen. `long-screw.scad` gebruikt dezelfde
+vastgezette BOSL2-kernel, diameter3,2/spoed3/diepte0,9/profiel90° en voet10×10×2,4,
+met48 mm draad in plaats van16. Totale hoogte50,4 mm; laatste0,6 mm afgeschuind.
+De lange schroef vervangt één van de twee korte exemplaren op dezelfde plaat.
+
+Printpose:90° om Y gedraaid, as5 mm boven bed. Dit maakt de constructie10 mm hoog;
+alleen de lange schroef heeft echte Bambu-supportbanen langs de onderzijde en een
+3-mm brim. Het globale supportprofiel blijft uit, met één expliciete objectoverride.
+`build_project.py` bewaart en heropent ook die lokale instellingen. Horizontaal
+printen verandert de laagoriëntatie en kan littekens op de onderste draadflanken
+geven. De digitale controle bewijst ondersteuning, niet schadevrije verwijdering
+of fysieke passing. Beide worden apart in het resultatenformulier geregistreerd.

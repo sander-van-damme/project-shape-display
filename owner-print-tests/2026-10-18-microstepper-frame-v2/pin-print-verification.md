@@ -1,4 +1,4 @@
-# E-302 revision 2 — independent tall-pin slice review
+# E-302 revision 3 — independent tall-pin slice review
 
 This is a **computational slice check**, not a physical print qualification. The new
 50 mm pin retains the E-301 lower threaded geometry and integral print foot; only
@@ -46,8 +46,8 @@ the 3 mm trial stroke. No cutting or sanding of this foot or female thread is
 required. Inspect the lower thread and tube for cracks or tearing.
 The stability and removal outcome remain **unperformed / unknown** until printed.
 
-The companion `support-review-reopened.json` checks all ten parts: no disconnected
-layer components, three full-width spring bridge paths anchored at both ends in
+The companion `support-review-reopened.json` checks the nine unmodified support-free parts for disconnected
+layer components; the horizontal long screw has a separate support-interface review. It retains three full-width spring bridge paths anchored at both ends in
 each frame half, maximum free spring span 9.98 mm and square coupling roof span
 10.38 mm. The bridge image shows the previous layer in grey and current bridge
 paths in orange. These checks do not establish physical bridge sag or spring force.

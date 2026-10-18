@@ -6,8 +6,17 @@ Datum: ____  3MF-bestand: ____  Filament/printer: ____  Instellingen gewijzigd: 
 Werkelijke printtijd / filament: ____  Print gelukt: [ ] ja [ ] deels [ ] nee\
 Bruggen heel, geen losse draden/doorhang in motorvak: ____\
 Schroef/pin: [ ] meegeprint [ ] hergebruikt; ring 0,50 mm: ____
-Pin: [ ] 18 mm [ ] 50 mm. Rechte lange pin, voet vast tijdens print: ____
+Combinatie: [ ] korte schroef + 18-mm pin [ ] lange schroef + 50-mm pin. Rechte lange pin, voet vast tijdens print: ____
 Lange pin: kromming, laagverschuiving, stringing of draadschade: ____
+
+## Lange schroef en supports
+
+Schroef horizontaal geprint met supports zoals opgeslagen: ____
+Schroef/supportbasis bleef tijdens print op plaats, geen zichtbare beweging: ____
+Supportverwijdering: [ ] eenvoudig [ ] lastig [ ] afgebroken/schade [ ] niet getest.
+Onderste draadzijde: [ ] schoon [ ] ruwe plekken [ ] PLA-resten [ ] tandschade.
+Schroef recht na verwijderen: ____  Zonder nabewerking met de hand passend: ____
+Vastlopen/schade bij ondersteunde draadzone: ____  Foto (optioneel): ____
 
 ## Motorzitting
 
