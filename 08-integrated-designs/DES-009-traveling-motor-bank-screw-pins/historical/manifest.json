@@ -1,0 +1,34 @@
+[
+  {
+    "file": "historical/trial-0/components.md",
+    "original_path": "trial-0-pneumatic-multiplexer/docs/components.md",
+    "commit": "2d21eef7fdefdae75569a6eba02b95a143cacb6d",
+    "blob_sha1": "182293f3b04c33a037bcdddd9e3eaf54210efd64",
+    "sha256": "1cf387de3de33f8fb6fd62cf7f35877f3e54f8696d8c211e327f75867c29c2e4",
+    "bytes": 996
+  },
+  {
+    "file": "historical/trial-0/img/stepper-motor-dimensions.jpg",
+    "original_path": "trial-0-pneumatic-multiplexer/docs/img/stepper-motor-dimensions.jpg",
+    "commit": "2d21eef7fdefdae75569a6eba02b95a143cacb6d",
+    "blob_sha1": "3cfdadaca91c3c2f9cfcce2d6242ffba9e50a963",
+    "sha256": "91b1daabccbcece63d11bcb0b190c2f7bcf23977b242e339027d56f075e935bd",
+    "bytes": 77562
+  },
+  {
+    "file": "historical/trial-0/micro-stepper-datasheet.pdf",
+    "original_path": "trial-0-pneumatic-multiplexer/docs/micro-stepper-datasheet.pdf",
+    "commit": "2d21eef7fdefdae75569a6eba02b95a143cacb6d",
+    "blob_sha1": "63273b45c9aa2a7898d9355c2e6042c670cfc97c",
+    "sha256": "ac7a13e9ae7482a40ba0451f8e230c6630cde942ca5c27ab1a77fbedfc3fe132",
+    "bytes": 1090239
+  },
+  {
+    "file": "historical/trial-5/actuator.scad",
+    "original_path": "trial-5-grid-and-cubes-and-rod/actuator.scad",
+    "commit": "41484f96999847c139b9010e73009d73e9459c89",
+    "blob_sha1": "049c798bd2cb61a1a328426159e40cc3e7a86c52",
+    "sha256": "f9b182ceba798e4e30895e6085138e0b8984cd3ee6450c461487abd18e05ae40",
+    "bytes": 1499
+  }
+]
