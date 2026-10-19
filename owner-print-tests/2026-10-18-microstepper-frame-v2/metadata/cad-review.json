@@ -1,7 +1,7 @@
 {
   "scope": "Independent nominal rigid CAD clearance screen, not physical fit or spring force validation",
   "source_sha256": {
-    "rig.scad": "505adfe4c6cdd51c2d410fedadfe1373dc942d89cb2b8d819706fff421ae9580",
+    "rig.scad": "e4b62e290071e91b49ae6850e6e1862a76f36198c48f66840324c2741c00b47c",
     "half-front.stl": "f01b164639a537ea9b34953f52dd175502165b44e7ad32a9b8559071c36cb0ec",
     "half-back.stl": "6a7681afa5daf78cd5e4b0e972b40b038a6564d8c846f764f9ac13e5f51c9bfe",
     "pin-50.stl": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19",
@@ -9,7 +9,7 @@
     "screw.stl": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243",
     "coupling-C.stl": "1a6a5480d155fc47b56129520f3f9e19a95046ed94678a5db905c46137e55a59",
     "screw-long.stl": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a",
-    "long-screw.scad": "2a1fa4a2ce8f653251822b2cfd609b3ee35ec781a12efb818bfb70b531498c06"
+    "long-screw.scad": "08513763d758c313a23fb8967d0a79a78f1ab1c3f44f684a3389d1f0c49d7459"
   },
   "rotation_positions": 25,
   "variants": [

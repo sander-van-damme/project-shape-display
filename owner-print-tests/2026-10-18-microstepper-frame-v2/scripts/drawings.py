@@ -1,9 +1,10 @@
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle,Circle,Polygon
-H=Path(__file__).resolve().parent
+H=TEST_DIR
 fig,(a,b)=plt.subplots(1,2,figsize=(12,10))
 a.set_title('1 • Open frame: zijaanzicht X–Z (mm)')
 for x in [-15,12]:a.add_patch(Rectangle((x,2),3,42,color='#9cb3c3'))
@@ -31,7 +32,7 @@ a.set(xlim=(-22,23),ylim=(-7,86),xlabel='X',ylabel='Z');a.set_aspect('equal');a.
 b.set_title('2 • Werkelijke CAD-doorsnede motorvak op Z6,2')
 import trimesh
 import numpy as np
-h=trimesh.load(H/'half-front.stl',force='mesh')
+h=trimesh.load(COMPONENTS / 'half-front.stl',force='mesh')
 h.apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0]))
 r=h.copy();r.apply_scale([1,-1,1])
 for m in [h,r]:
@@ -45,5 +46,5 @@ b.annotate('Veren blijven BUITEN\nde PCB-uitsparing',xy=(0,4.2),xytext=(-9,9),ar
 b.text(-11,-13,'Groen = vrije ontwerpruimte; PCB-maten niet gemeten.\nBlauw = echte CAD-contour; grijs = Ø8-mm motorhuis.',fontsize=9)
 b.set(xlim=(-12,12),ylim=(-14,12));b.set_aspect('equal');b.axis('off')
 fig.suptitle('E-302 revisie 4 • Pin 50 mm + schroef met 48 mm draad',fontsize=15)
-fig.tight_layout();fig.savefig(H/'assembly.png',dpi=160);fig.savefig(H/'assembly.svg')
-p=H/'assembly.svg';p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')
+fig.tight_layout();fig.savefig(IMAGES / 'assembly.svg')
+p=IMAGES / 'assembly.svg';p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')

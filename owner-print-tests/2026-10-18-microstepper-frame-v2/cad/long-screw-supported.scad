@@ -17,7 +17,7 @@ module tower(side) {
  }
 }
 union(){
- import("screw-long.stl");
+ import("../components/screw-long.stl");
  tower(1);
  tower(-1);
 }

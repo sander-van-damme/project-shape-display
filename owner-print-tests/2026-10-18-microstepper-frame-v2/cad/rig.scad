@@ -70,10 +70,10 @@ if(part=="cup")translate([0,0,28.8])rotate([180,0,0])cup();
 if(part=="assembly") {frame_half();mirror([0,1,0])frame_half();cup();}
 
 // Exact supplied E-301 meshes are retained as functional source geometry.
-if(part=="screw")import("../2026-10-17-microstepper-screw-pin/screw.stl");
-if(part=="pin-18")import("../2026-10-17-microstepper-screw-pin/pin.stl");
+if(part=="screw")import("../../2026-10-17-microstepper-screw-pin/screw.stl");
+if(part=="pin-18")import("../../2026-10-17-microstepper-screw-pin/pin.stl");
 if(part=="pin-50")union(){
- import("../2026-10-17-microstepper-screw-pin/pin.stl");
+ import("../../2026-10-17-microstepper-screw-pin/pin.stl");
  // Overlap only the straight upper tube; threaded bottom and print foot unchanged.
  translate([0,0,17.9])difference(){
   translate([-2.2,-2.2,0])cube([4.4,4.4,pin_height-17.9]);

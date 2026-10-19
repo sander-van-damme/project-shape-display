@@ -4,9 +4,9 @@ This is a **computational slice check**, not a physical print qualification. The
 50 mm pin retains the E-301 lower threaded geometry and integral print foot; only
 the straight square tube is extended. The unchanged 18 mm pin is its reference.
 
-`review_pins.py` inspected the initial saved slice and the Bambu Studio reopened,
-resliced project. Machine-readable results are in `pin-review.json` and
-`pin-review-reopened.json`, with the exact archive hashes and every layer recorded.
+`scripts/review_pins.py` inspected the initial saved slice and the Bambu Studio reopened,
+resliced project. Machine-readable results are in `metadata/pin-review.json` and
+`metadata/pin-review-reopened.json`, with the exact archive hashes and every layer recorded.
 The two runs give the same summary results:
 
 | Check | Pin 18 mm | Pin 50 mm |
@@ -47,7 +47,7 @@ required. Inspect the lower thread and tube for cracks or tearing.
 The owner has printed revision 3 but did not separately report tall-pin stability.
 Its stability and removal outcome remain **unknown**; no new physical result is inferred.
 
-The companion `support-review-reopened.json` checks all eight parts for disconnected
+The companion `metadata/support-review-reopened.json` checks all eight parts for disconnected
 layer components; the upright long screw also has a separate side-contact review. It retains three full-width spring bridge paths anchored at both ends in
 each frame half, maximum free spring span 9.98 mm and square coupling roof span
 10.38 mm. The bridge image shows the previous layer in grey and current bridge

@@ -1,14 +1,15 @@
 import sys,json,zipfile,hashlib,importlib.util,collections,math
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import numpy as np
 from shapely.geometry import LineString,Point
-root=Path(__file__).resolve().parents[2]
+root=TEST_DIR.parents[1]
 spec=importlib.util.spec_from_file_location('reader',root/'owner-print-tests/validate-bambu-project.py');reader=importlib.util.module_from_spec(spec);spec.loader.exec_module(reader)
 here=root/'owner-print-tests/2026-10-18-microstepper-frame-v2'
 project=Path(sys.argv[1]);out=Path(sys.argv[2])
 with zipfile.ZipFile(project) as z:
  cfg=json.loads(z.read('Metadata/project_settings.config'));paths,_=reader.parse(z.read('Metadata/plate_1.gcode').decode());bounds,*_=reader.project_bounds(z)
-layout=json.loads((here/'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
+layout=json.loads((METADATA / 'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
 shift=bounds[0,:2]-source_lo[:2]-np.array([float(x) for x in cfg['extruder_offset'][0].split('x')])
 report={'scope':'Independent deposited-path footprint review; nominal line widths are not physical measurements.','parts':[]};plots=[]
 for part in layout:
@@ -36,5 +37,6 @@ fig,axes=plt.subplots(1,2,figsize=(8,3.5))
 for ax,(name,ps,cx,cy) in zip(axes,plots):
  for p in ps:ax.plot([p['x']-cx,p['x1']-cx],[p['y']-cy,p['y1']-cy],linewidth=max(.5,p['width']*7),color='#286d8c',solid_capstyle='round')
  ax.set_aspect('equal');ax.set_xlim(-1.7,1.7);ax.set_ylim(-1.7,1.7);ax.set_title(name+' at Z=12 mm');ax.set_xlabel('mm');ax.grid(alpha=.15)
-fig.tight_layout();fig.savefig(out.with_suffix('.png'),dpi=180)
+fig.tight_layout();
+if not out.stem.endswith('-reopened'): fig.savefig(IMAGES / (out.stem + '.png'),dpi=180)
 print(json.dumps([{k:v for k,v in p.items() if k!='layer_details'} for p in report['parts']],indent=2))

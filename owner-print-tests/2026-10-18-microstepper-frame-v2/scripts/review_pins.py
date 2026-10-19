@@ -2,15 +2,16 @@
 """Review actual pin contours and local support in an E302 Bambu slice."""
 import sys,json,zipfile,hashlib,importlib.util,collections
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import numpy as np
 from shapely.geometry import Point,Polygon
 from shapely.affinity import translate
-here=Path(__file__).resolve().parent
+here=TEST_DIR
 spec=importlib.util.spec_from_file_location('reader',here.parent/'validate-bambu-project.py');reader=importlib.util.module_from_spec(spec);spec.loader.exec_module(reader)
 project=Path(sys.argv[1]);out=Path(sys.argv[2])
 with zipfile.ZipFile(project) as archive:
  cfg=json.loads(archive.read('Metadata/project_settings.config'));paths,_=reader.parse(archive.read('Metadata/plate_1.gcode').decode());bounds,*_=reader.project_bounds(archive)
-layout=json.loads((here/'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
+layout=json.loads((METADATA / 'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
 shift=bounds[0,:2]-source_lo[:2]-np.array([float(x) for x in cfg['extruder_offset'][0].split('x')])
 report={'scope':'Nominal deposited G-code footprint screening; does not prove physical bed adhesion, stiffness or thread fit.','project_sha256':hashlib.sha256(project.read_bytes()).hexdigest(),'pins':[]}
 footprints={}

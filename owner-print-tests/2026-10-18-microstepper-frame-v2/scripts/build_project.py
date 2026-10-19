@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import shutil
 import subprocess
 import xml.etree.ElementTree as ET
@@ -16,7 +17,7 @@ import zipfile
 import numpy as np
 import trimesh
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = TEST_DIR.parents[1]
 HERE = ROOT / 'owner-print-tests'
 VERSION = '02.08.02.61'
 NS = 'http://schemas.microsoft.com/3dmanufacturing/core/2015/02'
@@ -75,7 +76,7 @@ def input_project(stl, output, supported_name):
     ET.SubElement(model, f'{{{NS}}}metadata', name='Application').text = 'E-302 upright braced long screw project builder'
     resources = ET.SubElement(model, f'{{{NS}}}resources')
     build = ET.SubElement(model, f'{{{NS}}}build')
-    layout_path = stl.parent / 'layout.json'
+    layout_path = METADATA / 'layout.json'
     layout = json.loads(layout_path.read_text()) if layout_path.exists() else []
     config = ET.Element('config')
     expected = {}
@@ -128,6 +129,7 @@ def main():
     ap.add_argument('--brim-gap', type=float, default=0.12)
     a = ap.parse_args()
     scratch = a.scratch.resolve(); scratch.mkdir(parents=True, exist_ok=True)
+    METADATA.mkdir(parents=True, exist_ok=True)
     target = a.out.resolve(); target.parent.mkdir(parents=True, exist_ok=True)
     help_result = subprocess.run([str(a.bambu.resolve()), '--help'], capture_output=True, text=True, cwd=scratch)
     assert help_result.returncode == 0 and VERSION in help_result.stdout, 'Use pinned Bambu Studio version'
@@ -202,7 +204,7 @@ def main():
                       baseline_project=str(baseline.relative_to(ROOT)), baseline_sha256=hashlib.sha256(baseline.read_bytes()).hexdigest(),
                       final_project_sha256=hashlib.sha256(target.read_bytes()).hexdigest(),
                       roundtrip=roundtrip)
-    (target.parent / (target.stem + '-build.json')).write_text(json.dumps(provenance, indent=2)+'\n')
+    (METADATA / (target.stem + '-build.json')).write_text(json.dumps(provenance, indent=2)+'\n')
     print(json.dumps(roundtrip, indent=2), flush=True)
 
 if __name__ == '__main__': main()

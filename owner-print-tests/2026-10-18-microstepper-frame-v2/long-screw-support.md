@@ -5,11 +5,11 @@ geprinte revisie 3 slecht printte en dat de moeilijk verwijderbare supports de
 werking hinderden. Deze revisie vervangt die printopstelling; zij is nog niet
 fysiek geprobeerd. De functionele schroef blijft **48 mm draad / 50,4 mm totaal**.
 
-![Werkelijke G-code van rechtopstaande schroef en zijsteunen](long-screw-review.png)
+![Werkelijke G-code van rechtopstaande schroef en zijsteunen](images/long-screw-review.png)
 
 ## Constructie en instellingen
 
-`long-screw-supported.scad` voegt aan `screw-long.stl` twee torens toe. Ze staan
+`cad/long-screw-supported.scad` voegt aan `components/screw-long.stl` twee torens toe. Ze staan
 op X ±7,5 mm; elke toren heeft een 3 × 3-mm doorsnede en een voet van 4 × 8 × 0,48 mm.
 Vier oplopende armen per toren eindigen bij een draadtop, met een kleine nek van
 **0,45 mm breed × 0,24 mm hoog** (0,85 mm lang, deels overlappend). De armen stijgen
@@ -29,14 +29,14 @@ Object `08-screw-50-supported` omvat de schroef én de beide torens; het heeft e
 3-mm buitenbrim met 0,12-mm afstand. Automatische supports staan globaal en op
 **alle acht objecten uit**, zodat geen supportmantel of gevulde binnendraad ontstaat.
 X1 Carbon / 0,4-mm nozzle / PLA, 0,12-mm lagen. Volledig proces in
-[saved-settings.json](saved-settings.json), lokale brim in
-[saved-object-settings.json](saved-object-settings.json).
+[metadata/saved-settings.json](metadata/saved-settings.json), lokale brim in
+[metadata/saved-object-settings.json](metadata/saved-object-settings.json).
 
 ## Werkelijke slicecontrole
 
 Bambu Studio **02.08.02.61** heeft de opgeslagen 3MF zelfstandig heropend en opnieuw
 gesliced zonder externe profielen. Globale en objectinstellingen bleven gelijk.
-`review_long_screw.py` controleert beide G-codes; resultaten:
+`scripts/review_long_screw.py` controleert beide G-codes; resultaten:
 
 - 420 model-lagen tot Z50,40; doorlopende schroefkerncontour op alle lagen.
 - Alle 16 draadgangen behouden een uitgesproken draadtop in de nominale baanvoetafdruk.
@@ -64,7 +64,7 @@ De torens beperken de vrije schroeflengte tijdens printen. Hun praktische
 stabiliteit en de verwijderbaarheid blijven fysieke testpunten in [resultaten.md](resultaten.md).
 De pinnen behouden hun bestaande integrale printvoet; die blijft aan de pin zitten.
 
-Bewijs: [eerste slice](long-screw-review.json),
-[heropende slice](long-screw-review-reopened.json),
-[bouw en roundtrip](microstepper-frame-v2-build.json).
+Bewijs: [eerste slice](metadata/long-screw-review.json),
+[heropende slice](metadata/long-screw-review-reopened.json),
+[bouw en roundtrip](metadata/microstepper-frame-v2-build.json).
 De oude horizontale STL is historische evidence, geen actuele printinstructie.

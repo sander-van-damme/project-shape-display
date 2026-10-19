@@ -1,6 +1,6 @@
 // E-302 revision 3. Same E-301 thread kernel and square drive foot, longer shaft.
 // BOSL2 136e6367e65d52196a3ea51d03156f8b622c60fc; millimetres.
-include <../2026-10-15-compact-screw-fit/thread-kernel.scad>
+include <../../2026-10-15-compact-screw-fit/thread-kernel.scad>
 thread_length=48;
 module long_screw(){
  union(){

@@ -3,13 +3,14 @@
 Usage: review_long_screw.py PROJECT OUTPUT.json. Nominal paths, not physical proof.
 """
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import collections, hashlib, importlib.util, json, sys, zipfile
 import numpy as np
 from shapely.geometry import Point, Polygon, box
 from shapely.affinity import translate
 from shapely.ops import unary_union
 
-HERE = Path(__file__).resolve().parent
+HERE = TEST_DIR
 spec = importlib.util.spec_from_file_location('reader', HERE.parent / 'validate-bambu-project.py')
 reader = importlib.util.module_from_spec(spec); spec.loader.exec_module(reader)
 project, out = Path(sys.argv[1]), Path(sys.argv[2])
@@ -20,7 +21,7 @@ with zipfile.ZipFile(project) as archive:
     bounds, *_ = reader.project_bounds(archive)
 assert settings['enable_support'] == '0'
 assert not any('support' in p['role'].lower() for p in paths), 'Unexpected automatic supports'
-layout = json.loads((HERE / 'layout.json').read_text())
+layout = json.loads((METADATA / 'layout.json').read_text())
 source_lo = np.min([p['bounds_mm'][0] for p in layout], axis=0)
 shift = bounds[0, :2] - source_lo[:2] - np.array([float(v) for v in settings['extruder_offset'][0].split('x')])
 part = next(p for p in layout if p['name'] == 'screw-50-supported')
@@ -108,5 +109,6 @@ ax.set(xlim=(-13,13),ylim=(0,52),xlabel='X mm',ylabel='Z mm',title='Rechtop: wer
 z=contacts[4]['connected_layers_z_mm'][0]
 for p in layers[z]:bx.plot([p['x']-cx,p['x1']-cx],[p['y']-cy,p['y1']-cy],lw=max(.5,p['width']*5),color='#306886')
 bx.set(xlim=(-2,9.5),ylim=(-3,3),xlabel='X mm',ylabel='Y mm',title=f'Afbreekverbinding op Z {z:.2f} mm');bx.set_aspect('equal');bx.grid(alpha=.2)
-fig.tight_layout();fig.savefig(out.with_suffix('.png'),dpi=180)
+fig.tight_layout();
+if not out.stem.endswith('-reopened'): fig.savefig(IMAGES / (out.stem + '.png'),dpi=180)
 print(json.dumps({k:v for k,v in report.items() if k not in ('thread_crests','limits')},indent=2))

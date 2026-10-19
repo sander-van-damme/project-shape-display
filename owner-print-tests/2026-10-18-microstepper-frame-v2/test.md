@@ -25,7 +25,7 @@ schroef blijven historische bestanden; zij staan niet op de actuele plaat.
 
 Open **[microstepper-frame-v2.3mf](microstepper-frame-v2.3mf)** rechtstreeks in
 Bambu Studio. De X1 Carbon/0,4-mm printer, PLA, proces en plaat zijn opgeslagen.
-[Plaatbeeld](plate.png), [montage](assembly.md), [verificatie](verification.md).
+[Plaatbeeld](images/plate.png), [montage](assembly.md), [verificatie](verification.md).
 
 | Onderdeel | Aantal | Herkenning / doel |
 |---|---:|---|
@@ -54,8 +54,21 @@ de volledige opgeslagen plaat. Hergebruik de bestaande 0,50-mm sluitring.
 - Frame op splitvlak; koppen met vierkante holte naar bed en tandwielboring omhoog.
   Schroeven op vierkante voet; pinnen rechtop op hun bestaande 12 × 12 × 0,24-mm voet.
 - Slicerschatting volledige plaat: **13,22 g PLA, 4 uur 12 minuten totaal**.
-  Geen werkelijk gemeten tijd/verbruik. Globale instellingen: [saved-settings.json](saved-settings.json);
-  objectinstellingen: [saved-object-settings.json](saved-object-settings.json).
+  Geen werkelijk gemeten tijd/verbruik. Globale instellingen: [metadata/saved-settings.json](metadata/saved-settings.json);
+  objectinstellingen: [metadata/saved-object-settings.json](metadata/saved-object-settings.json).
+
+## Bestanden in deze map
+
+De instructies, resultaten en printklare `microstepper-frame-v2.3mf` staan bovenaan.
+
+| Submap | Inhoud |
+|---|---|
+| `components/` | Onderdeel-STLs en samengestelde plaat; oude varianten in `archive/` |
+| `cad/` | OpenSCAD-bronnen |
+| `scripts/` | Genereren, bouwen en controleren |
+| `metadata/` | JSON-instellingen, maat-/slicecontroles en bouwherkomst |
+| `images/` | Eén bestand per afbeelding; montage als SVG |
+| `software/` | Bestaande zelfstandige motorsoftware met eigen handleiding |
 
 ## 3. Korte test
 

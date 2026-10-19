@@ -59,7 +59,7 @@ te observeren. Geen support in de draad en geen functionele nabewerking.
 
 ## Controle overschuifmaten
 
-`review_dimensions.py` rekent de foto-opgave na: m0,2 × 9 geeft steekdiameter
+`scripts/review_dimensions.py` rekent de foto-opgave na: m0,2 × 9 geeft steekdiameter
 1,8 mm en standaard tandtopdiameter 2,2 mm. Vrijloopboring 2,5 mm laat 0,15 mm
 radiale ruimte buiten de tandtoppen, behalve de drie aangrijpingsribben.
 Een **aangenomen**, niet gemeten 20° standaard-involuut geeft minimale berekende
@@ -69,14 +69,14 @@ gevalideerde maatvoering voor alle motoren. De eigenaar koos C; beide N-exemplar
 
 ## Parameters voor feedback
 
-`rig.scad`: `body_d`, `pcb_half_width`, `pin_height`, springvlak3,9/dikte0,6/span10,
+`cad/rig.scad`: `body_d`, `pcb_half_width`, `pin_height`, springvlak3,9/dikte0,6/span10,
 `tip_r`, `socket_bottom`, `socket_top`. Geen wijziging van de schroef/pin nodig.
 Bij aanpassen altijd STL en3MF opnieuw genereren, heropenen en opnieuw controleren.
 
 ## Historie: lange schroef met supports — revisie 3 (vervangen)
 
 Na de eerdere toevoeging van de 50-mm pin vroeg de eigenaar ook een bijpassende
-lange schroef en supports tegen wiebelen. `long-screw.scad` gebruikt dezelfde
+lange schroef en supports tegen wiebelen. `cad/long-screw.scad` gebruikt dezelfde
 vastgezette BOSL2-kernel, diameter3,2/spoed3/diepte0,9/profiel90° en voet10×10×2,4,
 met48 mm draad in plaats van16. Totale hoogte50,4 mm; laatste0,6 mm afgeschuind.
 De lange schroef vervangt één van de twee korte exemplaren op dezelfde plaat.
@@ -84,7 +84,7 @@ De lange schroef vervangt één van de twee korte exemplaren op dezelfde plaat.
 Printpose:90° om Y gedraaid, as5 mm boven bed. Dit maakt de constructie10 mm hoog;
 alleen de lange schroef heeft echte Bambu-supportbanen langs de onderzijde en een
 3-mm brim. Het globale supportprofiel blijft uit, met één expliciete objectoverride.
-`build_project.py` bewaart en heropent ook die lokale instellingen. Horizontaal
+`scripts/build_project.py` bewaart en heropent ook die lokale instellingen. Horizontaal
 printen verandert de laagoriëntatie en kan littekens op de onderste draadflanken
 geven. De digitale controle bewijst ondersteuning, niet schadevrije verwijdering
 of fysieke passing. Beide worden apart in het resultatenformulier geregistreerd.
@@ -102,10 +102,10 @@ ringvlak, lagerhals en schroefvoet blijven op dezelfde hoogte. De foto-afgeleide
 Z14,2-tandtop zou nog slechts 0,5 mm rechte overlap geven: fysieke hoogtemeting
 blijft nodig, geen passingclaim op basis van die foto.
 
-`long-screw-supported.scad` voegt aan de ongewijzigde lange schroef twee torens
+`cad/long-screw-supported.scad` voegt aan de ongewijzigde lange schroef twee torens
 met acht kleine afbreekverbindingen toe; de functionele schroef wordt rechtop
 geprint. Contacten zitten bij de draadtoppen, per zijde 12 mm uit elkaar. De
 steunen zijn geometrie, automatische supports blijven uit. Schadevrije verwijdering
 en printstabiliteit zijn nog onbekend; controleer de werkelijke banen en test met de hand.
-`coupling-A.stl`, `coupling-N.stl` en `screw-long-horizontal.stl` zijn uitsluitend
+`components/archive/coupling-A.stl`, `components/archive/coupling-N.stl` en `components/archive/screw-long-horizontal.stl` zijn uitsluitend
 historische bronnen. De oude C en complete revisie 3 zijn terug te vinden op `9a57fd6`.

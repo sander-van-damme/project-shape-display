@@ -2,14 +2,15 @@
 """Review nominal deposited footprint support; usage: review_support.py PROJECT OUT.json."""
 import sys,json,zipfile,importlib.util,collections,math,hashlib
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import numpy as np
 from shapely.geometry import LineString,Point,box
-here=Path(__file__).resolve().parent
+here=TEST_DIR
 spec=importlib.util.spec_from_file_location('reader',here.parent/'validate-bambu-project.py');reader=importlib.util.module_from_spec(spec);spec.loader.exec_module(reader)
 project=Path(sys.argv[1]);out=Path(sys.argv[2])
 with zipfile.ZipFile(project) as z:
  cfg=json.loads(z.read('Metadata/project_settings.config'));paths,_=reader.parse(z.read('Metadata/plate_1.gcode').decode());bounds,*_=reader.project_bounds(z)
-layout=json.loads((here/'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
+layout=json.loads((METADATA / 'layout.json').read_text());source_lo=np.min([p['bounds_mm'][0] for p in layout],axis=0)
 shift=bounds[0,:2]-source_lo[:2]-np.array([float(x) for x in cfg['extruder_offset'][0].split('x')])
 report={'scope':'Nominal G-code widths and layer footprints; not physical bridge quality or fit.','project_sha256':hashlib.sha256(project.read_bytes()).hexdigest(),'parts':[]};plotdata=[]
 for part in layout:
@@ -57,5 +58,6 @@ for ps,prev,cx,cy in plotdata:
     x,y=hole.xy;ax.fill(np.array(x)-cx,np.array(y)-cy,color='white')
  for p in ps:
   if cy-8<p['y']<cy-4:ax.plot([p['x']-cx,p['x1']-cx],[p['y']-cy,p['y1']-cy],color='#c75627' if 'bridge' in p['role'].lower() else '#276b85',linewidth=1)
-ax.set_xlim(-8,8);ax.set_ylim(-10,-4);ax.set_aspect('equal');ax.set_title('Frame flexure first bridge layer Z=4.08 mm; previous-layer footprint grey');ax.set_xlabel('Local X mm');ax.set_ylabel('Local Y mm');fig.tight_layout();fig.savefig(out.with_suffix('.png'),dpi=180)
+ax.set_xlim(-8,8);ax.set_ylim(-10,-4);ax.set_aspect('equal');ax.set_title('Frame flexure first bridge layer Z=4.08 mm; previous-layer footprint grey');ax.set_xlabel('Local X mm');ax.set_ylabel('Local Y mm');fig.tight_layout();
+if not out.stem.endswith('-reopened'): fig.savefig(IMAGES / (out.stem + '.png'),dpi=180)
 print(json.dumps([{k:v for k,v in p.items() if k!='flexure_bridge_paths'} for p in report['parts']],indent=2))

@@ -1,6 +1,6 @@
 # E-302 — montage, revisie 4
 
-![Open frame, krachtpad en motorzitting](assembly.png)
+![Open frame, krachtpad en motorzitting](images/assembly.svg)
 
 Benodigd: bestaande Ø8 × 8,2-mm motor met messing tandwiel, meegeprinte of bestaande E-301
 schroef en pin (10 × 10 × 2,4-mm schroefvoet), bestaande vlakke M3-ring
@@ -91,11 +91,11 @@ geen eenvoudige ronde Ø2,5-mm klemhuls. De nominale ribuiteinden van de gekozen
 De 4 mm op de foto is de **totale uitsteking boven het huis**, niet de tandlengte.
 De foto geeft geen drukhoek of exact tandprofiel. Een controle met een aangenomen
 standaardprofiel toont geen nominale botsing, maar bewijst de werkelijke passing niet.
-Zie [maatcontrole](dimension-review.json). Alle montage moet zonder forceren kunnen.
+Zie [maatcontrole](metadata/dimension-review.json). Alle montage moet zonder forceren kunnen.
 
 ## Zijsteunen van de lange schroef verwijderen
 
-![Werkelijke printbanen en dunne zijverbinding](long-screw-review.png)
+![Werkelijke printbanen en dunne zijverbinding](images/long-screw-review.png)
 
 De lange schroef staat **rechtop**, op haar bestaande vierkante voet. Twee
 meegetekende torens staan links en rechts. Elke toren raakt de draad op vier

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Conditional analytic tooth/lobe screen, NOT measured gear fitting evidence."""
 from pathlib import Path
+from paths import TEST_DIR, CAD, COMPONENTS, METADATA, IMAGES
 import json
 import math
 
-H = Path(__file__).resolve().parent
+H = TEST_DIR
 module, teeth, pressure_angle = .2, 9, math.radians(20)
 pitch_r = module * teeth / 2
 base_r = pitch_r * math.cos(pressure_angle)
@@ -44,5 +45,5 @@ report = dict(
         'Axial overlap cannot be certified without measuring tooth lower/upper heights; require at least .6mm actual overlap with straight lobes and no contact with shaft shoulder or roof.',
         'No fit, torque, service life or motor stability pass is claimed.'
     ])
-(H / 'dimension-review.json').write_text(json.dumps(report, indent=2) + '\n')
+(METADATA / 'dimension-review.json').write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps(report, indent=2))

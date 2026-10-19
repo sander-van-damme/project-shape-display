@@ -38,8 +38,8 @@ zij eist geen horizontale verbinding met de toren op één laag. Dit controleert
 printbare samenhang, geen berekende of gemeten mechanische stijfheid. De smalle
 contacten kunnen nog steeds de draad beschadigen bij het verwijderen.
 
-![Ribbanen van beide kortere C-koppen](lobe-review-original.png)
-![Framebrug, vorige laag grijs](support-review.png)
+![Ribbanen van beide kortere C-koppen](images/lobe-review-original.png)
+![Framebrug, vorige laag grijs](images/support-review.png)
 
 ## Reproductie
 
@@ -49,23 +49,25 @@ OpenSCAD en BOSL2 commit `136e6367e65d52196a3ea51d03156f8b622c60fc`.
 Vanuit repositoryroot, met zelfgekozen lokale toolpaden:
 
 ```sh
-python owner-print-tests/2026-10-18-microstepper-frame-v2/generate.py --bosl2 /pad/naar/BOSL2
-python owner-print-tests/2026-10-18-microstepper-frame-v2/review_geometry.py
-python owner-print-tests/2026-10-18-microstepper-frame-v2/review_dimensions.py
-python owner-print-tests/2026-10-18-microstepper-frame-v2/drawings.py
-python owner-print-tests/2026-10-18-microstepper-frame-v2/build_project.py \
+python owner-print-tests/2026-10-18-microstepper-frame-v2/scripts/generate.py --bosl2 /pad/naar/BOSL2
+python owner-print-tests/2026-10-18-microstepper-frame-v2/scripts/review_geometry.py
+python owner-print-tests/2026-10-18-microstepper-frame-v2/scripts/review_dimensions.py
+python owner-print-tests/2026-10-18-microstepper-frame-v2/scripts/drawings.py
+python owner-print-tests/2026-10-18-microstepper-frame-v2/scripts/build_project.py \
   --bambu /pad/naar/bambu-studio --resources /pad/naar/resources \
   --scratch work/e302-v4/slice \
-  --stl owner-print-tests/2026-10-18-microstepper-frame-v2/microstepper-frame-v2.stl \
+  --stl owner-print-tests/2026-10-18-microstepper-frame-v2/components/microstepper-frame-v2.stl \
   --out owner-print-tests/2026-10-18-microstepper-frame-v2/microstepper-frame-v2.3mf
 ```
 
-Voer `review_lobes.py PROJECT OUT.json`, `review_support.py PROJECT OUT.json`,
-`review_pins.py PROJECT OUT.json` en `review_long_screw.py PROJECT OUT.json` elk uit
-op zowel de opgeleverde als de heropende 3MF. Ze gebruiken de bestaande
+Voer `scripts/review_lobes.py PROJECT OUT.json`, `scripts/review_support.py PROJECT OUT.json`,
+`scripts/review_pins.py PROJECT OUT.json` en `scripts/review_long_screw.py PROJECT OUT.json` elk uit
+op zowel de opgeleverde als de heropende 3MF. Kies `metadata/…json` als uitvoerpad;
+afbeeldingen gaan naar `images/`, en een `*-reopened.json`-uitvoer maakt geen tweede
+afbeelding. Ze gebruiken de bestaande
 `owner-print-tests/validate-bambu-project.py` G-codelezer. Bewaar de globale
-`Metadata/project_settings.config` als `saved-settings.json`; de lokale instellingen
-komen uit `build_project.object_settings`. `review_archive.py` controleert tot slot
+`Metadata/project_settings.config` als `metadata/saved-settings.json`; de lokale instellingen
+komen uit `build_project.object_settings`. `scripts/review_archive.py` controleert tot slot
 geometrie en de hashes van de slicerapporten. De `*-reopened.json`-rapporten verwijzen
 naar het afzonderlijk gereslicete project in de scratchmap, waarvan de hash in de
 rapporten staat; de primaire download blijft de eerste 3MF.
@@ -87,3 +89,22 @@ schroef-STL blijven historische bronnen; ze staan niet op de nieuwe plaat.
 De eigenaarfeedback is ongewijzigd vastgelegd naast een afzonderlijk leeg formulier
 voor revisie 4. De eerdere CAD-/slicerresultaten blijven in Git-historie beschikbaar;
 de rapporten in deze map gelden nu uitsluitend voor revisie 4.
+
+## Mapindeling bijgewerkt — 19 oktober 2026
+
+Instructies en printklare 3MF blijven in de hoofdmap. Componenten, CAD, scripts,
+JSON en afbeeldingen zijn in de submappen uit `test.md` ondergebracht; oude
+varianten staan in `components/archive/`. Montage wordt alleen als SVG bewaard.
+Drie byte-identieke afbeeldingen van de heropende slice zijn verwijderd; beide
+reeksen JSON-controlerapporten blijven behouden omdat ze verschillende 3MF-hashes
+vastleggen. Scripts maken die dubbele afbeeldingen niet opnieuw aan.
+
+Dit is een bestandsreorganisatie, geen nieuwe mechanische revisie: alle STLs en
+de printklare 3MF zijn byte-identiek aan `ab39061`. Verwijzingen, CAD-imports,
+bouw- en controlescriptpaden zijn aangepast en gecontroleerd. Geen nieuwe
+print- of slicerkwalificatie geclaimd; de eerdere slicecontrole blijft van toepassing.
+
+Controle van de reorganisatie: volledige CAD-generator en SVG-tekening in een
+scratchkopie uitgevoerd; alle vier slicereview-scripts leveren dezelfde JSON-uitkomst
+als vóór het verplaatsen. Archiefcontrole en invoerbouw behouden acht objecten en
+de lokale briminstelling. Interne en inkomende documentlinks gecontroleerd.
