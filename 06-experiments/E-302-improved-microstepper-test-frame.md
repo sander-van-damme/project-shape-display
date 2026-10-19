@@ -10,7 +10,30 @@ Eigenaarsopdracht18 oktober2026; basiscommit0383489 na fast-forward pull.
 vrouwelijke koppeling met drie ronde lobben maakt de bestaande aandrijving
 zonder snijwerk/tape monteerbaar en verdraagt verschillende tandwielhoogtes.
 
-## Geleverde eindige proef
+## Actuele eigenaarfeedback en levering — 19 oktober 2026
+
+De eigenaar heeft revisie 3 geprint: A (één inkeping) te strak, beide N-koppen
+(twee inkepingen) kapot, C (drie inkepingen) goed. De kop past door haar lengte
+niet samen met de motor in het frame. De horizontale lange schroef printte slecht,
+haar supports waren moeilijk te verwijderen en zij werkte niet goed. De korte
+schroef is geen probleem. Geen gemeten maten, exacte printinstellingen of
+complete geslaagde motor/frameproef gerapporteerd; [volledig verslag](../owner-print-tests/2026-10-18-microstepper-frame-v2/resultaten.md).
+
+Revisie 4: twee identieke C-koppen, 2 mm korter aan het motoruiteinde
+(17,6 → 15,6 mm), met behoud van lagerhals, ringvlak en schroefzitting.
+Dezelfde lange schroef staat rechtop met twee meegetekende afneembare zijtorens en
+vier kleine afbreekcontacten per zijde, 12 mm uit elkaar. Automatische supports
+staan uit; alleen dit object heeft een 3-mm brim. Korte schroef, pinnen en
+framegeometrie behouden. Eén opnieuw gesliced en heropend X1C/0,4-mm/PLA-project;
+13,22 g / circa 4u12m voor de volledige plaat. De nieuwe lengte, tandoverlap,
+printstabiliteit en verwijderbaarheid zijn fysiek nog onbekend.
+
+Dit vervangt de printinstructies van revisie 3. De onderstaande levering en
+controlegetallen beschrijven de **historische revisies tot 18 oktober**;
+actuele controles staan in de [verificatie revisie 4](../owner-print-tests/2026-10-18-microstepper-frame-v2/verification.md).
+
+## Geleverde eindige proef — historie tot 18 oktober
+
 
 [Printtest](../owner-print-tests/2026-10-18-microstepper-frame-v2/test.md):
 één geconfigureerde X1 Carbon/0,4-mm/PLA Bambu3MF, twee complementaire framehelften en vier

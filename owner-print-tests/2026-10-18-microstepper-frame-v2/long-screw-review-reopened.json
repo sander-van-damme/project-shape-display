@@ -1,278 +1,182 @@
 {
-  "scope": "Nominal G-code footprint check, not measured adhesion, rigidity, support removal or thread fit.",
-  "project_sha256": "26d90b15b4a74ae8aa2e416788850251f5e49b7c90b921949c999e379001c711",
-  "object_settings": {
-    "01-frame-front": {
-      "enable_support": "0"
-    },
-    "02-frame-back": {
-      "enable_support": "0"
-    },
-    "07-screw-1": {
-      "enable_support": "0"
-    },
-    "08-pin-18": {
-      "enable_support": "0"
-    },
-    "03-A": {
-      "enable_support": "0"
-    },
-    "05-N2": {
-      "enable_support": "0"
-    },
-    "10-screw-50-supported": {
-      "brim_object_gap": "0.12",
-      "brim_type": "outer_only",
-      "brim_width": "3",
-      "enable_support": "1",
-      "independent_support_layer_height": "0",
-      "support_base_pattern_spacing": "2",
-      "support_bottom_z_distance": "0.24",
-      "support_critical_regions_only": "0",
-      "support_expansion": "0",
-      "support_interface_bottom_layers": "0",
-      "support_interface_pattern": "rectilinear",
-      "support_interface_spacing": "0.2",
-      "support_interface_speed": "15,15",
-      "support_interface_top_layers": "2",
-      "support_object_xy_distance": "0.35",
-      "support_on_build_plate_only": "1",
-      "support_remove_small_overhang": "0",
-      "support_speed": "20,20",
-      "support_style": "snug",
-      "support_threshold_angle": "45",
-      "support_top_z_distance": "0.24",
-      "support_type": "normal(auto)"
-    },
-    "06-C": {
-      "enable_support": "0"
-    },
-    "04-N1": {
-      "enable_support": "0"
-    },
-    "09-pin-50": {
-      "enable_support": "0"
-    }
-  },
-  "supported_object": "screw-50-supported",
-  "model_height_mm": 9.96,
-  "screw_thread_length_mm": 48,
-  "support_path_count": 4776,
-  "support_interface_path_count": 2387,
-  "all_support_paths_confined_to_long_screw": true,
-  "support_z_range_mm": [
-    0.12,
-    4.08
+  "scope": "Nominal G-code widths and connectivity; not measured stiffness, removal force or printed thread fit.",
+  "project_sha256": "4cf119517ec507a24f9bfa82cec995ac39314cc36d55fd0a5d450ea0c638e145",
+  "orientation": "upright",
+  "model_height_mm": 50.4,
+  "layer_count": 420,
+  "automatic_support_path_count": 0,
+  "modeled_tower_count": 2,
+  "neck_dimensions_mm": [
+    0.85,
+    0.45,
+    0.24
   ],
-  "interface_z_range_mm": [
-    2.84727,
-    4.08
-  ],
-  "interface_projection_bounds_local_mm": [
-    2.737000000000009,
-    -1.4879999999999995,
-    50.39499999999998,
-    1.4879999999999995
-  ],
-  "support_bed_area_mm2": 320.0224968908078,
-  "support_bed_bounds_local_mm": [
-    2.6000000000000085,
-    -3.4759998492960733,
-    52.40099886441993,
-    3.475999657356681
-  ],
-  "thread_axis_local_x_mm": [
-    2.4,
-    50.4
-  ],
-  "thread_axis_source_plate_x_mm": [
-    10.4,
-    58.4
-  ],
-  "thread_axis_y_mm": 0,
-  "thread_axis_z_mm": 5,
-  "longitudinal_coverage_step_mm": 0.1,
-  "longitudinal_covered_bins": 477,
-  "longitudinal_total_bins": 480,
-  "longitudinal_coverage_fraction": 0.99375,
-  "largest_uncovered_longitudinal_bin_run_mm": 0.30000000000000004,
-  "new_model_islands_backed_by_support": [
+  "contacts": [
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9654985700044615,
-      "centroid_xy_mm": [
-        5.401967889753645,
-        -5.6170572569385824e-05
+      "side_x": -1,
+      "nominal_centre_z_mm": 9.96,
+      "connected_layers_z_mm": [
+        9.96,
+        10.08
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.1307652594889182,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9664913858680092,
-      "centroid_xy_mm": [
-        8.401973298841298,
-        0.0006736725256215335
+      "side_x": -1,
+      "nominal_centre_z_mm": 21.96,
+      "connected_layers_z_mm": [
+        21.96,
+        22.08
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.13076662341923498,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9662328212396999,
-      "centroid_xy_mm": [
-        14.401975333223682,
-        0.0005227129791661407
+      "side_x": -1,
+      "nominal_centre_z_mm": 33.96,
+      "connected_layers_z_mm": [
+        33.96,
+        34.08
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.13076662341923498,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9661972093430297,
-      "centroid_xy_mm": [
-        11.402014426616597,
-        0.0005797791941174466
+      "side_x": -1,
+      "nominal_centre_z_mm": 45.96,
+      "connected_layers_z_mm": [
+        45.96,
+        46.08
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.130766623419235,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9663766071123395,
-      "centroid_xy_mm": [
-        17.402014447704392,
-        0.0006625437123441421
+      "side_x": 1,
+      "nominal_centre_z_mm": 11.4,
+      "connected_layers_z_mm": [
+        11.4,
+        11.52
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9662942537594433,
-      "centroid_xy_mm": [
-        20.402004662471168,
-        0.0005960683049121035
+      "side_x": 1,
+      "nominal_centre_z_mm": 23.4,
+      "connected_layers_z_mm": [
+        23.4,
+        23.52
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9663346922952879,
-      "centroid_xy_mm": [
-        23.402011498598437,
-        0.0006545085693856591
+      "side_x": 1,
+      "nominal_centre_z_mm": 35.4,
+      "connected_layers_z_mm": [
+        35.4,
+        35.52
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
     },
     {
-      "z_mm": 3.6,
-      "area_mm2": 0.9662664726338465,
-      "centroid_xy_mm": [
-        29.40199332199762,
-        0.0005828868598626132
+      "side_x": 1,
+      "nominal_centre_z_mm": 47.4,
+      "connected_layers_z_mm": [
+        47.4,
+        47.52
       ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.9662216864942458,
-      "centroid_xy_mm": [
-        26.402007209886634,
-        0.0005770978021336483
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.96646596241653,
-      "centroid_xy_mm": [
-        32.40183213188832,
-        0.0007085049416752995
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.9660969918815452,
-      "centroid_xy_mm": [
-        35.402173747819866,
-        0.0009542869657111401
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.966389392196178,
-      "centroid_xy_mm": [
-        38.402023932749415,
-        0.000663567586544903
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.9663871001558464,
-      "centroid_xy_mm": [
-        41.40194246890182,
-        0.0005076548638773124
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.966358454815424,
-      "centroid_xy_mm": [
-        44.40174954109791,
-        0.0005177980513141643
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.6,
-      "area_mm2": 0.9664842974003729,
-      "centroid_xy_mm": [
-        47.4019818240582,
-        0.0006811708313013871
-      ],
-      "support_z_mm": 3.12,
-      "nominal_vertical_gap_mm": 0.3599999999999999
-    },
-    {
-      "z_mm": 3.72,
-      "area_mm2": 0.2418016045627873,
-      "centroid_xy_mm": [
-        49.87917312503902,
-        -0.292019120158452
-      ],
-      "support_z_mm": 3.36,
-      "nominal_vertical_gap_mm": 0.2400000000000002
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
     }
   ],
-  "new_model_islands_without_support": [],
+  "side_contact_pitch_mm": 12,
+  "maximum_same_side_unbraced_height_mm": 12,
+  "shaft_core_continuous_all_layers": true,
+  "thread_crests": [
+    {
+      "pitch": 1,
+      "maximum_crest_extent_mm": 1.5947445582253863
+    },
+    {
+      "pitch": 2,
+      "maximum_crest_extent_mm": 1.5947445582253863
+    },
+    {
+      "pitch": 3,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 4,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 5,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 6,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 7,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 8,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 9,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 10,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 11,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 12,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 13,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 14,
+      "maximum_crest_extent_mm": 1.595918520927313
+    },
+    {
+      "pitch": 15,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 16,
+      "maximum_crest_extent_mm": 1.8
+    }
+  ],
+  "bed_footprint_area_excluding_brim_mm2": 162.2364769765899,
   "no_unbacked_islands": true,
-  "support_max_speed_mm_s": 20.0,
+  "no_unintended_tower_thread_connections": true,
   "model_max_speed_mm_s": 30.0,
   "model_max_acceleration_mm_s2": 1000.0,
   "estimates": [
-    "; model printing time: 4h 1m 55s; total estimated time: 4h 17m 34s",
-    "; total filament length [mm] : 4737.55",
-    "; total filament volume [cm^3] : 11395.13",
-    "; total filament weight [g] : 14.13"
+    "; model printing time: 3h 56m 27s; total estimated time: 4h 12m 7s",
+    "; total filament length [mm] : 4433.58",
+    "; total filament volume [cm^3] : 10664.01",
+    "; total filament weight [g] : 13.22"
   ],
   "limits": [
-    "The screw is horizontal: 10 mm overall printing height and a 5 mm shaft axis; it is not a 50 mm unsupported upright column.",
-    "Support is distributed beneath the thread, with a nominal 0.24 mm removable PLA interface gap. The upper thread layers build on the screw body.",
-    "The underside of the external thread contacts removable support; inspect for scars and hand-test through the pin before motor use.",
-    "The 50 mm female pin remains upright on its original foot, without support inside its bore. Its physical stability remains untested."
+    "Eight solid necks touch small thread-crest regions; cut them locally, do not bend the whole tower away.",
+    "No release gap at these modeled necks. Removal and scars require a physical hand-fit test.",
+    "Tower pad/brim and 12 mm contact pitch reduce free length; physical stability remains untested.",
+    "Layer connectivity and nominal line widths do not measure adhesion, material strength or printer accuracy."
   ]
 }

@@ -1,10 +1,10 @@
 {
-  "objects": 10,
-  "bidirectional_vertex_error_mm": 1.1110454219679371e-05,
+  "objects": 8,
+  "bidirectional_vertex_error_mm": 1.0835557711064732e-05,
   "printer": "Bambu Lab X1 Carbon",
   "nozzle": [
     "0.4"
   ],
   "reports_match_project_sha256": true,
-  "project_sha256": "3b163b6e1c00ec3630b8de9a4e74e15adbf7fd2e7b7a5ad61e82e7326ec426bd"
+  "project_sha256": "2c2dce670235c41e9d1ba3ba4414fffee740d674c40f456a3426bd6d9469c6a7"
 }

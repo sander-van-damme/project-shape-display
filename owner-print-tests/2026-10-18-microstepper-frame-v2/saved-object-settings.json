@@ -5,49 +5,25 @@
   "02-frame-back": {
     "enable_support": "0"
   },
-  "04-N1": {
+  "03-C1": {
     "enable_support": "0"
   },
-  "05-N2": {
+  "04-C2": {
     "enable_support": "0"
   },
-  "10-screw-50-supported": {
+  "05-screw-1": {
+    "enable_support": "0"
+  },
+  "06-pin-18": {
+    "enable_support": "0"
+  },
+  "07-pin-50": {
+    "enable_support": "0"
+  },
+  "08-screw-50-supported": {
     "brim_object_gap": "0.12",
     "brim_type": "outer_only",
     "brim_width": "3",
-    "enable_support": "1",
-    "independent_support_layer_height": "0",
-    "support_base_pattern_spacing": "2",
-    "support_bottom_z_distance": "0.24",
-    "support_critical_regions_only": "0",
-    "support_expansion": "0",
-    "support_interface_bottom_layers": "0",
-    "support_interface_pattern": "rectilinear",
-    "support_interface_spacing": "0.2",
-    "support_interface_speed": "15,15",
-    "support_interface_top_layers": "2",
-    "support_object_xy_distance": "0.35",
-    "support_on_build_plate_only": "1",
-    "support_remove_small_overhang": "0",
-    "support_speed": "20,20",
-    "support_style": "snug",
-    "support_threshold_angle": "45",
-    "support_top_z_distance": "0.24",
-    "support_type": "normal(auto)"
-  },
-  "03-A": {
-    "enable_support": "0"
-  },
-  "08-pin-18": {
-    "enable_support": "0"
-  },
-  "09-pin-50": {
-    "enable_support": "0"
-  },
-  "06-C": {
-    "enable_support": "0"
-  },
-  "07-screw-1": {
     "enable_support": "0"
   }
 }

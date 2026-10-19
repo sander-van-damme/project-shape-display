@@ -1,12 +1,12 @@
-// E-302 revision 3, mm. E-301 functional thread and foot retained.
+// E-302 revision 4, mm. E-301 functional thread and foot retained.
 // Source photo dimensions are NOT physical measurements of owner motors.
 part="half-front";
 pin_height=50;
-tip_r=1.00; // A .95, nominal N 1.00, C 1.05; three broad rounded lobes
+tip_r=1.05; // Owner selected C (three identification notches), 2026-10-19.
 $fn=96;
 body_d=8.30;
 pcb_half_width=3.5; // open side envelope, unmeasured PCB: check before closing
-socket_bottom=11.2;
+socket_bottom=13.2; // Remove 2 mm at motor end; bearing/drive seat stay fixed.
 socket_top=19.5;
 module cradle_half(){
  difference(){

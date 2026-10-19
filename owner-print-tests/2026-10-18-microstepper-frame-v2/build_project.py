@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build E-302 X1C/0.4 PLA project with supports only for its horizontal long screw.
+"""Build E-302 X1C/0.4 PLA project with upright long screw and modeled breakaway side towers.
 
 Requires numpy/trimesh, official Bambu Studio 02.08.02.61 executable/resources.
 Call --help for paths. Runtime binaries and temporary logs belong in work/.
@@ -22,20 +22,10 @@ VERSION = '02.08.02.61'
 NS = 'http://schemas.microsoft.com/3dmanufacturing/core/2015/02'
 ET.register_namespace('', NS)
 
-# Object overrides: preserve empty female threads and motor/coupling recesses.
-# The long screw lies horizontally, with its shaft axis 5 mm above the bed.
-# Two-layer PLA separation permits removal; the underside thread must be inspected.
+# Modeled towers and sparse breakaway contacts are included in the long-screw mesh.
+# Automatic supports stay OFF: they would coat the thread or fill female bores.
 LONG_SCREW_SUPPORTS = {
-    'enable_support': '1', 'support_type': 'normal(auto)',
-    'support_style': 'snug', 'support_on_build_plate_only': '1',
-    'support_threshold_angle': '45', 'support_critical_regions_only': '0',
-    'support_remove_small_overhang': '0', 'support_top_z_distance': '0.24',
-    'support_bottom_z_distance': '0.24', 'support_object_xy_distance': '0.35',
-    'support_interface_top_layers': '2', 'support_interface_bottom_layers': '0',
-    'support_interface_spacing': '0.2', 'support_interface_pattern': 'rectilinear',
-    'support_base_pattern_spacing': '2', 'support_expansion': '0',
-    'independent_support_layer_height': '0', 'support_speed': '20,20',
-    'support_interface_speed': '15,15',
+    'enable_support': '0',
     'brim_type': 'outer_only', 'brim_width': '3', 'brim_object_gap': '0.12',
 }
 
@@ -82,7 +72,7 @@ def input_project(stl, output, supported_name):
     offset = np.array([128., 128., 0.])
     offset[:2] -= mesh.bounds.mean(axis=0)[:2]
     model = ET.Element(f'{{{NS}}}model', unit='millimeter')
-    ET.SubElement(model, f'{{{NS}}}metadata', name='Application').text = 'E-302 horizontal supported long screw project builder'
+    ET.SubElement(model, f'{{{NS}}}metadata', name='Application').text = 'E-302 upright braced long screw project builder'
     resources = ET.SubElement(model, f'{{{NS}}}resources')
     build = ET.SubElement(model, f'{{{NS}}}build')
     layout_path = stl.parent / 'layout.json'
@@ -112,7 +102,8 @@ def input_project(stl, output, supported_name):
         for key, value in {'name': name, **overrides}.items():
             ET.SubElement(config_obj, 'metadata', key=key, value=value)
         ET.SubElement(config_obj, 'part', id=str(i), subtype='normal_part')
-    assert sum(v['enable_support'] == '1' for v in expected.values()) == 1, 'Exactly one named long screw must receive supports'
+    assert sum(k.endswith('-' + supported_name) for k in expected) == 1
+    assert all(v['enable_support'] == '0' for v in expected.values())
     with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('3D/3dmodel.model', ET.tostring(model, encoding='utf-8', xml_declaration=True))
         archive.writestr('[Content_Types].xml', '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="model" ContentType="application/vnd.ms-package.3dmanufacturing-3dmodel+xml"/></Types>')
@@ -130,7 +121,7 @@ def main():
     ap.add_argument('--scratch', type=Path, required=True)
     ap.add_argument('--stl', type=Path, required=True)
     ap.add_argument('--out', type=Path, required=True)
-    ap.add_argument('--name', default='E-302 revision 3 supported long screw X1C PLA')
+    ap.add_argument('--name', default='E-302 revision 4 upright braced long screw X1C PLA')
     ap.add_argument('--supported-object', default='screw-50-supported')
     ap.add_argument('--layer', type=float, default=.12)
     ap.add_argument('--brim', type=float, default=0)

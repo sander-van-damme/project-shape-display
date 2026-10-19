@@ -1,99 +1,77 @@
-# E-302 — Improved Microstepper Test Frame, revisie 3
+# E-302 — Improved Microstepper Test Frame, revisie 4
 
-**Status:** READY — CAD en Bambu-slice gecontroleerd; fysiek nog niet getest.\
-**Prioriteit:** P1 binnen deze eigenaarsopdracht. Geen automatische printopdracht.\
-**Laatst beoordeeld:** 18 oktober 2026.\
+**Status:** READY — herziene CAD en Bambu-slice gecontroleerd; revisie 4 nog niet fysiek getest.\
+**Prioriteit:** P1 binnen deze eigenaarsopdracht; geen automatische printopdracht of deadline.\
+**Laatst beoordeeld:** 19 oktober 2026.\
 **Technische bron:** [E-302](../../06-experiments/E-302-improved-microstepper-test-frame.md).
 
-**Wijziging op eigenaarfeedback:** één duidelijk open PCB-uitsparing, meer oorspronkelijke
-cilindersteun, plus korte/lange schroeven en 18-/50-mm pinnen op de plaat. De lange schroef
-ligt horizontaal met eigen supports. De veren zijn aanvullend.
+## 1. Eigenaarfeedback en wijziging
 
-## 1. Waarom deze test?
+De eigenaar heeft revisie 3 geprint: kop A (één inkeping) is te strak, beide N-koppen
+(twee inkepingen) gingen kapot, C (drie inkepingen) is goed. De kop is echter te
+lang om samen met de motor in het frame te passen. De horizontale lange schroef
+printte slecht; supports waren moeilijk te verwijderen en de schroef werkte niet
+goed. De korte schroef is geen probleem. Dit zijn eigenaarobservaties, geen
+maatmetingen of duurproef; de werkelijk gebruikte printerinstellingen zijn niet opgegeven.
 
-Kan de bestaande motor stevig zonder nabewerking worden gemonteerd, met vrije
-PCB/draden, en kan een afneembare vrouwelijke koppeling de bestaande tanden
-bij verschillende insteekdieptes aandrijven? E-301 bewoog fysiek omhoog/omlaag,
-maar vereiste snijwerk en ducttape. Deze print toetst uitsluitend die twee
-mechanische verbeteringen. CAD en toolpaths voorspellen geen fysieke passing.
+Revisie 4 gebruikt uitsluitend passing C, **2 mm korter: 15,6 in plaats van 17,6 mm**.
+Het motoruiteinde is ingekort; lagerhals, ringvlak en vierkante schroefzitting blijven
+op dezelfde hoogte. De lange schroef staat rechtop met twee afneembare zijsteunen en
+acht kleine afbreekverbindingen, vier per zijde. Het functionele draadprofiel,
+beide pinnen, frame en korte schroef zijn behouden. Oudere A/N-STLs en de horizontale
+schroef blijven historische bestanden; zij staan niet op de actuele plaat.
 
 ## 2. Printklaar
 
 Open **[microstepper-frame-v2.3mf](microstepper-frame-v2.3mf)** rechtstreeks in
-Bambu Studio. Printer, filament, proces, oriëntatie en plaat zijn opgeslagen.
-Geen CAD compileren of instellingen overtypen. [Plaatbeeld](plate.png).
+Bambu Studio. De X1 Carbon/0,4-mm printer, PLA, proces en plaat zijn opgeslagen.
+[Plaatbeeld](plate.png), [montage](assembly.md), [verificatie](verification.md).
 
 | Onderdeel | Aantal | Herkenning / doel |
 |---|---:|---|
-| Complementaire framehelften | 2 | Eén gezamenlijke PCB-uitsparing; veren erbuiten |
-| Koppeling A | 1 | Eén inkeping; ribtipstraal 0,95 mm, diepste aangrijping |
-| Koppeling N | 2 | Twee inkepingen; 1,00 mm, identieke nominale herhalingen N1/N2 |
-| Koppeling C | 1 | Drie inkepingen; 1,05 mm, ruimste passing |
-| Korte schroef | 1 | Ongewijzigd, 16 mm draad; bij 18-mm pin |
-| Lange schroef | 1 | 48 mm draad / 50,4 mm totaal; bij 50-mm pin; horizontaal ondersteund |
-| Standaardpin | 1 | 18 mm hoog, bestaande draad en printvoet |
-| Lange pin | 1 | 50 mm hoog; dezelfde draad en printvoet |
+| Complementaire framehelften | 2 | Bestaande geometrie, gezamenlijke PCB-uitsparing |
+| Kortere koppeling C | 2 | C1/C2 identiek, elk drie inkepingen; ribtipstraal 1,05 mm |
+| Korte schroef | 1 | Bestaande 16-mm draad, ongewijzigd |
+| Lange schroef met zijsteunen | 1 | Rechtop, 48-mm draad / 50,4-mm totale hoogte |
+| Pin 18 mm / pin 50 mm | Elk 1 | Bestaande draad en integrale printvoet |
 
-- Eén plaat, geometrie **76 × 98 × 50 mm**, exclusief lokale brim/supportuitloop. Schroeven en pinnen zitten nu op de plaat;
-  bestaande exemplaren blijven bruikbaar. Hergebruik de bestaande 0,50-mm sluitring.
-- X1 Carbon, 0,4-mm-nozzle, Generic PLA, Textured PEI Plate; Bambu Studio **02.08.02.61**.
-- Laag/eerste laag 0,12/0,12 mm; Arachne, nominale lijnbreedte0,45 mm,
-  2 wanden, 100% zigzag-infill; minimum bead75%, minimum feature10%.
-- Buitenwand/kleine omtrek15, binnenwand20, eerste laag15, brug15 mm/s.
-  Default/binnenwandacceleratie1000; buitenwand/eerste laag500 mm/s².
-- Globaal supports uit, raft0, geen brim; print per laag. **Alleen de lange schroef**
-  heeft opgeslagen objectinstellingen: normale snug supports vanaf de plaat,
-  hoek45°, top-/bodemafstand0,24 mm, XY-afstand0,35 mm, twee bovenste
-  interfacelagen met0,2-mm lijnafstand, basisafstand2 mm; buitenbrim3 mm
-  met0,12-mm objectafstand. Support-/interfacesnelheid20/15 mm/s.
-  XY-contour-, gat- en
-  elephant-footcompensatie0. Geen automatische oriëntatie of herschikking.
-- PLA220°C, bed55°C; onderdeelfan100% na eerste laag; hulpfan0%;
-  minimum laagtijd8 s. Globale waarden: [saved-settings.json](saved-settings.json);
+Eén plaat, modelgrenzen **76 × 98 × 50,4 mm**, exclusief lokale brim. Bestaande
+framehelften, pinnen en korte schroef kunnen worden hergebruikt; selecteer alleen
+C1/C2 en de lange schroef als je uitsluitend de wijzigingen wilt printen en slice
+opnieuw voor de bijbehorende tijdschatting. De onderstaande controles gelden voor
+de volledige opgeslagen plaat. Hergebruik de bestaande 0,50-mm sluitring.
+
+- Bambu Studio **02.08.02.61**, X1 Carbon / 0,4-mm nozzle, Generic PLA, Textured PEI Plate.
+- Laag/eerste laag 0,12/0,12 mm; Arachne, nominale lijnbreedte 0,45 mm,
+  twee wanden, 100% zigzag-infill, minimum bead 75%, minimum feature 10%.
+- Buitenwand/kleine omtrek 15, binnenwand 20, eerste laag 15, brug 15 mm/s.
+  Default/binnenwandacceleratie 1000, buitenwand/eerste laag 500 mm/s².
+- Automatische supports **overal uit**, raft 0, print per laag. De zijsteunen en
+  afbreekverbindingen zijn **meegetekende geometrie** in het lange-schroefobject.
+  Alleen dat object krijgt buitenbrim 3 mm met 0,12-mm afstand; elders geen brim.
+- XY-contour-, gat- en elephant-footcompensatie 0. Geen automatische oriëntatie of herschikking.
+- PLA 220 °C, bed 55 °C, onderdeelfan 100% na eerste laag, hulpfan 0%, minimum laagtijd 8 s.
+- Frame op splitvlak; koppen met vierkante holte naar bed en tandwielboring omhoog.
+  Schroeven op vierkante voet; pinnen rechtop op hun bestaande 12 × 12 × 0,24-mm voet.
+- Slicerschatting volledige plaat: **13,22 g PLA, 4 uur 12 minuten totaal**.
+  Geen werkelijk gemeten tijd/verbruik. Globale instellingen: [saved-settings.json](saved-settings.json);
   objectinstellingen: [saved-object-settings.json](saved-object-settings.json).
-- Frame op splitvlak; koppelingsvierkant open naar bed, tandwielboring omhoog.
-  Beide pinnen rechtop op hun 12 × 12 × 0,24-mm printvoet; korte schroef op vierkante voet.
-  Lange schroef horizontaal, as5 mm boven plaat; normale supports onder de draad.
-  Brede frame-/kopvoeten verzorgen hechting. Ondersteuningen blijven uit de boringen. Zie [supportcontrole](long-screw-support.md).
-- Slicerschatting oorspronkelijke slice: **14,13 g, 4 uur 17 minuten totaal**
-  (model4u02m; opstart inbegrepen in totaal). Geen gemeten printverbruik/tijd.
-- Zelfstandige heropening/reslice geslaagd, zonder externe profielen;
-  opgeslagen instellingen identiek. Kleine baanverschillen tussen slices zijn
-  apart beoordeeld; geen byte-identieke G-code geclaimd.
-- Drie ribben op alle64 gecontroleerde rechte boringlagen aanwezig in beide
-  slices. Nominale minimum radiale lobuitsteking circa0,195 mm;
-  centrale radius0,80 mm vrij. Dit bewijst printbanen, geen grip op echte tanden.
 
-Zie [montage met afbeeldingen](assembly.md) en [verificatie](verification.md).
+## 3. Korte test
 
-## 3. Test in enkele stappen
+1. Verwijder de zijsteunen volgens de [supportinstructie](long-screw-support.md).
+   Controleer de lange schroef eerst met de hand in de 50-mm pin; stop bij beschadiging of klemmen.
+2. Pas C1 en C2 spanningsloos op het tandwiel. Controleer of kop en motor samen
+   zonder kracht in het frame passen; beoordeel werkelijke tandoverlap volgens de montagehandleiding.
+3. Monteer met de bestaande ring; houd PCB/draden vrij. Controleer handmatig de
+   bestaande 3-mm proefslag. 50 mm pinhoogte is geen 50-mm slag.
+4. Pas daarna vijf korte op/neerbewegingen met de werkende bediening; let op slip,
+   asbelasting en huisbeweging. Stop bij klemmen, scheuren of vervormen.
+5. Noteer alleen uitgevoerde waarnemingen in [resultaten.md](resultaten.md).
 
-1. Lange schroef van supports ontdoen en draad op schade controleren volgens
-   de montagehandleiding. Eerst met de hand door de 50-mm pin draaien.
-   Spanningsloos N1 en N2 los op hetzelfde tandwiel passen, afnemen en vergelijken.
-   Bij klemmen C proberen; bij slip A. Geen kracht, lijm, tape of nabewerking.
-2. Motor in open frame leggen met PCB zijwaarts; draden vrij houden. Ring en
-   koppeling plaatsen, axiale ruimte controleren en elastiekjes sluiten.
-3. Kies korte schroef/18-mm pin of lange schroef/50-mm pin. De 50 mm is totale hoogte, geen grotere slag.
-   Controleren dat metalen huis niet kantelt/verdraait en PCB nergens belast wordt.
-   Met de hand draaien en veilige bestaande slag controleren.
-4. Vijf korte op/neerbewegingen met de bestaande werkende bediening; let op
-   markeringen voor slip en op zichtbare beweging van huis/as.
-5. Drie keer demonteren/hermonteren; indien beschikbaar herhalen met een motor
-   met andere tandwielhoogte. Resultaten in [resultaten.md](resultaten.md).
+## 4. Interpretatie en stopconditie
 
-**Succes:** zonder nabewerking stevig, eenvoudig op/afschuiven, bruikbare
-hoogtevariatie, geen merkbare asbelasting en vijf bewegingen zonder zichtbare slip.
-**Stop/afkeur:** forceren, PCB-/soldeercontact, tandwiel tegen dak/flens,
-los motorhuis, scheur/blijvende vervorming, onvoldoende overlap, vastlopen of slip.
-Een niet geteste tweede motor betekent dat hoogtevariatie onbekend blijft.
-
-## 4. Mijn resultaten
-
-Gebruik het korte [resultatenformulier](resultaten.md). Leeg betekent onbekend.
-
-## 5. Interpretatie en vervolg
-
-Fysieke passing, montagekracht, grip, levensduur en motorvariatie: **nog onbekend**.
-Na fysieke feedback kan `rig.scad` worden aangepast; er is geen vervolgprint
-of nieuw onderzoek gestart. Stop bij de oplevering van deze test.
+Passing C is gekozen op eigenaarfeedback over de oude lengte. De kortere C,
+montage in het frame, stabiliteit van de rechtopstaande lange schroef en schadevrije
+supportverwijdering zijn nog niet fysiek bewezen. Deze levering verwerkt de feedback;
+er is geen nieuw onderzoek, firmwarewerk of automatische vervolgprint gestart.

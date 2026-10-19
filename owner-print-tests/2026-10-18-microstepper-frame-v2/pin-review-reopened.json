@@ -1,6 +1,6 @@
 {
   "scope": "Nominal deposited G-code footprint screening; does not prove physical bed adhesion, stiffness or thread fit.",
-  "project_sha256": "26d90b15b4a74ae8aa2e416788850251f5e49b7c90b921949c999e379001c711",
+  "project_sha256": "4cf119517ec507a24f9bfa82cec995ac39314cc36d55fd0a5d450ea0c638e145",
   "pins": [
     {
       "name": "pin-18",
@@ -12,7 +12,7 @@
         5.99999600000001,
         5.99999600000001
       ],
-      "bed_contact_area_mm2": 137.13931426192843,
+      "bed_contact_area_mm2": 137.1396381543927,
       "all_layers_open_core": true,
       "upper_closed_contour_all_layers": true,
       "upper_layer_count": 99,
@@ -26,7 +26,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.13931426192843,
+          "footprint_area_mm2": 137.1396381543927,
           "support_paths": 0,
           "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
@@ -36,7 +36,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.7224373103449,
+          "footprint_area_mm2": 137.72241802950327,
           "support_paths": 0,
           "max_speed_mm_s": 30.0,
           "max_acceleration_mm_s2": 1000.0
@@ -46,7 +46,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.378544913780077,
+          "footprint_area_mm2": 13.378573015571662,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -56,7 +56,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.260590087644063,
+          "footprint_area_mm2": 13.260641343622696,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -66,7 +66,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.336738615878335,
+          "footprint_area_mm2": 13.336637080364564,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -76,7 +76,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.283837858130784,
+          "footprint_area_mm2": 13.284006744658882,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -86,7 +86,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354762492670844,
+          "footprint_area_mm2": 13.354711161230522,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -96,7 +96,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357726819976506,
+          "footprint_area_mm2": 13.35772117821331,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -106,7 +106,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.338240290667262,
+          "footprint_area_mm2": 13.337869035475295,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -116,7 +116,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.158727524952646,
+          "footprint_area_mm2": 13.158674809126826,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -126,7 +126,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.37626450053846,
+          "footprint_area_mm2": 13.376055672647855,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -136,7 +136,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.219883597635603,
+          "footprint_area_mm2": 13.219977018646006,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -146,7 +146,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.31466769903159,
+          "footprint_area_mm2": 13.314579286852007,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -156,7 +156,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.299470149208219,
+          "footprint_area_mm2": 13.299426683213678,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -166,7 +166,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290492262264348,
+          "footprint_area_mm2": 13.290457573958072,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -176,7 +176,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.247350426040104,
+          "footprint_area_mm2": 13.247176699692535,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -186,7 +186,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210307852167512,
+          "footprint_area_mm2": 13.21024903585368,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -196,7 +196,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403518571134644,
+          "footprint_area_mm2": 13.403524736327793,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -206,7 +206,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344335253258173,
+          "footprint_area_mm2": 13.344276588221854,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -216,7 +216,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316125696009948,
+          "footprint_area_mm2": 13.316164329065622,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -226,7 +226,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.35814577161969,
+          "footprint_area_mm2": 13.358163442620738,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -236,7 +236,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.308215262127893,
+          "footprint_area_mm2": 13.30822380465898,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -246,7 +246,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.41220221191122,
+          "footprint_area_mm2": 13.411810512857741,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -256,7 +256,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367830618399982,
+          "footprint_area_mm2": 13.367819453480232,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -266,7 +266,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.331511784158565,
+          "footprint_area_mm2": 13.331524308341965,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -276,7 +276,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.350331621184866,
+          "footprint_area_mm2": 13.350399993552271,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -286,7 +286,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.32980935077334,
+          "footprint_area_mm2": 13.330025126584937,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -296,7 +296,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.473994619760308,
+          "footprint_area_mm2": 13.473877385454065,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -306,7 +306,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.263311076004292,
+          "footprint_area_mm2": 13.263289497701756,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -316,7 +316,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.443227702819376,
+          "footprint_area_mm2": 13.44267773426044,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -326,7 +326,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.282326374494119,
+          "footprint_area_mm2": 13.282170847648057,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -336,7 +336,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354351468192817,
+          "footprint_area_mm2": 13.354335257484902,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -346,7 +346,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357162910579678,
+          "footprint_area_mm2": 13.357205934471125,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -356,7 +356,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.337335586271356,
+          "footprint_area_mm2": 13.337294092012776,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -366,7 +366,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.159132420980635,
+          "footprint_area_mm2": 13.15919060828429,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -376,7 +376,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.376289073316983,
+          "footprint_area_mm2": 13.376277891290247,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -386,7 +386,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.21984549797257,
+          "footprint_area_mm2": 13.220006572015604,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -396,7 +396,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.31462284902049,
+          "footprint_area_mm2": 13.314723128331817,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -406,7 +406,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.29910788095184,
+          "footprint_area_mm2": 13.299127864484458,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -416,7 +416,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290233354019012,
+          "footprint_area_mm2": 13.290124274640117,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -436,7 +436,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210934217746518,
+          "footprint_area_mm2": 13.210909333397002,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -446,7 +446,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403237197350935,
+          "footprint_area_mm2": 13.403119648182358,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -456,7 +456,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344742198743338,
+          "footprint_area_mm2": 13.344781468285248,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -466,7 +466,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.31623681161744,
+          "footprint_area_mm2": 13.316115785992853,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -476,7 +476,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.358000358751395,
+          "footprint_area_mm2": 13.357960098860586,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -486,7 +486,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.309011275784725,
+          "footprint_area_mm2": 13.30903873364648,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -496,7 +496,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.401017562318051,
+          "footprint_area_mm2": 13.401624346782905,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -506,7 +506,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.36753428677987,
+          "footprint_area_mm2": 13.36757936420127,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -516,7 +516,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.347150701168522,
+          "footprint_area_mm2": 13.347161117553354,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1498,7 +1498,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -1508,7 +1508,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -1518,7 +1518,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         }
       ]
@@ -1533,7 +1533,7 @@
         5.99999600000001,
         5.99999600000001
       ],
-      "bed_contact_area_mm2": 137.1396151041274,
+      "bed_contact_area_mm2": 137.1397441020058,
       "all_layers_open_core": true,
       "upper_closed_contour_all_layers": true,
       "upper_layer_count": 366,
@@ -1547,7 +1547,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.1396151041274,
+          "footprint_area_mm2": 137.1397441020058,
           "support_paths": 0,
           "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
@@ -1557,7 +1557,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 137.72237918515515,
+          "footprint_area_mm2": 137.7220309592932,
           "support_paths": 0,
           "max_speed_mm_s": 30.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1567,7 +1567,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.379214215851999,
+          "footprint_area_mm2": 13.379208688931417,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1577,7 +1577,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.26069196081153,
+          "footprint_area_mm2": 13.260949397954505,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1587,7 +1587,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.336677939974084,
+          "footprint_area_mm2": 13.336665215014124,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1597,7 +1597,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.283791898854597,
+          "footprint_area_mm2": 13.284093068399235,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1607,7 +1607,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354812625032048,
+          "footprint_area_mm2": 13.35477482910982,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1617,7 +1617,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.35781696392395,
+          "footprint_area_mm2": 13.357915702630612,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1627,7 +1627,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.337380657416748,
+          "footprint_area_mm2": 13.337513873356329,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1637,7 +1637,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.156733051672141,
+          "footprint_area_mm2": 13.156293543941871,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1647,7 +1647,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.376005786738164,
+          "footprint_area_mm2": 13.376000613298116,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1657,7 +1657,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.219784790834133,
+          "footprint_area_mm2": 13.21982363485673,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1667,7 +1667,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.314270167814154,
+          "footprint_area_mm2": 13.314063428048533,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1677,7 +1677,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.299396020111999,
+          "footprint_area_mm2": 13.29945471049625,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1687,7 +1687,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.290081120401926,
+          "footprint_area_mm2": 13.290512902807391,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1697,7 +1697,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.247281367829766,
+          "footprint_area_mm2": 13.247370994005152,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1707,7 +1707,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.21062102466771,
+          "footprint_area_mm2": 13.210071754295628,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1717,7 +1717,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403594669181878,
+          "footprint_area_mm2": 13.403219487363787,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1727,7 +1727,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344706605664744,
+          "footprint_area_mm2": 13.344694143734646,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1737,7 +1737,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316156566066264,
+          "footprint_area_mm2": 13.316104904938635,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1747,7 +1747,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357422020487842,
+          "footprint_area_mm2": 13.357383344414437,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1757,7 +1757,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.30821084926047,
+          "footprint_area_mm2": 13.308231767931039,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1767,7 +1767,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.41230383635985,
+          "footprint_area_mm2": 13.41228726399315,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1777,7 +1777,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.368046289406157,
+          "footprint_area_mm2": 13.367996677080916,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1787,7 +1787,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.331933388850352,
+          "footprint_area_mm2": 13.331852051818188,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1797,7 +1797,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.350850078272329,
+          "footprint_area_mm2": 13.350967858799859,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1807,7 +1807,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.330704351705904,
+          "footprint_area_mm2": 13.330528390740284,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1817,7 +1817,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.473638117331914,
+          "footprint_area_mm2": 13.472961683653134,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1827,7 +1827,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.26246966175426,
+          "footprint_area_mm2": 13.26187228506238,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1837,7 +1837,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.443477369069315,
+          "footprint_area_mm2": 13.4435768050363,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1847,7 +1847,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.282716987378492,
+          "footprint_area_mm2": 13.28262903078172,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1857,7 +1857,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.354450116087742,
+          "footprint_area_mm2": 13.354481399828915,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1867,7 +1867,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357668380426169,
+          "footprint_area_mm2": 13.357392383098404,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1877,7 +1877,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.337014886829968,
+          "footprint_area_mm2": 13.335537657997316,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1887,7 +1887,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.158779892154667,
+          "footprint_area_mm2": 13.157821377527632,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1897,7 +1897,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.376330122732735,
+          "footprint_area_mm2": 13.37613942682867,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1907,7 +1907,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.274559556063243,
+          "footprint_area_mm2": 13.27456194807665,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1917,7 +1917,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.31402938461438,
+          "footprint_area_mm2": 13.314193718914138,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1927,7 +1927,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.298901410394624,
+          "footprint_area_mm2": 13.299124164206905,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1937,7 +1937,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.289853041365403,
+          "footprint_area_mm2": 13.28988200376152,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1947,7 +1947,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.2470187770009,
+          "footprint_area_mm2": 13.246977782728727,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1957,7 +1957,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.210700617122177,
+          "footprint_area_mm2": 13.210995904762505,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1967,7 +1967,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.403740571907813,
+          "footprint_area_mm2": 13.403748141714802,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1977,7 +1977,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.344911712545327,
+          "footprint_area_mm2": 13.344713578131147,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1987,7 +1987,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.316190683149806,
+          "footprint_area_mm2": 13.316274063915074,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -1997,7 +1997,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.357277291630416,
+          "footprint_area_mm2": 13.35746220022382,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2007,7 +2007,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": false,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.308703698370447,
+          "footprint_area_mm2": 13.3089959395018,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2017,7 +2017,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.401346418374848,
+          "footprint_area_mm2": 13.401895998558329,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2027,7 +2027,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.367648345141488,
+          "footprint_area_mm2": 13.367789995552137,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -2037,7 +2037,7 @@
           "open_core_radius_060": true,
           "closed_wall_around_bore": true,
           "unsupported_island_areas_mm2": [],
-          "footprint_area_mm2": 13.34747179976693,
+          "footprint_area_mm2": 13.347364246665899,
           "support_paths": 0,
           "max_speed_mm_s": 20.0,
           "max_acceleration_mm_s2": 1000.0
@@ -3019,7 +3019,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3029,7 +3029,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3039,7 +3039,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 15.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3049,7 +3049,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3059,7 +3059,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.4,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3069,7 +3069,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3079,7 +3079,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.783333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3089,7 +3089,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3099,7 +3099,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3109,7 +3109,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.716666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3119,7 +3119,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.55,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3129,7 +3129,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.716666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3139,7 +3139,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.55,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3149,7 +3149,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.75,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3159,7 +3159,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.366666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3169,7 +3169,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3179,7 +3179,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.45,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3189,7 +3189,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3199,7 +3199,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.516666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3209,7 +3209,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.55,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3219,7 +3219,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3229,7 +3229,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.616666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3239,7 +3239,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3249,7 +3249,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.15,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3259,7 +3259,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3269,7 +3269,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.133333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3279,7 +3279,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.166666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3289,7 +3289,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3299,7 +3299,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.133333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3309,7 +3309,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3319,7 +3319,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.3,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3329,7 +3329,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.083333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3339,7 +3339,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.25,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3349,7 +3349,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.716666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3359,7 +3359,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.983333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3369,7 +3369,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3379,7 +3379,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3389,7 +3389,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3399,7 +3399,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.583333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3409,7 +3409,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3419,7 +3419,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3429,7 +3429,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3439,7 +3439,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3449,7 +3449,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.466666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3459,7 +3459,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3469,7 +3469,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.2,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3479,7 +3479,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.366666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3489,7 +3489,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.65,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3499,7 +3499,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.766666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3509,7 +3509,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.916666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3519,7 +3519,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.75,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3529,7 +3529,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3539,7 +3539,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3549,7 +3549,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3559,7 +3559,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3569,7 +3569,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3579,7 +3579,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3589,7 +3589,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3599,7 +3599,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3609,7 +3609,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3619,7 +3619,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3629,7 +3629,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3639,7 +3639,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3649,7 +3649,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.8,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3659,7 +3659,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.8,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3669,7 +3669,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.8,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3679,7 +3679,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3689,7 +3689,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3699,7 +3699,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3709,7 +3709,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3719,7 +3719,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3729,7 +3729,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3739,7 +3739,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3749,7 +3749,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3759,7 +3759,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3769,7 +3769,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3779,7 +3779,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3789,7 +3789,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3799,7 +3799,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3809,7 +3809,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3819,7 +3819,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3829,7 +3829,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3839,7 +3839,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3849,7 +3849,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3859,7 +3859,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3869,7 +3869,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3879,7 +3879,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3889,7 +3889,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3899,7 +3899,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3909,7 +3909,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3919,7 +3919,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3929,7 +3929,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3939,7 +3939,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3949,7 +3949,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3959,7 +3959,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3969,7 +3969,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3979,7 +3979,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3989,7 +3989,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -3999,7 +3999,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4009,7 +4009,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4019,7 +4019,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.4,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4029,7 +4029,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.6,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4039,7 +4039,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.633333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4049,7 +4049,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.516666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4059,7 +4059,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.716666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4069,7 +4069,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.75,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4079,7 +4079,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.616666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4089,7 +4089,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4099,7 +4099,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4109,7 +4109,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.716666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4119,7 +4119,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.116666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4129,7 +4129,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.25,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4139,7 +4139,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.533333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4149,7 +4149,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.916666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4159,7 +4159,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.966666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4169,7 +4169,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4179,7 +4179,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.033333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4189,7 +4189,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4199,7 +4199,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.516666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4209,7 +4209,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.55,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4219,7 +4219,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4229,7 +4229,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.616666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4239,7 +4239,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4249,7 +4249,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.133333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4259,7 +4259,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4269,7 +4269,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.566666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4279,7 +4279,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.15,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4289,7 +4289,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4299,7 +4299,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.583333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4309,7 +4309,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4319,7 +4319,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.3,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4329,7 +4329,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.083333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4339,7 +4339,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.233333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4349,7 +4349,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.166666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4359,7 +4359,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.166666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4369,7 +4369,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4379,7 +4379,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4389,7 +4389,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.85,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4399,7 +4399,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4409,7 +4409,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4419,7 +4419,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4429,7 +4429,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4439,7 +4439,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4449,7 +4449,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.466666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4459,7 +4459,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4469,7 +4469,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.2,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4479,7 +4479,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.366666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4489,7 +4489,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4499,7 +4499,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.766666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4509,7 +4509,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.916666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4519,7 +4519,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.75,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4529,7 +4529,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4539,7 +4539,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4549,7 +4549,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4559,7 +4559,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4569,7 +4569,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4579,7 +4579,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4589,7 +4589,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4599,7 +4599,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4609,7 +4609,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4619,7 +4619,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4629,7 +4629,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.8,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4639,7 +4639,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4649,7 +4649,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.65,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4659,7 +4659,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4669,7 +4669,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4679,7 +4679,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4689,7 +4689,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4699,7 +4699,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4709,7 +4709,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4719,7 +4719,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4729,7 +4729,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4739,7 +4739,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4749,7 +4749,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4759,7 +4759,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4769,7 +4769,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4779,7 +4779,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4789,7 +4789,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4799,7 +4799,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4809,7 +4809,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4819,7 +4819,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4829,7 +4829,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4839,7 +4839,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4849,7 +4849,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4859,7 +4859,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4869,7 +4869,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4879,7 +4879,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.8,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4889,7 +4889,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4899,7 +4899,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.65,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4909,7 +4909,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4919,7 +4919,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4929,7 +4929,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4939,7 +4939,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4949,7 +4949,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4959,7 +4959,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.816666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4969,7 +4969,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4979,7 +4979,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4989,7 +4989,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -4999,7 +4999,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.666666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5009,7 +5009,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5019,7 +5019,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.4,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5029,7 +5029,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.6,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5039,7 +5039,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.633333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5049,7 +5049,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.9,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5059,7 +5059,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.1,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5069,7 +5069,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.133333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5079,7 +5079,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5089,7 +5089,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.2,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5099,7 +5099,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5109,7 +5109,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.266666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5119,7 +5119,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.116666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5129,7 +5129,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.25,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5139,7 +5139,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.116666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5149,7 +5149,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.166666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5159,7 +5159,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 10.966666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5169,7 +5169,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.0,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5179,7 +5179,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.45,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5189,7 +5189,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5199,7 +5199,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.516666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5209,7 +5209,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.55,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5219,7 +5219,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5229,7 +5229,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.616666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5239,7 +5239,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.316666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5249,7 +5249,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.133333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5259,7 +5259,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.3,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5269,7 +5269,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.116666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5279,7 +5279,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.15,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5289,7 +5289,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5299,7 +5299,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.116666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5309,7 +5309,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.3,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5319,7 +5319,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.283333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5329,7 +5329,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.066666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5339,7 +5339,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.216666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5349,7 +5349,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.15,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5359,7 +5359,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.15,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5369,7 +5369,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.333333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5379,7 +5379,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5389,7 +5389,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.433333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5399,7 +5399,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.433333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5409,7 +5409,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.516666666666667,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5419,7 +5419,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5429,7 +5429,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5439,7 +5439,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.5,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5449,7 +5449,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.483333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5459,7 +5459,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.433333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5469,7 +5469,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.633333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5479,7 +5479,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.383333333333333,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5489,7 +5489,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 11.833333333333334,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5499,7 +5499,7 @@
           "unsupported_island_areas_mm2": [],
           "footprint_area_mm2": 6.936965132105502,
           "support_paths": 0,
-          "max_speed_mm_s": 10.0,
+          "max_speed_mm_s": 12.416666666666666,
           "max_acceleration_mm_s2": 500.0
         },
         {
@@ -5717,258 +5717,258 @@
   ],
   "lower_thread_comparison": {
     "layers": 51,
-    "max_symmetric_difference_mm2": 0.05525971910063254,
+    "max_symmetric_difference_mm2": 0.0551990368818744,
     "max_hausdorff_distance_mm": 0.08636593511634486,
     "details": [
       {
         "z_mm": 0.12,
-        "symmetric_difference_mm2": 0.0006377235220661479,
-        "hausdorff_distance_mm": 0.006351210407655361
+        "symmetric_difference_mm2": 0.0005948516210681214,
+        "hausdorff_distance_mm": 0.00763758396557531
       },
       {
         "z_mm": 0.24,
-        "symmetric_difference_mm2": 0.00042828812572208945,
-        "hausdorff_distance_mm": 0.005852648351043525
+        "symmetric_difference_mm2": 0.0008351120035951792,
+        "hausdorff_distance_mm": 0.006972183769992644
       },
       {
         "z_mm": 0.36,
-        "symmetric_difference_mm2": 0.001198137476267687,
-        "hausdorff_distance_mm": 0.005989287616873385
+        "symmetric_difference_mm2": 0.0011545420640758607,
+        "hausdorff_distance_mm": 0.006144926612255155
       },
       {
         "z_mm": 0.48,
-        "symmetric_difference_mm2": 0.00043889799247147864,
-        "hausdorff_distance_mm": 0.005922553279644179
+        "symmetric_difference_mm2": 0.0007978772289714586,
+        "hausdorff_distance_mm": 0.007502593775679565
       },
       {
         "z_mm": 0.6,
-        "symmetric_difference_mm2": 0.00046066555996541884,
-        "hausdorff_distance_mm": 0.0061662299809352485
+        "symmetric_difference_mm2": 0.0005447818556440755,
+        "hausdorff_distance_mm": 0.006280438446909154
       },
       {
         "z_mm": 0.72,
-        "symmetric_difference_mm2": 0.0008315057871786673,
-        "hausdorff_distance_mm": 0.006308388894425409
+        "symmetric_difference_mm2": 0.0006115687050116384,
+        "hausdorff_distance_mm": 0.006025295696721785
       },
       {
         "z_mm": 0.84,
-        "symmetric_difference_mm2": 0.0005057695832012359,
-        "hausdorff_distance_mm": 0.0058306750885997564
+        "symmetric_difference_mm2": 0.0005600695404885384,
+        "hausdorff_distance_mm": 0.0058430898925865915
       },
       {
         "z_mm": 0.96,
-        "symmetric_difference_mm2": 0.0004627376123150922,
-        "hausdorff_distance_mm": 0.005863119355856051
+        "symmetric_difference_mm2": 0.0004971494297226323,
+        "hausdorff_distance_mm": 0.005831746589911782
       },
       {
         "z_mm": 1.08,
-        "symmetric_difference_mm2": 0.0013251777501839793,
-        "hausdorff_distance_mm": 0.010858950669114938
+        "symmetric_difference_mm2": 0.0014152108224411127,
+        "hausdorff_distance_mm": 0.005816498797990645
       },
       {
         "z_mm": 1.2,
-        "symmetric_difference_mm2": 0.0024451202480188458,
-        "hausdorff_distance_mm": 0.010560379394380086
+        "symmetric_difference_mm2": 0.002794926741928854,
+        "hausdorff_distance_mm": 0.012455833302687118
       },
       {
         "z_mm": 1.32,
-        "symmetric_difference_mm2": 0.0009753033924631766,
-        "hausdorff_distance_mm": 0.006231937058681008
+        "symmetric_difference_mm2": 0.0012293931302319718,
+        "hausdorff_distance_mm": 0.006021762912519172
       },
       {
         "z_mm": 1.44,
-        "symmetric_difference_mm2": 0.0009480164892653194,
-        "hausdorff_distance_mm": 0.006600634072549373
+        "symmetric_difference_mm2": 0.0007247892136988993,
+        "hausdorff_distance_mm": 0.0060950487323515185
       },
       {
         "z_mm": 1.56,
-        "symmetric_difference_mm2": 0.0008825351078407863,
-        "hausdorff_distance_mm": 0.005945852117948081
+        "symmetric_difference_mm2": 0.0010301917346017253,
+        "hausdorff_distance_mm": 0.0062187038786907225
       },
       {
         "z_mm": 1.68,
-        "symmetric_difference_mm2": 0.00044057563309110126,
-        "hausdorff_distance_mm": 0.006264968840302675
+        "symmetric_difference_mm2": 0.00046204449853903476,
+        "hausdorff_distance_mm": 0.00614670800158826
       },
       {
         "z_mm": 1.8,
-        "symmetric_difference_mm2": 0.0007975245298346108,
-        "hausdorff_distance_mm": 0.0062610150656878605
+        "symmetric_difference_mm2": 0.0005402479818970504,
+        "hausdorff_distance_mm": 0.005983099444945503
       },
       {
         "z_mm": 1.92,
-        "symmetric_difference_mm2": 0.0007971645780391229,
-        "hausdorff_distance_mm": 0.010177598834576095
+        "symmetric_difference_mm2": 0.0005329824865649905,
+        "hausdorff_distance_mm": 0.006303961561374296
       },
       {
         "z_mm": 2.04,
-        "symmetric_difference_mm2": 0.0010966829054124781,
-        "hausdorff_distance_mm": 0.0062849091889876415
+        "symmetric_difference_mm2": 0.0007441922153686235,
+        "hausdorff_distance_mm": 0.0064746640761617295
       },
       {
         "z_mm": 2.16,
-        "symmetric_difference_mm2": 0.00044252546386662044,
-        "hausdorff_distance_mm": 0.006234930582332329
+        "symmetric_difference_mm2": 0.0007010072480962734,
+        "hausdorff_distance_mm": 0.006012750325336524
       },
       {
         "z_mm": 2.28,
-        "symmetric_difference_mm2": 0.0008894918632042212,
-        "hausdorff_distance_mm": 0.006505621830198726
+        "symmetric_difference_mm2": 0.0009327591844968244,
+        "hausdorff_distance_mm": 0.006632873122537359
       },
       {
         "z_mm": 2.4,
-        "symmetric_difference_mm2": 0.00034568805015278413,
-        "hausdorff_distance_mm": 0.006000889725538533
+        "symmetric_difference_mm2": 0.000405597107234935,
+        "hausdorff_distance_mm": 0.005785911524685294
       },
       {
         "z_mm": 2.52,
-        "symmetric_difference_mm2": 0.0013732925867026879,
-        "hausdorff_distance_mm": 0.005972069083915907
+        "symmetric_difference_mm2": 0.0013994475800261745,
+        "hausdorff_distance_mm": 0.006156547383759453
       },
       {
         "z_mm": 2.64,
-        "symmetric_difference_mm2": 0.001051222363932842,
-        "hausdorff_distance_mm": 0.006247663089504421
+        "symmetric_difference_mm2": 0.0010075940344379825,
+        "hausdorff_distance_mm": 0.006206770052592034
       },
       {
         "z_mm": 2.76,
-        "symmetric_difference_mm2": 0.0003564347588970388,
-        "hausdorff_distance_mm": 0.002543468470723026
+        "symmetric_difference_mm2": 0.0007833459498995445,
+        "hausdorff_distance_mm": 0.007018355657031525
       },
       {
         "z_mm": 2.88,
-        "symmetric_difference_mm2": 0.0007196446115393785,
-        "hausdorff_distance_mm": 0.00617842771099495
+        "symmetric_difference_mm2": 0.0008164808802488549,
+        "hausdorff_distance_mm": 0.006309363120940912
       },
       {
         "z_mm": 3.0,
-        "symmetric_difference_mm2": 0.0008262040341684915,
-        "hausdorff_distance_mm": 0.0062425841120742325
+        "symmetric_difference_mm2": 0.00081988223239564,
+        "hausdorff_distance_mm": 0.006095842872841361
       },
       {
         "z_mm": 3.12,
-        "symmetric_difference_mm2": 0.0012704240887176166,
-        "hausdorff_distance_mm": 0.006255801782809316
+        "symmetric_difference_mm2": 0.0010890786012364099,
+        "hausdorff_distance_mm": 0.005876681889298554
       },
       {
         "z_mm": 3.24,
-        "symmetric_difference_mm2": 0.0013649106258097107,
-        "hausdorff_distance_mm": 0.009954267779916603
+        "symmetric_difference_mm2": 0.0011496121933257033,
+        "hausdorff_distance_mm": 0.006809779699735872
       },
       {
         "z_mm": 3.36,
-        "symmetric_difference_mm2": 0.0008928914993741519,
-        "hausdorff_distance_mm": 0.006445410447743715
+        "symmetric_difference_mm2": 0.0013967940314755219,
+        "hausdorff_distance_mm": 0.0062602940791711865
       },
       {
         "z_mm": 3.48,
-        "symmetric_difference_mm2": 0.0018744903183591315,
-        "hausdorff_distance_mm": 0.006083856248069588
+        "symmetric_difference_mm2": 0.0027139558175592786,
+        "hausdorff_distance_mm": 0.008716096890648794
       },
       {
         "z_mm": 3.6,
-        "symmetric_difference_mm2": 0.0008618398302073156,
-        "hausdorff_distance_mm": 0.0058709839401942234
+        "symmetric_difference_mm2": 0.001478214199838489,
+        "hausdorff_distance_mm": 0.009434617132126694
       },
       {
         "z_mm": 3.72,
-        "symmetric_difference_mm2": 0.0007351319533009956,
-        "hausdorff_distance_mm": 0.005755723808015095
+        "symmetric_difference_mm2": 0.0008860003104096942,
+        "hausdorff_distance_mm": 0.009378964005023908
       },
       {
         "z_mm": 3.84,
-        "symmetric_difference_mm2": 0.001192814912718524,
-        "hausdorff_distance_mm": 0.006062652312401186
+        "symmetric_difference_mm2": 0.0012331279800525893,
+        "hausdorff_distance_mm": 0.006256404146672417
       },
       {
         "z_mm": 3.96,
-        "symmetric_difference_mm2": 0.0007377937673826061,
-        "hausdorff_distance_mm": 0.005970755832159338
+        "symmetric_difference_mm2": 0.0007043751774497239,
+        "hausdorff_distance_mm": 0.006089745811052982
       },
       {
         "z_mm": 4.08,
-        "symmetric_difference_mm2": 0.0017151756079913996,
-        "hausdorff_distance_mm": 0.0059925876936675025
+        "symmetric_difference_mm2": 0.0033792766577263244,
+        "hausdorff_distance_mm": 0.014343147175213084
       },
       {
         "z_mm": 4.2,
-        "symmetric_difference_mm2": 0.001237205331224424,
-        "hausdorff_distance_mm": 0.0062069661300824
+        "symmetric_difference_mm2": 0.001989287495706954,
+        "hausdorff_distance_mm": 0.006324405984769663
       },
       {
         "z_mm": 4.32,
-        "symmetric_difference_mm2": 0.0013515995478091856,
-        "hausdorff_distance_mm": 0.006038497114630083
+        "symmetric_difference_mm2": 0.0017853346395673261,
+        "hausdorff_distance_mm": 0.007847543099191685
       },
       {
         "z_mm": 4.44,
-        "symmetric_difference_mm2": 0.05525971910063254,
+        "symmetric_difference_mm2": 0.0551990368818744,
         "hausdorff_distance_mm": 0.08636593511634486
       },
       {
         "z_mm": 4.56,
-        "symmetric_difference_mm2": 0.0012672040112511529,
-        "hausdorff_distance_mm": 0.006019505419250989
+        "symmetric_difference_mm2": 0.001078483815067676,
+        "hausdorff_distance_mm": 0.0059456377472452936
       },
       {
         "z_mm": 4.68,
-        "symmetric_difference_mm2": 0.0007492499136578256,
-        "hausdorff_distance_mm": 0.006401407025933099
+        "symmetric_difference_mm2": 0.0005562453161086357,
+        "hausdorff_distance_mm": 0.005805850326702883
       },
       {
         "z_mm": 4.8,
-        "symmetric_difference_mm2": 0.0009326797809924934,
-        "hausdorff_distance_mm": 0.0061733657549980945
+        "symmetric_difference_mm2": 0.0007457490022525517,
+        "hausdorff_distance_mm": 0.005723500795677827
       },
       {
         "z_mm": 4.92,
-        "symmetric_difference_mm2": 0.0010336032732064862,
-        "hausdorff_distance_mm": 0.006120987543143356
+        "symmetric_difference_mm2": 0.0001334706844272938,
+        "hausdorff_distance_mm": 0.0036873164420677023
       },
       {
         "z_mm": 5.04,
-        "symmetric_difference_mm2": 0.0006867123109008759,
-        "hausdorff_distance_mm": 0.006083312337375559
+        "symmetric_difference_mm2": 0.0006279429915342971,
+        "hausdorff_distance_mm": 0.006465006500237523
       },
       {
         "z_mm": 5.16,
-        "symmetric_difference_mm2": 0.0005240898038319669,
-        "hausdorff_distance_mm": 0.0036784269722355558
+        "symmetric_difference_mm2": 0.0006662038467273317,
+        "hausdorff_distance_mm": 0.005431465346929277
       },
       {
         "z_mm": 5.28,
-        "symmetric_difference_mm2": 0.00028350825431902637,
-        "hausdorff_distance_mm": 0.005975371639193838
+        "symmetric_difference_mm2": 0.00043624973952421665,
+        "hausdorff_distance_mm": 0.0063434730368664705
       },
       {
         "z_mm": 5.4,
-        "symmetric_difference_mm2": 0.0005079183895858426,
-        "hausdorff_distance_mm": 0.005710788785114624
+        "symmetric_difference_mm2": 0.00031090901433512884,
+        "hausdorff_distance_mm": 0.005697350451593806
       },
       {
         "z_mm": 5.52,
-        "symmetric_difference_mm2": 0.0011572372006857067,
-        "hausdorff_distance_mm": 0.006174809899878974
+        "symmetric_difference_mm2": 0.0011147465167677213,
+        "hausdorff_distance_mm": 0.006405161015396039
       },
       {
         "z_mm": 5.64,
-        "symmetric_difference_mm2": 0.0014404620576728487,
-        "hausdorff_distance_mm": 0.005626383539683427
+        "symmetric_difference_mm2": 0.0005982682892597265,
+        "hausdorff_distance_mm": 0.0059985381170489915
       },
       {
         "z_mm": 5.76,
-        "symmetric_difference_mm2": 0.0018274837345078024,
-        "hausdorff_distance_mm": 0.012247248001335035
+        "symmetric_difference_mm2": 0.0004428627452376868,
+        "hausdorff_distance_mm": 0.004000683563173047
       },
       {
         "z_mm": 5.88,
-        "symmetric_difference_mm2": 0.001250086379571087,
-        "hausdorff_distance_mm": 0.019238615957219377
+        "symmetric_difference_mm2": 0.0009614708128989116,
+        "hausdorff_distance_mm": 0.006287358136273266
       },
       {
         "z_mm": 6.0,
-        "symmetric_difference_mm2": 0.0005110415231653275,
-        "hausdorff_distance_mm": 0.023665959159232204
+        "symmetric_difference_mm2": 0.0006689109199048174,
+        "hausdorff_distance_mm": 0.006368300124366511
       },
       {
         "z_mm": 6.12,

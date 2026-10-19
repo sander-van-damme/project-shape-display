@@ -1,101 +1,89 @@
-# E-302 — verificatie revisie 3, 18 oktober 2026
+# E-302 — verificatie revisie 4, 19 oktober 2026
 
-Geen fysieke print, pasproef of motorproef uitgevoerd. READY betekent dat het
-gevraagde digitale printpakket gecontroleerd is, niet dat fysieke succescriteria
-al zijn behaald.
+De eigenaar heeft **revisie 3 fysiek geprint** en gemengde resultaten gemeld:
+[volledige feedback](resultaten.md). Revisie 4 verwerkt die opmerkingen.
+READY betekent hier een gecontroleerd digitaal printpakket; de nieuwe lengte,
+montage en rechtopstaande schroef met zijsteunen zijn nog niet fysiek bewezen.
 
-| Controle | Uitkomst / bewijs |
+| Controle | Resultaat / bewijs |
 |---|---|
-| Remote | Eerste versie basis0383489; vorige revisie505bb91; lange schroef op nieuwe eigenaarfeedback; remote opgehaald, geen andere wijzigingen |
-| Meshes | Tien bron-STLs gesloten, consistent georiënteerd, één lichaam per STL; plaat10 lichamen |
-| CAD-review | Drie kopvarianten ×25 standen; 50-mm pin met lange schroef,3-mm slag; ook daadwerkelijke helical draadpassing getest; geen nominale botsingen |
-| Motorsteun | Aanvullende veren buiten de PCB-opening; meer cilindrische steun boven/onder; nominale0,1-mm veerinterferentie, geen gemeten klemkracht |
-| PCB-uitsparing | Complementaire helften; volledige ruimte X−8…−2,5,Y±3,5,Z2…10,5 vrij in gemonteerde CAD |
-| Toegevoegde pinnen | Eén korte schroef +18-mm pin ongewijzigd;50-mm pin behoudt onderste18 mm en6-mm draad; lange schroef48 mm draad/50,4 mm totaal |
-| Lange schroef |48 mm draad/50,4 mm totaal; horizontaal op supports. Zelfde voet en profiel; minimaal5 mm ruimte boven punt in50-mm pin |
-| Objectinstellingen |Globaal supports0; alleen lange schroef normale snug supports +3-mm brim; overrides identiek na heropenen |
-| Axiaal | Bestaande ring/dek/keeper behouden; nominale onderschouderruimte0,49 mm, keeper0,3 mm; diepe ribben zonder axiale tandwielstop |
-| Officiële Bambu Studio | Versie02.08.02.61; bouw/slice en zelfstandige heropening/reslice beide exit0 |
-| Instellingen | Printer X1 Carbon/nozzle0,4, PLA en proces opgeslagen; geen verschillen na heropening |
-| Toolpathlobben | Alle4 koppelingen, ieder64 rechte boringlagen; alle3 lobben aanwezig, centrale radius0,80 mm open, beide slices |
-| Kleinste lobe-uitsteking | A0,235; N1 circa0,195; N2 circa0,196; C0,146 mm, berekend uit nominale extrusievoetafdruk |
-| Ondersteuning | Negen supportvrije onderdelen zonder nieuwe ongeankerde eilanden boven0,005 mm²; lange schroef apart op werkelijke support-/interfacebanen gecontroleerd |
-| Frameveerbrug | Eerste bruglaagZ4,08,3 X-brugbanen met beide einden ondersteund; vrije span9,98 mm |
-| Vierkante holte kop | Dakbrug maximaal10,38 mm met ondersteunde uiteinden; fysieke doorhang onbekend |
-| Afbeeldingen | Montage, plaat, echte rib-toolpaths en eerste veerbruglaag visueel bekeken |
-| Lange print |417 lagen tot slicerZ50,04;366 bovenlagen gesloten contour, kernradius0,60 vrij, geen nieuwe ongeankerde eilanden; voet12 mm behouden |
-| Fysiek | Onbekend: PCB-envelope, motorstabiliteit, montagekracht, tandpassing, slip, tweede motorhoogte, slijtage |
+| Remote als eerste stap | `git pull --ff-only origin main`; basis `9a57fd6`, daarna op lokale `main` gewerkt |
+| Kortere kop | Alleen C, twee identieke exemplaren; totale lengte 17,6 → 15,6 mm; motoruiteinde 2 mm korter, interfaces erboven behouden |
+| Meshes | Acht plaatlichamen, gesloten en consistent georiënteerd; ondersteunde schroef is één verbonden mesh |
+| Frame / korte delen | Framegeometrie behouden; korte schroef en 18-mm pin byte-identiek aan E-301; 50-mm pin behoudt onderste 18 mm |
+| Rigid CAD | C bij 25 rotatiestanden, korte/lange schroef en 3-mm pinverplaatsing; geen nominale botsingen |
+| Axiale grens | Mond Z13,2, rechte ribben Z13,7–19,5; werkelijke tandoverlap onbekend, foto-afgeleide top Z14,2 geeft slechts 0,5 mm overlap |
+| Lange schroef | Functionele geometrie behouden; rechtop, twee zijtorens, acht nekken van 0,45 × 0,24 mm op vier hoogtes per zijde |
+| Bambu Studio | Officiële versie 02.08.02.61; slice en zelfstandige heropening/reslice exit 0, zonder externe profielen bij heropening |
+| Instellingen | X1 Carbon / nozzle 0,4 / PLA en werkelijk proces opgeslagen; geen globale verschillen, objectinstellingen identiek |
+| 3MF / STL | Alle acht meshes matchen; maximale tweezijdige vertexafwijking circa 0,000011 mm; rapporthashes kloppen |
+| Lobben | Beide C-koppen elk 47 rechte boringlagen gecontroleerd, alle drie ribben aanwezig, centrale radius 0,80 mm vrij |
+| Lobe-uitsteking | Minimaal circa 0,146 mm in nominale baanvoetafdruk; ribtipradius circa 1,054–1,081 mm, geen fysieke maatmeting |
+| Algemene laagcontrole | Alle acht onderdelen zonder nieuwe ongeankerde eilanden groter dan 0,005 mm² |
+| Bruggen | Beide framehelften elk drie volledige X-brugbanen met beide einden verankerd; vrije span circa 9,98 mm; kopdak circa 10,38 mm |
+| Lange-schroefbanen | 420 lagen tot Z50,40; kerncontour doorlopend, alle 16 draadgangen met draadtop; acht nekken elk twee lagen, armen tot toren gevolgd |
+| Supports / boringen | Geen automatische supportbanen; beide pinboringen open; zijsteunen zijn modelgeometrie, alleen lange schroef heeft 3-mm brim |
+| Pinnen | 18-mm pin 150 lagen; 50-mm pin 417 lagen tot Z50,04, alle 366 bovenlagen gesloten rondom open kern |
+| Visuele controle | Montage, plaat, ribbanen, framebrug en rechtopstaande schroefbanen bekeken |
+| Fysieke grens | Nieuwe overlap, slip, printstabiliteit, supportverwijdering, asbelasting en slijtage nog onbekend |
 
-**Bambu-check is uitgevoerd via de officiële Bambu Studio CLI-engine**, met
-heropening van het uiteindelijke project zonder externe profielen. Geen interactieve
-GUI-inspectie geclaimd. De afbeeldingen zijn uit werkelijke G-code gemaakt.
-De twee slices hebben gelijk opgeslagen instellingen maar kleine verschillen in
-banen; beide zijn apart gecontroleerd. Zie `microstepper-frame-v2-build.json`
-voor hashes en roundtrip, `saved-settings.json` voor globale waarden en
-`saved-object-settings.json` voor de lokale supportinstellingen.
+Bambu is gecontroleerd via de **officiële CLI-engine**, niet door een interactieve
+GUI-sessie. De twee slices verschillen enigszins in banen, ondanks identieke
+instellingen; beide zijn afzonderlijk gecontroleerd. De eerste schat **13,22 g /
+4u12m01s**, de heropende **13,22 g / 4u12m07s**. Modeltijd respectievelijk
+3u56m21s en 3u56m27s. Geen fysieke tijd- of materiaalmeting.
 
-De herziene oorspronkelijke slice schat14,13 g en4u17m16s totaal (model4u01m37s).
-De zelfstandige heropening schat4u17m34s en heeft dezelfde opgeslagen globale en objectinstellingen.
-Zie `long-screw-review-reopened.json` voor de apart gecontroleerde supportbanen.
-Schattingen zijn geen fysieke waarnemingen. Niet alle CAD-contouren worden exact
-gevolgd: de gemeten nominale ribtipradius in de slice is A0,962–0,986,
-N1 1,007–1,032,N2 1,007–1,031,C1,054–1,081 mm. Daarom worden drie kleine
-passingsvarianten en twee identieke nominale koppen geleverd.
+De nekcontrole volgt een schuine arm door opeenvolgende lagen terug tot de toren:
+zij eist geen horizontale verbinding met de toren op één laag. Dit controleert
+printbare samenhang, geen berekende of gemeten mechanische stijfheid. De smalle
+contacten kunnen nog steeds de draad beschadigen bij het verwijderen.
 
-Zie ook [lange pin: printstabiliteit en grenzen](pin-print-verification.md) en
-[lange schroef: daadwerkelijke supports en verwijdering](long-screw-support.md).
-
-![Werkelijke ribbanen](lobe-review-original.png)
-![Eerste veerbruglaag met vorige laag grijs](support-review.png)
+![Ribbanen van beide kortere C-koppen](lobe-review-original.png)
+![Framebrug, vorige laag grijs](support-review.png)
 
 ## Reproductie
 
-Eigenaar: open de meegeleverde3MF; onderstaande stappen zijn alleen voor engineering.
-Python: numpy,trimesh,manifold3d,scipy,shapely,matplotlib,networkx. OpenSCAD voor gewijzigde CAD; BOSL2 vastgezet op
-`136e6367e65d52196a3ea51d03156f8b622c60fc` voor de lange schroef.
-Vanuit repositoryroot:
+Eigenaar: open de meegeleverde 3MF. Onderstaande stappen zijn voor engineering.
+Python: numpy, trimesh, manifold3d, scipy, shapely, matplotlib, networkx.
+OpenSCAD en BOSL2 commit `136e6367e65d52196a3ea51d03156f8b622c60fc`.
+Vanuit repositoryroot, met zelfgekozen lokale toolpaden:
 
 ```sh
 python owner-print-tests/2026-10-18-microstepper-frame-v2/generate.py --bosl2 /pad/naar/BOSL2
 python owner-print-tests/2026-10-18-microstepper-frame-v2/review_geometry.py
+python owner-print-tests/2026-10-18-microstepper-frame-v2/review_dimensions.py
+python owner-print-tests/2026-10-18-microstepper-frame-v2/drawings.py
 python owner-print-tests/2026-10-18-microstepper-frame-v2/build_project.py \
   --bambu /pad/naar/bambu-studio --resources /pad/naar/resources \
-  --scratch work/e302-long-screw/slice \
+  --scratch work/e302-v4/slice \
   --stl owner-print-tests/2026-10-18-microstepper-frame-v2/microstepper-frame-v2.stl \
-  --out owner-print-tests/2026-10-18-microstepper-frame-v2/microstepper-frame-v2.3mf \
-  --name 'E-302 revision 3 supported long screw X1C PLA'
+  --out owner-print-tests/2026-10-18-microstepper-frame-v2/microstepper-frame-v2.3mf
 ```
 
-`review_lobes.py PROJECT OUT.json`, `review_support.py PROJECT OUT.json`
-en `review_pins.py PROJECT OUT.json`
-controleren zowel de opgeslagen als de door de bouwer heropende3MF. De scripts
-gebruiken de bestaande `owner-print-tests/validate-bambu-project.py` G-codelezer.
-`drawings.py` reproduceert montageafbeeldingen. `review_geometry.py` gebruikt
-de meegeleverde schroef/pin-STLs en vergelijkt die met de E-301-bronnen.
-`review_dimensions.py` documenteert de voorwaardelijke tandprofielcontrole;
-`review_archive.py` vergelijkt alle10 meshes met de opgeslagen3MF en controleert
-rapporthashes. De repo is de volledige reproductiebron.
+Voer `review_lobes.py PROJECT OUT.json`, `review_support.py PROJECT OUT.json`,
+`review_pins.py PROJECT OUT.json` en `review_long_screw.py PROJECT OUT.json` elk uit
+op zowel de opgeleverde als de heropende 3MF. Ze gebruiken de bestaande
+`owner-print-tests/validate-bambu-project.py` G-codelezer. Bewaar de globale
+`Metadata/project_settings.config` als `saved-settings.json`; de lokale instellingen
+komen uit `build_project.object_settings`. `review_archive.py` controleert tot slot
+geometrie en de hashes van de slicerapporten. De `*-reopened.json`-rapporten verwijzen
+naar het afzonderlijk gereslicete project in de scratchmap, waarvan de hash in de
+rapporten staat; de primaire download blijft de eerste 3MF.
 
 Officiële Bambu AppImage:
 <https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/BambuStudio_ubuntu24.04-v02.08.02.61-20260820225108.AppImage>.
 SHA256 `d501b103fac5424513ec0e8d6bc145fb30719de2c7d94d7320d723740c81a7fd`
-gecontroleerd vóór gebruik. Ontbrekende runtimebibliotheken via ondertekende
-Debian-APT-metadata lokaal uitgepakt; geen TLS/signatuurcontrole uitgeschakeld.
+gecontroleerd. Ontbrekende runtimebibliotheken lokaal uitgepakt uit pakketten
+via ondertekende Debian-APT-metadata. Tijdelijke tools/logs blijven buiten Git.
 
-Repositorycheck: bestaande grootteoverschrijdingen in E-266/E-283/E-286/E-288/E-293
-en beide AGENTS-bestanden; geen van die bestanden gewijzigd. Geen nieuw E-302
-structuurprobleem. Tijdelijke tools blijven buiten de oplevering.
+`./repo check`: alleen de bestaande groottewaarschuwingen voor E-266/E-283/E-286/
+E-288/E-293 en `owner-print-tests/AGENTS.md`; geen nieuw structuurprobleem.
+`git diff --check` zonder fouten. Deze wijzigingen raken geen software/elektronica.
 
-## Historie van deze correctie
+## Herkomst en behouden negatieve evidence
 
-Commit3d554a3 bevatte de eerste E-302-plaat zonder schroeven/pinnen en met twee
-kleinere zijvensters. Na eigenaarfeedback vervangen door deze revisie met één
-gezamenlijke uitsparing, complementaire helften, meer cilindersteun en volledige
-schroef/pin-testonderdelen. Oude bestanden en meetclaims zijn geen actuele
-printinstructies; de eerste versie blijft in Git-historie. De koppelingmaten
-bleven behouden na bron- en voorwaardelijke profielcontrole; A blijft marginaal.
-
-Revisie3 voegt op expliciet verzoek de lange schroef toe en vervangt daarmee
-één korte schroef. De schroef wordt horizontaal met normale supports geprint.
-De bijgewerkte montageafbeelding toont nu de lange schroef in de50-mm pin.
-Supportlittekens en fysieke passing blijven een afzonderlijke fysieke test.
+De geprinte revisie 3 is terug te vinden op `9a57fd6`. A/N-koppen en de horizontale
+schroef-STL blijven historische bronnen; ze staan niet op de nieuwe plaat.
+De eigenaarfeedback is ongewijzigd vastgelegd naast een afzonderlijk leeg formulier
+voor revisie 4. De eerdere CAD-/slicerresultaten blijven in Git-historie beschikbaar;
+de rapporten in deze map gelden nu uitsluitend voor revisie 4.

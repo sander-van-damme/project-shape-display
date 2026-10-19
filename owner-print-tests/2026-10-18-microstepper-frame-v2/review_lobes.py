@@ -16,7 +16,7 @@ for part in layout:
  cx,cy=np.array(part['center_xy'])+shift
  layers=collections.defaultdict(list)
  for p in paths:
-  if abs((p['x']+p['x1'])/2-cx)<6.6 and abs((p['y']+p['y1'])/2-cy)<6.6 and 9.48<=p['z']<=17.04:layers[p['z']].append(p)
+  if abs((p['x']+p['x1'])/2-cx)<6.6 and abs((p['y']+p['y1'])/2-cy)<6.6 and 9.48<=p['z']<=15.00:layers[p['z']].append(p)
  rows=[]
  for z,ps in sorted(layers.items()):
   fp=reader.footprint(ps);center=Point(cx,cy)
@@ -28,11 +28,11 @@ for part in layout:
   if abs(z-12)<.01:plots.append((part['name'],ps,cx,cy))
  report['parts'].append({'name':part['name'],'layers':len(rows),'min_contrast_mm':min(r['min_contrast'] for r in rows),'tip_radius_range_mm':[min(min(r['tip_radii']) for r in rows),max(max(r['tip_radii']) for r in rows)],'valley_radius_range_mm':[min(min(r['valley_radii']) for r in rows),max(max(r['valley_radii']) for r in rows)],'all_core_r080_open':all(r['core_r080_open'] for r in rows),'layer_details':rows})
 report['project_sha256']=hashlib.sha256(project.read_bytes()).hexdigest()
-assert all(p['layers']==64 and p['min_contrast_mm']>.14 and p['all_core_r080_open'] for p in report['parts'])
+assert all(p['layers']==47 and p['min_contrast_mm']>.14 and p['all_core_r080_open'] for p in report['parts'])
 out.write_text(json.dumps(report,indent=2)+'\n')
 import matplotlib;matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-fig,axes=plt.subplots(1,4,figsize=(12,3.5))
+fig,axes=plt.subplots(1,2,figsize=(8,3.5))
 for ax,(name,ps,cx,cy) in zip(axes,plots):
  for p in ps:ax.plot([p['x']-cx,p['x1']-cx],[p['y']-cy,p['y1']-cy],linewidth=max(.5,p['width']*7),color='#286d8c',solid_capstyle='round')
  ax.set_aspect('equal');ax.set_xlim(-1.7,1.7);ax.set_ylim(-1.7,1.7);ax.set_title(name+' at Z=12 mm');ax.set_xlabel('mm');ax.grid(alpha=.15)

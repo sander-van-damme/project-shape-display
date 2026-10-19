@@ -1,6 +1,6 @@
 {
   "scope": "Nominal G-code widths and layer footprints; not physical bridge quality or fit.",
-  "project_sha256": "3b163b6e1c00ec3630b8de9a4e74e15adbf7fd2e7b7a5ad61e82e7326ec426bd",
+  "project_sha256": "2c2dce670235c41e9d1ba3ba4414fffee740d674c40f456a3426bd6d9469c6a7",
   "parts": [
     {
       "name": "frame-front",
@@ -311,8 +311,8 @@
       "full_width_X_bridge_spans_anchored_at_both_ends": 3
     },
     {
-      "name": "A",
-      "layers": 147,
+      "name": "C1",
+      "layers": 130,
       "unsupported_islands": [],
       "max_free_bridge_overhang_span_mm": 10.380008000000032,
       "max_span_record": {
@@ -328,42 +328,8 @@
       "square_socket_roof_max_span_mm": 10.380008000000032
     },
     {
-      "name": "N1",
-      "layers": 147,
-      "unsupported_islands": [],
-      "max_free_bridge_overhang_span_mm": 10.380008000000032,
-      "max_span_record": {
-        "z": 2.76,
-        "role": "Bridge",
-        "free_span_mm": 10.380008000000032,
-        "start_distance_mm": 0.0,
-        "end_distance_mm": 0.0,
-        "dx_mm": 0.0,
-        "dy_mm": -10.980000000000018
-      },
-      "flexure_bridge_paths": [],
-      "square_socket_roof_max_span_mm": 10.380008000000032
-    },
-    {
-      "name": "N2",
-      "layers": 147,
-      "unsupported_islands": [],
-      "max_free_bridge_overhang_span_mm": 10.380008000000032,
-      "max_span_record": {
-        "z": 2.76,
-        "role": "Bridge",
-        "free_span_mm": 10.380008000000032,
-        "start_distance_mm": 0.0,
-        "end_distance_mm": 0.0,
-        "dx_mm": 0.0,
-        "dy_mm": -10.980000000000018
-      },
-      "flexure_bridge_paths": [],
-      "square_socket_roof_max_span_mm": 10.380008000000032
-    },
-    {
-      "name": "C",
-      "layers": 147,
+      "name": "C2",
+      "layers": 130,
       "unsupported_islands": [],
       "max_free_bridge_overhang_span_mm": 10.380008000000032,
       "max_span_record": {
@@ -404,8 +370,25 @@
       "max_span_record": null,
       "flexure_bridge_paths": [],
       "square_socket_roof_max_span_mm": 0
+    },
+    {
+      "name": "screw-50-supported",
+      "layers": 420,
+      "unsupported_islands": [],
+      "max_free_bridge_overhang_span_mm": 0.10000000000000853,
+      "max_span_record": {
+        "z": 11.4,
+        "role": "Overhang wall",
+        "free_span_mm": 0.10000000000000853,
+        "start_distance_mm": 0.1898039999999952,
+        "end_distance_mm": 0.21052932111656739,
+        "dx_mm": -0.10000000000000853,
+        "dy_mm": 0.0
+      },
+      "flexure_bridge_paths": [],
+      "square_socket_roof_max_span_mm": 0
     }
   ],
-  "separate_review": "Horizontal long screw excluded from same-layer contact gate because its supports have a deliberate 0.24 mm release gap; see long-screw-review.json and long-screw-review-reopened.json.",
-  "gate": "PASS: nine unchanged parts have footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested"
+  "separate_review": "Upright screw and towers included in layer connectivity check; sparse necks independently checked in long-screw-review.json.",
+  "gate": "PASS: all eight parts have footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested"
 }

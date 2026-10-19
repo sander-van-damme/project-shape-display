@@ -9,12 +9,12 @@ p=h/'microstepper-frame-v2.3mf'
 with zipfile.ZipFile(p) as z:
  b,objects,points,_=r.project_bounds(z);settings=json.loads(z.read('Metadata/project_settings.config'))
 m=trimesh.load(h/'microstepper-frame-v2.stl',force='mesh');v=m.vertices+(b[0]-m.bounds[0]);error=max(cKDTree(points).query(v)[0].max(),cKDTree(v).query(points)[0].max())
-assert error<.0001 and len(objects)==10
+assert error<.0001 and len(objects)==8
 assert settings['printer_model']=='Bambu Lab X1 Carbon' and settings['nozzle_diameter']==['0.4'] and settings['enable_support']=='0'
 spec2=importlib.util.spec_from_file_location('builder',h/'build_project.py');builder=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(builder)
 with zipfile.ZipFile(p) as z: local=builder.object_settings(z)
-assert len(local)==10 and sum(v.get('enable_support')=='1' for v in local.values())==1
-assert next(k for k,v in local.items() if v.get('enable_support')=='1').endswith('screw-50-supported')
+assert len(local)==8 and all(v.get('enable_support')=='0' for v in local.values())
+assert next(v for k,v in local.items() if k.endswith('screw-50-supported'))['brim_width']=='3'
 sha=hashlib.sha256(p.read_bytes()).hexdigest()
 for n in ['lobe-review-original.json','support-review.json','pin-review.json','long-screw-review.json']:
  assert json.loads((h/n).read_text())['project_sha256']==sha,n

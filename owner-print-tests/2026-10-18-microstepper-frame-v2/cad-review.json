@@ -1,22 +1,18 @@
 {
   "scope": "Independent nominal rigid CAD clearance screen, not physical fit or spring force validation",
   "source_sha256": {
-    "rig.scad": "8db562685a58b48e6e5eee7bc1e602e3b4a2b1d1936de877f1000103a75a8e52",
-    "half-front.stl": "3fee9c2982fd4103e277cb988dfccdcbc9c784d9d02fd2af987bbad5eec84993",
-    "half-back.stl": "87b25d03bc429654195f21462734ae599c43b7b9dc3a553d316cec776f4d6701",
+    "rig.scad": "505adfe4c6cdd51c2d410fedadfe1373dc942d89cb2b8d819706fff421ae9580",
+    "half-front.stl": "f01b164639a537ea9b34953f52dd175502165b44e7ad32a9b8559071c36cb0ec",
+    "half-back.stl": "6a7681afa5daf78cd5e4b0e972b40b038a6564d8c846f764f9ac13e5f51c9bfe",
     "pin-50.stl": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19",
     "pin-18.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d",
     "screw.stl": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243",
-    "coupling-A.stl": "0cd1be4c2f932e2350bf49d57ff72a28ae657cd34facabb3b7b6630e16fe20ea",
-    "coupling-N.stl": "a00e91d855c861ad3c54f409b5fe07183f9f2afef789dea4deed685b477b4150",
-    "coupling-C.stl": "83f6f128c70683a9d2235ea021054997118978cb35696a69b3cdbbfa5b73b33b",
+    "coupling-C.stl": "1a6a5480d155fc47b56129520f3f9e19a95046ed94678a5db905c46137e55a59",
     "screw-long.stl": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a",
     "long-screw.scad": "2a1fa4a2ce8f653251822b2cfd609b3ee35ec781a12efb818bfb70b531498c06"
   },
   "rotation_positions": 25,
   "variants": [
-    "A",
-    "N",
     "C"
   ],
   "pin_height_mm": 50,
@@ -49,6 +45,9 @@
   "opposite_side_support_mm3": 125.999997737758,
   "nominal_motor_body_contact_interference_mm3": 0.5633527016811534,
   "nominal_clearances_mm": {
+    "socket_mouth_assembled_z": 13.2,
+    "coupling_total_height": 15.6,
+    "shortening": 2.0,
     "socket_shoulder_to_thrust_deck": 0.49,
     "journal_diametral": 0.5,
     "screw_foot_to_keeper": 0.3,
@@ -87,14 +86,30 @@
       "screw_upper_pin_mm3": 0.0,
       "screw_frame_mm3": 0.0,
       "pin_frame_mm3": 0.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     "limitations": [
-      "CAD clearance does not prove thread fit after horizontal supported printing.",
+      "CAD clearance does not prove thread fit after upright braced printing.",
       "Support removal can mark the thread; hand-fit before motor operation.",
       "Only the existing 3 mm travel is screened; the longer screw does not qualify additional travel."
     ]
+  },
+  "coupling_shortening": {
+    "baseline_commit": "9a57fd6",
+    "baseline_sha256": "83f6f128c70683a9d2235ea021054997118978cb35696a69b3cdbbfa5b73b33b",
+    "old_height_mm": 17.599999618530717,
+    "new_height_mm": 15.599999618530717,
+    "removed_height_mm": 2.0,
+    "retained_region_print_z_mm": [
+      0,
+      15.09
+    ],
+    "retained_region_symmetric_difference_mm3": 8.788916280282969e-06,
+    "straight_lobe_assembled_z_mm": [
+      13.7,
+      19.5
+    ],
+    "photo_based_maximum_straight_overlap_mm": 0.5,
+    "physical_overlap_unknown": true
   }
 }

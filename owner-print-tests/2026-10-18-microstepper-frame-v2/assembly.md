@@ -1,4 +1,4 @@
-# E-302 — montage, revisie 3
+# E-302 — montage, revisie 4
 
 ![Open frame, krachtpad en motorzitting](assembly.png)
 
@@ -12,18 +12,14 @@ Dezelfde spoed, draaddiameter, onderste 6-mm binnendraad en vierkante schroefvoe
 Geen tape, lijm, slang, nieuwe elektronica of bewerking van functionele vlakken.
 De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper klemmen.
 
-1. Verwijder eerst de supports van de lange schroef zoals hieronder beschreven.
-   Maak de bestaande opstelling spanningsloos. Neem onderdelen van de afgekoelde
-   plaat; herken A aan **één** inkeping in de vierkante kop, N aan **twee**, C
-   aan **drie**. N1 en N2 zijn identiek: markeer ze volgens hun plaats op de
-   [plaat](plate.png). Inspecteer de twee dunne motorbruggen op losse draden,
-   scheuren of doorhang. Laat de dunne 12-mm printvoet aan beide pinnen zitten;
-   die blijft onder de geleiding. Afkeur bij functionele nabewerking: niet passend snijden.
-2. Probeer N1 eerst **los van het frame** op het tandwiel. Ondersteun het motorhuis,
-   verdraai de kop licht om de drie ribben met tandruimtes uit te lijnen en schuif
-   hem zonder druk over de tanden. Niet doorduwen naar de bodem. Trek weer recht
-   af. Doe dit met N2; zo wordt printvariatie zichtbaar. Bij te strak: probeer C;
-   bij vrij ronddraaien: probeer A. Stop als alle varianten klemmen of slippen.
+1. Verwijder de zijsteunen van de lange schroef volgens de instructies hieronder.
+   Maak de opstelling spanningsloos. Beide actuele koppen C1/C2 hebben **drie
+   inkepingen** en zijn identiek, 2 mm korter dan de geprinte revisie 3.
+   De eigenaar vond A te strak en beide N-koppen gingen kapot; deze staan niet meer
+   op de plaat. Laat de dunne printvoeten aan de pinnen zitten.
+2. Pas C1 en C2 eerst los op het tandwiel: licht verdraaien om de drie ribben met
+   tandruimtes uit te lijnen, zonder druk opschuiven en recht afnemen. De positieve
+   eigenaarfeedback betrof C op de oude lengte; deze nieuwe lengte is nog ongetest.
 3. Leg één framehelft met open zijde omhoog. Leg de motorbodem op de framevoet
    (Z2); richt het printplaatje naar **de open X-zijkant**, niet naar een veerbrug.
    Het metalen huis raakt de verende bruggen; PCB, soldeerpunten en alle vier
@@ -36,8 +32,8 @@ De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper kle
    de koppeling voorzichtig over het tandwiel en leg de hals in het lagerdek.
    De ring ligt **boven op het dek**, onder de vierkante houder. Ondersteun het
    motorhuis zodat geen hefboom of merkbare duwkracht op de as ontstaat.
-5. Controleer de vrije hoogte voordat het frame sluit. De mond ligt op Z11,2,
-   de volledige ribben lopen van **Z11,7 tot Z19,5**; de holte is blind bij Z19,5.
+5. Controleer de vrije hoogte voordat het frame sluit. De mond ligt op Z13,2,
+   de volledige ribben lopen van **Z13,7 tot Z19,5**; de holte is blind bij Z19,5.
    Meet tandonder- en tandbovenkant ten opzichte van de onderzijde van het frame.
    Vereis minstens **0,6 mm werkelijke overlap van tanden met het rechte ribgebied**
    en minstens **0,5 mm ruimte onder het holtedak**, ook wanneer de schroef licht
@@ -71,47 +67,53 @@ De ring blijft noodzakelijk: een dikkere ring kan de schroef tegen de keeper kle
 ## Axiale tolerantie beoordelen
 
 Bereken bij tandbereik `[onder, boven]` de overlap:
-`max(0, min(boven,19,5) − max(onder,11,7))` mm.
+`max(0, min(boven,19,5) − max(onder,13,7))` mm.
 Controleer daarnaast dakruimte `19,5 − boven ≥ 0,5 mm`, mond/flensruimte en de
-maximale 0,3-mm beweging van de houder. De ribben zijn doorgaand over 7,8 mm,
-maar **7,8 mm is geen bewezen toegestane variatie in tandwielhoogte**.
+maximale 0,3-mm beweging van de houder. De ribben zijn doorgaand over 5,8 mm,
+maar **5,8 mm is geen bewezen toegestane variatie in tandwielhoogte**.
 De minimale overlap van 0,6 mm is een voorlopige testgrens, geen berekende koppelgarantie.
 Bij onvoldoende overlap: geen motorproef. Noteer de werkelijk gemeten hoogtes.
+
+**Gevolg van de gevraagde inkorting:** de rechte ribben beginnen nu 2 mm hoger.
+Als de werkelijke tandtop precies op de foto-afgeleide Z14,2 ligt, blijft slechts
+0,5 mm maximale rechte overlap over, nog vóór axiale speling. Dat ligt onder de
+voorlopige 0,6-mm testgrens. De eigenaar heeft de werkelijke tandhoogte niet opgegeven;
+controleer die dus bij montage en start bij onvoldoende overlap geen motorproef.
+De oude CAD-ruimte garandeerde immers ook geen passende fysieke montage.
 
 ## De overschuifverbinding en de maatfoto
 
 De foto noemt een tandwiel van Ø2,2 mm met 9 tanden/module 0,2. De koppeling
 heeft een Ø2,5-mm vrijloopboring, onderbroken door drie ronde ribben. Het is dus
-geen eenvoudige ronde Ø2,5-mm klemhuls. De nominale ribuiteinden liggen op
-straal 0,95 / 1,00 / 1,05 mm (A / N / C) en grijpen 0,15 / 0,10 / 0,05 mm
-binnen de tandtopcirkel aan. Begin met N; A is de krapste testvariant.
+geen eenvoudige ronde Ø2,5-mm klemhuls. De nominale ribuiteinden van de gekozen C liggen op straal **1,05 mm** en grijpen
+0,05 mm binnen de nominale tandtopcirkel aan. De radiale passing is ongewijzigd.
 
 De 4 mm op de foto is de **totale uitsteking boven het huis**, niet de tandlengte.
 De foto geeft geen drukhoek of exact tandprofiel. Een controle met een aangenomen
 standaardprofiel toont geen nominale botsing, maar bewijst de werkelijke passing niet.
 Zie [maatcontrole](dimension-review.json). Alle montage moet zonder forceren kunnen.
 
-## Supports van de lange schroef verwijderen
+## Zijsteunen van de lange schroef verwijderen
 
-![Werkelijke supportbanen onder de lange schroef](long-screw-review.png)
+![Werkelijke printbanen en dunne zijverbinding](long-screw-review.png)
 
-De lange schroef ligt horizontaal: de as ligt 5 mm boven de plaat en het geheel
-is slechts 10 mm hoog tijdens het printen. Normale, vanaf de plaat opgebouwde
-supports ondersteunen de onderzijde langs de draad; alleen dit object heeft
-supports en een buitenbrim van 3 mm. De pinnen en koppelingen krijgen geen supports.
-Deze plaatsing vermijdt een 50-mm hoge, vrijstaande dunne schroef tijdens de print.
+De lange schroef staat **rechtop**, op haar bestaande vierkante voet. Twee
+meegetekende torens staan links en rechts. Elke toren raakt de draad op vier
+hoogtes met een nek van 0,45 mm breed en 0,24 mm hoog. Automatische supports zijn
+uit; er is geen supportmantel rond de draad en geen support in de pinboringen.
+Alleen het lange-schroefobject heeft een 3-mm buitenbrim.
 
-Laat de plaat afkoelen, buig de flexplaat en neem schroef en supports samen los.
-Ondersteun de schroef dicht bij de plaats waar je werkt. Knip zonodig alleen de
-supportbasis/brim in kleine stukken; pel de supports voorzichtig naar beneden weg.
-Gebruik geen lange hefboom op de dunne schroef en snijd/schuur de tanden niet passend.
-De 0,24-mm verticale scheiding en twee interfacelagen zijn opgeslagen in de 3MF.
+Laat de plaat afkoelen, maak de brim los en neem de hele constructie voorzichtig
+van de plaat. Ondersteun de schroef direct naast elke verbinding en knip de
+smalle nek met een kleine vlakke kniptang lokaal door. Werk van boven naar beneden,
+wissel de zijden af. Trek of buig de hele toren niet van de dunne schroef weg.
+Neem na het losknippen de torens en brim weg; behoud de vierkante schroefvoet.
 
-Bekijk vooral de onderste halve draadomtrek op vastzittende PLA, afgebroken tanden,
-kromming en blijvende ruwe plekken. Controleer de passing eerst zonder motor.
-Bij schade of vastlopen: stoppen en rapporteren. Supportverwijdering zonder
-littekens is **niet fysiek bewezen**; dit is een expliciet onderdeel van de test.
-De dunne printvoeten aan de pinnen blijven zitten.
+De acht contactjes zijn **vast geprint**, zonder lossingsafstand. Ze beperken
+het raakvlak maar kunnen nog steeds littekens veroorzaken. Controleer elk punt
+op resten, afgebroken draadtoppen en kromming. Eerst met de hand door de pin draaien;
+geen motor gebruiken om resten weg te drukken, geen draad passend schuren/snijden.
+Bij klemmen of schade stoppen. Zie [supportdetails](long-screw-support.md).
 
 Met de lange schroef ligt de punt nominaal op Z76,6; de 50-mm pin eindigt bij de
 laagste proefpositie op Z81,6. Er blijft dus 5 mm ruimte boven de schroefpunt.

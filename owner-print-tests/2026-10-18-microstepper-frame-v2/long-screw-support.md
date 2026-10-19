@@ -1,76 +1,70 @@
-# E-302 — lange schroef met verwijderbare supports
+# E-302 — rechtopstaande lange schroef met plaatselijke zijsteunen
 
-De lange schroef heeft **48 mm schroefdraad en 50,4 mm totale lengte**, inclusief
-de behouden vierkante voet. In de 3MF ligt zij horizontaal: de as ligt 5 mm boven
-het bed, de totale printhoogte is slechts 10 mm. Normale supports lopen vanaf de
-plaat onder de draad. Zo ontstaat geen vrijstaande schroefkolom van 50 mm.
+**Revisie 4, 19 oktober 2026.** De eigenaar rapporteerde dat de horizontaal
+geprinte revisie 3 slecht printte en dat de moeilijk verwijderbare supports de
+werking hinderden. Deze revisie vervangt die printopstelling; zij is nog niet
+fysiek geprobeerd. De functionele schroef blijft **48 mm draad / 50,4 mm totaal**.
 
-![Werkelijke banen van schroef en supports](long-screw-review.png)
+![Werkelijke G-code van rechtopstaande schroef en zijsteunen](long-screw-review.png)
 
-## Opgeslagen instellingen
+## Constructie en instellingen
 
-Alleen object `10-screw-50-supported` krijgt supports. De andere negen objecten
-hebben expliciet `enable_support=0`, zodat pinboringen en koppelingen vrij blijven.
-De globale instelling staat eveneens uit; de **objectinstelling** schakelt de
-supports voor de lange schroef in. Zie [opgeslagen objectinstellingen](saved-object-settings.json).
+`long-screw-supported.scad` voegt aan `screw-long.stl` twee torens toe. Ze staan
+op X ±7,5 mm; elke toren heeft een 3 × 3-mm doorsnede en een voet van 4 × 8 × 0,48 mm.
+Vier oplopende armen per toren eindigen bij een draadtop, met een kleine nek van
+**0,45 mm breed × 0,24 mm hoog** (0,85 mm lang, deels overlappend). De armen stijgen
+ongeveer 45° en worden laag voor laag vanuit de toren opgebouwd. Per zijde zit
+12 mm tussen de contacten; het bovenste contact ligt slechts circa 3 mm onder de punt.
 
-| Instelling lange schroef | Waarde |
-|---|---|
-| Type / stijl / plaatsing | Normal(auto), snug, alleen vanaf bouwplaat |
-| Supporthoek / kleine overhangen verwijderen | 45° / uit |
-| Bovenste / onderste Z-afstand | 0,24 / 0,24 mm |
-| XY-afstand | 0,35 mm |
-| Bovenste interface | 2 lagen, rectilinear, tussenruimte 0,2 mm |
-| Basispatroon tussenruimte | 2 mm |
-| Support / interfacesnelheid | 20 / 15 mm/s |
-| Brim lange schroef | Buitenom, 3 mm, afstand 0,12 mm |
+| Zijde | Nominale contacthoogtes vanaf bed, mm | Werkelijke contactlagen in beide slices, mm |
+|---|---|---|
+| X− | 9,96 / 21,96 / 33,96 / 45,96 | Elke genoemde hoogte en de laag 0,12 mm erboven |
+| X+ | 11,40 / 23,40 / 35,40 / 47,40 | Elke genoemde hoogte en de laag 0,12 mm erboven |
 
-De schroef behoudt het bestaande draadprofiel; alleen de lengte en printoriëntatie
-zijn gewijzigd. Model-laaghoogte 0,12 mm, PLA, X1 Carbon met 0,4-mm nozzle.
+De contacten raken de draadtop plaatselijk. Er is **geen lossingsafstand**:
+het zijn dunne vaste afbreekverbindingen, geen automatisch gegenereerde supports.
+Knip ze lokaal door. Een garantie van schadevrije verwijdering volgt hier niet uit.
 
-## Controle van de echte slice
+Object `08-screw-50-supported` omvat de schroef én de beide torens; het heeft een
+3-mm buitenbrim met 0,12-mm afstand. Automatische supports staan globaal en op
+**alle acht objecten uit**, zodat geen supportmantel of gevulde binnendraad ontstaat.
+X1 Carbon / 0,4-mm nozzle / PLA, 0,12-mm lagen. Volledig proces in
+[saved-settings.json](saved-settings.json), lokale brim in
+[saved-object-settings.json](saved-object-settings.json).
+
+## Werkelijke slicecontrole
 
 Bambu Studio **02.08.02.61** heeft de opgeslagen 3MF zelfstandig heropend en opnieuw
 gesliced zonder externe profielen. Globale en objectinstellingen bleven gelijk.
-`review_long_screw.py` controleerde beide G-codes; de onderstaande resultaten zijn
-voor beide gelijk.
+`review_long_screw.py` controleert beide G-codes; resultaten:
 
-| Controle | Resultaat |
-|---|---|
-| Hoogste schroeflaag | Z 9,96 mm; CAD-hoogte 10 mm |
-| Supportbanen / interfacebanen | 4.776 / 2.387 |
-| Support buiten het lange-schroefgebied | Geen |
-| Support vanaf bouwplaat | Vanaf Z 0,12 mm; eerste nominale footprint 320,02 mm² |
-| Supportinterface, projectie langs draad | Plaat-X 10,737–58,395 mm; draad X 10,4–58,4 mm |
-| Lengtedekking in stroken van 0,1 mm | 477 / 480 stroken, 99,375%; grootste ongedekte reeks 0,3 mm bij de voet |
-| Nieuwe model-eilandjes boven support | Alle 16; verticale opening 0,24–0,36 mm door laagafronding |
-| Nieuwe model-eilandjes zonder onderliggende support | Geen |
+- 420 model-lagen tot Z50,40; doorlopende schroefkerncontour op alle lagen.
+- Alle 16 draadgangen behouden een uitgesproken draadtop in de nominale baanvoetafdruk.
+- Alle acht nekken verbinden draad en arm op twee lagen. De oplopende arm wordt
+  via opeenvolgende overlappende laagcontouren teruggevolgd tot zijn toren.
+- Beide torens zijn aanwezig vanaf de bouwplaat tot Z47,52, met brede eerste-laagvoeten.
+- Geen losse nieuwe laageilandjes, geen extra arm/draadverbindingen buiten de acht contactzones.
+- Geen automatische supportbanen op de hele plaat; pinboringen blijven vrij.
 
-Deze controle gebruikt nominale extrusiebreedtes. Lengtedekking betekent dat
-supportinterface onder die X-strook aanwezig is; het is geen claim dat ieder punt
-van de schroef over het hele oppervlak wordt gedragen. De bovenste draadlagen
-bouwen verder op de schroef zelf. De negen andere onderdelen behouden de bestaande
-laagcontactcontrole; pinnen en koppelingen bevatten geen slicersupport.
-
-De complete plaat wordt geschat op **14,13 g PLA en 4u17m16s**; de heropende slice
-schat 4u17m34s. Geen fysieke print, passing, stijfheid of supportverwijdering getest.
+Het volledige pakket wordt geschat op **13,22 g en 4u12m01s**; na heropening
+4u12m07s. Dit zijn slicerschattingen, geen werkelijk verbruik of printtijd.
+Nominale baanoverlap bewijst geen hechting, materiaalsterkte of trillingsvrij printen.
 
 ## Verwijderen en testen
 
-Laat de plaat afkoelen en neem schroef en supports samen van de flexplaat. Ondersteun
-de schroef vlak bij de plaats waar je support losmaakt. Pel de support in kleine
-stukjes van de onderzijde; buig niet aan de hele lange schroef. Verwijder ook de
-brim rond de voet, maar behoud de functionele vierkante voet zelf.
+Laat afkoelen, maak de brim los en neem de complete constructie van de plaat.
+Ondersteun de schroef vlak naast het contact. Knip met een kleine vlakke kniptang
+de dunne nekken afzonderlijk door, van boven naar beneden en afwisselend links/rechts.
+Buig of trek niet aan de hele toren. Verwijder torens en brim; behoud de vierkante
+schroefvoet. Controleer alle acht contactplaatsen op PLA-resten, scheuren,
+afgebroken draadtoppen en kromming. Draai eerst met de hand door de 50-mm pin.
+Stop bij klemmen; de motor mag de verbinding niet forceren.
 
-De support raakt de buitenste schroefdraad. Controleer die onderzijde op PLA-resten,
-afgebroken draadtoppen en littekens. Draai de schroef **eerst met de hand** door de
-50-mm pin over het bruikbare draadtraject. Stop bij klemmen of beschadiging; laat
-de motor de verbinding niet forceren. Noteer schoonmaaktijd en beschadiging in het
-resultatenformulier. Verwijderbaarheid en draadkwaliteit blijven fysieke testpunten.
-
-De 50-mm vrouwelijke pin staat nog op haar bestaande brede voet; daar zitten geen
-supports in de boring. De lange schroef krijgt de hier getoonde steunconstructie.
+De torens beperken de vrije schroeflengte tijdens printen. Hun praktische
+stabiliteit en de verwijderbaarheid blijven fysieke testpunten in [resultaten.md](resultaten.md).
+De pinnen behouden hun bestaande integrale printvoet; die blijft aan de pin zitten.
 
 Bewijs: [eerste slice](long-screw-review.json),
 [heropende slice](long-screw-review-reopened.json),
 [bouw en roundtrip](microstepper-frame-v2-build.json).
+De oude horizontale STL is historische evidence, geen actuele printinstructie.

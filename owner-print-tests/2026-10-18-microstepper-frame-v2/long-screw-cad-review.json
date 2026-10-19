@@ -24,8 +24,6 @@
     "screw_upper_pin_mm3": 0.0,
     "screw_frame_mm3": 0.0,
     "pin_frame_mm3": 0.0,
-    "screw_cup_A_mm3": 0.0,
-    "screw_cup_N_mm3": 0.0,
     "screw_cup_C_mm3": 0.0
   },
   "poses": [
@@ -38,8 +36,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.0,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -51,8 +47,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.125,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -64,8 +58,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.25,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -77,8 +69,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.375,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -90,8 +80,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.5,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -103,8 +91,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.625,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -116,8 +102,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.75,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -129,8 +113,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 5.875,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -142,8 +124,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.0,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -155,8 +135,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.125,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -168,8 +146,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.25,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -181,8 +157,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.375,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -194,8 +168,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.5,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -207,8 +179,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.625,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -220,8 +190,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.75,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -233,8 +201,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 6.875,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -246,8 +212,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.0,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -259,8 +223,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.125,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -272,8 +234,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.25,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -285,8 +245,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.375,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -298,8 +256,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.5,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -311,8 +267,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.625,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -324,8 +278,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.75,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -337,8 +289,6 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 7.875,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     },
     {
@@ -350,13 +300,11 @@
       "pin_frame_mm3": 0.0,
       "screw_tip_below_pin_top_mm": 8.0,
       "full_thread_engagement_mm": 6.0,
-      "screw_cup_A_mm3": 0.0,
-      "screw_cup_N_mm3": 0.0,
       "screw_cup_C_mm3": 0.0
     }
   ],
   "limitations": [
-    "CAD clearance does not prove thread fit after horizontal supported printing.",
+    "CAD clearance does not prove thread fit after upright braced printing.",
     "Support removal can mark the thread; hand-fit before motor operation.",
     "Only the existing 3 mm travel is screened; the longer screw does not qualify additional travel."
   ]

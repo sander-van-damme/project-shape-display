@@ -1,55 +1,51 @@
-# E-302 — kort resultatenformulier
+# E-302 — eigenaarresultaten en formulier revisie 4
 
-**Status: nog niet fysiek getest.** Alleen invullen wat werkelijk is uitgevoerd.
+## Vastgelegde eigenaarfeedback — 19 oktober 2026, revisie 3
 
-Datum: ____  3MF-bestand: ____  Filament/printer: ____  Instellingen gewijzigd: ____\
-Werkelijke printtijd / filament: ____  Print gelukt: [ ] ja [ ] deels [ ] nee\
-Bruggen heel, geen losse draden/doorhang in motorvak: ____\
-Schroef/pin: [ ] meegeprint [ ] hergebruikt; ring 0,50 mm: ____
-Combinatie: [ ] korte schroef + 18-mm pin [ ] lange schroef + 50-mm pin. Rechte lange pin, voet vast tijdens print: ____
-Lange pin: kromming, laagverschuiving, stringing of draadschade: ____
+Bron: rechtstreeks eigenaarsbericht bij deze wijzigingsopdracht. De eigenaar
+meldt dat `owner-print-tests/2026-10-18-microstepper-frame-v2` is geprint.
+Printdatum, exacte 3MF-hash, werkelijk gebruikte printer/filament/procesinstellingen,
+printtijd en verbruik zijn niet opgegeven.
 
-## Lange schroef en supports
+| Onderdeel | Fysieke eigenaarobservatie | Besluit voor revisie 4 |
+|---|---|---|
+| A, één inkeping | Te strak | Niet opnieuw aanbieden |
+| Beide N, twee inkepingen | Gingen kapot | Niet opnieuw aanbieden; schadeoorzaak niet gemeten |
+| C, drie inkepingen | Goed | Dezelfde radiale passing behouden |
+| Schuifkop samen met motor | Te lang; past niet samen in frame | Onderzijde huls 2 mm inkorten |
+| Lange schroef, horizontale supports | Slecht geprint; supports zeer moeilijk te verwijderen; schroef werkte niet goed | Rechtop met plaatselijke zijsteunen |
+| Korte schroef | Geen probleem | Ongewijzigd |
 
-Schroef horizontaal geprint met supports zoals opgeslagen: ____
-Schroef/supportbasis bleef tijdens print op plaats, geen zichtbare beweging: ____
-Supportverwijdering: [ ] eenvoudig [ ] lastig [ ] afgebroken/schade [ ] niet getest.
-Onderste draadzijde: [ ] schoon [ ] ruwe plekken [ ] PLA-resten [ ] tandschade.
-Schroef recht na verwijderen: ____  Zonder nabewerking met de hand passend: ____
-Vastlopen/schade bij ondersteunde draadzone: ____  Foto (optioneel): ____
+Geen gekwantificeerde slip-, koppel-, slag- of levensduurmeting gerapporteerd.
+Geen geslaagde complete E-302-motor/frameproef uit deze opmerkingen afleiden.
+De oude revisie staat in Git op basiscommit `9a57fd6`; mislukte varianten blijven bewijs.
 
-## Motorzitting
+## Revisie 4 — nog niet fysiek getest
 
-Motor-ID: ____  Huis Ø/lengte, gemeten of bronopgave: ____\
-Zonder snijden/schuren/forceren gemonteerd: ____\
-Uitsparingen beide helften op dezelfde zijde; PCB, vier draden en soldeerpunten vrij: ____\
-Huis kantelt/verdraait bij handrotatie of beweging: ____\
-Elastiekjes gemakkelijk te plaatsen/verwijderen: ____\
-Veerbruggen intact / blijvende vervorming na demontage: ____
+Alleen invullen wat werkelijk is uitgevoerd; leeg betekent onbekend.
 
-## Koppeling — dezelfde motor voor eerste vergelijking
+Datum: ____  3MF-bestand/hash: ____  Printer/filament: ____  Gewijzigde instellingen: ____\
+Werkelijke printtijd/verbruik: ____  Geprinte onderdelen: ____
 
-| Kop | Op/af zonder kracht? | Merkbare speling/slip? | 3× herplaatsen gelukt? | 5× op/neer zonder slip? |
+### Lange schroef, rechtop
+
+Beide zijsteunvoeten/brim bleven vast: ____  Zichtbaar wiebelen/laagverschuiving: ____\
+Alle acht dunne verbindingen aanwezig: ____  Steunen lokaal losgeknipt: ____\
+Verwijdering: [ ] eenvoudig [ ] lastig [ ] draadschade [ ] niet getest.\
+Resterende PLA, kromming of afgebroken draadtoppen: ____\
+Handmatig passend in 50-mm pin over gebruikte draadzone: ____  Vastlopen: ____
+
+### Kortere C-koppen
+
+| Kop | Op/af zonder kracht | Past met motor in frame | Werkelijke tandoverlap / dakruimte | Slip / schade |
 |---|---|---|---|---|
-| N1 | ____ | ____ | ____ | ____ |
-| N2 identiek | ____ | ____ | ____ | ____ |
-| A (1 inkeping) | ____ | ____ | ____ | ____ |
-| C (3 inkepingen) | ____ | ____ | ____ | ____ |
+| C1, drie inkepingen | ____ | ____ | ____ / ____ mm | ____ |
+| C2, identiek | ____ | ____ | ____ / ____ mm | ____ |
 
-Geen bewegingstest uitgevoerd? Schrijf “niet getest”. N1/N2 verschil: ____
+Tandonder-/bovenkant vanaf onderzijde frame: ____ / ____ mm.\
+Mond vrij van motorflens, ring draagt last, geen merkbare asbelasting: ____\
+Motorhuis stevig, PCB/draden vrij: ____  Drie keer hermonteren: ____\
+Vijf korte op/neerbewegingen: ____  Veilige werkelijk gecontroleerde slag: ____\
+Tweede motor getest: ____  Foto (optioneel): ____
 
-## Axiale tolerantie — hoogtes vanaf onderzijde frame
-
-| Motor-ID / kop | Tanden onder/boven Z mm | Overlap rechte ribben mm | Dakruimte mm | Mond/flens vrij? | Eenvoudig gemonteerd, geen asbeweging? |
-|---|---|---|---|---|---|
-| ____ | ____ / ____ | ____ | ____ | ____ | ____ |
-| ____ | ____ / ____ | ____ | ____ | ____ | ____ |
-
-Meetmethode / schatting: ____  Tweede motor niet beschikbaar: ____\
-Ring/keeper dragen axiale last; motoras beweegt niet zichtbaar mee: ____\
-Werkelijk gecontroleerde veilige pinhoogtes boven frame: ____ tot ____ mm.\
-Slip via markeringen gezien / vastlopen / koppeling slijt: ____
-
-**Uitkomst:** [ ] voldoet [ ] deels [ ] voldoet niet [ ] onbeslist [ ] nog niet getest.\
-Probleemlocatie en foto (optioneel): ____  Voorkeursvariant: ____\
-Geen fysieke meting/waarneming gedaan? Laat het veld leeg of schrijf onbekend.
+**Uitkomst revisie 4:** [ ] voldoet [ ] deels [ ] voldoet niet [ ] onbeslist [ ] nog niet getest.

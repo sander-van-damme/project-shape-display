@@ -13,7 +13,6 @@ layout=json.loads((here/'layout.json').read_text());source_lo=np.min([p['bounds_
 shift=bounds[0,:2]-source_lo[:2]-np.array([float(x) for x in cfg['extruder_offset'][0].split('x')])
 report={'scope':'Nominal G-code widths and layer footprints; not physical bridge quality or fit.','project_sha256':hashlib.sha256(project.read_bytes()).hexdigest(),'parts':[]};plotdata=[]
 for part in layout:
- if part['name']=='screw-50-supported':continue # Deliberate removable Z-gap; reviewed by review_long_screw.py.
  lo,hi=np.array(part['bounds_mm']);lo[:2]+=shift;hi[:2]+=shift
  layers=collections.defaultdict(list)
  for p in paths:
@@ -43,8 +42,8 @@ for p in report['parts']:
   spans=[r for r in p['flexure_bridge_paths'] if abs(r['dx_mm'])>10 and abs(r['dy_mm'])<.01]
   assert spans and all(r['start_distance_mm']<.01 and r['end_distance_mm']<.01 for r in spans)
   p['full_width_X_bridge_spans_anchored_at_both_ends']=len(spans)
-report['separate_review']='Horizontal long screw excluded from same-layer contact gate because its supports have a deliberate 0.24 mm release gap; see long-screw-review.json and long-screw-review-reopened.json.'
-report['gate']='PASS: nine unchanged parts have footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested'
+report['separate_review']='Upright screw and towers included in layer connectivity check; sparse necks independently checked in long-screw-review.json.'
+report['gate']='PASS: all eight parts have footprint connectivity and anchored full-width X flexure bridge paths; physical bridge sag remains untested'
 out.write_text(json.dumps(report,indent=2)+'\n')
 import matplotlib;matplotlib.use('Agg')
 import matplotlib.pyplot as plt

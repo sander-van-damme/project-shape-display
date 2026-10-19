@@ -21,8 +21,8 @@ steekcirkel≈0,314 mm. Negen kleine interne involuuttanden zijn daarmee geen
 betrouwbare standaardkeuze bij een0,4-mm-nozzle. Drie120° verdeelde ronde
 wandlobben grijpen bij9 tanden telkens elke derde tandruimte aan. Er wordt
 slechts ondiep op buitenste flanken gemikt. Rondingradius0,5 mm, basisboringØ2,5;
-radiale tipposities A0,95/N1,00/C1,05 mm. Alle hebben identieke7,8-mm rechte lengte
-plus0,5-mm inloop. Een werkelijk afwijkend tandprofiel kan elke variant afkeuren.
+radiale tipposities A0,95/N1,00/C1,05 mm. Historische A/N/C hadden 7,8-mm rechte lengte plus 0,5-mm inloop.
+Revisie 4 behoudt alleen C met 5,8-mm rechte lengte plus dezelfde inloop. Een werkelijk afwijkend tandprofiel kan elke variant afkeuren.
 
 De lobben zijn verbonden met een dikke Ø5-mm buitencilinder, geen losse
 sub-nozzle tandjes. Toolpathcontrole meet daadwerkelijk de binnencontour en
@@ -63,10 +63,9 @@ te observeren. Geen support in de draad en geen functionele nabewerking.
 1,8 mm en standaard tandtopdiameter 2,2 mm. Vrijloopboring 2,5 mm laat 0,15 mm
 radiale ruimte buiten de tandtoppen, behalve de drie aangrijpingsribben.
 Een **aangenomen**, niet gemeten 20° standaard-involuut geeft minimale berekende
-flankboogruimte A≈0,014 / N≈0,070 / C≈0,143 mm. A is dus marginaal; begin met N.
+flankboogruimte A≈0,014 / N≈0,070 / C≈0,143 mm. A is analytisch marginaal en bleek fysiek te strak.
 De werkelijke drukhoek, ondersnijding en tandvorm ontbreken; dit is geen
-gevalideerde maatvoering voor alle motoren. De bestaande drie varianten blijven
-bewust behouden als fysieke passingtest. De 4-mm foto-uitsteking is geen tandlengte.
+gevalideerde maatvoering voor alle motoren. De eigenaar koos C; beide N-exemplaren gingen kapot. Alleen C wordt opnieuw aangeboden. De 4-mm foto-uitsteking is geen tandlengte.
 
 ## Parameters voor feedback
 
@@ -74,7 +73,7 @@ bewust behouden als fysieke passingtest. De 4-mm foto-uitsteking is geen tandlen
 `tip_r`, `socket_bottom`, `socket_top`. Geen wijziging van de schroef/pin nodig.
 Bij aanpassen altijd STL en3MF opnieuw genereren, heropenen en opnieuw controleren.
 
-## Lange schroef met supports — revisie 3
+## Historie: lange schroef met supports — revisie 3 (vervangen)
 
 Na de eerdere toevoeging van de 50-mm pin vroeg de eigenaar ook een bijpassende
 lange schroef en supports tegen wiebelen. `long-screw.scad` gebruikt dezelfde
@@ -89,3 +88,24 @@ alleen de lange schroef heeft echte Bambu-supportbanen langs de onderzijde en ee
 printen verandert de laagoriëntatie en kan littekens op de onderste draadflanken
 geven. De digitale controle bewijst ondersteuning, niet schadevrije verwijdering
 of fysieke passing. Beide worden apart in het resultatenformulier geregistreerd.
+
+## Eigenaarfeedback en revisie 4 — 19 oktober 2026
+
+Remote eerst opgehaald met `git pull --ff-only origin main`; basis `9a57fd6`.
+[Fysieke eigenaarresultaten](resultaten.md): A te strak, beide N kapot, C goed;
+kop met motor te lang voor frame; horizontale lange schroef slecht geprint en
+supports lastig te verwijderen; korte schroef geen probleem. Werkelijk gebruikte
+instellingen onbekend. Geen nieuwe gemeten slag, koppel of volledige montageslaag.
+
+C is 2 mm aan het motoruiteinde ingekort, mond Z13,2 en rechte ribben Z13,7–19,5;
+ringvlak, lagerhals en schroefvoet blijven op dezelfde hoogte. De foto-afgeleide
+Z14,2-tandtop zou nog slechts 0,5 mm rechte overlap geven: fysieke hoogtemeting
+blijft nodig, geen passingclaim op basis van die foto.
+
+`long-screw-supported.scad` voegt aan de ongewijzigde lange schroef twee torens
+met acht kleine afbreekverbindingen toe; de functionele schroef wordt rechtop
+geprint. Contacten zitten bij de draadtoppen, per zijde 12 mm uit elkaar. De
+steunen zijn geometrie, automatische supports blijven uit. Schadevrije verwijdering
+en printstabiliteit zijn nog onbekend; controleer de werkelijke banen en test met de hand.
+`coupling-A.stl`, `coupling-N.stl` en `screw-long-horizontal.stl` zijn uitsluitend
+historische bronnen. De oude C en complete revisie 3 zijn terug te vinden op `9a57fd6`.

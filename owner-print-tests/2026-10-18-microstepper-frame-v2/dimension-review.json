@@ -22,31 +22,13 @@
     "lobe_count": 3,
     "plain_bore_radial_tip_clearance_mm": 0.15,
     "straight_lobe_z_mm": [
-      11.7,
+      13.7,
       19.5
     ],
     "photo_gear_top_z_mm": 14.2,
     "gear_top_to_socket_roof_mm": 5.3
   },
   "variants": [
-    {
-      "name": "A",
-      "lobe_tip_radius_mm": 0.95,
-      "nominal_radial_tip_engagement_mm": 0.15000000000000013,
-      "minimum_angular_arc_clearance_mm": 0.014109837376382686,
-      "radius_at_minimum_mm": 1.08206,
-      "angular_clearance_degrees": 0.747125049703963,
-      "assumed_profile_has_overlap": false
-    },
-    {
-      "name": "N",
-      "lobe_tip_radius_mm": 1,
-      "nominal_radial_tip_engagement_mm": 0.10000000000000009,
-      "minimum_angular_arc_clearance_mm": 0.06981725875035641,
-      "radius_at_minimum_mm": 1.1,
-      "angular_clearance_degrees": 3.636576603243853,
-      "assumed_profile_has_overlap": false
-    },
     {
       "name": "C",
       "lobe_tip_radius_mm": 1.05,
@@ -60,7 +42,7 @@
   "limitations": [
     "20-degree pressure angle, profile shift, tooth shape and root geometry are not supplied or measured; a nine-tooth gear can be undercut or nonstandard.",
     "Arc clearance is a same-radius angular gap, not a guaranteed minimum Euclidean manufacturing clearance.",
-    "A has very small ideal flank clearance; all three variants require a no-force physical slip-on test before motor use.",
+    "Owner selected original C by hand fit; the 2 mm shorter C still needs physical overlap and powered-motion verification.",
     "Printed contours, shrinkage, eccentricity, debris, tooth length and second-motor protrusion are not represented.",
     "Photo four-mm dimension is total shaft-plus-gear projection, not gear tooth length.",
     "Axial overlap cannot be certified without measuring tooth lower/upper heights; require at least .6mm actual overlap with straight lobes and no contact with shaft shoulder or roof.",

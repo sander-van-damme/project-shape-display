@@ -1,5 +1,5 @@
 {
-  "body_count": 10,
+  "body_count": 8,
   "bounds_mm": [
     [
       2.0,
@@ -9,7 +9,7 @@
     [
       78.0,
       98.0,
-      50.0
+      50.4
     ]
   ],
   "parts": {
@@ -18,20 +18,20 @@
       "watertight": true,
       "sha256": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a"
     },
-    "screw-long-horizontal": {
-      "volume_mm3": 457.24537385345457,
+    "screw-long-supported": {
+      "volume_mm3": 1362.1490484000212,
       "watertight": true,
-      "sha256": "693e6ff50d6c13dac17c096eea6a7f9b2e4d2526558a20517a584aed4b5c08ad"
+      "sha256": "e9bd5ecf996fbaf0ae2508ec57be295fdaadacc2dbf2aebe0f8b9f2d51035c7f"
     },
     "half-front": {
-      "volume_mm3": 3566.4471723230763,
+      "volume_mm3": 3566.4471723230768,
       "watertight": true,
-      "sha256": "3fee9c2982fd4103e277cb988dfccdcbc9c784d9d02fd2af987bbad5eec84993"
+      "sha256": "f01b164639a537ea9b34953f52dd175502165b44e7ad32a9b8559071c36cb0ec"
     },
     "half-back": {
       "volume_mm3": 3566.4471723230768,
       "watertight": true,
-      "sha256": "87b25d03bc429654195f21462734ae599c43b7b9dc3a553d316cec776f4d6701"
+      "sha256": "6a7681afa5daf78cd5e4b0e972b40b038a6564d8c846f764f9ac13e5f51c9bfe"
     },
     "screw": {
       "volume_mm3": 311.8884354761005,
@@ -48,20 +48,10 @@
       "watertight": true,
       "sha256": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19"
     },
-    "coupling-A": {
-      "volume_mm3": 657.4698745921754,
-      "watertight": true,
-      "sha256": "0cd1be4c2f932e2350bf49d57ff72a28ae657cd34facabb3b7b6630e16fe20ea"
-    },
-    "coupling-N": {
-      "volume_mm3": 655.7884060751875,
-      "watertight": true,
-      "sha256": "a00e91d855c861ad3c54f409b5fe07183f9f2afef789dea4deed685b477b4150"
-    },
     "coupling-C": {
-      "volume_mm3": 654.1793046517814,
+      "volume_mm3": 624.166794586351,
       "watertight": true,
-      "sha256": "83f6f128c70683a9d2235ea021054997118978cb35696a69b3cdbbfa5b73b33b"
+      "sha256": "1a6a5480d155fc47b56129520f3f9e19a95046ed94678a5db905c46137e55a59"
     }
   },
   "scope": "CAD only; physical fitting unknown"

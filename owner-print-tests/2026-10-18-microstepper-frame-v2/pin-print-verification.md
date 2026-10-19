@@ -1,4 +1,4 @@
-# E-302 revision 3 — independent tall-pin slice review
+# E-302 revision 4 — independent tall-pin slice review
 
 This is a **computational slice check**, not a physical print qualification. The new
 50 mm pin retains the E-301 lower threaded geometry and integral print foot; only
@@ -25,7 +25,7 @@ The two runs give the same summary results:
 The 50.04 mm slicer Z is rounding to the 0.12 mm layer grid; the CAD/STL height is
 50.00 mm. Checking a clear central disk does not certify the complete female
 thread surface or its physical fit. The lower 51 layers of both pins were compared
-after XY alignment: largest footprint symmetric difference 0.0553 mm² and largest
+after XY alignment: largest footprint symmetric difference 0.0552 mm² and largest
 Hausdorff distance 0.0864 mm. They are close but not bit-identical slice paths;
 these numbers are not measured printer repeatability or a physical tolerance.
 
@@ -44,10 +44,11 @@ After cooling, release the complete part from the flex plate. **Leave the integr
 thin foot attached**: as in E-301 it remains below the frame guide throughout
 the 3 mm trial stroke. No cutting or sanding of this foot or female thread is
 required. Inspect the lower thread and tube for cracks or tearing.
-The stability and removal outcome remain **unperformed / unknown** until printed.
+The owner has printed revision 3 but did not separately report tall-pin stability.
+Its stability and removal outcome remain **unknown**; no new physical result is inferred.
 
-The companion `support-review-reopened.json` checks the nine unmodified support-free parts for disconnected
-layer components; the horizontal long screw has a separate support-interface review. It retains three full-width spring bridge paths anchored at both ends in
+The companion `support-review-reopened.json` checks all eight parts for disconnected
+layer components; the upright long screw also has a separate side-contact review. It retains three full-width spring bridge paths anchored at both ends in
 each frame half, maximum free spring span 9.98 mm and square coupling roof span
 10.38 mm. The bridge image shows the previous layer in grey and current bridge
 paths in orange. These checks do not establish physical bridge sag or spring force.

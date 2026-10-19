@@ -40,28 +40,8 @@
     ]
   },
   {
-    "name": "A",
-    "source": "coupling-A",
-    "bounds_mm": [
-      [
-        3.5,
-        50.5,
-        7.62939e-07
-      ],
-      [
-        16.5,
-        63.5,
-        17.6
-      ]
-    ],
-    "center_xy": [
-      10,
-      57
-    ]
-  },
-  {
-    "name": "N1",
-    "source": "coupling-N",
+    "name": "C1",
+    "source": "coupling-C",
     "bounds_mm": [
       [
         20.5,
@@ -71,7 +51,7 @@
       [
         33.5,
         63.5,
-        17.6
+        15.6
       ]
     ],
     "center_xy": [
@@ -80,8 +60,8 @@
     ]
   },
   {
-    "name": "N2",
-    "source": "coupling-N",
+    "name": "C2",
+    "source": "coupling-C",
     "bounds_mm": [
       [
         37.5,
@@ -91,31 +71,11 @@
       [
         50.5,
         63.5,
-        17.6
+        15.6
       ]
     ],
     "center_xy": [
       44,
-      57
-    ]
-  },
-  {
-    "name": "C",
-    "source": "coupling-C",
-    "bounds_mm": [
-      [
-        54.5,
-        50.5,
-        7.62939e-07
-      ],
-      [
-        67.5,
-        63.5,
-        17.6
-      ]
-    ],
-    "center_xy": [
-      61,
       57
     ]
   },
@@ -181,21 +141,21 @@
   },
   {
     "name": "screw-50-supported",
-    "source": "screw-long-horizontal",
+    "source": "screw-long-supported",
     "bounds_mm": [
       [
-        8.0,
+        17.5,
         88.0,
         0.0
       ],
       [
-        58.4,
+        36.5,
         98.0,
-        10.0
+        50.4
       ]
     ],
     "center_xy": [
-      8,
+      27,
       93
     ]
   }
