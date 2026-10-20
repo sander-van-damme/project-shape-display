@@ -1,113 +1,143 @@
-# E-302 v3 — compacte verificatie
+# E-302 v3 — volledige motorinterfacecorrectie, 20 oktober 2026
 
-**19 oktober 2026.** Repositorybasis `fb132bf`, na `git pull --ff-only origin main`.
-Root-/printtest-/experimentinstructies, missie/prioriteiten, DES-009, E-301 fysieke
-resultaten en v2 CAD/montage/resultaten/revisiegeschiedenis gelezen. Nieuwe
-waarnemingen komen van de eigenaar; er is hier geen fysieke proef uitgevoerd.
+**READY voor de fysieke proef met variant L.** Productie-CAD/STL gecorrigeerd;
+nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. De eerdere
+schone basis `35720ba` en oorspronkelijke audit staan in metadata/archive.
 
-## CAD
+## Maatbasis en bronnen
 
-- Acht plaatobjecten, zeven unieke onderdelen; alle STL-meshes gesloten,
-  consistente oriëntatie en per onderdeel één verbonden lichaam.
-- Geïntegreerde rotor Ø7, totale hoogte28, mond Z12,2, dak Z18,2. Het drie-ribbenprofiel
-  blijft C: basisboringØ2,5, ribafrondingR0,5, tipradius1,05, inloop0,5 mm.
-- De oorspronkelijke korte schroefmesh is boven de vierkante voet afgesneden en
-  met de ronde rotor verenigd. Geen opnieuw gegenereerde benadering van de draad:
-  symmetrisch verschil in het functionele draadgebied circa0,0000068 mm³, numerieke
-  meshprecisie. Spoed3 / draadlengte16 / nominale diameter3,2 behouden.
-- 25 gekoppelde rotatie-/translatiestanden over3 mm: geen nominale rotor-frame-,
-  pin-frame- of rotor-pinbotsing. Oplichting0,30 mm eveneens gecontroleerd.
-  Radiale geleidingØ7,4, pinbovenkant5,2–8,2 boven het40-mm frame.
-- Neerwaartse last via rotorvlak, bestaande ring en draagdek; opwaartse last via
-  ronde rotorschouder en bovenste aanslag. Ring inØ7,3-pocket, zonder CAD-overlap.
-  Werkelijke boss/tandhoogte en asbelasting zijn hiermee niet fysiek bewezen.
-- Stijve motorboringØ8,2; geen veerbruggen. PCB-envelope aan −X vrij. Twee Ø3-pennen
-  met2,8-mm uitsteek, Ø3,5 rond gat en4,2×3,5 sleuf, gatdiepte3,2.
-- Spacers raken geen framevlakken in CAD; 0,60/0,72/0,84 geven nominale tangentiële
-  beschikbare huisbreedte8,20/8,08/7,96. Bij0,84 bestaat opØ8 bewust geringe
-  klem-interferentie; nooit forceren of helften met een open naad gebruiken.
-  De motor kan bij de andere maten iets zijwaarts opschuiven. Geen gemeten voorspanning.
+[Eigenaarmetingen](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md),
+[machineleesbare registratie](metadata/owner-motor-measurements.json),
+[PM08-2 PDF p.1](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/historical/trial-0/micro-stepper-datasheet.pdf).
+De PDF-foto en vooraanzichten tonen twee lipjes; hun precieze contour/dikte is
+niet bemaat. PDF visueel gelezen, niet op schaal uitgemeten. OEM-identiteit
+onbewezen. Meetlatwaarden zijn benaderingen; geen verzonnen fabricagetolerantie.
 
-Rapporten: [CAD](metadata/cad-review.json), [meshes en hashes](metadata/geometry.json).
+| Maat / referentievlak | Oude v3 | Technische bron | Eigenaar | Nieuwe ontwerpwaarde / status |
+|---|---|---|---|---|
+| HuisØ | Zitting8,2; controle8 | PDF tekst8, tekening8,2 max | circa8 | Zitting8,4; controle8 én8,2; 0,1 radiale ruimte bij8,2 |
+| Huishoogte vanaf ondervlak | Zitting8,5; controle7,2 | PDF9,2 zonder boss | 9,2 | Volledig9,2-volume vanaf Z2 |
+| Onder-/bovenvlak | Basis2; oud foto-top10,2 | PDF huislengte9,2 | vlakreferentie bij A–D | Basis2 behouden; top11,2 |
+| Flens/lipjes | Ø11,5 pocket Z9,2–10,3 | Twee lipjes zichtbaar; contour onbemaat | twee bovenste lipjes circa1 | RuimteØ11,5 Z10–11,4; testvolumeØ10,2 ×1,2 tot11,2 is ontwerpenvelope, geen meting |
+| BossØ / hoogte boven huis | Ø4 doorgang, geen solid | zichtbaar, onbemaat | ≈3 /0,25 | Volledig bossvolume; Ø4 doorgang; top11,45 |
+| Kale asØ | oude bron1,5; geen solid | PDF0,8 | ≈0,8 | Ø0,8-volume |
+| Asuiteinde | onbekend | PDF4,1±0,15 uitsteek, andere referentie/motor niet bewezen | ≈0,1 boven tandwiel | L-asuiteinde Z14,55; niet als nul genegeerd |
+| Tandonderkant A | onbekend | niet afzonderlijk bemaat | K1,5 / L2 boven huis | L: Z13,2 |
+| Tandbovenkant B | fototop14,2 | totale uitsteek is geen tandlengte | K2,75 / L3,25; typfout gecorrigeerd | L: Z14,45; K niet vrijgegeven |
+| Tandlengte B−A | onbekend | onbemaat | afgeleid1,25 beide | L1,25 nominale overlapzone |
+| Boss-top tot tandonderkant | onbekend | onbemaat | afgeleid1,75 voor L | L1,75 |
+| TandØ / tanden / module / profiel | Geen tandmesh | Catalogus2,0 versus2,2 /9 /0,2; profiel onbekend | C paste | C-radiaalprofiel onveranderd; Ø2,2-envelope alleen vrijloopcontrole, geen echte tanden |
+| PCB breedte | ruimte7 | PDF onbemaat | 6,5–7 variabel | ruimte8,5; modelbreedte7 |
+| Motor+PCB diepte | oude ruimte X−8…−2,5 | onbemaat | circa10 | Model X−6…−2,5 bij huis tot+4; open zijde tot−9 |
+| PCB hoogte vanaf ondervlak | oude ruimte2–10,5 absoluut | onbemaat | onder2 / boven6 | model Z4–8; brede ruimte Z2–10,01 |
+| Lijm onder PCB | niet apart | onbemaat | varieert | Vrij tot motorsteun Z2; testblok Z2–4, breedte7,8 |
+| Soldeer/draden | PCB-envelope gebruikt | vier draden, geen lokale buigradius | uitsteking varieert; kabels omhoog | Open kanaal X≤−4,2, breedte8,5 door gehele hoogte; testbundel X−7…−4,4, breedte8 |
+| Ring | ID3,2/OD7/0,50 | bestaande component | behouden | Ringbodem12,4, ringtop12,9; pocketØ7,3 |
+| C-profiel / inloop | Ø2,5; 3×R0,5 opR1,55; inloop0,50 | eigen CAD | radiaal passend | Radiaal onveranderd; inloop0,25 voor extra rechte overlap |
+| Draad / proefslag | Ø3,2 /spoed3 /lengte16; slag3 | originele mesh | functioneel | Exacte mesh behouden; slag3, pin18 |
+| Spacers / huisfixatie | 0,60/0,72/0,84 | eigen ontwerp | v3 niet gekwalificeerd | behouden, geen voorspanning bewezen; kies zonder asverschuiving of open naad |
+| Print-/meetspeling | rotor0,2; lift0,3 | ontwerp, geen productiegegevens | meetlat beperkt | behouden; motor-/lijm-/kabelvariatie geen gemeten maximum |
 
-## Bambu Studio en werkelijke banen
+## Eén expliciete axiale keten
 
-Officiële **Bambu Studio02.08.02.61 CLI-engine**, geen interactieve GUI-sessie.
-Geconfigureerd X1 Carbon/0,4/PLA-project opgeslagen, daarna zelfstandig heropend
-**zonder externe profielen** en opnieuw gesliced. Beide exit0; alle globale en
-objectinstellingen behouden. De bestanden verschillen in archiefhash en enkele
-G-codegegevens, maar de gecontroleerde functionele uitkomsten zijn gelijk.
+Z0 framebodem → motorsteun2 → huisbovenkant11,2 → boss11,45.
+Vrije motorruimte tot11,4 → draagdek tot ringbodem12,4 → ringtop/rotormond12,9.
+De uitsparing oversnijdt bij het dek0,01 mm voor booleans: minimale restdikte
+circa0,99 mm, geen onbedoeld0,5-mm dek. Ring ondersteunt de rotor buiten Ø4.
 
-**Slicer-estimatie opgeleverd: 3u04m48s totaal, 2u49m09s modeltijd; heropend:
-3u04m47s / 2u49m08s. Beide 10,70 g PLA / 3,588 m filament.** Geen gemeten printtijd of verbruik.
-De G-code noemt8630,62 bij zijn volumeveld met labelcm³; dit is inconsistent met
-gewicht/lengte en wordt hier niet als8630 cm³ overgenomen (circa8,63 cm³ uit lengte).
+L-tanden13,2–14,45; asuiteinde14,55. Rechte ribben conservatief13,15–18,9;
+bij0,30 lift13,45–19,2. Overlap L bij rust1,25 en bij maximale lift1,00 mm.
+Dakruimte boven as4,35 mm; mond boven boss1,45 mm; ringbodem boven boss0,95 mm.
+De oude voorlopige minimale overlap0,6 wordt nominaal gehaald. Een uitdrukkelijk
+**aangenomen** gevoeligheid van tandtop−0,2 / tandonderkant+0,2 geeft0,80 mm;
+dit is geen bewezen meettolerantie of koppelkwalificatie.
 
-| Controle | Uitkomst |
-|---|---|
-| 3MF versus geleverde STL | Acht meshes; maximale tweezijdige vertexafwijking0,0000109 mm |
-| Laagsamenhang | Geen nieuwe ongeankerde eilanden >0,005 mm² in alle acht objecten |
-| Bruggen | Beide framehelften max2,38 mm, holtedak max2,452 mm; uiteinden op vorige laag verankerd |
-| C-ribben | Alle drie aanwezig op45 gecontroleerde rechte boringlagen; min contrast0,151 mm; ribtipradius1,054–1,076 |
-| Tandwielboring | Centrale radius0,80 vrij in rechte ribzone; dak zonder supports geprint |
-| Schroefdraad | 128 lagen van de volle draadzone elk één verbonden doorsnede; vijf volledige gangen met draadtop tot circaR1,598; topafschuining ook in algemene laagcontrole |
-| Pin | 150 lagen, open centrale radius0,60; bovenbuis vanafZ6,12 gesloten; geen supports in binnendraad |
-| Uitlijning | Beide penkernen doorlopend; rond/sleufgat opZ5,4 open totR1,30, baanbeeld bekeken |
-| Spacers | Strookdikte5/6/6/7 lagen; tabjes verbonden en bereikbaar |
-| Supports/brim | Geen supportbanen; alleen rotor heeft2-mm buitenbrim; pin behoudt12×12-printvoet |
+K geeft met deze geometrie bij maximale lift slechts0,50 mm: **niet vrijgegeven**.
+Een blinde1-mm verhoging van de oude rotor gaf L0,45 / K0 mm. Daarom gekozen:
+ring/rotor+0,7 en inloop0,50→0,25, geen automatische koppelinginkorting met2 mm.
+De functionele ribvorm en draad zijn behouden; alleen de axiale inloop is aangepast.
 
-**Interne spleetjes:** nominale baanvoetafdrukken laten bij sommige schroeflagen
-kleine interne lege plekken tussen de wanden zien, ondanks100% infill. De minimum
-bedekking binnenR0,50 is circa83%; dit is een lokale doorsnedecontrole, geen totale
-porositeit of sterkteberekening. De contour blijft één verbonden lichaam met
-laagverbinding. Een lokale wandvariant gaf geen verbetering; de definitieve levering
-behoudt het oorspronkelijke profiel. Er wordt geen volledig massieve kern geclaimd.
-Printhechting, stevigheid, bramen, maatafwijking en soepel draaien blijven fysiek te beoordelen.
+RotorØ7, bodylengte12 en draadlengte16 behouden; schouder24,9; bovenstop25,2;
+draad24,9–40,9. Bovenste rotorgeleiding, pinbescherming en bovenste uitlijnpunt
+schuiven samen0,7 omhoog. Framehoogte40,7. Pinonderkant27,9–30,9,
+bovenkant45,9–48,9; uitsteek blijft5,2–8,2 en volledige proefslag3 mm.
 
-![Werkelijke baanmiddellijnen: uitlijning, C-ribben, holtedak en draad](images/toolpaths.png)
+Krachtpad: pin → draad/rotor → bestaande ring → draagdek → frame.
+Opwaartse last via rotorschouder/bovenstop. Geen bedoeld axiaal contact met
+boss/as/tandwiel; fysieke klemming of wrijving blijft te controleren.
 
-Rapporten: [opgeleverd](metadata/slice-review.json), [heropend](metadata/slice-review-reopened.json),
-[opgeslagen instellingen](metadata/saved-settings.json), [bouw en objectinstellingen](metadata/microstepper-frame-v3-build.json).
-De kleine spacers zijn bewust dikke stroken met tabjes; geen kwetsbare folie of veren.
-De korte draad staat rechtop boven een7-mm voet met brim: geen horizontale supports
-op de draad. De printbaarheid is digitaal gecontroleerd, fysieke stabiliteit niet bewezen.
+## Uitgevoerde geometriecontrole
 
-## Reproductie in de repository
+`review_geometry.py` toetst de nieuw gegenereerde meshes met een **9,2-mm huis**,
+boss, kale as tot boven de tanden, flensenvelope, PCB, lijm-/kabelenvelopes en
+conservatieve cilindrische tandwielomtrek. Dit is een volledig samengesteld
+ruimte-model met expliciete aannamen, geen bewezen OEM-contour of tandprofiel.
 
-Python3 met numpy, trimesh, manifold3d, scipy, shapely, matplotlib, networkx;
-OpenSCAD2021.01. De CAD-generator gebruikt de bestaande v2 `screw.stl` en
-`pin-18.stl` als vastgelegde functionele meshbronnen. De meshvereniging gebeurt met
-Manifold: OpenSCAD/CGAL gaf bij het snijden van de historische mesh een fout;
-de generator wijst zulke OpenSCAD-foutmeldingen expliciet af.
+- Beide helften: huisØ8 enØ8,2 vrij; oude botsing13,196 mm³ per helft opgelost.
+- PCB, lijmruimte, voorgeschreven kabelroute, flens, boss en as: geen significante
+  frame-/ring-/rotorbotsing. Kabelroute **buiten** de ring; niet willekeurig langs as.
+- 722 standen: rotatie0–360° per graad, gekoppeld aan3-mm slag, op lift0 en0,3.
+  Rotor/frame circa1,7e−14 mm³; pin/frame en rotor/pin nul. Discrete sampling,
+  geen analytisch continu bewijs; ronde bodyvrijloop is rotatie-invariant.
+- Originele draad symmetrisch verschil1,36e−5 mm³, onder meshgrens1e−4.
+- Ring/frame nul; ring/rotor4,91e−6 mm³ (meshprecisie). Contactprobes0,001 mm
+  bevestigen circa25,91 mm² onderste en30,41 mm² bovenste draagvlak.
+- Bovenstop vrij bij0,30; contact bij0,31 (0,24608 mm³). Helften onderling vrij.
+- Spacers: nominale huisinterferentie0 /0,05250 /0,97794 mm³. Geen veerkracht
+  berekend, geen garantie van gecentreerde as bij vastklemmen.
+- Tandcilinder/rib-intersectie circa0,04544 mm³ is **bedoelde** benadering van de
+  passende getande interface; geen botsingsvrije tandmesh geclaimd. Vrijloop van
+  boss/as/rotor en fysieke tandoverlap zijn verschillende bewijsvragen.
 
-```sh
-python owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py
-python owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_geometry.py
-python owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/build_project.py \
-  --bambu /pad/naar/bambu-studio --resources /pad/naar/resources \
-  --scratch work/e302-v3/reproduced \
-  --stl owner-print-tests/2026-10-19-microstepper-frame-v3/components/microstepper-frame-v3.stl \
-  --out owner-print-tests/2026-10-19-microstepper-frame-v3/microstepper-frame-v3.3mf
-python owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_slice.py \
-  owner-print-tests/2026-10-19-microstepper-frame-v3/microstepper-frame-v3.3mf \
-  owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/slice-review.json
-python owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_slice.py \
-  work/e302-v3/reproduced/reopen/microstepper-frame-v3.3mf \
-  owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/slice-review-reopened.json
-```
+Alle nieuwe STLs zijn gesloten en elk één verbonden lichaam. De rapporten onderscheiden digitale vrijgave van fysieke passing. Rapporten: [geometrie](metadata/motor-interface-review.json),
+[axiale keten](metadata/axial-measurement-review.json), [meshes](metadata/geometry.json).
 
-Officiële AppImage uit de v2-verificatie gebruikt, SHA256
-`d501b103fac5424513ec0e8d6bc145fb30719de2c7d94d7320d723740c81a7fd` bevestigd.
-Ontbrekende runtimebibliotheken lokaal uit pakketten met ondertekende Debian-APT-metadata.
-De scripts gebruiken het reeds vastgelegde compact-fit PLA-profiel als basis;
-alle effectieve instellingen zitten in de nieuwe3MF.
+## Slicer, reproductie en grenzen
 
-## Nog fysiek te controleren
+Nieuwe STL-export: `python scripts/generate.py` vanuit deze map.
+Geometrie: `python scripts/review_geometry.py` (exit0 bij READY).
+Axiaal: `python scripts/review_axial_measurements.py`.
+Python numpy/trimesh/manifold3d; OpenSCAD2021.01; originele v2-meshbron behouden.
 
-Werkelijke tandoverlap en boss/PCB-vrijloop; volledige sluiting van de helften;
-motorpassing met hoogstens één spacer; vrije rotatie en ringondersteuning zonder
-asbelasting; vervolgens vijf op/neercycli binnen de handmatig gecontroleerde3 mm.
-Geen duurproef, motorbankkwalificatie of mechanische betrouwbaarheid geclaimd.
-Elektronica/software ongewijzigd. Oudere negatieve resultaten zijn behouden.
+Oude3MF staat in components/archive/2026-10-19. De nieuwe primaire levering is
+[microstepper-frame-v3.3mf](microstepper-frame-v3.3mf).
 
-`./repo check`: alleen bestaande groottewaarschuwingen voor E-266/E-283/E-286/E-288/E-293 en printtest-AGENTS. `git diff --check` zonder fouten.
+**Bambu Studio02.08.02.61 CLI**, officiële Ubuntu22.04-AppImage; lokaal uitgepakt,
+ontbrekende runtimebibliotheken uit ondertekende Debian-APT-snapshot. Geen GUI-sessie.
+SHA256 en runtimebron staan in metadata/provenance.json. Project heropend zonder
+externe profielen en opnieuw gesliced, exit0; geen gewijzigde globale instellingen
+of objectoverrides. Nieuwe banen bekeken in images/toolpaths.png.
+
+- X1 Carbon/0,4 nozzle, Generic PLA, Textured PEI, nozzle220/bed55°C.
+- Laag/eerste laag0,12; Arachne, 2 wanden, nominale lijnbreedte0,45;
+  min bead75%, min feature10%, 100% zigzag-infill.
+- Buitenwand/kleine omtrek/eerste laag/brug15 mm/s, binnenwand20;
+  acceleratie default/binnen1000, buiten/eerste500 mm/s².
+- Supports uit, raft0, per laag. Alleen rotor buitenbrim2 mm, gap0,12;
+  XY/gat/elephant-footcompensatie0. Fan100% na eerste laag, hulpfan0,
+  minimum laagtijd8s. Effectieve instellingen in metadata/saved-settings.json.
+- **2u58m23 totaal /2u42m44 modeltijd,10,20g /3,42091m PLA**; heropening
+  geeft2u58m18 totaal /2u42m39 modeltijd, hetzelfde materiaalverbruik. Geen werkelijke printtijd of materiaalmeting.
+- Meshafwijking3MF/STL maximaal0,00001083 mm. Acht objecten; geen ongeankerde
+  eilanden >0,005 mm². Maximale verankerde brug2,452 mm.
+- C-profiel op47 rechte lagen gecontroleerd, min ribcontrast0,150 mm;
+  centrale radius0,8 open. Draad128 lagen verbonden, vijf volledige gangen.
+- Pin150 lagen, centrale radius0,6 vrij. Uitlijnpenkernen doorlopend;
+  ronde/sleufgaten vrij. Spacers5/6/6/7 lagen.
+- Geen supportbanen;260 brimsegmenten uitsluitend rond rotor op eerste laag,
+  middellijnradius3,824–5,104 mm. Zie metadata/brim-review.json.
+- Zoals bij de oude draad: lokale interne spleetjes blijven in de baanvoetafdruk;
+  minimum dekking binnenR0,50 circa83%. Geen volledig massieve kern of sterkteclaim.
+
+De PCB-uitsparing sluit aan op de flensuitsparing: een klein ongeankerd randje
+uit de eerste conceptslice is verwijderd. Alleen de uiteindelijke plaat is READY.
+Slicerrapporten: metadata/slice-review.json en slice-review-reopened.json.
+Reproduceer met scripts/build_project.py --bambu PATH --resources PATH
+--scratch work/PATH --stl components/microstepper-frame-v3.stl
+--out microstepper-frame-v3.3mf; voer daarna review_slice.py uit voor beide archieven.
+
+Geen fysieke passing, wrijving, koppel, ribflexibiliteit, maatafwijking, slijtage
+of duurbetrouwbaarheid bewezen. Geen nieuwe meetvraag: de eigenaargegevens
+volstaan voor deze nominale correctie; lijm/kabelvariatie en printpassing later
+fysiek controleren. `git diff --check` geslaagd; `./repo check` behoudt de zes
+bestaande groottewaarschuwingen buiten deze map.

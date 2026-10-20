@@ -1,0 +1,5166 @@
+{
+  "status": "READY",
+  "scope": "Corrected L draft: measured body/boss/shaft, PCB and expanded glue/wire/lip envelopes; approximate gear outer cylinder",
+  "motor": [
+    {
+      "diameter_mm": 8.0,
+      "height_mm": 9.2,
+      "bottom_z_mm": 2,
+      "top_z_mm": 11.2,
+      "front_collision_mm3": 1.032702569292443e-16,
+      "back_collision_mm3": 3.004324219957333e-16,
+      "rotor_collision_mm3": 0.0,
+      "ring_collision_mm3": 0.0
+    },
+    {
+      "diameter_mm": 8.2,
+      "height_mm": 9.2,
+      "bottom_z_mm": 2,
+      "top_z_mm": 11.2,
+      "front_collision_mm3": -7.038250868620158e-17,
+      "back_collision_mm3": 3.157196726277789e-16,
+      "rotor_collision_mm3": 0.0,
+      "ring_collision_mm3": 0.0
+    }
+  ],
+  "appendage_checks": {
+    "pcb": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "glue_allowance": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "wire_allowance": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "flange_allowance": {
+      "frame_mm3": 1.3818834314685557e-16,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "boss": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "shaft": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "gear_outer_envelope": {
+      "frame_mm3": 0.0,
+      "ring_mm3": 0.0,
+      "rotor_mm3": 0.045442514140329036
+    }
+  },
+  "complete_motor_frame_collision_mm3": -1.2654521563787939e-15,
+  "unknown_motor_fields": [
+    "gear_diameter_mm",
+    "body_measurement_tolerance_mm"
+  ],
+  "measured_pcb_envelope_collision_mm3": 0.0,
+  "sampled_poses": [
+    {
+      "angle_deg": 0,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 1,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 2,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 3,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 4,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 5,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 6,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 7,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 8,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 9,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 10,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 11,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 12,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 13,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 14,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 15,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 16,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 17,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 18,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 19,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 20,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 21,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 22,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 23,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 24,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 25,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 26,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 27,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 28,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 29,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 30,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 31,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 32,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 33,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 34,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 35,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 36,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 37,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 38,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 39,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 40,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 41,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 42,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 43,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 44,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 45,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 46,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 47,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 48,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 49,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 50,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 51,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 52,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 53,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 54,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 55,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 56,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 57,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 58,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 59,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 60,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 61,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 62,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 63,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 64,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 65,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 66,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 67,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 68,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 69,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 70,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 71,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 72,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 73,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 74,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 75,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 76,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 77,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 78,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 79,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 80,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 81,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 82,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 83,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 84,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 85,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 86,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 87,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 88,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 89,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 90,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 91,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 92,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 93,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 94,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 95,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 96,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 97,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 98,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 99,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 100,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 101,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 102,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 103,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 104,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 105,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 106,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 107,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 108,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 109,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 110,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 111,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 112,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 113,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 114,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 115,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 116,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 117,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 118,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 119,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 120,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 121,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 122,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 123,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 124,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 125,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 126,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 127,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 128,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 129,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 130,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 131,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 132,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 133,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 134,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 135,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 136,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 137,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 138,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 139,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 140,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 141,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 142,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 143,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 144,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 145,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 146,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 147,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 148,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 149,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 150,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 151,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 152,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 153,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 154,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 155,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 156,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 157,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 158,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 159,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 160,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 161,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 162,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 163,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 164,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 165,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 166,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 167,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 168,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 169,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 170,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 171,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 172,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 173,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 174,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 175,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 176,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 177,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 178,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 179,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 180,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 181,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 182,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 183,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 184,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 185,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 186,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 187,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 188,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 189,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 190,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 191,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 192,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 193,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 194,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 195,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 196,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 197,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 198,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 199,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 200,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 201,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 202,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 203,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 204,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 205,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 206,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 207,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 208,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 209,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 210,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 211,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 212,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 213,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 214,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 215,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 216,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 217,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 218,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 219,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 220,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 221,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 222,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 223,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 224,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 225,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 226,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 227,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 228,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 229,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 230,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 231,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 232,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 233,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 234,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 235,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 236,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 237,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 238,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 239,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 240,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 241,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 242,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 243,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 244,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 245,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 246,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 247,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 248,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 249,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 250,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 251,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 252,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 253,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 254,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 255,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 256,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 257,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 258,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 259,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 260,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 261,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 262,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 263,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 264,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 265,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 266,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 267,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 268,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 269,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 270,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 271,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 272,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 273,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 274,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 275,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 276,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 277,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 278,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 279,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 280,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 281,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 282,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 283,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 284,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 285,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 286,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 287,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 288,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 289,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 290,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 291,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 292,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 293,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 294,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 295,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 296,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 297,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 298,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 299,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 300,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 301,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 302,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 303,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 304,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 305,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 306,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 307,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 308,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 309,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 310,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 311,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 312,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 313,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 314,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 315,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 316,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 317,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 318,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 319,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 320,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 321,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 322,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 323,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 324,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 325,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 326,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 327,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 328,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 329,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 330,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 331,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 332,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 333,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 334,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 335,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 336,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 337,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 338,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 339,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 340,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 341,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 342,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 343,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 344,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 345,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 346,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 347,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 348,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 349,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 350,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 351,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 352,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 353,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 354,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 355,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 356,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 357,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 358,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 359,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 360,
+      "lift_mm": 0,
+      "rotor_frame_mm3": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 0,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.53267109746092e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 1,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.422324493767114e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 2,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.3401419690927128e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 3,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.931845830494775e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 4,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.5706836872797503e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 5,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.5644911461639737e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 6,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.417770844642675e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 7,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.2520366687862605e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 8,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.0816681711721685e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 9,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.989795910846027e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 10,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.730169826852368e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 11,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.3809079707781677e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 12,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.966717563423487e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 13,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.429684479807406e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 14,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.957690937807847e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 15,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.692575759051131e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 16,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.656079124684687e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 17,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.1242369802342296e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 18,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.1740421962679335e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 19,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.42301663644662e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 20,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.252648138832528e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 21,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.7718712741764406e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 22,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.1481026592912178e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 23,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.3405075660610777e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 24,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.645453300864631e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 25,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.160381248894616e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 26,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.943669563405498e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 27,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.936914592412744e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 28,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.5050087832111387e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 29,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.2127126559902113e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 30,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.054215420717664e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 31,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.585958349179187e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 32,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.0637939941775585e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 33,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.1787446019262404e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 34,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0938407297989006e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 35,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0628244161495215e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 36,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.181997208443697e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 37,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.4686331577945522e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 38,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.578003337003423e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 39,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.559584488803779e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 40,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.0893798803888206e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 41,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.836368714706719e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 42,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.833414906316394e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 43,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.4835415801959257e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 44,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.985514597324105e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 45,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.99860569602717e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 46,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.6142855552726126e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 47,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.627374872168133e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 48,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.862749555848954e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 49,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.220596090843577e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 50,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.057206823450011e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 51,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.1112204906238432e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 52,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.869926057004541e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 53,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.477931476483011e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 54,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.5544423387359174e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 55,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.823142733261792e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 56,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.4278816724308e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 57,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.4512197667232485e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 58,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.0047036907177027e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 59,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.742232218550967e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 60,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.18124664951078e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 61,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.925747310036144e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 62,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -8.413408858487514e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 63,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0657208453126576e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 64,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.282003555182271e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 65,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.4667767828390197e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 66,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.1089900659188032e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 67,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.8320848310660054e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 68,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -7.829891249255816e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 69,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.040239059450613e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 70,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.235002105945629e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 71,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.41773243591515e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 72,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.1111723440557792e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 73,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.243337873941158e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 74,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.1970676186412454e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 75,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.969499256802352e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 76,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.1697734714786208e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 77,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.757980897636017e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 78,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.254113710334528e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 79,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.993699038666975e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 80,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.766084666345648e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 81,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.324138683375338e-18,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 82,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.904063266586434e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 83,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.085112440658904e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 84,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.8551380010233274e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 85,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.364631385663729e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 86,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.7746221159242737e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 87,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.3986208025063007e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 88,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.469583119754873e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 89,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.139293516639773e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 90,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.0474073825216266e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 91,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.2186306531410978e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 92,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.5890067039947553e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 93,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.0459858567328845e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 94,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.6316158493734356e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 95,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.2780852685099227e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 96,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.5934115965853266e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 97,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.792037434584671e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 98,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.3393426912553537e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 99,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.150149412156633e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 100,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -7.557973344396451e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 101,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.588845358728278e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 102,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.0603497246908233e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 103,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.064457104213659e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 104,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.5606686909762644e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 105,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.1407975258892478e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 106,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.447694824603275e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 107,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.501539336259185e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 108,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.3752360336601036e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 109,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.7844480193772725e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 110,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.205497933062018e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 111,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -8.606396845189934e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 112,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.630924991753325e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 113,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.801051471467702e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 114,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.860763263587643e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 115,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.744725883547684e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 116,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.288967626551397e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 117,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.237955914335954e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 118,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0323556245972476e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 119,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.91479686809404e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 120,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.2947865381012153e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 121,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.4854931441063997e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 122,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.1213903070017572e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 123,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.331889443849214e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 124,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.251550062868038e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 125,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.547957705563268e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 126,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.517600687263371e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 127,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.99630112388094e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 128,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.650359958224826e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 129,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.0088097851811426e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 130,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.061447800655314e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 131,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.341743094886223e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 132,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.4881897757456084e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 133,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.2250677822753815e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 134,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.091209150290041e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 135,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.725441601199145e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 136,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.4669810345409076e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 137,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.3466471821276258e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 138,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.760799823284479e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 139,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.774311371594231e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 140,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.9536919785022597e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 141,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.659916096194099e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 142,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.218831195446348e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 143,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.084108268589959e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 144,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.7008031068294116e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 145,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.610625233662628e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 146,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.1326256732789872e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 147,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.6877788069675805e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 148,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -7.621399171486853e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 149,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.940507618433347e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 150,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.579961998442324e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 151,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.121377718269148e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 152,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.30679144861557e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 153,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.473615066777123e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 154,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.028164079019405e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 155,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0276718712121102e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 156,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.5308002061836845e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 157,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.1283569484896745e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 158,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.438085761584773e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 159,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.4105470264036413e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 160,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.80110439651693e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 161,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.293900746436206e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 162,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.1909418763667023e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 163,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.9284855630513675e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 164,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.153076758022344e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 165,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.2215623680887156e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 166,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.1118644867352856e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 167,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.8839096949108125e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 168,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.7535079211448164e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 169,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.2118405157710583e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 170,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.536301889679351e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 171,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.282096816548119e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 172,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.816255479347717e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 173,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.050919735908991e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 174,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.921206249644314e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 175,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.5447712553573467e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 176,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.1582809284502744e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 177,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.7504040711612276e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 178,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.3522169495239211e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 179,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.334869714764153e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 180,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.119602658476552e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 181,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.527112633737838e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 182,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.0556473190325164e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 183,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.1131244337343515e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 184,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.2384841416301917e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 185,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.597017211338539e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 186,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.3058130965415415e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 187,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.7087707077377843e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 188,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.38451358553138e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 189,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.0279598273175168e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 190,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.903102643482598e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 191,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.326672684688674e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 192,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.125376677574735e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 193,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.0065732969355423e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 194,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.996545711899447e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 195,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.8360560427875825e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 196,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.921139772067929e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 197,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.296042688256563e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 198,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.669042321412716e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 199,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.181673232851347e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 200,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.7634019084984445e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 201,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.061068329894944e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 202,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.254856879494119e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 203,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.5804011705155006e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 204,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.6879540260260626e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 205,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.4513811119897255e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 206,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.697685704318667e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 207,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.594836218260959e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 208,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.601502776562349e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 209,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.3225640201064426e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 210,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.987700902495074e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 211,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.60901119787166e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 212,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.306085432144059e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 213,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.923225897455417e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 214,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.1940210105365612e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 215,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.7814009496211e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 216,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.5945361350744314e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 217,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.291908203679415e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 218,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.509048078833345e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 219,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.5886411070263904e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 220,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.0078478770179107e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 221,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.6889449668327e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 222,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.56290646428126e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 223,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.9752676017347213e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 224,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.1591205426042528e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 225,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.044954696371227e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 226,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.6687172477158896e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 227,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0885389811754465e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 228,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.1015312105468814e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 229,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.655156910308376e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 230,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.407811343507209e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 231,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0903279147600475e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 232,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -8.908726620987517e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 233,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.360091289066446e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 234,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.4098314529698008e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 235,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.450555371627752e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 236,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.2967057982926633e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 237,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.495455215360657e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 238,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.7866567600388628e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 239,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.7442783288866845e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 240,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.7257733168496194e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 241,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.0306980803327406e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 242,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.41594285980085e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 243,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0054175204790138e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 244,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.454757297575831e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 245,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.378590809899329e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 246,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.039235529911366e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 247,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.849106805174028e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 248,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.403013106364263e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 249,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.262649261344009e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 250,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.645400375815402e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 251,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.11645975723574e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 252,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.4260246549455697e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 253,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.2432017061398994e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 254,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.443400922348744e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 255,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.174385719818102e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 256,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.9495316739301956e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 257,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.30001389997814e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 258,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.5845785325081094e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 259,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.0101789116887545e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 260,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.7153440046733266e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 261,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.5453411040275995e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 262,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.352421201225809e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 263,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.097255504990741e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 264,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.903710258350678e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 265,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.3741859173087576e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 266,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.092984210082637e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 267,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.270251265284017e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 268,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.681219383824043e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 269,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.648990831717214e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 270,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.5916087892087205e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 271,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.537007906150862e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 272,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.4606371667724716e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 273,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.818520240945426e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 274,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.06363007879229e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 275,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.1850607221106664e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 276,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.605486577016535e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 277,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.8748023966619343e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 278,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -8.851426536171658e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 279,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0979715400760703e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 280,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.818045697991714e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 281,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.1526304884207406e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 282,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.2197148553135833e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 283,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.268788877410557e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 284,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.7905876354438206e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 285,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.566659550508945e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 286,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.787131419754174e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 287,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.5979526569771565e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 288,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.74646685751914e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 289,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.744535505637801e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 290,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.5219487996265268e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 291,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.900934239137626e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 292,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.4393742154591465e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 293,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.70991040507829e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 294,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.571931804837504e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 295,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.0458491631635276e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 296,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.820077934535426e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 297,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.917899433018233e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 298,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.412826421084652e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 299,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.522275345337668e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 300,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.144434801831788e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 301,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.730956515957118e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 302,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.711087868616623e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 303,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.023935690546711e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 304,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.488407901239501e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 305,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -7.178963369949831e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 306,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.771737676493974e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 307,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.525961632724119e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 308,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.1793144505964932e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 309,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.0332320816460765e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 310,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.42724630997871e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 311,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.6258153677506382e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 312,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.403188325422745e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 313,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.790060693208979e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 314,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.718447854656915e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 315,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.9100660723220253e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 316,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -3.8506524357995175e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 317,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.7733891572179203e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 318,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.993035928630874e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 319,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.8181812232632746e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 320,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.050836493156961e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 321,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.1666991157899265e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 322,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.949572010246815e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 323,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.4454728526793774e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 324,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 6.39722649853347e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 325,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 7.733505676121855e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 326,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.0725608729232903e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 327,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.868623729338163e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 328,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.126662561330317e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 329,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.6782907528989366e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 330,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.632327371559104e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 331,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.640629243726768e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 332,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.0044048925905713e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 333,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.3653249537892709e-14,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 334,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.45857975276354e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 335,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -9.933026623443197e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 336,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.443562267615221e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 337,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 5.662137425588298e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 338,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.757479132866393e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 339,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.2449490183484855e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 340,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -5.627768216720508e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 341,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.752043605682263e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 342,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.105791669509971e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 343,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.311791367341613e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 344,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.157562323246154e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 345,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.3839572188022045e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 346,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 4.511704052891086e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 347,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.434752482434078e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 348,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.6696713456276768e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 349,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.4515298685235933e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 350,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -4.996003610813204e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 351,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.932481952238163e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 352,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 2.742597815519332e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 353,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -6.422813669804128e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 354,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -1.6783449630075609e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 355,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.2020826962186888e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 356,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 9.118140270603092e-17,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 357,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 3.537968529254698e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 358,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 1.4450246554886803e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 359,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": -2.1519244719492292e-15,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "angle_deg": 360,
+      "lift_mm": 0.3,
+      "rotor_frame_mm3": 8.53267109746092e-16,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    }
+  ],
+  "max_collision_mm3": {
+    "rotor_frame_mm3": 1.6687172477158896e-14,
+    "pin_frame_mm3": 0.0,
+    "rotor_pin_mm3": 0.0
+  },
+  "spacers": [
+    {
+      "name": "spacer-060",
+      "frame_collision_mm3": -1.6653345369377348e-16,
+      "body_interference_mm3": 0.0,
+      "tangent_width_mm": 8.200000000000001
+    },
+    {
+      "name": "spacer-072",
+      "frame_collision_mm3": -1.6653345369377348e-16,
+      "body_interference_mm3": 0.052501807932277524,
+      "tangent_width_mm": 8.08
+    },
+    {
+      "name": "spacer-084",
+      "frame_collision_mm3": 1.2836953722228372e-16,
+      "body_interference_mm3": 0.9779397556370868,
+      "tangent_width_mm": 7.960000000000001
+    }
+  ],
+  "frame_half_collision_mm3": 0.0,
+  "thread_symmetric_difference_mm3": 1.362597810854934e-05,
+  "ring_frame_collision_mm3": 0.0,
+  "ring_rotor_collision_mm3": 4.912451103482583e-06,
+  "ring_lower_contact_probe_mm3": 0.025913353115563628,
+  "ring_upper_contact_probe_mm3": 0.03041015137793159,
+  "upward_stop_at_030_mm3": 8.53267109746092e-16,
+  "upward_stop_probe_031_mm3": 0.24608389528990787,
+  "gear_boss_shaft_clearance": "Nominal boss and shaft clear; gear outer cylinder intentionally overlaps fitted ribs. No true tooth mesh or physical axial-load proof",
+  "source_sha256": {
+    "front.stl": "e967332fc111515abff7bea620092780c940a1a78102e452e9b46313abbbc9c3",
+    "back.stl": "0486fb1816968bbed4b5aad85294df3ad8c80304ff351cf55cc10a000d4fa6e8",
+    "rotor.stl": "97cce00c9c0c16b5f5b5c51b8e37b3536e83b753687015ab79460c15462dfee2",
+    "pin.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d",
+    "motor-interface.json": "8375c418d5af571e6bcbe7a1e36c9e4d5ccc813d79868dcade55b31b1c0da121"
+  }
+}

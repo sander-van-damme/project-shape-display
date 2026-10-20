@@ -1,0 +1,11 @@
+{
+  "repository_base": "fb132bf",
+  "source_sha256": {
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "c9558d204afce8d35fd154b02fb9f2eebfe82fc64738d51b0b72e42db680ccee",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py": "d0fc2f1943bc93d19c908cd8fd7c6f3ad114960e8fb79653a3b534175ba47dc6",
+    "owner-print-tests/2026-10-18-microstepper-frame-v2/components/screw.stl": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243",
+    "owner-print-tests/2026-10-18-microstepper-frame-v2/components/pin-18.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d"
+  },
+  "openscad": "2021.01",
+  "physical_test_performed": false
+}

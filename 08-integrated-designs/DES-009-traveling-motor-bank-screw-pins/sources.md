@@ -32,7 +32,7 @@ Alle onderstaande bestanden zijn via `git show COMMIT:PATH` byte-exact teruggeze
 | [historical/trial-0/micro-stepper-datasheet.pdf](historical/trial-0/micro-stepper-datasheet.pdf) | `trial-0-pneumatic-multiplexer/docs/micro-stepper-datasheet.pdf` | `2d21eef7fdefdae75569a6eba02b95a143cacb6d` |
 | [historical/trial-5/actuator.scad](historical/trial-5/actuator.scad) | `trial-5-grid-and-cubes-and-rod/actuator.scad` | `41484f96999847c139b9010e73009d73e9459c89` |
 
-Het oude components-document bevat een dubbele B−-kleurtoewijzing, oude prijzen en verkoperclaims over de driver. Die zijn **geen actuele bedradingsinstructie, offerte of officiële IC-specificatie**. De PM08-PDF is een historisch leveranciersdocument van een afwijkend type (Version 1.0); zij bevestigt onze motoridentiteit niet. De Trial 5-bron heeft oude 30°-draad en `$slop=0.65` plus externe, niet vastgepinde BOSL2-includes. Zij is bewaard als referentie, niet gebouwd of geëxporteerd.
+Het oude components-document bevat een dubbele B−-kleurtoewijzing, oude prijzen en verkoperclaims over de driver. Die zijn **geen actuele bedradingsinstructie, offerte of officiële IC-specificatie**. De PM08-PDF is een leveranciersdocument (Version 1.0) waarvan huis/as overeenkomen met de nieuwe eigenaarmetingen; zij bevestigt onze motoridentiteit niet. De Trial 5-bron heeft oude 30°-draad en `$slop=0.65` plus externe, niet vastgepinde BOSL2-includes. Zij is bewaard als referentie, niet gebouwd of geëxporteerd.
 
 De maatfoto uit de gevraagde commit, de huidige [E-301-maatfoto](../../owner-print-tests/2026-10-17-microstepper-screw-pin/motor-dimensions-original.jpg) en Amazonafbeelding 4 hebben dezelfde SHA-256: `91b1daabccbcece63d11bcb0b190c2f7bcf23977b242e339027d56f075e935bd`. Dit bevestigt de herkomst van een catalogusbeeld, niet de fysieke afmetingen van de voorraad.
 
@@ -57,7 +57,7 @@ Alle relevante eigenaarpakketten van **15 t/m 18 oktober** zijn in [experiments.
 | [TMC2208/2 & TMC2224 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/TMC2202_TMC2208_TMC2224_datasheet_rev1.13.pdf) | Officiële TRINAMIC/ADI bron, rev.1.13, 25 mei 2022; rechtstreeks opgehaald/gecontroleerd. Specs, pagina's en registers in [electronics.md](electronics.md) |
 | Raspberry Pi Pico W datasheet/pinout | Officiële fabrikantlinks in [electronics.md](electronics.md); HTTP403 bij deze broncontrole, revisie niet opnieuw vastgesteld. Geen ongelezen versie verzonnen |
 | MicroPython, TI TPS3808 en FYSETC-modulehandleiding | Softwareproject-, fabrikant- en modulevergelijkingsbronnen; doel en revisiebeperkingen in [electronics.md](electronics.md) |
-| Historische PM08-PDF | Reeds bestaand repositoryreferentiebestand exact hersteld op eigenaarsverzoek. Afwijkend type; geen bevestigde OEM-datasheet van de gebruikte motor |
+| Historische PM08-PDF | Reeds bestaand repositoryreferentiebestand exact hersteld op eigenaarsverzoek. Beste technische referentie voor huis/as; geen bevestigde OEM-datasheet van de gebruikte motor |
 
 Geen expliciete herdistributietoestemming gevonden voor nieuw verzamelde externe PDFs of verkoopbeelden. Daarom stabiele bronlinks met vastgestelde versie waar beschikbaar; tijdelijke downloads zijn alleen gebruikt voor broncontrole en staan niet in dit dossier. De herstelde historische binaries zijn ongewijzigd; hun aanwezigheid is geen nieuwe licentieclaim.
 
@@ -67,4 +67,6 @@ Gericht gezocht met `git log --all`, `git ls-tree`, `git show` en pad-/inhoudszo
 
 `trial-0-pneumatic-multiplexer/docs/multiplexing-layout.ods` en `shape-display-dev.odt` zijn inhoudelijk uit Git gescreend. Ze bevatten oude multiplex-/pneumatische planning en brede architectuurdoelen, geen aanvullende actuele motorspecificaties of motorbankbewijs. Samen met de oude Pythonbesturing en requirements bewust niet hersteld. Ze blijven bereikbaar in commit `2d21eef7fdefdae75569a6eba02b95a143cacb6d`. Er is geen volledig oud ontwerp teruggezet.
 
-**Niet gevonden/bevestigd:** een sluitende OEM-datasheet voor de werkelijke Ø8 × 8,2-mm motor, afzonderlijke in de repository opgeslagen eigenaarsfoto's van beide gebruikte varianten, connectorfamilie/steek/pinout, eigen windingweerstandsmetingen en asmetingen van beide motoren. Dit zijn informatiehiaten; alle hierboven geselecteerde historische bestanden konden uit Git worden hersteld. Catalogusfoto's mogen deze hiaten niet als eigen meetgegevens invullen.
+**Niet gevonden/bevestigd:** een sluitende OEM-datasheet voor de werkelijke circa Ø8 × 9,2-mm motor, afzonderlijke in de repository opgeslagen eigenaarsfoto's van beide gebruikte varianten, connectorfamilie/steek/pinout, eigen windingweerstandsmetingen en nauwkeurige toleranties van beide motoren. Dit zijn informatiehiaten; alle hierboven geselecteerde historische bestanden konden uit Git worden hersteld. Catalogusfoto's mogen deze hiaten niet als eigen meetgegevens invullen.
+
+**Maatupdate 20 oktober:** [eigenaarmetingen K/L, A–D](motor-variants-limits.md#1a-eigen-motorpaar--benaderende-eigenaarmetingen-20-oktober-2026) zijn de actuele mechanische basis; oudere Amazon-maten zijn geen maatwaarheid.

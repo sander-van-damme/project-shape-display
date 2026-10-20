@@ -1,11 +1,24 @@
 {
-  "repository_base": "fb132bf",
+  "repository_base": "35720ba",
+  "bambu_studio": "02.08.02.61",
+  "appimage_url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/BambuStudio_ubuntu22.04-v02.08.02.61-20260820225108.AppImage",
+  "appimage_sha256": "69426a59682574591590f51c913d3889baa19252d1c8e9fcae2497eb0ed6bf92",
+  "local_runtime_packages": [
+    "libwebkit2gtk-4.1-0",
+    "libjavascriptcoregtk-4.1-0",
+    "libharfbuzz-icu0",
+    "libmanette-0.2-0",
+    "libhyphen0",
+    "libhidapi-hidraw0"
+  ],
+  "runtime_package_source": "Signed Debian trixie/security APT snapshot 20260925; local extraction only",
   "source_sha256": {
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "c9558d204afce8d35fd154b02fb9f2eebfe82fc64738d51b0b72e42db680ccee",
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py": "d0fc2f1943bc93d19c908cd8fd7c6f3ad114960e8fb79653a3b534175ba47dc6",
-    "owner-print-tests/2026-10-18-microstepper-frame-v2/components/screw.stl": "edd5b914cb537040550dade497be1117b17514a8e37253c5d0e8961849e1c243",
-    "owner-print-tests/2026-10-18-microstepper-frame-v2/components/pin-18.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d"
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "2f73d3e3f34c63c05aec58684bdabd69fe2db1511bbb5732d92262d0b08e0076",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py": "e526abfcc42ee2ef054a8d59164699e11845c62120400ef6a365ba853f32e3b5",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_geometry.py": "46ac2e9a0b968d2d585f84d4ab3b59d6c8c13201f28b270a312e4c5e897b7592",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/motor-interface.json": "8375c418d5af571e6bcbe7a1e36c9e4d5ccc813d79868dcade55b31b1c0da121",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/owner-motor-measurements.json": "b53a361d43c48505f4fda89a22eed8f70dd64a8dec581f151e50fdd017325d85"
   },
-  "openscad": "2021.01",
-  "physical_test_performed": false
+  "physical_test_performed": false,
+  "status": "READY for L only"
 }

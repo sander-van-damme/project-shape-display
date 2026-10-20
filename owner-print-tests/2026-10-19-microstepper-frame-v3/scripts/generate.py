@@ -1,10 +1,13 @@
 """Rebuild exact E-301 mesh-derived rotor and v3 parts with OpenSCAD."""
-import subprocess,json,hashlib
+import subprocess,json,hashlib,sys
 import numpy as np
 import trimesh
 import manifold3d as md
 def solid(m):return md.Manifold(md.Mesh(np.asarray(m.vertices,dtype=np.float32),np.asarray(m.faces,dtype=np.uint32)))
 from paths import *
+if json.loads((METADATA / "motor-interface.json").read_text())["status"] != "READY" and "--draft" not in sys.argv:
+    raise SystemExit("DRAFT/BLOCKED: motor interface unresolved; see verification.md. Use --draft for engineering meshes only.")
+
 parts={}
 for name,part,t in [('front','front',.6),('back','back',.6),('rotor','rotor-base',.6),('pin','pin',.6),('spacer-060','spacer',.6),('spacer-072','spacer',.72),('spacer-084','spacer',.84)]:
  p=COMPONENTS/(name+'.stl')

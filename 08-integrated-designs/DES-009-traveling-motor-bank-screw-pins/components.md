@@ -13,7 +13,7 @@ Broncontrole: **18 oktober 2026**. Onderscheid hieronder: **CAD** is nominale ge
 | Schroef | Buitendiameter 3,2 mm; spoed 3 mm; draaddiepte 0,9 mm; profielhoek 90° | [Compacte passing](../../owner-print-tests/2026-10-15-compact-screw-fit/test.md); spoed is geen gemeten verplaatsing van de huidige gemotoriseerde proef |
 | Nominale draadpassing | Radiale relief 0,175 mm; vergelijkingsvarianten 0,15 en 0,20 mm | Drie nominale paren fysiek soepel bevonden; CAD-relief is geen gemeten fysieke speling |
 | Proefpin | E-301 18 mm; E-302 ook 50 mm buitenhoogte | [E-302 maatbronnen](../../owner-print-tests/2026-10-18-microstepper-frame-v2/sources.md): onderste 18 mm behouden, frame houdt nominale 3-mm proefslag; **50 mm pinhoogte is geen 50 mm slag** |
-| Microstappenmotor | Eigenaar identificeert Ø8 × 8,2 mm, vier draden, klein tandwiel en zijprintje | Circa **200 exemplaren** volgens [eigenaarverslag](../../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/resultaten.md); niet individueel gemeten/gekarakteriseerd |
+| Microstappenmotor | Eigenaar meet circa Ø8 × 9,2 mm; as circa Ø0,8 mm, vier draden, klein tandwiel en zijprintje | Circa **200 exemplaren** volgens [eigenaarverslag](../../owner-print-tests/2026-10-17-microstepper-screw-pin/pico/resultaten.md); niet individueel gemeten/gekarakteriseerd |
 | Tijdelijke aandrijfkoppeling | Ducttape in geslaagde éénmotorproef; E-302 onderzoekt opsteekkoppelingen | Ducttape bewees beweging, geen automatische ontkoppeling of reproduceerbare bankkoppeling; siliconenslang niet als werkelijk gebruikt bevestigd |
 | Controller/driver | Raspberry Pi Pico W + witte Silent2208/TMC2208 V1.2-module | Huidige fysiek werkende testbasis; exacte modulefabrikant niet vastgesteld. [Elektronica](electronics.md) bevat fabrikantbronnen, firmware, UART/registers, stroominstellingen en werkelijke EN/VIO-bedrading |
 
@@ -25,12 +25,12 @@ Broncontrole: **18 oktober 2026**. Onderscheid hieronder: **CAD** is nominale ge
 
 | Gegeven | Verkopersopgave | Betekenis voor onze motoren |
 |---|---|---|
-| Huis | Ø8 mm, hoogte 8,2 mm | Past bij oude maatfoto en eigenaaridentificatie; geen toleranties |
+| Huis | Ø8 mm, hoogte 8,2 mm | Weersproken door eigenaarmeting: huis 9,2 mm; zie [actuele maatbasis](motor-variants-limits.md) |
 | Type | Twee fasen, vier draden | Bipolaire toepassing; werkelijke windingparen identificeren |
 | Faseweerstand | **39,2 Ω** | Historische tabel rondt af op 40 Ω; geen windingmeting aan de gebruikte motoren |
 | Spanning | Geschat 5–6 V | Listing zegt “Estimated phase voltage”; geen vastgestelde nominale rating |
 | Stroom | Circa 0,12 A; bij 6 V “short-circuit current” 0,14 A | Methode, temperatuur en toegestane bedrijfsduur ontbreken; geen gemeten stroom of gegarandeerde veilige limiet |
-| Asdiameter | 1,5 mm | Onbevestigde verkoopmaat; niet verwarren met tandwieldiameter |
+| Asdiameter | 1,5 mm | Weersproken door eigenaarmeting: kale as circa Ø0,8 mm |
 | Lange uitvoering | Asuitsteking 4 mm | Blauw A+, zwart A−, rood B+, wit B− volgens verkoper |
 | Korte uitvoering | Asuitsteking 3,5 mm | Paars A+, geel B−, oranje B+, groen B− volgens verkoper: **B− dubbel, A− ontbreekt** |
 | Tandwiel | Ø2,2 mm, 9 tanden, module 0,2; “copper gear” | Messingkleurig op foto; materiaal, tandlengte, drukhoek en toleranties niet vastgesteld |
@@ -55,15 +55,20 @@ De eigenaar meldt daadwerkelijk twee varianten met verschillend uitstekende tand
 **Tegenstrijdigheden blijven zichtbaar:**
 
 - De korte kleurregel bevat zowel in de live listing als [oude componententabel](historical/trial-0/components.md) twee B−-draden. Niet stil corrigeren; werkelijk windingparen bepalen.
-- De maatfoto toont de paars/geel/oranje/groene uitvoering met **4 mm** uitsteking, terwijl tekst en beeld 3 die kleurset aan **3,5 mm** koppelen. Beide gebruikte uitvoeringen moeten nog worden gemeten. De pijl van 4 mm betreft totale as+tandwieluitsteking boven het huis, **niet de tandlengte**.
+- De maatfoto toont de paars/geel/oranje/groene uitvoering met **4 mm** uitsteking, terwijl tekst en beeld 3 die kleurset aan **3,5 mm** koppelen. Beide uitvoeringen zijn inmiddels benaderend gemeten: zie [K/L en A–D](motor-variants-limits.md#1a-eigen-motorpaar--benaderende-eigenaarmetingen-20-oktober-2026). Geen kleurtoewijzing aan K/L bewezen. De pijl van 4 mm betreft totale as+tandwieluitsteking boven het huis, **niet de tandlengte**.
 - De stroomcijfers sluiten niet exact op 39,2 Ω aan: `5/39,2 ≈ 0,128 A`, `6/39,2 ≈ 0,153 A`. Dit zijn Ohm-berekeningen; geen gemeten motorstroom of bevestiging van de verkooplimieten.
 - De eigenaar beschrijft een **zeer kleine vierpolige connector**, kleiner dan GPIO-Dupont. Verkoopfoto's tonen een gezamenlijk connectorhuis voor een paar. Familie, steek en pinout blijven onbekend; geen JST-identificatie uit uiterlijk afleiden.
 
-## Historische PM08-PDF: afwijkend motortype
+## PM08-PDF: beste technische referentie, identiteit onbewezen
 
 [PM08-2 / PM08-02, Tempero Systems, versie 1.0](historical/trial-0/micro-stepper-datasheet.pdf), twee pagina's zonder zichtbare documentdatum, is hersteld als **historisch leveranciersdocument met onbevestigde type-identiteit**. Tempero is niet als de OEM van onze partij vastgesteld.
 
-De PDF noemt Ø8 mm maar **9,2-mm huis, Ø0,8-mm as en 3,3 V**. De foto toont openingen met zichtbare windingen en een andere flens/as dan de gesloten Ø8 × 8,2-mm catalogusmotor. Ook 40 Ω ±7%, 18° / twintig volle stappen per omwenteling, 5 gf·cm pull-in torque, frequentiecijfers en de achtpolige kabelboomtekening gelden daarom **niet als bevestigde eigenschappen van onze motor**. De twintigstappenaanname van de firmware blijft te verifiëren; de gemelde retourfout bewijst geen specifieke oorzaak.
+De PDF noemt Ø8 mm, **9,2-mm huis en Ø0,8-mm as**: die passen bij de
+inmiddels ontvangen eigenaarmetingen. De eerdere kwalificatie “afwijkend type”
+op basis van de Amazon-maten is achterhaald. PM08-2/PM08-02 is een aannemelijke
+familie, geen bewezen OEM-identiteit. Elektrische ratings en twintig stappen per
+omwenteling blijven geen eigen metingen. Gebruik de [actuele motorregistratie](motor-variants-limits.md)
+voor bronverschillen, twee gemeten tandwieluitstekingen en resterende onzekerheid.
 
 ## Historische geometrie en bronklassen
 

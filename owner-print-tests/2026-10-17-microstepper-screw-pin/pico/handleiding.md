@@ -1,5 +1,7 @@
 # E-301 — Pico W, één bestaande schroefpin
 
+> **Maatcorrectie 20 oktober 2026:** huis circa Ø8 ×9,2 mm, kale as circa Ø0,8 mm; twee benaderend gemeten tandwieluitstekingen. Zie [actuele eigenaarmetingen](../../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md). Oude 8,2-mm huishoogte/Ø1,5-mm as en catalogusuitstekingen hieronder zijn historische brongegevens, geen actuele motorafmetingen. Bestaande CAD wordt hiermee niet aangepast of vrijgegeven.
+
 > **Update eigenaarsproef, 18 oktober 2026:** de eigenaar heeft een
 > compacte pin **daadwerkelijk op en neer** bewogen via UART op
 > **S 100 / Vref ~0,80 V**, maar **alleen nadat EN aan GND werd verbonden**.

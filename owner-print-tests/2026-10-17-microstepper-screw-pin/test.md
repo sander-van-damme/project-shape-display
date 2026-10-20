@@ -1,5 +1,7 @@
 # Microstappenmotor → één compacte schroefpin
 
+> **Maatcorrectie 20 oktober 2026:** huis circa Ø8 ×9,2 mm, kale as circa Ø0,8 mm; twee benaderend gemeten tandwieluitstekingen. Zie [actuele eigenaarmetingen](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md). Oude 8,2-mm huishoogte/Ø1,5-mm as en catalogusuitstekingen hieronder zijn historische brongegevens, geen actuele motorafmetingen. Bestaande CAD wordt hiermee niet aangepast of vrijgegeven.
+
 > **E-301 — aanbevolen voor de beschikbare elektronica:** gebruik de
 > [Pico W-handleiding](pico/handleiding.md), het [nieuwe schema](pico/wiring.svg)
 > en [Pico-resultatenformulier met eerste fysieke verslag (18 oktober 2026)](pico/resultaten.md).

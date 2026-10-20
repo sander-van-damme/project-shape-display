@@ -1,83 +1,51 @@
-# E-302 — eenvoudig motorframe met geïntegreerde korte schroef
+# E-302 v3 — gecorrigeerde motorinterface, variant L
 
-**Status:** READY — CAD en Bambu-slices gecontroleerd; fysiek nog niet getest.\
-**Prioriteit:** P1 binnen deze eigenaarsopdracht; geen deadline of automatische printopdracht.\
-**Laatst beoordeeld:** 19 oktober 2026.\
-**Bron:** [E-302](../../06-experiments/E-302-improved-microstepper-test-frame.md).
+**Status: READY — digitaal gecontroleerd; fysieke passing nog niet getest.**
+20 oktober2026. Alleen voor **L: A≈2,0 / B≈3,25 mm boven het metalen huis**.
+Gebruik de kortere K niet voor deze uitvoering. Geen printdeadline.
 
-## Wat deze proef oplost
+Open [microstepper-frame-v3.3mf](microstepper-frame-v3.3mf) in Bambu Studio.
+Printer, materiaal, proces, oriëntatie en lokale rotorbrim zijn opgeslagen;
+het project is zelfstandig heropend en opnieuw gesliced.
 
-Eén ronde rotor vervangt de losse schroefvoet en grote vierkante koppeling.
-De bewezen **radiale C-passing met drie ribben** en de functionele schroefdraad
-(Ø3,2 / spoed3 / lengte16 mm) zijn behouden. De mond ligt lager dan bij revisie4,
-met een opnieuw gecontroleerd aangrijpgebied. Een bestaande 0,50-mm sluitring
-neemt de neerwaartse last op; de ronde bovenste geleiding en aanslag verzorgen
-radiale geleiding en begrensde oplichting. Geen pinlast bedoeld op de motoras.
+| Onderdeel | Aantal |
+|---|---:|
+| Stijve framehelften, pennen/gaten | elk1 |
+| Geïntegreerde ronde rotor met C-koppeling en originele draad | 1 |
+| Bestaande18-mm pin | 1 |
+| Spacers0,60 /0,72 /0,84 | 1 /2 /1 |
 
-De motor ligt in twee stijve halve cilindrische zittingen, zonder veerbruggen.
-Twee robuuste pennen met een rond en een langwerpig pasgat lijnen de helften uit.
-De bestaande elastiekjes houden ze samen. Vier kleine spacers dienen uitsluitend
-voor het bepalen van de huispassing; geen nieuwe veren of bevestigingsmiddelen.
-De nieuwe [eigenaarobservaties](resultaten.md) zijn apart vastgelegd.
+Hergebruik bestaande ring ID3,2/OD7/0,50, motor L en elastieken. Huis9,2 mm hoog,
+nieuwe zittingØ8,4. Ruimte voor PCB, variabele lijm en omhooglopende kabels.
+Ring/rotor0,7 mm hoger met circa1-mm draagdek; C-inloop0,25 voor meer rechte
+riboverlap. Bewezen radiale C-vorm, draadspoed3 en proefslag3 behouden.
 
-## Direct printen
+![Gecorrigeerde montage](images/cad.png)
 
-Open **[microstepper-frame-v3.3mf](microstepper-frame-v3.3mf)** in Bambu Studio.
-Printer, PLA, proces, objectoriëntaties en lokale rotorbrim zijn opgeslagen.
-Geen CAD-export of handmatig overtypen van instellingen nodig.
+**Bambu Studio02.08.02.61; X1 Carbon/0,4-mm nozzle; Generic PLA / Textured PEI.**
+Schatting **2u58m23 /10,20g**. Geen fysieke printmeting.
+Laag/eerste laag0,12; Arachne,2 wanden, nominale lijn0,45;100% zigzag-infill.
+Nozzle220°C, bed55°C. Buitenwand/kleine omtrek/eerste laag/brug15mm/s,
+binnenwand20; acceleratie default/binnen1000, buiten/eerste500mm/s².
+Supports uit, raft0, per laag. Alleen rotor buitenbrim2mm met gap0,12.
+XY/gat/elephant-footcompensatie0; fan100% na eerste laag, hulpfan0,
+minimum laagtijd8s. Geen automatische heroriëntatie/herschikking.
 
-| Onderdeel | Aantal | Doel |
-|---|---:|---|
-| Nieuwe framehelft met pennen / met gaten | Elk 1 | Stijve zitting en uitlijning |
-| Geïntegreerde korte schroef/koppeling C | 1 | Rond, 28 mm totaal; 16 mm draad |
-| Bestaande 18-mm testpin | 1 | Een al goed passende bestaande pin mag worden hergebruikt |
-| Spacers 0,60 / 0,72 / 0,84 mm | 1 / 2 / 1 | Dubbele 0,72 als controle van printvariatie |
+Framehelften op vlakke buitenzijde, uitsparingen omhoog; rotor rechtop met mond
+op bed; pin op bestaande vierkante printvoet; spacers vlak. Vier spacers op de
+plaat van links naar rechts0,60 /0,72 /0,72 /0,84. Modelbereik67×54×28mm.
 
-Eén plaat: **67 × 54 × 28 mm modelgrenzen**, lokale rotorbrim blijft binnen
-het totale rechthoekige plaatbereik. Geen lange schroef, extra koppelingen of
-softwarepakket. Hergebruik de motor, ring en twee elastiekjes.
+Volg de [montagehandleiding](assembly.md): eerst spanningsloos passen, kabels in
+buitenste kanaal, ring vlak,360° handrotatie en volledige3-mm slag. Pas daarna
+vijf korte op/neercycli met bestaande bediening. Stop bij klemmen, open naad,
+PCB-/kabeldruk, asbeweging of slip. Noteer alleen waarnemingen in [resultaten](resultaten.md).
 
-![CAD-montage en compacte plaat](images/cad.png)
+[Maattabel, maatketen en verificatie](verification.md). READY is digitale
+printvrijgave voor deze kleine proef, geen bewezen mechanische betrouwbaarheid.
 
-- Bambu Studio **02.08.02.61**, **X1 Carbon / 0,4-mm nozzle**, Generic PLA,
-  Textured PEI Plate; 220 °C nozzle / 55 °C bed.
-- Laag/eerste laag **0,12/0,12 mm**, Arachne, twee wanden, nominale lijnbreedte
-  0,45 mm; minimum bead75%, minimum feature10%; 100% zigzag-infill.
-- Buitenwand/kleine omtrek/eerste laag/brug15 mm/s, binnenwand20 mm/s;
-  default/binnenwandacceleratie1000, buitenwand/eerste laag500 mm/s².
-- Supports uit, raft0, per laag printen. **Alleen rotor: buitenbrim2 mm,
-  afstand0,12 mm**. Geen support in tandwielholte of pinboring.
-- XY-contour/gat/elephant-footcompensatie0. Onderdeelfan100% na eerste laag,
-  hulpfan0%, minimum laagtijd8 s. Geen automatische heroriëntatie/herschikking.
-- Framehelften op hun vlakke **buitenzijde**, uitsparingen omhoog; pennen groeien
-  omhoog. Rotor rechtop met tandwielmond op het bed, schroefdraad bovenaan.
-  Alleen het kleine holtedak overbrugt circa2,5 mm. Pin op bestaande printvoet;
-  spacers op vlakke strookzijde. Hun diktes zijn vijf/zes/zeven lagen.
-- Slicer-estimatie: **3 uur 5 minuten / 10,70 g PLA**. Details in [verificatie](verification.md).
+`cad/`: parametrische bron; `components/`: actuele STLs; `scripts/`: generatie,
+CAD-/slicecontrole; `metadata/`: bronnen, instellingen en rapporten; `images/`:
+montage en banen. `components/archive/2026-10-19/` bevat oude meshes en3MF;
+`metadata/archive/` oudere controles. Gebruik die oude plaat niet meer.
 
-## Montage en proef
-
-Volg de korte [montagehandleiding met doorsnede](assembly.md). Eerst lege helften,
-motorzitting en werkelijke tandhoogtes controleren; daarna rotor en pin met de
-hand. Alleen bij soepele werking vijf bewegingen binnen de **handmatig
-gecontroleerde 3-mm slag**, met de reeds werkende elektronica/software.
-
-De proef beantwoordt vier vragen: blijven de helften uitgelijnd; zit de motor
-vast; draait de rotor vrij zonder axiale asbelasting; beweegt de pin herhaaldelijk
-op/neer? Vul alleen uitgevoerde controles in [resultaten.md](resultaten.md) in.
-Stop bij forceren, PCB-druk, asbeweging, slip, schade of vastlopen.
-
-**CAD, slicer en fysieke proef blijven gescheiden.** READY betekent een digitaal
-gecontroleerd printpakket, geen bewezen mechanische betrouwbaarheid. Werkelijke
-motor-/tand-/PCB-maten, passing en herhaalbaarheid blijven te controleren.
-
-## Bestanden
-
-`components/`: STLs; `cad/`: parametrische frame/rotorbasis/spacers;
-`scripts/`: reproduceerbare meshopbouw, Bambu-bouw en controles; `metadata/`:
-instellingen, CAD-/slicerrapporten en hashes; `images/`: montage en baanbeelden.
-De scripts gebruiken de originele v2-schroef/pinmeshes uit dezelfde repository.
-Engineeringreproductie staat in [verification.md](verification.md).
-
-**Stopconditie:** deze compacte levering. Geen nieuw elektronica-, software-,
-sensor-, motorbank- of vervolgonderzoek gestart.
+Stop na deze gerichte correctie; geen nieuw mechanisme, elektronica of motorbankonderzoek.

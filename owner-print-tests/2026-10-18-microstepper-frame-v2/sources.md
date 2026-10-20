@@ -1,5 +1,7 @@
 # Maatbronnen, ontwerpkeuzes en grenzen
 
+> **Maatcorrectie 20 oktober 2026:** huis circa Ø8 ×9,2 mm, kale as circa Ø0,8 mm; twee benaderend gemeten tandwieluitstekingen. Zie [actuele eigenaarmetingen](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md). Oude 8,2-mm huishoogte/Ø1,5-mm as en catalogusuitstekingen hieronder zijn historische brongegevens, geen actuele motorafmetingen. Bestaande CAD wordt hiermee niet aangepast of vrijgegeven.
+
 Remote eerst opgehaald met `git pull --ff-only`, basis0383489. Gelezen:
 root/owner-print-tests/06-experiments AGENTS, missie, huidige prioriteiten,
 E-301 CAD, montage, maatbronnen en vooral [fysiek verslag](../2026-10-17-microstepper-screw-pin/pico/resultaten.md).

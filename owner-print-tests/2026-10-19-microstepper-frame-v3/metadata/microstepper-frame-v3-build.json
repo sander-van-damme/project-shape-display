@@ -1,6 +1,6 @@
 {
   "stl": "owner-print-tests/2026-10-19-microstepper-frame-v3/components/microstepper-frame-v3.stl",
-  "stl_sha256": "7315b9beda0a4f5f1430cc841e34e9bebd298bed78ff33660ab384eab5367ca8",
+  "stl_sha256": "02755466af46e55fb06ea62ece75306cf0543d4e837b86d09f4c72d345d998c6",
   "body_count": 8,
   "translation_mm": [
     92.5,
@@ -121,7 +121,7 @@
   ],
   "baseline_project": "owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.3mf",
   "baseline_sha256": "c3d95fe674aa3ccd868b14cca0e880d00dd9a9250ba3ba6640100bf60e0bd29c",
-  "final_project_sha256": "5902eab6c281fae76a22a56ffdeb308d6eddfe446ce081624272966f9c15e311",
+  "final_project_sha256": "d7facdd8131532e4cc963f5709901520836bd30010393c8f2d8ce9e1e432904f",
   "roundtrip": {
     "reopened_without_external_profiles": true,
     "return_code": 0,
@@ -137,12 +137,6 @@
       "05-S060": {
         "enable_support": "0"
       },
-      "06-S072a": {
-        "enable_support": "0"
-      },
-      "07-S072b": {
-        "enable_support": "0"
-      },
       "08-S084": {
         "enable_support": "0"
       },
@@ -153,6 +147,12 @@
         "enable_support": "0"
       },
       "04-pin": {
+        "enable_support": "0"
+      },
+      "06-S072a": {
+        "enable_support": "0"
+      },
+      "07-S072b": {
         "enable_support": "0"
       }
     },

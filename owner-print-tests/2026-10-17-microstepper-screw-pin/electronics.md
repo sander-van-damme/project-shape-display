@@ -1,5 +1,7 @@
 # Bedrading en bediening
 
+> **Maatcorrectie 20 oktober 2026:** huis circa Ø8 ×9,2 mm, kale as circa Ø0,8 mm; twee benaderend gemeten tandwieluitstekingen. Zie [actuele eigenaarmetingen](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md). Oude 8,2-mm huishoogte/Ø1,5-mm as en catalogusuitstekingen hieronder zijn historische brongegevens, geen actuele motorafmetingen. Bestaande CAD wordt hiermee niet aangepast of vrijgegeven.
+
 > **Historisch Arduino Uno-alternatief.** Voor de beschikbare Pico W en PD-voeding
 > geldt [E-301: Pico W, 9V en hardware-reset bij voedingsuitval](pico/handleiding.md).
 > Gebruik de twee bedradingsschema’s niet door elkaar.

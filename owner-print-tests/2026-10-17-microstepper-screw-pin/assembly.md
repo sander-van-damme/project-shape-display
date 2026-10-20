@@ -1,5 +1,7 @@
 # Montage — één schroefpin, directe aandrijving
 
+> **Maatcorrectie 20 oktober 2026:** huis circa Ø8 ×9,2 mm, kale as circa Ø0,8 mm; twee benaderend gemeten tandwieluitstekingen. Zie [actuele eigenaarmetingen](../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md). Oude 8,2-mm huishoogte/Ø1,5-mm as en catalogusuitstekingen hieronder zijn historische brongegevens, geen actuele motorafmetingen. Bestaande CAD wordt hiermee niet aangepast of vrijgegeven.
+
 Zie [montagetekening](mechanism.svg) en [CAD-overzicht](assembly.png).
 Vijf printdelen, circa 36 × 20 × 53 mm gemonteerd; alle maten hieronder in mm.
 De twee framehelften zijn identiek. De rotorhouder neemt de ongewijzigde

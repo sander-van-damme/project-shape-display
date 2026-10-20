@@ -5,6 +5,7 @@ Requires numpy/trimesh, official Bambu Studio 02.08.02.61 executable/resources.
 Call --help for paths. Runtime binaries and temporary logs belong in work/.
 """
 import argparse
+import sys
 import hashlib
 import json
 from pathlib import Path
@@ -16,6 +17,9 @@ import zipfile
 
 import numpy as np
 import trimesh
+
+if json.loads((METADATA / "motor-interface.json").read_text())["status"] != "READY" and "--draft" not in sys.argv:
+    raise SystemExit("DRAFT/BLOCKED: motor interface unresolved; see verification.md. No print export.")
 
 ROOT = TEST_DIR.parents[1]
 HERE = ROOT / 'owner-print-tests'
@@ -117,6 +121,7 @@ def input_project(stl, output, supported_name):
 
 def main():
     ap = argparse.ArgumentParser(__doc__)
+    ap.add_argument('--draft', action='store_true', help='Build for validation without claiming READY')
     ap.add_argument('--bambu', type=Path, required=True)
     ap.add_argument('--resources', type=Path, required=True)
     ap.add_argument('--scratch', type=Path, required=True)

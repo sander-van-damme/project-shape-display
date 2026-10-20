@@ -30,13 +30,13 @@ for part in layout:
   fp=translate(reader.footprint(ps),-cx,-cy);local[z]=fp;polys=list(fp.geoms)if hasattr(fp,'geoms')else[fp]
   if previous is not None:
    for poly in polys:
-    if poly.area>.005 and poly.intersection(previous.buffer(.01)).area<.001:orphans.append(dict(z=z,area=poly.area))
+    if poly.area>.005 and poly.intersection(previous.buffer(.01)).area<.001:orphans.append(dict(z=z,area=poly.area,bounds_mm=list(poly.bounds)))
    for p in ps:
     if 'bridge' in p['role'].lower():
      line=LineString([(p['x']-cx,p['y']-cy),(p['x1']-cx,p['y1']-cy)]);free=line.difference(previous.buffer(.01))
      bridges.append(dict(z=z,free_span_mm=max((q.length for q in (list(free.geoms)if hasattr(free,'geoms')else[free])),default=0),ends_mm=[Point(line.coords[i]).distance(previous.buffer(.01))for i in[0,-1]]))
   if part['source']=='rotor':
-   if .6<=z<=5.88:
+   if .36<=z<=5.88:
     def radius(a):
      a=math.radians(a);hit=fp.intersection(LineString([(0,0),(2*math.cos(a),2*math.sin(a))]));return Point(0,0).distance(hit)if not hit.is_empty else 2
     tips=[radius(a)for a in[0,120,240]];valleys=[radius(a)for a in[60,180,300]]
@@ -56,7 +56,7 @@ for part in layout:
  assert not orphans,(part['name'],orphans)
  assert all(max(b['ends_mm'])<.02 and b['free_span_mm']<3 for b in bridges),('unanchored or long bridge',part['name'])
  if part['source']=='rotor':
-  assert len(features)>=44 and all(r['core_open']and r['contrast']>.12 for r in features),features
+  assert len(features)>=46 and all(r['core_open']and r['contrast']>.12 for r in features),features
   assert len(tip_r)>120
   turns=[]
   for i in range(5):
@@ -65,13 +65,13 @@ for part in layout:
   for z,title in[(3,'C ribben / open holte'),(6.12,'Dak tandwielholte'),(15,'Korte schroefdraad')]:plot.append((title,part,min(local,key=lambda x:abs(x-z)),layers,cx,cy))
  if part['source']=='back':
   fp=local[min(local,key=lambda z:abs(z-5.4))]
-  for x,y in[(-11.5,6),(11.5,29)]:assert fp.intersection(Point(x,y).buffer(1.3)).area<.001
+  for x,y in[(-11.5,6),(11.5,29.7)]:assert fp.intersection(Point(x,y).buffer(1.3)).area<.001
   summary['alignment_holes_r130_open_at_z540']=True
   plot.append(('Rond + langwerpig pasgat',part,5.4,layers,cx,cy))
  if part['source']=='front':
   for z,fp in local.items():
    if 6.6<=z<=8.76:
-    for x,y in[(-11.5,6),(11.5,29)]:assert fp.intersection(Point(x,y).buffer(1.1)).area/Point(x,y).buffer(1.1).area>.95,('peg',z)
+    for x,y in[(-11.5,6),(11.5,29.7)]:assert fp.intersection(Point(x,y).buffer(1.1)).area/Point(x,y).buffer(1.1).area>.95,('peg',z)
   summary['both_peg_cores_continuous']=True
  if part['source'].startswith('spacer'):
   t=int(part['source'].split('-')[1])/100

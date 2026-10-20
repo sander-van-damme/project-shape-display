@@ -10,12 +10,63 @@ Dit is een **gericht, voorlopig bronnenoverzicht**, geen afgerond exhaustief lit
 |---|---|
 | Metalen motorhuis | **9,2 mm hoog, circa Ø8 mm** — eigenaarmeting, gemeld op 20 oktober 2026; meetmethode/tolerantie niet vastgelegd |
 | Kale motoras | **Circa Ø0,8 mm** — eigenaarmeting; niet verwarren met buitendiameter van het tandwiel |
-| Uitvoeringen | Twee varianten met verschillend uitstekend tandwiel, klein zijprintje, vier draden — eigenaarobservatie; exacte uitstekende lengtes niet gemeten |
+| Uitvoeringen | Twee varianten met verschillend uitstekend tandwiel, klein zijprintje, vier draden — eigenaarobservatie; benaderende uitstekende lengtes vastgelegd in §1a; precieze toleranties onbekend |
 | Tandwiel | C-koppeling met drie ribben paste fysiek; **9 tanden/module 0,2/Ø2,2 mm** komen uit een catalogusbeeld en zijn niet allemaal aan de eigen voorraad gemeten |
 | Werking | Eén motor beweegt een schroefpin op en neer; met hogere ingestelde stroom minder vastlopen — eigenaarobservatie, **geen gemeten koppel, snelheid of spoelstroom** |
 | Motoridentiteit | **PM08-2 / PM08-02 is nu een aannemelijkere hypothese**, door overeenkomende 9,2-mm huismaat en Ø0,8-mm as. Exact typenummer, OEM en windingvariant blijven onbevestigd |
 
 Deze metingen **spreken de eerdere veronderstelling van een 8,2-mm huis en Ø1,5-mm as tegen**. De oude 8,2/1,5-getallen kwamen van een verkopersafbeelding, niet van een schuifmaat op de gebruikte motor.
+
+## 1a. Eigen motorpaar — benaderende eigenaarmetingen, 20 oktober 2026
+
+**Bron:** rechtstreeks eigenaarbericht na uitleg van meetmaten A–D. Gemeten met
+een meetlat die volgens de eigenaar niet erg accuraat is. Alle onderstaande
+waarden zijn **benaderingen**, geen schuifmaatmetingen of productietoleranties.
+De twee motorvarianten zijn telkens aan **dezelfde connector** gekoppeld volgens
+de eigenaar; dit legt geen pinout, elektrische serieschakeling of windingidentiteit vast.
+
+We noemen ze hier **variant K (kleinere tandwieluitsteking)** en **variant L
+(grotere tandwieluitsteking)**. Dit zijn lokale beschrijvende namen, geen
+OEM-typenummers. De koppeling van A en B hieronder volgt voorlopig de volgorde
+“de ene / de andere” in het bericht; de eigenaar heeft de motoren niet afzonderlijk
+gelabeld. Geen draadkleur, connectorpositie of serienummer aan K/L toegewezen.
+
+**Meetvlak voor A, B en C:** het metalen bovenvlak van het motorhuis waar de as
+uitkomt, exclusief het verhoogde busje (boss). Hoogtes lopen vanaf dat vlak naar
+het tandwiel. De onderzijde van het metalen huis ligt circa9,2 mm lager.
+
+| Maat | Definitie | Variant K | Variant L | Bewijs / onzekerheid |
+|---|---|---:|---:|---|
+| A | Huisbovenvlak → onderkant tandwiel | ≈1,5 mm | ≈2,0 mm | Eigenaar, meetlat; koppeling aan B voorlopig op berichtvolgorde |
+| B | Huisbovenvlak → bovenkant tandwiel | ≈2,75 mm | ≈3,25 mm | Eigenaar verduidelijkt: L is “iets **meer** dan 3 mm”; eerdere formulering was een typfout |
+| C | Huisbovenvlak → bovenkant boss | ≈0,25 mm | ≈0,25 mm | Volgens eigenaar bij beide gelijk; moeilijk te meten |
+| D | Buitendiameter boss | ≈3 mm | ≈3 mm | Eigenaar, meetlat |
+| B − A | Berekende tandwiellengte | ≈1,25 mm | ≈1,25 mm | Alleen afgeleid uit bovenstaande voorlopige paren, geen zelfstandige meting |
+| A − C | Berekende afstand boss-top → tandonderkant | ≈1,25 mm | ≈1,75 mm | Afgeleid, geen zelfstandige meting |
+
+De eigenaar heeft de formulering bij L gecorrigeerd naar **iets meer dan 3 mm**.
+B≈3,25 mm is dus niet meer tegenstrijdig. We gebruiken de opgegeven paren
+K: A≈1,5/B≈2,75 en L: A≈2,0/B≈3,25; de koppeling volgt de berichtvolgorde.
+Er is geen onderbouwde ±-meetfout bekend; de decimalen betekenen niet dat op
+0,01 mm nauwkeurig gemeten is. Status: **benaderend gemeten**, geen
+gekwalificeerde productietolerantie. Geen herhaling van A–D gevraagd.
+
+Samen met de eerdere eigenaarmetingen weten we nu: metalen huis circaØ8 ×9,2 mm,
+kale as circaØ0,8 mm, twee verschillende tandwieluitstekingen en een fysiek
+passende drie-ribben-C-koppeling. Exacte OEM-identiteit blijft onbewezen.
+Tanddiameter, module en profiel zijn hiermee niet nieuw gemeten. Aanvullende eigenaarmetingen: PCB-breedte circa6,5–7 mm, totale diepte
+motor+PCB circa10 mm; PCB-onderkant2 en bovenkant6 mm vanaf de metalen
+huisonderkant. Lijm onder het PCB varieert; draden verlaten het PCB bovenaan en
+lopen verder omhoog. As steekt circa0,1 mm boven het tandwiel uit. Twee metalen
+lipjes aan de bovenzijde zijn circa1 mm groot; exacte richting/dikte niet bemaat.
+De PM08-PDF toont deze lipjes, maar levert geen exacte contourmaat. Dit zijn
+benaderende eigenaargegevens; kabel-/lijmvariatie heeft geen gemeten maximum. De PDF-uitsteking4,1±0,15 mm is **geen vervanging voor deze
+metingen aan de eigen motoren**.
+
+De v3-correctie gebruikt nu variant L en ruime PCB-/lijm-/kabeluitsparingen.
+Zie de [actuele geometrische verificatie](../../owner-print-tests/2026-10-19-microstepper-frame-v3/verification.md).
+De nieuwe CAD/STL/3MF is digitaal **READY voor L**, na heropenen/reslice en
+baancontrole met Bambu02.08.02.61. Fysieke passing nog niet getest.
 
 ## 2. Gedocumenteerde typen en verwante aanbiedingen
 
@@ -78,12 +129,12 @@ De in de GUI gekozen **5000 rpm is een opdrachtwaarde**, niet een gemeten toeren
 
 ## 6. Consequentie voor het actuele v3-frame
 
-In [v3 CAD](../../owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad) is de cilindrische motorzitting getekend met `cylinder(d=8.2,h=8.5)`, vanaf Z=2 tot Z=10,5 mm. Een **9,2-mm huis** zou vanaf dezelfde basis tot **Z=11,2 mm** reiken; de bovenliggende constructie en axiale positie moeten opnieuw worden beoordeeld. De plaatselijke bovenste uitsparing is geen bewezen oplossing voor het volledige huis en het PCB. De bestaande **3MF blijft een digitale slice, geen bewezen passende motorhouder**. Geen CAD/STL/3MF is door deze documentatieaanpassing gewijzigd.
+In de oude versie van [v3 CAD](../../owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad) is de cilindrische motorzitting getekend met `cylinder(d=8.2,h=8.5)`, vanaf Z=2 tot Z=10,5 mm. Een **9,2-mm huis** zou vanaf dezelfde basis tot **Z=11,2 mm** reiken; de bovenliggende constructie en axiale positie moeten opnieuw worden beoordeeld. Dit beschrijft de oude CAD. De gemeten-L-correctie vergroot de zitting tot Ø8,4, verplaatst het draagdek en houdt een open kabelroute vrij. Het oude 3MF is gearchiveerd; de nieuwe CAD/STL/3MF is heropend, opnieuw gesliced en digitaal vrijgegeven voor L.
 
 ## 7. Kleinste besluitvormende controles — niet automatisch gestart
 
 1. **Motor spanningsloos en van driver los:** meet de weerstand van beide spoelparen (rekening houdend met meetsnoeren). Rond **37–43 Ω** ondersteunt de 40-Ω-variant; een duidelijk andere waarde betekent andere winding/bedrading of meetprobleem, **niet** automatisch een defect.
-2. **Vóór printen of motorbedrijf:** meet per gebruikte motorvariant huislengte, kale as en daadwerkelijke tandwieluitsteking; corrigeer dan pas frame/rotor-CAD en slice een nieuwe 3MF. De 9,2-mm maat maakt de oude READY-plaat onvoldoende onderbouwd.
+2. **Vóór printen of motorbedrijf:** gebruik de eigenaarmetingen in §1a, bepaal de nog ontbrekende interface-envelopes; corrigeer dan pas frame/rotor-CAD en slice een nieuwe 3MF. De 9,2-mm maat maakt de oude READY-plaat onvoldoende onderbouwd.
 3. **Alleen indien hogere stroom nodig blijft:** meet motortemperatuurstijging bij **vastgelegde echte Vref, IRUN, looptijd en duty cycle**, aanvankelijk kort en met veilige stop. Meet daarnaast echte omwentelingen/pinverplaatsing onder representatieve belasting. Pas daarmee kunnen bruikbare stroom en snelheid worden gekozen; **geen datasheetloze 148-mA-continuvrijgave**.
 
 **Beslisgrens:** deze bronnen rechtvaardigen een correctie van de framegeometrie en een voorzichtige motorproef, maar **nog geen definitieve maximale stroom, duty cycle, RPM of complete-bankarchitectuur**.
