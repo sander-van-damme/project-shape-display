@@ -17,7 +17,9 @@ PCB-/lijm-/kabelruimte en volledige axiale keten. Ring/rotor+0,7 mm;
 C-inloop0,25; radiale C-vorm en draadspoed3 behouden. Eigenaarmetingen en
 voorbehouden staan in [centrale maatbasis](../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/motor-variants-limits.md).
 [Actuele v3-verificatie](../owner-print-tests/2026-10-19-microstepper-frame-v3/verification.md):
-Bambu02.08.02.61, heropenen/reslice en baancontrole,2u58m23 /10,20g.
+Aanvullend: verkeerde handigheid van de achterkant gecorrigeerd; montage nu
+uitsluitend met rotaties gecontroleerd. Geleiding voor18–50-mm pinnen, slag3 mm.
+Bambu02.08.02.61, heropenen/reslice en baancontrole,3u46m31 /14,08g.
 K niet vrijgegeven; fysieke passing nog niet getest. Onderstaande leveringen
 beschrijven de historische stand, niet de actuele motorafmetingen.
 

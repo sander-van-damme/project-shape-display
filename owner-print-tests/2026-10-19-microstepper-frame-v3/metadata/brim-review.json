@@ -1,9 +1,9 @@
 [
   {
-    "project_sha256": "d7facdd8131532e4cc963f5709901520836bd30010393c8f2d8ce9e1e432904f",
-    "brim_segments": 260,
+    "project_sha256": "782499c59dd6db74ee6dcba948871199ce8a8ad479cc987571afe1e90d8ef51a",
+    "brim_segments": 258,
     "radius_mm": [
-      3.8243261726741222,
+      3.8295923792226625,
       5.104318602810791
     ],
     "only_around_rotor": true,
@@ -11,10 +11,10 @@
     "support_segments": 0
   },
   {
-    "project_sha256": "d6be1d4068adca89c16b80547c008d65fdb1130c9a3bb90e84e6bfe023c259dd",
-    "brim_segments": 260,
+    "project_sha256": "615870215f70da16a237a7f6e9a42d88c4f130b34ceb5f0cb8c35a58fdd753d5",
+    "brim_segments": 258,
     "radius_mm": [
-      3.8243261726741222,
+      3.8295923792226625,
       5.104318602810791
     ],
     "only_around_rotor": true,

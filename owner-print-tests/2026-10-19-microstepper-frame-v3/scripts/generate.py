@@ -22,7 +22,7 @@ for name,part,t in [('front','front',.6),('back','back',.6),('rotor','rotor-base
  assert m.is_watertight and m.is_winding_consistent and len(m.split())==1,name
  m.apply_translation([0,0,-m.bounds[0,2]]);m.export(p);parts[name]=m
 layout=[];meshes=[]
-for name,x,y,label in [('front',18,2,'front'),('back',53,2,'back'),('rotor',10,50,'rotor'),('pin',24,50,'pin'),('spacer-060',36,46,'S060'),('spacer-072',44,46,'S072a'),('spacer-072',52,46,'S072b'),('spacer-084',60,46,'S084')]:
+for name,x,y,label in [('front',18,2,'front'),('back',53,2,'back'),('rotor',10,82,'rotor'),('pin',24,82,'pin'),('spacer-060',36,78,'S060'),('spacer-072',44,78,'S072a'),('spacer-072',52,78,'S072b'),('spacer-084',60,78,'S084')]:
  m=parts[name].copy();m.apply_translation([x,y,0]);meshes.append(m)
  layout.append(dict(name=label,source=name,bounds_mm=m.bounds.tolist(),center_xy=[x,y]))
 plate=trimesh.util.concatenate(meshes);plate.export(COMPONENTS/'microstepper-frame-v3.stl')

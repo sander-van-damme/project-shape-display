@@ -42,12 +42,15 @@
   "body_measurement_tolerance_mm": null,
   "proven_radial_coupling": "Preserve bore D2.5, three R0.5 ribs at radius 1.55; owner fit only",
   "release_blocker": null,
-  "legacy_artifacts": "Old 19 October STL/3MF and metadata archived. Root STL and 3MF are the measured-L correction, reopen/reslice verified.",
+  "legacy_artifacts": "Before-handedness-fix archive is retired: back half cannot be assembled by rigid rotation. Current root 3MF contains corrected handed halves and guide for 18\u201350 mm pins.",
   "selected_variant": "L",
-  "design_revision": "2026-10-20-measured-L",
+  "design_revision": "2026-10-20-handed-halves-guide50",
   "rotor_z_mm": 12.9,
   "ring_bottom_z_mm": 12.4,
   "deck_bottom_z_mm": 11.4,
   "lead_in_mm": 0.25,
-  "upper_shift_mm": 0.7
+  "upper_shift_mm": 0.7,
+  "guide_top_z_mm": 72.7,
+  "guide_bottom_z_mm": 32.7,
+  "max_pin_length_mm": 50
 }

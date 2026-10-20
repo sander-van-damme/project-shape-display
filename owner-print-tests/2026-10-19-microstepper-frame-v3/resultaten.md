@@ -78,3 +78,21 @@ bovenliggende kabelroute buiten ring/rotor. Geen nieuwe fysieke proef uitgevoerd
 Nieuwe CAD/STL/3MF is nu **READY voor L** na heropenen/reslice en baancontrole.
 Bambu02.08.02.61:2u58m23 /10,20g. Oud printproject gearchiveerd.
 Geen nieuwe fysieke proef verricht; zie verification.md.
+
+## Correctie op eigenaarfeedback — verkeerde spiegeling en geleiding tot50 mm
+
+Eigenaar meldt: één framehelft is verkeerd gespiegeld; vraagt geleiding voor
+pinnen tot50 mm. Dit is negatieve eigenaarfeedback, geen nieuwe geslaagde proef.
+De oude controle spiegelde de achterste STL met een matrix met determinant−1;
+dat is niet met een geprint onderdeel uitvoerbaar. Nieuwe achterkant wordt met
+tegengestelde handigheid geëxporteerd; montagecontrole gebruikt alleen rotaties
+(determinant+1). De oude achterkant geeft daarbij38,444 mm³ overlap en wordt
+nu expliciet als regressie afgekeurd.
+
+Geleiding verlengd tot Z72,7 voor18–50-mm pinlengtes;3-mm slag behouden.
+Derde elastiek bij bovengroef houdt beide geleidingshelften samen. Bestaande50-mm
+pinmesh gebruikt voor digitale controle, geen nieuwe lange pin op de printplaat.
+Geen nieuwe fysieke passing, kromtrekking, wrijving of beweging gemeten.
+
+Nieuwe plaat digitaal READY na opgeslagen3MF heropenen/reslice en baancontrole:
+Bambu02.08.02.61,3u46m31 /14,08g. Oude plaat en verkeerde helften ingetrokken.

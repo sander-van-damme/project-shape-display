@@ -1,8 +1,11 @@
 # Montageconcept — gemeten L-variant
 
-De nieuwe3MF is digitaal gecontroleerd voor X1 Carbon/0,4/PLA.
+De nieuwe3MF met tegengesteld georiënteerde helften en geleiding tot50 mm is digitaal gecontroleerd voor X1 Carbon/0,4/PLA.
 Deze aanwijzingen beschrijven de gecorrigeerde CAD, geen fysiek bewezen montage.
 Begin spanningsloos; verwijder de rotorbrim zonder ribben te beschadigen.
+Gebruik alleen het nieuwe paar framehelften: de vorige achterkant had de verkeerde
+handigheid. Draai de achterkant om, zodat pennen/gaten tegenover elkaar liggen
+en beide PCB-uitsparingen aan dezelfde motorzijde zitten. Niet spiegelen in de slicer.
 
 ![Axiale doorsnede](images/assembly.svg)
 
@@ -24,10 +27,16 @@ Begin spanningsloos; verwijder de rotorbrim zonder ribben te beschadigen.
 6. Rechte C-ribzone conservatief Z13,15–18,9; bij maximale lift Z13,45–19,2.
    L-tanden circaZ13,2–14,45; nominale minimale rechte overlap1,0 mm.
    Asuiteinde circaZ14,55; dakruimte4,35 mm. Dit zijn berekende benaderingen.
-7. Sluit met bestaande pennen en elastieken. Draai met de hand360° en controleer
+7. Sluit met bestaande pennen en elastieken; voeg een derde elastiek toe in de
+   bovenste groef bij Z67,7 om de lange geleiding gesloten te houden. Draai met de hand360° en controleer
    lift tot0,30 mm, soepele loop, vlakke ring en geen meebewegende motoras.
-8. Pinonderkant Z27,9–30,9; bovenzijde Z45,9–48,9. Framehoogte40,7:
-   bovenuitsteek blijft5,2–8,2. Slag3 mm, draadspoed3 en originele draadmesh
+8. Pinonderkant Z27,9–30,9; bovenzijde Z45,9–48,9. De oorspronkelijke onderbouw blijft40,7 hoog; de centrale vierkante geleiding
+   loopt nu van Z32,7 tot72,7, opening4,8 ×4,8 voor pin4,4 ×4,4.
+   Voor een50-mm pin ligt de tip op Z77,9–80,9 (5,2–8,2 boven de geleiding).
+   Kortere pinnen blijven binnen de lange geleiding; plaats/verwijder ze met
+   geopende helften. De plaat bevat de bestaande18-mm proefpin; hergebruik
+   bestaande langere pinnen met dezelfde onderzijde en draad.
+   **50 mm is pinlengte, niet slag.** Slag3 mm, draadspoed3 en originele draadmesh
    behouden. Controleer eerst de volledige slag handmatig.
 
 Stop bij druk op kabels/lijm/PCB, open splitnaad, klemmende motor, schuren,

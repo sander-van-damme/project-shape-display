@@ -1,10 +1,10 @@
 {
   "stl": "owner-print-tests/2026-10-19-microstepper-frame-v3/components/microstepper-frame-v3.stl",
-  "stl_sha256": "02755466af46e55fb06ea62ece75306cf0543d4e837b86d09f4c72d345d998c6",
+  "stl_sha256": "42275d9906696fc88cc45016a55c0ee274f92241065e189e940b59d1f800b6e0",
   "body_count": 8,
   "translation_mm": [
     92.5,
-    99.0,
+    83.0,
     0.0
   ],
   "source_bounds_mm": [
@@ -15,7 +15,7 @@
     ],
     [
       69.0,
-      56.0,
+      88.0,
       28.0
     ]
   ],
@@ -121,7 +121,7 @@
   ],
   "baseline_project": "owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.3mf",
   "baseline_sha256": "c3d95fe674aa3ccd868b14cca0e880d00dd9a9250ba3ba6640100bf60e0bd29c",
-  "final_project_sha256": "d7facdd8131532e4cc963f5709901520836bd30010393c8f2d8ce9e1e432904f",
+  "final_project_sha256": "782499c59dd6db74ee6dcba948871199ce8a8ad479cc987571afe1e90d8ef51a",
   "roundtrip": {
     "reopened_without_external_profiles": true,
     "return_code": 0,

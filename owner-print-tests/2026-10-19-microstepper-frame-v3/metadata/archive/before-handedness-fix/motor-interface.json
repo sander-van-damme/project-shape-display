@@ -1,0 +1,53 @@
+{
+  "status": "READY",
+  "reference": "Z=0 frame bottom; motor lower metal face Z=2; upper metal face excludes bearing sleeve",
+  "motor_base_z_mm": 2.0,
+  "body_height_mm": 9.2,
+  "body_diameter_nominal_mm": 8.0,
+  "drawing_max_diameter_mm": 8.2,
+  "shaft_diameter_mm": 0.8,
+  "shaft_tip_above_body_mm": 3.35,
+  "gear_bottom_above_body_mm": 2,
+  "gear_top_above_body_mm": 3.25,
+  "gear_diameter_mm": null,
+  "boss_diameter_mm": 3,
+  "boss_height_mm": 0.25,
+  "flange_envelope_mm": {
+    "diameter": 10.2,
+    "height": 1.2,
+    "top_z": 11.2,
+    "evidence": "Conservative test envelope, not exact measured lips"
+  },
+  "pcb_solder_wire_envelope_mm": {
+    "pcb_width": 7,
+    "pcb_x": [
+      -6,
+      -2.5
+    ],
+    "pcb_z": [
+      4,
+      8
+    ],
+    "wire_x": [
+      -7,
+      -4.4
+    ],
+    "wire_width": 8,
+    "wire_z": [
+      8,
+      42
+    ],
+    "evidence": "Measured PCB; expanded wire/glue volumes are design allowances, not measured maxima"
+  },
+  "body_measurement_tolerance_mm": null,
+  "proven_radial_coupling": "Preserve bore D2.5, three R0.5 ribs at radius 1.55; owner fit only",
+  "release_blocker": null,
+  "legacy_artifacts": "Old 19 October STL/3MF and metadata archived. Root STL and 3MF are the measured-L correction, reopen/reslice verified.",
+  "selected_variant": "L",
+  "design_revision": "2026-10-20-measured-L",
+  "rotor_z_mm": 12.9,
+  "ring_bottom_z_mm": 12.4,
+  "deck_bottom_z_mm": 11.4,
+  "lead_in_mm": 0.25,
+  "upper_shift_mm": 0.7
+}

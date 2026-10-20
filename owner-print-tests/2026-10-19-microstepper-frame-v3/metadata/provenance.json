@@ -1,5 +1,5 @@
 {
-  "repository_base": "35720ba",
+  "repository_base": "b4606aa",
   "bambu_studio": "02.08.02.61",
   "appimage_url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/BambuStudio_ubuntu22.04-v02.08.02.61-20260820225108.AppImage",
   "appimage_sha256": "69426a59682574591590f51c913d3889baa19252d1c8e9fcae2497eb0ed6bf92",
@@ -13,12 +13,18 @@
   ],
   "runtime_package_source": "Signed Debian trixie/security APT snapshot 20260925; local extraction only",
   "source_sha256": {
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "2f73d3e3f34c63c05aec58684bdabd69fe2db1511bbb5732d92262d0b08e0076",
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py": "e526abfcc42ee2ef054a8d59164699e11845c62120400ef6a365ba853f32e3b5",
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_geometry.py": "46ac2e9a0b968d2d585f84d4ab3b59d6c8c13201f28b270a312e4c5e897b7592",
-    "owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/motor-interface.json": "8375c418d5af571e6bcbe7a1e36c9e4d5ccc813d79868dcade55b31b1c0da121",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "a9e2875a975c2c1ec19b543867c55465e637d2847b4431297d32b1d2ad2bee7f",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/generate.py": "5182534be58c4b98aac4ade77f45201c1a91a1967485958b5d2ba56e1416ce2e",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/build_project.py": "d3d3d615895e45849d2c903489ba219dbf65f8cc707d77ff116d6e261d268b93",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_slice.py": "8cca70bcabb2339bd587b5610d6a2cd589f40e015d1f5a359fe475704fa08a8f",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_geometry.py": "08148df7a99aebe0f12182aaf11caeba64b4d3df48b5c8695be7012ad378cbbd",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/paths.py": "7cf3bc6f405dfc9aa37893b86338a6e7707b0b6484d8a8a83aaf39c2f5b5ceca",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_axial_measurements.py": "50a27d3b96790651413c64f4bae55eb16b6c9aa55ef404295f833192fe129fbe",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/render_geometry.py": "e843a85c0faaed21732a8a3e96c59467c8fe834d8e1add06f659ad6c261aa033",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/scripts/review_brim.py": "74e9834ea316f5bd9883893e7c019bf3e923d764ff3377d98cc9481f877154fc",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/motor-interface.json": "5664c936eb0a7292016588157abaecff0e9af6320e3e5303fdb28d6a25aab160",
     "owner-print-tests/2026-10-19-microstepper-frame-v3/metadata/owner-motor-measurements.json": "b53a361d43c48505f4fda89a22eed8f70dd64a8dec581f151e50fdd017325d85"
   },
   "physical_test_performed": false,
-  "status": "READY for L only"
+  "status": "READY for L; corrected handedness and 18\u201350 mm pin guide"
 }

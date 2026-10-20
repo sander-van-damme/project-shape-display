@@ -8,22 +8,28 @@ import matplotlib.pyplot as plt
 plt.rcParams['svg.fonttype']='none'
 from matplotlib.patches import Rectangle
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-from paths import COMPONENTS, METADATA, IMAGES
+from paths import COMPONENTS, METADATA, IMAGES, TEST_DIR
 basis=json.loads((METADATA/'motor-interface.json').read_text())
 front=trimesh.load(COMPONENTS/'front.stl',force='mesh')
 front.apply_translation([0,0,-6.5])
 front.apply_transform(trimesh.transformations.rotation_matrix(np.pi/2,[1,0,0]))
 rotor=trimesh.load(COMPONENTS/'rotor.stl',force='mesh');rotor.apply_translation([0,0,basis['rotor_z_mm']])
-pin=trimesh.load(COMPONENTS/'pin.stl',force='mesh');pin.apply_translation([0,0,29.4])
+pin=trimesh.load(TEST_DIR.parent/'2026-10-18-microstepper-frame-v2/components/pin-50.stl',force='mesh');pin.apply_translation([0,0,29.4])
 body=trimesh.creation.cylinder(radius=4,height=9.2);body.apply_translation([0,0,6.6])
-fig=plt.figure(figsize=(10,7));ax=fig.add_subplot(projection='3d')
+fig=plt.figure(figsize=(12,8));ax=fig.add_subplot(121,projection='3d')
 triangles=[];colors=[]
 for mesh,color in [(front,'#7296ad'),(rotor,'#db9f43'),(pin,'#63a68f'),(body,'#999999')]:
  triangles.extend(mesh.triangles);colors.extend([color]*len(mesh.faces))
 ax.add_collection3d(Poly3DCollection(triangles,facecolor=colors,linewidth=0))
-ax.set(xlim=(-17,17),ylim=(-10,10),zlim=(0,50),xlabel='X mm',ylabel='Y mm',zlabel='Z mm')
-ax.set_box_aspect((34,20,50));ax.view_init(24,-65)
-ax.set_title('E-302 v3 — corrected L / one half omitted\nMotor body shown; PCB and wires omitted in this view')
+ax.set(xlim=(-17,17),ylim=(-10,10),zlim=(0,85),xlabel='X mm',ylabel='Y mm',zlabel='Z mm')
+ax.set_box_aspect((34,20,85));ax.view_init(24,-65)
+ax.set_title('50 mm pin in extended guide\nOne half omitted; motor L')
+ax=fig.add_subplot(122,projection='3d')
+plate=trimesh.load(COMPONENTS/'microstepper-frame-v3.stl',force='mesh')
+ax.add_collection3d(Poly3DCollection(plate.triangles,facecolor='#7296ad',linewidth=0))
+ax.set(xlim=(0,72),ylim=(0,92),zlim=(0,30),xlabel='X mm',ylabel='Y mm',zlabel='Z mm')
+ax.set_box_aspect((72,92,30));ax.view_init(65,-90)
+ax.set_title('Printed halves: opposite handedness\nExisting 18 mm test pin on plate')
 fig.tight_layout();fig.savefig(IMAGES/'cad.png',dpi=150);plt.close(fig)
 fig,ax=plt.subplots(figsize=(9,8))
 def box(x,z,w,h,c):ax.add_patch(Rectangle((x,z),w,h,facecolor=c,edgecolor='#333',lw=.7))

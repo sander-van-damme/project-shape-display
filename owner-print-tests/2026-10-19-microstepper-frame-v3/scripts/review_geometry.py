@@ -36,7 +36,11 @@ assert basis['body_height_mm'] == 9.2
 assert basis['motor_base_z_mm'] == 2
 front = rot(move(load('front'), [0, 0, -6.5]), 90, [1, 0, 0])
 back = rot(move(load('back'), [0, 0, -6.5]), 90, [1, 0, 0])
-back.apply_scale([1, -1, 1])
+# Proper rigid transforms only: a printed part cannot be reflected.
+back = rot(back, 180)
+assembly_rotation = (trimesh.transformations.rotation_matrix(np.pi,[0,0,1]) @
+                     trimesh.transformations.rotation_matrix(np.pi/2,[1,0,0]))
+assert abs(np.linalg.det(assembly_rotation[:3,:3])-1)<1e-12
 f, b = solid(front), solid(back)
 frame = f + b
 rotor_z = basis["rotor_z_mm"]
@@ -53,12 +57,27 @@ for diameter in [basis['body_diameter_nominal_mm'], basis['drawing_max_diameter_
                        ring_collision_mm3=(body ^ washer).volume()))
 # Lower-bound known housing model; full appendage geometry remains unknown.
 body = md.Manifold.cylinder(9.2, 4, 4, 256).translate([0, 0, 2])
+long_pin_mesh = trimesh.load(TEST_DIR.parent/'2026-10-18-microstepper-frame-v2/components/pin-50.stl',force='mesh')
+assert abs(long_pin_mesh.bounds[1,2]-50)<1e-4
+# This solid sweep bounds all square pin upper sections from 18 through 50 mm
+# over the whole 3 mm stroke plus 0.3 mm lift (continuous frame clearance).
+guide_sweep = md.Manifold.cube([4.4,4.4,81.2-33.9]).translate([-2.2,-2.2,33.9])
+assert abs((guide_sweep ^ frame).volume())<1e-4
+# Demonstrate the old unmirrored printed back cannot assemble by rotation.
+legacy_back=trimesh.load(COMPONENTS/'archive/2026-10-20-before-handedness-fix/back.stl',force='mesh')
+legacy_back=rot(rot(move(legacy_back,[0,0,-6.5]),90,[1,0,0]),180)
+old_hand_error=(solid(legacy_back)^f).volume()
+assert old_hand_error>1, old_hand_error
+assert abs((f^b).volume())<1e-4
 rows = []
 for lift in [0, .3]:
     for angle in range(361):
         r = solid(move(rot(rotor, -angle), [0, 0, lift]))
         p = solid(move(load('pin'), [0, 0, 27.2 + shift + 3*angle/360 + lift]))
+        long_p = solid(move(long_pin_mesh, [0,0,27.2+shift+3*angle/360+lift]))
         rows.append(dict(angle_deg=angle, lift_mm=lift,
+                         long_pin_frame_mm3=(long_p ^ frame).volume(),
+                         long_pin_rotor_mm3=(long_p ^ r).volume(),
                          rotor_frame_mm3=(r ^ frame).volume(),
                          pin_frame_mm3=(p ^ frame).volume(), rotor_pin_mm3=(r ^ p).volume()))
 maxima = {k: max(row[k] for row in rows) for k in rows[0] if k.endswith('mm3')}
@@ -74,7 +93,7 @@ c = solid(rotor) ^ clip
 pcb = md.Manifold.cube([3.5, 7, 4]).translate([-6, -3.5, 4])
 # Expanded glue/wire/flange envelopes are design allowances, not measured maxima.
 glue = md.Manifold.cube([3.5, 7.8, 2]).translate([-6, -3.9, 2])
-wire = md.Manifold.cube([2.6, 8, 34]).translate([-7, -4, 8])
+wire = md.Manifold.cube([2.6, 8, 67]).translate([-7, -4, 8])
 flange = md.Manifold.cylinder(1.2, 5.1, 5.1, 256).translate([0, 0, 10])
 boss = md.Manifold.cylinder(.25, 1.5, 1.5, 128).translate([0, 0, 11.2])
 shaft = md.Manifold.cylinder(3.35, .4, .4, 96).translate([0, 0, 11.2])
@@ -92,7 +111,7 @@ assert max(maxima.values()) < 1e-4, maxima
 assert all(max(abs(c['front_collision_mm3']),abs(c['back_collision_mm3'])) < 1e-4 for c in checks), checks
 # Small penetrations test that surfaces actually meet, unlike zero-volume tangency.
 report = dict(status=basis['status'], scope='Corrected L draft: measured body/boss/shaft, PCB and expanded glue/wire/lip envelopes; approximate gear outer cylinder' ,
-              motor=checks, appendage_checks=appendages, complete_motor_frame_collision_mm3=(complete ^ frame).volume(), unknown_motor_fields=[k for k, v in basis.items() if v is None and k.endswith('_mm')],
+              assembly_rotation_determinant=float(np.linalg.det(assembly_rotation[:3,:3])), legacy_back_rigid_assembly_collision_mm3=old_hand_error, pin_lengths_checked_mm=[18,50], guide_sweep_collision_mm3=(guide_sweep^frame).volume(), guide_z_mm=[32.7,72.7], long_pin_tip_z_mm=[77.9,80.9], motor=checks, appendage_checks=appendages, complete_motor_frame_collision_mm3=(complete ^ frame).volume(), unknown_motor_fields=[k for k, v in basis.items() if v is None and k.endswith('_mm')],
               measured_pcb_envelope_collision_mm3=(pcb ^ frame).volume(),
               sampled_poses=rows, max_collision_mm3=maxima, spacers=spacers,
               frame_half_collision_mm3=(f ^ b).volume(),
@@ -105,7 +124,7 @@ report = dict(status=basis['status'], scope='Corrected L draft: measured body/bo
               upward_stop_probe_031_mm3=(solid(move(rotor, [0, 0, .31])) ^ frame).volume(),
               gear_boss_shaft_clearance='Nominal boss and shaft clear; gear outer cylinder intentionally overlaps fitted ribs. No true tooth mesh or physical axial-load proof',
               source_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                             for p in [COMPONENTS/'front.stl', COMPONENTS/'back.stl', COMPONENTS/'rotor.stl', COMPONENTS/'pin.stl', METADATA/'motor-interface.json']})
+                             for p in [COMPONENTS/'front.stl', COMPONENTS/'back.stl', COMPONENTS/'rotor.stl', COMPONENTS/'pin.stl', TEST_DIR.parent/'2026-10-18-microstepper-frame-v2/components/pin-50.stl', METADATA/'motor-interface.json']})
 (METADATA / 'motor-interface-review.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps({k: v for k, v in report.items() if k != 'sampled_poses'}, indent=2))
 sys.exit(0 if basis["status"] == "READY" else 2)

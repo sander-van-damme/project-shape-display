@@ -1,8 +1,9 @@
 # E-302 v3 — volledige motorinterfacecorrectie, 20 oktober 2026
 
 **READY voor de fysieke proef met variant L.** Productie-CAD/STL gecorrigeerd;
-nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. De eerdere
-schone basis `35720ba` en oorspronkelijke audit staan in metadata/archive.
+nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. Huidige correctie bouwt op `b4606aa`. De voorafgaande mesh-/slicerstand staat
+in metadata/archive/before-handedness-fix; oude STLs/3MF in
+components/archive/2026-10-20-before-handedness-fix. Die oude plaat is ingetrokken.
 
 ## Maatbasis en bronnen
 
@@ -59,12 +60,29 @@ De functionele ribvorm en draad zijn behouden; alleen de axiale inloop is aangep
 
 RotorØ7, bodylengte12 en draadlengte16 behouden; schouder24,9; bovenstop25,2;
 draad24,9–40,9. Bovenste rotorgeleiding, pinbescherming en bovenste uitlijnpunt
-schuiven samen0,7 omhoog. Framehoogte40,7. Pinonderkant27,9–30,9,
-bovenkant45,9–48,9; uitsteek blijft5,2–8,2 en volledige proefslag3 mm.
+schuiven samen0,7 omhoog. Onderbouwhoogte40,7; centrale geleiding nu32,7–72,7 met4,8-mm vierkant gat.
+Pinonderkant27,9–30,9;18-mm pinbovenkant45,9–48,9 blijft binnen geleiding.
+50-mm pinbovenkant77,9–80,9, uitsteek5,2–8,2; volledige proefslag blijft3 mm.
+Het vierkante bovendeel is4,4 mm breed:0,2 mm nominale speling per kant.
+Extra elastiekgroef bij67,7; geen nieuwe motor-/draadarchitectuur.
 
 Krachtpad: pin → draad/rotor → bestaande ring → draagdek → frame.
 Opwaartse last via rotorschouder/bovenstop. Geen bedoeld axiaal contact met
 boss/as/tandwiel; fysieke klemming of wrijving blijft te controleren.
+
+## Correctie van de handigheid
+
+De vorige digitale assemblage gebruikte `back.apply_scale([1,-1,1])`.
+Dat maakte een spiegelbeeld van het geprinte onderdeel en verborg de fout.
+De nieuwe back-STL is in de CAD in X gespiegeld vóór de printoriëntatie.
+Montage van beide werkelijk geleverde meshes gebruikt nu uitsluitend translatie
+plus rotatie90° rond X en voor back180° rond Z, determinant+1.
+De oude back-STL met dezelfde fysieke rotaties geeft38,444 mm³ botsing en wordt
+expliciet afgekeurd; het nieuwe paar sluit zonder betekenisvolle overlap.
+Pennen/gaten en PCB-/kabeluitsparingen liggen nu aan de juiste gezamenlijke zijde.
+De nieuwe lange framehelften zijn samen te vervangen. Drie elastieken, inclusief
+één bovenaan, houden het splitvlak dicht; daadwerkelijke rechtstand en schuifwrijving
+over de40-mm geleiding blijven fysiek te beoordelen.
 
 ## Uitgevoerde geometriecontrole
 
@@ -76,7 +94,9 @@ ruimte-model met expliciete aannamen, geen bewezen OEM-contour of tandprofiel.
 - Beide helften: huisØ8 enØ8,2 vrij; oude botsing13,196 mm³ per helft opgelost.
 - PCB, lijmruimte, voorgeschreven kabelroute, flens, boss en as: geen significante
   frame-/ring-/rotorbotsing. Kabelroute **buiten** de ring; niet willekeurig langs as.
-- 722 standen: rotatie0–360° per graad, gekoppeld aan3-mm slag, op lift0 en0,3.
+- 722 standen voor elk van18- en50-mm pin: rotatie0–360° per graad, gekoppeld
+  aan3-mm slag, op lift0 en0,3. Daarnaast een continu4,4-mm vierkant sweepvolume
+  door de geleiding voor het hele tussenliggende lengtebereik18–50: geen botsing.
   Rotor/frame circa1,7e−14 mm³; pin/frame en rotor/pin nul. Discrete sampling,
   geen analytisch continu bewijs; ronde bodyvrijloop is rotatie-invariant.
 - Originele draad symmetrisch verschil1,36e−5 mm³, onder meshgrens1e−4.
@@ -116,14 +136,16 @@ of objectoverrides. Nieuwe banen bekeken in images/toolpaths.png.
 - Supports uit, raft0, per laag. Alleen rotor buitenbrim2 mm, gap0,12;
   XY/gat/elephant-footcompensatie0. Fan100% na eerste laag, hulpfan0,
   minimum laagtijd8s. Effectieve instellingen in metadata/saved-settings.json.
-- **2u58m23 totaal /2u42m44 modeltijd,10,20g /3,42091m PLA**; heropening
-  geeft2u58m18 totaal /2u42m39 modeltijd, hetzelfde materiaalverbruik. Geen werkelijke printtijd of materiaalmeting.
-- Meshafwijking3MF/STL maximaal0,00001083 mm. Acht objecten; geen ongeankerde
+- **3u46m31 totaal /3u30m52 modeltijd,14,08g /4,71968m PLA**; heropening
+  geeft3u46m28 totaal /3u30m49 modeltijd, hetzelfde materiaalverbruik. Geen werkelijke printtijd of materiaalmeting.
+- Meshafwijking3MF/STL maximaal0,000008993 mm. Acht objecten; geen ongeankerde
   eilanden >0,005 mm². Maximale verankerde brug2,452 mm.
 - C-profiel op47 rechte lagen gecontroleerd, min ribcontrast0,150 mm;
   centrale radius0,8 open. Draad128 lagen verbonden, vijf volledige gangen.
 - Pin150 lagen, centrale radius0,6 vrij. Uitlijnpenkernen doorlopend;
-  ronde/sleufgaten vrij. Spacers5/6/6/7 lagen.
+  ronde/sleufgaten op de **gespiegelde printposities** vrij. De lange guide-opening
+  en beide wanden zijn in werkelijke banen afzonderlijk gecontroleerd.
+  Spacers5/6/6/7 lagen.
 - Geen supportbanen;260 brimsegmenten uitsluitend rond rotor op eerste laag,
   middellijnradius3,824–5,104 mm. Zie metadata/brim-review.json.
 - Zoals bij de oude draad: lokale interne spleetjes blijven in de baanvoetafdruk;

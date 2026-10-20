@@ -63,9 +63,16 @@ for part in layout:
    vals=[r for z,r in tip_r if 12+i*3<z<=15+i*3];turns.append(max(vals));assert max(vals)>1.45
   summary.update(lobe_layers=len(features),minimum_lobe_contrast_mm=min(r['contrast']for r in features),lobe_tip_radius_range_mm=[min(min(r['tips'])for r in features),max(max(r['tips'])for r in features)],thread_connected_body_layers=len(tip_r),minimum_core_r050_coverage=min(core_coverage),minimum_annulus_r058_068_coverage=min(annulus_coverage),thread_turn_max_radii_mm=turns)
   for z,title in[(3,'C ribben / open holte'),(6.12,'Dak tandwielholte'),(15,'Korte schroefdraad')]:plot.append((title,part,min(local,key=lambda x:abs(x-z)),layers,cx,cy))
+ if part['source'] in ['front','back']:
+  fp=local[min(local,key=lambda z:abs(z-5.4))]
+  assert fp.intersection(Polygon([(-2.2,33),(2.2,33),(2.2,72.5),(-2.2,72.5)])).area<.001, 'Guide channel obstructed'
+  for y in np.arange(41,72,.5):
+   for x in [-3.2,3.2]:
+    assert fp.intersection(Point(x,y).buffer(.4)).area>.1, ('Missing guide wall',part['source'],x,y)
+  summary['guide_channel_and_walls_checked_mm']=[33,72.5]
  if part['source']=='back':
   fp=local[min(local,key=lambda z:abs(z-5.4))]
-  for x,y in[(-11.5,6),(11.5,29.7)]:assert fp.intersection(Point(x,y).buffer(1.3)).area<.001
+  for x,y in[(11.5,6),(-11.5,29.7)]:assert fp.intersection(Point(x,y).buffer(1.3)).area<.001
   summary['alignment_holes_r130_open_at_z540']=True
   plot.append(('Rond + langwerpig pasgat',part,5.4,layers,cx,cy))
  if part['source']=='front':
