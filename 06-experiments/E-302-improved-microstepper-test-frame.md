@@ -10,6 +10,23 @@ Eigenaarsopdracht18 oktober2026; basiscommit0383489 na fast-forward pull.
 vrouwelijke koppeling met drie ronde lobben maakt de bestaande aandrijving
 zonder snijwerk/tape monteerbaar en verdraagt verschillende tandwielhoogtes.
 
+## Aanvulling — geïntegreerde rotor en stijf frame, 19 oktober 2026
+
+Nieuwe eigenaarobservatie: elektronica/software werken en bewegen de pin, maar het
+roterende vierkant blokkeert regelmatig, de motor zit los, de veerbruggen veren niet
+en de helften verschuiven. C met drie ribben paste goed. Exacte geprinte revisie en
+maatmetingen niet opgegeven; [afzonderlijk verslag](../owner-print-tests/2026-10-19-microstepper-frame-v3/resultaten.md).
+
+[Nieuwe compacte printproef v3](../owner-print-tests/2026-10-19-microstepper-frame-v3/test.md):
+één ronde geïntegreerde korte schroef/C-koppeling, stijve motorzitting, twee uitlijnpennen,
+ronde/sleuf-pasgaten en drie spacerdiktes (middelste dubbel). Bestaande ring draagt de
+pinlast; radiale geleiding en bovenste aanslag blijven in het frame. Draadmesh/spoed3
+behouden, tandhoogtebereik opnieuw ontworpen en vóór motorbedrijf werkelijk controleren.
+Eén heropend en opnieuw gesliced X1C/PLA-project: 67×54-mm plaat, 10,70 g / circa3u05m.
+CAD en functionele baancontroles geslaagd; fysieke passing en werking nog onbekend.
+Software/elektronica ongewijzigd. V2 is als printaanbod RETIRED; bestanden en oudere
+negatieve resultaten blijven behouden. Stop bij deze levering; geen nieuwe issues of vervolgcampagne.
+
 ## Actuele eigenaarfeedback en levering — 19 oktober 2026
 
 De eigenaar heeft revisie 3 geprint: A (één inkeping) te strak, beide N-koppen

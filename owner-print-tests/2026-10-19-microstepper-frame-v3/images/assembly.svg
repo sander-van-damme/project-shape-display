@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="640" viewBox="0 0 1060 640">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#b15a20" stroke-width="1.5"/></marker></defs>
+<rect width="1060" height="640" fill="#f8fafb"/>
+<g font-family="sans-serif" fill="#223747"><text x="35" y="38" font-size="24" font-weight="bold">E-302 v3 — montage en krachtpad</text><text x="35" y="64" font-size="15">Schematische doorsnede; maten in mm vanaf onderzijde frame. Eén helft weggelaten.</text></g>
+<!-- assembly side section, scale 8px/mm, baseline 540 -->
+<g fill="#aac1cf" stroke="#55778b" stroke-width="1.5">
+<rect x="100" y="524" width="256" height="16"/><rect x="124" y="220" width="24" height="304"/><rect x="308" y="220" width="24" height="304"/>
+<path d="M148 456H195V524H148Z M261 456H308V524H261Z"/>
+<path d="M148 444.4H212V456H148Z M244 444.4H308V456H244Z"/>
+<path d="M148 346.4H198.4V376H148Z M257.6 346.4H308V376H257.6Z"/>
+<path d="M148 328H211.2V344H148Z M244.8 328H308V344H244.8Z"/>
+<path d="M188 220H208.8V284H188Z M247.2 220H268V284H247.2Z"/>
+</g>
+<!-- motor -->
+<rect x="196" y="458.4" width="64" height="65.6" rx="4" fill="#ddd" stroke="#777"/>
+<rect x="178" y="475" width="14" height="35" fill="#578c71"/>
+<path d="M178 480H158M178 488H158M178 496H158M178 504H158" stroke="#815f52" stroke-width="2"/>
+<!-- gear illustrative envelope, explicitly unknown lower extent -->
+<rect x="219.2" y="426.4" width="17.6" height="17" fill="#c9a54e" stroke="#8e702d"/>
+<path d="M228 443V458" stroke="#888" stroke-width="6"/>
+<!-- ring -->
+<path d="M200 442.4H215.2V446.4H200Z M240.8 442.4H256V446.4H240.8Z" fill="#777"/>
+<!-- rotor with cavity -->
+<path d="M200 346.4H256V442.4H239.6V438.4H238V394.4H218V438.4H216.4V442.4H200Z" fill="#e9ad57" stroke="#ac742b" stroke-width="1.4"/>
+<rect x="222.4" y="218.4" width="11.2" height="128" fill="#e9ad57"/>
+<path d="M215.2 226L240.8 234M215.2 250L240.8 258M215.2 274L240.8 282M215.2 298L240.8 306M215.2 322L240.8 330" stroke="#ac742b" stroke-width="4"/>
+<!-- hollow pin transparent outline -->
+<rect x="210.4" y="166.4" width="35.2" height="144" fill="#77b89d" fill-opacity=".25" stroke="#377b61" stroke-width="2"/>
+<path d="M180 308.5H276V310.4H180Z" fill="#77b89d"/>
+<!-- labels -->
+<g font-family="sans-serif" font-size="15" fill="#223747" stroke="none">
+<text x="380" y="176">18-mm pin; bestaande dunne printvoet laten zitten</text>
+<text x="380" y="204">Pinbovenkant 5,2–8,2 boven frame = 3 mm proefslag</text>
+<text x="380" y="248">Ongewijzigde draad: Ø3,2 / spoed 3 / lengte 16</text>
+<text x="380" y="335">Bovenste aanslag: Z24,5; rotor bovenvlak Z24,2</text>
+<text x="380" y="365">Ronde geleiding Ø7,4 rond rotor Ø7</text>
+<text x="380" y="400">Holtedak Z18,2; rechte C-ribben Z12,7–18,2</text>
+<text x="380" y="436">Rotor rust op M3-ring ID3,2 / OD7 / dikte0,50</text>
+<text x="380" y="460">Ring in Ø7,3-zitting; draagvlak Z11,7</text>
+<text x="380" y="492">Motor Ø8 × 8,2; huis op Z2, PCB naar open −X-zijde</text>
+<text x="380" y="520">Tandlengte / boss / PCB werkelijk controleren: onbekend</text>
+</g>
+<g stroke="#718997" stroke-width="1" fill="none"><path d="M246 175H365M241 249H365M250 336H365M258 360H365M238 397H365M256 444H365M260 490H365"/></g>
+<path d="M280 350V435H290V474H315V520" stroke="#b15a20" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+<g font-family="sans-serif" fill="#223747"><text x="35" y="580" font-size="17" font-weight="bold">Last: pin → schroef/rotor → sluitring → frame → voet</text><text x="35" y="605" font-size="15">Motoras geeft alleen koppel. Stop bij asverplaatsing, klemmen, slip of druk op PCB/draden.</text></g>
+</svg>

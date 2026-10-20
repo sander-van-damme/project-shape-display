@@ -1,7 +1,7 @@
 # E-302 — Improved Microstepper Test Frame, revisie 4
 
-**Status:** READY — herziene CAD en Bambu-slice gecontroleerd; revisie 4 nog niet fysiek getest.\
-**Prioriteit:** P1 binnen deze eigenaarsopdracht; geen automatische printopdracht of deadline.\
+**Status:** RETIRED — op 19 oktober 2026 vervangen door [v3](../2026-10-19-microstepper-frame-v3/test.md) na nieuwe eigenaarfeedback over vastlopen, losse motor en verschuivende helften. Historisch printpakket en resultaten behouden.\
+**Prioriteit:** geen; geen automatische printopdracht of deadline.\
 **Laatst beoordeeld:** 19 oktober 2026.\
 **Technische bron:** [E-302](../../06-experiments/E-302-improved-microstepper-test-frame.md).
 
