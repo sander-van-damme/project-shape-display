@@ -3,6 +3,23 @@
 De nieuwe3MF met tegengesteld georiënteerde helften en geleiding tot50 mm is digitaal gecontroleerd voor X1 Carbon/0,4/PLA.
 Deze aanwijzingen beschrijven de gecorrigeerde CAD, geen fysiek bewezen montage.
 Begin spanningsloos; verwijder de rotorbrim zonder ribben te beschadigen.
+
+**Kies een paar:** korte rotor28 mm (16 mm draad) met pin18 of50 mm;
+lange rotor60 mm (48 mm draad) uitsluitend met pin50 mm. Beide behouden
+dezelfde C-koppeling, ronde body en spoed3 mm. De proefslag blijft3 mm.
+
+**Zijsteunen van de lange schroef verwijderen:** laat de print afkoelen. Houd de
+schroef dicht bij het contact vast; knip de acht dunne nekjes met een fijne
+vlakke kniptang afzonderlijk los, afwisselend links/rechts van boven naar beneden.
+Knip alleen het nekje, niet in de draadflank. Trek of draai niet aan de hele toren.
+Verwijder daarna torens en brim. Neem eventuele kleine restjes plaatselijk weg
+zonder de draadtop af te vlakken. Controleer alle acht plekken op scheuren en
+probeer de pin eerst los met de hand: bij haken of beschadiging niet forceren.
+De steuncontacten hebben geen luchtspleet; verwijderkracht en draadschade zijn
+nog niet fysiek getest. De vierkante pinvoet blijft zitten, onder de geleiding.
+
+![Werkelijke banen van de zijsteunen](images/long-screw-review.png)
+
 Gebruik alleen het nieuwe paar framehelften: de vorige achterkant had de verkeerde
 handigheid. Draai de achterkant om, zodat pennen/gaten tegenover elkaar liggen
 en beide PCB-uitsparingen aan dezelfde motorzijde zitten. Niet spiegelen in de slicer.
@@ -34,8 +51,9 @@ en beide PCB-uitsparingen aan dezelfde motorzijde zitten. Niet spiegelen in de s
    loopt nu van Z32,7 tot72,7, opening4,8 ×4,8 voor pin4,4 ×4,4.
    Voor een50-mm pin ligt de tip op Z77,9–80,9 (5,2–8,2 boven de geleiding).
    Kortere pinnen blijven binnen de lange geleiding; plaats/verwijder ze met
-   geopende helften. De plaat bevat de bestaande18-mm proefpin; hergebruik
-   bestaande langere pinnen met dezelfde onderzijde en draad.
+   geopende helften. De plaat bevat zowel de18-mm als de50-mm pin. De lange schroef loopt
+   vanaf schouder Z24,9 tot Z72,9 (bij maximale lift tot73,2); hij blijft
+   binnen de50-mm pin. De frame-/motorpositie verandert hiervoor niet.
    **50 mm is pinlengte, niet slag.** Slag3 mm, draadspoed3 en originele draadmesh
    behouden. Controleer eerst de volledige slag handmatig.
 

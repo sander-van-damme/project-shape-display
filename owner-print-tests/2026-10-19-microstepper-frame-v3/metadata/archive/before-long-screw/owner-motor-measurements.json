@@ -1,0 +1,33 @@
+{
+  "source": "Owner measurements and typo correction, 2026-10-20",
+  "method": "Approximate ruler measurements; no quantified uncertainty",
+  "reference": "Upper metal housing face excluding boss",
+  "pairing": "A/B paired by order in owner message; no wire-colour identification",
+  "variants": {
+    "K": {
+      "gear_bottom_mm": 1.5,
+      "gear_top_mm": 2.75,
+      "boss_height_mm": 0.25,
+      "boss_diameter_mm": 3
+    },
+    "L": {
+      "gear_bottom_mm": 2,
+      "gear_top_mm": 3.25,
+      "boss_height_mm": 0.25,
+      "boss_diameter_mm": 3
+    }
+  },
+  "gear_top_L_typo_resolved": true,
+  "release_status": "READY for L digital print test only; physical fit untested",
+  "pcb_width_mm": [
+    6.5,
+    7
+  ],
+  "motor_plus_pcb_depth_mm": 10,
+  "pcb_bottom_above_motor_base_mm": 2,
+  "pcb_top_above_motor_base_mm": 6,
+  "glue_below_pcb": "Variable; leave relief down to motor support plane",
+  "wire_exit": "Above PCB, continue upwards; variable protrusions",
+  "shaft_above_gear_mm": 0.1,
+  "top_lips": "Two metal lips near upper housing face, approximately 1 mm; direction/detailed thickness not measured"
+}

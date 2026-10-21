@@ -47,6 +47,10 @@ Print gelukt: [ ] ja [ ] deels [ ] nee [ ] niet geprint
 
 | Controle | Waarneming / meting; leeg = onbekend |
 |---|---|
+| Gebruikt paar: pin18/50 en rotor28/60 mm | ____ |
+| Pin50: voet vast, rechtop zonder wiebelen/nozzlecontact | ____ |
+| Lange schroef: acht nekjes verwijderd, benodigde kracht/tijd | ____ |
+| Draad na verwijderen: resten, littekens, scheuren, handpassing | ____ |
 | Helften sluiten volledig; geen zijwaartse beweging/verdraaiing | ____ |
 | Uitlijnpennen/gaten heel; gemakkelijk open/dicht, na 3 montages | ____ |
 | Motor zonder spacer / 0,60 / 0,72a / 0,72b / 0,84 | ____ |
@@ -96,3 +100,19 @@ Geen nieuwe fysieke passing, kromtrekking, wrijving of beweging gemeten.
 
 Nieuwe plaat digitaal READY na opgeslagen3MF heropenen/reslice en baancontrole:
 Bambu02.08.02.61,3u46m31 /14,08g. Oude plaat en verkeerde helften ingetrokken.
+
+## Lange schroef en rechtop geprinte50-mm pin — 21 oktober2026
+
+Eigenaar vraagt een extra50-mm pin, rechtop, en verduidelijkt dat verwijderbare
+supports voor de schroef bedoeld zijn. Op de vraag of ook een langere schroef
+gewenst is, antwoordt de eigenaar bevestigend. De bestaande korte set blijft.
+
+Toegevoegd:50-mm pin en60-mm geïntegreerde rotor (12-mm body +48-mm draad).
+Twee zijtorens met acht kleine knipnekjes aan de lange schroef; geen supports
+in/aan de pin. Bestaande koppeling, ring, krachtweg en proefslag3 mm behouden.
+Geometriecontrole voor de lange combinatie over360° en3-mm slag geslaagd.
+3MF opgeslagen, heropend en opnieuw gesliced in Bambu02.08.02.61; beide slices
+gecontroleerd, inclusief acht contactverbindingen en open pinboring.
+Schatting4u59m21 /16,61g; digitaal READY. Geen fysieke print, gemeten stabiliteit,
+verwijderkracht, draadschade of nieuwe geslaagde passingstest. Noteer die later
+in het formulier hierboven; leeg blijft onbekend.

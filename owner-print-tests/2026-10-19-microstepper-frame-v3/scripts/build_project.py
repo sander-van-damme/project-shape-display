@@ -27,7 +27,7 @@ VERSION = '02.08.02.61'
 NS = 'http://schemas.microsoft.com/3dmanufacturing/core/2015/02'
 ET.register_namespace('', NS)
 
-# Only the short upright integrated rotor gets a local adhesion brim.
+# Both upright screws get local adhesion brims (short 2 mm, supported long 3 mm).
 # Automatic supports stay OFF: they would coat the thread or fill female bores.
 ROTOR_BRIM = {
     'enable_support': '0',
@@ -101,7 +101,8 @@ def input_project(stl, output, supported_name):
         for a, b, c in part.faces:
             ET.SubElement(triangles, f'{{{NS}}}triangle', v1=str(a), v2=str(b), v3=str(c))
         ET.SubElement(build, f'{{{NS}}}item', objectid=str(i))
-        overrides = ROTOR_BRIM if name.endswith('-' + supported_name) else {'enable_support': '0'}
+        overrides = ({**ROTOR_BRIM, 'brim_width': '3'} if name.endswith('-rotor-long-supported') else
+                     ROTOR_BRIM if name.endswith('-' + supported_name) else {'enable_support': '0'})
         expected[name] = dict(overrides)
         config_obj = ET.SubElement(config, 'object', id=str(i))
         for key, value in {'name': name, **overrides}.items():
@@ -127,7 +128,7 @@ def main():
     ap.add_argument('--scratch', type=Path, required=True)
     ap.add_argument('--stl', type=Path, required=True)
     ap.add_argument('--out', type=Path, required=True)
-    ap.add_argument('--name', default='E-302 v3 integrated rotor X1C PLA')
+    ap.add_argument('--name', default='E-302 v3 L guide50 upright long screw X1C PLA')
     ap.add_argument('--supported-object', default='rotor')
     ap.add_argument('--layer', type=float, default=.12)
     ap.add_argument('--brim', type=float, default=0)

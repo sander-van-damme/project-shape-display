@@ -1,9 +1,9 @@
 {
   "stl": "owner-print-tests/2026-10-19-microstepper-frame-v3/components/microstepper-frame-v3.stl",
-  "stl_sha256": "42275d9906696fc88cc45016a55c0ee274f92241065e189e940b59d1f800b6e0",
-  "body_count": 8,
+  "stl_sha256": "df97b9544000daad6a30980afd2a12ce740acdfdaadcc0dbc14143f320ecbb45",
+  "body_count": 10,
   "translation_mm": [
-    92.5,
+    80.75,
     83.0,
     0.0
   ],
@@ -14,37 +14,46 @@
       0.0
     ],
     [
-      69.0,
+      92.5,
       88.0,
-      28.0
+      60.0
     ]
   ],
   "object_overrides": {
+    "03-pin-50": {
+      "enable_support": "0"
+    },
     "01-front": {
       "enable_support": "0"
     },
     "02-back": {
       "enable_support": "0"
     },
-    "05-S060": {
+    "04-rotor-long-supported": {
+      "enable_support": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12"
+    },
+    "07-S060": {
       "enable_support": "0"
     },
-    "06-S072a": {
+    "08-S072a": {
       "enable_support": "0"
     },
-    "07-S072b": {
+    "09-S072b": {
       "enable_support": "0"
     },
-    "08-S084": {
+    "10-S084": {
       "enable_support": "0"
     },
-    "03-rotor": {
+    "05-rotor": {
       "enable_support": "0",
       "brim_type": "outer_only",
       "brim_width": "2",
       "brim_object_gap": "0.12"
     },
-    "04-pin": {
+    "06-pin": {
       "enable_support": "0"
     }
   },
@@ -121,38 +130,47 @@
   ],
   "baseline_project": "owner-print-tests/2026-10-15-compact-screw-fit/compact-five-pairs.3mf",
   "baseline_sha256": "c3d95fe674aa3ccd868b14cca0e880d00dd9a9250ba3ba6640100bf60e0bd29c",
-  "final_project_sha256": "782499c59dd6db74ee6dcba948871199ce8a8ad479cc987571afe1e90d8ef51a",
+  "final_project_sha256": "647fdfc4d0d3ce82a707db9fa0b96870043f8f8462af980e46a6037f0046641e",
   "roundtrip": {
     "reopened_without_external_profiles": true,
     "return_code": 0,
     "settings_differences": {},
     "object_settings_equal": true,
     "object_settings": {
+      "03-pin-50": {
+        "enable_support": "0"
+      },
       "01-front": {
         "enable_support": "0"
       },
       "02-back": {
         "enable_support": "0"
       },
-      "05-S060": {
+      "06-pin": {
         "enable_support": "0"
       },
-      "08-S084": {
+      "08-S072a": {
         "enable_support": "0"
       },
-      "03-rotor": {
+      "09-S072b": {
+        "enable_support": "0"
+      },
+      "10-S084": {
+        "enable_support": "0"
+      },
+      "05-rotor": {
         "brim_object_gap": "0.12",
         "brim_type": "outer_only",
         "brim_width": "2",
         "enable_support": "0"
       },
-      "04-pin": {
+      "04-rotor-long-supported": {
+        "brim_object_gap": "0.12",
+        "brim_type": "outer_only",
+        "brim_width": "3",
         "enable_support": "0"
       },
-      "06-S072a": {
-        "enable_support": "0"
-      },
-      "07-S072b": {
+      "07-S060": {
         "enable_support": "0"
       }
     },

@@ -35,28 +35,30 @@ for part in layout:
     if 'bridge' in p['role'].lower():
      line=LineString([(p['x']-cx,p['y']-cy),(p['x1']-cx,p['y1']-cy)]);free=line.difference(previous.buffer(.01))
      bridges.append(dict(z=z,free_span_mm=max((q.length for q in (list(free.geoms)if hasattr(free,'geoms')else[free])),default=0),ends_mm=[Point(line.coords[i]).distance(previous.buffer(.01))for i in[0,-1]]))
-  if part['source']=='rotor':
+  if part['source'] in ['rotor','rotor-long-supported']:
    if .36<=z<=5.88:
     def radius(a):
      a=math.radians(a);hit=fp.intersection(LineString([(0,0),(2*math.cos(a),2*math.sin(a))]));return Point(0,0).distance(hit)if not hit.is_empty else 2
     tips=[radius(a)for a in[0,120,240]];valleys=[radius(a)for a in[60,180,300]]
     features.append(dict(z=z,core_open=fp.intersection(Point(0,0).buffer(.8)).area<.001,contrast=min(valleys)-max(tips),tips=tips))
-   if 12.12<=z<=27.36:
+   if part['source']=='rotor' and 12.12<=z<=27.36:
     core_coverage.append(fp.intersection(Point(0,0).buffer(.5)).area/Point(0,0).buffer(.5).area)
     annulus=Point(0,0).buffer(.68).difference(Point(0,0).buffer(.58))
     annulus_coverage.append(fp.intersection(annulus).area/annulus.area)
     assert len([poly for poly in polys if poly.area>.02])==1,('disconnected thread contour',z)
     assert fp.area>1.5,('missing thread body',z,fp.area)
     coords=np.concatenate([np.asarray(p.exterior.coords)for p in polys if p.geom_type=='Polygon']);tip_r.append([z,float(np.linalg.norm(coords,axis=1).max())])
-  if part['source']=='pin':
+  if part['source'] in ['pin','pin-50']:
    assert fp.intersection(Point(0,0).buffer(.6)).area<.001,('pin bore',z)
    if z>6.12:assert any(p.geom_type=='Polygon' and Polygon(p.exterior).contains(Point(0,0))for p in polys),('upper pin closed',z)
   previous=fp
  summary=dict(name=part['name'],layers=len(layers),top_z_mm=max(layers),bed_contact_mm2=local[min(local)].area,unsupported_islands=orphans,bridges=bridges)
  assert not orphans,(part['name'],orphans)
  assert all(max(b['ends_mm'])<.02 and b['free_span_mm']<3 for b in bridges),('unanchored or long bridge',part['name'])
- if part['source']=='rotor':
+ if part['source'] in ['rotor','rotor-long-supported']:
   assert len(features)>=46 and all(r['core_open']and r['contrast']>.12 for r in features),features
+  summary.update(lobe_layers=len(features),minimum_lobe_contrast_mm=min(r['contrast']for r in features),lobe_tip_radius_range_mm=[min(min(r['tips'])for r in features),max(max(r['tips'])for r in features)])
+ if part['source']=='rotor':
   assert len(tip_r)>120
   turns=[]
   for i in range(5):

@@ -6,9 +6,9 @@
       0.0
     ],
     [
-      69.0,
+      92.5,
       88.0,
-      28.000000381469988
+      60.0
     ]
   ],
   "parts": {
@@ -25,9 +25,9 @@
           9.3
         ]
       ],
-      "volume_mm3": 5308.82613948119,
+      "volume_mm3": 5308.826139481191,
       "watertight": true,
-      "sha256": "0af8f5c55ae0ec79fe1fd0322203d4c5f1da518344ecc7ba222492ed1e12252f"
+      "sha256": "9f9340555110116ff789e390c258ca592c939d04987ae52a7c7a0b97e36ea8c5"
     },
     "back": {
       "bounds": [
@@ -44,7 +44,7 @@
       ],
       "volume_mm3": 5201.2278130524155,
       "watertight": true,
-      "sha256": "2a5af8302d6654cf7365ec0e34e6b4114964112d0620427f292c94eacc5e4be9"
+      "sha256": "495b48d631e126d3a30d4c525e9908fdbcbdb5de200274740bf7f5a854e8bf5a"
     },
     "rotor": {
       "bounds": [
@@ -59,9 +59,9 @@
           28.000000381469988
         ]
       ],
-      "volume_mm3": 505.57562756825763,
+      "volume_mm3": 505.5756275682575,
       "watertight": true,
-      "sha256": "ffa911d78b226ef3f283baa5c842648089559b98c9b2c97b22ef0324bd9d46e8"
+      "sha256": "d89249662ec15bef47ea19297209658346151b8f36ae3b2baf5d6cc7f1d99965"
     },
     "pin": {
       "bounds": [
@@ -79,6 +79,40 @@
       "volume_mm3": 194.30324166756796,
       "watertight": true,
       "sha256": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d"
+    },
+    "pin-50": {
+      "bounds": [
+        [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          50.0
+        ]
+      ],
+      "volume_mm3": 417.3304571957931,
+      "watertight": true,
+      "sha256": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19"
+    },
+    "rotor-long": {
+      "bounds": [
+        [
+          -3.5,
+          -3.5,
+          0.0
+        ],
+        [
+          3.5,
+          3.5,
+          60.00000038146999
+        ]
+      ],
+      "volume_mm3": 650.9325616219315,
+      "watertight": true,
+      "sha256": "f7796ae9ed63612da5aea748b7e866897f09a6947adee61a0e7f200a548a9901"
     },
     "spacer-060": {
       "bounds": [
@@ -130,6 +164,23 @@
       "volume_mm3": 14.879999847412003,
       "watertight": true,
       "sha256": "6f7abc3d11b74132978b65522a1c38709612acec1e464332179926bfbdb0446d"
+    },
+    "rotor-long-supported": {
+      "bounds": [
+        [
+          -9.5,
+          -4.0,
+          0.0
+        ],
+        [
+          9.5,
+          4.0,
+          60.0
+        ]
+      ],
+      "volume_mm3": 1728.636108739758,
+      "watertight": true,
+      "sha256": "072235c2d46a2f2557fec8e5770a7f8132c2d015df3752a2e0fdaba9e1fdef4a"
     }
   }
 }

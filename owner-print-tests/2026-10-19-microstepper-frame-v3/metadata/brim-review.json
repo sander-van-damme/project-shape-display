@@ -1,24 +1,58 @@
 [
   {
-    "project_sha256": "782499c59dd6db74ee6dcba948871199ce8a8ad479cc987571afe1e90d8ef51a",
-    "brim_segments": 258,
-    "radius_mm": [
-      3.8295923792226625,
-      5.104318602810791
+    "project_sha256": "647fdfc4d0d3ce82a707db9fa0b96870043f8f8462af980e46a6037f0046641e",
+    "brim_segments": 945,
+    "objects": [
+      {
+        "source": "rotor",
+        "configured_width_mm": 2,
+        "brim_segments": 258,
+        "path_distance_to_footprint_mm": [
+          0.3304269154900286,
+          1.6043800445282228
+        ]
+      },
+      {
+        "source": "rotor-long-supported",
+        "configured_width_mm": 3,
+        "brim_segments": 687,
+        "path_distance_to_footprint_mm": [
+          0.3244514401266429,
+          2.514681904734728
+        ]
+      }
     ],
-    "only_around_rotor": true,
     "only_first_layer": true,
-    "support_segments": 0
+    "pin_brim_segments": 0,
+    "automatic_support_segments": 0,
+    "modeled_supports": "Eight necks / two towers on long screw; see long-screw-review"
   },
   {
-    "project_sha256": "615870215f70da16a237a7f6e9a42d88c4f130b34ceb5f0cb8c35a58fdd753d5",
-    "brim_segments": 258,
-    "radius_mm": [
-      3.8295923792226625,
-      5.104318602810791
+    "project_sha256": "45f461085f9cd93e3a2c66bd718eb0bb8df64b88d74d294ab741d708a349c2d8",
+    "brim_segments": 945,
+    "objects": [
+      {
+        "source": "rotor",
+        "configured_width_mm": 2,
+        "brim_segments": 258,
+        "path_distance_to_footprint_mm": [
+          0.3304269154900286,
+          1.6043800445282228
+        ]
+      },
+      {
+        "source": "rotor-long-supported",
+        "configured_width_mm": 3,
+        "brim_segments": 687,
+        "path_distance_to_footprint_mm": [
+          0.3244514401266429,
+          2.514681904734728
+        ]
+      }
     ],
-    "only_around_rotor": true,
     "only_first_layer": true,
-    "support_segments": 0
+    "pin_brim_segments": 0,
+    "automatic_support_segments": 0,
+    "modeled_supports": "Eight necks / two towers on long screw; see long-screw-review"
   }
 ]

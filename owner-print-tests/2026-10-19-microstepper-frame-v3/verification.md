@@ -1,9 +1,10 @@
-# E-302 v3 — volledige motorinterfacecorrectie, 20 oktober 2026
+# E-302 v3 — motorinterface en lange schroef/pin, 21 oktober 2026
 
 **READY voor de fysieke proef met variant L.** Productie-CAD/STL gecorrigeerd;
-nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. Huidige correctie bouwt op `b4606aa`. De voorafgaande mesh-/slicerstand staat
-in metadata/archive/before-handedness-fix; oude STLs/3MF in
-components/archive/2026-10-20-before-handedness-fix. Die oude plaat is ingetrokken.
+nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. Huidige uitbreiding bouwt op `66832d6`. De voorafgaande plaat en rapporten staan
+in components/archive/2026-10-20-before-long-screw en
+metadata/archive/before-long-screw. De eerdere verkeerd gespiegelde helften
+blijven bewaard in de before-handedness-fix-archieven; gebruik die niet.
 
 ## Maatbasis en bronnen
 
@@ -35,7 +36,7 @@ onbewezen. Meetlatwaarden zijn benaderingen; geen verzonnen fabricagetolerantie.
 | Soldeer/draden | PCB-envelope gebruikt | vier draden, geen lokale buigradius | uitsteking varieert; kabels omhoog | Open kanaal X≤−4,2, breedte8,5 door gehele hoogte; testbundel X−7…−4,4, breedte8 |
 | Ring | ID3,2/OD7/0,50 | bestaande component | behouden | Ringbodem12,4, ringtop12,9; pocketØ7,3 |
 | C-profiel / inloop | Ø2,5; 3×R0,5 opR1,55; inloop0,50 | eigen CAD | radiaal passend | Radiaal onveranderd; inloop0,25 voor extra rechte overlap |
-| Draad / proefslag | Ø3,2 /spoed3 /lengte16; slag3 | originele mesh | functioneel | Exacte mesh behouden; slag3, pin18 |
+| Draad / proefslag | Ø3,2 /spoed3 /lengte16; slag3 | originele mesh | functioneel | Exacte meshes behouden; draad16 of48, slag3, pin18 of50 |
 | Spacers / huisfixatie | 0,60/0,72/0,84 | eigen ontwerp | v3 niet gekwalificeerd | behouden, geen voorspanning bewezen; kies zonder asverschuiving of open naad |
 | Print-/meetspeling | rotor0,2; lift0,3 | ontwerp, geen productiegegevens | meetlat beperkt | behouden; motor-/lijm-/kabelvariatie geen gemeten maximum |
 
@@ -58,8 +59,10 @@ Een blinde1-mm verhoging van de oude rotor gaf L0,45 / K0 mm. Daarom gekozen:
 ring/rotor+0,7 en inloop0,50→0,25, geen automatische koppelinginkorting met2 mm.
 De functionele ribvorm en draad zijn behouden; alleen de axiale inloop is aangepast.
 
-RotorØ7, bodylengte12 en draadlengte16 behouden; schouder24,9; bovenstop25,2;
-draad24,9–40,9. Bovenste rotorgeleiding, pinbescherming en bovenste uitlijnpunt
+RotorØ7, bodylengte12 en bestaande draadlengte16 behouden; extra lange
+uitvoering heeft48 mm draad. Schouder24,9; bovenstop25,2; korte draad24,9–40,9,
+lange draad24,9–72,9. Totale rotorlengtes28 en60 mm. De lange uitvoering
+is gecontroleerd met pin50; korte met pin18 en50. Bovenste rotorgeleiding, pinbescherming en bovenste uitlijnpunt
 schuiven samen0,7 omhoog. Onderbouwhoogte40,7; centrale geleiding nu32,7–72,7 met4,8-mm vierkant gat.
 Pinonderkant27,9–30,9;18-mm pinbovenkant45,9–48,9 blijft binnen geleiding.
 50-mm pinbovenkant77,9–80,9, uitsteek5,2–8,2; volledige proefslag blijft3 mm.
@@ -94,12 +97,18 @@ ruimte-model met expliciete aannamen, geen bewezen OEM-contour of tandprofiel.
 - Beide helften: huisØ8 enØ8,2 vrij; oude botsing13,196 mm³ per helft opgelost.
 - PCB, lijmruimte, voorgeschreven kabelroute, flens, boss en as: geen significante
   frame-/ring-/rotorbotsing. Kabelroute **buiten** de ring; niet willekeurig langs as.
-- 722 standen voor elk van18- en50-mm pin: rotatie0–360° per graad, gekoppeld
+- 722 standen per combinatie: korte rotor/pin18, korte rotor/pin50 en
+  lange rotor/pin50: rotatie0–360° per graad, gekoppeld
   aan3-mm slag, op lift0 en0,3. Daarnaast een continu4,4-mm vierkant sweepvolume
   door de geleiding voor het hele tussenliggende lengtebereik18–50: geen botsing.
   Rotor/frame circa1,7e−14 mm³; pin/frame en rotor/pin nul. Discrete sampling,
   geen analytisch continu bewijs; ronde bodyvrijloop is rotatie-invariant.
-- Originele draad symmetrisch verschil1,36e−5 mm³, onder meshgrens1e−4.
+- Opnieuw geëxporteerde framehelften en korte rotor verschillen geometrisch
+  niet van66832d6 (symmetrisch verschil0; zie metadata/preserved-parts-review.json).
+- Originele korte draad symmetrisch verschil1,36e−5 mm³; lange48-mm draad
+  2,53e−5 mm³ tegenover de oorspronkelijke v2-mesh, onder meshgrens1e−4.
+  Korte/lange koppelingbody verschil1,19e−7 mm³: dezelfde dragende geometrie.
+  Zijsteunen worden vóór montage verwijderd en zitten niet in de assemblagecheck.
 - Ring/frame nul; ring/rotor4,91e−6 mm³ (meshprecisie). Contactprobes0,001 mm
   bevestigen circa25,91 mm² onderste en30,41 mm² bovenste draagvlak.
 - Bovenstop vrij bij0,30; contact bij0,31 (0,24608 mm³). Helften onderling vrij.
@@ -133,30 +142,69 @@ of objectoverrides. Nieuwe banen bekeken in images/toolpaths.png.
   min bead75%, min feature10%, 100% zigzag-infill.
 - Buitenwand/kleine omtrek/eerste laag/brug15 mm/s, binnenwand20;
   acceleratie default/binnen1000, buiten/eerste500 mm/s².
-- Supports uit, raft0, per laag. Alleen rotor buitenbrim2 mm, gap0,12;
+  Infill/bovenvlak30 mm/s; lange schroef inclusief torens maximaal30 mm/s,
+  1000 mm/s² in de werkelijke banen.
+- Automatische supports uit, raft0, per laag. Korte rotor buitenbrim2 mm;
+  lange rotor met meegetekende zijsteunen buitenbrim3 mm, beide gap0,12;
   XY/gat/elephant-footcompensatie0. Fan100% na eerste laag, hulpfan0,
   minimum laagtijd8s. Effectieve instellingen in metadata/saved-settings.json.
-- **3u46m31 totaal /3u30m52 modeltijd,14,08g /4,71968m PLA**; heropening
-  geeft3u46m28 totaal /3u30m49 modeltijd, hetzelfde materiaalverbruik. Geen werkelijke printtijd of materiaalmeting.
-- Meshafwijking3MF/STL maximaal0,000008993 mm. Acht objecten; geen ongeankerde
+- **4u59m21 totaal /4u43m41 modeltijd,16,61g /5,56747m PLA**; heropening
+  geeft4u59m26 totaal /4u43m47 modeltijd,16,61g /5,56745m. Slices zijn niet
+  byte-identiek; instellingen/objectoverrides blijven gelijk en beide banen
+  zijn afzonderlijk gecontroleerd. Geen werkelijke printtijd of materiaalmeting.
+- Meshafwijking3MF/STL maximaal0,000011193 mm. Tien objecten; geen ongeankerde
   eilanden >0,005 mm². Maximale verankerde brug2,452 mm.
-- C-profiel op47 rechte lagen gecontroleerd, min ribcontrast0,150 mm;
+- C-profiel op47 rechte lagen van beide rotoren gecontroleerd, min ribcontrast0,1497 mm;
   centrale radius0,8 open. Draad128 lagen verbonden, vijf volledige gangen.
-- Pin150 lagen, centrale radius0,6 vrij. Uitlijnpenkernen doorlopend;
+- Korte pin150 lagen;50-mm pin417 lagen. Centrale radius0,6 vrij;
+  lange bovenwand366 lagen gesloten, maximaal15 mm/s en500 mm/s².
+  Voet12×12×0,24 mm, circa137,14 mm² bedcontact. Uitlijnpenkernen doorlopend;
   ronde/sleufgaten op de **gespiegelde printposities** vrij. De lange guide-opening
   en beide wanden zijn in werkelijke banen afzonderlijk gecontroleerd.
   Spacers5/6/6/7 lagen.
-- Geen supportbanen;260 brimsegmenten uitsluitend rond rotor op eerste laag,
-  middellijnradius3,824–5,104 mm. Zie metadata/brim-review.json.
+- Geen automatische supportbanen;945 brimsegmenten op de eerste laag:
+  258 rond korte rotor,687 rond lange rotor/torenvoeten. Geen pinbrim.
+  Meegetekende zijsteunen worden als modelbanen geprint; ze zijn expliciet
+  gecontroleerd en zijn niet afwezig omdat de slicer nul supportbanen rapporteert.
+  Zie metadata/brim-review.json.
 - Zoals bij de oude draad: lokale interne spleetjes blijven in de baanvoetafdruk;
   minimum dekking binnenR0,50 circa83%. Geen volledig massieve kern of sterkteclaim.
+
+### Lange schroef: verbindingen en verwijderbaarheid
+
+`rotor-long.stl` is de schone60-mm assemblagemesh. `rotor-long-supported.stl`
+voegt twee3×3-mm torens toe op4×8×0,48-mm voeten, met schuine armen en acht
+nekjes0,85×0,45×0,24 mm. Elke zijde heeft vier contacten op12-mm afstand:
+links Z19,56/31,56/43,56/55,56; rechts Z21/33/45/57 vanaf de printplaat.
+Dit hergebruikt het v2-steunconcept met contacthoogten9,6 mm verhoogd voor
+de geïntegreerde12-mm body tegenover de oorspronkelijke2,4-mm voet.
+Alleen kleine draadtopgebieden worden geraakt; er is geen supportmantel of
+support in de C-holte of pinboring. De onderste12-mm body blijft ongewijzigd.
+
+Beide werkelijke slices:500 lagen tot60 mm;16 gangen behouden, doorlopende
+centrale buitencontour, alle acht nekjes op twee lagen aanwezig. Elke schuine
+arm is via laagoverlap naar zijn toren gevolgd; geen onverwachte verbindingen
+of los beginnende eilanden. Torens doorlopend tot57,12 mm. Nominale banen
+bewijzen geen materiaalsterkte of printstabiliteit. De massieve nekjes hebben
+geen vrijgavegap: afzonderlijk afknippen volgens assembly.md; verwijderkracht,
+resterende littekens en soepele passing zijn nog onbekend. De eerdere slecht
+geprinte horizontale lange schroef blijft negatieve fysieke evidence.
+
+Rapporten: metadata/long-screw-review.json en long-screw-review-reopened.json;
+pincontrole: metadata/pin-review.json en pin-review-reopened.json.
+De50-mm pin krijgt geen zijsteunen; zijn12-mm voet blijft zitten. Verhouding
+hoogte/bovenbreedte11,36: bedhechting, wiebelen en nozzlecontact blijven fysiek
+te beoordelen. Er wordt geen bewezen stabiliteit afgeleid uit nul supportbanen.
 
 De PCB-uitsparing sluit aan op de flensuitsparing: een klein ongeankerd randje
 uit de eerste conceptslice is verwijderd. Alleen de uiteindelijke plaat is READY.
 Slicerrapporten: metadata/slice-review.json en slice-review-reopened.json.
 Reproduceer met scripts/build_project.py --bambu PATH --resources PATH
 --scratch work/PATH --stl components/microstepper-frame-v3.stl
---out microstepper-frame-v3.3mf; voer daarna review_slice.py uit voor beide archieven.
+--out microstepper-frame-v3.3mf; voer daarna review_slice.py, review_long_screw.py en review_pins.py uit
+voor beide archieven; review_brim.py ontvangt beide archieven tegelijk.
+`cad/long-screw-supported.scad` bevat de meegetekende nekjes/torens;
+generate.py gebruikt de bestaande v2 pin50- en lange draadmesh zonder herschalen.
 
 Geen fysieke passing, wrijving, koppel, ribflexibiliteit, maatafwijking, slijtage
 of duurbetrouwbaarheid bewezen. Geen nieuwe meetvraag: de eigenaargegevens

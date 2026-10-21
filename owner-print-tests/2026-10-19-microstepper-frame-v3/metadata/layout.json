@@ -40,6 +40,46 @@
     ]
   },
   {
+    "name": "pin-50",
+    "source": "pin-50",
+    "bounds_mm": [
+      [
+        77.0,
+        14.0,
+        0.0
+      ],
+      [
+        89.0,
+        26.0,
+        50.0
+      ]
+    ],
+    "center_xy": [
+      83,
+      20
+    ]
+  },
+  {
+    "name": "rotor-long-supported",
+    "source": "rotor-long-supported",
+    "bounds_mm": [
+      [
+        73.5,
+        50.0,
+        0.0
+      ],
+      [
+        92.5,
+        58.0,
+        60.0
+      ]
+    ],
+    "center_xy": [
+      83,
+      54
+    ]
+  },
+  {
     "name": "rotor",
     "source": "rotor",
     "bounds_mm": [

@@ -1,0 +1,182 @@
+{
+  "scope": "Nominal G-code widths and connectivity; not measured stiffness, removal force or printed thread fit.",
+  "project_sha256": "45f461085f9cd93e3a2c66bd718eb0bb8df64b88d74d294ab741d708a349c2d8",
+  "orientation": "upright",
+  "model_height_mm": 60.0,
+  "layer_count": 500,
+  "automatic_support_path_count": 0,
+  "modeled_tower_count": 2,
+  "neck_dimensions_mm": [
+    0.85,
+    0.45,
+    0.24
+  ],
+  "contacts": [
+    {
+      "side_x": -1,
+      "nominal_centre_z_mm": 19.56,
+      "connected_layers_z_mm": [
+        19.56,
+        19.68
+      ],
+      "minimum_neck_footprint_area_mm2": 0.14721330593840826,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": -1,
+      "nominal_centre_z_mm": 31.56,
+      "connected_layers_z_mm": [
+        31.56,
+        31.68
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13076616872373395,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": -1,
+      "nominal_centre_z_mm": 43.56,
+      "connected_layers_z_mm": [
+        43.56,
+        43.68
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13076616872373395,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": -1,
+      "nominal_centre_z_mm": 55.56,
+      "connected_layers_z_mm": [
+        55.56,
+        55.68
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13076616872373395,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": 1,
+      "nominal_centre_z_mm": 21,
+      "connected_layers_z_mm": [
+        21.0,
+        21.12
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": 1,
+      "nominal_centre_z_mm": 33,
+      "connected_layers_z_mm": [
+        33.0,
+        33.12
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": 1,
+      "nominal_centre_z_mm": 45,
+      "connected_layers_z_mm": [
+        45.0,
+        45.12
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
+    },
+    {
+      "side_x": 1,
+      "nominal_centre_z_mm": 57,
+      "connected_layers_z_mm": [
+        57.0,
+        57.12
+      ],
+      "minimum_neck_footprint_area_mm2": 0.13499760000000266,
+      "sloping_arm_traced_to_tower": true
+    }
+  ],
+  "side_contact_pitch_mm": 12,
+  "maximum_same_side_unbraced_height_mm": 12,
+  "shaft_core_continuous_all_layers": true,
+  "thread_crests": [
+    {
+      "pitch": 1,
+      "maximum_crest_extent_mm": 1.5947445582253863
+    },
+    {
+      "pitch": 2,
+      "maximum_crest_extent_mm": 1.5945418336627029
+    },
+    {
+      "pitch": 3,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 4,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 5,
+      "maximum_crest_extent_mm": 1.5942204433220297
+    },
+    {
+      "pitch": 6,
+      "maximum_crest_extent_mm": 1.5942204433220297
+    },
+    {
+      "pitch": 7,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 8,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 9,
+      "maximum_crest_extent_mm": 1.5942204433220297
+    },
+    {
+      "pitch": 10,
+      "maximum_crest_extent_mm": 1.5942204433220297
+    },
+    {
+      "pitch": 11,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 12,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 13,
+      "maximum_crest_extent_mm": 1.5947445582253863
+    },
+    {
+      "pitch": 14,
+      "maximum_crest_extent_mm": 1.5947445582253863
+    },
+    {
+      "pitch": 15,
+      "maximum_crest_extent_mm": 1.8
+    },
+    {
+      "pitch": 16,
+      "maximum_crest_extent_mm": 1.8
+    }
+  ],
+  "bed_footprint_area_excluding_brim_mm2": 95.78891757534319,
+  "no_unbacked_islands": true,
+  "no_unintended_tower_thread_connections": true,
+  "model_max_speed_mm_s": 30.0,
+  "model_max_acceleration_mm_s2": 1000.0,
+  "estimates": [
+    "; model printing time: 4h 43m 47s; total estimated time: 4h 59m 26s",
+    "; total filament length [mm] : 5567.45",
+    "; total filament volume [cm^3] : 13391.28",
+    "; total filament weight [g] : 16.61"
+  ],
+  "limits": [
+    "Eight solid necks touch small thread-crest regions; cut them locally, do not bend the whole tower away.",
+    "No release gap at these modeled necks. Removal and scars require a physical hand-fit test.",
+    "Tower pad/brim and 12 mm contact pitch reduce free length; physical stability remains untested.",
+    "Layer connectivity and nominal line widths do not measure adhesion, material strength or printer accuracy."
+  ]
+}

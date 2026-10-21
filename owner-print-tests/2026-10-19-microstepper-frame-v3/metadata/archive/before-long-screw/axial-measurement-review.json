@@ -1,0 +1,94 @@
+{
+  "status": "READY",
+  "scope": "Nominal axial intervals and labelled sensitivity, not physical fit",
+  "housing_top_z_mm": 11.2,
+  "calculations": [
+    {
+      "variant": "K",
+      "geometry": "legacy",
+      "gear_z_mm": [
+        12.7,
+        13.95
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        1.25,
+        0.9499999999999993
+      ],
+      "shaft_roof_clearance_mm": 4.15,
+      "mouth_boss_clearance_mm": 0.75
+    },
+    {
+      "variant": "K",
+      "geometry": "blind_1mm_shift",
+      "gear_z_mm": [
+        12.7,
+        13.95
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        0.25,
+        0
+      ],
+      "shaft_roof_clearance_mm": 5.15,
+      "mouth_boss_clearance_mm": 1.75
+    },
+    {
+      "variant": "K",
+      "geometry": "corrected",
+      "gear_z_mm": [
+        12.7,
+        13.95
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        0.7999999999999989,
+        0.4999999999999982
+      ],
+      "shaft_roof_clearance_mm": 4.85,
+      "mouth_boss_clearance_mm": 1.450000000000001
+    },
+    {
+      "variant": "L",
+      "geometry": "legacy",
+      "gear_z_mm": [
+        13.2,
+        14.45
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        1.25,
+        1.25
+      ],
+      "shaft_roof_clearance_mm": 3.65,
+      "mouth_boss_clearance_mm": 0.75
+    },
+    {
+      "variant": "L",
+      "geometry": "blind_1mm_shift",
+      "gear_z_mm": [
+        13.2,
+        14.45
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        0.75,
+        0.4499999999999993
+      ],
+      "shaft_roof_clearance_mm": 4.65,
+      "mouth_boss_clearance_mm": 1.75
+    },
+    {
+      "variant": "L",
+      "geometry": "corrected",
+      "gear_z_mm": [
+        13.2,
+        14.45
+      ],
+      "overlap_at_lift_0_and_030_mm": [
+        1.25,
+        0.9999999999999982
+      ],
+      "shaft_roof_clearance_mm": 4.35,
+      "mouth_boss_clearance_mm": 1.450000000000001,
+      "overlap_with_assumed_top_minus_020_and_bottom_plus_020_mm": 0.7999999999999989
+    }
+  ],
+  "selected_variant": "L",
+  "production_geometry_changed": true
+}

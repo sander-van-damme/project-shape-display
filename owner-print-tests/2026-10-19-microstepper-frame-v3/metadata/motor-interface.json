@@ -35,7 +35,7 @@
     "wire_width": 8,
     "wire_z": [
       8,
-      42
+      75
     ],
     "evidence": "Measured PCB; expanded wire/glue volumes are design allowances, not measured maxima"
   },
@@ -44,7 +44,7 @@
   "release_blocker": null,
   "legacy_artifacts": "Before-handedness-fix archive is retired: back half cannot be assembled by rigid rotation. Current root 3MF contains corrected handed halves and guide for 18\u201350 mm pins.",
   "selected_variant": "L",
-  "design_revision": "2026-10-20-handed-halves-guide50",
+  "design_revision": "2026-10-21-upright-pin50-supported-long-screw",
   "rotor_z_mm": 12.9,
   "ring_bottom_z_mm": 12.4,
   "deck_bottom_z_mm": 11.4,
@@ -52,5 +52,25 @@
   "upper_shift_mm": 0.7,
   "guide_top_z_mm": 72.7,
   "guide_bottom_z_mm": 32.7,
-  "max_pin_length_mm": 50
+  "max_pin_length_mm": 50,
+  "screw_options_mm": [
+    {
+      "overall": 28,
+      "coupling_body": 12,
+      "thread": 16,
+      "pin_lengths": [
+        18,
+        50
+      ]
+    },
+    {
+      "overall": 60,
+      "coupling_body": 12,
+      "thread": 48,
+      "pin_lengths": [
+        50
+      ]
+    }
+  ],
+  "test_stroke_mm": 3
 }

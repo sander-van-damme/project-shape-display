@@ -1,0 +1,20 @@
+{
+  "front": {
+    "previous_revision": "66832d6",
+    "previous_sha256": "0af8f5c55ae0ec79fe1fd0322203d4c5f1da518344ecc7ba222492ed1e12252f",
+    "current_sha256": "9f9340555110116ff789e390c258ca592c939d04987ae52a7c7a0b97e36ea8c5",
+    "symmetric_difference_mm3": 0.0
+  },
+  "back": {
+    "previous_revision": "66832d6",
+    "previous_sha256": "2a5af8302d6654cf7365ec0e34e6b4114964112d0620427f292c94eacc5e4be9",
+    "current_sha256": "495b48d631e126d3a30d4c525e9908fdbcbdb5de200274740bf7f5a854e8bf5a",
+    "symmetric_difference_mm3": 0.0
+  },
+  "rotor": {
+    "previous_revision": "66832d6",
+    "previous_sha256": "ffa911d78b226ef3f283baa5c842648089559b98c9b2c97b22ef0324bd9d46e8",
+    "current_sha256": "d89249662ec15bef47ea19297209658346151b8f36ae3b2baf5d6cc7f1d99965",
+    "symmetric_difference_mm3": 0.0
+  }
+}

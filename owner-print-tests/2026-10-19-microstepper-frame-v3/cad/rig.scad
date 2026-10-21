@@ -70,6 +70,7 @@ module printable_half(front=true){
 }
 if(part=="front"||part=="back")translate([0,0,6.5])rotate([-90,0,0])printable_half(part=="front");
 if(part=="rotor-base")translate([0,0,-rotor_z])rotor();
+if(part=="pin-50")import("../../2026-10-18-microstepper-frame-v2/components/pin-50.stl");
 if(part=="pin")import("../../2026-10-18-microstepper-frame-v2/components/pin-18.stl");
 if(part=="spacer")rotate([0,-90,0])translate([-shim-1.2,0,0])spacer(shim);
 if(part=="assembly"){printable_half(true);rotate([0,0,180])printable_half(false);translate([0,0,rotor_z])import("../components/rotor.stl");}
