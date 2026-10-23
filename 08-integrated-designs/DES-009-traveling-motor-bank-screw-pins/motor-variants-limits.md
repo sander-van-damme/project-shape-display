@@ -1,5 +1,13 @@
 # Ø8-mm microstappenmotor — varianten, stroom en grenzen
 
+**Actualisering23 oktober2026:** de eigenaar heeft v3 inmiddels fysiek getest:
+goede motorpassing, hoogteafhankelijke wrijving en verbetering bij losser sluiten.
+Lange schroef, circa15 mm stijging, printartefacten verwijderd; later rotorvoet
+bijgesneden. Exacte revisie onbekend. IRUN10 was niet betrouwbaar bevestigd
+(soms terug naar5, UART-fouten). De20-oktobertekst “fysiek nog niet getest”
+hieronder is historische stand, geen actuele ontkenning van deze proef.
+[Mechanische diagnose en bestaande-delenproef](../../owner-print-tests/2026-10-23-low-friction-motor-frame/diagnosis.md).
+
 **Bronstand: 20 oktober 2026.** [Componenten](components.md) · [Elektronica](electronics.md) · [DES-009](DES-009-traveling-motor-bank-screw-pins.md)
 
 Dit is een **gericht, voorlopig bronnenoverzicht**, geen afgerond exhaustief literatuuronderzoek. Het afzonderlijk aangevraagde diepgaande onderzoeksrapport was bij deze vastlegging nog niet beschikbaar. Een passende productspecificatie bewijst niet dat alle motoren in de voorraad van dezelfde OEM, winding of partij komen. Onderstaande getallen zijn **geen toestemming om een bepaalde stroom continu te gebruiken**.

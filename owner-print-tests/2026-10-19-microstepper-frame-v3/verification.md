@@ -1,5 +1,13 @@
 # E-302 v3 — motorinterface en lange schroef/pin, 21 oktober 2026
 
+**Aanvulling23 oktober:** een v3 is inmiddels fysiek getest, met goede motorpassing
+maar hoogteafhankelijke wrijving en verbetering bij losser sluiten. Lange schroef,
+circa40–50-mm pin, circa15 mm stijging; artefacten verwijderd en later rotorvoet
+bijgesneden. Exacte geprinte revisie onbekend. Dit document blijft de historische
+digitale verificatie van deze bestanden; “geen fysieke test” geldt niet meer voor
+v3 in het algemeen. [Nieuw onderzoek en grenscontrole](../2026-10-23-low-friction-motor-frame/diagnosis.md).
+Het volledige printaanbod is ingetrokken ten gunste van een proef met bestaande delen.
+
 **READY voor de fysieke proef met variant L.** Productie-CAD/STL gecorrigeerd;
 nieuwe Bambu3MF opgeslagen, heropend, opnieuw gesliced en banen gecontroleerd. Geen fysieke passingstest uitgevoerd. Huidige uitbreiding bouwt op `66832d6`. De voorafgaande plaat en rapporten staan
 in components/archive/2026-10-20-before-long-screw en

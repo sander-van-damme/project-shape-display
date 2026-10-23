@@ -1,5 +1,29 @@
 # E-302 v3 — fysieke resultaten
 
+## Eigenaarobservaties ontvangen23 oktober2026 — v3 daadwerkelijk getest
+
+De eigenaar bevestigt fysieke montage en beproeving van v3. De motor past heel
+goed. Laag beweegt de pin relatief gemakkelijk op/neer; hoger wordt de weerstand
+groter en treden onregelmatige beweging/stalls op in beide richtingen. Losser
+sluiten of bijstellen van de behuizing laat beweging weer toe. Dit is fysiek bewijs
+van een bijdrage door frameconstraint, niet van één vastgestelde wrijvingsplaats.
+
+Nadere antwoorden in dezelfde opdracht: pin circa40 of50 mm (niet zeker),
+circa15 mm omhoog; **lange schroef** gebruikt. Alle printartefacten verwijderd.
+Na slechte tests is met een mes materiaal van de schroef-/rotorvoet bij de motor
+afgeschaafd. Exact oppervlak/hoeveelheid en effect daarvan onbekend. Deze latere
+ingreep verklaart niet de oorspronkelijke slechte tests. Printrevisie/3MF-hash,
+maatdatum voor de stijging en daadwerkelijke driverinstellingen niet vastgesteld.
+
+Verondersteld Vref≈1,2 V en IRUN10; IRUN bleek soms naar5 terug te vallen.
+UART-timeouts traden op. Daarom geen conclusie “stall bij bevestigd IRUN10”.
+Circa18 commando-stappen per omwenteling is onzeker; geen nieuwe motorspecificatie.
+C paste eerder goed. Motorpassing behouden; geen stroomverhoging als mechanische oplossing.
+
+Dit vervangt de algemene bewering dat v3 nog niet fysiek getest was, maar koppelt
+de waarnemingen niet met zekerheid aan de actuele meshes. Eerdere verslagen
+hieronder blijven ongewijzigd als chronologie. [Diagnose en één kleine bestaande-delenproef](../2026-10-23-low-friction-motor-frame/diagnosis.md).
+
 ## Eigenaarobservaties ontvangen op 19 oktober 2026
 
 Bron: rechtstreeks bericht bij deze opdracht. Exacte geprinte revisie, 3MF-hash,

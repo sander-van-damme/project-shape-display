@@ -1,0 +1,23 @@
+{
+  "received_date": "2026-10-23",
+  "physical_test_date": "not established",
+  "baseline_commit": "c06a66351bf2dd083da6067858c13b365a7b3c7c",
+  "original_request_sha256": "170c50541807ffa6fdefcebcc4ce20e1632dd8cf5ce2ce003f2372df1814ba70",
+  "owner_clarifications_verbatim": [
+    "the 40 or 50 mm one (don't remember exact length), about 15mm risen",
+    "the screw was the long version. all printe artifacts were removed. after bad tests, i even shaved part of with a knife (from the base of the screw that connects to the motor)"
+  ],
+  "interpretation_limits": [
+    "Owner physical observations accepted as evidence; exact printed revision unidentified.",
+    "All print artifacts removed is interpreted to include the wide print foot, subject to physical inspection.",
+    "Knife shaving followed original bad tests; unknown removed surfaces are not modeled.",
+    "Actual current during earlier tests uncertain; no firmware changes made."
+  ],
+  "selected_action": "One existing-hardware measured-travel isolation diagnostic; no new print job or proven friction reduction.",
+  "new_physical_results": "none",
+  "python_geometry_dependencies": {
+    "numpy": "2.5.4",
+    "trimesh": "5.1.1",
+    "manifold3d": "3.5.4"
+  }
+}

@@ -1,0 +1,1404 @@
+{
+  "status": "DIGITAL_DIAGNOSTIC_AUDIT_PASS_NOT_A_PRINT_RELEASE",
+  "physical_validation": "Owner reports tested v3 binding, roughly40/50-mm pin, about15-mm rise, long screw, print artifacts removed, and shaving of the coupling base only after the bad tests. Exact tested revision, extent of foot removal and post-test shaving dimensions remain unidentified. No new physical test performed.",
+  "source_baseline": "owner-print-tests/2026-10-19-microstepper-frame-v3",
+  "source_sha256": {
+    "components/front.stl": "9f9340555110116ff789e390c258ca592c939d04987ae52a7c7a0b97e36ea8c5",
+    "components/back.stl": "495b48d631e126d3a30d4c525e9908fdbcbdb5de200274740bf7f5a854e8bf5a",
+    "components/rotor.stl": "d89249662ec15bef47ea19297209658346151b8f36ae3b2baf5d6cc7f1d99965",
+    "components/rotor-long.stl": "f7796ae9ed63612da5aea748b7e866897f09a6947adee61a0e7f200a548a9901",
+    "components/pin.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d",
+    "components/pin-50.stl": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19",
+    "components/spacer-060.stl": "148d0a4613deada6c61ed982c97c0003beb49b059dc29aa407739d53d371119f",
+    "components/spacer-072.stl": "fe569363be60f475873b3653891c02d9e8e0bac9b8a8c10f56ae26586e7ae918",
+    "components/spacer-084.stl": "6f7abc3d11b74132978b65522a1c38709612acec1e464332179926bfbdb0446d"
+  },
+  "cad_sha256": "20d6a0072863d765d7e6d556a0ff788ad2c40df670ce4a9e298ca87c65aa191c",
+  "measurement_basis_sha256": "6a6e477701e15b02a6e31e8622cdfcc852aa6e463e3472728a34c5c02a2554ec",
+  "mesh_quality": {
+    "front": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -16.0,
+          0.0,
+          0.0
+        ],
+        [
+          16.0,
+          72.69999694824219,
+          9.300000190734863
+        ]
+      ]
+    },
+    "back": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -16.0,
+          0.0,
+          0.0
+        ],
+        [
+          16.0,
+          72.69999694824219,
+          6.5
+        ]
+      ]
+    },
+    "rotor": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -3.5,
+          -3.5,
+          0.0
+        ],
+        [
+          3.5,
+          3.5,
+          28.0
+        ]
+      ]
+    },
+    "rotor-long": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -3.5,
+          -3.5,
+          0.0
+        ],
+        [
+          3.5,
+          3.5,
+          60.0
+        ]
+      ]
+    },
+    "pin": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          18.0
+        ]
+      ]
+    },
+    "pin-50": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0,
+          50.0
+        ]
+      ]
+    },
+    "spacer-060": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -5.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0,
+          1.7999992370605469
+        ]
+      ]
+    },
+    "spacer-072": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -5.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0,
+          1.919999122619629
+        ]
+      ]
+    },
+    "spacer-084": {
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_components": 1,
+      "bounds_mm": [
+        [
+          -5.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0,
+          2.0399999618530273
+        ]
+      ]
+    }
+  },
+  "assembly_transform": "Front: Tz(-6.5), Rx(90); back: Tz(-6.5), Rx(90), Rz(180). No assembly mirror.",
+  "back_rotation_determinant": 1.0,
+  "frame_half_overlap_mm3": 0.0,
+  "motion_states": [
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 2.2703193491846463e-16,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 2.2703193491846463e-16,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor",
+      "pin": "pin-50",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 0.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 1.5,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 2.2703193491846463e-16,
+      "rotor_pin_mm3": 0.0
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "pin-50",
+      "travel_mm": 3.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "rotor_pin_mm3": 0.0
+    }
+  ],
+  "pin_section_measurements": {
+    "pin": {
+      "foot_section_z_mm": 0.12,
+      "foot_bounds_xy_mm": [
+        -6.0,
+        -6.0,
+        6.0,
+        6.0
+      ],
+      "tube_section_z_mm": 10,
+      "tube_loop_bounds_xy_mm": [
+        [
+          -1.7599999904632568,
+          -1.7599999904632568,
+          1.7599999904632568,
+          1.7599999904632568
+        ],
+        [
+          -2.200000047683716,
+          -2.200000047683716,
+          2.200000047683716,
+          2.200000047683716
+        ]
+      ]
+    },
+    "pin-50": {
+      "foot_section_z_mm": 0.12,
+      "foot_bounds_xy_mm": [
+        -6.0,
+        -6.0,
+        6.0,
+        6.0
+      ],
+      "tube_section_z_mm": 10,
+      "tube_loop_bounds_xy_mm": [
+        [
+          -1.7599999904632568,
+          -1.7599999904632568,
+          1.7599999904632568,
+          1.7599999904632568
+        ],
+        [
+          -2.200000047683716,
+          -2.200000047683716,
+          2.200000047683716,
+          2.200000047683716
+        ]
+      ]
+    }
+  },
+  "boundary_probes": [
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": -0.71,
+      "absolute_pin_rise_mm": -0.71,
+      "pin_frame_mm3": 1.1485811281529006,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": -0.69,
+      "absolute_pin_rise_mm": -0.69,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": 4.55,
+      "absolute_pin_rise_mm": 4.55,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": 4.57,
+      "absolute_pin_rise_mm": 4.57,
+      "pin_frame_mm3": 0.9014486349164358,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": -1.01,
+      "absolute_pin_rise_mm": -0.71,
+      "pin_frame_mm3": 1.1485811281529006,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": -0.99,
+      "absolute_pin_rise_mm": -0.69,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": 4.25,
+      "absolute_pin_rise_mm": 4.55,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": 4.2700000000000005,
+      "absolute_pin_rise_mm": 4.57,
+      "pin_frame_mm3": 0.9014486349164358,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": -0.71,
+      "absolute_pin_rise_mm": -0.71,
+      "pin_frame_mm3": 1.1485811281529006,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": -0.69,
+      "absolute_pin_rise_mm": -0.69,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": 4.55,
+      "absolute_pin_rise_mm": 4.55,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.0,
+      "thread_travel_mm": 4.57,
+      "absolute_pin_rise_mm": 4.57,
+      "pin_frame_mm3": 0.9014486349164358,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": -1.01,
+      "absolute_pin_rise_mm": -0.71,
+      "pin_frame_mm3": 1.1485811281529006,
+      "expected_collision": true
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": -0.99,
+      "absolute_pin_rise_mm": -0.69,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": 4.25,
+      "absolute_pin_rise_mm": 4.55,
+      "pin_frame_mm3": 0.0,
+      "expected_collision": false
+    },
+    {
+      "pin": "pin-50",
+      "rotor_lift_mm": 0.3,
+      "thread_travel_mm": 4.2700000000000005,
+      "absolute_pin_rise_mm": 4.57,
+      "pin_frame_mm3": 0.9014486349164358,
+      "expected_collision": true
+    }
+  ],
+  "owner_reported_15mm_rise_checks": [
+    {
+      "rotor": "rotor",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.0,
+      "retained_foot": true,
+      "pin_frame_mm3": 21.63839868779185,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "nominal_thread_axial_overlap_mm": 0,
+      "nominal_guide_overlap_mm": 29.8
+    },
+    {
+      "rotor": "rotor",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.0,
+      "retained_foot": false,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "nominal_thread_axial_overlap_mm": 0,
+      "nominal_guide_overlap_mm": 29.8
+    },
+    {
+      "rotor": "rotor",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.3,
+      "retained_foot": true,
+      "pin_frame_mm3": 21.638398687791863,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "nominal_thread_axial_overlap_mm": 0,
+      "nominal_guide_overlap_mm": 29.5
+    },
+    {
+      "rotor": "rotor",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.3,
+      "retained_foot": false,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "nominal_thread_axial_overlap_mm": 0,
+      "nominal_guide_overlap_mm": 29.5
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.0,
+      "retained_foot": true,
+      "pin_frame_mm3": 21.63839868779185,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "nominal_thread_axial_overlap_mm": 6,
+      "nominal_guide_overlap_mm": 29.8
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.0,
+      "retained_foot": false,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0,
+      "nominal_thread_axial_overlap_mm": 6,
+      "nominal_guide_overlap_mm": 29.8
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.3,
+      "retained_foot": true,
+      "pin_frame_mm3": 21.638398687791863,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "nominal_thread_axial_overlap_mm": 6,
+      "nominal_guide_overlap_mm": 29.5
+    },
+    {
+      "rotor": "rotor-long",
+      "pin": "actual_pin_50_mesh",
+      "reported_rise_mm": 15,
+      "rotor_lift_mm": 0.3,
+      "retained_foot": false,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15,
+      "nominal_thread_axial_overlap_mm": 6,
+      "nominal_guide_overlap_mm": 29.5
+    }
+  ],
+  "virtual_footless_long_screw_sweep_0_to_15mm": [
+    {
+      "travel_mm": 0.0,
+      "rotor_angle_deg": -0.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 0.5,
+      "rotor_angle_deg": -60.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 1.0,
+      "rotor_angle_deg": -120.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 1.5,
+      "rotor_angle_deg": -180.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 2.0,
+      "rotor_angle_deg": -240.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 2.5,
+      "rotor_angle_deg": -300.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 3.0,
+      "rotor_angle_deg": -360.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 3.5,
+      "rotor_angle_deg": -420.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 4.0,
+      "rotor_angle_deg": -480.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 4.5,
+      "rotor_angle_deg": -540.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 5.0,
+      "rotor_angle_deg": -600.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 5.5,
+      "rotor_angle_deg": -660.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 6.0,
+      "rotor_angle_deg": -720.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 6.5,
+      "rotor_angle_deg": -780.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 7.0,
+      "rotor_angle_deg": -840.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 7.5,
+      "rotor_angle_deg": -900.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 8.0,
+      "rotor_angle_deg": -960.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 8.5,
+      "rotor_angle_deg": -1020.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 9.0,
+      "rotor_angle_deg": -1080.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 9.5,
+      "rotor_angle_deg": -1140.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 10.0,
+      "rotor_angle_deg": -1200.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 10.5,
+      "rotor_angle_deg": -1260.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 11.0,
+      "rotor_angle_deg": -1320.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 11.5,
+      "rotor_angle_deg": -1380.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 12.0,
+      "rotor_angle_deg": -1440.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 12.5,
+      "rotor_angle_deg": -1500.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 13.0,
+      "rotor_angle_deg": -1560.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 13.5,
+      "rotor_angle_deg": -1620.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 14.0,
+      "rotor_angle_deg": -1680.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 14.5,
+      "rotor_angle_deg": -1740.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 15.0,
+      "rotor_angle_deg": -1800.0,
+      "rotor_lift_mm": 0.0,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 0.0,
+      "rotor_angle_deg": -0.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    },
+    {
+      "travel_mm": 0.5,
+      "rotor_angle_deg": -60.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.455820849692734e-15
+    },
+    {
+      "travel_mm": 1.0,
+      "rotor_angle_deg": -120.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 1.5,
+      "rotor_angle_deg": -180.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 2.2703193491846463e-16
+    },
+    {
+      "travel_mm": 2.0,
+      "rotor_angle_deg": -240.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.003871174092151e-15
+    },
+    {
+      "travel_mm": 2.5,
+      "rotor_angle_deg": -300.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 3.0,
+      "rotor_angle_deg": -360.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    },
+    {
+      "travel_mm": 3.5,
+      "rotor_angle_deg": -420.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.455820849692734e-15
+    },
+    {
+      "travel_mm": 4.0,
+      "rotor_angle_deg": -480.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 4.5,
+      "rotor_angle_deg": -540.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 5.0,
+      "rotor_angle_deg": -600.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.003871174092151e-15
+    },
+    {
+      "travel_mm": 5.5,
+      "rotor_angle_deg": -660.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 6.0,
+      "rotor_angle_deg": -720.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    },
+    {
+      "travel_mm": 6.5,
+      "rotor_angle_deg": -780.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.455820849692734e-15
+    },
+    {
+      "travel_mm": 7.0,
+      "rotor_angle_deg": -840.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 7.5,
+      "rotor_angle_deg": -900.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 8.0,
+      "rotor_angle_deg": -960.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.003871174092151e-15
+    },
+    {
+      "travel_mm": 8.5,
+      "rotor_angle_deg": -1020.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 9.0,
+      "rotor_angle_deg": -1080.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    },
+    {
+      "travel_mm": 9.5,
+      "rotor_angle_deg": -1140.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.455820849692734e-15
+    },
+    {
+      "travel_mm": 10.0,
+      "rotor_angle_deg": -1200.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 10.5,
+      "rotor_angle_deg": -1260.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 11.0,
+      "rotor_angle_deg": -1320.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.003871174092151e-15
+    },
+    {
+      "travel_mm": 11.5,
+      "rotor_angle_deg": -1380.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 12.0,
+      "rotor_angle_deg": -1440.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    },
+    {
+      "travel_mm": 12.5,
+      "rotor_angle_deg": -1500.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.455820849692734e-15
+    },
+    {
+      "travel_mm": 13.0,
+      "rotor_angle_deg": -1560.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 13.5,
+      "rotor_angle_deg": -1620.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 14.0,
+      "rotor_angle_deg": -1680.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 6.003871174092151e-15
+    },
+    {
+      "travel_mm": 14.5,
+      "rotor_angle_deg": -1740.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 0.0
+    },
+    {
+      "travel_mm": 15.0,
+      "rotor_angle_deg": -1800.0,
+      "rotor_lift_mm": 0.3,
+      "pin_frame_mm3": 0.0,
+      "rotor_pin_mm3": 0.0,
+      "rotor_frame_mm3": 4.2567945696125875e-15
+    }
+  ],
+  "travel_limits": {
+    "low_pin_bottom_z_mm": 27.9,
+    "foot_thickness_mm": 0.24,
+    "guide_underside_z_mm": 32.7,
+    "keeper_upper_face_z_mm": 27.2,
+    "first_upward_foot_contact_absolute_rise_mm": 4.56,
+    "first_upward_contact_thread_travel_at_lift_030_mm": 4.26,
+    "first_downward_foot_contact_absolute_rise_mm": -0.7,
+    "intended_thread_travel_mm": [
+      0,
+      3
+    ],
+    "nominal_upper_margin_at_travel3_lift030_mm": 1.26,
+    "warning": "Nominal CAD contact boundaries, not usable endstops or measured allowances."
+  },
+  "foot_removal_counterfactual": {
+    "authorized_modification": false,
+    "short_screw_full_6mm_thread_overlap_until_travel_mm": 7,
+    "short_screw_nominal_zero_overlap_at_travel_mm": 13,
+    "long_screw_full_6mm_thread_overlap_until_travel_mm": 39,
+    "long_screw_nominal_zero_overlap_at_travel_mm": 45,
+    "thread_overlap_table": [
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 0,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 3,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 7,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 10,
+        "nominal_axial_thread_overlap_mm": 3.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 13,
+        "nominal_axial_thread_overlap_mm": 0.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 15,
+        "nominal_axial_thread_overlap_mm": 0.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 39,
+        "nominal_axial_thread_overlap_mm": 0.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 40,
+        "nominal_axial_thread_overlap_mm": 0.0
+      },
+      {
+        "screw_thread_length_mm": 16,
+        "travel_mm": 45,
+        "nominal_axial_thread_overlap_mm": 0.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 0,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 3,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 7,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 10,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 13,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 15,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 39,
+        "nominal_axial_thread_overlap_mm": 6.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 40,
+        "nominal_axial_thread_overlap_mm": 5.0
+      },
+      {
+        "screw_thread_length_mm": 48,
+        "travel_mm": 45,
+        "nominal_axial_thread_overlap_mm": 0.0
+      }
+    ],
+    "tube_square_bore_mm": 3.52,
+    "screw_nominal_outer_diameter_mm": 3.2,
+    "nominal_straight_bore_side_gap_mm": 0.16,
+    "long_pin_remaining_guide_overlap_at_40mm_rise_mm": 4.8,
+    "conclusion": "Removing the foot alone does not qualify 40-mm travel: bearing overlap collapses, short screw disengages, and long screw/tube rubbing plus alignment remain untested."
+  },
+  "motor_envelope_checks": {
+    "body_nominal_8": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "body_drawing_max_8_2": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "boss_measured_approx": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "shaft_measured_approx": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "gear_outer_envelope_not_tooth_mesh": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.045612437038811675
+    },
+    "pcb_measured_approx": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "glue_design_allowance": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "wire_design_allowance": {
+      "frame_mm3": 0.0,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    },
+    "tabs_design_allowance": {
+      "frame_mm3": 2.2876837893011555e-17,
+      "washer_mm3": 0.0,
+      "rotor_mm3": 0.0
+    }
+  },
+  "spacer_centered_motor_interference": [
+    {
+      "spacer": "spacer-060",
+      "thickness_mm": 0.6,
+      "frame_mm3": 0.0,
+      "nominal_centered_body8_mm3": 0.0,
+      "centered_body8_2_mm3": 9.263210146582667e-13
+    },
+    {
+      "spacer": "spacer-072",
+      "thickness_mm": 0.72,
+      "frame_mm3": 0.0,
+      "nominal_centered_body8_mm3": 0.05188767138851342,
+      "centered_body8_2_mm3": 0.7864692672414018
+    },
+    {
+      "spacer": "spacer-084",
+      "thickness_mm": 0.84,
+      "frame_mm3": 1.2836953722228372e-16,
+      "nominal_centered_body8_mm3": 0.9763095864663957,
+      "centered_body8_2_mm3": 2.0327893630992175
+    }
+  ],
+  "journal_probes": [
+    {
+      "z_mm": 13.0,
+      "height_mm": 7.9,
+      "probe_radius_3_69_mm3": 0.0,
+      "probe_radius_3_71_mm3": 0.0
+    },
+    {
+      "z_mm": 21.3,
+      "height_mm": 3.5,
+      "probe_radius_3_69_mm3": 0.0,
+      "probe_radius_3_71_mm3": 0.895117165799616
+    }
+  ],
+  "contact_dimensions_from_cad": {
+    "rotor_diameter_mm": 7,
+    "rotor_body_z_mm": [
+      12.9,
+      24.9
+    ],
+    "rotor_radial_band_z_mm": [
+      21.2,
+      24.9
+    ],
+    "radial_band_length_mm": 3.7,
+    "radial_band_bore_mm": 7.4,
+    "nominal_radial_gap_mm": 0.2,
+    "washer_pocket_diameter_mm": 7.3,
+    "actual_washer_pocket_z_mm": [
+      12.4,
+      12.65
+    ],
+    "washer_pocket_cutter_z_mm": [
+      12.4,
+      12.7
+    ],
+    "rotor_bottom_above_actual_pocket_rim_mm": 0.25,
+    "washer_dimensions_id_od_thickness_mm": [
+      3.2,
+      7,
+      0.5
+    ],
+    "thrust_deck_central_hole_mm": 4,
+    "upper_keeper_hole_mm": 4.2,
+    "upper_stop_bottom_z_mm": 25.2,
+    "upper_stop_top_z_mm": 27.2,
+    "square_guide_z_mm": [
+      32.7,
+      72.7
+    ],
+    "square_guide_opening_mm": 4.8,
+    "pin_square_width_mm": 4.4,
+    "nominal_pin_side_gap_mm": 0.2,
+    "coupling_void_diameter_mm": 2.5,
+    "coupling_lobe_radius_mm": 0.5,
+    "coupling_lobe_center_radius_mm": 1.55,
+    "coupling_lobe_tip_radius_mm": 1.05,
+    "coupling_leadin_mm": 0.25,
+    "coupling_void_length_mm": 6,
+    "coupling_description": "Three integral inward lobes of one continuous rotor wall. Spaces between engagement lobes; no exterior slots, separate brackets, or designed flexure hinges.",
+    "L_gear_straight_overlap_rest_mm": 1.25,
+    "L_gear_straight_overlap_lift030_mm": 1.0
+  },
+  "thrust_probes": {
+    "washer_frame_mm3": 0.0,
+    "washer_rotor_mm3": 1.6364753546742055e-06,
+    "lower_washer_contact_probe_mm3": 0.025910349336333138,
+    "upper_washer_contact_probe_mm3": 0.030427596028908408,
+    "upper_stop_at_lift_030_mm3": 0.0,
+    "upper_stop_at_lift_031_mm3": 0.24609703979403388,
+    "approximate_washer_to_frame_contact_area_mm2": 25.910349336333137,
+    "approximate_rotor_to_washer_contact_area_mm2": 30.427596028908408,
+    "approximate_upper_stop_contact_area_mm2": 24.60970397940339
+  },
+  "coupling_mesh_cross_section": {
+    "z_above_rotor_bottom_mm": 1,
+    "material_components": 1,
+    "boundary_loops": 2,
+    "loop_min_max_radius_mm": [
+      [
+        1.0499886443173212,
+        1.25
+      ],
+      [
+        3.4994226391252847,
+        3.50000377842109
+      ]
+    ],
+    "finding": "One continuous wall around one bore; inward torque lobes are not disconnected brackets."
+  },
+  "limitations": [
+    "Nominal rigid meshes only; no print distortion, roughness, compliance, friction, torque or actual clearance measurement.",
+    "Baseline motion states sampled at0/1.5/3 mm and rotor lift0/.3; virtual footless long-screw sweep sampled each0.5 mm through15 mm at both lifts. Neither is a continuous motion proof.",
+    "Actual gear teeth, exact tabs, glue and wire routing are not measured contours; only gear-envelope/rib overlap is intentional.",
+    "The washer carries downward rotor reaction; upward rotor reaction reaches the printed upper keeper after0.3 mm lift. Rotation direction alone does not determine axial reaction.",
+    "No nominal axial gear/boss/shaft collision does not prove zero shaft load: a tight or misaligned coupling can transmit side load and frictional axial load.",
+    "The current pin foot is retained. Actual owner parts may differ; identify them before using these coordinates.",
+    "Owner removal of print artifacts is represented only by virtual removal of the protruding foot. Unmeasured hand shaving of the coupling base is not modeled and may change axial stack or engagement."
+  ]
+}

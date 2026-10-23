@@ -1,0 +1,20 @@
+{
+  "geometry_audit": "PASS; actual meshes,18 baseline states,62 virtual-footless extended states,16 boundary probes",
+  "physical_friction_result": "UNKNOWN; no new physical experiment performed",
+  "drawing": "SVG visually inspected",
+  "pdf_delivery": "6-page diagnosis,1-page bench card,4-page expanded protocol/results; PDFs rendered and spot-checked",
+  "repository_check": {
+    "exit_code": 1,
+    "unchanged_preexisting_findings": [
+      "Oversized atomic object: E-266",
+      "Oversized atomic object: E-283",
+      "Oversized atomic object: E-286",
+      "Oversized atomic object: E-288",
+      "Oversized atomic object: E-293",
+      "Oversized instructions: owner-print-tests/AGENTS.md"
+    ]
+  },
+  "git_diff_check": "PASS",
+  "new_print_job": false,
+  "bambu_studio_slice": "NOT APPLICABLE: no new printable geometry; Bambu Studio unavailable"
+}

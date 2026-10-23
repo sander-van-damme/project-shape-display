@@ -1,5 +1,14 @@
 # E-302 v3 — 50-mm pin en lange schroef met verwijderbare zijsteunen
 
+**23 oktober 2026 — huidig printaanbod RETIRED; bestanden blijven historisch bewaard.**
+De eigenaar heeft een v3 fysiek getest: goede motorpassing, toenemende wrijving
+bij circa15 mm stijging met lange schroef, verbetering bij losser sluiten.
+Printartefacten verwijderd; na slechte tests ook rotorvoet met mes bijgewerkt.
+Exacte revisie onbekend. De onderstaande algemene uitspraak “fysiek niet getest”
+is achterhaald; zij bewijst niet dat deze exacte3MF geprint is.
+Gebruik nu de [gerichte proef met bestaande onderdelen](../2026-10-23-low-friction-motor-frame/test.md),
+niet opnieuw de volledige plaat. De onderstaande21-oktoberlevering is historie.
+
 **Status: READY — digitaal gecontroleerd; fysieke passing nog niet getest.**
 21 oktober 2026. Alleen voor **L: A≈2,0 / B≈3,25 mm boven het metalen huis**.
 Gebruik de kortere K niet voor deze uitvoering. Geen printdeadline.

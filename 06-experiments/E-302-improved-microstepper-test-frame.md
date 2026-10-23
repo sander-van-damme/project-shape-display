@@ -5,6 +5,23 @@ builds-on: [E-301, E-295]
 
 # E-302 — Improved Microstepper Test Frame
 
+## Aanvulling23 oktober2026 — fysieke v3-wrijving, geen nieuwe print
+
+Eigenaar heeft v3 fysiek getest: motor past goed, weerstand neemt toe bij hoge pin,
+losser sluiten helpt. Nadere opgave: circa40–50-mm pin, lange schroef, circa15 mm
+stijging, printartefacten verwijderd; rotorvoet pas na slechte tests met mes bijgewerkt.
+Revisie/hash en exacte ingreep onbekend; IRUN10 niet bevestigd door mogelijke reset
+naar5 en UART-fouten. De hieronder bewaarde algemene aanduiding “niet fysiek getest”
+is dus achterhaald. [Volledig eigenaarverslag](../owner-print-tests/2026-10-19-microstepper-frame-v3/resultaten.md).
+
+[Gerichte diagnose en bestaande-delenproef](../owner-print-tests/2026-10-23-low-friction-motor-frame/diagnosis.md):
+werkelijke meshes tonen één3,7-mm rotorlagerband, geen12-mm sleeve; een virtueel
+voetloze lange combinatie is nominaal vrij over0–15 mm, maar heeft afnemende
+geleidingsoverlap. Leidende hypothese is sluitings-/uitlijningsafhankelijke wrijving;
+de precieze interface is niet bewezen. Geen nieuwe STL/3MF of fysiek resultaat
+verzonnen. Volledige v3-printaanbieding ingetrokken; één gerichte handproef met
+bestaande delen is de geselecteerde volgende beslissing. Historie hieronder behouden.
+
 Eigenaarsopdracht18 oktober2026; basiscommit0383489 na fast-forward pull.
 **Hypothese:** een open PCB-zitting met twee verende huissteunen en een diepe
 vrouwelijke koppeling met drie ronde lobben maakt de bestaande aandrijving
