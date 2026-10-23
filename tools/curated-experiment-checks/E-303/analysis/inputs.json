@@ -1,0 +1,31 @@
+{
+  "evidence": "Baseline record, not a complete run-configuration interface. Assumed screening scenarios, not physical measurements. generate.py explicitly defines scenario sweeps and selected A/B reference geometries; SI units explicitly named.",
+  "lead_m": 0.003,
+  "screw_nominal_diameter_m": 0.0032,
+  "thread_radial_depth_m": 0.0009,
+  "mean_thread_diameter_m": 0.0023,
+  "thread_half_angle_deg": 45,
+  "pin_pitch_m": 0.00508,
+  "annulus_inner_radius_m": 0.0011,
+  "diameters_mm": [4, 4.7, 5, 6, 7, 10, 20],
+  "electrode_coverage": 0.8,
+  "mu_static_assumed": 0.4,
+  "mu_dynamic_assumed": 0.3,
+  "pet_epsilon_r_assumed": 3.25,
+  "pet_thickness_m": 0.000012,
+  "es_voltage_v": 300,
+  "magnetic_mu_r_assumed": 300,
+  "magnetic_core_screen_limit_t": 1.2,
+  "magnetic_pole_area_m2_each": 0.000001,
+  "magnetic_washer_bridge_area_m2": 0.0000005,
+  "active_counts": [1, 100, 1000, 6400],
+  "coil_power_w_scenarios": [0.01, 0.05, 0.1, 0.25, 0.5, 1],
+  "published_lee_2025_reference": {
+    "diameter_m": 0.02,
+    "on_torque_nm": 0.0834,
+    "off_torque_nm": 0.0011,
+    "voltage_v": 420,
+    "source": "https://doi.org/10.1002/aisy.202500625",
+    "warning": "Specialized high-k polymer, flexible patterned electrodes. Cubic geometric scaling is counterfactual, not PET performance."
+  }
+}

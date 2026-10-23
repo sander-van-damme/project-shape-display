@@ -1,0 +1,88 @@
+{
+  "bambu_version": "02.08.02.61",
+  "printer": "Bambu Lab X1 Carbon 0.4 nozzle",
+  "plate_translation_mm": [
+    95.25038814544678,
+    103.0,
+    0.0
+  ],
+  "project_sha256": "d36d1db8e87ae2af4a481eaafdd6ee5138eff97593eaf5ffd5028e175ef6a7d9",
+  "reopened_project_sha256": "2b1daa9f11bd0da9b445fe3388cb8ffca60c1ba2a48d637ccf4e3b1785ff78aa",
+  "reopened_without_external_profiles": true,
+  "settings_differences": {},
+  "gcode_equal_except_timestamp": false,
+  "gcode_difference_note": "Slicer path/seam ordering and estimates may change on reopen; both archives require independent geometric toolpath review",
+  "profile_provenance": {
+    "printer": [
+      {
+        "path": "profiles/BBL/machine/fdm_machine_common.json",
+        "sha256": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c"
+      },
+      {
+        "path": "profiles/BBL/machine/fdm_bbl_3dp_001_common.json",
+        "sha256": "2ca207f457c1f9b3eb25a1801adb2eaa8ddc5620f5a8945abb51a3fcddab5e47"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template machine_start_gcode.json",
+        "sha256": "cc890a986c3f073e4691908d4bd3256222da9afc52fa9520261318bea9757505"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template machine_end_gcode.json",
+        "sha256": "e90eb249dceb719ff8511b59275793a85ab84e1d5b5d4981e1fe6256fb6ffe54"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template time_lapse_gcode.json",
+        "sha256": "bd394064ba847dc7a75ab80c61c6a0824ac3d6876438b7c8bafd5646cf51b5c4"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template change_filament_gcode.json",
+        "sha256": "cdde6fbb5e4f6ec353aeb61e41862dd04743c2bfe21369d31145170aa932d4ae"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template layer_change_gcode.json",
+        "sha256": "595fa7ed12c23068b658ca4b006d4970bfd217a1503bed36b602cba93b2dc81a"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle.json",
+        "sha256": "e2b26b1e94216c8c1d823b9a327bf746c0aeeb1fa0e61489846cfc15b96b3b53"
+      }
+    ],
+    "filament": [
+      {
+        "path": "profiles/BBL/filament/fdm_filament_common.json",
+        "sha256": "8c7105b7d59a28f600c43a946f067b8b4d707b9711c0bf6b88e9166e48878548"
+      },
+      {
+        "path": "profiles/BBL/filament/fdm_filament_pla.json",
+        "sha256": "670d21ea6bdf1cd4b0a2bfddc743612ffd896cd6e5dbe767c25d2c4165c49a30"
+      },
+      {
+        "path": "profiles/BBL/filament/Generic PLA @base.json",
+        "sha256": "530b745e2062c4c577d7acce3601ac7586fc65de394726252354bec0ade3e4c5"
+      },
+      {
+        "path": "profiles/BBL/filament/Generic PLA.json",
+        "sha256": "d8acf4b90c1a31d89386c6553f7b01c327250d03c0735cfbfd55e65b00ab75aa"
+      }
+    ],
+    "process": [
+      {
+        "path": "profiles/BBL/process/fdm_process_common.json",
+        "sha256": "d7981c4b92854f251b8697e1bb621c63fe393f263fb8024ab63c401525d543d7"
+      },
+      {
+        "path": "profiles/BBL/process/fdm_process_single_common.json",
+        "sha256": "05b38ac1318e465e817978b36da51754f928da0172738a20bb3a8d4a69eb4769"
+      },
+      {
+        "path": "profiles/BBL/process/fdm_process_single_0.16.json",
+        "sha256": "0be309703e190740a7be60ae3ad934903ed7e18299c96a177054664bbc45ac8b"
+      },
+      {
+        "path": "profiles/BBL/process/0.16mm Optimal @BBL X1C.json",
+        "sha256": "de9dde8a4cc014fbb3e44aeb246cfcb6bf1e0dd6d90f55a585a7e5ab63d09def"
+      }
+    ]
+  },
+  "physical_test": "NOT PERFORMED"
+}

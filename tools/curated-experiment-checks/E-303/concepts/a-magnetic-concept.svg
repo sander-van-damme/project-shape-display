@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="1220" viewBox="0 0 1420 1220"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#9d174d"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#172033;font-size:15px} .title{font-size:26px;font-weight:bold}.h{font-size:19px;font-weight:bold}.s{font-size:13px}.dim{stroke:#172033;stroke-width:1;fill:none}.flux{stroke:#a21caf;stroke-width:3;fill:none;marker-end:url(#arrow)}.load{stroke:#b91c1c;stroke-width:3;fill:none;marker-end:url(#arrow)}</style><rect width="1420" height="1220" fill="white"/>
+<text x="28" y="38" class="title">A — standard steel poles and washer, compliant output carrier</text><text x="28" y="65">Dimensioned engineering concept • mm • no physical validation • NOT a printable clutch release</text>
+<circle cx="225" cy="315" r="155.0" fill="#bbded1" stroke="#243047"/>
+<circle cx="225" cy="315" r="137.5" fill="#a57749" stroke="#243047"/>
+<circle cx="225" cy="315" r="125" fill="#d1a274" stroke="#243047"/>
+<circle cx="225" cy="315" r="112.5" fill="#bdc4cc" stroke="#243047"/>
+<circle cx="225" cy="315" r="100" fill="#eceff2" stroke="#243047"/>
+<circle cx="225" cy="315" r="40.0" fill="white" stroke="#243047"/>
+<circle cx="225" cy="315" r="32.5" fill="#3b82f6" stroke="#243047"/>
+<circle cx="155.0" cy="315" r="47.5" fill="#edb96d" fill-opacity=".5" stroke="#a85d05" stroke-dasharray="5 3"/>
+<circle cx="155.0" cy="315" r="25" fill="#8390a0" stroke="#243047"/>
+<circle cx="295.0" cy="315" r="47.5" fill="#edb96d" fill-opacity=".5" stroke="#a85d05" stroke-dasharray="5 3"/>
+<circle cx="295.0" cy="315" r="25" fill="#8390a0" stroke="#243047"/>
+<rect x="161.5" y="251.5" width="127.0" height="127.0" fill="none" stroke="#ef4444"/>
+<text x="28" y="110" class="h">TOP — armature partly transparent</text>
+<text x="28" y="138" class="s">Red square: one 5.08 mm grid cell</text>
+<path d="M70.0,500 L380.0,500" class="dim"/>
+<path d="M70.0,490 L70.0,510" class="dim"/>
+<path d="M380.0,490 L380.0,510" class="dim"/>
+<text x="118" y="525" class="">Housing Ø12.4</text>
+<text x="28" y="550" class="">Armature Ø9 / bore Ø3.2 / t0.8</text>
+<text x="28" y="574" class="">Input Ø10 / bore Ø8; thrust flange Ø11</text>
+<text x="28" y="598" class="">Contact r4.0–4.5 → effective r4.255</text>
+<text x="28" y="622" class="">Pole centres 5.6 apart; coils Ø3.8</text>
+<path d="M200,160 L200,190 L250,190 L250,160" fill="white" stroke="#243047"/>
+<path d="M225,125 L225,185" class="dim"/>
+<text x="278" y="170" class="s">Drive window</text>
+<text x="278" y="190" class="s">2 wide ×0.8 high</text>
+<text x="560" y="110" class="h">SECTION THROUGH BOTH POLES — nominal contact state</text>
+<rect x="731.2" y="221.59999999999997" width="10.8" height="422.40000000000003" fill="#bbded1" stroke="#243047"/>
+<rect x="1018.0" y="221.59999999999997" width="10.8" height="422.40000000000003" fill="#bbded1" stroke="#243047"/>
+<rect x="731.2" y="644.0" width="110.39999999999999" height="24" fill="#bbded1" stroke="#243047"/>
+<rect x="918.4" y="644.0" width="110.39999999999999" height="24" fill="#bbded1" stroke="#243047"/>
+<rect x="731.2" y="406.4" width="24" height="24" fill="#bbded1" stroke="#243047"/>
+<rect x="1004.8" y="406.4" width="24" height="24" fill="#bbded1" stroke="#243047"/>
+<rect x="772.0" y="624.8" width="69.6" height="19.200000000000003" fill="#9ca3af" stroke="#243047"/>
+<rect x="918.4" y="624.8" width="69.6" height="19.200000000000003" fill="#9ca3af" stroke="#243047"/>
+<rect x="767.2" y="576.8" width="91.19999999999999" height="48" fill="#7f8997" stroke="#243047"/>
+<rect x="788.8" y="384.79999999999995" width="48" height="192" fill="#8492a3" stroke="#243047"/>
+<rect x="767.2" y="476.0" width="16.799999999999997" height="96" fill="#e9a75a" stroke="#243047"/>
+<rect x="841.6" y="476.0" width="16.799999999999997" height="96" fill="#e9a75a" stroke="#243047"/>
+<rect x="901.6" y="576.8" width="91.19999999999999" height="48" fill="#7f8997" stroke="#243047"/>
+<rect x="923.2" y="384.79999999999995" width="48" height="192" fill="#8492a3" stroke="#243047"/>
+<rect x="901.6" y="476.0" width="16.799999999999997" height="96" fill="#e9a75a" stroke="#243047"/>
+<rect x="976.0" y="476.0" width="16.799999999999997" height="96" fill="#e9a75a" stroke="#243047"/>
+<rect x="760" y="382.4" width="24" height="24" fill="#b78557" stroke="#243047"/>
+<rect x="976" y="382.4" width="24" height="24" fill="#b78557" stroke="#243047"/>
+<rect x="748.0" y="399.2" width="36.0" height="7.199999999999999" fill="#91633d" stroke="#243047"/>
+<rect x="976" y="399.2" width="36.0" height="7.199999999999999" fill="#91633d" stroke="#243047"/>
+<rect x="772.0" y="363.2" width="69.6" height="19.200000000000003" fill="#aab2be" stroke="#243047"/>
+<rect x="918.4" y="363.2" width="69.6" height="19.200000000000003" fill="#aab2be" stroke="#243047"/>
+<rect x="772.0" y="353.84" width="216" height="5.76" fill="#3b82f6" stroke="#243047"/>
+<rect x="848.8" y="221.59999999999997" width="62.400000000000006" height="141.60000000000002" fill="#3b82f6" stroke="#243047"/>
+<rect x="827.2" y="257.6" width="105.60000000000001" height="28.799999999999997" fill="#3b82f6" stroke="#243047"/>
+<rect x="731.2" y="286.64" width="114.0" height="23.759999999999998" fill="#bbded1" stroke="#243047"/>
+<rect x="731.2" y="221.60000000000002" width="114.0" height="35.76" fill="#bbded1" stroke="#243047"/>
+<rect x="914.8" y="286.64" width="114.0" height="23.759999999999998" fill="#bbded1" stroke="#243047"/>
+<rect x="914.8" y="221.60000000000002" width="114.0" height="35.76" fill="#bbded1" stroke="#243047"/>
+<rect x="841.6" y="147.19999999999993" width="76.80000000000001" height="74.4" fill="#3b82f6" stroke="#243047"/>
+<path d="M880,132.79999999999995 L880,200" class="load"/>
+<text x="1103" y="164" class="s">Existing pin → screw</text>
+<text x="1103" y="186" class="s">Ø3.2, lead3; pin4.4□</text>
+<path d="M918.4,188.0 L1090,182" class="dim"/>
+<text x="1103" y="225" class="s">Output collar Ø4.4 ×1.2</text>
+<text x="1103" y="247" class="s">Bilateral thrust: terrain</text>
+<text x="1103" y="269" class="s">bypasses clutch face</text>
+<path d="M932.8,272 L1090,246" class="dim"/>
+<text x="1103" y="310" class="s">Carrier4 spokes 0.60×0.24</text>
+<text x="1103" y="332" class="s">0.15 underside gap; flexure counted</text>
+<path d="M988.0,357.44 L1090,320" class="dim"/>
+<text x="1103" y="374" class="s">Steel armature t0.8</text>
+<text x="1103" y="396" class="s">Pole gap0.10 EACH</text>
+<path d="M971.2,383.6 L1090,390" class="dim"/>
+<text x="1103" y="435" class="s">Input independent thrust</text>
+<text x="1103" y="457" class="s">Plain bearing = extra drag</text>
+<path d="M1009.6,406.4 L1090,447" class="dim"/>
+<text x="1103" y="500" class="s">2 stationary80-turn coils</text>
+<text x="1103" y="522" class="s">0.10 wire; winding h4</text>
+<path d="M992.8,512 L1090,512" class="dim"/>
+<text x="1103" y="572" class="s">M2×8 steel poles</text>
+<text x="1103" y="594" class="s">Inverted heads on yoke</text>
+<path d="M992.8,608 L1090,584" class="dim"/>
+<text x="1103" y="642" class="s">Lower steel yoke9×3.2×0.8</text>
+<path d="M988.0,634.4 L1090,638" class="dim"/>
+<path d="M812.8,600.8 L812.8,372.79999999999995 Q880,332.0 947.2,372.79999999999995 L947.2,600.8 Q880,670.4 812.8,600.8" class="flux"/>
+<text x="560" y="711" class="s">Purple: flux loop; washer flux travels AROUND central holes (out of section).</text>
+<path d="M28,748 H1390" stroke="#cbd5e1"/>
+<text x="28" y="786" class="h">EXPLODED ORDER / COMPLETE FORCE PATH</text>
+<rect x="55" y="810" width="150" height="15" fill="#3b82f6" stroke="#243047"/>
+<text x="230" y="824" class="">1. Output screw + collar + integral compliant carrier</text>
+<path d="M130,832 L130,857" class="dim"/>
+<rect x="55" y="865" width="150" height="15" fill="#aab2be" stroke="#243047"/>
+<text x="230" y="879" class="">2. Bonded armature washer9×3.2×0.8</text>
+<path d="M130,887 L130,912" class="dim"/>
+<rect x="55" y="920" width="150" height="15" fill="#b78557" stroke="#243047"/>
+<text x="230" y="934" class="">3. Rotating input ring10/8 + thrust flange11</text>
+<path d="M130,942 L130,967" class="dim"/>
+<rect x="55" y="975" width="150" height="15" fill="#e9a75a" stroke="#243047"/>
+<text x="230" y="989" class="">4. Stationary pole screws / two bobbins + windings</text>
+<path d="M130,997 L130,1022" class="dim"/>
+<rect x="55" y="1030" width="150" height="15" fill="#9ca3af" stroke="#243047"/>
+<text x="230" y="1044" class="">5. Stationary yoke washer9×3.2×0.8</text>
+<path d="M130,1052 L130,1077" class="dim"/>
+<rect x="55" y="1085" width="150" height="15" fill="#bbded1" stroke="#243047"/>
+<text x="230" y="1099" class="">6. Split support/keeper: journals, thrust lands, yoke seat</text>
+<text x="790" y="793" class="h">UNRESOLVED MANUFACTURING REQUIREMENTS</text>
+<text x="790" y="829" class="s">• No steel machining: head/yoke contact must still be measured.</text>
+<text x="790" y="861" class="s">• Washer dish, screw length and runout must not close pole gaps.</text>
+<text x="790" y="893" class="s">• Output collar requires measured shimming to≤0.02 endplay.</text>
+<text x="790" y="925" class="s">• Zero-force carrier neutral position is not set by FDM alone.</text>
+<text x="790" y="957" class="s">• Carrier stiffness≈1.06 N/mm is a simple beam estimate.</text>
+<text x="790" y="989" class="s">• 0.05 mm stack error can add≈0.053 N unwanted preload.</text>
+<text x="790" y="1021" class="s">• 12.4 mm housing exceeds four-height10.16 mm spacing.</text>
+<text x="790" y="1053" class="s">• Adhesive and thin-film shim are real assembly operations.</text>
+<text x="790" y="1085" class="s">• Concept envelopes must NOT be sent to the printer.</text>
+<text x="28" y="1179" class="s">Green stationary • Blue output • Brown input • Grey steel • Orange winding • Red terrain load</text>
+</svg>

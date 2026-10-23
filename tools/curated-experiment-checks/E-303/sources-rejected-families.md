@@ -1,0 +1,47 @@
+# E–H: bounded assessment of the other magnetic families
+
+[Experiment](engineering-report.md) · [Component prices](components-and-costs.md)
+
+Checked 23 October 2026. These are literature/manufacturer evidence and engineering deductions, not Shape Display measurements. None warrants a new print package in this assignment. “Reject” means unsuitable for this manufacturing brief, not physically impossible.
+
+## E — Hysteresis clutch: reject the standard-parts implementation
+
+A spatially varying rotating field repeatedly magnetizes a semi-hard rotor. Magnetic hysteresis dissipates energy and produces torque without rubbing friction surfaces; in synchronous operation a phase offset can carry load. A stationary field acting on the screw alone is a **brake**. A clutch requires the input to carry the rotating pole pattern or equivalent rotating magnetic structure, with a flux route from any stationary excitation coil. A simple axisymmetric stationary coil and two plain steel washers do not supply that rotating pole pattern.
+
+For a complete magnetization cycle per pole pair, an order-of-magnitude model is `T ≈ p V_rotor W_loop/(2π)`, where `p` is pole-pair count and `W_loop=∮H dB` is energy per unit rotor volume per cycle. The required loop, material condition, field penetration and pole geometry are unknown for an ordinary washer; assigning it a commercial hysteresis torque would be unjustified. Mild steel is normally chosen for a comparatively narrow loop, whereas a useful hysteresis rotor deliberately retains substantial loop area. An ordinary permanent magnet offers coupling/cogging but is not automatically a smooth, adjustable hysteresis rotor.
+
+Magtrol explicitly identifies a shaped pole structure and **specialty steel rotor/shaft assembly**, with shaft bearings, in its [AHB manufacturer description](https://www.magtrol.com/wp-content/uploads/ahb.pdf). ZF's [Tiratron catalogue, hysteresis-clutch section](https://www.zf.com/public/org/Catalogue_Tiratron_English_71623.pdf) identifies rotor, armature/hysteresis ring and coil magnet; it also warns of residual-magnetism torque ripple and treats slip power as a thermal limit. These support the mechanism, not a printable 5-mm implementation.
+
+At least two rotating assemblies, a specialty hysteresis ring, rotating shaped poles, excitation coil, stationary magnetic circuit, independent supports and retention must be counted. No credible purchasable miniature standard washer/ring combination was found that eliminates those manufacturing requirements. **ON/OFF torque and a compliant per-pin price remain unknown.** Continuous slip still generates `T Δω` heat. Stop here unless a standard, inexpensive rotor/pole set with measured torque becomes available.
+
+## F — Electropermanent / AlNiCo actuation: real miniature evidence, defer here
+
+An electropermanent magnet switches the magnetization of low-coercivity AlNiCo while a harder NdFeB magnet remains unchanged. Their flux either adds externally or closes internally. The magnetic state can persist without coil holding power, but producing friction-clutch torque still requires a friction pair, supports and a release function. EPM removes steady coil consumption; it does not remove those parts or residual OFF attraction.
+
+[Knaian's original MIT thesis](https://cba.mit.edu/docs/theses/10.06.knaian.pdf), Figure 1-1 and §§3.4.1/4.2.1 (printed pp. 21, 94–95, 110), demonstrates a miniature assembly: two 1.6 × 3.2-mm magnet rods, two iron poles and 80 turns of 40-AWG wire; the reported switching pulse is 20 V, 100 µs, approximately 5-A peak and 5 mJ. The reported 4.4-N holding result is a contact-adhesion experiment, **not rotary clutch torque**. Its fabrication used waterjet-cut relay-steel poles, later wire-EDM magnetic-iron poles, shortened/ground magnets and later custom-length magnets, microscope assembly, epoxy and face honing. This evidence directly conflicts with a claim that the published miniature device uses only unmodified standard metal pieces.
+
+There is a cheaper catalogue AlNiCo example than an assumption of several euros each: MagnetShop [RR8-625](https://www.magnetshop.com/cast-alnico-5-rod-magnets-p-2121.html), nominal 0.125 × 0.625 in (**3.175 × 15.875 mm**), was indexed at US$0.26 each at 500+. The supplier's rounded “3 mm” text must not replace its inch dimensions. The live page returned a bot check, so this is an **indexed supplier price, not a confirmed current quotation**. Even that price represents US$1,664 for 6,400 AlNiCo rods alone, before NdFeB, copper, poles, drivers and assembly. Its size is not the thesis geometry or a pitch-compatible two-magnet assembly. The [EU/UK AlNiCo catalogue](https://www.first4magnets.com/alnico-magnets) starts its displayed rod family at Ø6 × 20 mm, already too wide for adjacent 5.08-mm cells; a displayed pack price is not a verified individual-magnet quote.
+
+A representative switch of all 6,400 devices at the thesis's **5-mJ reference**, if transferable, is 32 J; one such transition per second averages 32 W of switching energy, while an unchanged magnetic state needs no holding current. Neither pulse magnitude nor energy is transferable without magnetic-circuit verification. A bipolar pulse driver, local energy storage and peak-current distribution must be included. The active magnetic subassembly alone contains two magnets, two poles and a coil, plus adhesive; add friction input/output, armature compliance/return and load supports. **Defer, with no EPM CAD:** the credible miniature demonstration relies on prohibited fabrication, and the cheaper stock magnet does not resolve geometry or total cost.
+
+## G — Magnetorheological fluid: reject for repeated containment complexity
+
+In an MR clutch the field raises the shear yield stress of particle-loaded liquid between independently supported rotors. It can transmit controllable torque with no translating selector, but needs a magnetic circuit, narrow fluid gap, sealed chamber, fill provision and shaft sealing. These functions do not become printable simply because the shell is PLA.
+
+Parker's [MRF-132DG manufacturer datasheet](https://www.parker.com/content/dam/Parker-com/Literature/Assembly---Protection-Solutions-Division/Technical-Datasheets-%28TDS%29/Datasheet---MRF-132DG_MRFluid_DS7015.pdf) gives a hydrocarbon carrier, typical viscosity 0.102 Pa·s at 40°C and 80.98% solids by mass. It notes possible separation during static storage and remixing when needed. These are bulk-fluid values, not miniature-clutch ratings.
+
+The simple one-disc estimate is `T_on ≈ (2π/3)τ_y(ro³−ri³) + T_viscous`; `T_viscous = π η Δω(ro⁴−ri⁴)/(2h)`. For `ro=2.35 mm`, `ri=0`, `h=0.1 mm`, 60-rpm slip and the stated viscosity, fluid-only viscous drag is approximately **0.000307 Nmm**. An **assumed**, not verified, 10-kPa yield stress gives approximately **0.272 Nmm**. Thus the fluid's mathematical shear capacity is not the reason for rejection. Real OFF drag adds seals, bearings, particle effects and remanence; the datasheet's viscosity is measured at much higher shear rates than this example and cannot qualify its low-speed drag. Material compatibility, settling, leakage and how to fill/repair 6,400 cells are more decisive.
+
+Count input and output rotors, coil, magnetic return, chamber/cap, liquid charge, independent supports and normally two shaft-sealing interfaces, plus retention/fill closure. No defensible assembled 5-mm cost was found; leave it **unknown**, not an assumed low fluid-volume price. No prototype is justified under the minimum-parts priority.
+
+## H — Magnetic powder: reject for drag, containment and service burden
+
+Dry magnetic particles bridge an excited annular gap and transfer shear torque. Input/output can slip without a sliding engagement armature. Repeated components still include two rotors, field coil, magnetic housing, metered powder charge, independent supports, shaft powder barriers and closure/retention. Powder migration or contamination is a failure mode, not merely an assembly inconvenience.
+
+Mitsubishi's [Tension Control Complete Guide, Q19, printed p. 124](https://dl.mitsubishielectric.co.jp/dl/fa/document/catalog/clutch/sh-170011eng/sh170011-b.pdf) specifies commercial powder-clutch/brake idling torque of **1–10% of rated torque**, dependent on model, due to powder and bearings. Its [manufacturer FAQ 17354](https://fa-faq.mitsubishielectric.co.jp/faq/show/17354?site_domain=default) independently makes the same point. This is manufacturer evidence for its products, not a guaranteed ratio for a homemade 5-mm device. The guide also warns that powder distribution depends on which side is driven. A particular tiny cartridge's ON torque, OFF torque, life and price remain unknown.
+
+Controllable slip is useful, but `P_slip=T Δω` remains heat; absence of a selector does not eliminate loss or wear. No standard, cheap sealed 5-mm powder cartridge was found. A powder volume cost would hide the expensive functions. **Reject for this task**; no CAD or purchased powder is warranted.
+
+## Finite outcome
+
+E and F have credible physical principles and published/commercial implementations; neither currently meets the standard-metal and low repeated-part constraints. G and H are rejected because their containment and service requirements conflict with those priorities even if torque could be adequate. These conclusions preserve the requested focus on A/B and C as fallback; they create no follow-on assignment.

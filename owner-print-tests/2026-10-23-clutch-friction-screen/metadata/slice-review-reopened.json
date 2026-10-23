@@ -1,0 +1,88 @@
+{
+  "scope": "CAD and nominal deposited toolpaths, NOT physical print or torque evidence",
+  "project_sha256": "2b1daa9f11bd0da9b445fe3388cb8ffca60c1ba2a48d637ccf4e3b1785ff78aa",
+  "max_mesh_vertex_error_mm": 1.752212469750186e-05,
+  "support_paths": 0,
+  "zip_crc_valid": true,
+  "official_x1c_start_gcode": true,
+  "nozzle_before_first_layer_C": 210,
+  "bed_wait_C": 55,
+  "parts": [
+    {
+      "name": "base",
+      "layers": 31,
+      "top_z_mm": 5.0,
+      "bed_contact_mm2": 774.8141836867794,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": null,
+      "minimum_cup_wall_band_coverage": null
+    },
+    {
+      "name": "input-47",
+      "layers": 25,
+      "top_z_mm": 4.04,
+      "bed_contact_mm2": 368.3904745403578,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": 1.0,
+      "minimum_cup_wall_band_coverage": null
+    },
+    {
+      "name": "input-100",
+      "layers": 25,
+      "top_z_mm": 4.04,
+      "bed_contact_mm2": 368.39104365292695,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": 0.9985726866864679,
+      "minimum_cup_wall_band_coverage": null
+    },
+    {
+      "name": "follower-tight",
+      "layers": 28,
+      "top_z_mm": 4.52,
+      "bed_contact_mm2": 481.237232616925,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": null,
+      "minimum_cup_wall_band_coverage": 0.9999999999999992
+    },
+    {
+      "name": "follower-nominal-1",
+      "layers": 28,
+      "top_z_mm": 4.52,
+      "bed_contact_mm2": 480.87110475578623,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": null,
+      "minimum_cup_wall_band_coverage": 0.9999999999999992
+    },
+    {
+      "name": "follower-nominal-2",
+      "layers": 28,
+      "top_z_mm": 4.52,
+      "bed_contact_mm2": 480.91011359395884,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": null,
+      "minimum_cup_wall_band_coverage": 0.9999999999999992
+    },
+    {
+      "name": "follower-loose",
+      "layers": 28,
+      "top_z_mm": 4.52,
+      "bed_contact_mm2": 480.5627565624265,
+      "unsupported_islands": [],
+      "central_r1mm_open_all_layers": true,
+      "minimum_ring_inner_band_coverage": null,
+      "minimum_cup_wall_band_coverage": 0.9999999999999992
+    }
+  ],
+  "gcode_estimates": [
+    "; model printing time: 1h 6m 45s; total estimated time: 1h 19m 5s",
+    "; total filament length [mm] : 2856.59",
+    "; total filament volume [cm^3] : 6870.91",
+    "; total filament weight [g] : 8.52"
+  ]
+}

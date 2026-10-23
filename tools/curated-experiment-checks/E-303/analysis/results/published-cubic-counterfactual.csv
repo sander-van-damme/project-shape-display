@@ -1,0 +1,8 @@
+diameter_mm,cubic_factor,counterfactual_on_Nmm,counterfactual_off_Nmm,status
+4,0.008000000000000002,0.6672000000000002,0.008800000000000002,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+4.7,0.012977875000000002,1.0823547750000002,0.014275662500000003,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+5,0.015625,1.303125,0.0171875,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+6,0.026999999999999996,2.2518,0.029699999999999997,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+7,0.04287499999999999,3.5757749999999993,0.04716249999999999,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+10,0.125,10.425,0.1375,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
+20,1.0,83.4,1.1,"NOT a PET forecast; assumes same pressure, friction and scaled radial geometry"
