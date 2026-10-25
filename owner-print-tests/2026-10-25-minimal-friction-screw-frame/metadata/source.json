@@ -1,0 +1,15 @@
+{
+  "baseline_commit": "1071f695b93951246a2865038e7fb9de9bdf2a05",
+  "sources": {
+    "owner-print-tests/2026-10-18-microstepper-frame-v2/components/screw-long.stl": "47790580f630b299b3587efd5184f239f7e5ae0e6c13254d5971c063b353a57a",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/components/pin.stl": "129106dbd19ad30b8fb9dfcf97d25d7988957d2156d19ec2b71819678220c54d",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/components/pin-50.stl": "024b59209d3c607abacd239ba8cf5bd7aae2e42a5deac4e8900747ddd3767b19",
+    "owner-print-tests/2026-10-19-microstepper-frame-v3/cad/rig.scad": "20d6a0072863d765d7e6d556a0ff788ad2c40df670ce4a9e298ca87c65aa191c"
+  },
+  "thread_length_mm": 27.0,
+  "body_length_mm": 3.6,
+  "travel_mm": [
+    0,
+    15
+  ]
+}

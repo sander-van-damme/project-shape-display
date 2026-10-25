@@ -1,0 +1,69 @@
+{
+  "selected_roll_degrees": 90,
+  "reason": "No unanchored deposited islands in the trial; final two duplicates still require separate saved-project review.",
+  "trials": [
+    {
+      "roll_degrees": 0,
+      "orphans": [
+        {
+          "z_mm": 3.72,
+          "area_mm2": 0.20241737986186809,
+          "bounds_mm": [
+            -0.1426182514476011,
+            17.77738024855239,
+            0.5524028575836724,
+            18.129401357583674
+          ]
+        }
+      ],
+      "source_project_sha256": "0c64acf9e1a03a47509368406369f91ff182c18a4e8498f6b05ab5d61c196cea"
+    },
+    {
+      "roll_degrees": 90,
+      "orphans": []
+    },
+    {
+      "roll_degrees": 180,
+      "orphans": [
+        [
+          3.72,
+          0.21944043338120728,
+          [
+            -0.9626213991313222,
+            9.870237883847537,
+            -0.21424103153124463,
+            10.21078558866914
+          ]
+        ]
+      ]
+    },
+    {
+      "roll_degrees": 270,
+      "orphans": [
+        [
+          3.12,
+          0.14557798085240473,
+          [
+            -0.614879147683709,
+            9.919123999999996,
+            -0.09293547029105298,
+            10.25906767739265
+          ]
+        ],
+        [
+          3.12,
+          0.14527871430905395,
+          [
+            0.09292917492362562,
+            15.74093232260735,
+            0.6130645297089359,
+            16.081067677392653
+          ]
+        ]
+      ]
+    }
+  ],
+  "final_bridge_direction_degrees": 180,
+  "selected_roll_automatic_bridge_max_individual_free_segment_mm": 5.3495869934042775,
+  "final_bridge_max_individual_free_segment_mm": 2.571
+}
