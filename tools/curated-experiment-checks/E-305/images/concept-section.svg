@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#34495e"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><style>text{font-family:Arial,sans-serif;fill:#1c2c3c}.title{font-size:24px;font-weight:bold}.sub{font-size:15px}.label{font-size:16px}.small{font-size:13px}</style>
+<text x="28" y="35" class="title">E-305 · selected clutch principle / axial section</text>
+<text x="28" y="62" class="sub">Dimensioned concept, mm · not a fabrication release · terrain support independent of actuator</text>
+<rect x="186" y="597.6" width="22.199999999999996" height="20.4" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="331.8" y="597.6" width="22.199999999999996" height="20.4" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="546.0" width="22.199999999999996" height="20.4" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="331.8" y="546.0" width="22.199999999999996" height="20.4" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="468.0" width="63.599999999999994" height="18.0" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="290.4" y="468.0" width="63.599999999999994" height="18.0" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="424.79999999999995" width="63.599999999999994" height="18.0" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="290.4" y="424.79999999999995" width="63.599999999999994" height="18.0" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="656.4" width="61.199999999999996" height="3.5999999999999996" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="292.8" y="656.4" width="61.199999999999996" height="3.5999999999999996" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="282" width="55.199999999999996" height="24" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="298.8" y="282" width="55.199999999999996" height="24" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="186" y="162" width="55.199999999999996" height="24" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="298.8" y="162" width="55.199999999999996" height="24" fill="#e0e5e9" stroke="#34495e"/>
+<rect x="192.0" y="594.0" width="16.800000000000004" height="3.5999999999999996" fill="#8294a3" stroke="#34495e"/>
+<rect x="331.2" y="594.0" width="16.800000000000004" height="3.5999999999999996" fill="#8294a3" stroke="#34495e"/>
+<rect x="192.0" y="566.4" width="16.800000000000004" height="3.5999999999999996" fill="#8294a3" stroke="#34495e"/>
+<rect x="331.2" y="566.4" width="16.800000000000004" height="3.5999999999999996" fill="#8294a3" stroke="#34495e"/>
+<rect x="231.0" y="462.0" width="18.6" height="6.0" fill="#8294a3" stroke="#34495e"/>
+<rect x="290.4" y="462.0" width="18.6" height="6.0" fill="#8294a3" stroke="#34495e"/>
+<rect x="231.0" y="442.79999999999995" width="18.6" height="6.0" fill="#8294a3" stroke="#34495e"/>
+<rect x="290.4" y="442.79999999999995" width="18.6" height="6.0" fill="#8294a3" stroke="#34495e"/>
+<rect x="250.8" y="234" width="38.400000000000006" height="417.59999999999997" fill="#7fb3d5" stroke="#34495e"/>
+<rect x="234" y="450" width="72" height="12" fill="#7fb3d5" stroke="#34495e"/>
+<rect x="243.6" y="138" width="5.04" height="216" fill="#c6d9ee" stroke="#34495e"/>
+<rect x="291.36" y="138" width="5.04" height="216" fill="#c6d9ee" stroke="#34495e"/>
+<polygon points="205.2,644.4 205.2,618 210,618 210,594 192.0,594 192.0,570 210,570 210,546 234,546 234,624.84 222,624.84 208.236,644.4" fill="#90cfb2" stroke="#34495e"/>
+<polygon points="334.8,644.4 334.8,618 330,618 330,594 348.0,594 348.0,570 330,570 330,546 306,546 306,624.84 318,624.84 331.764,644.4" fill="#90cfb2" stroke="#34495e"/>
+<polygon points="248.4,670.8 248.4,649.2 210,649.2 210,642 222,624.864 247.2,624.864 247.2,582 249.6,582 249.6,661.2 270,661.2 270,670.8" fill="#f5d37b" stroke="#34495e"/>
+<polygon points="291.6,670.8 291.6,649.2 330,649.2 330,642 318,624.864 292.8,624.864 292.8,582 290.4,582 290.4,661.2 270,661.2 270,670.8" fill="#f5d37b" stroke="#34495e"/>
+<rect x="252" y="670.8" width="36" height="12" fill="#e88484" stroke="#34495e"/>
+<rect x="252" y="682.8" width="36" height="12" fill="#6d9dd6" stroke="#34495e"/>
+<text x="265" y="678.0" class="small">N</text>
+<text x="265" y="690" class="small">S</text>
+<rect x="226.07999999999998" y="690" width="15.120000000000001" height="43.2" fill="#d99b52" stroke="#34495e"/>
+<rect x="241.2" y="680.4" width="4.800000000000001" height="52.800000000000004" fill="#b8bec3" stroke="#34495e"/>
+<rect x="219.6" y="733.2" width="26.400000000000002" height="9.600000000000001" fill="#b8bec3" stroke="#34495e"/>
+<rect x="219.6" y="680.4" width="21.0" height="9.600000000000001" fill="#b8bec3" stroke="#34495e"/>
+<rect x="298.8" y="690" width="15.120000000000001" height="43.2" fill="#d99b52" stroke="#34495e"/>
+<rect x="294" y="680.4" width="4.800000000000001" height="52.800000000000004" fill="#b8bec3" stroke="#34495e"/>
+<rect x="294" y="733.2" width="26.400000000000002" height="9.600000000000001" fill="#b8bec3" stroke="#34495e"/>
+<rect x="299.4" y="680.4" width="21.0" height="9.600000000000001" fill="#b8bec3" stroke="#34495e"/>
+<path d="M270 100L270 760" fill="none" stroke="#34495e" stroke-width="1.4" stroke-dasharray="5 4"/>
+<path d="M355 186L440 186" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="191" class="small">4.4-mm pin / square guides react torque and lateral load</text>
+<path d="M355 282L440 282" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="287" class="small">Ø3.2 screw / 3-mm lead (thread envelope only)</text>
+<path d="M355 450L440 450" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="455" class="small">Resident screw collar + 2 thrust washers → fixed frame</text>
+<path d="M355 486L440 486" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="491" class="small">Separate screw journal lands; no magnetic terrain support</text>
+<path d="M355 546L440 546" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="551" class="small">Input journal lands + 2 independent thrust washers</text>
+<path d="M355 582L440 582" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="587" class="small">Shared spur input: 24T, module 0.5, PD12 / OD13 envelope</text>
+<path d="M355 624.84L440 624.84" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="629.84" class="small">Continuous cone: radii 4–5, α35°, height 1.428</text>
+<path d="M355 651.6L440 651.6" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="656.6" class="small">One sliding double-D carrier; output AF2.7 / nominal Ø3.2</text>
+<path d="M355 678L440 678" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="683" class="small">Ø3 ×2 N48 magnet, N up; adhesive + retaining film</text>
+<path d="M355 714L440 714" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<text x="455" y="719" class="small">140-turn stationary air coil / OD7.32, ID4.8, length3.6</text>
+<text x="30" y="110" class="small">Terrain load → frame</text>
+<text x="28" y="470" class="small">Corner frame webs</text>
+<text x="28" y="488" class="small">out of section plane</text>
+<path d="M180 150L180 400" fill="none" stroke="#34495e" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M128 654L128 630" fill="none" stroke="#34495e" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="30" y="635" class="small">Fmag ↑ ON</text>
+<text x="28" y="770" class="sub">Housing 14 ×14 envelope · carrier stroke 0.60 · g OFF −1.0 / ON −0.4 relative to winding top</text>
+<text x="28" y="796" class="sub">OFF gravity return is conditional on unloaded free sliding; cut shared drive on loss of selector power.</text>
+</svg>

@@ -1,0 +1,27 @@
+{
+  "parts": 6,
+  "bounds_mm": [
+    [
+      -12.0,
+      -6.0,
+      0.0
+    ],
+    [
+      56.0,
+      47.89909863471985,
+      11.0
+    ]
+  ],
+  "volume_mm3": 2736.6701268494066,
+  "solid_PLA_mass_g": 3.3934709572932644,
+  "all_watertight": true,
+  "assembly": "Scale arm is inverted after printing. No force results.",
+  "bobbin": {
+    "bore": 4,
+    "barrel_od": 4.8,
+    "winding_length": 3.6,
+    "flange_od": 8.4,
+    "barrel_height": 5.2
+  },
+  "purchased_supports": "\u00d86 mm wooden dowel, nominal 80 mm; independent bench stand/wood arm"
+}

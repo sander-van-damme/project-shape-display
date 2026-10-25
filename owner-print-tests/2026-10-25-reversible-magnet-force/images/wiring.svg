@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="690" viewBox="0 0 1080 690"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#34495e"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><style>text{font-family:Arial,sans-serif;fill:#1c2c3c}.title{font-size:24px;font-weight:bold}.sub{font-size:15px}.label{font-size:16px}.small{font-size:13px}</style>
+<text x="28" y="35" class="title">E-305 · low-voltage bipolar bench wiring</text>
+<text x="28" y="65" class="sub">Use identified Pololu 2130 carrier / one bridge. Verify measured current before mounting magnet.</text>
+<rect x="35" y="120" width="180" height="100" fill="#dbeaf5" stroke="#34495e"/>
+<text x="48" y="150" class="label">Bench 3–5 V DC</text>
+<text x="48" y="178" class="label">Current limit 0.50 A</text>
+<text x="48" y="204" class="label">Output switch + fuse</text>
+<rect x="400" y="130" width="220" height="190" fill="#dcefe6" stroke="#34495e"/>
+<text x="420" y="160" class="label">DRV8833 carrier</text>
+<text x="420" y="190" class="label">VIN / GND</text>
+<text x="420" y="230" class="label">AIN1    AIN2</text>
+<text x="420" y="260" class="label">AOUT1  AOUT2</text>
+<text x="420" y="294" class="label">nSLEEP / AISEN</text>
+<path d="M215 140L400 140" fill="none" stroke="#34495e" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="240" y="126" class="small">0.75-A fuse</text>
+<path d="M215 205L400 205" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<rect x="250" y="260" width="120" height="60" fill="#f1e4cb" stroke="#34495e"/>
+<text x="260" y="282" class="small">100 µF /10 V</text>
+<text x="260" y="303" class="small">+100 nF</text>
+<path d="M300 260L300 140" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M330 260L330 205" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<rect x="790" y="130" width="210" height="80" fill="#f1e4cb" stroke="#34495e"/>
+<text x="808" y="157" class="label">10 Ω /5 W series</text>
+<text x="808" y="184" class="label">Initial current limiting</text>
+<path d="M620 245L740 245" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M740 245L740 170" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M740 170L790 170" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<rect x="790" y="285" width="210" height="75" fill="#e9c69c" stroke="#34495e"/>
+<text x="810" y="315" class="label">140-turn coil</text>
+<text x="810" y="340" class="label">R ≈2.7 Ω (measure)</text>
+<path d="M1000 170L1040 170" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M1040 170L1040 320" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M1040 320L1000 320" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M790 320L680 320" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M680 320L680 270" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<path d="M680 270L620 270" fill="none" stroke="#34495e" stroke-width="1.4"/>
+<rect x="35" y="380" width="380" height="100" fill="#dbeaf5" stroke="#34495e"/>
+<text x="50" y="409" class="label">Pico: GP2 → AIN1; GP3 → AIN2</text>
+<text x="50" y="436" class="label">GP4 → nSLEEP; common GND</text>
+<text x="50" y="462" class="small">10-kΩ input pulldowns; no GPIO coil power</text>
+<path d="M415 395L470 320" fill="none" stroke="#34495e" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="470" y="400" class="label">IN1 IN2       State</text>
+<text x="470" y="426" class="label"> 0     0          OFF / coast</text>
+<text x="470" y="452" class="label"> 1     0          +I</text>
+<text x="470" y="478" class="label"> 0     1          −I</text>
+<text x="28" y="535" class="label">Bridge paths handle inductive recirculation. No single flyback diode across a reversible coil.</text>
+<text x="28" y="565" class="small">Higher-current stage: documented carrier sense-trace modification +0.43 Ω /1% /1206 AISEN resistor.</text>
+<text x="28" y="590" class="small">Nominal trip ≈0.465 A, verify on load before removing10 Ω. Keep bench limit0.50 A; no default current limit.</text>
+<text x="28" y="620" class="small">Start ≤0.2-s pulses, ≥4.8-s cooling; stop at45°C or+10°C. Turn power off before changing core/wiring.</text>
+<text x="28" y="651" class="small">Unused B inputs low. Supply/interlock must also stop shared rotary drive in any later clutch test.</text>
+</svg>

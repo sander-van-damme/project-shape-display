@@ -1,0 +1,22 @@
+{
+  "baseline": "1071f695b93951246a2865038e7fb9de9bdf2a05",
+  "new_experiment": "E-305",
+  "local_markdown_files_checked": 8,
+  "local_link_failures": [],
+  "repo_check_exit": 1,
+  "repo_check_preexisting_findings": [
+    "Oversized atomic object: E-266",
+    "Oversized atomic object: E-283",
+    "Oversized atomic object: E-286",
+    "Oversized atomic object: E-288",
+    "Oversized atomic object: E-293",
+    "Oversized instructions: owner-print-tests/AGENTS.md"
+  ],
+  "physical_measurements": "NONE",
+  "existing_tracked_file_changes": [],
+  "integrated_remote_main": "75bd60c5f9f7642a687b8da3508ef6c5ddb16daa",
+  "numbering_correction": "E-305; existing E-304 preserved",
+  "all_integrated_main_files_unchanged": true,
+  "unchanged_stl_files": 7,
+  "embedded_bambu_profile": "E-305 reversible magnet force X1C PLA"
+}

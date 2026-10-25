@@ -1,0 +1,15 @@
+{
+  "turns": 140,
+  "wire_length_m": 2.765327207305581,
+  "resistance_20C_ohm": 2.697810176672153,
+  "copper_mass_g": 0.4220179676437642,
+  "heat_capacity_J_K": 0.16247691754284924,
+  "inductance_H_estimate": 8.970527402023461e-05,
+  "source": "CALCULATION, no physical measurements",
+  "current_max_test_A": 0.5,
+  "power_03A_W": 0.24280291590049374,
+  "power_05A_W": 0.6744525441680382,
+  "stroke_mm": 0.6,
+  "off_lower_face_mm": -1.0,
+  "on_lower_face_mm": -0.4
+}
