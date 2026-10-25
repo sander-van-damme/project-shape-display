@@ -7,7 +7,7 @@ builds-on: [E-295, E-296, E-297, E-298, E-299, E-300, E-302, E-303]
 
 **Owner-commissioned investigation,25 October 2026.** Baseline1071f695b93951246a2865038e7fb9de9bdf2a05. DES-009 remains active and unchanged. Research, finite-geometry calculations, dimensioned concept CAD and one verified printable force fixture;**no new physical measurements**.
 
-Numbering corrected to **E-305** after pulling `main` at `e130fcc02d31135fbf9022f84266a1d25e6fd000`. The existing [E-304 guided row/column study](E-304-guided-full-length-row-column-clutch.md) and its assets are preserved. This correction updates identifiers and the saved print profile; it adds no engineering result.
+Numbering corrected to **E-305** after pulling `main` at `75bd60c5f9f7642a687b8da3508ef6c5ddb16daa`. The existing [E-304 guided row/column study](E-304-guided-full-length-row-column-clutch.md) and its assets are preserved. This correction updates identifiers and the saved print profile; it adds no engineering result.
 
 **Decision:** test one stationary140-turn air-core winding with a purchased axialØ3×2-mm N48 magnet. A single sliding conical carrier is the clearest static all-angle clutch concept. A straight-dog carrier remains a credible lower-holding-power alternative with conditional dynamic seating. Neither warrants adopting6,400 clutches.
 

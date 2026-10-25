@@ -2,7 +2,7 @@
 
 **Digital checks passed. Physical fit, winding and forces remain unknown.** This is a force-fixture release, not a released clutch.
 
-The investigation identifier and embedded print-profile name were corrected to **E-305** after integrating `main` at `e130fcc02d31135fbf9022f84266a1d25e6fd000`. All component STL files are unchanged. The project was rebuilt and the saved-project reopening and toolpath checks below were repeated for the corrected archive.
+The investigation identifier and embedded print-profile name were corrected to **E-305** after integrating `main` at `75bd60c5f9f7642a687b8da3508ef6c5ddb16daa`. All component STL files are unchanged. The project was rebuilt and the saved-project reopening and toolpath checks below were repeated for the corrected archive.
 
 Bambu Studio 02.08.02.61, official Ubuntu22.04 AppImage from the [vendor release](https://github.com/bambulab/BambuStudio/releases/tag/v02.08.02.61), executed with locally extracted Linux dependencies. No printer was connected. The project was generated with real machine/filament/process presets, sliced and exported by Bambu Studio, then reopened in a fresh data directory **without external presets** and resliced/exported. This was CLI project reopening in the actual Bambu engine, not a claim of manually clicking through the GUI.
 

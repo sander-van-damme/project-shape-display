@@ -1,0 +1,4903 @@
+{
+  "project_sha256": "204d992d144bdaf277cb103496cb6f613ffc7de05c814c8309b9f4f092d48c65",
+  "scope": "Nominal extruded bead geometry; no physical friction/strength/adhesion claim",
+  "mesh_vertex_error_mm": 8.58250522969422e-06,
+  "support_paths": 0,
+  "parts": [
+    {
+      "name": "A front",
+      "source": "A-front",
+      "layers": 78,
+      "bed_contact_footprint_mm2": 470.8100321305361,
+      "orphan_components": [],
+      "bridges": [
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1690039999999922,
+          "endpoint_distances_mm": [
+            0.010559000000005979,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.0,
+            0.1866082570432682
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4449999999999932,
+          "endpoint_distances_mm": [
+            0.1866082570432682,
+            0.19752873983629285
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.19752873983629285,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.21415910864903295,
+          "endpoint_distances_mm": [
+            0.0,
+            0.20179877131041954
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.1740000000000066,
+          "endpoint_distances_mm": [
+            0.20179877131041954,
+            0.1975287398362928
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.1975287398362928,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.0,
+            0.1866082570432682
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4450000000000074,
+          "endpoint_distances_mm": [
+            0.1866082570432682,
+            0.20155900000000848
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.20155900000000848,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800091500731775,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.04563335586628674,
+          "endpoint_distances_mm": [
+            0.0,
+            0.030327171651066714
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.5649999999999977,
+          "endpoint_distances_mm": [
+            0.030327171651066714,
+            0.5790039999999905
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180009092144435,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.2156293115435243,
+          "endpoint_distances_mm": [
+            0.0,
+            0.2019214733642738
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.23000000000000398,
+          "endpoint_distances_mm": [
+            0.2019214733642738,
+            0.19627717888697574
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.3990000000000009,
+          "endpoint_distances_mm": [
+            0.19627717888697574,
+            0.5790039999999905
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.030847605458898173,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.222825326276183,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.07396299999999734,
+          "endpoint_distances_mm": [
+            0.0,
+            0.07396299999999734
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.13029035195146202,
+          "endpoint_distances_mm": [
+            0.07396299999999734,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.0583109852951624,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.1854166708364127,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.9556492367761901,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.2609435669137899,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.282752079954341,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.5592532117399442,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.5225287183396112,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.9186161584751977,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.5302817316678756,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.5579373481708214,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.183892095393488,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.7972841057253903,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.0663175240539333,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.734430649562474,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.8307538894720357,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.6365162429627748,
+          "endpoint_distances_mm": [
+            0.0,
+            0.10265904003826964
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.1182333534294118,
+          "endpoint_distances_mm": [
+            0.10265904003826964,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.2573469612728054,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.2321561978392253,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0015063917078982042,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.9725857082476435,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.8984161945902056,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.4018614881146455,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.18443427636900628,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.12770579537449442,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.6947989904539176,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.6780960796339093,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.094743262846335,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.5214383753657492,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.621750794332632,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.8582453705280613,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.6120932519525848,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.6542097021746629,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.3442222475895438,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.7695078818160866,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.8840532278324518,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.48082950181844164,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.020190786672489976,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.09734358238462025,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.0540723739841784,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.940527690784234,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.3729213971853669,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.8624112358517295,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.887829243152662,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.6216814878837567,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.3443541658272536,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.8201841872437319,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.1697671958643585,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.011735090760637699,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.02001818126823356,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.15367537406427006,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.3420934272640754,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.8929378977693103,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.7337038506345257,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.7466659105593053,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.1085518196792488,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 2.013061327512446,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.9348189843768693,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 1.0194675709776677,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 6.0,
+          "span_mm": 0.09119870304400225,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "outer_wall_direction": {
+        "path_length_mm": 19117.617834508077,
+        "parallel_percent": 46.58989845335887,
+        "transverse_percent": 47.91104770196446
+      },
+      "guide_side_wall_direction": {
+        "path_length_mm": 109.44000000000074,
+        "parallel_percent": 99.99999999999999,
+        "transverse_percent": 0.0
+      },
+      "guide_floor_direction": {
+        "path_length_mm": 167.0559999999998,
+        "parallel_percent": 0.0,
+        "transverse_percent": 100.0
+      },
+      "guide_floor_roles": {
+        "Inner wall": 8,
+        "Outer wall": 8
+      }
+    },
+    {
+      "name": "A back",
+      "source": "A-back",
+      "layers": 54,
+      "bed_contact_footprint_mm2": 470.73934564227943,
+      "orphan_components": [],
+      "bridges": [
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.0,
+            0.20155900000000848
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4449999999999932,
+          "endpoint_distances_mm": [
+            0.20155900000000848,
+            0.18660825704326814
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.18660825704326814,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.0,
+            0.19752873983629327
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.17399999999997817,
+          "endpoint_distances_mm": [
+            0.19752873983629327,
+            0.20179877131041918
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.21415910864902915,
+          "endpoint_distances_mm": [
+            0.20179877131041918,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.0,
+            0.19752873983629327
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4450000000000216,
+          "endpoint_distances_mm": [
+            0.19752873983629327,
+            0.18660825704326814
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.9780039999999897,
+          "endpoint_distances_mm": [
+            0.18660825704326814,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1690039999999922,
+          "endpoint_distances_mm": [
+            0.0,
+            0.010559000000005979
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4174965144891516,
+          "endpoint_distances_mm": [
+            0.0,
+            0.4173707807255571
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.23762575617975334,
+          "endpoint_distances_mm": [
+            0.4173707807255571,
+            0.5860039999999955
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.2787059382216401,
+          "endpoint_distances_mm": [
+            0.5860039999999955,
+            0.34800399999999604
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.21124866863487052,
+          "endpoint_distances_mm": [
+            0.34800399999999604,
+            0.14300399999998348
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.14300947289879554,
+          "endpoint_distances_mm": [
+            0.14300399999998348,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.4174965144891516,
+          "endpoint_distances_mm": [
+            0.0,
+            0.4173707807255571
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.23762575617975334,
+          "endpoint_distances_mm": [
+            0.4173707807255571,
+            0.5860039999999955
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.2787059382216401,
+          "endpoint_distances_mm": [
+            0.5860039999999955,
+            0.34800399999999604
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.21124866863487052,
+          "endpoint_distances_mm": [
+            0.34800399999999604,
+            0.14300399999998348
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.14300947289879554,
+          "endpoint_distances_mm": [
+            0.14300399999998348,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.1800080000000008,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "span_mm": 1.180007999999983,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.07452905857088996,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.9125882301171463,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.2989294146769597,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.2988633023968459,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.9347568154146556,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.4647663389490575,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.22701461864602,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.2733970202357632,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.4222541326142728,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.9098552322461042,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.1993807463278086,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.4348638804015916,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.099348632426199,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.9316742865835146,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.3024453673393275,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.5608119294207525,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.587925848525504,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.381446439427282,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.3911897862779835,
+          "endpoint_distances_mm": [
+            0.0,
+            0.142349687053076
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.1826578196431075,
+          "endpoint_distances_mm": [
+            0.142349687053076,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.118298339570865,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.0969634823914953,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.7855342725285788,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 3.1532266211100497,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.6014868567542497,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 1.9493559967430139,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "span_mm": 2.162084882533348,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.7113260628600127,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.1872364537755409,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 2.5942205025308698,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 3.056088989284995,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 3.0719821870348585,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.1684798752313856,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.1632107431643564,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.7776480532634886,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.9237950066528023,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.3732419482859761,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.5992948577375641,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.7434638944646969,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 2.6614103182207653,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 2.447489403012958,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 2.0655572191808136,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.3629116620959147,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.1150475578284638,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.16441396243165632,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.301397110549639,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 2.075869617916299,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.7759017883300574,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.6452586102370386,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 1.426349203380194,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.0,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "z_mm": 2.88,
+          "span_mm": 0.9139405528763207,
+          "endpoint_distances_mm": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "outer_wall_direction": {
+        "path_length_mm": 19570.272424697625,
+        "parallel_percent": 46.00503582326951,
+        "transverse_percent": 47.13846878467269
+      },
+      "guide_side_wall_direction": {
+        "path_length_mm": 109.44000000000074,
+        "parallel_percent": 99.99999999999999,
+        "transverse_percent": 0.0
+      },
+      "guide_floor_direction": {
+        "path_length_mm": 165.75199999999984,
+        "parallel_percent": 0.0,
+        "transverse_percent": 99.99999999999999
+      },
+      "guide_floor_roles": {
+        "Inner wall": 8,
+        "Outer wall": 8
+      }
+    },
+    {
+      "name": "A screw",
+      "source": "A-screw-supported",
+      "layers": 255,
+      "bed_contact_footprint_mm2": 56.10585604047253,
+      "orphan_components": [],
+      "bridges": [
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.6311501144949833,
+          "endpoint_distances_mm": [
+            0.0,
+            0.2436811971684264
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.15305554547287736,
+          "endpoint_distances_mm": [
+            0.2436811971684264,
+            0.22878982555254007
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19332873557750713,
+          "endpoint_distances_mm": [
+            0.22878982555254007,
+            0.24499127513039198
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19285486771145338,
+          "endpoint_distances_mm": [
+            0.24499127513039198,
+            0.24409869740757204
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19314502323384578,
+          "endpoint_distances_mm": [
+            0.24409869740757204,
+            0.233927021477182
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.11405700329220976,
+          "endpoint_distances_mm": [
+            0.233927021477182,
+            0.2433923408816644
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 1.7063191377934137,
+          "endpoint_distances_mm": [
+            0.2433923408816644,
+            0.2331561616722295
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.1678392087683929,
+          "endpoint_distances_mm": [
+            0.2331561616722295,
+            0.22658678481867117
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19308029417834574,
+          "endpoint_distances_mm": [
+            0.22658678481867117,
+            0.2279563090384844
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.14005713120009308,
+          "endpoint_distances_mm": [
+            0.2279563090384844,
+            0.229003067286625
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 1.963367769930019,
+          "endpoint_distances_mm": [
+            0.229003067286625,
+            0.07457697798425532
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.15608010763707783,
+          "endpoint_distances_mm": [
+            0.07457697798425532,
+            0.11114960662246696
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19308029417834574,
+          "endpoint_distances_mm": [
+            0.11114960662246696,
+            0.2075456918589777
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.14946571513226917,
+          "endpoint_distances_mm": [
+            0.2075456918589777,
+            0.22382486309134134
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 1.7233159895968138,
+          "endpoint_distances_mm": [
+            0.22382486309134134,
+            0.24859825742969713
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.13377593206551314,
+          "endpoint_distances_mm": [
+            0.24859825742969713,
+            0.22993944779880493
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19314502323384578,
+          "endpoint_distances_mm": [
+            0.22993944779880493,
+            0.13837615243166487
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.19285486771145338,
+          "endpoint_distances_mm": [
+            0.13837615243166487,
+            0.07808583793948277
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.27727603574776083,
+          "endpoint_distances_mm": [
+            0.07808583793948277,
+            0.17186605913153433
+          ]
+        },
+        {
+          "z_mm": 2.52,
+          "span_mm": 0.9501705110136982,
+          "endpoint_distances_mm": [
+            0.17186605913153433,
+            0.04551272353396598
+          ]
+        }
+      ],
+      "outer_wall_direction": {
+        "path_length_mm": 5064.747028563622,
+        "parallel_percent": 37.24168258357118,
+        "transverse_percent": 32.323895339557616
+      },
+      "C_lobe_layers": [
+        {
+          "z_mm": 0.36,
+          "open_core": true,
+          "contrast_mm": 0.16465451322809854,
+          "tip_radii_mm": [
+            1.0549226533478602,
+            1.0601778434318239,
+            1.063637982536458
+          ]
+        },
+        {
+          "z_mm": 0.48,
+          "open_core": true,
+          "contrast_mm": 0.1553766429129606,
+          "tip_radii_mm": [
+            1.071703824132806,
+            1.0721577776450186,
+            1.0722596310343928
+          ]
+        },
+        {
+          "z_mm": 0.6,
+          "open_core": true,
+          "contrast_mm": 0.15547849630233657,
+          "tip_radii_mm": [
+            1.061250411732923,
+            1.0721577776450186,
+            1.0720424358836687
+          ]
+        },
+        {
+          "z_mm": 0.72,
+          "open_core": true,
+          "contrast_mm": 0.15443360577234455,
+          "tip_radii_mm": [
+            1.071703824132806,
+            1.0721577776450186,
+            1.0721714407477705
+          ]
+        },
+        {
+          "z_mm": 0.84,
+          "open_core": true,
+          "contrast_mm": 0.15754012776323156,
+          "tip_radii_mm": [
+            1.0556581995948282,
+            1.0721577776450186,
+            1.0722596310343928
+          ]
+        },
+        {
+          "z_mm": 0.96,
+          "open_core": true,
+          "contrast_mm": 0.1543454154857229,
+          "tip_radii_mm": [
+            1.061374027994527,
+            1.0721577776450186,
+            1.0722596310343928
+          ]
+        },
+        {
+          "z_mm": 1.08,
+          "open_core": true,
+          "contrast_mm": 0.1592959876107083,
+          "tip_radii_mm": [
+            1.0556581995948282,
+            1.0721577776450186,
+            1.0721714407477705
+          ]
+        },
+        {
+          "z_mm": 1.2,
+          "open_core": true,
+          "contrast_mm": 0.15354584738112398,
+          "tip_radii_mm": [
+            1.0556581995948282,
+            1.0762539114164975,
+            1.0758857520531506
+          ]
+        },
+        {
+          "z_mm": 1.32,
+          "open_core": true,
+          "contrast_mm": 0.1475246924925937,
+          "tip_radii_mm": [
+            1.0557568704582627,
+            1.057223656637811,
+            1.0744213793438364
+          ]
+        },
+        {
+          "z_mm": 1.44,
+          "open_core": true,
+          "contrast_mm": 0.1464411736424056,
+          "tip_radii_mm": [
+            1.0755048981940152,
+            1.0622393487651987,
+            1.0684494740514827
+          ]
+        },
+        {
+          "z_mm": 1.56,
+          "open_core": true,
+          "contrast_mm": 0.1474786886673769,
+          "tip_radii_mm": [
+            1.0556994854827375,
+            1.0546179063225836,
+            1.0745024356869919
+          ]
+        },
+        {
+          "z_mm": 1.68,
+          "open_core": true,
+          "contrast_mm": 0.14052059642575832,
+          "tip_radii_mm": [
+            1.0556994854827375,
+            1.0814254754106687,
+            1.0667941408864268
+          ]
+        },
+        {
+          "z_mm": 1.8,
+          "open_core": true,
+          "contrast_mm": 0.13953442322754217,
+          "tip_radii_mm": [
+            1.0556994854827375,
+            1.0813165476527788,
+            1.0637204571640424
+          ]
+        },
+        {
+          "z_mm": 1.92,
+          "open_core": true,
+          "contrast_mm": 0.15513677757704603,
+          "tip_radii_mm": [
+            1.0556994854827375,
+            1.0590720392944042,
+            1.0673941655123882
+          ]
+        },
+        {
+          "z_mm": 2.04,
+          "open_core": true,
+          "contrast_mm": 0.154121283240382,
+          "tip_radii_mm": [
+            1.0556994854827375,
+            1.0587480147806294,
+            1.067032755498841
+          ]
+        },
+        {
+          "z_mm": 2.16,
+          "open_core": true,
+          "contrast_mm": 0.1408338318557283,
+          "tip_radii_mm": [
+            1.0557518957837828,
+            1.0814254754106636,
+            1.0673843455324388
+          ]
+        },
+        {
+          "z_mm": 2.28,
+          "open_core": true,
+          "contrast_mm": 0.1527350884570513,
+          "tip_radii_mm": [
+            1.0717159639599367,
+            1.0576358060892026,
+            1.0668617109687866
+          ]
+        }
+      ],
+      "minimum_lobe_contrast_mm": 0.13953442322754217,
+      "minimum_thread_core_coverage": 0.8283330303766777,
+      "minimum_adjacent_core_overlap_mm2": 0.6248552982667561,
+      "thread_turn_max_radii_mm": [
+        1.5975166829114134,
+        1.5975166829114134,
+        1.597248357670931,
+        1.5981896432511695,
+        1.5981896432511695,
+        1.5981896432511695,
+        1.597248357670931,
+        1.5981896432511695,
+        1.5981896432511695
+      ],
+      "core_coverage_note": "Partial central bead coverage also occurs in v3; connected deposition is checked separately, this is not a strength prediction."
+    }
+  ],
+  "stats": [
+    "; model printing time: 2h 4m 23s; total estimated time: 2h 20m 2s",
+    "; total filament length [mm] : 2359.85",
+    "; total filament volume [cm^3] : 5676.10",
+    "; total filament weight [g] : 7.04"
+  ]
+}

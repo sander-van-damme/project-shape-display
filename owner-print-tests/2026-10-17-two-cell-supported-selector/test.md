@@ -1,7 +1,7 @@
 # Twee pinnen — stevige selectie, ondersteunde schroeven en fasezoeken
 
-**Status:** READY — CAD en opgeslagen X1C-project gecontroleerd; fysieke werking nog onbekend  
-**Prioriteit:** P1 binnen deze eigenaarsopdracht; geen automatische printopdracht  
+**Status:** DEFERRED — 25 oktober 2026: het huidige eigenaarsverzoek geeft voorrang aan het [minimale schroefframe en de buurgeleidingsproef](../2026-10-25-minimal-friction-screw-frame/test.md). Bestaande CAD, slicercontrole en resultaten blijven behouden; dit is geen nieuwe mechanische afkeur.
+**Prioriteit:** geen; het eerdere printaanbod is geparkeerd om binnen maximaal drie READY-printjobs te blijven. Geen vervolgwerk ingepland.
 **Datum:** 17 oktober 2026  
 **Technische bron:** [E-299 ontwerpkeuzes](../../tools/curated-experiment-checks/E-299/design-report.md), voortbouwend op de volledige fysieke E-298-feedback. Bestaande proeven en resultaten zijn ongewijzigd.
 

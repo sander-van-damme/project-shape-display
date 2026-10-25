@@ -1,0 +1,293 @@
+{
+  "bambu_version": "02.08.02.61",
+  "plate_translation_mm": [
+    67.5,
+    75.4000015258789,
+    0.0
+  ],
+  "object_settings": {
+    "B stand inverted": {
+      "name": "B stand inverted",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B boundary inverted": {
+      "name": "B boundary inverted",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B closer play": {
+      "name": "B closer play",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "C upright 1": {
+      "name": "C upright 1",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "C upright 2": {
+      "name": "C upright 2",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "C horizontal 1": {
+      "name": "C horizontal 1",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "2",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%",
+      "bridge_angle": "180"
+    },
+    "C horizontal 2": {
+      "name": "C horizontal 2",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "2",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%",
+      "bridge_angle": "180"
+    },
+    "C guide": {
+      "name": "C guide",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B pin 1": {
+      "name": "B pin 1",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 2": {
+      "name": "B pin 2",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 3": {
+      "name": "B pin 3",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 4": {
+      "name": "B pin 4",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 5": {
+      "name": "B pin 5",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 6": {
+      "name": "B pin 6",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 7": {
+      "name": "B pin 7",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 8": {
+      "name": "B pin 8",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B pin 9": {
+      "name": "B pin 9",
+      "enable_support": "0",
+      "extruder": "1",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "brim_object_gap": "0.12",
+      "sparse_infill_density": "100%"
+    },
+    "B low 1": {
+      "name": "B low 1",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 2": {
+      "name": "B low 2",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 3": {
+      "name": "B low 3",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 4": {
+      "name": "B low 4",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 5": {
+      "name": "B low 5",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 6": {
+      "name": "B low 6",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 7": {
+      "name": "B low 7",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B low 8": {
+      "name": "B low 8",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B raised 1": {
+      "name": "B raised 1",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B raised 2": {
+      "name": "B raised 2",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B raised 3": {
+      "name": "B raised 3",
+      "enable_support": "0",
+      "extruder": "1"
+    },
+    "B raised 4": {
+      "name": "B raised 4",
+      "enable_support": "0",
+      "extruder": "1"
+    }
+  },
+  "project_sha256": "5284d46b75e274375acbbc399f00ef22ee7e9e7f02745f88e2af203f73b40f24",
+  "reopened_project_sha256": "ead1b0b5b8faaba0feaf87fa905d136307a7a2d863f33759adb927890e696901",
+  "reopened_without_external_profiles": true,
+  "settings_differences": {},
+  "gcode_equal_except_timestamp": false,
+  "stats": [
+    "; model printing time: 4h 12m 45s; total estimated time: 4h 28m 25s",
+    "; total filament length [mm] : 3420.93",
+    "; total filament volume [cm^3] : 8228.29",
+    "; total filament weight [g] : 10.20"
+  ],
+  "profile_provenance": {
+    "printer": [
+      {
+        "path": "profiles/BBL/machine/fdm_machine_common.json",
+        "sha256": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c"
+      },
+      {
+        "path": "profiles/BBL/machine/fdm_bbl_3dp_001_common.json",
+        "sha256": "2ca207f457c1f9b3eb25a1801adb2eaa8ddc5620f5a8945abb51a3fcddab5e47"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template machine_start_gcode.json",
+        "sha256": "cc890a986c3f073e4691908d4bd3256222da9afc52fa9520261318bea9757505"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template machine_end_gcode.json",
+        "sha256": "e90eb249dceb719ff8511b59275793a85ab84e1d5b5d4981e1fe6256fb6ffe54"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template time_lapse_gcode.json",
+        "sha256": "bd394064ba847dc7a75ab80c61c6a0824ac3d6876438b7c8bafd5646cf51b5c4"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template change_filament_gcode.json",
+        "sha256": "cdde6fbb5e4f6ec353aeb61e41862dd04743c2bfe21369d31145170aa932d4ae"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle template layer_change_gcode.json",
+        "sha256": "595fa7ed12c23068b658ca4b006d4970bfd217a1503bed36b602cba93b2dc81a"
+      },
+      {
+        "path": "profiles/BBL/machine/Bambu Lab X1 Carbon 0.4 nozzle.json",
+        "sha256": "e2b26b1e94216c8c1d823b9a327bf746c0aeeb1fa0e61489846cfc15b96b3b53"
+      }
+    ],
+    "filament": [
+      {
+        "path": "profiles/BBL/filament/fdm_filament_common.json",
+        "sha256": "8c7105b7d59a28f600c43a946f067b8b4d707b9711c0bf6b88e9166e48878548"
+      },
+      {
+        "path": "profiles/BBL/filament/fdm_filament_pla.json",
+        "sha256": "670d21ea6bdf1cd4b0a2bfddc743612ffd896cd6e5dbe767c25d2c4165c49a30"
+      },
+      {
+        "path": "profiles/BBL/filament/Generic PLA @base.json",
+        "sha256": "530b745e2062c4c577d7acce3601ac7586fc65de394726252354bec0ade3e4c5"
+      },
+      {
+        "path": "profiles/BBL/filament/Generic PLA.json",
+        "sha256": "d8acf4b90c1a31d89386c6553f7b01c327250d03c0735cfbfd55e65b00ab75aa"
+      }
+    ],
+    "process": [
+      {
+        "path": "profiles/BBL/process/fdm_process_common.json",
+        "sha256": "d7981c4b92854f251b8697e1bb621c63fe393f263fb8024ab63c401525d543d7"
+      },
+      {
+        "path": "profiles/BBL/process/fdm_process_single_common.json",
+        "sha256": "05b38ac1318e465e817978b36da51754f928da0172738a20bb3a8d4a69eb4769"
+      },
+      {
+        "path": "profiles/BBL/process/fdm_process_single_0.12.json",
+        "sha256": "67919aeb84d6b5c72f2682f89998abc7b4a3202d9b004fb94c10044ae18bd8e2"
+      },
+      {
+        "path": "profiles/BBL/process/0.12mm Fine @BBL X1C.json",
+        "sha256": "49657783bb2e790167c21788e613a49c59a080f5ce3a7094a50273712ee91899"
+      }
+    ]
+  },
+  "physical_test": "NOT PERFORMED"
+}

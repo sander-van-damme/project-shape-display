@@ -2,7 +2,7 @@
 
 Repository baseline **1071f695b93951246a2865038e7fb9de9bdf2a05**, read25 October 2026. DES-009 remains the primary architecture and its files are unchanged.
 
-**Numbering correction:** pulled `main` at `e130fcc02d31135fbf9022f84266a1d25e6fd000` and assigned this investigation **E-305**. The existing E-304 guided full-length selector study and all files from that main revision are preserved byte-for-byte. Updated local links, diagram labels, reproduction paths and embedded Bambu process name. STL geometry is unchanged. The renamed print project was rebuilt, reopened without external presets and resliced; both archives were checked again. The earlier baseline above remains the provenance of the original research.
+**Numbering correction:** pulled `main` at `75bd60c5f9f7642a687b8da3508ef6c5ddb16daa` and assigned this investigation **E-305**. The existing E-304 guided full-length selector study and all files from that main revision are preserved byte-for-byte. Updated local links, diagram labels, reproduction paths and embedded Bambu process name. STL geometry is unchanged. The renamed print project was rebuilt, reopened without external presets and resliced; both archives were checked again. The earlier baseline above remains the provenance of the original research.
 
 ## Evidence trail read
 

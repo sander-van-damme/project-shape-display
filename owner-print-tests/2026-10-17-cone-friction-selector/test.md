@@ -1,7 +1,7 @@
 # E-300 — twee pinnen, conische wrijving en een stijvere rij
 
-**Status:** READY — definitieve CAD, opgeslagen X1C-project en heropende slice gecontroleerd; fysieke werking onbekend.  
-**Prioriteit:** P1 binnen deze opdracht; één proef, geen automatische printqueue.  
+**Status:** DEFERRED — 25 oktober 2026: het huidige eigenaarsverzoek geeft voorrang aan het [minimale schroefframe en de buurgeleidingsproef](../2026-10-25-minimal-friction-screw-frame/test.md). Bestaande CAD, slicercontrole en resultaten blijven behouden; dit is geen nieuwe mechanische afkeur.
+**Prioriteit:** geen; het eerdere printaanbod is geparkeerd om binnen maximaal drie READY-printjobs te blijven. Geen vervolgwerk ingepland.
 **Datum:** 17 oktober 2026.  
 **Bron:** [ontwerp en krachtbalans](../../tools/curated-experiment-checks/E-300/design-report.md), voortbouwend op E-299 op `main`. E-299 en bestaande resultaten zijn ongewijzigd.
 
