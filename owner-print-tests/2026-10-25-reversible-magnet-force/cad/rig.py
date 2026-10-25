@@ -1,4 +1,4 @@
-"""E-304 force rig; mm. CadQuery, no downloaded geometry or external CAD.
+"""E-305 force rig; mm. CadQuery, no downloaded geometry or external CAD.
 The scale, two independent wooden supports and wiring are purchased/reused items.
 """
 from pathlib import Path

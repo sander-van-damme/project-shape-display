@@ -1,0 +1,8 @@
+{
+  "area_mm2": 31.528200000000002,
+  "centroid_z_mm": 5.2028300695884955,
+  "I_vertical_mm4": 335.75345496638096,
+  "I_lateral_mm4": 71.93521216499694,
+  "grid_mm": 0.01,
+  "one_beam_FE_vs_closed_form_relative_error": 0.0
+}

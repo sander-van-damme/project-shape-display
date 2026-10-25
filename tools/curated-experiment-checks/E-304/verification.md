@@ -1,40 +1,47 @@
-# Evidence, reproduction and limits
+# E-304 verification and readiness
 
-Repository baseline **1071f695b93951246a2865038e7fb9de9bdf2a05**, read25 October 2026. DES-009 remains the primary architecture and its files are unchanged.
+**Print status: DRAFT. Do not treat the supplied 3MF as a READY print instruction.** The archive is a genuine configured Bambu Studio X1 Carbon project and has been reopened/resliced. The remaining blocker is its critical deposited geometry: the retained pin wall has a maximum nominal midwall discontinuity of **0.207 mm**; layers **12.48, 15.48 mm** still fail the closed-loop screen even after an 0.08-mm geometric buffer. This is a slicer finding, not an observed broken print. A continuous watertight STL does not establish continuous deposited walls.
 
-## Evidence trail read
+The operator has not physically printed or assembled E-304. No failed or successful owner result is invented. The owner's requested DRAFT fallback and [owner-print-tests/AGENTS.md](../../../owner-print-tests/AGENTS.md) apply: successful saving/reopening alone does not establish print readiness. Existing READY offers and DES-009 remain unchanged. Stop here for the owner decision; no further design or print campaign is initiated.
 
-- Root[AGENTS.md](../../../AGENTS.md),[mission](../../../01-project-description/shape-display-mission.md),[current priorities](../../../02-design-criteria/current-prototype-priorities.md),[experiment instructions](../../../06-experiments/AGENTS.md),[print instructions](../../../owner-print-tests/AGENTS.md) and template.
-- [DES-009](../../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/DES-009-traveling-motor-bank-screw-pins.md) and[components](../../../08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/components.md): provisional4.4-mm pins,5.08-mm pitch, Ø3.2 screw,3-mm lead, independent resident support; no fabricated motor torque.
-- [E-295](../../../06-experiments/E-295-compact-screw-drive-development.md),[E-296](../../../06-experiments/E-296-compact-matrix-clutch-selection.md),[E-297](../../../06-experiments/E-297-two-half-row-column-clutch-print-tests.md),[E-298](../../../06-experiments/E-298-self-aligning-point-clutch.md),[E-299](../../../06-experiments/E-299-supported-two-cell-selector-retest.md),[E-300](../../../06-experiments/E-300-conical-friction-selector.md): geometry, support, phase plateaus, tolerance/strength and stationary selector friction lessons.
-- [E-302](../../../06-experiments/E-302-improved-microstepper-test-frame.md),[latest physical diagnosis](../../../owner-print-tests/2026-10-23-low-friction-motor-frame/diagnosis.md): actual owner report of rising-position resistance and closure sensitivity. That evidence supersedes older “untested” summaries; the rubbing surface and printed revision are still unknown.
-- [E-303](../../../06-experiments/E-303-selectable-friction-clutch-feasibility.md) and its calculation/addressing/print files:0.059665/0.342944/2.196316-N-mm provisional starting scenarios, ~0.547-W magnetic friction reference and passive matrix limitations. No renewed eight-technology survey.
+## Calculated and geometric evidence
 
-## New evidence classes
+-15 structural section alternatives, 216 torque cases, 54 flexure cases, 1,440 representative tooth phases. The E-303 screw function is called directly with its original light/moderate assumptions.
+- Independent single-member fixed-guided beam limit agrees with the frame-element solver; actual box/web/sleeve area and second moments are sampled at 0.01-mm grid spacing. These are numerical checks, not material measurements.
+- Delivered meshes are watertight. Four supported screws deliberately form four bodies in one named print object. The frame's ten sacrificial rods are explicitly removed from the operating assembly.
+- **32 nominal assembly configurations**:16 row/column masks, six sampled intermediate selector strokes, four common-drive positions in both directions, one blocked follower and one stalled output, plus four rack-end configurations (OFF and selected with compatible independent output phases). No unexpected nominal mesh interference above 0.001 mm³ was found. Matching cone surfaces show 0.004–0.0073 mm³ tessellation overlap at the nominal mathematical contact position; these are explicitly labelled contact, not silently discarded collisions.
+-25 common-rack positions through one complete tooth pitch have no unexpected gear/frame intersections. A deliberately displaced rotor produces a detected interference, checking that the screen can fail. A separate+4.5-mm rack-overtravel case detects approximately0.070 mm³ interference between the shared shuttle crosspiece and hand pinion. The operating window is therefore restricted to−9.5…+2.8 mm, with the phase sweep beginning at−8.5 mm. The bench uses marked manual limits; unlimited knob rotation is not allowed.
+- Actual faceted cone contact is sampled at 72 phases for nine offset/tilt cases (648 cases). Coaxial first contact varies about 0.596–0.597 mm due tessellation, versus 0.600 mm for exact ideal surfaces. At .1/.2/.27-mm imposed radial offset first contact advances to about .425/.252/.131 mm. Deliberately adverse .4-mm/3° and .7-mm/6° cases **interfere while OFF**. See the CSV and the explicit journal-clearance/axial-float corner calculation; these are not tolerance-qualified operating states.
+- The actual thread handedness is retained: pin height changes−3 mm per positive screw revolution. The bench's±1.5-mm travel, phase offsets and both output guide planes are included. No full 80×80 model or full-stroke drive is claimed.
 
-| Class | What this delivery establishes | What it does not |
-|---|---|---|
-| Published/supplier | Material/stock dimensions, prices and published specimen magnetic measurements, linked at claims | Purchased lot verification or measured clutch forces |
-| Analytical/numerical | Finite air-coil force, finite PM neighbor force, electrical/thermal scales, cone force balance, phase envelopes | Calibrated field simulation, nonlinear hysteretic core FEA, physical performance |
-| Parametric CAD | Force fixture manufacturing geometry; dimensioned clutch envelopes and load-path concept | Production gear/screw meshes or fully tolerance-qualified clutch |
-| Actual Bambu output | Configured saved/reopened X1C project, real per-layer paths, bores/support checks, print estimates | Physical adhesion, winding success, force or torque |
-| Physical | Existing owner evidence only; new result form blank | No new built prototype, measured current/temperature/force/torque or cycle test |
+## Actual saved project
 
-Air-coil model assumptions are explicit in[model.py](analysis/model.py) and[generated winding data](analysis/results/winding.json): SI units; uniform axial magnetization;Br1.395 T;0.15-mm copper;0.18-mm insulated-turn pitch;140 turns;nonmagnetic bobbin. The low-carbon core surrogate explicitly has no measured B-H loop and is not treated as a validated force prediction. The neighbor solver is finite surface-charge integration rather than a near-field dipole-only claim. No FEA mesh or physical calibration is claimed.
+Bambu Studio **02.08.02.61**, official X1 Carbon 0.4-mm printer/machine-G-code preset, Generic PLA and process settings inherited from the physically tested E-295 compact-thread project, with the explicitly recorded E-304 process changes. This was an actual Bambu **command-line** save/reopen/reslice, not a claimed manual GUI action. No external printer/process/filament settings were loaded during reopen. Saved settings compare equal. The archive contains 33 named objects and actual G-code; it is not a mesh-only 3MF.
 
-Reproduce calculations:
+Printer: X1 Carbon 0.4 mm; PLA220°C, textured PEI55°C; layers/first layer .12 mm; Arachne, two walls, 100% zig-zag infill, nominal line widths .45 mm, minimum bead 75%, minimum feature 10%. Outer/inner speed 15/20 mm/s, first layer 15, bridge 15; general acceleration 1000, outer/first 500 mm/s². Supports OFF, raft 0, outer brim 2 mm with .12-mm gap, by-layer order. XY/hole/elephant-foot compensation 0. Fan 100% after first layer, auxiliary fan 0, cooling minimum speed 10 mm/s. Bridge direction 90°, seam gap 0%. Full values and source hashes are retained in JSON.
 
-```sh
-python tools/curated-experiment-checks/E-304/analysis/generate.py
-python -m unittest discover -s tools/curated-experiment-checks/E-304/analysis -v
-python tools/curated-experiment-checks/E-304/analysis/drawings.py
-openscad -o work/e304-concept.csg tools/curated-experiment-checks/E-304/cad/concept.scad
-```
+**Original slicer estimate:7 h 34 min 27 s /21.60 g PLA.** Reopened estimate:7 h 34 min 17 s /21.60 g. These are slicer estimates, not physical consumption or time. The combined one-plate test is small in material, but deliberately slow for fine threads, gears and thin flexures.
 
-Ten meaningful numerical checks passed: exact loop-axis field, current reversal/zero, quadrature convergence, independent energy gradient, coil-center equilibrium, finite-neighbor convergence/far-field limit, neighbor symmetry, cone force balance, phase periodicity, and circuit-state constraints. They do not establish material/friction accuracy. The drawings generator makes the section, exploded assembly and test instructions;[flux.svg](images/flux.svg) is a hand-authored qualitative field diagram. There is no image-generation inference of engineering dimensions.
+Archive geometry matches the bed-oriented source plate to a maximum bidirectional vertex error of 0.00002254 mm, with equal facet counts. This is a coordinate fidelity check, not a printer accuracy specification. All 33 objects have deposited paths through their interior height. Source orientations, supports and brims are saved rather than left to automatic placement.
 
-[Print reconstruction and validation](../../../owner-print-tests/2026-10-25-reversible-magnet-force/verification.md) gives the exact commands. All6 parts are watertight, single connected solids. Actual thin-wall, open-bore, layer-connection and saved-setting checks passed for both archives. The optional MicroPython helper is syntax/logic-reviewed, not hardware-tested; external current limiting and manual temperature/scale validation are mandatory to interpret the experiment.
+## Critical toolpath review and remaining blockers
 
-`./repo check` reports the same6 pre-existing size findings as baseline: oversized E-266, E-283, E-286, E-288, E-293 and owner-print-tests/AGENTS.md. None is modified. Local links within this delivery are checked separately. Existing tracked files are preserved; no DES-009 status change, issue, purchase, scheduler or additional task is created.
+The [focused path figure](../../../owner-print-tests/2026-10-25-guided-matrix-clutch/images/critical-toolpaths.svg) and full atlas are drawn from the actual archived G-code. Model-path analysis excludes brim/skirt, so brim is not incorrectly credited as part of a structural wall.
 
-**Stop condition:** this finite research report and one force-test package. A material/geometry blocker has not been concealed as a working clutch: only the force fixture is READY. The full clutch is gated by a real force result and an explicit owner decision.
+- The six follower ligaments print on their flat back. The short lower-neck bridge is about 2.4 mm. Clearance between folded ligaments remains visible; integral compliance is not physically calibrated.
+- The permanent gear has 12 deposited teeth. This establishes representation of the tooth geometry, not tooth strength, backlash or a successful mesh in plastic.
+- Both rod-channel roofs and box roofs have transverse bridge paths after specifying the 90° direction; the upper rod sleeve has a supporting internal web. The 100-mm beam no longer starts a large detached upper-sleeve island.
+- The frame has no fully isolated new deposited components in the screened layers after adding sacrificial supports. Its largest screened remaining free overhang/bridge centreline is about 16.2 mm. This still needs real print evidence; the screen is not a structural guarantee for a thin bridge.
+- Small isolated end beads remain on the row base and cap, approximately 0.15–0.16 mm² each. They are at inactive outer ends, not the two active coupling positions, but they are recorded rather than called a perfect slice. Cleanup and cap retention remain untested.
+- Screw scaffolds appear as connected paths at their selected tab levels; no whole screw/rotor/follower component begins unsupported in the all-layer footprint screen. Actual tab removal, scar depth and adhesion remain unknown.
+- The pin bore stays open, with minimum nominal axis-to-material clearance about 0.839 mm. Nevertheless, 22 of the sampled pin layers lack an enclosed footprint loop and two critical layers retain roughly 0.207-mm outer-midwall gaps. Setting seam gap to zero did not remove those two gaps. **This prevents a READY claim.** No further profile or thread modification is hidden in the delivered file.
+
+Original and reopened G-code are not byte-identical. Independent comparison finds a maximum per-layer nominal deposited-footprint difference of **1.227%**. Segment counts/order and small geometric choices differ; both archives receive separate object/path reports. This is reported as a limit rather than presented as exact toolpath reproducibility.
+
+## Repository validation and delivery integrity
+
+Python sources compile. Model checks, mesh/phase reviews, both Bambu slices, ZIP integrity and source/archive coordinate comparison were run. New relative documentation links are checked. Every pre-existing tracked file, including DES-009 and historical owner results, is unchanged.
+
+`./repo check` exits nonzero on six **pre-existing** size-policy findings: atomic objects E-266, E-283, E-286, E-288 and E-293, plus owner-print-tests/AGENTS.md. Running the same check in a clean worktree at baseline 1071f 695b 93951246a 2865038e 7fb 9de 9bdf 2a 05 yields the identical six findings. They are not fixed in this unrelated task. No new E-304 structure/reference finding is introduced.
+
+The experiment is delivered on a review branch and draft pull request. Nothing is merged into main, and no physical validation or further development is authorized by producing the files.

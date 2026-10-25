@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="790" viewBox="0 0 1080 790"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#34495e"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><style>text{font-family:Arial,sans-serif;fill:#1c2c3c}.title{font-size:24px;font-weight:bold}.sub{font-size:15px}.label{font-size:16px}.small{font-size:13px}</style>
-<text x="28" y="35" class="title">E-304 · one reusable force fixture</text>
+<text x="28" y="35" class="title">E-305 · one reusable force fixture</text>
 <text x="28" y="65" class="sub">Two mechanically independent supports: scale carries magnet; bench carries coil.</text>
 <rect x="70" y="600" width="350" height="60" fill="#dbeaf5" stroke="#34495e"/>
 <text x="95" y="638" class="label">0.01-g scale + ≥100-g nonmagnetic preload</text>

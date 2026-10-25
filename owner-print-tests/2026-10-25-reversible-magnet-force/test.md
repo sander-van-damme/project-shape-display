@@ -1,4 +1,4 @@
-# E-304 — reversible magnetic force screen
+# E-305 — reversible magnetic force screen
 
 **Status: READY for the force fixture only; no physical print or force measurement performed.**
 
@@ -6,7 +6,7 @@
 
 The current E-302 v3 offer was explicitly retired on23 October; the two earlier selector READY offers remain untouched. This is the third current READY offer. No schedule or owner deadline.
 
-Technical source: [E-304](../../06-experiments/E-304-permanent-magnet-reversible-clutch.md). **Question:** can one inexpensive stationary winding produce repeatable positive and negative force on an axial Ø3×2-mm magnet, across a0.6-mm stroke, with tolerable heat and OFF force?
+Technical source: [E-305](../../06-experiments/E-305-permanent-magnet-reversible-clutch.md). **Question:** can one inexpensive stationary winding produce repeatable positive and negative force on an axial Ø3×2-mm magnet, across a0.6-mm stroke, with tolerable heat and OFF force?
 
 ## Print and parts
 

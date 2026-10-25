@@ -1,5 +1,5 @@
 {
-  "project_sha256": "721dd1acedb931777393195930a002690bb14c0b00154e8c743a2e215e62eda9",
+  "project_sha256": "62a8b33465f6600251c258a71850f191798db41e0d626b4b5aec182f88b73086",
   "parts": [
     {
       "name": "bobbin",
@@ -54,9 +54,9 @@
   "settings": "X1C/0.4mm/PLA 210C/55C 0.12mm; no supports or brim",
   "scope": "Nominal actual slicer paths, NOT physical print evidence",
   "estimates": [
-    "; model printing time: 36m 14s; total estimated time: 50m 12s",
-    "; total filament length [mm] : 1216.94",
-    "; total filament volume [cm^3] : 2927.08",
+    "; model printing time: 36m 16s; total estimated time: 50m 14s",
+    "; total filament length [mm] : 1216.98",
+    "; total filament volume [cm^3] : 2927.19",
     "; total filament weight [g] : 3.63"
   ],
   "zip_crc_valid": true

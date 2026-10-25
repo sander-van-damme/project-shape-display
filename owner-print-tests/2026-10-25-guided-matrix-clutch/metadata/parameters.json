@@ -1,0 +1,40 @@
+{
+  "pitch": 5.08,
+  "row_stroke": 2.54,
+  "column_stroke": 2.54,
+  "cam_lift": 1.4,
+  "clutch_lift": 0.6,
+  "cone_half_angle": 30,
+  "cone_radii": [
+    1.1,
+    1.9
+  ],
+  "input_journal_d": 1.8,
+  "input_bore_d": 2.06,
+  "output_journal_d": 1.6,
+  "output_bore_d": 1.88,
+  "gear_module": 0.3,
+  "gear_teeth": 12,
+  "gear_pressure_angle": 25,
+  "flexure_thickness": 0.4,
+  "flexure_depth": 3.6,
+  "flexure_horizontal_span": 3.2,
+  "flexure_vertical_pitch": 0.9,
+  "source_commit": "1071f695b93951246a2865038e7fb9de9bdf2a05",
+  "input_journal_centres": [
+    33.6,
+    38.6
+  ],
+  "output_journal_centres": [
+    46.6,
+    51.8
+  ],
+  "output_thrust_z": 53.4,
+  "thread_start": 55,
+  "pin_neutral_bottom": 61,
+  "pin_guides": [
+    64.5,
+    75.8
+  ],
+  "cam_cap_separate": true
+}
