@@ -1,0 +1,15 @@
+{
+  "nominal_cells": 6400,
+  "printed_parts_per_cell": 4,
+  "local_printed_parts": 25600,
+  "purchased_local_parts": 0,
+  "local_solid_volume_mm3": 499.6211035954177,
+  "local_solid_mass_6400_kg": 3.964993078133235,
+  "shared_long_functional_members": 480,
+  "continuous_member_part_count_excluding_guides_and_edge_hardware": 26082,
+  "four_segment_part_count_excluding_guides_and_edge_hardware": 27522,
+  "carbon_1m_rods": 80,
+  "carbon_bulk_eur_ex_tax": 156.0,
+  "carbon_single_eur_ex_tax": 244.0,
+  "limits": "CAD solid volume; actual infill, failure rate, fixed guides, joints, drive and actuators not priced as a completed BOM."
+}

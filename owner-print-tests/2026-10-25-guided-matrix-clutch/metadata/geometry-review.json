@@ -1,0 +1,742 @@
+{
+  "evidence": "finite nominal mesh intersection screens, not contact dynamics or physical fit",
+  "cad_source_sha256": "d0762547139d7c01e6a4fa2bd5a4a8b3fd7a3eda0245c546c8809a8e72c16198",
+  "mesh_manifest_sha256": "0ae8dc4ae21475a1ff678a6688adca01b95c283881cac5ee8412541cb14b3eaa",
+  "threshold_mm3": 0.001,
+  "expected_contact_rule": "matching male/female pair only, overlap < .02 mm3 due tessellation at nominal exact-surface contact",
+  "states": {
+    "mask-0000": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-0001": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-0010": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-0011": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-0100": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-0101": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "mask-0110": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        }
+      ],
+      "checks": 83
+    },
+    "mask-0111": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1000": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-1001": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1010": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1011": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1100": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "mask-1101": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1110": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        }
+      ],
+      "checks": 83
+    },
+    "mask-1111": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "row-stroke-0.25": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "column-stroke-0.25": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "row-stroke-0.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "column-stroke-0.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "row-stroke-0.75": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "column-stroke-0.75": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258556027729403
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "drive--2.8": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258545947171464
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.0042320733421805975
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258520881250953
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232084241884712
+        }
+      ],
+      "checks": 83
+    },
+    "drive--1.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258542003275268
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.00423205778153712
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.0072585009161826326
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232008878865155
+        }
+      ],
+      "checks": 83
+    },
+    "drive-1.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258525446914888
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232144366538137
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258464109640776
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232160367758722
+        }
+      ],
+      "checks": 83
+    },
+    "drive-2.8": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007258538096901938
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.0042321470612968985
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.00725847917234302
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.00423208630829203
+        }
+      ],
+      "checks": 83
+    },
+    "one-follower-blocked": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232041632685117
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258541579720605
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232019474740591
+        }
+      ],
+      "checks": 83
+    },
+    "one-output-stalled": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.0039671637269636535
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.004232065410436464
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007258516229702426
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.004232076415041515
+        }
+      ],
+      "checks": 83
+    },
+    "off-rack-end--9.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "selected-rack-end--9.5": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.007513780697696055
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.005349296152629301
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.007513751157682728
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.005349270757096465
+        }
+      ],
+      "checks": 83
+    },
+    "off-rack-end-2.8": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 83
+    },
+    "selected-rack-end-2.8": {
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [
+        {
+          "a": "rotor-0",
+          "b": "output-0",
+          "volume_mm3": 0.0034848082018250006
+        },
+        {
+          "a": "rotor-1",
+          "b": "output-1",
+          "volume_mm3": 0.006977017128592561
+        },
+        {
+          "a": "rotor-2",
+          "b": "output-2",
+          "volume_mm3": 0.0034847732000898883
+        },
+        {
+          "a": "rotor-3",
+          "b": "output-3",
+          "volume_mm3": 0.006976985812965973
+        }
+      ],
+      "checks": 83
+    }
+  },
+  "gear_cycle": [
+    {
+      "rack_travel_mm": 0.0,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.039269908169872414,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.07853981633974483,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.11780972450961724,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.15707963267948966,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.19634954084936207,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.23561944901923448,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.2748893571891069,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.3141592653589793,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.3534291735288517,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.39269908169872414,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.43196898986859655,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.47123889803846897,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.5105088062083414,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.5497787143782138,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.5890486225480862,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.6283185307179586,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.667588438887831,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.7068583470577035,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.7461282552275759,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.7853981633974483,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.8246680715673207,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.8639379797371931,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.9032078879070655,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    },
+    {
+      "rack_travel_mm": 0.9424777960769379,
+      "unexpected": [],
+      "nominal_faceted_cone_contact": [],
+      "checks": 23
+    }
+  ],
+  "cone_cases": 648,
+  "cone_summary": [
+    {
+      "offset_mm": 0,
+      "tilt_deg": 0,
+      "min_contact_lift_mm": 0.5964294433593751,
+      "max_contact_lift_mm": 0.5974365234375001,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.1,
+      "tilt_deg": 0,
+      "min_contact_lift_mm": 0.42442016601562504,
+      "max_contact_lift_mm": 0.42609863281250004,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.2,
+      "tilt_deg": 0,
+      "min_contact_lift_mm": 0.25140380859375006,
+      "max_contact_lift_mm": 0.25288085937500004,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.27,
+      "tilt_deg": 0,
+      "min_contact_lift_mm": 0.13035278320312502,
+      "max_contact_lift_mm": 0.13162841796874997,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0,
+      "tilt_deg": 2,
+      "min_contact_lift_mm": 0.50062255859375,
+      "max_contact_lift_mm": 0.500689697265625,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.27,
+      "tilt_deg": 3,
+      "min_contact_lift_mm": 0.12525024414062502,
+      "max_contact_lift_mm": 0.12525024414062502,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.27,
+      "tilt_deg": 6,
+      "min_contact_lift_mm": 0.12397460937500002,
+      "max_contact_lift_mm": 0.12397460937500002,
+      "max_off_overlap_mm3": 0.0
+    },
+    {
+      "offset_mm": 0.4,
+      "tilt_deg": 3,
+      "min_contact_lift_mm": -0.09993286132812498,
+      "max_contact_lift_mm": -0.09986572265624998,
+      "max_off_overlap_mm3": 0.02272290227073676
+    },
+    {
+      "offset_mm": 0.7,
+      "tilt_deg": 6,
+      "min_contact_lift_mm": -0.6198547363281248,
+      "max_contact_lift_mm": -0.6198547363281248,
+      "max_off_overlap_mm3": 0.5594485562357923
+    }
+  ],
+  "negative_control_detected": true,
+  "negative_control": {
+    "unexpected": [
+      {
+        "a": "frame",
+        "b": "rotor-0",
+        "volume_mm3": 0.9943171665137702
+      },
+      {
+        "a": "follower-0",
+        "b": "rotor-0",
+        "volume_mm3": 0.39237849770745936
+      },
+      {
+        "a": "rotor-0",
+        "b": "output-0",
+        "volume_mm3": 0.056896607598956365
+      },
+      {
+        "a": "rotor-0",
+        "b": "shared-rack",
+        "volume_mm3": 0.4547240767864026
+      }
+    ],
+    "nominal_faceted_cone_contact": [],
+    "checks": 83
+  },
+  "rack_overtravel_at_4_5_mm": {
+    "unexpected": [
+      {
+        "a": "shared-rack",
+        "b": "hand-drive",
+        "volume_mm3": 0.06999248612028294
+      }
+    ],
+    "nominal_faceted_cone_contact": [],
+    "checks": 83
+  },
+  "cad_source_sha256_at_review": "ef7e223a9727ef6e0f46bb796431171b51209892088f133c314773a8da5f3a2c",
+  "post_review_source_normalization": "Only trailing whitespace removed; Python AST equality was asserted; geometry and parameters unchanged."
+}
