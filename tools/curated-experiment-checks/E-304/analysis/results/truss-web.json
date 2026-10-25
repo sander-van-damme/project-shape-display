@@ -1,0 +1,12 @@
+{
+  "panel_length_mm": 5.08,
+  "height_mm": 8.4,
+  "diagonal_length_mm": 9.816638936010635,
+  "diagonal_area_mm2": 1.6,
+  "effective_shear_rigidity_N": 1212.5057588459977,
+  "distributed_shear_deflection_mm": 0.013092721320440596,
+  "point_shear_deflection_mm": 0.015711265584528716,
+  "maximum_diagonal_force_N": 4.674589969528873,
+  "ideal_pinned_diagonal_buckling_N": 17.479250905425374,
+  "limits": "Single active diagonal; joint flexibility/print anisotropy and compression damage omitted. Add these deflections to chord bending."
+}

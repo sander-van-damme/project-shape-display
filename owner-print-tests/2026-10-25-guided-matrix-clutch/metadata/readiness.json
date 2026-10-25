@@ -1,0 +1,12 @@
+{
+  "status": "DRAFT",
+  "reason": "Retained pin toolpaths contain approximately0.207-mm outer-midwall gaps at12.48 and15.48-mm layers; no READY physical print handoff claimed.",
+  "physical_results": "None; owner test unperformed",
+  "bambu_save_reopen_reslice": "Passed on X1 Carbon0.4 mm,02.08.02.61; settings equal, path differences quantified",
+  "nominal_geometry_states": 32,
+  "unexpected_nominal_interference": 0,
+  "negative_controls": "Offset rotor and+4.5-mm rack overtravel detect interference",
+  "adverse_tolerance_corners": "Cone can rub while OFF; explicitly not qualified",
+  "DES_009": "Unchanged, remains primary",
+  "repository_check": "Same six pre-existing size findings as baseline"
+}

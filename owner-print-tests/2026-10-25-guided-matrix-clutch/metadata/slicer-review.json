@@ -1,0 +1,1923 @@
+{
+  "project_sha256": "b3ead3e88c412482fa18caa48f446c5e5ff41d6175debfeaacb5bd21adc485ba",
+  "gcode_sha256": "b75cbf6010cd5df3f1c84c6d3364517e00e28c03102edaab8aba735c27cb9073",
+  "geometry_max_vertex_error_mm": 2.2539786512304936e-05,
+  "source_facets": 206114,
+  "archive_facets": 206114,
+  "named_objects": 33,
+  "saved_settings": {
+    "printer_model": "Bambu Lab X1 Carbon",
+    "printer_settings_id": "Bambu Lab X1 Carbon 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "filament_settings_id": [
+      "Generic PLA"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "filament_density": [
+      "1.24"
+    ],
+    "filament_flow_ratio": [
+      "0.98"
+    ],
+    "nozzle_temperature": [
+      "220"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "textured_plate_temp": [
+      "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "55"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.12",
+    "wall_generator": "arachne",
+    "min_bead_width": "75%",
+    "min_feature_size": "10%",
+    "wall_loops": "2",
+    "sparse_infill_density": "100%",
+    "sparse_infill_pattern": "zig-zag",
+    "line_width": "0.45",
+    "initial_layer_line_width": "0.45",
+    "outer_wall_line_width": "0.45",
+    "inner_wall_line_width": "0.45",
+    "top_surface_line_width": "0.45",
+    "sparse_infill_line_width": "0.45",
+    "internal_solid_infill_line_width": "0.45",
+    "outer_wall_speed": [
+      "15",
+      "15"
+    ],
+    "inner_wall_speed": [
+      "20",
+      "20"
+    ],
+    "initial_layer_speed": [
+      "15",
+      "15"
+    ],
+    "initial_layer_infill_speed": [
+      "15",
+      "15"
+    ],
+    "bridge_speed": [
+      "15",
+      "15"
+    ],
+    "bridge_angle": "90",
+    "seam_gap": "0%",
+    "default_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "outer_wall_acceleration": [
+      "500",
+      "500"
+    ],
+    "inner_wall_acceleration": [
+      "1000",
+      "1000"
+    ],
+    "initial_layer_acceleration": [
+      "500",
+      "500"
+    ],
+    "enable_support": "0",
+    "brim_type": "outer_only",
+    "brim_width": "2",
+    "brim_object_gap": "0.12",
+    "raft_layers": "0",
+    "print_sequence": "by layer",
+    "xy_contour_compensation": "0",
+    "xy_hole_compensation": "0",
+    "elefant_foot_compensation": "0",
+    "fan_min_speed": [
+      "100"
+    ],
+    "fan_max_speed": [
+      "100"
+    ],
+    "slow_down_min_speed": [
+      "10"
+    ],
+    "slow_down_for_layer_cooling": [
+      "1"
+    ],
+    "close_fan_the_first_x_layers": [
+      "1"
+    ],
+    "additional_cooling_fan_speed": [
+      "0"
+    ]
+  },
+  "roles": {
+    "Inner wall": 41480,
+    "Outer wall": 220350,
+    "Bottom surface": 1363,
+    "Internal solid infill": 19642,
+    "Top surface": 2134,
+    "Gap infill": 273,
+    "Sparse infill": 5992,
+    "Overhang wall": 1947,
+    "Bridge": 2728,
+    "Floating vertical shell": 1138
+  },
+  "layer_heights_mm": [
+    0.119999,
+    0.12,
+    0.120001
+  ],
+  "estimates": [
+    "; model printing time: 7h 18m 47s; total estimated time: 7h 34m 27s",
+    "; total filament length [mm] : 7243.49",
+    "; total filament volume [cm^3] : 17422.65",
+    "; total filament weight [g] : 21.60"
+  ],
+  "parts": [
+    {
+      "name": "frame-print-1",
+      "layers": 267,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 32.04,
+      "minimum_model_bead_width_mm": 0.0925194,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [
+        {
+          "z_mm": 15.96,
+          "role": "Overhang wall",
+          "free_centerline_mm": 16.21
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Overhang wall",
+          "free_centerline_mm": 16.21
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        },
+        {
+          "z_mm": 15.96,
+          "role": "Bridge",
+          "free_centerline_mm": 15.060999999999993
+        }
+      ],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 1128.8093201816025
+    },
+    {
+      "name": "keeper-lower-1",
+      "layers": 18,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.16,
+      "minimum_model_bead_width_mm": 0.351512,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 56.30830531863967
+    },
+    {
+      "name": "keeper-lower-2",
+      "layers": 18,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.16,
+      "minimum_model_bead_width_mm": 0.351532,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "keeper-upper-1",
+      "layers": 18,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.16,
+      "minimum_model_bead_width_mm": 0.351512,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 154.51661313433326
+    },
+    {
+      "name": "keeper-upper-2",
+      "layers": 18,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.16,
+      "minimum_model_bead_width_mm": 0.351512,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "row-base-1",
+      "layers": 112,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 13.44,
+      "minimum_model_bead_width_mm": 0.0817368,
+      "all_layer_unsupported_islands": [
+        {
+          "z_mm": 12.84,
+          "area_mm2": 0.15972265122863424,
+          "centroid": [
+            200.08,
+            67.70349999999999
+          ]
+        },
+        {
+          "z_mm": 12.84,
+          "area_mm2": 0.15972265122863424,
+          "centroid": [
+            200.08,
+            71.90350000000002
+          ]
+        }
+      ],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 173.26554910869706
+    },
+    {
+      "name": "row-base-2",
+      "layers": 112,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 13.44,
+      "minimum_model_bead_width_mm": 0.0817294,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "row-cap-1",
+      "layers": 23,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.76,
+      "minimum_model_bead_width_mm": 0.325752,
+      "all_layer_unsupported_islands": [
+        {
+          "z_mm": 2.4,
+          "area_mm2": 0.1532076112286257,
+          "centroid": [
+            95.311,
+            111.70350000000002
+          ]
+        },
+        {
+          "z_mm": 2.4,
+          "area_mm2": 0.1532076112286257,
+          "centroid": [
+            95.311,
+            115.9035
+          ]
+        }
+      ],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 67.81067568550945
+    },
+    {
+      "name": "row-cap-2",
+      "layers": 23,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 2.76,
+      "minimum_model_bead_width_mm": 0.325752,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "column-1",
+      "layers": 54,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 6.48,
+      "minimum_model_bead_width_mm": 0.313272,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 93.14480783518327
+    },
+    {
+      "name": "column-2",
+      "layers": 54,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 6.48,
+      "minimum_model_bead_width_mm": 0.313272,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "follower-1",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166516,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.383999999999986
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.3760000000000048
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.375
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.9010852163961613
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.9010000000000105
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Bridge",
+          "free_centerline_mm": 1.372000000000014
+        }
+      ],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 30.378094349251775
+    },
+    {
+      "name": "follower-2",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166516,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "follower-3",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166507,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "follower-4",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166516,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "follower-soft-1",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166507,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.401999999999987
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.4010000000000105
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.4000000000000057
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.8760000000000048
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.8760000000000048
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 3.72,
+          "role": "Bridge",
+          "free_centerline_mm": 1.3629999999999995
+        }
+      ],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 29.45773205115714
+    },
+    {
+      "name": "follower-stiff-1",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.166516,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.350999999999999
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 2.3499999999999943
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.9259999999999877
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.8419999999999845
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 1.92,
+          "role": "Overhang wall",
+          "free_centerline_mm": 1.612000000000009
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Bridge",
+          "free_centerline_mm": 1.3970000000000198
+        },
+        {
+          "z_mm": 0.72,
+          "role": "Bridge",
+          "free_centerline_mm": 1.3970000000000198
+        }
+      ],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 31.401581391756693
+    },
+    {
+      "name": "rotor-1",
+      "layers": 105,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.6,
+      "minimum_model_bead_width_mm": 0.0784272,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 3.932670361154504
+    },
+    {
+      "name": "rotor-2",
+      "layers": 105,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.6,
+      "minimum_model_bead_width_mm": 0.0784266,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "rotor-3",
+      "layers": 105,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.6,
+      "minimum_model_bead_width_mm": 0.0784302,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "rotor-4",
+      "layers": 104,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.48,
+      "minimum_model_bead_width_mm": 0.0784279,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "rotor-loose-1",
+      "layers": 105,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.6,
+      "minimum_model_bead_width_mm": 0.0784274,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 3.9323949876013002
+    },
+    {
+      "name": "rotor-tight-1",
+      "layers": 105,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 12.6,
+      "minimum_model_bead_width_mm": 0.0784235,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 3.9318365141186074
+    },
+    {
+      "name": "rack-1",
+      "layers": 27,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.24,
+      "minimum_model_bead_width_mm": 0.088056,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 81.44677127423714
+    },
+    {
+      "name": "drive-1",
+      "layers": 81,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 9.72,
+      "minimum_model_bead_width_mm": 0.0476756,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 7.484999999999985
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 7.4839999999999804
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 7.081999999999994
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 7.081999999999994
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 6.51400000000001
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 6.5120000000000005
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 5.803999999999974
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 5.800000000000011
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 4.853999999999985
+        },
+        {
+          "z_mm": 5.4,
+          "role": "Bridge",
+          "free_centerline_mm": 4.849999999999994
+        }
+      ],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 5.99376213528019
+    },
+    {
+      "name": "screw-tree-1",
+      "layers": 247,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 29.64,
+      "minimum_model_bead_width_mm": 0.0713822,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 140.55208652956284
+    },
+    {
+      "name": "pin-1",
+      "layers": 150,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 18.0,
+      "minimum_model_bead_width_mm": 0.0501941,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [
+        {
+          "z_mm": 1.32,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 1.44,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 1.56,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 1.68,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 1.8,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 1.92,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.04,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.16,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.28,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.4,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.52,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.64,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.76,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 2.88,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.0,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.12,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.24,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.36,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.48,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.6,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.72,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.84,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 3.96,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.08,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.2,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.32,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.44,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.56,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.68,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.8,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 4.92,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.04,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.16,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.28,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.4,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.52,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.64,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.76,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 5.88,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.0,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.12,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.24,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.36,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.48,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.6,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.72,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.84,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 6.96,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.08,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.2,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.32,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.44,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.56,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.68,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.8,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 7.92,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.04,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.16,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.28,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.4,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.52,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.64,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.76,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 8.88,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.0,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.12,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.24,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.36,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.48,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.6,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.72,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.84,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 9.96,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.08,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.2,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.32,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.44,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.56,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.68,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.8,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 10.92,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.04,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.16,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.28,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.4,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.52,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.64,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.76,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 11.88,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.0,
+          "axis_clearance_mm": 1.759537157060521,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.12,
+          "axis_clearance_mm": 0.8511631600663683,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.24,
+          "axis_clearance_mm": 0.8576402778680876,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.36,
+          "axis_clearance_mm": 0.8468520304311524,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.48,
+          "axis_clearance_mm": 0.8523862729919938,
+          "outer_midwall_max_gap_mm": 0.20694446972149194,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": null
+        },
+        {
+          "z_mm": 12.6,
+          "axis_clearance_mm": 0.8510761117834774,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 12.72,
+          "axis_clearance_mm": 0.845502142957957,
+          "outer_midwall_max_gap_mm": 0.04169147179425181,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.02
+        },
+        {
+          "z_mm": 12.84,
+          "axis_clearance_mm": 0.839430526954981,
+          "outer_midwall_max_gap_mm": 0.05907648164247803,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 12.96,
+          "axis_clearance_mm": 0.8536669408838148,
+          "outer_midwall_max_gap_mm": 0.014397083342061023,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0.005
+        },
+        {
+          "z_mm": 13.08,
+          "axis_clearance_mm": 0.8521285294161309,
+          "outer_midwall_max_gap_mm": 0.026735335614688438,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.02
+        },
+        {
+          "z_mm": 13.2,
+          "axis_clearance_mm": 0.8516616806395301,
+          "outer_midwall_max_gap_mm": 0.06329870733472376,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 13.32,
+          "axis_clearance_mm": 0.8595333455630493,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 13.44,
+          "axis_clearance_mm": 0.8456904792864044,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 13.56,
+          "axis_clearance_mm": 0.8493845992568949,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 13.68,
+          "axis_clearance_mm": 0.8491995892360504,
+          "outer_midwall_max_gap_mm": 0.027059494525474292,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.01
+        },
+        {
+          "z_mm": 13.8,
+          "axis_clearance_mm": 0.8523569839997697,
+          "outer_midwall_max_gap_mm": 0.01756479374051878,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.01
+        },
+        {
+          "z_mm": 13.92,
+          "axis_clearance_mm": 0.8492191277493796,
+          "outer_midwall_max_gap_mm": 0.07629870733475741,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 14.04,
+          "axis_clearance_mm": 0.8542292252739132,
+          "outer_midwall_max_gap_mm": 0.06009473982254576,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 14.16,
+          "axis_clearance_mm": 0.8445270919837824,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 14.28,
+          "axis_clearance_mm": 0.8524205105235563,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 14.4,
+          "axis_clearance_mm": 0.8480009812526279,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 14.52,
+          "axis_clearance_mm": 0.8539381572787919,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 14.64,
+          "axis_clearance_mm": 0.8488291017394501,
+          "outer_midwall_max_gap_mm": 0.08404126012291613,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 14.76,
+          "axis_clearance_mm": 0.8488972716562401,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 14.88,
+          "axis_clearance_mm": 0.8590483163723143,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.0,
+          "axis_clearance_mm": 0.8398907013075865,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.12,
+          "axis_clearance_mm": 0.8510478777053361,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.24,
+          "axis_clearance_mm": 0.8571777161764617,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.36,
+          "axis_clearance_mm": 0.8468520304311524,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.48,
+          "axis_clearance_mm": 0.8523862729919977,
+          "outer_midwall_max_gap_mm": 0.20692644494201318,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": null
+        },
+        {
+          "z_mm": 15.6,
+          "axis_clearance_mm": 0.8510761117834774,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 15.72,
+          "axis_clearance_mm": 0.845502142957957,
+          "outer_midwall_max_gap_mm": 0.04169147179425181,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.02
+        },
+        {
+          "z_mm": 15.84,
+          "axis_clearance_mm": 0.839430526954981,
+          "outer_midwall_max_gap_mm": 0.05907648164247803,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 15.96,
+          "axis_clearance_mm": 0.8536669408838148,
+          "outer_midwall_max_gap_mm": 0.014397083342061023,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0.005
+        },
+        {
+          "z_mm": 16.08,
+          "axis_clearance_mm": 0.8521285294161309,
+          "outer_midwall_max_gap_mm": 0.026735335614688438,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.02
+        },
+        {
+          "z_mm": 16.2,
+          "axis_clearance_mm": 0.8516616806395301,
+          "outer_midwall_max_gap_mm": 0.06329870733472376,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 16.32,
+          "axis_clearance_mm": 0.8595333455630493,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 16.44,
+          "axis_clearance_mm": 0.8456904792864044,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 16.56,
+          "axis_clearance_mm": 0.8493845992568949,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 16.68,
+          "axis_clearance_mm": 0.8491995892360504,
+          "outer_midwall_max_gap_mm": 0.027054494525458495,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.01
+        },
+        {
+          "z_mm": 16.8,
+          "axis_clearance_mm": 0.8523569839997697,
+          "outer_midwall_max_gap_mm": 0.01756479374051878,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.01
+        },
+        {
+          "z_mm": 16.92,
+          "axis_clearance_mm": 0.8492191277493796,
+          "outer_midwall_max_gap_mm": 0.07629870733475741,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 17.04,
+          "axis_clearance_mm": 0.8542292252739132,
+          "outer_midwall_max_gap_mm": 0.06010057376130362,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 17.16,
+          "axis_clearance_mm": 0.8445270919837828,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 17.28,
+          "axis_clearance_mm": 0.8524205105235563,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 17.4,
+          "axis_clearance_mm": 0.8480009812526279,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 17.52,
+          "axis_clearance_mm": 0.8539381572787919,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 17.64,
+          "axis_clearance_mm": 0.8488291017394501,
+          "outer_midwall_max_gap_mm": 0.08404126012291613,
+          "enclosed": false,
+          "enclosed_after_005mm_buffer": false,
+          "closed_buffer_needed_mm": 0.04
+        },
+        {
+          "z_mm": 17.76,
+          "axis_clearance_mm": 0.8488972716562401,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 17.88,
+          "axis_clearance_mm": 0.8590483163723143,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        },
+        {
+          "z_mm": 18.0,
+          "axis_clearance_mm": 0.8474447131999633,
+          "outer_midwall_max_gap_mm": 0.0,
+          "enclosed": true,
+          "enclosed_after_005mm_buffer": true,
+          "closed_buffer_needed_mm": 0
+        }
+      ],
+      "first_layer_model_area_mm2": 19.003908427476894
+    },
+    {
+      "name": "pin-2",
+      "layers": 150,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 18.0,
+      "minimum_model_bead_width_mm": 0.0501941,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "pin-3",
+      "layers": 150,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 18.0,
+      "minimum_model_bead_width_mm": 0.0501941,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "pin-4",
+      "layers": 150,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 18.0,
+      "minimum_model_bead_width_mm": 0.0501181,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    },
+    {
+      "name": "beam-100-1",
+      "layers": 122,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 14.64,
+      "minimum_model_bead_width_mm": 0.0785755,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 483.6670184978661
+    },
+    {
+      "name": "beam-support-1",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.449992,
+      "all_layer_unsupported_islands": [],
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": 95.25469881445518
+    },
+    {
+      "name": "beam-support-2",
+      "layers": 33,
+      "empty_interior_layers_mm": [],
+      "max_extrusion_z_mm": 3.96,
+      "minimum_model_bead_width_mm": 0.449992,
+      "all_layer_unsupported_islands": "same mesh as earlier nominal",
+      "long_bridge_or_overhang_segments": [],
+      "open_pin_bore": [],
+      "first_layer_model_area_mm2": null
+    }
+  ],
+  "limits": [
+    "Slicer paths are not physical print/fit or operation evidence.",
+    "Orphan screen tests whole deposited components against previous layer, not every unsupported bead.",
+    "Bridge/cantilever details require inspection; no automatic physical qualification."
+  ]
+}
