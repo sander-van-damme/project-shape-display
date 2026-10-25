@@ -1,0 +1,17 @@
+{
+  "baseline": "1071f695b93951246a2865038e7fb9de9bdf2a05",
+  "new_experiment": "E-304",
+  "local_markdown_files_checked": 8,
+  "local_link_failures": [],
+  "repo_check_exit": 1,
+  "repo_check_preexisting_findings": [
+    "Oversized atomic object: E-266",
+    "Oversized atomic object: E-283",
+    "Oversized atomic object: E-286",
+    "Oversized atomic object: E-288",
+    "Oversized atomic object: E-293",
+    "Oversized instructions: owner-print-tests/AGENTS.md"
+  ],
+  "physical_measurements": "NONE",
+  "existing_tracked_file_changes": []
+}

@@ -1,0 +1,63 @@
+{
+  "project_sha256": "0c0f9962e80936139e02e47b8ac40dcd78316270b79379f60a8af75d36c5c30f",
+  "parts": [
+    {
+      "name": "bobbin",
+      "layers": 43,
+      "top_z_mm": 5.24,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": 0.9999999999999981
+    },
+    {
+      "name": "top-flange",
+      "layers": 6,
+      "top_z_mm": 0.8,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": null
+    },
+    {
+      "name": "scale-foot",
+      "layers": 91,
+      "top_z_mm": 11.0,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": null
+    },
+    {
+      "name": "magnet-arm",
+      "layers": 83,
+      "top_z_mm": 10.04,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": null
+    },
+    {
+      "name": "coil-bracket",
+      "layers": 13,
+      "top_z_mm": 1.64,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": null
+    },
+    {
+      "name": "core-sleeve",
+      "layers": 73,
+      "top_z_mm": 8.84,
+      "critical_bore_deposition_mm2": 0,
+      "unsupported_islands": [],
+      "minimum_barrel_band_coverage": null
+    }
+  ],
+  "max_mesh_error_mm": 1.3731626052530578e-05,
+  "settings": "X1C/0.4mm/PLA 210C/55C 0.12mm; no supports or brim",
+  "scope": "Nominal actual slicer paths, NOT physical print evidence",
+  "estimates": [
+    "; model printing time: 36m 13s; total estimated time: 50m 11s",
+    "; total filament length [mm] : 1216.90",
+    "; total filament volume [cm^3] : 2926.98",
+    "; total filament weight [g] : 3.63"
+  ],
+  "zip_crc_valid": true
+}
