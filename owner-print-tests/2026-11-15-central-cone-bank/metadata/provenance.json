@@ -51,5 +51,7 @@
   "motor_spacer_height_mm": 2,
   "motorplate": "Separate flat printed, four M3x8 bank screws",
   "actuator_contact_tip_diameter_mm": 2,
-  "actuator_contact_tip_protrusion_mm": 4
+  "actuator_contact_tip_protrusion_mm": 4,
+  "print_stabilization": "Four external sacrificial towers per pin/male; existing screw braces retained. No physical stability test performed.",
+  "stability_update_base_commit": "3f87efee42601053f403f62afe3c7dceeda81934"
 }

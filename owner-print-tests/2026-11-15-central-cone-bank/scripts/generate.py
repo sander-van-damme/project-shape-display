@@ -26,6 +26,10 @@ parts['pin']=save('pin',mesh(female+shell))
 # Two sacrificial screw braces, same print orientation/neck scheme as A, repositioned thread start.
 subprocess.run(['openscad','-o',str(C/'screw-supported.stl'),'-D','part="screw-supported"',str(P/'cad/bank.scad')],check=True,capture_output=True)
 parts['screw-supported']=save('screw-supported',trimesh.load(C/'screw-supported.stl',force='mesh'))
+# External four-sided print stabilizers; keep the clean assembly meshes unchanged.
+for n in ['pin-supported','male-supported']:
+ subprocess.run(['openscad','-o',str(C/(n+'.stl')),'-D',f'part="{n}"',str(P/'cad/stability.scad')],check=True,capture_output=True)
+ parts[n]=save(n,trimesh.load(C/(n+'.stl'),force='mesh'))
 # Flatten wide rail bank by keeping assembly z datums and shifting bed underside.
 parts['bank'].apply_translation([0,0,-3]);save('bank',parts['bank'])
 # Hand-test three nominal sliding-key pairs; root/bore relief variants only rotor bore via SCAD later.
@@ -36,8 +40,8 @@ add('bank',40,85);add('motorplate',115,258.5)
 add('endblock',0,0);add('endblock',0,13)
 for i,n in enumerate(['lower0','lower1','lower2']):add(n,150,12+i*20)
 for i,n in enumerate(['upper','guide','guide']):add(n,105+i*36,76)
-for i in range(4):add('screw-supported',102+i*22,102);add('pin',12+i*16,143);add('foot',8+i*16,115)
-for i in range(2):add('male',110+i*16,150);add('rotor',146+i*12,150);add('yoke' if i==0 else 'yoke-long',183+i*12,130)
+for i in range(4):add('screw-supported',102+i*22,102);add('pin-supported',12+i*16,143);add('foot',8+i*16,115)
+for i in range(2):add('male-supported',110+i*16,150);add('rotor',146+i*12,150);add('yoke' if i==0 else 'yoke-long',183+i*12,130)
 add('torque-arm',150,185);add('cap',80,180);add('motorpulley',90,149);add('index',184,170)
 for i in range(4):add('strap',10+i*14,195)
 for i in range(4):add('spacer',100+i*12,163)
@@ -56,8 +60,8 @@ if (P/'cad/actuator.scad').exists():
  for n,x,y in [('base',32,49),('slider',68,29),('bobbin',78,59),('bobbin',94,59),('follower',94,29),('bridge',94,85)]:layouts['actuator'].append(dict(source='actuator-'+n,name=f'actuator-{n}-{x}',center_xy=[x,y]))
 for i in range(3):
  layouts['actuator'].append(dict(source='rotor',name=f'nominal-rotor-{i+1}',center_xy=[130+i*15,60]))
- layouts['actuator'].append(dict(source='male',name=f'nominal-male-{i+1}',center_xy=[130+i*15,76]))
-layouts['actuator'].append(dict(source='pin',name='fit-pin-4.50',center_xy=[130,20]))
+ layouts['actuator'].append(dict(source='male-supported',name=f'nominal-male-{i+1}',center_xy=[130+i*15,76]))
+layouts['actuator'].append(dict(source='pin-supported',name='fit-pin-4.50',center_xy=[130,20]))
 allreport={}
 
 for name,rows in layouts.items():

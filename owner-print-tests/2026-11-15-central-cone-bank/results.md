@@ -4,6 +4,8 @@ Datum: ___ Printer/nozzle: ___ PLA en droogconditie: ___
 Werkelijk geprint 3MF/bestandsversie: ___ Wijzigingen settings: ___
 Print gelukt / deels / mislukt / niet geprint: ___
 Werkelijke printtijd/massa: ___ Schoonmaak/supportresten: ___
+Stabilisatietorens bleven vast tot boven? ___ Wobble/laagverlies/losse nekken (hoogte): ___
+Pinnen/stiften na vlak trimmen: passing___ krassen/schade___
 
 | Onderdeel/variant | Passing/frictie/schade | Aantal/cycli | Opmerking |
 |---|---|---|---|

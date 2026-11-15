@@ -13,8 +13,8 @@
   "manifest": [
     {
       "path": "actuator.3mf",
-      "bytes": 1571103,
-      "sha256": "544c2abff9afbdde6f83da7e59485174a04caff8c902b3fa3e37a23b59fda52f"
+      "bytes": 1996104,
+      "sha256": "05dbd8ae8cfaaa9859aab5083fbcfb746c0b682142fdfaa619cec98f67ea7ca9"
     },
     {
       "path": "actuator.md",
@@ -23,8 +23,8 @@
     },
     {
       "path": "assembly.md",
-      "bytes": 9488,
-      "sha256": "7c5585fa8332227097fdaab942a719f74188c82d521e7b1853c708a4750e52ec"
+      "bytes": 9877,
+      "sha256": "a5e045d9c6ae35736d6b33ff4af5ff30d34138ad7b59b7b00563883581ae3426"
     },
     {
       "path": "cad/actuator.scad",
@@ -35,6 +35,11 @@
       "path": "cad/bank.scad",
       "bytes": 8088,
       "sha256": "ab53dd8c9177383def3f4ce3994c609f37fb5f1d60f4fa86d03dc0d8c6596160"
+    },
+    {
+      "path": "cad/stability.scad",
+      "bytes": 841,
+      "sha256": "03f563f95420977c8c8db026de5198e8d2c41dbd7f63911e73c24413f8966473"
     },
     {
       "path": "components/actuator-base.stl",
@@ -63,8 +68,8 @@
     },
     {
       "path": "components/actuator.stl",
-      "bytes": 816384,
-      "sha256": "7f066a3e96c32974e1ec8b3f51eef62d7266615f7508ba0a0503b8e374aafaf0"
+      "bytes": 962284,
+      "sha256": "f2a18b256aed0c4e5bc68b8dc98dcc74e8fb2a1eb7ced2178383c7e578e4aec9"
     },
     {
       "path": "components/bank.stl",
@@ -127,14 +132,19 @@
       "sha256": "ea717e103ac2ced56374363bfcac7c0fcd6ee9fbbe08b55d4fbb060e3b8b70b9"
     },
     {
+      "path": "components/male-supported.stl",
+      "bytes": 61484,
+      "sha256": "042e310728b601aa48b071ad31c3af1fb24ed1838e02548dda407b6dee03e197"
+    },
+    {
       "path": "components/male.stl",
       "bytes": 27084,
       "sha256": "d4daf5821bd0136934f413d77120f7e234c0aab5ccca749a65afe41d168b354a"
     },
     {
       "path": "components/mechanical.stl",
-      "bytes": 3524284,
-      "sha256": "5848c4289d5efd1f58126c037acc627cb52a78094bd352733e9e752d42832ac0"
+      "bytes": 3763884,
+      "sha256": "935fa34fc41a3b320bd66fd9223c1912639fc7eb39902605ddf672f41167a3f9"
     },
     {
       "path": "components/motorplate.stl",
@@ -145,6 +155,11 @@
       "path": "components/motorpulley.stl",
       "bytes": 95684,
       "sha256": "9f8528945d1b5e4cf99312c76055a14e66972f6b2c42e51ca78d71f29785c975"
+    },
+    {
+      "path": "components/pin-supported.stl",
+      "bytes": 124684,
+      "sha256": "0e0234dbbac9536af395e64ad2e7c8f0639699dbb0bb99467e0101e7357cf234"
     },
     {
       "path": "components/pin.stl",
@@ -218,8 +233,8 @@
     },
     {
       "path": "images/critical-pin-paths.svg",
-      "bytes": 101112,
-      "sha256": "f07bf9005772eca5b5e27baaa104f9eba59dbf4e85e6d8859cb012bf7a0b5039"
+      "bytes": 102178,
+      "sha256": "e9536f3aaec8cd04f040df80e07a9adbb398894e4dbe19b72e7baaf95868aae5"
     },
     {
       "path": "images/plan.svg",
@@ -233,23 +248,23 @@
     },
     {
       "path": "mechanical.3mf",
-      "bytes": 6396192,
-      "sha256": "861232f8f4ec45c23f2d0083b9b44e6b5a14df4ae43966e7c7e03a90247fdc82"
+      "bytes": 7136958,
+      "sha256": "fe36333925fa07810489dac96dc6d4973dcf643043ea7223f790d9f40769907a"
     },
     {
       "path": "metadata/actuator-build.json",
-      "bytes": 6262,
-      "sha256": "fcfda4a49e2d33349b1a91491feb515ebccf580bd06b9b7ff8d0ba96666c86d7"
+      "bytes": 6261,
+      "sha256": "cdc27d097c846dbfb2cf476e41d8232adeb3e55a7d1bee884b135ac1f98e3dfc"
     },
     {
       "path": "metadata/actuator-critical-review-reopened.json",
-      "bytes": 219726,
-      "sha256": "07b7450812d6cfbf1b0f67c06db8543d32dc428759d4e9d7684f1456bc82cdfb"
+      "bytes": 219864,
+      "sha256": "ccf8266109ff13774327946a9a631359629793fcd425e81156fdd31daeff1687"
     },
     {
       "path": "metadata/actuator-critical-review.json",
-      "bytes": 219722,
-      "sha256": "b8981a79b46809a65a223f88bd2324d30ad198f0cf0745c6b7f9d35e1126dc3d"
+      "bytes": 219868,
+      "sha256": "ee230df9b91fc978f48e8a73eb6dd82d4dd56dbebc327680b21aaf03e2395dcc"
     },
     {
       "path": "metadata/actuator-geometry.json",
@@ -263,28 +278,28 @@
     },
     {
       "path": "metadata/actuator-slice-review-reopened.json",
-      "bytes": 352515,
-      "sha256": "b8206b5647eea9fc4f7432ad0a968b707ec2dded9a1357953b490bd404963bc4"
+      "bytes": 353343,
+      "sha256": "eda4ab02072f108a3c7b529b923dd16cdf2620ad6f699e45acc32d8c9c376155"
     },
     {
       "path": "metadata/actuator-slice-review.json",
-      "bytes": 352512,
-      "sha256": "39010bcf01ed1c4bba4ef8678ae4b9a7ad2b65dd8a5b1f36dd47c59ec5964481"
+      "bytes": 353348,
+      "sha256": "bbd27a3c054b28db11cc33a28ac65e6c7a891c29418c217a070da18c53df1b05"
     },
     {
       "path": "metadata/archive-geometry-review.json",
-      "bytes": 1516,
-      "sha256": "fd6bc102b4c76fa7bcc3c40f8bc8d6a71917e1c742bf6c4c945b11e12cbad778"
+      "bytes": 1520,
+      "sha256": "f42b117508fc8ecff5518bf6eddaf521426c60adb3f3646748e955bfe5b22ff5"
     },
     {
       "path": "metadata/bank-support-review-reopened.json",
-      "bytes": 198562,
-      "sha256": "824b801cd5aec0106b5f7802a0a186f23b8f8e96ec263c7bff77902d6b070972"
+      "bytes": 198564,
+      "sha256": "aded4f87abf80dcdf743eb6ad428ed7cf1cdebb180a478f1f1f7a391ae46e7be"
     },
     {
       "path": "metadata/bank-support-review.json",
-      "bytes": 198554,
-      "sha256": "997a91b4216f0b407377a88b746529a062cbe84e951358bdcb8aa959394e1fa5"
+      "bytes": 198547,
+      "sha256": "11f9d7225f0a2d720bbf67fda887d820c9973a00071a94040c46299fe4e81112"
     },
     {
       "path": "metadata/belt-length.json",
@@ -298,8 +313,8 @@
     },
     {
       "path": "metadata/geometry-review.json",
-      "bytes": 97731,
-      "sha256": "720a8dbb37b11f461fcf96556aa9bfd2bb050aeb9908908baa7e9e4e4d421371"
+      "bytes": 97791,
+      "sha256": "cebccf2641997b78da84c03b5cbade69bd76fc530cde5a781c87a89a8ba5bc97"
     },
     {
       "path": "metadata/inherited-pin-baseline-review.json",
@@ -308,23 +323,23 @@
     },
     {
       "path": "metadata/layout.json",
-      "bytes": 17485,
-      "sha256": "3a68877f2e509243ea62556b0f1619d127cce757a492f9d50109eb64f41804f8"
+      "bytes": 18984,
+      "sha256": "07df0ae253ea45540b0ff7656df765d99e15eeb2fabff17e26cfba052f43ab97"
     },
     {
       "path": "metadata/mechanical-build.json",
-      "bytes": 11137,
-      "sha256": "feac0535683bd2460b6098f15ca6e3e02af149c507a0bd662b2bfbfce1b323d7"
+      "bytes": 11257,
+      "sha256": "475ec85fbee734b4ebba719dc14b68d137bac939f9edc483ecfca45d42582a05"
     },
     {
       "path": "metadata/mechanical-critical-review-reopened.json",
-      "bytes": 685071,
-      "sha256": "2699762fec5af451ddfb5d366fe00a57cc9acb0334cfbf570d44419455aad43e"
+      "bytes": 685707,
+      "sha256": "dd9562f24510ae3c72201e3f4e4bc548ac0a2895887a0bf1a1e155f2542d7ace"
     },
     {
       "path": "metadata/mechanical-critical-review.json",
-      "bytes": 685051,
-      "sha256": "b6cde16d50dd03e69bef16651c7c43753f4191852e1037b88675c454538f1f72"
+      "bytes": 685687,
+      "sha256": "a0615ce4628d7cbee2562b97f8bebe7b4caeb7bda4b5deceebb8cebb4da08461"
     },
     {
       "path": "metadata/mechanical-settings.json",
@@ -333,18 +348,18 @@
     },
     {
       "path": "metadata/mechanical-slice-review-reopened.json",
-      "bytes": 1384467,
-      "sha256": "5dd41f503ac299b6df32486cd9776e656919c8d24186f3dc8d5d44a5ed255094"
+      "bytes": 1385200,
+      "sha256": "be82b0e067421555eaa4e81b572d17b7c1dcc5b538d208e6caefbbefb7009964"
     },
     {
       "path": "metadata/mechanical-slice-review.json",
-      "bytes": 1384449,
-      "sha256": "1950a412e9caf65cf678ce3f05da852b76891f3cb4dc62f011e748dcecb21646"
+      "bytes": 1385180,
+      "sha256": "98781af86cd9c3f6dca3fd2a3abb7fde6f4d4dbe9ce0e196bce14e784570a14e"
     },
     {
       "path": "metadata/meshes.json",
-      "bytes": 10649,
-      "sha256": "dbdcbc60fd981fcf98d5af9ee6ac895beafd1d84826ee322f5d5c83d2bc90b95"
+      "bytes": 11302,
+      "sha256": "4b97d11bc6532ee2c23b5d7e0b42f9c021f4d887005fe8aeb31ff2ce6f52835a"
     },
     {
       "path": "metadata/pin-profile-trials.json",
@@ -353,18 +368,43 @@
     },
     {
       "path": "metadata/provenance.json",
-      "bytes": 1285,
-      "sha256": "f288f555b5d01c87d204e3f0a6c6b62d5034ee0a936896a1132a9da5520db787"
+      "bytes": 1508,
+      "sha256": "1e77c8628d77a38318396d4d4b9ae20fda5cb7129fa5ffa02a7ee3c775d50884"
+    },
+    {
+      "path": "metadata/stability-actuator-reopened.json",
+      "bytes": 9380,
+      "sha256": "884b8d73f0cb8049b8ce278c73f36f4aef1befd7e212dcbc05366fc71e72cef7"
+    },
+    {
+      "path": "metadata/stability-actuator.json",
+      "bytes": 9380,
+      "sha256": "19bbe5b565570bcb4eb1175df41148af7ebfa03c4933fac02ea2e17e01075468"
+    },
+    {
+      "path": "metadata/stability-geometry.json",
+      "bytes": 815,
+      "sha256": "b2a71a39d3bb149bfa57d8a2df9c69930f87da51da75fe0d963268b9645e626a"
+    },
+    {
+      "path": "metadata/stability-mechanical-reopened.json",
+      "bytes": 15107,
+      "sha256": "36eb89a513b4041411e3729a1032a2e9cfefc69bcd3adae73a54f1d8c122d8c9"
+    },
+    {
+      "path": "metadata/stability-mechanical.json",
+      "bytes": 15107,
+      "sha256": "f65911b2c8db1486f8ded72010c7106d70a8dd88f6dba4893abbb36ebae4478c"
     },
     {
       "path": "results.md",
-      "bytes": 1950,
-      "sha256": "fb32a5602786fc811d5d34958a3cf20d2a2cdffa503388a03f92442f54302096"
+      "bytes": 2103,
+      "sha256": "6799824a89965681d5b4dfab6ad0b43dd7bdc9c6b213b2588e0088acff19a813"
     },
     {
       "path": "scripts/build_projects.py",
-      "bytes": 8488,
-      "sha256": "d10cf9087365ea01da1fd0518879e6c194da3fc98964807584445d63007b8d1b"
+      "bytes": 8521,
+      "sha256": "d5113e591a07974458119d2fc5823b79a2db9c6938933252855e44848060c33d"
     },
     {
       "path": "scripts/calculate.py",
@@ -378,13 +418,13 @@
     },
     {
       "path": "scripts/generate.py",
-      "bytes": 5402,
-      "sha256": "fba71de1507a461c51d306f444552fb2493210af3fbe9fa490230c34624149e9"
+      "bytes": 5759,
+      "sha256": "659bbc803aa926e7ac1df18ee238a1ceaec5095e3eab3347af2116d26cecb087"
     },
     {
       "path": "scripts/review_toolpaths.py",
-      "bytes": 8024,
-      "sha256": "3ece8f42e99485c1f0a17b586c130054ca4961337884bc3593da9fa06cf19d29"
+      "bytes": 8162,
+      "sha256": "1f8dcc3315157abdcd3348c6322f27d6ad493df3c2ae5c3002d73da29a150a78"
     },
     {
       "path": "scripts/verify_actuator.py",
@@ -402,22 +442,29 @@
       "sha256": "58cca3914f771e961d9550d92596985ec841fd9fac2f1c0a13ccf6c5dfab45cc"
     },
     {
+      "path": "scripts/verify_stability.py",
+      "bytes": 3962,
+      "sha256": "42d5e781b554e1f30f879096594ed3617a5afbcc58eba02e32ce3d01746f1629"
+    },
+    {
       "path": "scripts/verify_supports.py",
       "bytes": 3020,
       "sha256": "1ce82b47482e14d5898c95995a48e3219cfa884fca40d35e42716744c1f7204e"
     },
     {
       "path": "test.md",
-      "bytes": 7227,
-      "sha256": "1c5c5143a0aee61fdb40923366f2f0a6c6020354883ec5f1b88a80200c8cb8c8"
+      "bytes": 7810,
+      "sha256": "09ef79f8cc535431105b770ce8e7d7fc0069a913751ffb2c7888aa180dc3dcb3"
     },
     {
       "path": "verification.md",
-      "bytes": 8517,
-      "sha256": "d930f7e9f7e5c3200bc07d1dfdb05e5791807e8754bb9f7b5b6ff6f9a7cccc3d"
+      "bytes": 9570,
+      "sha256": "65e96a26f0b60c38e18cfec31e2e046b7218f14985445db21f7a70d4c5fa3cac"
     }
   ],
   "model_orphan_components": 0,
   "bank_supported_maximum_free_span_mm": 3.578364166703112,
-  "git_staged_whitespace_check": "PASS"
+  "git_staged_whitespace_check": "PASS",
+  "print_stabilization": "Four-sided breakaway towers on five pins and five coupling stems; existing screw supports retained.",
+  "printed_neck_connections_per_saved_or_reopened_set": 140
 }

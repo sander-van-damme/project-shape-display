@@ -1,38 +1,38 @@
 {
-  "project_sha256": "a27b99657ce4cca314ab59a02eb74d308980e4cf34ebfb7b7804232e1d4c5b45",
+  "project_sha256": "923e3a93e1cd1553d0c1da33393e34e8c70b41309892ec1313df8494860bb535",
   "layer_count": 333,
   "roles": {
-    "Brim": 749,
-    "Inner wall": 31491,
-    "Outer wall": 68589,
-    "Bottom surface": 1067,
-    "Internal solid infill": 17455,
-    "Sparse infill": 52577,
+    "Brim": 2370,
+    "Inner wall": 46242,
+    "Outer wall": 100784,
+    "Bottom surface": 1130,
+    "Internal solid infill": 17828,
+    "Sparse infill": 52591,
     "Top surface": 1181,
-    "Gap infill": 346,
+    "Gap infill": 355,
     "Overhang wall": 724,
-    "Bridge": 1235,
-    "Floating vertical shell": 775
+    "Bridge": 1238,
+    "Floating vertical shell": 776
   },
   "support_paths": 0,
-  "brim_paths": 749,
+  "brim_paths": 2370,
   "project_bounds_mm": [
     [
-      55.55000494,
+      53.90000344,
       71.0,
       0.0
     ],
     [
-      200.44999695,
+      202.100006,
       185.0,
       40.0
     ]
   ],
   "stats": [
-    "; model printing time: 3h 59m 50s; total estimated time: 4h 15m 29s",
-    "; total filament length [mm] : 4984.84",
-    "; total filament volume [cm^3] : 11989.95",
-    "; total filament weight [g] : 14.87"
+    "; model printing time: 4h 51m 43s; total estimated time: 5h 7m 22s",
+    "; total filament length [mm] : 5551.46",
+    "; total filament volume [cm^3] : 13352.82",
+    "; total filament weight [g] : 16.56"
   ],
   "parts": [
     {
@@ -153,28 +153,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 2.5194300033135626,
+          "rotor_wall_uncovered_mm": 2.519430196359902,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 2.5193828762985198,
+          "rotor_wall_uncovered_mm": 2.5193830697128994,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.8003512248200737,
+          "rotor_wall_uncovered_mm": 3.800350044615471,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.7475958697601337,
+          "rotor_wall_uncovered_mm": 3.747594741296968,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -356,28 +356,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 2.534210206951834,
+          "rotor_wall_uncovered_mm": 2.534210706987925,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 2.5193828762985144,
+          "rotor_wall_uncovered_mm": 2.519383069712895,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 3.3925457591115933,
+          "rotor_wall_uncovered_mm": 3.3925446410179134,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.756157084290249,
+          "rotor_wall_uncovered_mm": 3.7561559237839903,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -490,9 +490,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Inner wall": 20.0,
         "Outer wall": 15.0,
-        "Overhang wall": 15.0
+        "Overhang wall": 15.0,
+        "Inner wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -770,7 +770,7 @@
       "source": "rotor-loose",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4048,
+        "Outer wall": 4053,
         "Overhang wall": 34,
         "Inner wall": 34
       },
@@ -883,28 +883,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.170425605251884,
+          "rotor_wall_uncovered_mm": 1.1704257553108466,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.203478578117442,
+          "rotor_wall_uncovered_mm": 1.2034789098989527,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 2.378546044098894,
+          "rotor_wall_uncovered_mm": 2.3785459179651536,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 2.328696891945438,
+          "rotor_wall_uncovered_mm": 2.3277159863834047,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -1086,28 +1086,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.1990557967398296,
+          "rotor_wall_uncovered_mm": 1.1990557359075453,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.2031975329398612,
+          "rotor_wall_uncovered_mm": 1.2031978646713337,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.032456329895539,
+          "rotor_wall_uncovered_mm": 2.03245774411329,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 2.337137863312731,
+          "rotor_wall_uncovered_mm": 2.3371377395883455,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -1220,9 +1220,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Inner wall": 22.5,
         "Outer wall": 15.0,
-        "Overhang wall": 15.0
+        "Overhang wall": 15.0,
+        "Inner wall": 22.5
       },
       "center_disk_probe": [
         {
@@ -1629,9 +1629,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Gap infill": 30.0,
         "Inner wall": 15.0,
         "Outer wall": 15.0,
+        "Gap infill": 30.0,
         "Top surface": 20.0
       },
       "center_disk_probe": [
@@ -1839,9 +1839,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Gap infill": 30.0,
         "Inner wall": 15.0,
         "Outer wall": 15.0,
+        "Gap infill": 30.0,
         "Top surface": 20.0
       },
       "center_disk_probe": [
@@ -1920,7 +1920,7 @@
       "source": "guide-48",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 992,
+        "Inner wall": 976,
         "Outer wall": 612,
         "Top surface": 56
       },
@@ -2128,7 +2128,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4660,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -2241,28 +2241,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226892585,
+          "rotor_wall_uncovered_mm": 1.9268128094890602,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014722778183,
+          "rotor_wall_uncovered_mm": 1.9296804801568461,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734222640306,
+          "rotor_wall_uncovered_mm": 3.201712348626793,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683669323803,
+          "rotor_wall_uncovered_mm": 3.13440740088841,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -2444,28 +2444,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.9268273330657544,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.929659923900191,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.7945526183265565,
+          "rotor_wall_uncovered_mm": 2.794530918076842,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.1418331183715216,
+          "rotor_wall_uncovered_mm": 3.160253329733857,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -2578,9 +2578,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Inner wall": 22.5,
         "Outer wall": 15.0,
-        "Overhang wall": 15.0
+        "Overhang wall": 15.0,
+        "Inner wall": 22.5
       },
       "center_disk_probe": [
         {
@@ -2858,7 +2858,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4660,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -2971,28 +2971,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226892585,
+          "rotor_wall_uncovered_mm": 1.9268128094890602,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014722778183,
+          "rotor_wall_uncovered_mm": 1.9296804801568461,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734222640306,
+          "rotor_wall_uncovered_mm": 3.201712348626793,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683669323803,
+          "rotor_wall_uncovered_mm": 3.13440740088841,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -3174,28 +3174,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.9268273330657544,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.929659923900191,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.7945526183265565,
+          "rotor_wall_uncovered_mm": 2.794530918076842,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.1418331183715216,
+          "rotor_wall_uncovered_mm": 3.160253329733857,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -3308,9 +3308,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Inner wall": 22.5,
         "Outer wall": 15.0,
-        "Overhang wall": 15.0
+        "Overhang wall": 15.0,
+        "Inner wall": 22.5
       },
       "center_disk_probe": [
         {
@@ -3588,7 +3588,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4660,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -3701,28 +3701,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226892585,
+          "rotor_wall_uncovered_mm": 1.9268128094890602,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014722778183,
+          "rotor_wall_uncovered_mm": 1.9296804801568461,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734222640306,
+          "rotor_wall_uncovered_mm": 3.201712348626793,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683669323803,
+          "rotor_wall_uncovered_mm": 3.13440740088841,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -3904,28 +3904,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.9268273330657544,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598697883662,
+          "rotor_wall_uncovered_mm": 1.929659923900191,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.7945526183265565,
+          "rotor_wall_uncovered_mm": 2.794530918076842,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.1418331183715216,
+          "rotor_wall_uncovered_mm": 3.160253329733857,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -4038,9 +4038,9 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Inner wall": 22.5,
         "Outer wall": 15.0,
-        "Overhang wall": 15.0
+        "Overhang wall": 15.0,
+        "Inner wall": 22.5
       },
       "center_disk_probe": [
         {
@@ -4315,11 +4315,13 @@
     },
     {
       "name": "fit-pin-4.50",
-      "source": "pin",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1434,
-        "Outer wall": 8655
+        "Inner wall": 7861,
+        "Outer wall": 20647,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -6637,7 +6639,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Outer wall": 27.5,
+        "Internal solid infill": 30.0,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {

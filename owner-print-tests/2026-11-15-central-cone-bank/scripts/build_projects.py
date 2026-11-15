@@ -18,7 +18,7 @@ def input_project(name,out):
   for a,b,c in mesh.faces:E.SubElement(fs,f'{{{NS}}}triangle',v1=str(a),v2=str(b),v3=str(c))
   E.SubElement(build,f'{{{NS}}}item',objectid=str(i));co=E.SubElement(cfg,'object',id=str(i))
   vals=dict(name=p['name'],enable_support='0',extruder='1')
-  if p['source'] in ['screw-supported','pin','male']:
+  if p['source'] in ['screw-supported','pin','male','pin-supported','male-supported']:
    vals.update(brim_type='outer_only',brim_width='3',brim_object_gap='0.12',sparse_infill_density='100%')
   if p['source'] in ['bank','motorplate','endblock','foot','lower0','lower1','lower2','upper','strap','index']:
    vals.update(outer_wall_speed='30',inner_wall_speed='40',sparse_infill_speed='60')
