@@ -1,0 +1,3340 @@
+{
+  "project_sha256": "5284d46b75e274375acbbc399f00ef22ee7e9e7f02745f88e2af203f73b40f24",
+  "layer_count": 458,
+  "roles": {
+    "Outer wall": 199309,
+    "Brim": 3213,
+    "Inner wall": 51349,
+    "Bottom surface": 857,
+    "Internal solid infill": 17912,
+    "Top surface": 778,
+    "Sparse infill": 5724,
+    "Gap infill": 287,
+    "Floating vertical shell": 236,
+    "Bridge": 737,
+    "Overhang wall": 84
+  },
+  "support_paths": 0,
+  "brim_paths": 3213,
+  "project_bounds_mm": [
+    [
+      72.5,
+      80.4000015,
+      0.0
+    ],
+    [
+      183.5,
+      175.60001421,
+      55.0
+    ]
+  ],
+  "stats": [
+    "; model printing time: 4h 12m 45s; total estimated time: 4h 28m 25s",
+    "; total filament length [mm] : 3420.93",
+    "; total filament volume [cm^3] : 8228.29",
+    "; total filament weight [g] : 10.20"
+  ],
+  "parts": [
+    {
+      "name": "C upright 1",
+      "source": "pin",
+      "layers": 150,
+      "role_counts": {
+        "Inner wall": 1114,
+        "Outer wall": 4966
+      },
+      "orphan_components": [],
+      "critical_sections": [
+        {
+          "z_mm": 0.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.48,
+          "midwall_uncovered_mm": 0.12102360510693355,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 0.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.64,
+          "midwall_uncovered_mm": 0.0007038672502989174,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 2.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.48,
+          "midwall_uncovered_mm": 0.12102360510693455,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 3.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.64,
+          "midwall_uncovered_mm": 0.0007038672502989174,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 5.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 18.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        }
+      ],
+      "center_disk_probe": [
+        {
+          "z_mm": 0.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 18.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "name": "C upright 2",
+      "source": "pin",
+      "layers": 150,
+      "role_counts": {
+        "Inner wall": 1114,
+        "Outer wall": 4966
+      },
+      "orphan_components": [],
+      "critical_sections": [
+        {
+          "z_mm": 0.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.48,
+          "midwall_uncovered_mm": 0.12102360510693355,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 0.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 0.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 1.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.64,
+          "midwall_uncovered_mm": 0.0007038672502989174,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 2.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 2.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.48,
+          "midwall_uncovered_mm": 0.12102360510693455,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 3.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 3.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 4.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.64,
+          "midwall_uncovered_mm": 0.0007038672502989174,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": false,
+          "closed_hoop_buffer04": false
+        },
+        {
+          "z_mm": 5.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 5.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 6.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 7.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 8.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 9.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 10.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 11.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 12.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 13.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 14.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.12,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.24,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.36,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.48,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.6,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.72,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.84,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 15.96,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.08,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.2,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.32,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.44,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.56,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.68,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.8,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 16.92,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.04,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.16,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.28,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.4,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.52,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.64,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.76,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 17.88,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        },
+        {
+          "z_mm": 18.0,
+          "midwall_uncovered_mm": 0.0,
+          "bore_core_deposition_mm2": 0.0,
+          "closed_hoop_raw": true,
+          "closed_hoop_buffer04": true
+        }
+      ],
+      "center_disk_probe": [
+        {
+          "z_mm": 0.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 0.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 1.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 2.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 3.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 4.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 5.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 6.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 7.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 8.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 9.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 10.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 11.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 12.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 13.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 14.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.12,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.24,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.36,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.48,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.6,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.72,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.84,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 15.96,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.08,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.2,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.32,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.44,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.56,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.68,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.8,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 16.92,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.04,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.16,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.28,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.4,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.52,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.64,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.76,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 17.88,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        },
+        {
+          "z_mm": 18.0,
+          "center_disk_radius_06_deposition_mm2": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Nominal sliced deposition; not physical fit, stability, strength or adhesion"
+}

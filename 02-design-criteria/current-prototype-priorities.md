@@ -27,3 +27,5 @@ The former READY P1 [five-pair short-thread tolerance STL](../owner-print-tests/
 ## 4. Later-stage comparisons
 
 Complete-machine cost, reliable retention, repaired failures, optical height readback (possibly by shared 3D camera), drift correction and game interruptions are useful later. Detailed [E-293 optical work](../06-experiments/E-293-baseline-sensitivity-versus-terrain-visibility.md) is **not a prerequisite** for proving mechanical up/down movement. Reopen sensing only for a concrete immediate blocker; don't allocate another autonomous research thread because an optical model has an unresolved parameter. No purchases are authorized by a research target.
+
+**Eigenaarsrichting 15 november2026:** [DES-010](../08-integrated-designs/DES-010-central-motor-selectable-cone-bank/DES-010-central-motor-selectable-cone-bank.md) concretiseert de centrale omkeerbare motorbank met afzonderlijke conussen; mechanische prioriteiten hierboven blijven gelden.

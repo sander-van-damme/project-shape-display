@@ -1,0 +1,126 @@
+{
+  "scope": "Finite actual Bambu slicing comparison only; physical fit/strength unknown",
+  "selected": "4.50-mm outer shell; unchanged female thread. Final complete saved/reopened projects both verified with raw deposited hoops closed; guide fit and physical strength remain untested.",
+  "cases": [
+    {
+      "case": "inherited-Arachne",
+      "project_sha256": "ec9aaade48bdde16d217b20f57a163db72e4574bb344c78e94b6d343ebe2737d",
+      "settings": {
+        "wall_generator": "arachne",
+        "seam_gap": "15%"
+      },
+      "pins": [
+        {
+          "name": "pin-11",
+          "raw_open_layers": 24,
+          "open_layers_after_004mm_buffer": 5,
+          "maximum_fixed_midwall_uncovered_mm": 0.12108402604168261
+        },
+        {
+          "name": "pin-14",
+          "raw_open_layers": 24,
+          "open_layers_after_004mm_buffer": 5,
+          "maximum_fixed_midwall_uncovered_mm": 0.12108402604168261
+        },
+        {
+          "name": "pin-17",
+          "raw_open_layers": 27,
+          "open_layers_after_004mm_buffer": 6,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102285730294027
+        },
+        {
+          "name": "pin-20",
+          "raw_open_layers": 27,
+          "open_layers_after_004mm_buffer": 6,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102285730294027
+        }
+      ]
+    },
+    {
+      "case": "pin-seam-zero",
+      "project_sha256": "4b1a747a665d50efdf5a967bef18c58f8e7836f76474610bf79854915252cae2",
+      "settings": {
+        "wall_generator": "arachne",
+        "seam_gap": "0%"
+      },
+      "pins": [
+        {
+          "name": "pin-11",
+          "raw_open_layers": 24,
+          "open_layers_after_004mm_buffer": 3,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102379133620783
+        },
+        {
+          "name": "pin-14",
+          "raw_open_layers": 24,
+          "open_layers_after_004mm_buffer": 3,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102379133620783
+        },
+        {
+          "name": "pin-17",
+          "raw_open_layers": 27,
+          "open_layers_after_004mm_buffer": 4,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102379133618685
+        },
+        {
+          "name": "pin-20",
+          "raw_open_layers": 27,
+          "open_layers_after_004mm_buffer": 4,
+          "maximum_fixed_midwall_uncovered_mm": 0.12102379133618685
+        }
+      ]
+    },
+    {
+      "case": "pin-Classic",
+      "project_sha256": "fda9e3dd59384eb2b6d94b5876bb7c1e96453f5107d8ba4cf5392cbd2725458b",
+      "settings": {
+        "wall_generator": "classic",
+        "seam_gap": "15%"
+      },
+      "pins": [
+        {
+          "name": "pin-11",
+          "raw_open_layers": 36,
+          "open_layers_after_004mm_buffer": 32,
+          "maximum_fixed_midwall_uncovered_mm": 0.05670480187311999
+        },
+        {
+          "name": "pin-14",
+          "raw_open_layers": 36,
+          "open_layers_after_004mm_buffer": 32,
+          "maximum_fixed_midwall_uncovered_mm": 0.05670480187311999
+        },
+        {
+          "name": "pin-17",
+          "raw_open_layers": 36,
+          "open_layers_after_004mm_buffer": 32,
+          "maximum_fixed_midwall_uncovered_mm": 0.05670480187313415
+        },
+        {
+          "name": "pin-20",
+          "raw_open_layers": 36,
+          "open_layers_after_004mm_buffer": 32,
+          "maximum_fixed_midwall_uncovered_mm": 0.05670480187313415
+        }
+      ]
+    },
+    {
+      "case": "outer-only-4.50mm-shell",
+      "project_sha256": "a0fea9012f81f4ef14133d1af3871b4dc3d20de5ed8da904977deee98eddefae",
+      "settings": {
+        "wall_generator": "arachne",
+        "seam_gap": "15%",
+        "outer_width_mm": 4.5,
+        "female_geometry": "unchanged"
+      },
+      "pins": [
+        {
+          "name": "pin-45",
+          "raw_open_layers": 0,
+          "open_layers_after_004mm_buffer": 0,
+          "maximum_fixed_midwall_uncovered_mm": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "target": "base",
+    "slider_mm": -5,
+    "empty_intersection": true
+  },
+  {
+    "target": "base",
+    "slider_mm": -2.5,
+    "empty_intersection": true
+  },
+  {
+    "target": "base",
+    "slider_mm": 0,
+    "empty_intersection": true
+  },
+  {
+    "target": "base",
+    "slider_mm": 2.5,
+    "empty_intersection": true
+  },
+  {
+    "target": "base",
+    "slider_mm": 5,
+    "empty_intersection": true
+  },
+  {
+    "target": "bridge",
+    "slider_mm": -5,
+    "empty_intersection": true
+  },
+  {
+    "target": "bridge",
+    "slider_mm": -2.5,
+    "empty_intersection": true
+  },
+  {
+    "target": "bridge",
+    "slider_mm": 0,
+    "empty_intersection": true
+  },
+  {
+    "target": "bridge",
+    "slider_mm": 2.5,
+    "empty_intersection": true
+  },
+  {
+    "target": "bridge",
+    "slider_mm": 5,
+    "empty_intersection": true
+  }
+]

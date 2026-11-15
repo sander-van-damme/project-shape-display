@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1500" height="1140" viewBox="0 0 1500 1140">
+<defs>
+ <style>text{font-family:Arial,sans-serif;fill:#172833}.title{font-size:29px;font-weight:bold}.sub{font-size:19px}.label{font-size:17px}.small{font-size:15px}.dim{stroke:#586a77;stroke-width:1.3;fill:none}.datum{stroke:#9aabb7;stroke-width:1;stroke-dasharray:5 5}.fixed{fill:#d2e0e8;stroke:#33586b;stroke-width:1.5}.output{fill:#b3c2cc;stroke:#263d4b;stroke-width:1.5}.input{fill:#d8a45a;stroke:#795320;stroke-width:1.5}.yoke{fill:#e1d5ee;stroke:#7d5d9c;stroke-width:1.5}.load{stroke:#c63f35;stroke-width:3;fill:none;marker-end:url(#redArrow)}.drive{stroke:#b47720;stroke-width:3;fill:none;marker-end:url(#goldArrow)}</style>
+ <marker id="redArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#c63f35"/></marker>
+ <marker id="goldArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#b47720"/></marker>
+ <marker id="dimArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M10 0L0 5L10 10" fill="none" stroke="#586a77" stroke-width="1.5"/></marker>
+ <g id="resident">
+  <!-- z-coordinate maps to y=900-12*z; section through the rotating axis. -->
+  <line class="datum" x1="0" y1="355" x2="0" y2="790"/>
+  <!-- Fixed lower support: z31.35..33.95, bore diameter2.3. -->
+  <path class="fixed" d="M-145 492.6H-13.8V523.8H-145ZM13.8 492.6H145V523.8H13.8Z"/>
+  <!-- Fixed upper keeper: z35.05..36.65, bore diameter3.5. -->
+  <path class="fixed" d="M-145 460.2H-21V479.4H-145ZM21 460.2H145V479.4H21Z"/>
+  <!-- Female cup, lower neck, captured flange, upper neck and thread envelope. -->
+  <path class="output" d="M-19.2 381.6H19.2V480H26.4V492H12V528H27.6V552H22.8L13.2 535.368H-13.2L-22.8 552H-27.6V528H-12V492H-26.4V480H-19.2Z"/>
+  <!-- Thread witness only: actual thread mesh omitted from this explanatory section. -->
+  <path d="M-19.2 395L19.2 389M-19.2 411L19.2 405M-19.2 427L19.2 421M-19.2 443L19.2 437M-19.2 453.6H19.2" stroke="#526e7d" stroke-width="1.7" fill="none"/>
+  <path d="M-25 379l10 6 10-6 10 6 10-6" stroke="#526e7d" stroke-width="1.5" fill="none"/>
+ </g>
+ <g id="bank-fixed">
+  <!-- Axially fixed belt rotor, z12..20; square sliding bore2.3. -->
+  <path class="input" d="M-27.6 660H-13.8V756H-27.6ZM13.8 660H27.6V756H13.8Z"/>
+  <path d="M-33 673H-27.6M27.6 673H33M-33 744H-27.6M27.6 744H33" stroke="#795320" stroke-width="3"/>
+ </g>
+ <g id="moving">
+  <!-- Male contact ring z29..30.386, square2mm stem and captured collar26.4..27.2. -->
+  <path class="input" d="M-22.8 552L-13.2 535.368H13.2L22.8 552H12V573.6H21.6V583.2H12V750H-12V583.2H-21.6V573.6H-12V552Z"/>
+  <!-- Nonrotating yoke, approximate section: floor24.3..26.3 and roof27.3..28.1. -->
+  <path class="yoke" d="M-68 562.8H-14.4V572.4H-48V584.4H48V572.4H14.4V562.8H68V608.4H-68Z" fill-rule="evenodd"/>
+  <!-- Make the central shaft clearance visible in the floor. -->
+  <rect x="-14.4" y="584.4" width="28.8" height="24" fill="white" stroke="none"/>
+  <path d="M-14.4 584.4V608.4M14.4 584.4V608.4" stroke="#7d5d9c" stroke-width="1.5"/>
+ </g>
+</defs>
+<rect width="1500" height="1140" fill="#fff"/>
+<text x="55" y="53" class="title">DES-010 — doorsnede van één selecteerbaar kanaal</text>
+<text x="55" y="86" class="sub">Maten in mm · z = hoogte vanaf gemeenschappelijk CAD-datum · vaste schroef blijft zelfstandig ondersteund</text>
+<text x="55" y="115" class="small">Verklarende maatdoorsnede op basis van ontwerpcoördinaten; geen CAD-render, tolerantiebewijs of fysiek werkingsbewijs.</text>
+<rect x="55" y="146" width="1390" height="111" rx="10" fill="#f1f5f8"/>
+<text x="75" y="176" class="sub">Twee onafhankelijk selecteerbare uitgangen op 5,08 pitch; onderstaande figuren tonen dezelfde uitgang in twee standen.</text>
+<text x="75" y="204" class="label">Cup Ø4,6 → nominale buurspeling 0,48. Conus: halve hoek 30°, contactstraal 1,1–1,9, contacthoogte 1,386.</text>
+<text x="75" y="232" class="label">Riemrotor blijft axiaal vast. Vierkante stift 2,0 schuift in boring 2,3. De bank beweegt pas na volledige parkcontrole.</text>
+<text x="215" y="307" class="title">ON — conuscontact</text>
+<text x="915" y="307" class="title">OFF — volledig geparkeerd</text>
+<!-- Common reference datums across both views. -->
+<line x1="180" y1="552" x2="1340" y2="552" class="datum"/>
+<line x1="180" y1="453.6" x2="1340" y2="453.6" class="datum"/>
+<line x1="180" y1="660" x2="1340" y2="660" class="datum"/>
+<line x1="180" y1="756" x2="1340" y2="756" class="datum"/>
+<use xlink:href="#resident" x="340"/>
+<use xlink:href="#bank-fixed" x="340"/>
+<use xlink:href="#moving" x="340"/>
+<use xlink:href="#resident" x="1035"/>
+<use xlink:href="#bank-fixed" x="1035"/>
+<use xlink:href="#moving" x="1035" transform="translate(0 28.8)"/>
+<!-- ON annotation leaders. -->
+<text x="65" y="365" class="label">Vaste schroef naar pin</text>
+<path d="M235 369H300L321 401" class="dim"/>
+<text x="65" y="409" class="small">Draad: Ø3,2 / spoed 3</text>
+<text x="65" y="433" class="small">Begin z37,2; lengte 27</text>
+<text x="510" y="394" class="label">Bovenhals Ø3,2</text>
+<path d="M500 399H395L360 451" class="dim"/>
+<text x="510" y="426" class="label">Vaste keeper</text>
+<text x="510" y="449" class="small">z35,05–36,65</text>
+<path d="M500 435L470 468" class="dim"/>
+<text x="510" y="485" class="label">Flens Ø4,4</text>
+<text x="510" y="508" class="small">z34–35; axiale vangst</text>
+<path d="M500 485H391L367 486" class="dim"/>
+<text x="65" y="486" class="label">Onderhals Ø2</text>
+<path d="M210 490H295L328 512" class="dim"/>
+<text x="65" y="524" class="small">Onderste vaste plaat</text>
+<text x="65" y="546" class="small">z31,35–33,95</text>
+<path d="M225 520H270" class="dim"/>
+<text x="510" y="548" class="label">Cupopening z29</text>
+<path d="M500 552H369" class="dim"/>
+<text x="510" y="584" class="label">Roterende vangflens</text>
+<text x="510" y="607" class="small">z26,4–27,2</text>
+<path d="M500 579H362" class="dim"/>
+<text x="65" y="636" class="label">Niet-roterende vork</text>
+<path d="M260 632L295 603" class="dim"/>
+<text x="510" y="700" class="label">Vaste riemrotor</text>
+<text x="510" y="723" class="small">z12–20; boring □2,3</text>
+<path d="M500 705H369" class="dim"/>
+<text x="65" y="749" class="small">Schuivende stift □2,0</text>
+<path d="M260 744H326" class="dim"/>
+<!-- Force arrows: external spring is intentionally a functional symbol. -->
+<path d="M265 652V590" class="load"/>
+<path d="M246 680l19-6-19-7 19-7" fill="none" stroke="#c63f35" stroke-width="2"/>
+<text x="65" y="704" class="small" fill="#c63f35">Veerdruk via lifter ↑</text>
+<path d="M392 390V486H430V500" class="load"/>
+<path d="M380 548V483H410V468" class="load"/>
+<text x="510" y="349" class="small">Pinlast ↓ flens → onderste vaste plaat</text>
+<text x="510" y="371" class="small">Conusdruk ↑ flens → bovenkeeper → frame</text>
+<path d="M281 722C242 701 254 678 287 681" class="drive"/>
+<!-- OFF clearance and vertical travel dimensions. -->
+<text x="1200" y="396" class="label">Zelfde vaste delen</text>
+<text x="1200" y="420" class="small">blijven op hun hoogte</text>
+<path d="M1190 421L1130 467" class="dim"/>
+<line x1="1075" y1="552" x2="1180" y2="552" class="dim"/>
+<line x1="1050" y1="564.168" x2="1180" y2="564.168" class="dim"/>
+<line x1="1165" y1="552" x2="1165" y2="564.168" class="dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+<text x="1200" y="548" class="label">Tip z27,986</text>
+<text x="1200" y="572" class="small">Vrije verticale ruimte:</text>
+<text x="1200" y="595" class="label">29 − 27,986 = 1,014</text>
+<text x="1200" y="619" class="small">Nominaal, vóór fouten/tilt</text>
+<line x1="942" y1="535.368" x2="942" y2="564.168" class="dim" marker-start="url(#dimArrow)" marker-end="url(#dimArrow)"/>
+<line x1="942" y1="535.368" x2="1018" y2="535.368" class="dim"/>
+<line x1="942" y1="564.168" x2="1018" y2="564.168" class="dim"/>
+<text x="810" y="546" class="label">Terugtrekken</text>
+<text x="840" y="573" class="label">2,4 ↓</text>
+<text x="1200" y="689" class="label">Rotor blijft vast</text>
+<path d="M1190 694H1065" class="dim"/>
+<text x="905" y="795" class="label">Stift en vangflens zakken 2,4;</text>
+<text x="905" y="822" class="label">vork trekt werkelijk terug.</text>
+<text x="65" y="812" class="small">Rood: krachtenroute. Oker: draaiende bankdelen. Blauw: vaste frameplaten. Paars: niet-roterende vork.</text>
+<!-- Notes at bottom. -->
+<rect x="55" y="856" width="1390" height="235" rx="10" fill="#fff7e8" stroke="#dfc591"/>
+<text x="75" y="889" class="sub">Wat deze doorsnede wél en niet vastlegt</text>
+<text x="75" y="921" class="label">• De bank draagt geen permanente pinlast; de flens blijft tussen twee vaste platen gevangen, ook zonder bank.</text>
+<text x="75" y="950" class="label">• Gevangen flens heeft nominaal 0,10 totale axiale speling. Passing/keeperwrijving moeten fysiek worden gecontroleerd.</text>
+<text x="75" y="979" class="label">• Vorkvorm is schematisch; vloer z24,3–26,3, dak z27,3–28,1 in ON. Veer is als functiesymbool getoond.</text>
+<text x="75" y="1008" class="label">• 2,4 terugtrekken geeft een nominale vrijloop, geen tolerantiegarantie. Beide tips controleren vóór rijden naar rij twee.</text>
+<text x="75" y="1037" class="label">• Conuscontact, slipkracht, slijtage, zelfstandig vasthouden en betrouwbaar loskomen zijn nog niet fysiek bewezen.</text>
+<text x="75" y="1066" class="label">• Draad is verkort en schematisch getekend; gebruik de parametrische CAD/STL voor fabricage en interferentiecontrole.</text>
+</svg>

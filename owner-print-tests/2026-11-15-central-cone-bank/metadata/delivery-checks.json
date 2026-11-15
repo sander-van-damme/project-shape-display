@@ -1,0 +1,423 @@
+{
+  "status": "READY_FOR_BOUNDED_PRINT_TESTS_NOT_PHYSICAL_VALIDATION",
+  "geometry_checks": 611,
+  "contact_checks": 4,
+  "layout_instances": 60,
+  "actuator_CGAL_poses": 10,
+  "female_geometry_symmetric_difference_mm3": 0.0,
+  "new_repo_findings": 0,
+  "baseline_repo_findings": "Oversized atomic object: E-266\nOversized atomic object: E-283\nOversized atomic object: E-286\nOversized atomic object: E-288\nOversized atomic object: E-293\nOversized instructions: owner-print-tests/AGENTS.md\n",
+  "link_check": "PASS",
+  "physical_tests": "NOT PERFORMED",
+  "entry": "test.md",
+  "manifest": [
+    {
+      "path": "actuator.3mf",
+      "bytes": 1571103,
+      "sha256": "544c2abff9afbdde6f83da7e59485174a04caff8c902b3fa3e37a23b59fda52f"
+    },
+    {
+      "path": "actuator.md",
+      "bytes": 7361,
+      "sha256": "34f1ac02fca847decc067ecd38a8fbb017af78a223006c8b07af435b0c02206a"
+    },
+    {
+      "path": "assembly.md",
+      "bytes": 9488,
+      "sha256": "7c5585fa8332227097fdaab942a719f74188c82d521e7b1853c708a4750e52ec"
+    },
+    {
+      "path": "cad/actuator.scad",
+      "bytes": 3456,
+      "sha256": "8d983b4e0b1ae3b73e14d6689c39c68611932a970641e22902bf332fd8872cb5"
+    },
+    {
+      "path": "cad/bank.scad",
+      "bytes": 8088,
+      "sha256": "ab53dd8c9177383def3f4ce3994c609f37fb5f1d60f4fa86d03dc0d8c6596160"
+    },
+    {
+      "path": "components/actuator-base.stl",
+      "bytes": 104284,
+      "sha256": "7747562394ce3a2622e092f9c5241d3a2ce4c9d0932a54d118387ed832888e62"
+    },
+    {
+      "path": "components/actuator-bobbin.stl",
+      "bytes": 58084,
+      "sha256": "99ad9c79f8f318723da864d3c30231fe81b14c1659a2c932afc46601789bc388"
+    },
+    {
+      "path": "components/actuator-bridge.stl",
+      "bytes": 31684,
+      "sha256": "f4d934730d383947095c75db31d9f03321360112b39ee7be0bce7562d9d8ec08"
+    },
+    {
+      "path": "components/actuator-follower.stl",
+      "bytes": 21684,
+      "sha256": "06bc42c397edfd3bfc1958dfd7b9eb4dfa606d36bd1b59553c5be8c1bcd3374f"
+    },
+    {
+      "path": "components/actuator-slider.stl",
+      "bytes": 48284,
+      "sha256": "dee19a588011febc8d99c8a50ab6234c746c6291868d5a54fb45a9ac811862b9"
+    },
+    {
+      "path": "components/actuator.stl",
+      "bytes": 816384,
+      "sha256": "7f066a3e96c32974e1ec8b3f51eef62d7266615f7508ba0a0503b8e374aafaf0"
+    },
+    {
+      "path": "components/bank.stl",
+      "bytes": 230284,
+      "sha256": "fdda0b2b48ef597223c43201cc7b6b910abd5403e13d558b5fa47920cfae4e20"
+    },
+    {
+      "path": "components/cap.stl",
+      "bytes": 52684,
+      "sha256": "f19dd8cfbba9679d7dcd3a8a03c6e4098bf26d1c21d573f6300817e634553a4c"
+    },
+    {
+      "path": "components/endblock.stl",
+      "bytes": 52684,
+      "sha256": "9ccf0e341832b5c91e88e03dbb8e48c74d2268302f651638dad6a9bcec6048e8"
+    },
+    {
+      "path": "components/foot.stl",
+      "bytes": 13684,
+      "sha256": "6abb7c5959eb886a6e90efbe3f0f5fc63b423e4c6e53339945e0ea6f25d10892"
+    },
+    {
+      "path": "components/guide-46.stl",
+      "bytes": 2684,
+      "sha256": "7189c392b210580221601368d0ed4bfa97a740a181d600269ec56289d94be14c"
+    },
+    {
+      "path": "components/guide-47.stl",
+      "bytes": 2684,
+      "sha256": "9677f2d09a814579215df308a1b970cb6cfca84727ef63b6aa566953f484c363"
+    },
+    {
+      "path": "components/guide-48.stl",
+      "bytes": 2684,
+      "sha256": "ddd6dea9944463fc35bdd1ba4b5d87a02583c8d32a4780f10e1f7d04e39d7041"
+    },
+    {
+      "path": "components/guide.stl",
+      "bytes": 56684,
+      "sha256": "6dfdd90e3f7c2ebaaff53ca1906ed64ee2e247bb4b689dc51b3587f8039355b9"
+    },
+    {
+      "path": "components/index.stl",
+      "bytes": 39684,
+      "sha256": "e01c4835cdd647b354da012afa941e45bda2d411b061997ce1a4168426822996"
+    },
+    {
+      "path": "components/lower0.stl",
+      "bytes": 65884,
+      "sha256": "9743cd5889ca44833d2f733b0776cfa0999a9f2f7c18fe77f77d14cfaad9f72e"
+    },
+    {
+      "path": "components/lower1.stl",
+      "bytes": 27084,
+      "sha256": "0547ad12bb1776af8a54e5cf0beef47ffdf63315335dbfabfd5d78d1231748ea"
+    },
+    {
+      "path": "components/lower2.stl",
+      "bytes": 65884,
+      "sha256": "ea717e103ac2ced56374363bfcac7c0fcd6ee9fbbe08b55d4fbb060e3b8b70b9"
+    },
+    {
+      "path": "components/male.stl",
+      "bytes": 27084,
+      "sha256": "d4daf5821bd0136934f413d77120f7e234c0aab5ccca749a65afe41d168b354a"
+    },
+    {
+      "path": "components/mechanical.stl",
+      "bytes": 3524284,
+      "sha256": "5848c4289d5efd1f58126c037acc627cb52a78094bd352733e9e752d42832ac0"
+    },
+    {
+      "path": "components/motorplate.stl",
+      "bytes": 119684,
+      "sha256": "99213f11b1c1f8abdd46299f646d87fa230ad50c7c012c2a25a1e2b365ff40c4"
+    },
+    {
+      "path": "components/motorpulley.stl",
+      "bytes": 95684,
+      "sha256": "9f8528945d1b5e4cf99312c76055a14e66972f6b2c42e51ca78d71f29785c975"
+    },
+    {
+      "path": "components/pin.stl",
+      "bytes": 81984,
+      "sha256": "914797beaa0be902f79f021dcf00647a856c05021ef1698b0b5094f5ed38d905"
+    },
+    {
+      "path": "components/rotor-loose.stl",
+      "bytes": 64884,
+      "sha256": "b2daf9c146ca1d495a748d32398d1e169955c0fcc5e21ed91352c7d61b3cd4b4"
+    },
+    {
+      "path": "components/rotor-tight.stl",
+      "bytes": 64884,
+      "sha256": "c168f8dc1f98845e48698a586741e69337c4a3a7d3b1f371cf2b68f63cee3425"
+    },
+    {
+      "path": "components/rotor.stl",
+      "bytes": 64884,
+      "sha256": "53f34a46d73e9879d9e1cdfad65bba14444680f3d0642ae7a50ae87ce5b4c0be"
+    },
+    {
+      "path": "components/screw-supported.stl",
+      "bytes": 391384,
+      "sha256": "e1e91b32d04fd4d2e5c64242407f01a7da4ed2935b26619cf0bfc61317ffbc31"
+    },
+    {
+      "path": "components/screw.stl",
+      "bytes": 379984,
+      "sha256": "e3061864d93890264750d55693e2419670f891c4e47fe0c8eeb0c432ef544318"
+    },
+    {
+      "path": "components/spacer.stl",
+      "bytes": 25684,
+      "sha256": "f9289563a7be92e1fe480a2b47d123cee9721cb6e22d61252014bd0c75c1a12c"
+    },
+    {
+      "path": "components/springseat.stl",
+      "bytes": 38484,
+      "sha256": "a8a7829e45ef6db2c5de2dbd5db112659fe246cd2d5731d70460a13ecaf83bb7"
+    },
+    {
+      "path": "components/strap.stl",
+      "bytes": 26684,
+      "sha256": "50ff64fbb16adab68d8c47d23088029347b3602afe03ddb6290292d2c1ba240b"
+    },
+    {
+      "path": "components/torque-arm.stl",
+      "bytes": 25684,
+      "sha256": "f0d7ede3b87b17c5bc0ad679b1bc1186c41450fdeeecbeaaaaab31967e53dc96"
+    },
+    {
+      "path": "components/upper.stl",
+      "bytes": 104684,
+      "sha256": "acbedf9c0fe81537ab17b5679a42a4a3ab26a4b9f66fed265ef896ad6a3aa265"
+    },
+    {
+      "path": "components/yoke-long.stl",
+      "bytes": 33484,
+      "sha256": "757a4808973c38eb598b18d1ef922175f1dd9860e20afe79e69ee692b16170f0"
+    },
+    {
+      "path": "components/yoke.stl",
+      "bytes": 29684,
+      "sha256": "64da4651049be2f9beb8ca55e1e877ac075a048c5a24f8789d304257fcad1af0"
+    },
+    {
+      "path": "images/actuator.svg",
+      "bytes": 6166,
+      "sha256": "300850965dda02aa7825c31734e73f91b208fe825b1b5a799067a83a861b5b74"
+    },
+    {
+      "path": "images/critical-pin-paths.svg",
+      "bytes": 101112,
+      "sha256": "f07bf9005772eca5b5e27baaa104f9eba59dbf4e85e6d8859cb012bf7a0b5039"
+    },
+    {
+      "path": "images/plan.svg",
+      "bytes": 4417,
+      "sha256": "e45cff8ef6f3b001bb22307c44a17fbb27f012e5f57bbd4599b7f98ec6bc631d"
+    },
+    {
+      "path": "images/section.svg",
+      "bytes": 9809,
+      "sha256": "9ffc494cd24f08b5c70d06d81f23ebe757ea8639e7c08259aeecb0c9ef8b43bd"
+    },
+    {
+      "path": "mechanical.3mf",
+      "bytes": 6396192,
+      "sha256": "861232f8f4ec45c23f2d0083b9b44e6b5a14df4ae43966e7c7e03a90247fdc82"
+    },
+    {
+      "path": "metadata/actuator-build.json",
+      "bytes": 6262,
+      "sha256": "fcfda4a49e2d33349b1a91491feb515ebccf580bd06b9b7ff8d0ba96666c86d7"
+    },
+    {
+      "path": "metadata/actuator-critical-review-reopened.json",
+      "bytes": 219726,
+      "sha256": "07b7450812d6cfbf1b0f67c06db8543d32dc428759d4e9d7684f1456bc82cdfb"
+    },
+    {
+      "path": "metadata/actuator-critical-review.json",
+      "bytes": 219722,
+      "sha256": "b8981a79b46809a65a223f88bd2324d30ad198f0cf0745c6b7f9d35e1126dc3d"
+    },
+    {
+      "path": "metadata/actuator-geometry.json",
+      "bytes": 845,
+      "sha256": "0f749e5ea7e0fec9812913da2cd72d914cfbaca53bda9bc92f3e22acfc1b85ff"
+    },
+    {
+      "path": "metadata/actuator-settings.json",
+      "bytes": 55334,
+      "sha256": "ca4aab2d922fa6acd4df86965748e5199c464b86447fd9f1f84c8c4c65232b58"
+    },
+    {
+      "path": "metadata/actuator-slice-review-reopened.json",
+      "bytes": 352515,
+      "sha256": "b8206b5647eea9fc4f7432ad0a968b707ec2dded9a1357953b490bd404963bc4"
+    },
+    {
+      "path": "metadata/actuator-slice-review.json",
+      "bytes": 352512,
+      "sha256": "39010bcf01ed1c4bba4ef8678ae4b9a7ad2b65dd8a5b1f36dd47c59ec5964481"
+    },
+    {
+      "path": "metadata/archive-geometry-review.json",
+      "bytes": 1516,
+      "sha256": "fd6bc102b4c76fa7bcc3c40f8bc8d6a71917e1c742bf6c4c945b11e12cbad778"
+    },
+    {
+      "path": "metadata/bank-support-review-reopened.json",
+      "bytes": 198562,
+      "sha256": "824b801cd5aec0106b5f7802a0a186f23b8f8e96ec263c7bff77902d6b070972"
+    },
+    {
+      "path": "metadata/bank-support-review.json",
+      "bytes": 198554,
+      "sha256": "997a91b4216f0b407377a88b746529a062cbe84e951358bdcb8aa959394e1fa5"
+    },
+    {
+      "path": "metadata/belt-length.json",
+      "bytes": 590,
+      "sha256": "7144feff88368667c91a8c505eb4721b1fca7ba161944ff76828c2c359a69d92"
+    },
+    {
+      "path": "metadata/force-screening.json",
+      "bytes": 1629,
+      "sha256": "81546161695c3ae298631c9f3d3712aea784f9d1d8032b1c4ff903527292cdaa"
+    },
+    {
+      "path": "metadata/geometry-review.json",
+      "bytes": 97731,
+      "sha256": "720a8dbb37b11f461fcf96556aa9bfd2bb050aeb9908908baa7e9e4e4d421371"
+    },
+    {
+      "path": "metadata/inherited-pin-baseline-review.json",
+      "bytes": 91028,
+      "sha256": "25d5fd792818719a73eb33682b0f2c52ac8bdcd4db2945ab5e6fbb58d81b1081"
+    },
+    {
+      "path": "metadata/layout.json",
+      "bytes": 17485,
+      "sha256": "3a68877f2e509243ea62556b0f1619d127cce757a492f9d50109eb64f41804f8"
+    },
+    {
+      "path": "metadata/mechanical-build.json",
+      "bytes": 11137,
+      "sha256": "feac0535683bd2460b6098f15ca6e3e02af149c507a0bd662b2bfbfce1b323d7"
+    },
+    {
+      "path": "metadata/mechanical-critical-review-reopened.json",
+      "bytes": 685071,
+      "sha256": "2699762fec5af451ddfb5d366fe00a57cc9acb0334cfbf570d44419455aad43e"
+    },
+    {
+      "path": "metadata/mechanical-critical-review.json",
+      "bytes": 685051,
+      "sha256": "b6cde16d50dd03e69bef16651c7c43753f4191852e1037b88675c454538f1f72"
+    },
+    {
+      "path": "metadata/mechanical-settings.json",
+      "bytes": 55336,
+      "sha256": "9965924ee211b5af59915b66a98cee509db8dd74c0d2245819ef93e5f1a21b0e"
+    },
+    {
+      "path": "metadata/mechanical-slice-review-reopened.json",
+      "bytes": 1384467,
+      "sha256": "5dd41f503ac299b6df32486cd9776e656919c8d24186f3dc8d5d44a5ed255094"
+    },
+    {
+      "path": "metadata/mechanical-slice-review.json",
+      "bytes": 1384449,
+      "sha256": "1950a412e9caf65cf678ce3f05da852b76891f3cb4dc62f011e748dcecb21646"
+    },
+    {
+      "path": "metadata/meshes.json",
+      "bytes": 10649,
+      "sha256": "dbdcbc60fd981fcf98d5af9ee6ac895beafd1d84826ee322f5d5c83d2bc90b95"
+    },
+    {
+      "path": "metadata/pin-profile-trials.json",
+      "bytes": 3941,
+      "sha256": "2cb99bba860cde5b75f63ec1120a38a6dbc69b69edd21771d4943d474bcc8938"
+    },
+    {
+      "path": "metadata/provenance.json",
+      "bytes": 1285,
+      "sha256": "f288f555b5d01c87d204e3f0a6c6b62d5034ee0a936896a1132a9da5520db787"
+    },
+    {
+      "path": "results.md",
+      "bytes": 1950,
+      "sha256": "fb32a5602786fc811d5d34958a3cf20d2a2cdffa503388a03f92442f54302096"
+    },
+    {
+      "path": "scripts/build_projects.py",
+      "bytes": 8488,
+      "sha256": "d10cf9087365ea01da1fd0518879e6c194da3fc98964807584445d63007b8d1b"
+    },
+    {
+      "path": "scripts/calculate.py",
+      "bytes": 1586,
+      "sha256": "1136bc2a172c3547ce3ce271221680425e7fff55a288269c8d0d9dc8dfcead5f"
+    },
+    {
+      "path": "scripts/draw_plan.py",
+      "bytes": 2908,
+      "sha256": "e0405ada621927a76b86a931012f7765601a5b6d3dd490d2f70b34b506ea9dc4"
+    },
+    {
+      "path": "scripts/generate.py",
+      "bytes": 5402,
+      "sha256": "fba71de1507a461c51d306f444552fb2493210af3fbe9fa490230c34624149e9"
+    },
+    {
+      "path": "scripts/review_toolpaths.py",
+      "bytes": 8024,
+      "sha256": "3ece8f42e99485c1f0a17b586c130054ca4961337884bc3593da9fa06cf19d29"
+    },
+    {
+      "path": "scripts/verify_actuator.py",
+      "bytes": 1393,
+      "sha256": "c3e929dc936204b6dfd8f4447b652474218c0f62495b68fb79f2baace94008b3"
+    },
+    {
+      "path": "scripts/verify_delivery.py",
+      "bytes": 1961,
+      "sha256": "be58c521663928077ac55e15494d35bd2db08b4e6c7c84c6224de22203ee5016"
+    },
+    {
+      "path": "scripts/verify_geometry.py",
+      "bytes": 11593,
+      "sha256": "58cca3914f771e961d9550d92596985ec841fd9fac2f1c0a13ccf6c5dfab45cc"
+    },
+    {
+      "path": "scripts/verify_supports.py",
+      "bytes": 3020,
+      "sha256": "1ce82b47482e14d5898c95995a48e3219cfa884fca40d35e42716744c1f7204e"
+    },
+    {
+      "path": "test.md",
+      "bytes": 7227,
+      "sha256": "1c5c5143a0aee61fdb40923366f2f0a6c6020354883ec5f1b88a80200c8cb8c8"
+    },
+    {
+      "path": "verification.md",
+      "bytes": 8517,
+      "sha256": "d930f7e9f7e5c3200bc07d1dfdb05e5791807e8754bb9f7b5b6ff6f9a7cccc3d"
+    }
+  ],
+  "model_orphan_components": 0,
+  "bank_supported_maximum_free_span_mm": 3.578364166703112,
+  "git_staged_whitespace_check": "PASS"
+}

@@ -1,0 +1,55 @@
+{
+  "base_commit": "1a39f9b86ea9119708e5e9d884996d12f400aa28",
+  "physical_tests": "NOT PERFORMED",
+  "historical_sources": [
+    {
+      "path": "owner-print-tests/2026-10-25-minimal-friction-screw-frame/components/A-screw.stl",
+      "sha256": "4ba62174d09fb37ce9f25d61581ea86fc0df93a38ef83d990222308c19fe3ae7"
+    },
+    {
+      "path": "owner-print-tests/2026-10-25-minimal-friction-screw-frame/components/C-pin-50-upright.stl",
+      "sha256": "f855eb5f0af613b5e740da69fe0e05cb5ea7fae43e2731922a42c09d331ee51c"
+    }
+  ],
+  "pin_outer_width_mm": 4.5,
+  "pin_length_mm": 40,
+  "guide_open_mm": 4.7,
+  "pitch_mm": 5.08,
+  "cone_half_angle_degrees": 30,
+  "cone_contact_radii_mm": [
+    1.1,
+    1.9
+  ],
+  "full_park_mm": 2.4,
+  "bank_rows_mm": [
+    0,
+    5.08
+  ],
+  "jack_centers_mm": [
+    [
+      0,
+      18
+    ],
+    [
+      5.08,
+      25
+    ]
+  ],
+  "motor_y_range_mm": [
+    -39,
+    -35
+  ],
+  "dependencies": {
+    "numpy": "2.3.5",
+    "trimesh": "5.2.1",
+    "manifold3d": "3.5.5",
+    "shapely": "2.2.0",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "motor_face_z_mm": 7,
+  "motor_spacer_height_mm": 2,
+  "motorplate": "Separate flat printed, four M3x8 bank screws",
+  "actuator_contact_tip_diameter_mm": 2,
+  "actuator_contact_tip_protrusion_mm": 4
+}

@@ -5,6 +5,8 @@ builds-on: [E-295, E-301, E-302, E-297]
 
 # DES-009 — Verplaatsbare motorbank met compacte schroefpinnen
 
+**Eigenaarsupdate 15 november2026:** [DES-010](../DES-010-central-motor-selectable-cone-bank/DES-010-central-motor-selectable-cone-bank.md) onderzoekt nu expliciet de variant met één centrale motor per bank en individueel selecteerbare conussen. Onderstaand dossier bewaart de historische multi-microstepperbasis; zijn oorspronkelijke stopconditie is geen verbod op de nieuwe toegewezen opdracht.
+
 **Gekozen ontwikkelingsrichting, 18 oktober 2026; geen bewezen eindontwerp.** Dit dossier is het primaire vertrekpunt voor de huidige Shape Display-architectuur. Een verplaatsbare bank met individueel aangestuurde kleine stappenmotoren bedient de schroeven onder een vast pinnenraster. De positieve fysieke basis is **één microstappenmotor die één compacte schroefpin op en neer bewoog** (E-301). De volledige motorbank, automatische koppeling, passief hoogtebehoud en parallelle werking zijn nog niet fysiek bewezen.
 
 Consolidatie van repositorybasis `84d265134fcb74266776f9f5d2cb7e0dea60a8ef`, inclusief de recente E-302-softwareaanvulling. `active` betekent gekozen richting, niet fysieke kwalificatie. E-297 in `builds-on` verwijst naar relevante lessen uit een historisch alternatief, niet naar een overgenomen rij-/kolomkoppeling.

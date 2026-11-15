@@ -1,3 +1,7 @@
+# Latere eigenaarwaarneming — ontvangen15 november2026
+
+Ontwerp A blokkeerde aanvankelijk onderaan door achtergebleven supportmateriaal op de schroef. Na verwijderen bewoog de pin soepel tot onderaan. Na demontage/hermontage paste het onderframe minder goed. Thermische vervorming werd vermoed maar is niet bewezen. Geen kwantitatieve kracht-, koppel- of maatmeting opgegeven. De lege oorspronkelijke velden hieronder blijven historisch bewaard; ze ontkrachten deze waarneming niet.
+
 # Results — blank means not tested
 
 Date: ___  Project filename/hash: ___  Printer/nozzle: ___  PLA: ___

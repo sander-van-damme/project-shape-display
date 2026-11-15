@@ -1,8 +1,10 @@
+> **Prioriteitsupdate 15 november2026: DEFERRED.** De eerdere READY-aanbieding hieronder is historisch; de huidige expliciete eigenaarsopdracht wordt geleverd in [centrale conusbank](../2026-11-15-central-cone-bank/test.md). Geen nieuwe print gepland. Bestanden en eerdere waarnemingen blijven behouden.
+
 # Minimal friction screw frame — print A first
 
-**Status:** READY for physical prototype testing; no new part has been physically tested.
+**Status:** DEFERRED (was READY on25 October2026) for physical prototype testing; no new part has been physically tested.
 
-**Priority:** P1 `A-first.3mf`; P2 optional `BC-comparisons.3mf`.
+**Priority:** none; formerP1 `A-first.3mf` / P2 `BC-comparisons.3mf` are historical.
 
 **Reviewed:** 25 October 2026. No deadline, scheduled printing or follow-on work.
 
