@@ -18,14 +18,18 @@ Officiële **Bambu Studio02.08.02.61**, X1 Carbon0,4, Generic PLA, Textured PEI.
 
 | Job | Eerste slice | PLA | Functie |
 |---|---:|---:|---|
-| P1 actuator |4u15m29s |14,87g | Zelfstandige passingplaat: één4,50-pin, drie nominale rotor/stiftparen, toleranties en complete actuatorcoupon |
-| P2 mechanical |14u52m57s |62,27g | Complete2×2 bank/frame met twee functionele uitgangen |
+| P1 actuator |5u07m12s |16,56g | Zelfstandige passingplaat: één4,50-pin, drie nominale rotor/stiftparen, toleranties en complete actuatorcoupon |
+| P2 mechanical |16u36m17s |65,78g | Complete2×2 bank/frame met twee functionele uitgangen |
 
-Schattingen, geen werkelijke printtijden. Totaal circa77,14g PLA. De langzaam geprinte schroeven/pinnen en conservatieve kleine-perimetersnelheden verklaren de relatief lange tijd; grotere stevige delen hebben apart30/40/60mm/s buiten/binnen/infill, met behoud van15/20 voor kritische onderdelen. Exacte heropende tijden en hashes staan in `*-build.json` en `*-slice-review-reopened.json`.
+Schattingen, geen werkelijke printtijden. Totaal circa82,34g PLA. De langzaam geprinte schroeven/pinnen en conservatieve kleine-perimetersnelheden verklaren de relatief lange tijd; grotere stevige delen hebben apart30/40/60mm/s buiten/binnen/infill, met behoud van15/20 voor kritische onderdelen. Exacte heropende tijden en hashes staan in `*-build.json` en `*-slice-review-reopened.json`.
 
 Opgeslagen proces: laag/eerste laag0,12/0,12; Arachne, twee wanden, lijnbreedte0,45/minimum75%, featureminimum10%; gyroid25%,5boven/5onder; kritische pin/schroef/stift100% infill en3mm lokale brim; overige brim uit; geen raft; per laag printen; contour/gat/elephant-footcompensatie0. Buiten15/binnen20/brug15/eerste laag15/infill40mm/s; acceleratie1000, buiten/eerste laag500. Nozzle220°C, bed55°C, fan100% na eerste laag, laagvertraging8s/minimum10mm/s. Alle waarden staan in de projectprofielen, niet alleen in deze tekst.
 
 ### Supports en werkelijke draadpaden
+
+**Heruitgave op eigenaarsverzoek:** vier externe bedtorens met diagonale armen stabiliseren iedere40-mm pin en iedere dunne koppelstift. Alleen breeknekken van0,46×0,60×0,24mm raken de buitenvlakken. Pin:16 contacten op8/17/26/35mm; stift:12 contacten op6/10,2/14,4mm. De maximale afstand tussen contacten is9mm respectievelijk6mm. De bestaande schroefsteunen blijven behouden. Automatische supports blijven uit in de binnendraden; deze stabilisatoren zijn echte modelgeometrie in deSTL/3MF, ook als de G-code daarvoor geen Support-rol vermeldt. Een brim ondersteunt de voet maar verhindert hoge zijwaartse wobble niet.
+
+`cad/stability.scad` en `verify_stability.py` controleren één verbonden solid, bedvoeten en gedeponeerde contactnekken; cleanpart-materiaal en pinholte blijven behouden. Dit bewijst geen fysieke printstabiliteit, lossnijdbaarheid of krasvrije buitenpassing. Inspecteer de print en verwijder alle nekrestjes vóór guide-/keypassing. Verscheidene buitenste supportvoeten delen een brim; de afzonderlijke modeldelen botsen niet.
 
 Automatische supports staan **alleen voor bank aan**, normal(auto), vanaf bouwplaat. De aanvankelijke43-mm motorbrug bleek ondanks automatische supports onvoldoende ondersteund. Daarom is de motorplaat afgesplitst, vlak geprint en met4 M3×8 aan de bank bevestigd. Alleen de bereikbare onderzijde van jackpockets krijgt nog supports. Verwijderen via de open onderkant. Geen supports in pinbinnendraden, schroefdraad of koppelingen. De vier externe schroefsteunen zijn echte meegeprinte geometrie; clip alle nekresten weg zoals de eigenaarervaring met A vereist.
 

@@ -21,7 +21,7 @@ if a.layout:
  original=np.array([r['bounds_mm'] for r in rows]);shift=bounds[0]-original[:,0,:].min(axis=0)
  offset=cfg.get('extruder_offset',['0x0']);offset=offset[0] if isinstance(offset,list) else offset;shift[:2]-=np.array([float(v) for v in offset.split('x')])
  for r in rows:
-  if a.critical_only and r['source'] not in ['pin','screw-supported','rotor','rotor-tight','rotor-loose','guide','guide-46','guide-47','guide-48']:continue
+  if a.critical_only and r['source'] not in ['pin','pin-supported','male-supported','screw-supported','rotor','rotor-tight','rotor-loose','guide','guide-46','guide-47','guide-48']:continue
   lo,hi=np.array(r['bounds_mm'])+shift;center=np.array(r['center_xy'])+shift[:2];groups=collections.defaultdict(list)
   for q in paths:
    if lo[0]-.02<=(q['x']+q['x1'])/2<=hi[0]+.02 and lo[1]-.02<=(q['y']+q['y1'])/2<=hi[1]+.02 and q['role'] not in ['Brim','Skirt'] and 'support' not in q['role'].lower():groups[q['z']].append(q)
@@ -38,7 +38,7 @@ if a.layout:
      line=LineString([(q['x'],q['y']),(q['x1'],q['y1'])]);free=line.difference(previous_support);pieces=list(free.geoms) if hasattr(free,'geoms') else [free]
      bridges.append(dict(z_mm=z,role=q['role'],maximum_free_segment_mm=max((v.length for v in pieces),default=0),endpoint_distances_mm=[Point(line.coords[i]).distance(previous_support) for i in [0,-1]]))
    cores.append(dict(z_mm=z,center_disk_radius_06_deposition_mm2=fp.intersection(Point(*center).buffer(.6)).area))
-   local=translate(fp,-center[0],-center[1]);src=r['source']
+   local=translate(fp,-center[0],-center[1]);src={'pin-supported':'pin','male-supported':'male'}.get(r['source'],r['source'])
    checks={}
    # Fixed mid-wall probe loops test actual deposited closure, not just STL closure.
    if src=='pin' and .36<=z<=39.84:
@@ -70,10 +70,10 @@ if a.layout:
   report['parts'].append(dict(name=r['name'],source=r['source'],layers=len(groups),role_counts=dict(collections.Counter(q['role'] for qs in groups.values() for q in qs)),orphan_components=orphans,critical_sections=sections,bridges=bridges,role_max_speed_mm_s={role:max(q['speed'] for qs in groups.values() for q in qs if q['role']==role) for role in set(q['role'] for qs in groups.values() for q in qs)},center_disk_probe=cores))
 a.output.write_text(json.dumps(report,indent=2)+'\n');print(a.output,report['stats'],'support_paths',report['support_paths'])
 
-if a.plot and a.layout and any(r['source']=='pin' for r in rows):
+if a.plot and a.layout and any(r['source'] in ['pin','pin-supported'] for r in rows):
  import matplotlib;matplotlib.use('Agg')
  import matplotlib.pyplot as plt
- rr=next(r for r in rows if r['source']=='pin');c=np.array(rr['center_xy'])+shift[:2]
+ rr=next(r for r in rows if r['source'] in ['pin','pin-supported']);c=np.array(rr['center_xy'])+shift[:2]
  pack=Path(__file__).resolve().parents[1];mesh=reader.trimesh.load(pack/'components/pin.stl');fig,axs=plt.subplots(1,4,figsize=(14,4))
  for ax,z in zip(axs,[.48,.60,1.44,3.48]):
   qs=[q for q in paths if q['z']==z and abs((q['x']+q['x1'])/2-c[0])<2.3 and abs((q['y']+q['y1'])/2-c[1])<2.3 and q['role'] not in ['Brim','Skirt']]

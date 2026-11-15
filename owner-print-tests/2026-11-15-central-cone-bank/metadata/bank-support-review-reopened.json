@@ -1,5 +1,5 @@
 {
-  "project_sha256": "b5b11140aab093f6ec1d79aaebf0ae9fabd73dae05b6de664de96bc0aea50822",
+  "project_sha256": "cf14d5e7aff12f37f2cb008b9e842c0a534b428678f4d4cc7733eb17e11780a9",
   "support_paths": 2175,
   "supports_exclusively_bank": true,
   "bank_support_foundation_allowance_mm": 5,
@@ -3240,7 +3240,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.6014156066967056
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.6014156066966856
     },
     {
       "z_mm": 5.52,
@@ -3292,7 +3292,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.569728319926452
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.569728319926432
     },
     {
       "z_mm": 5.52,
@@ -3344,7 +3344,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5608113326616104
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5608113326616304
     },
     {
       "z_mm": 5.52,
@@ -3376,7 +3376,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5542759825898793
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.554275982589891
     },
     {
       "z_mm": 5.52,
@@ -3400,7 +3400,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.555342731132826
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.555342731132846
     },
     {
       "z_mm": 5.52,
@@ -3424,7 +3424,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5470424360078394
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.547042436007879
     },
     {
       "z_mm": 5.52,
@@ -3432,7 +3432,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3074827570038785
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3074827570038874
     },
     {
       "z_mm": 5.52,
@@ -3440,7 +3440,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.415944871480523
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4159448714805345
     },
     {
       "z_mm": 5.52,
@@ -3448,7 +3448,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5323130720305502
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5323130720305707
     },
     {
       "z_mm": 5.52,
@@ -3496,7 +3496,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.503152946014782
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.503152946014793
     },
     {
       "z_mm": 5.52,
@@ -3520,7 +3520,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.51610573553458
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5161057355346
     },
     {
       "z_mm": 5.52,
@@ -3528,7 +3528,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2722562586492385
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2722562586492474
     },
     {
       "z_mm": 5.52,
@@ -3536,7 +3536,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.451702223914811
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4517022239147996
     },
     {
       "z_mm": 5.52,
@@ -3544,7 +3544,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.486465364501251
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.486465364501231
     },
     {
       "z_mm": 5.52,
@@ -3600,7 +3600,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2555098227300694
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2555098227300805
     },
     {
       "z_mm": 5.52,
@@ -3632,7 +3632,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4879509396486923
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4879509396487123
     },
     {
       "z_mm": 5.52,
@@ -3640,7 +3640,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.450130820786905
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4501308207868937
     },
     {
       "z_mm": 5.52,
@@ -3732,7 +3732,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5535625470076493
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.553562547007665
     },
     {
       "z_mm": 5.52,
@@ -3852,7 +3852,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5485521355824767
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5485521355824567
     },
     {
       "z_mm": 5.52,
@@ -3860,7 +3860,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3836817235924244
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3836817235924137
     },
     {
       "z_mm": 5.52,
@@ -3904,7 +3904,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.554520092288971
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5545200922889624
     },
     {
       "z_mm": 5.52,
@@ -3936,7 +3936,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.575175903241313
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5751759032413215
     },
     {
       "z_mm": 5.52,
@@ -3968,7 +3968,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.566266147343353
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5662661473433412
     },
     {
       "z_mm": 5.52,
@@ -3992,7 +3992,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.552966527386617
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.552966527386628
     },
     {
       "z_mm": 5.52,
@@ -4040,7 +4040,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.8857255237795498
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.8857255237795343
     },
     {
       "z_mm": 5.52,
@@ -4060,7 +4060,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.543162763943087
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5431627639431182
     },
     {
       "z_mm": 5.52,
@@ -4076,7 +4076,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4210542870826983
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.421054287082714
     },
     {
       "z_mm": 5.52,
@@ -4136,7 +4136,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5389334107810835
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5389334107810924
     },
     {
       "z_mm": 5.52,
@@ -4168,7 +4168,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.517353853619639
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5173538536196305
     },
     {
       "z_mm": 5.52,
@@ -4184,7 +4184,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2672405406116276
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.267240540611632
     },
     {
       "z_mm": 5.52,
@@ -4192,7 +4192,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.45683899525698
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4568389952569643
     },
     {
       "z_mm": 5.52,
@@ -4200,7 +4200,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.480946247105633
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.480946247105602
     },
     {
       "z_mm": 5.52,
@@ -4208,7 +4208,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.217261498413345
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.2172614984133254
     },
     {
       "z_mm": 5.52,
@@ -4388,7 +4388,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.6820009732596022
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.6820009732595822
     },
     {
       "z_mm": 5.52,
@@ -4396,7 +4396,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.545789403960013
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5457894039600077
     },
     {
       "z_mm": 5.52,
@@ -4420,7 +4420,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.072403578531935
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.0724035785319406
     },
     {
       "z_mm": 5.52,
@@ -4444,7 +4444,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5087891348325972
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5087891348326172
     },
     {
       "z_mm": 5.52,
@@ -4492,7 +4492,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.463414875343183
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4634148753431946
     },
     {
       "z_mm": 5.52,
@@ -4540,7 +4540,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.416818918672644
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4168189186726527
     },
     {
       "z_mm": 5.52,
@@ -4588,7 +4588,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.7153455593303
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.715345559330291
     },
     {
       "z_mm": 5.52,
@@ -4732,7 +4732,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3849111044136206
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.384911104413618
     },
     {
       "z_mm": 5.52,
@@ -5272,7 +5272,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.1123692674643255
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.1123692674643313
     },
     {
       "z_mm": 5.52,
@@ -5528,7 +5528,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.0244498721135735
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.024449872113579
     },
     {
       "z_mm": 5.52,
@@ -5596,7 +5596,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.488299640256441
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4882996402564452
     },
     {
       "z_mm": 5.52,
@@ -5608,7 +5608,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4946531067849262
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.494653106784922
     },
     {
       "z_mm": 5.52,
@@ -5624,11 +5624,11 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4753874646498177
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.475387464649831
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.5763563389814903
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 1.5763563389814748
     },
     {
       "z_mm": 5.52,
@@ -5636,7 +5636,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.1334570126528094
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.1334570126528205
     },
     {
       "z_mm": 5.52,
@@ -5772,7 +5772,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4449226406058906
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.4449226406058857
     },
     {
       "z_mm": 5.52,
@@ -5804,7 +5804,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.413223891131589
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.413223891131593
     },
     {
       "z_mm": 5.52,
@@ -5820,7 +5820,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5144270316090815
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.514427031609097
     },
     {
       "z_mm": 5.52,
@@ -5860,7 +5860,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3956137345361097
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.395613734536114
     },
     {
       "z_mm": 5.52,
@@ -5868,7 +5868,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3289025364921754
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.328902536492153
     },
     {
       "z_mm": 5.52,
@@ -5876,7 +5876,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5434199325017985
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5434199325018185
     },
     {
       "z_mm": 5.52,
@@ -5900,7 +5900,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5527100537866754
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5527100537866914
     },
     {
       "z_mm": 5.52,
@@ -5924,7 +5924,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5648715566258935
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5648715566259086
     },
     {
       "z_mm": 5.52,
@@ -5932,7 +5932,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.391342487408679
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.391342487408659
     },
     {
       "z_mm": 5.52,
@@ -5964,7 +5964,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3646641442142595
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3646641442142444
     },
     {
       "z_mm": 5.52,
@@ -5996,7 +5996,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.555000105423704
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.5550001054237086
     },
     {
       "z_mm": 5.52,
@@ -6012,7 +6012,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3824592464772514
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 3.3824592464772403
     },
     {
       "z_mm": 5.52,
@@ -6020,7 +6020,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.165606929557998
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.165606929558014
     },
     {
       "z_mm": 5.52,
@@ -6044,7 +6044,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.8452671961460254
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.84526719614603
     },
     {
       "z_mm": 5.52,
@@ -6084,7 +6084,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.5469351824811013
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.546935182481117
     },
     {
       "z_mm": 5.52,
@@ -6092,7 +6092,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.1970283298729183
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.1970283298729223
     },
     {
       "z_mm": 5.52,
@@ -6180,7 +6180,7 @@
     },
     {
       "z_mm": 5.52,
-      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.5016891164418293
+      "max_free_segment_with_model_or_support_below_bead_height_plus015_mm": 2.501689116441845
     },
     {
       "z_mm": 5.52,

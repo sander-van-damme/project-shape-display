@@ -1,38 +1,38 @@
 {
-  "project_sha256": "544c2abff9afbdde6f83da7e59485174a04caff8c902b3fa3e37a23b59fda52f",
+  "project_sha256": "05dbd8ae8cfaaa9859aab5083fbcfb746c0b682142fdfaa619cec98f67ea7ca9",
   "layer_count": 333,
   "roles": {
-    "Brim": 749,
-    "Inner wall": 31487,
-    "Outer wall": 68678,
-    "Bottom surface": 1067,
-    "Internal solid infill": 17442,
-    "Sparse infill": 52577,
+    "Brim": 2375,
+    "Inner wall": 46211,
+    "Outer wall": 100747,
+    "Bottom surface": 1130,
+    "Internal solid infill": 17840,
+    "Sparse infill": 52580,
     "Top surface": 1181,
-    "Gap infill": 357,
-    "Overhang wall": 726,
-    "Bridge": 1238,
-    "Floating vertical shell": 779
+    "Gap infill": 354,
+    "Floating vertical shell": 774,
+    "Overhang wall": 728,
+    "Bridge": 1233
   },
   "support_paths": 0,
-  "brim_paths": 749,
+  "brim_paths": 2375,
   "project_bounds_mm": [
     [
-      55.55000495,
+      53.90000345,
       71.0,
       0.0
     ],
     [
-      200.44999695,
+      202.100006,
       185.0,
       40.0
     ]
   ],
   "stats": [
-    "; model printing time: 3h 59m 50s; total estimated time: 4h 15m 29s",
-    "; total filament length [mm] : 4984.90",
-    "; total filament volume [cm^3] : 11990.08",
-    "; total filament weight [g] : 14.87"
+    "; model printing time: 4h 51m 33s; total estimated time: 5h 7m 12s",
+    "; total filament length [mm] : 5551.89",
+    "; total filament volume [cm^3] : 13353.86",
+    "; total filament weight [g] : 16.56"
   ],
   "parts": [
     {
@@ -153,28 +153,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 2.5194328469622618,
+          "rotor_wall_uncovered_mm": 2.5194330400277574,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 2.519393218698728,
+          "rotor_wall_uncovered_mm": 2.519393412113107,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.79886924430075,
+          "rotor_wall_uncovered_mm": 3.798868054110252,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.7487697239026416,
+          "rotor_wall_uncovered_mm": 3.748768604908464,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -356,28 +356,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 2.5193818735241003,
+          "rotor_wall_uncovered_mm": 2.51938206693848,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 2.5193828750487888,
+          "rotor_wall_uncovered_mm": 2.519383068463168,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 3.3925507768327847,
+          "rotor_wall_uncovered_mm": 3.39254965873911,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.7561784230708253,
+          "rotor_wall_uncovered_mm": 3.756177262564571,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -770,9 +770,9 @@
       "source": "rotor-loose",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4051,
-        "Overhang wall": 34,
-        "Inner wall": 34
+        "Outer wall": 4055,
+        "Overhang wall": 37,
+        "Inner wall": 33
       },
       "orphan_components": [],
       "critical_sections": [
@@ -883,28 +883,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.1704175643729997,
+          "rotor_wall_uncovered_mm": 2.38150941898683,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.2034785759737137,
+          "rotor_wall_uncovered_mm": 1.2034789077552235,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 2.378546044913877,
+          "rotor_wall_uncovered_mm": 2.378545918780138,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 2.328696892744505,
+          "rotor_wall_uncovered_mm": 2.3286771400675503,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -1086,28 +1086,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.2032295209437918,
+          "rotor_wall_uncovered_mm": 1.19908261717454,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.2031975307964566,
+          "rotor_wall_uncovered_mm": 2.3126219864581303,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.0324563207579036,
+          "rotor_wall_uncovered_mm": 2.032457734975642,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 2.337118241654628,
+          "rotor_wall_uncovered_mm": 2.3371181179302436,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -1631,8 +1631,8 @@
       "role_max_speed_mm_s": {
         "Outer wall": 15.0,
         "Inner wall": 15.0,
-        "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Gap infill": 30.0,
+        "Top surface": 20.0
       },
       "center_disk_probe": [
         {
@@ -1841,8 +1841,8 @@
       "role_max_speed_mm_s": {
         "Outer wall": 15.0,
         "Inner wall": 15.0,
-        "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Gap infill": 30.0,
+        "Top surface": 20.0
       },
       "center_disk_probe": [
         {
@@ -1920,7 +1920,7 @@
       "source": "guide-48",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 992,
+        "Inner wall": 976,
         "Outer wall": 612,
         "Top surface": 56
       },
@@ -2128,13 +2128,13 @@
       "source": "actuator-base",
       "layers": 92,
       "role_counts": {
-        "Inner wall": 6869,
-        "Outer wall": 8152,
+        "Inner wall": 6860,
+        "Outer wall": 8166,
         "Bottom surface": 472,
-        "Internal solid infill": 3539,
+        "Internal solid infill": 3538,
         "Sparse infill": 37438,
         "Floating vertical shell": 206,
-        "Bridge": 495,
+        "Bridge": 494,
         "Top surface": 513,
         "Gap infill": 66,
         "Overhang wall": 3
@@ -2143,16 +2143,16 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
-        "Floating vertical shell": 24.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
-        "Bottom surface": 15.0,
         "Sparse infill": 40.0,
+        "Overhang wall": 15.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
         "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 30.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0,
+        "Floating vertical shell": 24.0
       },
       "center_disk_probe": [
         {
@@ -2177,67 +2177,67 @@
         },
         {
           "z_mm": 0.72,
-          "center_disk_radius_06_deposition_mm2": 0.31047849282611806
+          "center_disk_radius_06_deposition_mm2": 0.3104786051897887
         },
         {
           "z_mm": 0.84,
-          "center_disk_radius_06_deposition_mm2": 0.1976075423472761
+          "center_disk_radius_06_deposition_mm2": 0.19760780262339356
         },
         {
           "z_mm": 0.96,
-          "center_disk_radius_06_deposition_mm2": 0.1358722537891418
+          "center_disk_radius_06_deposition_mm2": 0.13587256623812358
         },
         {
           "z_mm": 1.08,
-          "center_disk_radius_06_deposition_mm2": 0.09425366809540754
+          "center_disk_radius_06_deposition_mm2": 0.09425402007138209
         },
         {
           "z_mm": 1.2,
-          "center_disk_radius_06_deposition_mm2": 0.0678844622348905
+          "center_disk_radius_06_deposition_mm2": 0.06788484915665505
         },
         {
           "z_mm": 1.32,
-          "center_disk_radius_06_deposition_mm2": 0.05297258595052668
+          "center_disk_radius_06_deposition_mm2": 0.05297301762343046
         },
         {
           "z_mm": 1.44,
-          "center_disk_radius_06_deposition_mm2": 0.048731248855935175
+          "center_disk_radius_06_deposition_mm2": 0.048731744771181765
         },
         {
           "z_mm": 1.56,
-          "center_disk_radius_06_deposition_mm2": 0.055678839804741795
+          "center_disk_radius_06_deposition_mm2": 0.05567942020048531
         },
         {
           "z_mm": 1.68,
-          "center_disk_radius_06_deposition_mm2": 0.07691243504616739
+          "center_disk_radius_06_deposition_mm2": 0.07691311057410438
         },
         {
           "z_mm": 1.8,
-          "center_disk_radius_06_deposition_mm2": 0.11163800653043941
+          "center_disk_radius_06_deposition_mm2": 0.11163887100860061
         },
         {
           "z_mm": 1.92,
-          "center_disk_radius_06_deposition_mm2": 0.15870948438275362
+          "center_disk_radius_06_deposition_mm2": 0.15871052941839695
         },
         {
           "z_mm": 2.04,
-          "center_disk_radius_06_deposition_mm2": 0.21881163858903507
+          "center_disk_radius_06_deposition_mm2": 0.21881286878039272
         },
         {
           "z_mm": 2.16,
-          "center_disk_radius_06_deposition_mm2": 0.29771293679272215
+          "center_disk_radius_06_deposition_mm2": 0.29771431584142916
         },
         {
           "z_mm": 2.28,
-          "center_disk_radius_06_deposition_mm2": 0.38012155205895287
+          "center_disk_radius_06_deposition_mm2": 0.38012292465459807
         },
         {
           "z_mm": 2.4,
-          "center_disk_radius_06_deposition_mm2": 0.44187126747092687
+          "center_disk_radius_06_deposition_mm2": 0.4418730714128949
         },
         {
           "z_mm": 2.52,
-          "center_disk_radius_06_deposition_mm2": 1.0145023979021661
+          "center_disk_radius_06_deposition_mm2": 1.0185861422630555
         },
         {
           "z_mm": 2.64,
@@ -2533,11 +2533,11 @@
         "Inner wall": 3271,
         "Outer wall": 3100,
         "Bottom surface": 144,
-        "Internal solid infill": 2880,
+        "Internal solid infill": 2878,
         "Sparse infill": 8842,
         "Overhang wall": 32,
         "Bridge": 277,
-        "Floating vertical shell": 248,
+        "Floating vertical shell": 244,
         "Top surface": 220,
         "Gap infill": 25
       },
@@ -2545,16 +2545,16 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Floating vertical shell": 24.0,
-        "Top surface": 20.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
-        "Bottom surface": 15.0,
         "Sparse infill": 40.0,
         "Overhang wall": 15.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
+        "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0,
+        "Floating vertical shell": 24.0
       },
       "center_disk_probe": [
         {
@@ -2579,111 +2579,111 @@
         },
         {
           "z_mm": 0.72,
-          "center_disk_radius_06_deposition_mm2": 0.31096610922586315
+          "center_disk_radius_06_deposition_mm2": 0.3109662217442867
         },
         {
           "z_mm": 0.84,
-          "center_disk_radius_06_deposition_mm2": 0.1976075423472761
+          "center_disk_radius_06_deposition_mm2": 0.19760780262339356
         },
         {
           "z_mm": 0.96,
-          "center_disk_radius_06_deposition_mm2": 0.13640447532530842
+          "center_disk_radius_06_deposition_mm2": 0.13640478737895
         },
         {
           "z_mm": 1.08,
-          "center_disk_radius_06_deposition_mm2": 0.09497842603662182
+          "center_disk_radius_06_deposition_mm2": 0.09497877933219015
         },
         {
           "z_mm": 1.2,
-          "center_disk_radius_06_deposition_mm2": 0.06817492953694013
+          "center_disk_radius_06_deposition_mm2": 0.06817531808309324
         },
         {
           "z_mm": 1.32,
-          "center_disk_radius_06_deposition_mm2": 0.0533008371741945
+          "center_disk_radius_06_deposition_mm2": 0.05330127067430646
         },
         {
           "z_mm": 1.44,
-          "center_disk_radius_06_deposition_mm2": 0.04929901898250819
+          "center_disk_radius_06_deposition_mm2": 0.049299516420033086
         },
         {
           "z_mm": 1.56,
-          "center_disk_radius_06_deposition_mm2": 0.055678839804741795
+          "center_disk_radius_06_deposition_mm2": 0.05567942020048531
         },
         {
           "z_mm": 1.68,
-          "center_disk_radius_06_deposition_mm2": 0.07743717839944234
+          "center_disk_radius_06_deposition_mm2": 0.07740463564212222
         },
         {
           "z_mm": 1.8,
-          "center_disk_radius_06_deposition_mm2": 0.11220958090390762
+          "center_disk_radius_06_deposition_mm2": 0.11221044702572187
         },
         {
           "z_mm": 1.92,
-          "center_disk_radius_06_deposition_mm2": 0.15931111058572037
+          "center_disk_radius_06_deposition_mm2": 0.15931215695270995
         },
         {
           "z_mm": 2.04,
-          "center_disk_radius_06_deposition_mm2": 0.2194228759905625
+          "center_disk_radius_06_deposition_mm2": 0.21942410704079893
         },
         {
           "z_mm": 2.16,
-          "center_disk_radius_06_deposition_mm2": 0.29815161088079273
+          "center_disk_radius_06_deposition_mm2": 0.2981529901937662
         },
         {
           "z_mm": 2.28,
-          "center_disk_radius_06_deposition_mm2": 0.380677951602524
+          "center_disk_radius_06_deposition_mm2": 0.38067930529293503
         },
         {
           "z_mm": 2.4,
-          "center_disk_radius_06_deposition_mm2": 0.44195380592130196
+          "center_disk_radius_06_deposition_mm2": 0.4419545384651672
         },
         {
           "z_mm": 2.52,
-          "center_disk_radius_06_deposition_mm2": 0.5959351880999987
+          "center_disk_radius_06_deposition_mm2": 0.5959348109384021
         },
         {
           "z_mm": 2.64,
-          "center_disk_radius_06_deposition_mm2": 0.547033438627996
+          "center_disk_radius_06_deposition_mm2": 0.547033657331758
         },
         {
           "z_mm": 2.76,
-          "center_disk_radius_06_deposition_mm2": 0.5637144462951167
+          "center_disk_radius_06_deposition_mm2": 0.5637134698162818
         },
         {
           "z_mm": 2.88,
-          "center_disk_radius_06_deposition_mm2": 0.33895558560286615
+          "center_disk_radius_06_deposition_mm2": 0.33895549884140347
         },
         {
           "z_mm": 3.0,
-          "center_disk_radius_06_deposition_mm2": 0.2139188445395378
+          "center_disk_radius_06_deposition_mm2": 0.2139190893747402
         },
         {
           "z_mm": 3.12,
-          "center_disk_radius_06_deposition_mm2": 0.14751136729307388
+          "center_disk_radius_06_deposition_mm2": 0.14751167066346516
         },
         {
           "z_mm": 3.24,
-          "center_disk_radius_06_deposition_mm2": 0.2665816781214665
+          "center_disk_radius_06_deposition_mm2": 0.2665820216366429
         },
         {
           "z_mm": 3.36,
-          "center_disk_radius_06_deposition_mm2": 0.09366881285233207
+          "center_disk_radius_06_deposition_mm2": 0.09366919428994866
         },
         {
           "z_mm": 3.48,
-          "center_disk_radius_06_deposition_mm2": 0.27642683856553085
+          "center_disk_radius_06_deposition_mm2": 0.27642726126813333
         },
         {
           "z_mm": 3.6,
-          "center_disk_radius_06_deposition_mm2": 0.5423842933598563
+          "center_disk_radius_06_deposition_mm2": 0.5423847793054439
         },
         {
           "z_mm": 3.72,
-          "center_disk_radius_06_deposition_mm2": 0.8311272883703902
+          "center_disk_radius_06_deposition_mm2": 0.8311278488227481
         },
         {
           "z_mm": 3.84,
-          "center_disk_radius_06_deposition_mm2": 1.057690221435526
+          "center_disk_radius_06_deposition_mm2": 1.0576904976794967
         },
         {
           "z_mm": 3.96,
@@ -2896,27 +2896,27 @@
       "source": "actuator-bobbin",
       "layers": 133,
       "role_counts": {
-        "Inner wall": 1117,
-        "Outer wall": 4481,
+        "Inner wall": 1123,
+        "Outer wall": 4390,
         "Bottom surface": 95,
-        "Internal solid infill": 1850,
+        "Internal solid infill": 1848,
         "Top surface": 66,
         "Gap infill": 82,
-        "Overhang wall": 133,
+        "Overhang wall": 132,
         "Bridge": 91
       },
       "orphan_components": [],
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
+        "Gap infill": 30.0,
         "Bottom surface": 15.0,
         "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0
       },
       "center_disk_probe": [
         {
@@ -3458,27 +3458,27 @@
       "source": "actuator-bobbin",
       "layers": 133,
       "role_counts": {
-        "Inner wall": 1118,
-        "Outer wall": 4498,
-        "Bottom surface": 96,
-        "Internal solid infill": 1837,
+        "Inner wall": 1117,
+        "Outer wall": 4491,
+        "Bottom surface": 95,
+        "Internal solid infill": 1843,
         "Top surface": 66,
-        "Gap infill": 83,
+        "Gap infill": 79,
         "Overhang wall": 132,
-        "Bridge": 91
+        "Bridge": 82
       },
       "orphan_components": [],
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
+        "Gap infill": 30.0,
         "Bottom surface": 15.0,
         "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0
       },
       "center_disk_probe": [
         {
@@ -4020,31 +4020,31 @@
       "source": "actuator-follower",
       "layers": 65,
       "role_counts": {
-        "Inner wall": 2871,
-        "Outer wall": 2395,
+        "Inner wall": 2873,
+        "Outer wall": 2393,
         "Bottom surface": 63,
         "Internal solid infill": 837,
-        "Sparse infill": 2116,
-        "Floating vertical shell": 228,
+        "Sparse infill": 2117,
+        "Floating vertical shell": 226,
         "Overhang wall": 48,
-        "Bridge": 25,
+        "Bridge": 26,
         "Top surface": 26,
-        "Gap infill": 34
+        "Gap infill": 35
       },
       "orphan_components": [],
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Floating vertical shell": 24.0,
-        "Top surface": 20.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
-        "Bottom surface": 15.0,
         "Sparse infill": 40.0,
         "Overhang wall": 10.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
+        "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0,
+        "Floating vertical shell": 24.0
       },
       "center_disk_probe": [
         {
@@ -4315,12 +4315,12 @@
       "layers": 196,
       "role_counts": {
         "Inner wall": 8139,
-        "Outer wall": 11431,
+        "Outer wall": 11435,
         "Bottom surface": 197,
-        "Internal solid infill": 5485,
-        "Sparse infill": 4181,
-        "Floating vertical shell": 97,
-        "Bridge": 142,
+        "Internal solid infill": 5486,
+        "Sparse infill": 4183,
+        "Floating vertical shell": 98,
+        "Bridge": 146,
         "Top surface": 104,
         "Gap infill": 16
       },
@@ -4328,15 +4328,15 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Floating vertical shell": 24.0,
         "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
-        "Bottom surface": 15.0,
         "Sparse infill": 40.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
         "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0,
+        "Floating vertical shell": 24.0
       },
       "center_disk_probe": [
         {
@@ -5130,7 +5130,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4655,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -5243,28 +5243,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226542972,
+          "rotor_wall_uncovered_mm": 1.9296620764472174,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014719282053,
+          "rotor_wall_uncovered_mm": 1.929681730242055,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734224326541,
+          "rotor_wall_uncovered_mm": 3.2017123503151446,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683683806374,
+          "rotor_wall_uncovered_mm": 3.134387773242952,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -5446,28 +5446,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9268436368043127,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9296722866358749,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.794552618887648,
+          "rotor_wall_uncovered_mm": 2.7945259148451047,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.141833119820115,
+          "rotor_wall_uncovered_mm": 3.1602140733068076,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -5857,14 +5857,15 @@
     },
     {
       "name": "nominal-male-1",
-      "source": "male",
+      "source": "male-supported",
       "layers": 162,
       "role_counts": {
-        "Inner wall": 1142,
-        "Outer wall": 1080,
+        "Inner wall": 3914,
+        "Outer wall": 7791,
+        "Bottom surface": 16,
+        "Internal solid infill": 437,
         "Overhang wall": 72,
         "Bridge": 39,
-        "Internal solid infill": 338,
         "Top surface": 6,
         "Gap infill": 15
       },
@@ -5872,662 +5873,663 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Top surface": 20.0,
-        "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
         "Overhang wall": 15.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
+        "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0
       },
       "center_disk_probe": [
         {
           "z_mm": 0.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400129200238
         },
         {
           "z_mm": 14.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291397605980469
         },
         {
           "z_mm": 14.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.6,
-          "center_disk_radius_06_deposition_mm2": 0.901930356819242
+          "center_disk_radius_06_deposition_mm2": 0.9019303568192474
         },
         {
           "z_mm": 18.72,
-          "center_disk_radius_06_deposition_mm2": 1.0139612909334645
+          "center_disk_radius_06_deposition_mm2": 1.0139612909334657
         },
         {
           "z_mm": 18.84,
-          "center_disk_radius_06_deposition_mm2": 1.129155488287139
+          "center_disk_radius_06_deposition_mm2": 1.129155408444722
         },
         {
           "z_mm": 18.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.32,
-          "center_disk_radius_06_deposition_mm2": 0.8919404789179985
+          "center_disk_radius_06_deposition_mm2": 0.891940478918009
         },
         {
           "z_mm": 19.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         }
       ]
     },
@@ -6536,7 +6538,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4655,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -6649,28 +6651,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226542972,
+          "rotor_wall_uncovered_mm": 1.9296620764472174,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014719282053,
+          "rotor_wall_uncovered_mm": 1.929681730242055,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734224326541,
+          "rotor_wall_uncovered_mm": 3.2017123503151446,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683683806374,
+          "rotor_wall_uncovered_mm": 3.134387773242952,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -6852,28 +6854,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9268436368043127,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9296722866358749,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.794552618887648,
+          "rotor_wall_uncovered_mm": 2.7945259148451047,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.141833119820115,
+          "rotor_wall_uncovered_mm": 3.1602140733068076,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -7263,14 +7265,15 @@
     },
     {
       "name": "nominal-male-2",
-      "source": "male",
+      "source": "male-supported",
       "layers": 162,
       "role_counts": {
-        "Inner wall": 1142,
-        "Outer wall": 1080,
+        "Inner wall": 3914,
+        "Outer wall": 7791,
+        "Bottom surface": 16,
+        "Internal solid infill": 437,
         "Overhang wall": 72,
         "Bridge": 39,
-        "Internal solid infill": 338,
         "Top surface": 6,
         "Gap infill": 15
       },
@@ -7278,662 +7281,663 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Top surface": 20.0,
-        "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
         "Overhang wall": 15.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
+        "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0
       },
       "center_disk_probe": [
         {
           "z_mm": 0.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400129200238
         },
         {
           "z_mm": 14.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291397605980469
         },
         {
           "z_mm": 14.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.6,
-          "center_disk_radius_06_deposition_mm2": 0.901930356819242
+          "center_disk_radius_06_deposition_mm2": 0.9019303568192474
         },
         {
           "z_mm": 18.72,
-          "center_disk_radius_06_deposition_mm2": 1.0139612909334645
+          "center_disk_radius_06_deposition_mm2": 1.0139612909334657
         },
         {
           "z_mm": 18.84,
-          "center_disk_radius_06_deposition_mm2": 1.129155488287139
+          "center_disk_radius_06_deposition_mm2": 1.129155408444722
         },
         {
           "z_mm": 18.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.32,
-          "center_disk_radius_06_deposition_mm2": 0.8919404789179985
+          "center_disk_radius_06_deposition_mm2": 0.891940478918009
         },
         {
           "z_mm": 19.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         }
       ]
     },
@@ -7942,7 +7946,7 @@
       "source": "rotor",
       "layers": 67,
       "role_counts": {
-        "Outer wall": 4648,
+        "Outer wall": 4655,
         "Overhang wall": 32,
         "Inner wall": 33
       },
@@ -8055,28 +8059,28 @@
         },
         {
           "z_mm": 2.16,
-          "rotor_wall_uncovered_mm": 1.929642226542972,
+          "rotor_wall_uncovered_mm": 1.9296620764472174,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.28,
-          "rotor_wall_uncovered_mm": 1.9297014719282053,
+          "rotor_wall_uncovered_mm": 1.929681730242055,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.4,
-          "rotor_wall_uncovered_mm": 3.201734224326541,
+          "rotor_wall_uncovered_mm": 3.2017123503151446,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 2.52,
-          "rotor_wall_uncovered_mm": 3.1343683683806374,
+          "rotor_wall_uncovered_mm": 3.134387773242952,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -8258,28 +8262,28 @@
         },
         {
           "z_mm": 5.64,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9268436368043127,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.76,
-          "rotor_wall_uncovered_mm": 1.9296598694387352,
+          "rotor_wall_uncovered_mm": 1.9296722866358749,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 5.88,
-          "rotor_wall_uncovered_mm": 2.794552618887648,
+          "rotor_wall_uncovered_mm": 2.7945259148451047,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
         },
         {
           "z_mm": 6.0,
-          "rotor_wall_uncovered_mm": 3.141833119820115,
+          "rotor_wall_uncovered_mm": 3.1602140733068076,
           "rotor_key_core_deposition_mm2": 0.0,
           "closed_hoop_raw": true,
           "closed_hoop_buffer04": true
@@ -8669,14 +8673,15 @@
     },
     {
       "name": "nominal-male-3",
-      "source": "male",
+      "source": "male-supported",
       "layers": 162,
       "role_counts": {
-        "Inner wall": 1142,
-        "Outer wall": 1080,
+        "Inner wall": 3914,
+        "Outer wall": 7792,
+        "Bottom surface": 16,
+        "Internal solid infill": 437,
         "Overhang wall": 72,
         "Bridge": 39,
-        "Internal solid infill": 338,
         "Top surface": 6,
         "Gap infill": 15
       },
@@ -8684,672 +8689,675 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Top surface": 20.0,
-        "Outer wall": 15.0,
-        "Bridge": 15.0,
-        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
         "Overhang wall": 15.0,
+        "Gap infill": 30.0,
+        "Bottom surface": 15.0,
+        "Top surface": 20.0,
+        "Internal solid infill": 30.0,
         "Inner wall": 15.0,
-        "Gap infill": 30.0
+        "Bridge": 15.0
       },
       "center_disk_probe": [
         {
           "z_mm": 0.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 0.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 1.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 2.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 3.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 4.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 5.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402229561427
         },
         {
           "z_mm": 6.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 6.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 7.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 8.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 9.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291399572254244
         },
         {
           "z_mm": 10.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 10.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 11.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 12.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 13.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400129200238
         },
         {
           "z_mm": 14.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291397605980469
         },
         {
           "z_mm": 14.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 14.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.6,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.72,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.84,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 15.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.56,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.68,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.8,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 16.92,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.04,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.16,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.28,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.64,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.76,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 17.88,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.24,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.36,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.48,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 18.6,
-          "center_disk_radius_06_deposition_mm2": 0.901930356819242
+          "center_disk_radius_06_deposition_mm2": 0.9019303568192474
         },
         {
           "z_mm": 18.72,
-          "center_disk_radius_06_deposition_mm2": 1.0139612909334645
+          "center_disk_radius_06_deposition_mm2": 1.0139612909334657
         },
         {
           "z_mm": 18.84,
-          "center_disk_radius_06_deposition_mm2": 1.129155488287139
+          "center_disk_radius_06_deposition_mm2": 1.129155408444722
         },
         {
           "z_mm": 18.96,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.08,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         },
         {
           "z_mm": 19.32,
-          "center_disk_radius_06_deposition_mm2": 0.8919404789179985
+          "center_disk_radius_06_deposition_mm2": 0.891940478918009
         },
         {
           "z_mm": 19.44,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291574565965246
         }
       ]
     },
     {
       "name": "fit-pin-4.50",
-      "source": "pin",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1434,
-        "Outer wall": 8655
+        "Inner wall": 7861,
+        "Outer wall": 20647,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -11666,8 +11674,10 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Outer wall": 15.0,
-        "Inner wall": 20.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Inner wall": 20.0,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {

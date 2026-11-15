@@ -30,7 +30,7 @@
         2.6
       ]
     ],
-    "volume_mm3": 2258.3430554042166,
+    "volume_mm3": 2258.3430554042156,
     "watertight": true,
     "bodies": 1,
     "sha256": "9743cd5889ca44833d2f733b0776cfa0999a9f2f7c18fe77f77d14cfaad9f72e"
@@ -48,7 +48,7 @@
         2.6
       ]
     ],
-    "volume_mm3": 1312.438283864765,
+    "volume_mm3": 1312.4382838647653,
     "watertight": true,
     "bodies": 1,
     "sha256": "0547ad12bb1776af8a54e5cf0beef47ffdf63315335dbfabfd5d78d1231748ea"
@@ -246,7 +246,7 @@
         1.2
       ]
     ],
-    "volume_mm3": 11.291567582075592,
+    "volume_mm3": 11.291567582075594,
     "watertight": true,
     "bodies": 1,
     "sha256": "a8a7829e45ef6db2c5de2dbd5db112659fe246cd2d5731d70460a13ecaf83bb7"
@@ -264,7 +264,7 @@
         2.0
       ]
     ],
-    "volume_mm3": 333.0214695449399,
+    "volume_mm3": 333.02146954494,
     "watertight": true,
     "bodies": 1,
     "sha256": "50ff64fbb16adab68d8c47d23088029347b3602afe03ddb6290292d2c1ba240b"
@@ -282,7 +282,7 @@
         2.0
       ]
     ],
-    "volume_mm3": 469.7524331227,
+    "volume_mm3": 469.75243312269987,
     "watertight": true,
     "bodies": 1,
     "sha256": "e01c4835cdd647b354da012afa941e45bda2d411b061997ce1a4168426822996"
@@ -413,6 +413,42 @@
     "bodies": 1,
     "sha256": "e1e91b32d04fd4d2e5c64242407f01a7da4ed2935b26619cf0bfc61317ffbc31"
   },
+  "pin-supported": {
+    "bounds_mm": [
+      [
+        -7.0,
+        -7.0,
+        0.0
+      ],
+      [
+        7.0,
+        7.0,
+        40.0
+      ]
+    ],
+    "volume_mm3": 958.3772132162991,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "0e0234dbbac9536af395e64ad2e7c8f0639699dbb0bb99467e0101e7357cf234"
+  },
+  "male-supported": {
+    "bounds_mm": [
+      [
+        -5.75,
+        -5.75,
+        0.0
+      ],
+      [
+        5.75,
+        5.75,
+        19.386
+      ]
+    ],
+    "volume_mm3": 356.8716051551484,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "042e310728b601aa48b071ad31c3af1fb24ed1838e02548dda407b6dee03e197"
+  },
   "rotor-tight": {
     "bounds_mm": [
       [
@@ -444,7 +480,7 @@
         8.0
       ]
     ],
-    "volume_mm3": 72.70879469315999,
+    "volume_mm3": 72.70879469316,
     "watertight": true,
     "bodies": 1,
     "sha256": "b2daf9c146ca1d495a748d32398d1e169955c0fcc5e21ed91352c7d61b3cd4b4"

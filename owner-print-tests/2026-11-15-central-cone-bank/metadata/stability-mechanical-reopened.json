@@ -1,0 +1,781 @@
+{
+  "scope": "Nominal geometry and deposited tie contacts; no physical wobble/adhesion/removal guarantee",
+  "geometry": [
+    {
+      "part": "pin-supported",
+      "clean_geometry_missing_mm3": 4.650072610664858e-07,
+      "extra_material_in_pin_envelope_mm3": 9.856841379698696e-06,
+      "connected_bodies": 1,
+      "four_towers": true,
+      "tie_heights_mm": [
+        8,
+        17,
+        26,
+        35
+      ],
+      "maximum_unbraced_height_mm": 9.0
+    },
+    {
+      "part": "male-supported",
+      "clean_geometry_missing_mm3": 4.964470371460195e-07,
+      "extra_material_in_pin_envelope_mm3": null,
+      "connected_bodies": 1,
+      "four_towers": true,
+      "tie_heights_mm": [
+        6,
+        10.2,
+        14.4
+      ],
+      "maximum_unbraced_height_mm": 6.0
+    }
+  ],
+  "printed": [
+    {
+      "name": "pin-supported-12",
+      "source": "pin-supported",
+      "tie_checks": [
+        {
+          "z_mm": 8,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    },
+    {
+      "name": "pin-supported-15",
+      "source": "pin-supported",
+      "tie_checks": [
+        {
+          "z_mm": 8,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    },
+    {
+      "name": "pin-supported-18",
+      "source": "pin-supported",
+      "tie_checks": [
+        {
+          "z_mm": 8,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    },
+    {
+      "name": "pin-supported-21",
+      "source": "pin-supported",
+      "tie_checks": [
+        {
+          "z_mm": 8,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 8,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 17,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 26,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 35,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    },
+    {
+      "name": "male-supported-23",
+      "source": "male-supported",
+      "tie_checks": [
+        {
+          "z_mm": 6,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    },
+    {
+      "name": "male-supported-26",
+      "source": "male-supported",
+      "tie_checks": [
+        {
+          "z_mm": 6,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 6,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 10.2,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            0,
+            1
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            -1,
+            0
+          ],
+          "deposited_neck_fraction": 1.0
+        },
+        {
+          "z_mm": 14.4,
+          "direction": [
+            0,
+            -1
+          ],
+          "deposited_neck_fraction": 1.0
+        }
+      ],
+      "bed_feet_deposited": true
+    }
+  ],
+  "project_sha256": "cf14d5e7aff12f37f2cb008b9e842c0a534b428678f4d4cc7733eb17e11780a9"
+}

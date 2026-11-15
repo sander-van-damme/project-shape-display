@@ -1,24 +1,24 @@
 {
-  "project_sha256": "b5b11140aab093f6ec1d79aaebf0ae9fabd73dae05b6de664de96bc0aea50822",
+  "project_sha256": "cf14d5e7aff12f37f2cb008b9e842c0a534b428678f4d4cc7733eb17e11780a9",
   "layer_count": 352,
   "roles": {
-    "Inner wall": 154339,
-    "Outer wall": 224008,
-    "Bottom surface": 6158,
-    "Brim": 3578,
+    "Inner wall": 185533,
+    "Outer wall": 285325,
+    "Bottom surface": 6254,
+    "Brim": 6093,
     "Support": 1919,
-    "Internal solid infill": 57915,
+    "Internal solid infill": 58509,
     "Top surface": 3592,
     "Sparse infill": 372312,
-    "Gap infill": 1039,
-    "Floating vertical shell": 6010,
+    "Gap infill": 1035,
+    "Floating vertical shell": 5945,
     "Bridge": 5345,
     "Overhang wall": 1031,
     "Support transition": 122,
     "Support interface": 134
   },
   "support_paths": 2175,
-  "brim_paths": 3578,
+  "brim_paths": 6093,
   "project_bounds_mm": [
     [
       26.5,
@@ -32,10 +32,10 @@
     ]
   ],
   "stats": [
-    "; model printing time: 14h 35m 43s; total estimated time: 14h 51m 21s",
-    "; total filament length [mm] : 20874.36",
-    "; total filament volume [cm^3] : 50208.73",
-    "; total filament weight [g] : 62.26"
+    "; model printing time: 16h 20m 59s; total estimated time: 16h 36m 38s",
+    "; total filament length [mm] : 22053.71",
+    "; total filament volume [cm^3] : 53045.39",
+    "; total filament weight [g] : 65.78"
   ],
   "parts": [
     {
@@ -43,8 +43,8 @@
       "source": "guide",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 2792,
-        "Outer wall": 3207,
+        "Inner wall": 2794,
+        "Outer wall": 3214,
         "Bottom surface": 351,
         "Internal solid infill": 2479,
         "Sparse infill": 3058,
@@ -195,14 +195,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -280,12 +280,12 @@
       "source": "guide",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 2792,
-        "Outer wall": 3207,
+        "Inner wall": 2794,
+        "Outer wall": 3214,
         "Bottom surface": 351,
         "Internal solid infill": 2479,
         "Sparse infill": 3058,
-        "Floating vertical shell": 243,
+        "Floating vertical shell": 237,
         "Bridge": 261,
         "Top surface": 156,
         "Gap infill": 45
@@ -432,14 +432,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -1466,14 +1466,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -2659,12 +2659,14 @@
       ]
     },
     {
-      "name": "pin-12",
-      "source": "pin",
+      "name": "pin-supported-12",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1446,
-        "Outer wall": 8672
+        "Inner wall": 7859,
+        "Outer wall": 20644,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -4982,7 +4984,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -7273,14 +7277,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -8466,12 +8470,14 @@
       ]
     },
     {
-      "name": "pin-15",
-      "source": "pin",
+      "name": "pin-supported-15",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1446,
-        "Outer wall": 8672
+        "Inner wall": 7859,
+        "Outer wall": 20644,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -10789,7 +10795,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -13080,14 +13088,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -14273,12 +14281,14 @@
       ]
     },
     {
-      "name": "pin-18",
-      "source": "pin",
+      "name": "pin-supported-18",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1453,
-        "Outer wall": 8664
+        "Inner wall": 7862,
+        "Outer wall": 20645,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -16596,7 +16606,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -18887,14 +18899,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -20080,12 +20092,14 @@
       ]
     },
     {
-      "name": "pin-21",
-      "source": "pin",
+      "name": "pin-supported-21",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1453,
-        "Outer wall": 8664
+        "Inner wall": 7862,
+        "Outer wall": 20645,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -22403,7 +22417,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {

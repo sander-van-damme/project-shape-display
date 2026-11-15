@@ -1,24 +1,24 @@
 {
-  "project_sha256": "b5b11140aab093f6ec1d79aaebf0ae9fabd73dae05b6de664de96bc0aea50822",
+  "project_sha256": "cf14d5e7aff12f37f2cb008b9e842c0a534b428678f4d4cc7733eb17e11780a9",
   "layer_count": 352,
   "roles": {
-    "Inner wall": 154339,
-    "Outer wall": 224008,
-    "Bottom surface": 6158,
-    "Brim": 3578,
+    "Inner wall": 185533,
+    "Outer wall": 285325,
+    "Bottom surface": 6254,
+    "Brim": 6093,
     "Support": 1919,
-    "Internal solid infill": 57915,
+    "Internal solid infill": 58509,
     "Top surface": 3592,
     "Sparse infill": 372312,
-    "Gap infill": 1039,
-    "Floating vertical shell": 6010,
+    "Gap infill": 1035,
+    "Floating vertical shell": 5945,
     "Bridge": 5345,
     "Overhang wall": 1031,
     "Support transition": 122,
     "Support interface": 134
   },
   "support_paths": 2175,
-  "brim_paths": 3578,
+  "brim_paths": 6093,
   "project_bounds_mm": [
     [
       26.5,
@@ -32,10 +32,10 @@
     ]
   ],
   "stats": [
-    "; model printing time: 14h 35m 43s; total estimated time: 14h 51m 21s",
-    "; total filament length [mm] : 20874.36",
-    "; total filament volume [cm^3] : 50208.73",
-    "; total filament weight [g] : 62.26"
+    "; model printing time: 16h 20m 59s; total estimated time: 16h 36m 38s",
+    "; total filament length [mm] : 22053.71",
+    "; total filament volume [cm^3] : 53045.39",
+    "; total filament weight [g] : 65.78"
   ],
   "parts": [
     {
@@ -43,12 +43,12 @@
       "source": "bank",
       "layers": 127,
       "role_counts": {
-        "Inner wall": 21173,
-        "Outer wall": 18964,
+        "Inner wall": 21172,
+        "Outer wall": 18950,
         "Bottom surface": 769,
         "Internal solid infill": 9391,
         "Sparse infill": 105581,
-        "Floating vertical shell": 1570,
+        "Floating vertical shell": 1589,
         "Top surface": 865,
         "Gap infill": 233,
         "Overhang wall": 399,
@@ -7692,7 +7692,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 1.7059286018423347,
+          "maximum_free_segment_mm": 1.7059286018423458,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -8610,7 +8610,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.4882713309122786,
+          "maximum_free_segment_mm": 3.488271330912288,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -9321,7 +9321,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.5546563560037687,
+          "maximum_free_segment_mm": 3.5546563560037487,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -9456,7 +9456,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.432944963049887,
+          "maximum_free_segment_mm": 3.4329449630498976,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -10869,7 +10869,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.6143905154798572,
+          "maximum_free_segment_mm": 3.6143905154798373,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -10905,7 +10905,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.5013275203826977,
+          "maximum_free_segment_mm": 3.5013275203826923,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -10977,7 +10977,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.568039315991702,
+          "maximum_free_segment_mm": 3.568039315991682,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -13092,7 +13092,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.4877738101637155,
+          "maximum_free_segment_mm": 3.4877738101637097,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -13290,7 +13290,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.374123515765118,
+          "maximum_free_segment_mm": 3.374123515765107,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -13839,7 +13839,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.451834401304918,
+          "maximum_free_segment_mm": 3.451834401304898,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -13857,7 +13857,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.409183489137585,
+          "maximum_free_segment_mm": 3.409183489137574,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -13965,7 +13965,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.42043183642373,
+          "maximum_free_segment_mm": 3.4204318364237345,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -14163,7 +14163,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.417487066356521,
+          "maximum_free_segment_mm": 3.4174870663565367,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -14181,7 +14181,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.443367960724739,
+          "maximum_free_segment_mm": 3.4433679607247547,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -14487,7 +14487,7 @@
         {
           "z_mm": 5.52,
           "role": "Bridge",
-          "maximum_free_segment_mm": 3.183798135419909,
+          "maximum_free_segment_mm": 3.1837981354199245,
           "endpoint_distances_mm": [
             0.0,
             0.0
@@ -14688,7 +14688,7 @@
           "maximum_free_segment_mm": 0.5113531069622982,
           "endpoint_distances_mm": [
             0.23839065989696903,
-            0.3206094206499554
+            0.32060942064995485
           ]
         },
         {
@@ -14696,7 +14696,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.7720524593575288,
           "endpoint_distances_mm": [
-            0.3206094206499554,
+            0.32060942064995485,
             0.2910694697068117
           ]
         },
@@ -14805,7 +14805,7 @@
           "maximum_free_segment_mm": 0.46506881211279166,
           "endpoint_distances_mm": [
             0.7895726796443984,
-            0.7870888544606032
+            0.7870888544606025
           ]
         },
         {
@@ -14813,7 +14813,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.4640387914819106,
           "endpoint_distances_mm": [
-            0.7870888544606032,
+            0.7870888544606025,
             0.8088141146249187
           ]
         },
@@ -14832,7 +14832,7 @@
           "maximum_free_segment_mm": 0.4602575366031515,
           "endpoint_distances_mm": [
             0.8262785278811702,
-            0.826982668139596
+            0.8269826681395972
           ]
         },
         {
@@ -14840,8 +14840,8 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.45979560676456527,
           "endpoint_distances_mm": [
-            0.826982668139596,
-            0.8279470874425443
+            0.8269826681395972,
+            0.8280464114205125
           ]
         },
         {
@@ -14849,7 +14849,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.4605778978631155,
           "endpoint_distances_mm": [
-            0.8279470874425443,
+            0.8280464114205125,
             0.8757022861606584
           ]
         },
@@ -14886,7 +14886,7 @@
           "maximum_free_segment_mm": 1.0349999999999966,
           "endpoint_distances_mm": [
             1.0646388724146245,
-            0.2150245271530037
+            0.215187994987085
           ]
         },
         {
@@ -15165,7 +15165,7 @@
           "maximum_free_segment_mm": 0.377021219561986,
           "endpoint_distances_mm": [
             1.7818902609060456,
-            1.7467655978108656
+            1.7465625294888492
           ]
         },
         {
@@ -15173,8 +15173,8 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.377153814775882,
           "endpoint_distances_mm": [
-            1.7467655978108656,
-            1.468092755496923
+            1.7465625294888492,
+            1.464959648275062
           ]
         },
         {
@@ -15182,7 +15182,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.3772439529005002,
           "endpoint_distances_mm": [
-            1.468092755496923,
+            1.464959648275062,
             1.2896037657675405
           ]
         },
@@ -15192,7 +15192,7 @@
           "maximum_free_segment_mm": 0.3777737418085009,
           "endpoint_distances_mm": [
             1.2896037657675405,
-            1.2501553806689973
+            1.2502711203828352
           ]
         },
         {
@@ -15200,8 +15200,8 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.37620473149603756,
           "endpoint_distances_mm": [
-            1.2501553806689973,
-            1.2486598730262448
+            1.2502711203828352,
+            1.2486598730262466
           ]
         },
         {
@@ -15209,7 +15209,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.37776315331169996,
           "endpoint_distances_mm": [
-            1.2486598730262448,
+            1.2486598730262466,
             1.2480946278555158
           ]
         },
@@ -15228,7 +15228,7 @@
           "maximum_free_segment_mm": 0.33555476453180644,
           "endpoint_distances_mm": [
             1.229746116426603,
-            1.2336530126575398
+            1.2336530126575391
           ]
         },
         {
@@ -15236,7 +15236,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.41800000000000637,
           "endpoint_distances_mm": [
-            1.2336530126575398,
+            1.2336530126575391,
             1.23436468431837
           ]
         },
@@ -15434,7 +15434,7 @@
           "role": "Bridge",
           "maximum_free_segment_mm": 0.9758160687342624,
           "endpoint_distances_mm": [
-            0.15812542847453517,
+            0.1581558426989316,
             0.15235907146201894
           ]
         },
@@ -15552,7 +15552,7 @@
           "maximum_free_segment_mm": 0.46506881211279166,
           "endpoint_distances_mm": [
             0.7895726796443913,
-            0.7870888544605937
+            0.7870888544605934
           ]
         },
         {
@@ -15560,7 +15560,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.4640387914819106,
           "endpoint_distances_mm": [
-            0.7870888544605937,
+            0.7870888544605934,
             0.8088141146249253
           ]
         },
@@ -15651,7 +15651,7 @@
           "maximum_free_segment_mm": 0.5113531069622984,
           "endpoint_distances_mm": [
             0.23839065989697597,
-            0.32060942064995246
+            0.32060942064995224
           ]
         },
         {
@@ -15659,7 +15659,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.7720524593575288,
           "endpoint_distances_mm": [
-            0.32060942064995246,
+            0.32060942064995224,
             0.2910694697068184
           ]
         },
@@ -16164,7 +16164,7 @@
           "maximum_free_segment_mm": 0.33555476453180644,
           "endpoint_distances_mm": [
             1.229746116426603,
-            1.2336530126575318
+            1.2336530126575314
           ]
         },
         {
@@ -16172,7 +16172,7 @@
           "role": "Overhang wall",
           "maximum_free_segment_mm": 0.41800000000000637,
           "endpoint_distances_mm": [
-            1.2336530126575318,
+            1.2336530126575314,
             1.2343646843183615
           ]
         },
@@ -18410,16 +18410,16 @@
         }
       ],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -18937,12 +18937,12 @@
       "source": "motorplate",
       "layers": 25,
       "role_counts": {
-        "Inner wall": 7780,
-        "Outer wall": 8418,
+        "Inner wall": 7781,
+        "Outer wall": 8419,
         "Bottom surface": 782,
         "Internal solid infill": 5320,
         "Sparse infill": 26042,
-        "Floating vertical shell": 389,
+        "Floating vertical shell": 386,
         "Bridge": 670,
         "Top surface": 333,
         "Gap infill": 123
@@ -18952,14 +18952,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -19069,12 +19069,12 @@
       "source": "endblock",
       "layers": 117,
       "role_counts": {
-        "Inner wall": 8615,
-        "Outer wall": 8807,
+        "Inner wall": 8616,
+        "Outer wall": 8805,
         "Bottom surface": 337,
         "Internal solid infill": 4321,
         "Sparse infill": 48730,
-        "Floating vertical shell": 696,
+        "Floating vertical shell": 687,
         "Bridge": 212,
         "Top surface": 194,
         "Gap infill": 26,
@@ -19084,16 +19084,16 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -19354,215 +19354,215 @@
         },
         {
           "z_mm": 7.8,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 7.92,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 8.04,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.16,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.28,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.4,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.52,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.64,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.76,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 8.88,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.0,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.12,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.24,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.36,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.48,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.6,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.72,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 9.84,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 9.96,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 10.08,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.44,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.56,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.68,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.8,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 10.92,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 11.04,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.16,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.28,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.4,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.52,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.64,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.76,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 11.88,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.0,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.12,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 12.24,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287744
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981326
         },
         {
           "z_mm": 12.36,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.48,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.6,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.72,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.84,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 12.96,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.08,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.2,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.32,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.44,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.56,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.68,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.8,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 13.92,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         },
         {
           "z_mm": 14.04,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877444
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981327
         }
       ]
     },
@@ -19571,12 +19571,12 @@
       "source": "endblock",
       "layers": 117,
       "role_counts": {
-        "Inner wall": 8615,
-        "Outer wall": 8809,
+        "Inner wall": 8616,
+        "Outer wall": 8807,
         "Bottom surface": 337,
         "Internal solid infill": 4315,
         "Sparse infill": 48715,
-        "Floating vertical shell": 695,
+        "Floating vertical shell": 693,
         "Bridge": 212,
         "Top surface": 194,
         "Gap infill": 26,
@@ -19586,16 +19586,16 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -19856,215 +19856,215 @@
         },
         {
           "z_mm": 7.8,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 7.92,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.04,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.16,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.28,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.4,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.52,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.64,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.76,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 8.88,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.0,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.12,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.24,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.36,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.48,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.6,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.72,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.84,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 9.96,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.08,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.44,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.56,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.68,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.8,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 10.92,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.04,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.16,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.28,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.4,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.52,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.64,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.76,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 11.88,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.0,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.12,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.24,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.36,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.48,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.6,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.72,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.84,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 12.96,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.08,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.2,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.32,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.44,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.56,
-          "center_disk_radius_06_deposition_mm2": 0.2704066840287749
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.68,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.8,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 13.92,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         },
         {
           "z_mm": 14.04,
-          "center_disk_radius_06_deposition_mm2": 0.27040668402877494
+          "center_disk_radius_06_deposition_mm2": 0.2702276628981331
         }
       ]
     },
@@ -20088,14 +20088,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -20198,7 +20198,7 @@
         "Bottom surface": 351,
         "Internal solid infill": 923,
         "Sparse infill": 4259,
-        "Floating vertical shell": 61,
+        "Floating vertical shell": 59,
         "Bridge": 127,
         "Top surface": 172,
         "Gap infill": 12
@@ -20208,14 +20208,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 15.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -20313,8 +20313,8 @@
       "source": "lower2",
       "layers": 22,
       "role_counts": {
-        "Inner wall": 3298,
-        "Outer wall": 3371,
+        "Inner wall": 3302,
+        "Outer wall": 3380,
         "Bottom surface": 500,
         "Internal solid infill": 3434,
         "Sparse infill": 8412,
@@ -20328,14 +20328,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -20433,12 +20433,12 @@
       "source": "upper",
       "layers": 13,
       "role_counts": {
-        "Inner wall": 3251,
-        "Outer wall": 3396,
+        "Inner wall": 3249,
+        "Outer wall": 3399,
         "Bottom surface": 347,
         "Internal solid infill": 2675,
         "Sparse infill": 1473,
-        "Floating vertical shell": 316,
+        "Floating vertical shell": 307,
         "Bridge": 260,
         "Top surface": 164,
         "Gap infill": 85
@@ -20448,14 +20448,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -20517,8 +20517,8 @@
       "source": "guide",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 2792,
-        "Outer wall": 3207,
+        "Inner wall": 2794,
+        "Outer wall": 3214,
         "Bottom surface": 351,
         "Internal solid infill": 2479,
         "Sparse infill": 3058,
@@ -20669,14 +20669,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -20754,12 +20754,12 @@
       "source": "guide",
       "layers": 17,
       "role_counts": {
-        "Inner wall": 2792,
-        "Outer wall": 3207,
+        "Inner wall": 2794,
+        "Outer wall": 3214,
         "Bottom surface": 351,
         "Internal solid infill": 2479,
         "Sparse infill": 3058,
-        "Floating vertical shell": 243,
+        "Floating vertical shell": 237,
         "Bridge": 261,
         "Top surface": 156,
         "Gap infill": 45
@@ -20906,14 +20906,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -21940,14 +21940,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -23133,12 +23133,14 @@
       ]
     },
     {
-      "name": "pin-12",
-      "source": "pin",
+      "name": "pin-supported-12",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1446,
-        "Outer wall": 8672
+        "Inner wall": 7859,
+        "Outer wall": 20644,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -25456,7 +25458,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -26803,7 +26807,7 @@
         "Bottom surface": 102,
         "Internal solid infill": 1242,
         "Sparse infill": 26560,
-        "Floating vertical shell": 48,
+        "Floating vertical shell": 47,
         "Bridge": 96,
         "Top surface": 46,
         "Gap infill": 12
@@ -26813,14 +26817,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 15.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -28759,14 +28763,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -29952,12 +29956,14 @@
       ]
     },
     {
-      "name": "pin-15",
-      "source": "pin",
+      "name": "pin-supported-15",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1446,
-        "Outer wall": 8672
+        "Inner wall": 7859,
+        "Outer wall": 20644,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -32275,7 +32281,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -33632,14 +33640,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -35578,14 +35586,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -36771,12 +36779,14 @@
       ]
     },
     {
-      "name": "pin-18",
-      "source": "pin",
+      "name": "pin-supported-18",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1453,
-        "Outer wall": 8664
+        "Inner wall": 7862,
+        "Outer wall": 20645,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -39094,7 +39104,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -40441,7 +40453,7 @@
         "Bottom surface": 102,
         "Internal solid infill": 1224,
         "Sparse infill": 26560,
-        "Floating vertical shell": 48,
+        "Floating vertical shell": 47,
         "Bridge": 96,
         "Top surface": 46,
         "Gap infill": 12
@@ -40451,14 +40463,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 15.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -42397,14 +42409,14 @@
       ],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Outer wall": 20.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 20.0
       },
       "center_disk_probe": [
         {
@@ -43590,12 +43602,14 @@
       ]
     },
     {
-      "name": "pin-21",
-      "source": "pin",
+      "name": "pin-supported-21",
+      "source": "pin-supported",
       "layers": 333,
       "role_counts": {
-        "Inner wall": 1453,
-        "Outer wall": 8664
+        "Inner wall": 7862,
+        "Outer wall": 20645,
+        "Bottom surface": 16,
+        "Internal solid infill": 99
       },
       "orphan_components": [],
       "critical_sections": [
@@ -45913,7 +45927,9 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Inner wall": 20.0,
-        "Outer wall": 15.0
+        "Internal solid infill": 30.0,
+        "Outer wall": 27.5,
+        "Bottom surface": 15.0
       },
       "center_disk_probe": [
         {
@@ -47270,14 +47286,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -48263,29 +48279,31 @@
       ]
     },
     {
-      "name": "male-23",
-      "source": "male",
+      "name": "male-supported-23",
+      "source": "male-supported",
       "layers": 162,
       "role_counts": {
-        "Inner wall": 1142,
-        "Outer wall": 1080,
+        "Inner wall": 3914,
+        "Outer wall": 7793,
+        "Bottom surface": 16,
+        "Internal solid infill": 437,
         "Overhang wall": 72,
         "Bridge": 39,
-        "Internal solid infill": 338,
         "Top surface": 6,
-        "Gap infill": 15
+        "Gap infill": 13
       },
       "orphan_components": [],
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
-        "Outer wall": 15.0,
+        "Bottom surface": 15.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
+        "Overhang wall": 15.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 27.5
       },
       "center_disk_probe": [
         {
@@ -48486,11 +48504,11 @@
         },
         {
           "z_mm": 6.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402995817292
         },
         {
           "z_mm": 6.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402995817292
         },
         {
           "z_mm": 6.24,
@@ -48626,11 +48644,11 @@
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400344176663
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400344176663
         },
         {
           "z_mm": 10.44,
@@ -48766,11 +48784,11 @@
         },
         {
           "z_mm": 14.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.129140089984705
         },
         {
           "z_mm": 14.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291398382882691
         },
         {
           "z_mm": 14.64,
@@ -49860,16 +49878,16 @@
         }
       ],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 20.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 20.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -50039,29 +50057,31 @@
       ]
     },
     {
-      "name": "male-26",
-      "source": "male",
+      "name": "male-supported-26",
+      "source": "male-supported",
       "layers": 162,
       "role_counts": {
-        "Inner wall": 1142,
-        "Outer wall": 1080,
+        "Inner wall": 3914,
+        "Outer wall": 7791,
+        "Bottom surface": 16,
+        "Internal solid infill": 437,
         "Overhang wall": 72,
         "Bridge": 39,
-        "Internal solid infill": 338,
         "Top surface": 6,
-        "Gap infill": 15
+        "Gap infill": 13
       },
       "orphan_components": [],
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
-        "Outer wall": 15.0,
+        "Bottom surface": 15.0,
         "Bridge": 15.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
+        "Overhang wall": 15.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Outer wall": 27.5
       },
       "center_disk_probe": [
         {
@@ -50262,11 +50282,11 @@
         },
         {
           "z_mm": 6.0,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402995817292
         },
         {
           "z_mm": 6.12,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291402995817292
         },
         {
           "z_mm": 6.24,
@@ -50402,11 +50422,11 @@
         },
         {
           "z_mm": 10.2,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400344176663
         },
         {
           "z_mm": 10.32,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291400344176663
         },
         {
           "z_mm": 10.44,
@@ -50542,11 +50562,11 @@
         },
         {
           "z_mm": 14.4,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.129140089984705
         },
         {
           "z_mm": 14.52,
-          "center_disk_radius_06_deposition_mm2": 1.129157456596524
+          "center_disk_radius_06_deposition_mm2": 1.1291398382882691
         },
         {
           "z_mm": 14.64,
@@ -51455,7 +51475,7 @@
         "Internal solid infill": 435,
         "Sparse infill": 716,
         "Top surface": 55,
-        "Floating vertical shell": 9,
+        "Floating vertical shell": 8,
         "Overhang wall": 14,
         "Bridge": 5,
         "Gap infill": 5
@@ -51636,16 +51656,16 @@
         }
       ],
       "role_max_speed_mm_s": {
-        "Overhang wall": 15.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 20.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 15.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 20.0,
+        "Floating vertical shell": 15.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -51824,7 +51844,7 @@
         "Bottom surface": 79,
         "Internal solid infill": 169,
         "Sparse infill": 377,
-        "Floating vertical shell": 15,
+        "Floating vertical shell": 14,
         "Top surface": 50,
         "Gap infill": 20
       },
@@ -51833,13 +51853,13 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 15.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -51963,13 +51983,13 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -52047,8 +52067,8 @@
       "source": "motorpulley",
       "layers": 67,
       "role_counts": {
-        "Inner wall": 4970,
-        "Outer wall": 5460,
+        "Inner wall": 4968,
+        "Outer wall": 5444,
         "Bottom surface": 86,
         "Internal solid infill": 2072,
         "Top surface": 50,
@@ -52062,16 +52082,16 @@
       "critical_sections": [],
       "bridges": [],
       "role_max_speed_mm_s": {
-        "Overhang wall": 10.0,
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
+        "Gap infill": 30.0,
         "Sparse infill": 40.0,
-        "Inner wall": 15.0,
         "Internal solid infill": 30.0,
+        "Overhang wall": 10.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -52350,11 +52370,11 @@
       "layers": 17,
       "role_counts": {
         "Inner wall": 1799,
-        "Outer wall": 1780,
+        "Outer wall": 1772,
         "Bottom surface": 142,
         "Internal solid infill": 1166,
         "Sparse infill": 1178,
-        "Floating vertical shell": 102,
+        "Floating vertical shell": 94,
         "Bridge": 120,
         "Top surface": 79,
         "Gap infill": 27
@@ -52364,14 +52384,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 30.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 40.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 40.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 30.0
       },
       "center_disk_probe": [
         {
@@ -52454,7 +52474,7 @@
         "Bottom surface": 139,
         "Internal solid infill": 982,
         "Sparse infill": 970,
-        "Floating vertical shell": 174,
+        "Floating vertical shell": 172,
         "Bridge": 71,
         "Top surface": 70,
         "Gap infill": 14
@@ -52464,14 +52484,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -52554,7 +52574,7 @@
         "Bottom surface": 139,
         "Internal solid infill": 982,
         "Sparse infill": 970,
-        "Floating vertical shell": 174,
+        "Floating vertical shell": 161,
         "Bridge": 71,
         "Top surface": 70,
         "Gap infill": 14
@@ -52564,14 +52584,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -52654,7 +52674,7 @@
         "Bottom surface": 139,
         "Internal solid infill": 984,
         "Sparse infill": 969,
-        "Floating vertical shell": 175,
+        "Floating vertical shell": 162,
         "Bridge": 71,
         "Top surface": 70,
         "Gap infill": 14
@@ -52664,14 +52684,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -52754,7 +52774,7 @@
         "Bottom surface": 139,
         "Internal solid infill": 986,
         "Sparse infill": 970,
-        "Floating vertical shell": 175,
+        "Floating vertical shell": 162,
         "Bridge": 71,
         "Top surface": 70,
         "Gap infill": 14
@@ -52764,14 +52784,14 @@
       "bridges": [],
       "role_max_speed_mm_s": {
         "Bottom surface": 15.0,
-        "Floating vertical shell": 24.0,
-        "Outer wall": 15.0,
         "Bridge": 15.0,
         "Sparse infill": 60.0,
-        "Inner wall": 15.0,
+        "Gap infill": 30.0,
         "Internal solid infill": 30.0,
         "Top surface": 20.0,
-        "Gap infill": 30.0
+        "Inner wall": 15.0,
+        "Floating vertical shell": 24.0,
+        "Outer wall": 15.0
       },
       "center_disk_probe": [
         {
@@ -53065,7 +53085,7 @@
       "source": "springseat",
       "layers": 10,
       "role_counts": {
-        "Outer wall": 535
+        "Outer wall": 536
       },
       "orphan_components": [],
       "critical_sections": [],
@@ -53121,7 +53141,7 @@
       "source": "springseat",
       "layers": 10,
       "role_counts": {
-        "Outer wall": 535
+        "Outer wall": 536
       },
       "orphan_components": [],
       "critical_sections": [],

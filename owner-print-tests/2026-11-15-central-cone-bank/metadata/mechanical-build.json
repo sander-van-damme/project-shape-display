@@ -91,8 +91,8 @@
       "brim_object_gap": "0.12",
       "sparse_infill_density": "100%"
     },
-    "pin-12": {
-      "name": "pin-12",
+    "pin-supported-12": {
+      "name": "pin-supported-12",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -117,8 +117,8 @@
       "brim_object_gap": "0.12",
       "sparse_infill_density": "100%"
     },
-    "pin-15": {
-      "name": "pin-15",
+    "pin-supported-15": {
+      "name": "pin-supported-15",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -143,8 +143,8 @@
       "brim_object_gap": "0.12",
       "sparse_infill_density": "100%"
     },
-    "pin-18": {
-      "name": "pin-18",
+    "pin-supported-18": {
+      "name": "pin-supported-18",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -169,8 +169,8 @@
       "brim_object_gap": "0.12",
       "sparse_infill_density": "100%"
     },
-    "pin-21": {
-      "name": "pin-21",
+    "pin-supported-21": {
+      "name": "pin-supported-21",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -186,8 +186,8 @@
       "inner_wall_speed": "40",
       "sparse_infill_speed": "60"
     },
-    "male-23": {
-      "name": "male-23",
+    "male-supported-23": {
+      "name": "male-supported-23",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -205,8 +205,8 @@
       "enable_support": "0",
       "extruder": "1"
     },
-    "male-26": {
-      "name": "male-26",
+    "male-supported-26": {
+      "name": "male-supported-26",
       "enable_support": "0",
       "extruder": "1",
       "brim_type": "outer_only",
@@ -310,16 +310,16 @@
       "extruder": "1"
     }
   },
-  "project_sha256": "861232f8f4ec45c23f2d0083b9b44e6b5a14df4ae43966e7c7e03a90247fdc82",
-  "reopened_project_sha256": "b5b11140aab093f6ec1d79aaebf0ae9fabd73dae05b6de664de96bc0aea50822",
+  "project_sha256": "fe36333925fa07810489dac96dc6d4973dcf643043ea7223f790d9f40769907a",
+  "reopened_project_sha256": "cf14d5e7aff12f37f2cb008b9e842c0a534b428678f4d4cc7733eb17e11780a9",
   "reopened_without_external_profiles": true,
   "settings_differences": {},
   "gcode_equal_except_timestamp": false,
   "stats": [
-    "; model printing time: 14h 37m 18s; total estimated time: 14h 52m 57s",
-    "; total filament length [mm] : 20876.91",
-    "; total filament volume [cm^3] : 50214.86",
-    "; total filament weight [g] : 62.27"
+    "; model printing time: 16h 20m 39s; total estimated time: 16h 36m 17s",
+    "; total filament length [mm] : 22054.77",
+    "; total filament volume [cm^3] : 53047.94",
+    "; total filament weight [g] : 65.78"
   ],
   "profile_provenance": {
     "printer": [

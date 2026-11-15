@@ -26,7 +26,7 @@ M3-draadeind voor de geleidingen is eenvoudig af te zagen; verwijder bramen buit
 
 1. Test rotor2,2 /2,3 /2,4 vierkante boring op dezelfde male-stift; nominale2,3 is herkenbaar aan bronbestandsnaam. Houd onderdelen per zakje gelabeld. Drie identieke nominale rotoren/stiften leveren printvariatie. Stift moet vrij axiaal schuiven terwijl rotor handmatig draait.
 2. Test guide46/47/48 op één pin. **4,7 is de constructieve basis bij de nieuwe4,50-mm pin** (0,10 zijde,0,38 tussenwand).4,6/4,8 zijn alleen coupons: respectievelijk0,05/0,15 zijde en0,48/0,28 tussenwand en dus mogelijk onbruikbaar. Geen volledige alternatieve frames printen.
-3. Knip de vier externe steunnekken van iedere schroef los; niet wrikken aan de draad. Controleer **alle resten op de flank**. Steun zit uitsluitend buiten de schroef, nooit in de pin. Test vier paren handmatig vóór montage. Pin heeft40-mm lengte en6-mm functionele binnendraad.
+3. Knip eerst de externe stabilisatietorens van pinnen en koppelstiften los bij iedere dunne nek (16 per pin,12 per stift). Niet wrikken of draaien. Trim de resten vlak op de buitenvlakken en controleer de vierkante schuifpassing en guidepassing vóór montage. Laat de binnendraad ongemoeid. `pin.stl`/`male.stl` blijven de schone montage-referenties; de3MF gebruikt de `-supported` prints. Knip de vier externe steunnekken van iedere schroef los; niet wrikken aan de draad. Controleer **alle resten op de flank**. Steun zit uitsluitend buiten de schroef, nooit in de pin. Test vier paren handmatig vóór montage. Pin heeft40-mm lengte en6-mm functionele binnendraad.
 
 ## Vast raster
 

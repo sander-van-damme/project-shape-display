@@ -1,6 +1,6 @@
 # Instructions for Codex and one-off contributors
 
-This is an **owner-directed project**, not an autonomous laboratory. Do the assigned task; no self-started campaigns, issue chains, agent handoffs or status-only commits. Require a concrete question, useful deliverable and stop condition. Optimize owner time, tokens and filament.
+This project is **owner-directed**. Do the assigned task; no self-started campaigns, issue chains, agent handoffs or status-only commits. Require a question, deliverable and stop condition. Optimize owner time, tokens and filament.
 
 **Current direction: [DES-010](08-integrated-designs/DES-010-central-motor-selectable-cone-bank/DES-010-central-motor-selectable-cone-bank.md)** — owner-requested central reversible motor per traveling bank, common transmission and individually selectable cone clutches. Its2×2 prototype is a manual mechanical reference plus a separate electromagnetic selector force coupon; neither is physically validated. [DES-009](08-integrated-designs/DES-009-traveling-motor-bank-screw-pins/DES-009-traveling-motor-bank-screw-pins.md) remains the historical multi-microstepper basis. Keep5.08-mm pitch and the existing screw/female profile; DES-010 thickens only pin exterior4.4→4.5mm for closed slicer paths, guide4.7. New exterior fit is untested. Read the print pack's status/verification; no autonomous follow-up.
 
@@ -10,4 +10,4 @@ Prioritize simplicity, cost and D&D playability: **25.4-mm squares, thin boundar
 
 Separate assumptions, calculations, CAD, slicer output, owner observations and measurements. Preserve positive/negative evidence and provenance. Count support, force, cost, assembly and repair; simulation is no physical pass. Stages03–08: knowledge, candidates, questions, evidence/source, decisions, designs. Keep edits focused; preserve history. Use existing IDs and ./repo help/check. No mandatory Paperclip process or hard-coded machine paths. Report check limits.
 
-For assigned printing follow owner-print-tests/AGENTS.md: configured X1C Bambu3MF, tiny tests, no owner deadline. No unrequested purchases, account changes or follow-on tasks. **Stop at the deliverable.**
+For assigned printing follow owner-print-tests/AGENTS.md: configured X1C Bambu3MF, tiny tests, no owner deadline. Brace tall prints against wobble; a brim alone is insufficient. Keep threads support-free. No unrequested purchases, account changes or follow-on tasks. **Stop at the deliverable.**

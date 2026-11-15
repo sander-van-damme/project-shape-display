@@ -1,7 +1,7 @@
 {
   "bambu_version": "02.08.02.61",
   "plate_translation_mm": [
-    38.00000190734863,
+    36.35000038146973,
     63.0,
     0.0
   ],
@@ -113,16 +113,16 @@
       "sparse_infill_density": "100%"
     }
   },
-  "project_sha256": "544c2abff9afbdde6f83da7e59485174a04caff8c902b3fa3e37a23b59fda52f",
-  "reopened_project_sha256": "a27b99657ce4cca314ab59a02eb74d308980e4cf34ebfb7b7804232e1d4c5b45",
+  "project_sha256": "05dbd8ae8cfaaa9859aab5083fbcfb746c0b682142fdfaa619cec98f67ea7ca9",
+  "reopened_project_sha256": "923e3a93e1cd1553d0c1da33393e34e8c70b41309892ec1313df8494860bb535",
   "reopened_without_external_profiles": true,
   "settings_differences": {},
   "gcode_equal_except_timestamp": false,
   "stats": [
-    "; model printing time: 3h 59m 50s; total estimated time: 4h 15m 29s",
-    "; total filament length [mm] : 4984.90",
-    "; total filament volume [cm^3] : 11990.08",
-    "; total filament weight [g] : 14.87"
+    "; model printing time: 4h 51m 33s; total estimated time: 5h 7m 12s",
+    "; total filament length [mm] : 5551.89",
+    "; total filament volume [cm^3] : 13353.86",
+    "; total filament weight [g] : 16.56"
   ],
   "profile_provenance": {
     "printer": [
