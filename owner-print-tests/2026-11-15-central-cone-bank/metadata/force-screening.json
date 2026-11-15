@@ -1,0 +1,44 @@
+{
+  "scope": "Calculated screening scenarios; no physical forces/friction measured",
+  "cone_half_angle_degrees": 30,
+  "cone_contact_area_mm2": 15.079644737231005,
+  "cone_effective_radius_pressure_mm": 1.5355555555555556,
+  "cone_effective_radius_wear_mm": 1.5,
+  "upper_thrust_effective_radius_mm": 1.9835443037974687,
+  "lower_thrust_effective_radius_mm": 1.7298507462686568,
+  "input_collar_effective_radius_mm": 1.8612612612612616,
+  "scenarios": [
+    {
+      "assumed_mu_cone": 0.15,
+      "assumed_mu_thrust": 0.2,
+      "assumed_lateral_drag_Nmm_per_N": 0.1,
+      "net_thread_torque_Nmm_per_N": -0.04670886075949379,
+      "force_for_historical_0343_Nmm_N": null,
+      "input_collar_drag_Nmm_per_N": 0.37225225225225234
+    },
+    {
+      "assumed_mu_cone": 0.25,
+      "assumed_mu_thrust": 0.2,
+      "assumed_lateral_drag_Nmm_per_N": 0.1,
+      "net_thread_torque_Nmm_per_N": 0.2532911392405063,
+      "force_for_historical_0343_Nmm_N": 1.3541729135432288,
+      "input_collar_drag_Nmm_per_N": 0.37225225225225234
+    },
+    {
+      "assumed_mu_cone": 0.3,
+      "assumed_mu_thrust": 0.2,
+      "assumed_lateral_drag_Nmm_per_N": 0.1,
+      "net_thread_torque_Nmm_per_N": 0.4032911392405062,
+      "force_for_historical_0343_Nmm_N": 0.850502197112367,
+      "input_collar_drag_Nmm_per_N": 0.37225225225225234
+    },
+    {
+      "assumed_mu_cone": 0.4,
+      "assumed_mu_thrust": 0.2,
+      "assumed_lateral_drag_Nmm_per_N": 0.1,
+      "net_thread_torque_Nmm_per_N": 0.7032911392405065,
+      "force_for_historical_0343_Nmm_N": 0.4877069834413246,
+      "input_collar_drag_Nmm_per_N": 0.37225225225225234
+    }
+  ]
+}

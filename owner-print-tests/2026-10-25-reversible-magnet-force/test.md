@@ -1,8 +1,10 @@
+> **Prioriteitsupdate 15 november2026: DEFERRED.** De eerdere READY-aanbieding hieronder is historisch; de huidige expliciete eigenaarsopdracht wordt geleverd in [centrale conusbank](../2026-11-15-central-cone-bank/test.md). Geen nieuwe print gepland. Bestanden en eerdere waarnemingen blijven behouden.
+
 # E-305 — reversible magnetic force screen
 
-**Status: READY for the force fixture only; no physical print or force measurement performed.**
+**Status: DEFERRED (was READY on25 October2026) for the force fixture only; no physical print or force measurement performed.**
 
-**Priority: P3. Last reviewed: 25 October 2026.**
+**Priority: none (formerlyP3). Last reviewed: 25 October 2026.**
 
 The current E-302 v3 offer was explicitly retired on23 October; the two earlier selector READY offers remain untouched. This is the third current READY offer. No schedule or owner deadline.
 

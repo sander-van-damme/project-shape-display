@@ -1,0 +1,41 @@
+{
+  "scope": "Actual archive meshes vs delivered source; no physical claim",
+  "projects": [
+    {
+      "project": "mechanical.3mf",
+      "reopened": false,
+      "sha256": "861232f8f4ec45c23f2d0083b9b44e6b5a14df4ae43966e7c7e03a90247fdc82",
+      "source_mesh_facets": 70484,
+      "archive_facets": 70484,
+      "maximum_vertex_error_mm": 1.8846705690896827e-05,
+      "maximum_winding_preserving_triangle_error_mm": 1.8846705690896827e-05
+    },
+    {
+      "project": "mechanical.3mf",
+      "reopened": true,
+      "sha256": "b5b11140aab093f6ec1d79aaebf0ae9fabd73dae05b6de664de96bc0aea50822",
+      "source_mesh_facets": 70484,
+      "archive_facets": 70484,
+      "maximum_vertex_error_mm": 1.9045365307338898e-05,
+      "maximum_winding_preserving_triangle_error_mm": 1.9045365307338898e-05
+    },
+    {
+      "project": "actuator.3mf",
+      "reopened": false,
+      "sha256": "544c2abff9afbdde6f83da7e59485174a04caff8c902b3fa3e37a23b59fda52f",
+      "source_mesh_facets": 16326,
+      "archive_facets": 16326,
+      "maximum_vertex_error_mm": 2.223827389925903e-05,
+      "maximum_winding_preserving_triangle_error_mm": 2.223827389925903e-05
+    },
+    {
+      "project": "actuator.3mf",
+      "reopened": true,
+      "sha256": "a27b99657ce4cca314ab59a02eb74d308980e4cf34ebfb7b7804232e1d4c5b45",
+      "source_mesh_facets": 16326,
+      "archive_facets": 16326,
+      "maximum_vertex_error_mm": 2.257678306312251e-05,
+      "maximum_winding_preserving_triangle_error_mm": 2.257678306312251e-05
+    }
+  ]
+}

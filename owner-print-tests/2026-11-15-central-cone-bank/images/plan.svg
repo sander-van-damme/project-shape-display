@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="white"/><style>text{font-family:Arial,sans-serif;fill:#20333f} .small{font-size:15px}</style>
+<text x="38" y="40" font-size="28">DES-010 — bovenaanzicht en montagevolgorde</text>
+<text x="38" y="70" font-size="17">Projectie van verschillende hoogten: overlap op papier betekent geen botsing. Geen fysiek werkingsbewijs.</text>
+<rect x="158" y="165" width="284" height="324" fill="#b7c3c9" fill-opacity="1" stroke="#b7c3c9"/>
+<rect x="290.32" y="485" width="40" height="36" fill="#b7c3c9" fill-opacity="1" stroke="#b7c3c9"/>
+<rect x="146" y="125" width="312" height="32" fill="#738691" fill-opacity="1" stroke="#738691"/>
+<rect x="146" y="545" width="312" height="32" fill="#738691" fill-opacity="1" stroke="#738691"/>
+<rect x="172.0" y="117" width="12" height="480" fill="#536572" fill-opacity="1" stroke="#536572"/>
+<rect x="416.0" y="117" width="12" height="480" fill="#536572" fill-opacity="1" stroke="#536572"/>
+<rect x="180.16" y="177" width="240" height="180" fill="#e8ac53" fill-opacity="0.85" stroke="#e8ac53"/>
+<rect x="215.56" y="180.4" width="169.2" height="169.2" fill="#a7692b" fill-opacity="0.25" stroke="#a7692b"/>
+<rect x="98" y="369" width="404" height="92.32" fill="#578aa2" fill-opacity="0.25" stroke="#578aa2"/>
+<rect x="98" y="361" width="48" height="48" fill="#578aa2" fill-opacity="0.55" stroke="#578aa2"/>
+<rect x="98" y="421.32" width="48" height="48" fill="#578aa2" fill-opacity="0.55" stroke="#578aa2"/>
+<rect x="454" y="361" width="48" height="48" fill="#578aa2" fill-opacity="0.55" stroke="#578aa2"/>
+<rect x="454" y="421.32" width="48" height="48" fill="#578aa2" fill-opacity="0.55" stroke="#578aa2"/>
+<circle cx="290" cy="405" r="9.2" fill="#285775" stroke="white" stroke-width="1"/>
+<circle cx="290" cy="425.32" r="9.2" fill="#285775" stroke="white" stroke-width="1"/>
+<circle cx="310.32" cy="405" r="9.2" fill="#285775" stroke="white" stroke-width="1"/>
+<circle cx="310.32" cy="425.32" r="9.2" fill="#285775" stroke="white" stroke-width="1"/>
+<circle cx="290" cy="477" r="10.0" fill="#a6608e" stroke="white" stroke-width="1"/>
+<circle cx="310.32" cy="505" r="10.0" fill="#a6608e" stroke="white" stroke-width="1"/>
+<circle cx="300.15999999999997" cy="265" r="23.2" fill="#c37a2b" stroke="white" stroke-width="1"/>
+<circle cx="290" cy="405" r="11.2" fill="#c37a2b" stroke="white" stroke-width="1"/>
+<circle cx="310.32" cy="405" r="11.2" fill="#c37a2b" stroke="white" stroke-width="1"/>
+<path d="M 277.15999999999997 265 L 279 405 L 321.32 405 L 323.15999999999997 265" fill="none" stroke="#845123" stroke-width="2"/>
+<text x="74" y="641" font-size="15">x → ; y ↓ langs rail. Alle geometrie in mm; tekening circa 4 px/mm.</text>
+<text x="74" y="668" font-size="15">Oranje = losse motorplaat/riem; blauw = vast raster en voeten.</text>
+<text x="74" y="693" font-size="15">Grijs = bank/rail; paars = twee versprongen handjacks.</text>
+<path d="M580 112H1155V713H580Z" fill="#f2f6f8"/>
+<text x="605" y="145" font-size="24">Eén geïntegreerde proef</text>
+<text x="605" y="180" font-size="18">2×2 pinnen op 5,08; buitenmaat 4,50.</text>
+<text x="605" y="210" font-size="18">Twee bankuitgangen bedienen één rij tegelijk.</text>
+<text x="605" y="240" font-size="18">Bank schuift 5,08 naar de tweede rij.</text>
+<text x="605" y="290" font-size="24">Montage in lagen</text>
+<text x="605" y="325" font-size="17">1. Zet voeten en railblokken op 45-mm verhogingen.</text>
+<text x="605" y="355" font-size="17">2. Monteer bank en los bedienbare riemrotoren.</text>
+<text x="605" y="385" font-size="17">3. Schroef de vlak geprinte motorplaat op de bank.</text>
+<text x="605" y="415" font-size="17">4. Motor onder plaat met 2-mm metalen spacers.</text>
+<text x="605" y="445" font-size="17">5. Vast raster: onderstrips, schroeven, keeper.</text>
+<text x="605" y="475" font-size="17">6. Korte guides op z50 en66; pinnen op z40,2.</text>
+<text x="605" y="505" font-size="17">7. Jacks op (0,18) en (5,08,25); veerkracht meten.</text>
+<text x="605" y="555" font-size="24">Verplaatsen</text>
+<text x="605" y="590" font-size="17">Motor uit → beide 2,4 mm park → vrije tips zien</text>
+<text x="605" y="620" font-size="17">→ indexpin uit → 5,08 schuiven → pin terug.</text>
+<text x="605" y="665" font-size="17">Exacte maten/onderdelen: assembly.md.</text>
+</svg>

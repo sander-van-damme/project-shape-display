@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="860" viewBox="0 0 1180 860">
+<defs><style>text{font-family:DejaVu Sans,sans-serif;fill:#17212d;font-size:16px}.title{font-size:25px;font-weight:bold}.sub{font-size:19px;font-weight:bold}.small{font-size:14px}.wire{fill:none;stroke:#263544;stroke-width:2.5}.dim{fill:none;stroke:#4775a0;stroke-width:1.5}.box{fill:#f2f5f8;stroke:#ccd5df;stroke-width:1.5}</style><marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10Z" fill="#4775a0"/></marker></defs>
+<rect width="1180" height="860" fill="white"/>
+<text x="32" y="40" class="title">Actuatorcoupon: schakelenergie en retentie afzonderlijk testen</text>
+<text x="32" y="68">Bouwbaar krachtsproefstuk; elektrisch schakelen onder belasting is nog onbewezen.</text>
+<rect x="25" y="88" width="1130" height="322" rx="10" class="box"/>
+<text x="45" y="119" class="sub">Mechanisme — zijaanzicht als principeschema (niet op schaal)</text>
+<path d="M75,304 H1100 V324 H75Z" fill="#9caebd"/>
+<path d="M420,286 H730 V258 H650 L550,208 H420Z" fill="#e9ac55" stroke="#8c5d25" stroke-width="2"/>
+<path d="M435,206 H550 M650,256 H720" stroke="#9b620d" stroke-width="5"/>
+<text x="438" y="197" class="small">ON-dwell</text><text x="647" y="246" class="small">OFF-dwell</text>
+<rect x="560" y="158" width="26" height="74" fill="#76a6c4" stroke="#305c76" stroke-width="2"/>
+<path d="M573,128 V153 M560,137 H586 M573,143 L568,148 L578,155 L568,162 L578,169 L573,176" class="wire"/>
+<text x="593" y="147">Ø2 contactpen / gemeten belasting 0,3–1 N</text>
+<text x="768" y="193">Vlakke dwells voeren</text><text x="768" y="216">de reactiekracht af</text><text x="768" y="239">naar slider en vloer.</text>
+<rect x="105" y="237" width="150" height="50" rx="8" fill="#cd875e" stroke="#845236" stroke-width="2"/>
+<rect x="905" y="237" width="150" height="50" rx="8" fill="#cd875e" stroke="#845236" stroke-width="2"/>
+<path d="M180,262 H455 M695,262 H980" stroke="#59616b" stroke-width="12"/>
+<path d="M150,241 V282 M170,241 V282 M190,241 V282 M210,241 V282 M930,241 V282 M950,241 V282 M970,241 V282 M990,241 V282" stroke="#663b22" stroke-width="3"/>
+<text x="111" y="224">Spoel links: OFF</text><text x="910" y="224">Spoel rechts: ON</text>
+<path d="M425,346 H725" class="dim" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="492" y="371">Slider: 10 mm</text>
+<path d="M747,208 V258" class="dim" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="760" y="283" class="small">Lift: 3 mm; helling: 6 mm</text>
+<text x="45" y="397" class="small">Twee Ø3 × 24 mm stalen plungers. Lichte detent van Ø0,35 mm verenstaal; geen geprinte klikveer.</text>
+<rect x="25" y="428" width="1130" height="365" rx="10" class="box"/>
+<text x="45" y="460" class="sub">Laagspanningsschema — twee afzonderlijke aantrekkanalen</text>
+<path d="M65,509 H1085" class="wire"/><text x="45" y="493">+5 V, benchvoeding begrensd op 0,5 A; zekering en hoofdschakelaar in toevoer</text>
+<path d="M60,755 H1090" class="wire"/><text x="921" y="780" class="small">Gemeenschappelijke GND</text>
+<!-- channel L -->
+<path d="M280,509 V523 M280,550 V565 M280,615 V637 M280,684 V755" class="wire"/>
+<rect x="267" y="523" width="26" height="27" fill="white" stroke="#263544" stroke-width="2"/><text x="307" y="541" class="small">10 Ω / 5 W (start)</text>
+<rect x="254" y="565" width="52" height="50" rx="5" fill="#cd875e" stroke="#845236" stroke-width="2"/><text x="70" y="585">Spoel links</text><text x="70" y="607" class="small">567 windingen</text>
+<path d="M280,560 H400 V620 H280" class="wire"/><rect x="388" y="578" width="24" height="24" fill="white" stroke="#263544" stroke-width="2"/><text x="419" y="577" class="small">K boven</text><text x="419" y="600" class="small">A onder</text><text x="419" y="622" class="small">Flybackdiode</text>
+<rect x="242" y="637" width="77" height="47" rx="4" fill="white" stroke="#263544" stroke-width="2"/><text x="247" y="658" class="small">N-MOSFET</text><text x="259" y="677" class="small">3,3 V</text>
+<path d="M70,660 H140 M170,660 H242 M213,660 V707 M213,734 V755" class="wire"/>
+<rect x="140" y="650" width="30" height="20" fill="white" stroke="#263544" stroke-width="2"/><text x="137" y="642" class="small">100 Ω</text><text x="70" y="687" class="small">GPIO OFF</text>
+<rect x="203" y="707" width="20" height="27" fill="white" stroke="#263544" stroke-width="2"/><text x="89" y="726" class="small">100 kΩ</text>
+<!-- channel R -->
+<path d="M800,509 V523 M800,550 V565 M800,615 V637 M800,684 V755" class="wire"/>
+<rect x="787" y="523" width="26" height="27" fill="white" stroke="#263544" stroke-width="2"/><text x="827" y="541" class="small">10 Ω / 5 W (start)</text>
+<rect x="774" y="565" width="52" height="50" rx="5" fill="#cd875e" stroke="#845236" stroke-width="2"/><text x="590" y="585">Spoel rechts</text><text x="590" y="607" class="small">Ø0,20 mm Cu</text>
+<path d="M800,560 H920 V620 H800" class="wire"/><rect x="908" y="578" width="24" height="24" fill="white" stroke="#263544" stroke-width="2"/><text x="939" y="577" class="small">K boven</text><text x="939" y="600" class="small">A onder</text><text x="939" y="622" class="small">Flybackdiode</text>
+<rect x="762" y="637" width="77" height="47" rx="4" fill="white" stroke="#263544" stroke-width="2"/><text x="767" y="658" class="small">N-MOSFET</text><text x="779" y="677" class="small">3,3 V</text>
+<path d="M590,660 H660 M690,660 H762 M733,660 V707 M733,734 V755" class="wire"/>
+<rect x="660" y="650" width="30" height="20" fill="white" stroke="#263544" stroke-width="2"/><text x="657" y="642" class="small">100 Ω</text><text x="590" y="687" class="small">GPIO ON</text>
+<rect x="723" y="707" width="20" height="27" fill="white" stroke="#263544" stroke-width="2"/><text x="609" y="726" class="small">100 kΩ</text>
+<text x="34" y="820">Eén spoel tegelijk; beide GPIO’s LOW bij opstart. Max. 200 ms puls, aanvankelijk minstens 5 s pauze.</text>
+<text x="34" y="845">Meet stroom en schakelbelasting. Stop bij 45 °C, +10 °C, klemmen of schade. Geen spoelvoeding via GPIO/USB.</text>
+</svg>

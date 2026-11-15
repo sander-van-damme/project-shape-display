@@ -1,0 +1,1206 @@
+{
+  "mechanical": [
+    {
+      "source": "bank",
+      "name": "bank-1",
+      "center_xy": [
+        40,
+        85
+      ],
+      "bounds_mm": [
+        [
+          7.0,
+          25.0,
+          0.0
+        ],
+        [
+          85.0,
+          114.0,
+          15.2
+        ]
+      ]
+    },
+    {
+      "source": "motorplate",
+      "name": "motorplate-2",
+      "center_xy": [
+        115,
+        258.5
+      ],
+      "bounds_mm": [
+        [
+          87.53999999999999,
+          201.5,
+          0.0
+        ],
+        [
+          147.54,
+          246.5,
+          3.0
+        ]
+      ]
+    },
+    {
+      "source": "endblock",
+      "name": "endblock-3",
+      "center_xy": [
+        0,
+        0
+      ],
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          78.0,
+          8.0,
+          14.0
+        ]
+      ]
+    },
+    {
+      "source": "endblock",
+      "name": "endblock-4",
+      "center_xy": [
+        0,
+        13
+      ],
+      "bounds_mm": [
+        [
+          0.0,
+          13.0,
+          0.0
+        ],
+        [
+          78.0,
+          21.0,
+          14.0
+        ]
+      ]
+    },
+    {
+      "source": "lower0",
+      "name": "lower0-5",
+      "center_xy": [
+        150,
+        12
+      ],
+      "bounds_mm": [
+        [
+          102.0,
+          3.0,
+          -5.72205e-07
+        ],
+        [
+          203.0,
+          12.0,
+          2.6
+        ]
+      ]
+    },
+    {
+      "source": "lower1",
+      "name": "lower1-6",
+      "center_xy": [
+        150,
+        32
+      ],
+      "bounds_mm": [
+        [
+          102.0,
+          32.0,
+          -5.72205e-07
+        ],
+        [
+          203.0,
+          37.08,
+          2.6
+        ]
+      ]
+    },
+    {
+      "source": "lower2",
+      "name": "lower2-7",
+      "center_xy": [
+        150,
+        52
+      ],
+      "bounds_mm": [
+        [
+          102.0,
+          57.08,
+          -5.72205e-07
+        ],
+        [
+          203.0,
+          66.08,
+          2.6
+        ]
+      ]
+    },
+    {
+      "source": "upper",
+      "name": "upper-8",
+      "center_xy": [
+        105,
+        76
+      ],
+      "bounds_mm": [
+        [
+          93.0,
+          67.0,
+          -7.62939e-07
+        ],
+        [
+          122.08,
+          90.08,
+          1.6
+        ]
+      ]
+    },
+    {
+      "source": "guide",
+      "name": "guide-9",
+      "center_xy": [
+        141,
+        76
+      ],
+      "bounds_mm": [
+        [
+          129.0,
+          67.0,
+          0.0
+        ],
+        [
+          158.07999999999998,
+          90.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "guide",
+      "name": "guide-10",
+      "center_xy": [
+        177,
+        76
+      ],
+      "bounds_mm": [
+        [
+          165.0,
+          67.0,
+          0.0
+        ],
+        [
+          194.07999999999998,
+          90.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "screw-supported",
+      "name": "screw-supported-11",
+      "center_xy": [
+        102,
+        102
+      ],
+      "bounds_mm": [
+        [
+          93.5,
+          99.7,
+          0.0
+        ],
+        [
+          110.5,
+          104.3,
+          35.4
+        ]
+      ]
+    },
+    {
+      "source": "pin",
+      "name": "pin-12",
+      "center_xy": [
+        12,
+        143
+      ],
+      "bounds_mm": [
+        [
+          9.75,
+          140.75,
+          0.0
+        ],
+        [
+          14.25,
+          145.25,
+          40.0
+        ]
+      ]
+    },
+    {
+      "source": "foot",
+      "name": "foot-13",
+      "center_xy": [
+        8,
+        115
+      ],
+      "bounds_mm": [
+        [
+          8.0,
+          115.0,
+          0.0
+        ],
+        [
+          20.0,
+          127.0,
+          29.35
+        ]
+      ]
+    },
+    {
+      "source": "screw-supported",
+      "name": "screw-supported-14",
+      "center_xy": [
+        124,
+        102
+      ],
+      "bounds_mm": [
+        [
+          115.5,
+          99.7,
+          0.0
+        ],
+        [
+          132.5,
+          104.3,
+          35.4
+        ]
+      ]
+    },
+    {
+      "source": "pin",
+      "name": "pin-15",
+      "center_xy": [
+        28,
+        143
+      ],
+      "bounds_mm": [
+        [
+          25.75,
+          140.75,
+          0.0
+        ],
+        [
+          30.25,
+          145.25,
+          40.0
+        ]
+      ]
+    },
+    {
+      "source": "foot",
+      "name": "foot-16",
+      "center_xy": [
+        24,
+        115
+      ],
+      "bounds_mm": [
+        [
+          24.0,
+          115.0,
+          0.0
+        ],
+        [
+          36.0,
+          127.0,
+          29.35
+        ]
+      ]
+    },
+    {
+      "source": "screw-supported",
+      "name": "screw-supported-17",
+      "center_xy": [
+        146,
+        102
+      ],
+      "bounds_mm": [
+        [
+          137.5,
+          99.7,
+          0.0
+        ],
+        [
+          154.5,
+          104.3,
+          35.4
+        ]
+      ]
+    },
+    {
+      "source": "pin",
+      "name": "pin-18",
+      "center_xy": [
+        44,
+        143
+      ],
+      "bounds_mm": [
+        [
+          41.75,
+          140.75,
+          0.0
+        ],
+        [
+          46.25,
+          145.25,
+          40.0
+        ]
+      ]
+    },
+    {
+      "source": "foot",
+      "name": "foot-19",
+      "center_xy": [
+        40,
+        115
+      ],
+      "bounds_mm": [
+        [
+          40.0,
+          115.0,
+          0.0
+        ],
+        [
+          52.0,
+          127.0,
+          29.35
+        ]
+      ]
+    },
+    {
+      "source": "screw-supported",
+      "name": "screw-supported-20",
+      "center_xy": [
+        168,
+        102
+      ],
+      "bounds_mm": [
+        [
+          159.5,
+          99.7,
+          0.0
+        ],
+        [
+          176.5,
+          104.3,
+          35.4
+        ]
+      ]
+    },
+    {
+      "source": "pin",
+      "name": "pin-21",
+      "center_xy": [
+        60,
+        143
+      ],
+      "bounds_mm": [
+        [
+          57.75,
+          140.75,
+          0.0
+        ],
+        [
+          62.25,
+          145.25,
+          40.0
+        ]
+      ]
+    },
+    {
+      "source": "foot",
+      "name": "foot-22",
+      "center_xy": [
+        56,
+        115
+      ],
+      "bounds_mm": [
+        [
+          56.0,
+          115.0,
+          0.0
+        ],
+        [
+          68.0,
+          127.0,
+          29.35
+        ]
+      ]
+    },
+    {
+      "source": "male",
+      "name": "male-23",
+      "center_xy": [
+        110,
+        150
+      ],
+      "bounds_mm": [
+        [
+          107.9,
+          147.9,
+          0.0
+        ],
+        [
+          112.1,
+          152.1,
+          19.386
+        ]
+      ]
+    },
+    {
+      "source": "rotor",
+      "name": "rotor-24",
+      "center_xy": [
+        146,
+        150
+      ],
+      "bounds_mm": [
+        [
+          143.55,
+          147.55,
+          0.0
+        ],
+        [
+          148.45,
+          152.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "yoke",
+      "name": "yoke-25",
+      "center_xy": [
+        183,
+        130
+      ],
+      "bounds_mm": [
+        [
+          178.3,
+          127.55,
+          1.90735e-07
+        ],
+        [
+          182.1,
+          150.45,
+          4.9
+        ]
+      ]
+    },
+    {
+      "source": "male",
+      "name": "male-26",
+      "center_xy": [
+        126,
+        150
+      ],
+      "bounds_mm": [
+        [
+          123.9,
+          147.9,
+          0.0
+        ],
+        [
+          128.1,
+          152.1,
+          19.386
+        ]
+      ]
+    },
+    {
+      "source": "rotor",
+      "name": "rotor-27",
+      "center_xy": [
+        158,
+        150
+      ],
+      "bounds_mm": [
+        [
+          155.55,
+          147.55,
+          0.0
+        ],
+        [
+          160.45,
+          152.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "yoke-long",
+      "name": "yoke-long-28",
+      "center_xy": [
+        195,
+        130
+      ],
+      "bounds_mm": [
+        [
+          190.3,
+          127.55,
+          1.90735e-07
+        ],
+        [
+          194.1,
+          157.45,
+          4.9
+        ]
+      ]
+    },
+    {
+      "source": "torque-arm",
+      "name": "torque-arm-29",
+      "center_xy": [
+        150,
+        185
+      ],
+      "bounds_mm": [
+        [
+          146.5,
+          181.5,
+          0.0
+        ],
+        [
+          171.5,
+          188.5,
+          3.0
+        ]
+      ]
+    },
+    {
+      "source": "cap",
+      "name": "cap-30",
+      "center_xy": [
+        80,
+        180
+      ],
+      "bounds_mm": [
+        [
+          73.2,
+          176.0,
+          0.0
+        ],
+        [
+          91.88,
+          184.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "motorpulley",
+      "name": "motorpulley-31",
+      "center_xy": [
+        90,
+        149
+      ],
+      "bounds_mm": [
+        [
+          84.2,
+          143.2,
+          0.0
+        ],
+        [
+          95.8,
+          154.8,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "index",
+      "name": "index-32",
+      "center_xy": [
+        184,
+        170
+      ],
+      "bounds_mm": [
+        [
+          177.5,
+          168.0,
+          0.0
+        ],
+        [
+          187.5,
+          194.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "strap",
+      "name": "strap-33",
+      "center_xy": [
+        10,
+        195
+      ],
+      "bounds_mm": [
+        [
+          6.0,
+          186.0,
+          0.0
+        ],
+        [
+          14.0,
+          209.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "strap",
+      "name": "strap-34",
+      "center_xy": [
+        24,
+        195
+      ],
+      "bounds_mm": [
+        [
+          20.0,
+          186.0,
+          0.0
+        ],
+        [
+          28.0,
+          209.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "strap",
+      "name": "strap-35",
+      "center_xy": [
+        38,
+        195
+      ],
+      "bounds_mm": [
+        [
+          34.0,
+          186.0,
+          0.0
+        ],
+        [
+          42.0,
+          209.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "strap",
+      "name": "strap-36",
+      "center_xy": [
+        52,
+        195
+      ],
+      "bounds_mm": [
+        [
+          48.0,
+          186.0,
+          0.0
+        ],
+        [
+          56.0,
+          209.08,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "spacer",
+      "name": "spacer-37",
+      "center_xy": [
+        100,
+        163
+      ],
+      "bounds_mm": [
+        [
+          97.0,
+          160.0,
+          0.0
+        ],
+        [
+          103.0,
+          166.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "source": "spacer",
+      "name": "spacer-38",
+      "center_xy": [
+        112,
+        163
+      ],
+      "bounds_mm": [
+        [
+          109.0,
+          160.0,
+          0.0
+        ],
+        [
+          115.0,
+          166.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "source": "spacer",
+      "name": "spacer-39",
+      "center_xy": [
+        124,
+        163
+      ],
+      "bounds_mm": [
+        [
+          121.0,
+          160.0,
+          0.0
+        ],
+        [
+          127.0,
+          166.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "source": "spacer",
+      "name": "spacer-40",
+      "center_xy": [
+        136,
+        163
+      ],
+      "bounds_mm": [
+        [
+          133.0,
+          160.0,
+          0.0
+        ],
+        [
+          139.0,
+          166.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "source": "springseat",
+      "name": "springseat-41",
+      "center_xy": [
+        105,
+        180
+      ],
+      "bounds_mm": [
+        [
+          102.5,
+          177.5,
+          0.0
+        ],
+        [
+          107.5,
+          182.5,
+          1.2
+        ]
+      ]
+    },
+    {
+      "source": "springseat",
+      "name": "springseat-42",
+      "center_xy": [
+        115,
+        180
+      ],
+      "bounds_mm": [
+        [
+          112.5,
+          177.5,
+          0.0
+        ],
+        [
+          117.5,
+          182.5,
+          1.2
+        ]
+      ]
+    }
+  ],
+  "actuator": [
+    {
+      "source": "rotor-tight",
+      "name": "rotor-tight",
+      "center_xy": [
+        20,
+        118
+      ],
+      "bounds_mm": [
+        [
+          17.55,
+          115.55,
+          0.0
+        ],
+        [
+          22.45,
+          120.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "rotor-loose",
+      "name": "rotor-loose",
+      "center_xy": [
+        42,
+        118
+      ],
+      "bounds_mm": [
+        [
+          39.55,
+          115.55,
+          0.0
+        ],
+        [
+          44.45,
+          120.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "guide-46",
+      "name": "guide-46",
+      "center_xy": [
+        64,
+        118
+      ],
+      "bounds_mm": [
+        [
+          60.0,
+          114.0,
+          0.0
+        ],
+        [
+          73.08,
+          122.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "guide-47",
+      "name": "guide-47",
+      "center_xy": [
+        86,
+        118
+      ],
+      "bounds_mm": [
+        [
+          82.0,
+          114.0,
+          0.0
+        ],
+        [
+          95.08,
+          122.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "guide-48",
+      "name": "guide-48",
+      "center_xy": [
+        108,
+        118
+      ],
+      "bounds_mm": [
+        [
+          104.0,
+          114.0,
+          0.0
+        ],
+        [
+          117.08,
+          122.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "source": "actuator-base",
+      "name": "actuator-base-32",
+      "center_xy": [
+        32,
+        49
+      ],
+      "bounds_mm": [
+        [
+          20.0,
+          8.0,
+          0.0
+        ],
+        [
+          56.0,
+          90.0,
+          11.0
+        ]
+      ]
+    },
+    {
+      "source": "actuator-slider",
+      "name": "actuator-slider-68",
+      "center_xy": [
+        68,
+        29
+      ],
+      "bounds_mm": [
+        [
+          62.0,
+          17.0,
+          0.0
+        ],
+        [
+          86.0,
+          41.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "source": "actuator-bobbin",
+      "name": "actuator-bobbin-78",
+      "center_xy": [
+        78,
+        59
+      ],
+      "bounds_mm": [
+        [
+          72.6,
+          53.6,
+          0.0
+        ],
+        [
+          83.4,
+          64.4,
+          16.0
+        ]
+      ]
+    },
+    {
+      "source": "actuator-bobbin",
+      "name": "actuator-bobbin-94",
+      "center_xy": [
+        94,
+        59
+      ],
+      "bounds_mm": [
+        [
+          88.6,
+          53.6,
+          0.0
+        ],
+        [
+          99.4,
+          64.4,
+          16.0
+        ]
+      ]
+    },
+    {
+      "source": "actuator-follower",
+      "name": "actuator-follower-94",
+      "center_xy": [
+        94,
+        29
+      ],
+      "bounds_mm": [
+        [
+          89.5,
+          24.5,
+          0.0
+        ],
+        [
+          98.5,
+          33.5,
+          7.8
+        ]
+      ]
+    },
+    {
+      "source": "actuator-bridge",
+      "name": "actuator-bridge-94",
+      "center_xy": [
+        94,
+        85
+      ],
+      "bounds_mm": [
+        [
+          82.0,
+          80.0,
+          0.0
+        ],
+        [
+          118.0,
+          90.0,
+          23.5
+        ]
+      ]
+    },
+    {
+      "source": "rotor",
+      "name": "nominal-rotor-1",
+      "center_xy": [
+        130,
+        60
+      ],
+      "bounds_mm": [
+        [
+          127.55,
+          57.55,
+          0.0
+        ],
+        [
+          132.45,
+          62.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "male",
+      "name": "nominal-male-1",
+      "center_xy": [
+        130,
+        76
+      ],
+      "bounds_mm": [
+        [
+          127.9,
+          73.9,
+          0.0
+        ],
+        [
+          132.1,
+          78.1,
+          19.386
+        ]
+      ]
+    },
+    {
+      "source": "rotor",
+      "name": "nominal-rotor-2",
+      "center_xy": [
+        145,
+        60
+      ],
+      "bounds_mm": [
+        [
+          142.55,
+          57.55,
+          0.0
+        ],
+        [
+          147.45,
+          62.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "male",
+      "name": "nominal-male-2",
+      "center_xy": [
+        145,
+        76
+      ],
+      "bounds_mm": [
+        [
+          142.9,
+          73.9,
+          0.0
+        ],
+        [
+          147.1,
+          78.1,
+          19.386
+        ]
+      ]
+    },
+    {
+      "source": "rotor",
+      "name": "nominal-rotor-3",
+      "center_xy": [
+        160,
+        60
+      ],
+      "bounds_mm": [
+        [
+          157.55,
+          57.55,
+          0.0
+        ],
+        [
+          162.45,
+          62.45,
+          8.0
+        ]
+      ]
+    },
+    {
+      "source": "male",
+      "name": "nominal-male-3",
+      "center_xy": [
+        160,
+        76
+      ],
+      "bounds_mm": [
+        [
+          157.9,
+          73.9,
+          0.0
+        ],
+        [
+          162.1,
+          78.1,
+          19.386
+        ]
+      ]
+    },
+    {
+      "source": "pin",
+      "name": "fit-pin-4.50",
+      "center_xy": [
+        130,
+        20
+      ],
+      "bounds_mm": [
+        [
+          127.75,
+          17.75,
+          0.0
+        ],
+        [
+          132.25,
+          22.25,
+          40.0
+        ]
+      ]
+    }
+  ]
+}

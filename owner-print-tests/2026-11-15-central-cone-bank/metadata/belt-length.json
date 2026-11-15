@@ -1,0 +1,20 @@
+[
+  {
+    "motor_y_mm": -35,
+    "belt_centerline_length_mm": 102.10373392041,
+    "nominal_oring_id32_centerline_length_mm": 103.67255756846318,
+    "stretch_fraction": -0.015132487177401455
+  },
+  {
+    "motor_y_mm": -37,
+    "belt_centerline_length_mm": 106.10340681682885,
+    "nominal_oring_id32_centerline_length_mm": 103.67255756846318,
+    "stretch_fraction": 0.023447374169007107
+  },
+  {
+    "motor_y_mm": -39,
+    "belt_centerline_length_mm": 110.10311329032857,
+    "nominal_oring_id32_centerline_length_mm": 103.67255756846318,
+    "stretch_fraction": 0.0620275593916817
+  }
+]

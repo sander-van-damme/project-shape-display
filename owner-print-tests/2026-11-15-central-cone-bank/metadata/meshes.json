@@ -1,0 +1,596 @@
+{
+  "bank": {
+    "bounds_mm": [
+      [
+        -33.0,
+        -60.0,
+        0.0
+      ],
+      [
+        45.0,
+        29.0,
+        15.2
+      ]
+    ],
+    "volume_mm3": 21624.18567925128,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "fdda0b2b48ef597223c43201cc7b6b910abd5403e13d558b5fa47920cfae4e20"
+  },
+  "lower0": {
+    "bounds_mm": [
+      [
+        -48.0,
+        -9.0,
+        -5.72205e-07
+      ],
+      [
+        53.0,
+        0.0,
+        2.6
+      ]
+    ],
+    "volume_mm3": 2258.3430554042166,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "9743cd5889ca44833d2f733b0776cfa0999a9f2f7c18fe77f77d14cfaad9f72e"
+  },
+  "lower1": {
+    "bounds_mm": [
+      [
+        -48.0,
+        0.0,
+        -5.72205e-07
+      ],
+      [
+        53.0,
+        5.08,
+        2.6
+      ]
+    ],
+    "volume_mm3": 1312.438283864765,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "0547ad12bb1776af8a54e5cf0beef47ffdf63315335dbfabfd5d78d1231748ea"
+  },
+  "lower2": {
+    "bounds_mm": [
+      [
+        -48.0,
+        5.08,
+        -5.72205e-07
+      ],
+      [
+        53.0,
+        14.08,
+        2.6
+      ]
+    ],
+    "volume_mm3": 2258.3428163877857,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "ea717e103ac2ced56374363bfcac7c0fcd6ee9fbbe08b55d4fbb060e3b8b70b9"
+  },
+  "upper": {
+    "bounds_mm": [
+      [
+        -12.0,
+        -9.0,
+        -7.62939e-07
+      ],
+      [
+        17.08,
+        14.08,
+        1.6
+      ]
+    ],
+    "volume_mm3": 954.3765346013871,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "acbedf9c0fe81537ab17b5679a42a4a3ab26a4b9f66fed265ef896ad6a3aa265"
+  },
+  "guide": {
+    "bounds_mm": [
+      [
+        -12.0,
+        -9.0,
+        0.0
+      ],
+      [
+        17.08,
+        14.08,
+        2.0
+      ]
+    ],
+    "volume_mm3": 1093.0955283716,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "6dfdd90e3f7c2ebaaff53ca1906ed64ee2e247bb4b689dc51b3587f8039355b9"
+  },
+  "male": {
+    "bounds_mm": [
+      [
+        -2.1,
+        -2.1,
+        0.0
+      ],
+      [
+        2.1,
+        2.1,
+        19.386
+      ]
+    ],
+    "volume_mm3": 89.87890399715509,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "d4daf5821bd0136934f413d77120f7e234c0aab5ccca749a65afe41d168b354a"
+  },
+  "rotor": {
+    "bounds_mm": [
+      [
+        -2.45,
+        -2.45,
+        0.0
+      ],
+      [
+        2.45,
+        2.45,
+        8.0
+      ]
+    ],
+    "volume_mm3": 76.46879469316,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "53f34a46d73e9879d9e1cdfad65bba14444680f3d0642ae7a50ae87ce5b4c0be"
+  },
+  "motorpulley": {
+    "bounds_mm": [
+      [
+        -5.8,
+        -5.8,
+        0.0
+      ],
+      [
+        5.8,
+        5.8,
+        8.0
+      ]
+    ],
+    "volume_mm3": 496.45751912858515,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "9f8528945d1b5e4cf99312c76055a14e66972f6b2c42e51ca78d71f29785c975"
+  },
+  "yoke": {
+    "bounds_mm": [
+      [
+        -4.7,
+        -2.45,
+        1.90735e-07
+      ],
+      [
+        -0.9,
+        20.45,
+        4.9
+      ]
+    ],
+    "volume_mm3": 276.43251571038155,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "64da4651049be2f9beb8ca55e1e877ac075a048c5a24f8789d304257fcad1af0"
+  },
+  "spacer": {
+    "bounds_mm": [
+      [
+        -3.0,
+        -3.0,
+        0.0
+      ],
+      [
+        3.0,
+        3.0,
+        1.1
+      ]
+    ],
+    "volume_mm3": 21.080742276528003,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "f9289563a7be92e1fe480a2b47d123cee9721cb6e22d61252014bd0c75c1a12c"
+  },
+  "endblock": {
+    "bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        78.0,
+        8.0,
+        14.0
+      ]
+    ],
+    "volume_mm3": 8338.567267487999,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "9ccf0e341832b5c91e88e03dbb8e48c74d2268302f651638dad6a9bcec6048e8"
+  },
+  "foot": {
+    "bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        12.0,
+        12.0,
+        29.35
+      ]
+    ],
+    "volume_mm3": 3960.353188090495,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "6abb7c5959eb886a6e90efbe3f0f5fc63b423e4c6e53339945e0ea6f25d10892"
+  },
+  "springseat": {
+    "bounds_mm": [
+      [
+        -2.5,
+        -2.5,
+        0.0
+      ],
+      [
+        2.5,
+        2.5,
+        1.2
+      ]
+    ],
+    "volume_mm3": 11.291567582075592,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "a8a7829e45ef6db2c5de2dbd5db112659fe246cd2d5731d70460a13ecaf83bb7"
+  },
+  "strap": {
+    "bounds_mm": [
+      [
+        -4.0,
+        -9.0,
+        0.0
+      ],
+      [
+        4.0,
+        14.08,
+        2.0
+      ]
+    ],
+    "volume_mm3": 333.0214695449399,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "50ff64fbb16adab68d8c47d23088029347b3602afe03ddb6290292d2c1ba240b"
+  },
+  "index": {
+    "bounds_mm": [
+      [
+        -6.5,
+        -2.0,
+        0.0
+      ],
+      [
+        3.5,
+        24.0,
+        2.0
+      ]
+    ],
+    "volume_mm3": 469.7524331227,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "e01c4835cdd647b354da012afa941e45bda2d411b061997ce1a4168426822996"
+  },
+  "cap": {
+    "bounds_mm": [
+      [
+        -6.8,
+        -4.0,
+        0.0
+      ],
+      [
+        11.88,
+        4.0,
+        2.0
+      ]
+    ],
+    "volume_mm3": 225.70435674237999,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "f19dd8cfbba9679d7dcd3a8a03c6e4098bf26d1c21d573f6300817e634553a4c"
+  },
+  "torque-arm": {
+    "bounds_mm": [
+      [
+        -3.5,
+        -3.5,
+        0.0
+      ],
+      [
+        21.5,
+        3.5,
+        3.0
+      ]
+    ],
+    "volume_mm3": 254.79534340032,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "f0d7ede3b87b17c5bc0ad679b1bc1186c41450fdeeecbeaaaaab31967e53dc96"
+  },
+  "yoke-long": {
+    "bounds_mm": [
+      [
+        -4.7,
+        -2.45,
+        1.90735e-07
+      ],
+      [
+        -0.9,
+        27.45,
+        4.9
+      ]
+    ],
+    "volume_mm3": 362.2194097059467,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "757a4808973c38eb598b18d1ef922175f1dd9860e20afe79e69ee692b16170f0"
+  },
+  "motorplate": {
+    "bounds_mm": [
+      [
+        -27.46,
+        -57.0,
+        0.0
+      ],
+      [
+        32.54,
+        -12.0,
+        3.0
+      ]
+    ],
+    "volume_mm3": 6187.5310503078,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "99213f11b1c1f8abdd46299f646d87fa230ad50c7c012c2a25a1e2b365ff40c4"
+  },
+  "screw": {
+    "bounds_mm": [
+      [
+        -2.299999952316284,
+        -2.299999952316284,
+        0.0
+      ],
+      [
+        2.299999952316284,
+        2.299999952316284,
+        35.20000076293945
+      ]
+    ],
+    "volume_mm3": 187.28566232229636,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "e3061864d93890264750d55693e2419670f891c4e47fe0c8eeb0c432ef544318"
+  },
+  "pin": {
+    "bounds_mm": [
+      [
+        -2.25,
+        -2.25,
+        0.0
+      ],
+      [
+        2.25,
+        2.25,
+        40.0
+      ]
+    ],
+    "volume_mm3": 353.320861776215,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "914797beaa0be902f79f021dcf00647a856c05021ef1698b0b5094f5ed38d905"
+  },
+  "screw-supported": {
+    "bounds_mm": [
+      [
+        -8.5,
+        -2.3,
+        0.0
+      ],
+      [
+        8.5,
+        2.3,
+        35.4
+      ]
+    ],
+    "volume_mm3": 491.6120259652286,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "e1e91b32d04fd4d2e5c64242407f01a7da4ed2935b26619cf0bfc61317ffbc31"
+  },
+  "rotor-tight": {
+    "bounds_mm": [
+      [
+        -2.45,
+        -2.45,
+        0.0
+      ],
+      [
+        2.45,
+        2.45,
+        8.0
+      ]
+    ],
+    "volume_mm3": 80.06879469315999,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "c168f8dc1f98845e48698a586741e69337c4a3a7d3b1f371cf2b68f63cee3425"
+  },
+  "rotor-loose": {
+    "bounds_mm": [
+      [
+        -2.45,
+        -2.45,
+        0.0
+      ],
+      [
+        2.45,
+        2.45,
+        8.0
+      ]
+    ],
+    "volume_mm3": 72.70879469315999,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "b2daf9c146ca1d495a748d32398d1e169955c0fcc5e21ed91352c7d61b3cd4b4"
+  },
+  "guide-46": {
+    "bounds_mm": [
+      [
+        -4.0,
+        -4.0,
+        0.0
+      ],
+      [
+        9.08,
+        4.0,
+        2.0
+      ]
+    ],
+    "volume_mm3": 124.64,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "7189c392b210580221601368d0ed4bfa97a740a181d600269ec56289d94be14c"
+  },
+  "guide-47": {
+    "bounds_mm": [
+      [
+        -4.0,
+        -4.0,
+        0.0
+      ],
+      [
+        9.08,
+        4.0,
+        2.0
+      ]
+    ],
+    "volume_mm3": 120.92,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "9677f2d09a814579215df308a1b970cb6cfca84727ef63b6aa566953f484c363"
+  },
+  "guide-48": {
+    "bounds_mm": [
+      [
+        -4.0,
+        -4.0,
+        0.0
+      ],
+      [
+        9.08,
+        4.0,
+        2.0
+      ]
+    ],
+    "volume_mm3": 117.12000000000002,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "ddd6dea9944463fc35bdd1ba4b5d87a02583c8d32a4780f10e1f7d04e39d7041"
+  },
+  "actuator-base": {
+    "bounds_mm": [
+      [
+        -12.0,
+        -41.0,
+        0.0
+      ],
+      [
+        24.0,
+        41.0,
+        11.0
+      ]
+    ],
+    "volume_mm3": 9401.539107228351,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "7747562394ce3a2622e092f9c5241d3a2ce4c9d0932a54d118387ed832888e62"
+  },
+  "actuator-slider": {
+    "bounds_mm": [
+      [
+        -6.0,
+        -12.0,
+        0.0
+      ],
+      [
+        18.0,
+        12.0,
+        10.0
+      ]
+    ],
+    "volume_mm3": 2341.0817106337113,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "dee19a588011febc8d99c8a50ab6234c746c6291868d5a54fb45a9ac811862b9"
+  },
+  "actuator-bobbin": {
+    "bounds_mm": [
+      [
+        -5.4,
+        -5.4,
+        0.0
+      ],
+      [
+        5.4,
+        5.4,
+        16.0
+      ]
+    ],
+    "volume_mm3": 267.103718335624,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "99ad9c79f8f318723da864d3c30231fe81b14c1659a2c932afc46601789bc388"
+  },
+  "actuator-follower": {
+    "bounds_mm": [
+      [
+        -4.5,
+        -4.5,
+        0.0
+      ],
+      [
+        4.5,
+        4.5,
+        7.8
+      ]
+    ],
+    "volume_mm3": 376.05905289493126,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "06bc42c397edfd3bfc1958dfd7b9eb4dfa606d36bd1b59553c5be8c1bcd3374f"
+  },
+  "actuator-bridge": {
+    "bounds_mm": [
+      [
+        -12.0,
+        -5.0,
+        0.0
+      ],
+      [
+        24.0,
+        5.0,
+        23.5
+      ]
+    ],
+    "volume_mm3": 2110.70217444864,
+    "watertight": true,
+    "bodies": 1,
+    "sha256": "f4d934730d383947095c75db31d9f03321360112b39ee7be0bce7562d9d8ec08"
+  }
+}
