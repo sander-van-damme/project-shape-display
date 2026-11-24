@@ -1,0 +1,24 @@
+concept,onderdeel en bewerking,aantal per bank,laag EUR,hoog EUR
+alle,"10 modulehuizen + 10 klikdeksels + 10 drukvoeten + 10 noksets + 2 eindwangen + lagersteunen, borgstanggeleiders geïntegreerd",1 set ca. 165 g PETG,3.3,5.0
+alle,"Doorlopende stalen nokas Ø6 × 430, sleutelstang met tien nokken en 2 clips",1 + 1 + 2,2.5,5.5
+alle,"Meetplaten 40,2 × 8 × 0,30 uit bandstaal met omgezette staart, inclusief snijverlies",10 uit één strook,1.5,4.5
+alle,"Veerstalen invoervingers en normaal blokkerende palveren, pal-strip en pennen","10 + 10, uit 2 strips",1.0,3.0
+alle,"Rijpen met veer, haak, eindaanslagen en gemeenschappelijke bevestiging",1 + 1 + 1 + 2 + 8,1.2,3.0
+alle,"Parkgearmotor incl. reductie en askoppeling, stroombegrenzer/H-brug",1 + 1 + 1,6.5,15.0
+alle,"Kleine controller, voedingsaandeel DC-regelaar, zekering en buffer",1 set,3.0,6.0
+alle,"Park/eindcontacten, massabus, connectors en kabelboom",2 contacten + 1 set,1.5,3.5
+alle,"Vangvorken of geïntegreerde C-stiften, inclusief flexlip waar gebruikt","80 × ca. 0,70 g",1.12,1.68
+ABCE,Extra mechanische wiskam of stoter geïntegreerd in tien noksets,"10, inbegrepen",0,0
+A,"Stalen drukveer, OD 3,0–3,2, en geprinte pal met aangevormde retourlip",80 + 80,8,24
+A,"Spoellichaam, koper circa 100 windingen per kanaal, zachtstalen anker en pool, gemeenschappelijke scharnierdraad per module",80 + 80 + 80 + 80 + 10,8,23
+AE,"MOSFET, vrijloopdiode, gate/pulldown, 10 schuifregisters, printstroken, 160 draadlassen en voedingsverdeling",80 + 80 + 160 + 10 + 10 stroken,11,26
+BCD,"Scanmotor met driver, GT2-riem ca. 1 m, 2 poelies, geleiderstaf + glijgeleiding, eindcontact",1 + 1 + 1 + 2 + 1 set + 1,10.5,23.0
+BCD,"Kopkabel, flexlus en trekontlasting",1 set,1.0,2.5
+B,"Geprinte haaksledes met klikdetent, hefmesstroken en resetkam",80 + 10 + 10,1.2,3.0
+B,"Vier SG90-klasse schrijfkoppen, vingers, gekoppelde loopwagens en koppeldraad",4 + 4 + 4 + 1,12.8,20.0
+C,"Vervangbare monolithische bladparen met sokkels (extra polymeer), stelkop, vinger en wagen",80 geïntegreerd + 1 + 1 + 1,4.5,8.0
+D,"Hefvoeten met draaglip, tien achtvingerige palstrips, zijwaartse wiskam, aanslag",80 + 10 + 10 + 10 geïntegreerd,1.0,3.0
+D,"Eén SG90-klasse stelkop, vinger en wagen",1 + 1 + 1,3.7,6.5
+E,"Excenters met magneetclip en retourarm, module-aspennen en 2 borgclips per as",80 + 10 + 20,1.5,4.0
+E,"Axiale schijfmagneet Ø2 × 2, opgesloten in dwarszak",80,10.4,24.0
+E,"Enkele spoel/bobbin per kanaal, gestanst stalen retourjuk met twee poollippen",80 + 80 + 80,9.0,24.0
